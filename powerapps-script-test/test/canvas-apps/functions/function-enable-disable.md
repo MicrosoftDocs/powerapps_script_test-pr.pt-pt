@@ -1,6 +1,6 @@
 ---
-title: Enable and Disable functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the Enable and Disable functions in PowerApps
+title: Funktionen „Enable“ und „Disable“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktionen „Enable“ und „Disable“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,28 +9,34 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: f3932d21683b83008e95f03ba2aae646d2b8e491
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42836459"
 ---
-# Enable and Disable functions in PowerApps
-Turns a [signal](signals.md) on or off.
+# <a name="enable-and-disable-functions-in-powerapps"></a>Enable- und Disable-Funktionen in PowerApps
+Schaltet ein [Signal](signals.md) ein oder aus.
 
-## Overview
-Some signals can change often, requiring the app to recalculate as they do.  Rapid changes over a long period of time can drain a device's battery. You can use these functions to manually turn a signal on or off.
+## <a name="overview"></a>Übersicht
+Einige Signale lassen sich häufig ändern, was eine erneute Berechnung durch die App erfordert.  Schnelle Änderungen über längere Zeit können die Batterie eines Geräts schneller entleeren. Sie können diese Funktionen verwenden, um ein Signal manuell ein- oder auszuschalten.
 
-When a signal isn't being used, it's automatically turned off.
+Wenn ein Signal nicht verwendet wird, wird es automatisch deaktiviert.
 
-## Description
-The **Enable** and **Disable** functions turn a signal on and off, respectively.
+## <a name="description"></a>Beschreibung
+Die Funktionen **Enable** und **Disable** aktivieren bzw. deaktivieren ein Signal.
 
-These functions currently only work for the **[Location](signals.md)** signal.
+Diese Funktionen sind derzeit nur für das Signal **[Location](signals.md)** verfügbar.
 
-These functions have no return value. You can use them only in [behavior formulas](../working-with-formulas-in-depth.md).
+Diese Funktionen besitzen keinen Rückgabewert. Verwenden Sie sie nur in [Verhaltensformeln](../working-with-formulas-in-depth.md).
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **Enable**( *Signal* )<br>**Disable**( *Signal* )
 
-* *Signal* - Required.  The signal to turn on or off.
+* *Signal*: erforderlich.  Das zu aktivierende oder zu deaktivierende Signal.
 

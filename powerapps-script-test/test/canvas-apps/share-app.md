@@ -1,144 +1,138 @@
 ---
-title: Share a canvas app | Microsoft Docs
-description: Share your canvas app by giving other users permission to run or modify it
+title: Freigeben einer Canvas-App | Microsoft-Dokumentation
+description: Geben Sie Ihre Canvas-App frei, indem Sie anderen Benutzern die Berechtigung erteilen, die App auszuführen oder zu ändern.
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
-ms.date: 11/28/2018
+ms.reviewer: ''
+ms.date: 07/11/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 926d2b4b0d24f07a9a4cd42216e7d737db57308c
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42853840"
 ---
-# Share a canvas app in PowerApps
+# <a name="share-a-canvas-app-in-powerapps"></a>Freigeben einer Canvas-App in PowerApps
 
-After you build a canvas app that addresses a business need, specify which users in your organization can run the app and which can modify and even reshare it. Specify each user by name, or specify a security group in Azure Active Directory. If everyone would benefit from your app, specify that your entire organization can run it.
+Nachdem Sie eine Canvas-App erstellt haben, die eine geschäftliche Anforderung behandelt, geben Sie an, welche Benutzer in Ihrer Organisation die App ausführen dürfen und welche sie ändern oder sogar erneut freigeben dürfen. Geben Sie jeden Benutzer anhand seines Namens an, oder geben Sie eine Sicherheitsgruppe in Azure Active Directory an. Wenn jeder von Ihrer App profitieren würde, geben Sie an, dass Ihre gesamte Organisation diese ausführen darf.
 
 > [!IMPORTANT]
-> For a shared app to function as you expect, you must also manage permissions for the data source or sources on which the app is based, such as [Common Data Service for Apps](#common-data-service-for-apps) or [Excel](share-app-data.md). You might also need to share [other resources](share-app-resources.md) on which the app depends, such as flows, gateways, or connections.
+> Damit eine freigegebene App wie erwartet funktionieren kann, müssen Sie auch die Berechtigungen für die Datenquelle oder Quellen, auf denen die App basiert, verwalten, z.B. [Common Data Service für Apps](#common-data-service-for-apps) oder [Excel](share-app-data.md). Sie müssen möglicherweise auch [andere Ressourcen freigeben](share-app-resources.md), von denen die App abhängt, z.B. Flows, Gateways oder Verbindungen.
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-Before you share an app, you must save it to the cloud (not locally) and then publish the app.
+Um eine App freizugeben, müssen Sie sie in der Cloud speichern (nicht lokal) und dann veröffentlichen.
 
-- Give your app a meaningful name and a clear description, so that people know what your app does and they can easily find it in a list. On the **File** menu in PowerApps Studio, select **App settings**, specify a name, and then type or paste a description.
+- Geben Sie Ihrer App einen aussagekräftigen Namen und eine klare Beschreibung, damit Benutzer wissen, was die App bewirkt und sie so leicht in einer Liste finden können. Wählen Sie im Menü **Datei** in PowerApps Studio die **App-Einstellungen** aus, geben Sie einen Namen an, und tippen bzw. fügen Sie eine Beschreibung ein.
 
-- Whenever you make changes, you must save and publish the app again if you want others to see those changes.
+- Wenn Sie Änderungen vornehmen, müssen Sie die App speichern und erneut veröffentlichen, wenn andere Personen diese Änderungen sehen sollen.
 
-## Share an app
+## <a name="share-an-app"></a>Eine App freigeben
 
-1. [Sign in](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) to PowerApps, and then select **Apps** near the left edge.
+1. [Melden Sie sich bei PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an, und wählen Sie dann am linken Bildschirmrand **Apps** aus.
 
-    ![Show list of apps](./media/share-app/file-apps.png)
+    ![Anzeigen der App-Liste](./media/share-app/file-apps.png)
 
-1. Select the app that you want to share by selecting its icon.
+1. Wählen Sie für die App, die Sie freigeben möchten, die Auslassungspunkte (...) und anschließend **Freigeben** aus.
 
-    ![Select an app](./media/share-app/select-app.png)
+    ![Geöffneter Bildschirm „Freigeben“](./media/share-app/ellipsis-share.png)
 
-1. In the banner, select **Share**.
-
-    ![Open share screen](./media/share-app/banner-share.png)
-
-1. Specify by name or alias the users or security groups in Azure Active Directory with which you want to share the app.
-
-    To allow your entire organization to run the app (but not modify or share it), type **Everyone** in the sharing panel.
-
-    ![Specify users and co-owners](./media/share-app/share-everyone.png)
+1. Geben Sie an, für welche Benutzer oder Sicherheitsgruppen in Azure Active Directory Sie die App freigeben möchten.
 
     > [!NOTE]
-    > You can't share an app with a distribution group in your organization or with a user or group outside your organization.
+    > Sie können keine Apps mit einer Verteilergruppe in Ihrer Organisation oder mit Benutzern oder Gruppen außerhalb Ihrer Organisation teilen.
 
-1. If you want to allow those with whom you're sharing the app to edit and share it (in addition to running it), select the **Co-owner** check box.
+    ![Angeben von Benutzern](./media/share-app/share-list.png)
 
-    You can't grant **Co-owner** permission to a security group if you [created the app from within a solution](add-app-solution.md).
-    
-    > [!NOTE]
-    > Regardless of permissions, no two people can edit an app at the same time. If one person opens the app for editing, other people can run it but not edit it.
+    Sie können die App ebenfalls für Ihre gesamte Organisation freigeben, sodass alle Mitglieder die App ausführen können. Diese können jedoch keine Änderungen vornehmen oder die App freigeben.
 
-1. If your app connects to data for which users need access permissions, specify them.
+1. Optional: Damit Benutzer Ihre App leichter finden können, aktivieren Sie das Kontrollkästchen zum Senden einer Einladung per E-Mail.
 
-    For example, your app might connect to an entity in a CDS for Apps database. When you share such an app, the sharing panel prompts you to manage security for that entity.
+    Die Einladung enthält einen Link, mit dem Benutzer die App ausführen können.
 
-    ![Set permissions](./media/share-app/set-permissions.png)
+    - Wenn ein Benutzer auf einem Desktopcomputer auf den Link klickt, wird die App in [Dynamics 365](http://home.dynamics.com) veröffentlicht.
+    - Wenn der Benutzer auf einem Mobilgerät auf den Link tippt, wird die App in PowerApps Mobile geöffnet.
 
-    For more information about managing security for an entity, see [Manage entity permissions](share-app.md#manage-entity-permissions) later in this topic.
+    Wenn Sie Benutzern die Berechtigung zum Ändern der App erteilen, enthält die Benachrichtigung auch einen separaten Link, um die App zur Bearbeitung in PowerApps Studio zu öffnen.
 
-1. If you want to help people find your app, select the **Send an email invitation to new users** check box.
+    Unabhängig davon, ob Sie eine Einladung senden oder nicht, können Benutzer die App über AppSource auf [Dynamics 365](http://home.dynamics.com) ausführen. Benutzer, die über eine **Kann bearbeiten**-Berechtigung verfügen, können die App auch innerhalb von [PowerApps](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) bearbeiten.
 
-1. At the bottom of the share panel, select **Share**.
+1. Geben Sie die Berechtigung für jeden Benutzer bzw. jede Sicherheitsgruppe an, und klicken Sie dann auf **Speichern**.
 
-    Everyone with whom you shared the app can run it in PowerApps Mobile on a mobile device or in AppSource on [Dynamics 365](https://home.dynamics.com) in a browser. Co-owners can edit and share the app in [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
+    - **Verwenden**: Benutzer können die App ausführen, aber nicht freigeben.
+    - **Kann bearbeiten**: Benutzer können die App ausführen, ändern, und die benutzerdefinierte Version für andere Benutzer freigeben.
 
-    If you sent an email invitation, everyone with whom you shared the app can run it by selecting a link in the invitation.
+        ![Berechtigungen angeben](./media/share-app/edit-use.png)
 
-    - If a user selects the link on a mobile device, the app opens in PowerApps Mobile.
-    - If a user selects the link on a desktop computer, the app opens in a browser.
+    Klicken Sie zum Ändern der Berechtigungen für einen Benutzer oder eine Sicherheitsgruppe neben der Berechtigung, über die der Benutzer oder die Gruppe bereits verfügt, auf den Pfeil nach unten, und geben Sie dann eine andere Berechtigung ein.
 
-    Co-owners who receive an invitation get another link that opens the app for editing in PowerApps Studio.
+    Wählen Sie das Symbol **x** für einen Benutzer oder für eine Gruppe aus, um einem Benutzer oder einer Gruppe alle Berechtigungen zu entziehen.
 
-You can change permissions for a user or a security group by selecting their name and then performing either of these steps:
+## <a name="security-group-considerations"></a>Überlegungen zu Sicherheitsgruppen
 
-- To allow co-owners to run the app but no longer edit or share it, clear the **Co-owner** check box.
-- To stop sharing the app with that user or group, select the Remove (x) icon.
+- Wenn Sie eine App für eine Sicherheitsgruppe, bestehende Mitglieder dieser Gruppe und jeden freigeben, der dieser Gruppe beitritt, verfügen alle über die von Ihnen angegebenen Berechtigungen für diese Gruppe. Jeder, der die Gruppe verlässt, verliert diese Berechtigung, es sei denn, die Person gehört noch zu einer anderen Gruppe, die über Zugriff verfügt, oder Sie verleihen der Person die Berechtigung als Einzelperson.
+- Jedes Mitglied einer Sicherheitsgruppe besitzt dieselbe Berechtigung für eine App wie die Gruppe. Sie können allerdings für ein Mitglied oder mehrere Mitglieder dieser Gruppe tiefgreifendere Berechtigungen angeben, um diesen Personen besseren Zugriff zu gewähren. Sie können beispielsweise „Sicherheitsgruppe A“ die Berechtigung **Verwenden** erteilen. Sie können jedoch auch „Benutzer B“, der zu dieser Gruppe gehört, die Berechtigung **Kann bearbeiten** erteilen. Jedes Mitglied der Sicherheitsgruppe kann die App ausführen, aber nur Benutzer B kann diese bearbeiten. Wenn Sie „Sicherheitsgruppe A“ die Berechtigung **Kann bearbeiten** erteilen, aber „Benutzer B“ nur die Berechtigung **Verwenden**, kann der Benutzer die App trotzdem bearbeiten.
 
-## Security-group considerations
+## <a name="manage-entity-permissions"></a>Verwalten von Entitätsberechtigungen
 
-- If you share an app with a security group, existing members of that group and anyone who joins it will have the permission that you specify for that group. Anyone who leaves the group loses that permission unless they belong to a different group that has access or you give them permission as an individual.
-- Every member of a security group has the same permission for an app as the overall group does. However, you can specify greater permissions for one or more members of that group to allow them greater access. For example, you can give Security Group A permission to run an app, but you can also give User B, who belongs to that group, **Co-owner** permission. Every member of the security group can run the app, but only User B can edit it. If you give Security Group A **Co-owner** permission and User B permission to run the app, that user can still edit the app.
+### <a name="common-data-service-for-apps"></a>Common Data Service für Apps
 
-## Manage entity permissions
+Wenn Sie eine App auf Grundlage von Common Data Service (CDS) für Apps erstellen, müssen Sie auch sicherstellen, dass die Benutzer, die diese App ausführen werden, über die entsprechenden Berechtigungen für die Entität bzw. Entitäten verfügen, auf denen die App basiert. Konkret müssen Benutzer einer Sicherheitsrolle angehören, die Aufgaben wie Erstellen, Lesen, Schreiben und/oder Löschen relevanter Datensätze ausführen kann. In vielen Fällen werden Sie mindestens eine benutzerdefinierte Sicherheitsrolle mit genau den Berechtigungen erstellen wollen, die Benutzer für die Verwendung Ihrer Apps benötigen. Anschließend können Sie diese Rolle bzw. Rollen den Benutzern nach Bedarf zuweisen. 
 
-### Common Data Service for Apps
+#### <a name="prerequisite"></a>Voraussetzung
 
-If you create an app based on CDS for Apps, you must also ensure that the users with whom you share the app have the appropriate permissions for the entity or entities on which the app relies. Specifically, those users must belong to a security role that can perform tasks such as creating, reading, writing, and deleting relevant records. In many cases, you'll want to create one or more custom security roles with the exact permissions that users need to run the app. You can then assign a role to each user as appropriate.
+Für die nächsten beiden Verfahren müssen Sie über **Systemadministratorberechtigungen** für eine CDS for Apps-Datenbank verfügen.
 
-> [!NOTE]
-> As of this writing, you can assign security roles to individual users but not to security groups.
+#### <a name="create-a-security-role"></a>Sicherheitsrolle erstellen
 
-#### Prerequisite
+1. [Melden Sie sich in PowerApps an](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), und stellen Sie sicher, dass Sie sich in derselben Umgebung wie die App befinden, die Sie freigeben möchten.
 
-To perform the next two procedures, you must have **System administrator** permissions for a CDS for Apps database.
+1. Wählen Sie in der rechten oberen Ecke das Zahnradsymbol und dann **Erweiterte Anpassungen** aus.
 
-#### Create a security role
+    ![Öffnen des Bereichs „Erweiterte Anpassungen“](media/share-app/advanced-customizations.png)
 
-1. In the sharing panel, select **Set permissions** under **Data permissions**, and then select the **Security Roles** link.
+1. Klicken Sie auf die Verknüpfung **Sicherheitsrollen**.
 
-    ![Open security roles](media/share-app/security-roles.png)
+    ![Öffnen von Sicherheitsrollen](media/share-app/security-roles.png)
 
-1. Under **All Roles**, select **New**, and then type or paste a name for the role that you're creating.
+1. Wählen Sie unter **Alle Rollen** **Neu** aus, tippen oder geben Sie dann einen Namen für die Rolle, die Sie erstellen, ein.
 
-    ![Create security role](media/share-app/new-role.png)
+    ![Sicherheitsgruppe erstellen](media/share-app/new-role.png)
 
-1. Select one or more tabs to find the entity or entities that your app uses, and then select the permissions that you want to grant the security role.
+1. Wählen Sie mindestens eine Registerkarte aus, um die Entität bzw. Entitäten zu suchen, die von Ihrer App verwendet werden. Wählen Sie anschließend die Berechtigungen aus, denen Sie die Sicherheitsrolle zuweisen möchten.
 
-    For example, this graphic shows that the **Core records** tab contains the **Accounts** entity, and users to which this security role has been assigned can create, read, write, and delete records in that entity.
+    Diese Grafik stellt beispielsweise dar, dass eine Sicherheitsrolle Datensätze in der Entität „Account“, die auf der Registerkarte **Core records** (Kerndatensätze) angezeigt wird, erstellen, lesen und schreiben kann.
 
-    ![Specify permissions](media/share-app/grant-access.png)
+    ![Berechtigungen angeben](media/share-app/grant-access.png)
 
-1. Select **Save and Close**.
+1. Klicken Sie auf **Speichern und schließen**.
 
-#### Assign a user to a role
+#### <a name="assign-a-user-to-a-role"></a>Benutzer einer Rolle zuweisen
 
-1. In the sharing panel, select **Set permissions** under **Data permissions**, and then select the **Users** link.
+1. Öffnen Sie wie im vorhergehend beschriebenen Schritt den Bereich **Erweiterte Anpassungen**, und klicken Sie dann auf die Verknüpfung **Benutzer**.
 
-    ![Users link](media/share-app/open-users.png)
+    ![Verknüpfung „Benutzer“](media/share-app/open-users.png)
 
-1. In the upper-right corner, type or paste the name of the user whom you want to assign to the role, and then select the search icon.
+1. Tippen oder geben Sie in der oberen rechten Ecke den Namen des Benutzers ein, dem die Rolle zugewiesen werden soll, und klicken Sie dann auf das Suchsymbol.
 
-    ![Search for users](media/share-app/search-users.png)
+    ![Nach Benutzern suchen](media/share-app/search-users.png)
 
-1. In the search results, point to the result that you want, and then select the check box that appears.
+1. Zeigen Sie in den Suchergebnissen auf das gewünschte Ergebnis, und aktivieren Sie dann das Kontrollkästchen, das angezeigt wird.
 
-1. In the top banner, select **Manage roles**.
+1. Wählen Sie oben im Banner **Rollen verwalten** aus.
 
-1. In the dialog box that appears, select the check boxes for **Common Data Service User** and the role that the user needs for your app, and then select **OK.**
+1. Aktivieren Sie im Dialogfeld, das daraufhin angezeigt wird, die Kontrollkästchen für **Common Data Service-Benutzer** sowie für die Rolle, die Benutzer für Ihre App benötigen. Klicken Sie anschließend auf **OK**.
 
-    ![Assign a user to a role](media/share-app/assign-users.png)
+    ![Benutzer einer Rolle zuweisen](media/share-app/assign-users.png)
 
-### Common Data Service (previous version)
+### <a name="common-data-service-previous-version"></a>Common Data Service (vorherige Version)
 
-When you share an app that's based on an older version of Common Data Service, you must share the runtime permission to the service separately. If you don’t have permission to do this, see your environment administrator.
+Wenn Sie eine App freigeben, die auf einer früheren Version von Common Data Service basiert, müssen Sie die Laufzeitberechtigung für den Dienst separat erteilen. Wenn Sie hierzu nicht berechtigt sind, wenden Sie sich an Ihren Umgebungsadministrator.

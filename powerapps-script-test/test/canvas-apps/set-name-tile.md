@@ -1,52 +1,58 @@
 ---
-title: Change app name and icon for a canvas app | Microsoft Docs
-description: Step-by-step instructions for changing settings, such the app name and the icon, of a canvas app in PowerApps
-author: emcoope-msft
+title: Ändern des Namens und Symbols einer Canvas-App | Microsoft-Dokumentation
+description: Erfahren Sie anhand einer Schritt-für-Schritt-Anleitung, wie Sie die Einstellungen für eine Canvas-App in PowerApps ändern, z.B. ihren Namen und ihr Symbol.
+author: lonu
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/16/2016
-ms.author: emcoope
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: lonu
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 74e56e5819ff4171f5f16a4ebc8b5da39c8c0c8a
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42825324"
 ---
-# Change app name and icon for a canvas app in PowerApps
-Customize a canvas app by changing its name and icon.
+# <a name="change-app-name-and-icon-for-a-canvas-app-in-powerapps"></a>Ändern des Namens und Symbols einer Canvas-App in PowerApps
+Sie können eine Canvas-App anpassen, indem Sie ihren Namen und ihr Symbol ändern.
 
-## Prerequisites
-1. Create an app, or open one for editing.
+## <a name="prerequisites"></a>Voraussetzungen
+1. Erstellen Sie eine App, oder öffnen Sie eine App zum Bearbeiten.
 
-2. On the **File** menu, click or tap **App settings**.
+2. Klicken oder tippen Sie im Menü **Datei** auf **App settings** (App-Einstellungen).
 
-## Rename an app
-Under **App name**, click or tap **Rename this app**, and then type a different name.
+## <a name="rename-an-app"></a>Umbenennen einer App
+Klicken oder tippen Sie unter **App-Name** auf **Rename this app** (Diese App umbenennen), und geben Sie einen anderen Namen ein.
 
-![Close an app](./media/set-name-tile/rename-app.png)
+![Schließen einer App](./media/set-name-tile/rename-app.png)
 
-## Change an app tile
-Follow one or more of these steps:
+## <a name="change-an-app-tile"></a>Ändern einer App-Kachel
+Befolgen Sie mindestens einen der folgenden Schritte:
 
-* Click or tap a different background color from the list of options.
+* Klicken oder tippen Sie in der Liste der Optionen auf eine andere Hintergrundfarbe.
 
-    ![Select a tile color](./media/set-name-tile/tile-colors.png)
+    ![Wählen Sie eine Kachelfarbe aus.](./media/set-name-tile/tile-colors.png)
 
-* Click or tap an icon from the list of default icons.
+* Klicken oder tippen Sie in der Liste der Standardsymbole auf ein Symbol.
 
-    ![Select a tile icon](./media/set-name-tile/tile-icons.png)
+    ![Wählen Sie ein Kachelsymbol aus.](./media/set-name-tile/tile-icons.png)
 
-* Click or tap **Browse file**, click or tap the image that you want to use, and then click or tap **Open**.
+* Klicken oder tippen Sie auf **Browse file** (Datei suchen), klicken oder tippen Sie auf das Bild, das Sie verwenden möchten, und klicken oder tippen Sie dann auf **Öffnen**.
 
     > [!NOTE]
-  > For best results, use a square-shaped icon.
+  > Verwenden Sie für optimale Ergebnisse ein quadratisches Symbol.
 
-## Next step
-On the **File** menu, click or tap **Save** to republish your app with the new settings.
+## <a name="next-step"></a>Nächster Schritt
+Klicken oder tippen Sie im Menü **Datei** auf **Speichern**, um Ihre App mit den neuen Einstellungen erneut zu veröffentlichen.
 
-## More resources
-* [Share an app](share-app.md)
-* [Delete an app](delete-app.md)
-* [Restore an app to a previous version](restore-an-app.md)
+## <a name="more-resources"></a>Weitere Ressourcen
+* [Eine App freigeben](share-app.md)
+* [Eine App löschen](delete-app.md)
+* [Wiederherstellen der vorherigen Version einer App](restore-an-app.md)

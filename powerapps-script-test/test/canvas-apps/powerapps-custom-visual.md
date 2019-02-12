@@ -1,80 +1,85 @@
 ---
-title: PowerApps custom visual for Power BI | Microsoft Docs
-description: Procedure and limitations for embedding a canvas app that uses the same data source and can be filtered like other report items in Power BI 
+title: Benutzerdefinierte PowerApps-Visuals für Power BI | Microsoft-Dokumentation
+description: Verfahren und Einschränkungen für das Einbetten einer Canvas-App, die die gleiche Datenquelle wie andere Berichtselemente in Power BI verwendet und ebenfalls gefiltert werden kann
 author: chmoncay
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 03/15/2018
 ms.author: chmoncay
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: f4654c12c860496cd0e2b44bbd33c956b7385460
+ms.sourcegitcommit: 0269766ee598f75a4d2459824128f031f68ca042
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860608"
 ---
+# <a name="powerapps-custom-visual-for-power-bi"></a>Benutzerdefinierte PowerApps-Visuals für Power BI
 
-# PowerApps custom visual for Power BI
+Power BI ermöglicht Einblicke in die Daten und eine bessere Entscheidungsfindung, während durch PowerApps jeder Apps erstellen und verwenden kann, die mit Unternehmensdaten verbunden werden. Wenn Sie das benutzerdefinierte PowerApps-Visual verwenden, können Sie kontextabhängige Daten an eine Canvas-App übergeben, die in Echtzeit aktualisiert wird, während Sie Änderungen am Bericht vornehmen. Dadurch können die Benutzer der App Einblicke in das Unternehmen gewinnen und innerhalb der Power BI-Berichte und -Dashboards Aktionen durchführen.
 
-Power BI enables data insights and better decision-making, while PowerApps enables everyone to build and use apps that connect to business data. Using the PowerApps custom visual, you can pass context-aware data to a canvas app, which updates in real time as you make changes to your report. Now, your app users can derive business insights and take actions from right within their Power BI reports and dashboards.
+## <a name="using-the-powerapps-custom-visual"></a>Verwenden des benutzerdefinierten PowerApps-Visuals
 
-## Using the PowerApps custom visual
+Im Folgenden werden die erforderlichen Schritte für das Verwenden des benutzerdefinierten PowerApps-Visuals in Ihren Power BI-Berichten erläutert.
 
-Let's look at the steps required to use the PowerApps custom visual in your Power BI report.
+1. Rufen Sie das benutzerdefinierte Visual von [AppSource](https://appsource.microsoft.com/product/power-bi-visuals/WA104381378?tab=Overview) ab, oder importieren Sie es direkt in den Power BI-Dienst.
 
-1. Get the custom visual from [AppSource](https://appsource.microsoft.com/product/power-bi-visuals/WA104381378?tab=Overview) or directly import it in the Power BI service.
+    ![Benutzerdefinierte Visuals im Marketplace](./media/powerapps-custom-visual/powerapps-store.png) 
 
-    ![Custom visual in marketplace](./media/powerapps-custom-visual/powerapps-store.png) 
+2. Fügen Sie das PowerApps-Visual zu Ihrem Bericht hinzu, und legen Sie die Datenfelder fest, die mit diesem verknüpft sind.
 
-2. Add the PowerApps visual to your report, and set the data fields associated with it.
+    ![Auswählen der Berichtsdaten](./media/powerapps-custom-visual/add-visual-set-data.png)
 
-    ![Select report data](./media/powerapps-custom-visual/add-visual-set-data.png)
+    Sie können eine vorhandene App auswählen oder eine neue erstellen, aber der Bericht muss mit dem Power BI-Dienst veröffentlicht und in Microsoft Edge oder Google Chrome geöffnet werden.
 
-    You can choose an existing app or create one, but the report must be published to the Power BI service and opened in Microsoft Edge or Google Chrome.
+3.  Wenn Sie eine neue App erstellen, können Sie auswählen, in welcher Umgebung diese erstellt werden soll.
 
-3.  If you choose to create an app, you can choose in which environment to create it.
+    ![Neue oder vorhandene App](./media/powerapps-custom-visual/create-new-or-choose-app.png)
 
-    ![New or existing app](./media/powerapps-custom-visual/create-new-or-choose-app.png)
+    Wenn Sie eine vorhandene App verwenden, fordert das Visual Sie dazu auf, die App in PowerApps zu öffnen. Das Visual richtet anschließend die erforderlichen Komponenten in Ihrer App ein, sodass Power BI Daten an PowerApps senden kann.
 
-    If you choose to use an existing app, the visual prompts you to open the app in PowerApps. The visual then sets up the required components in your app so that Power BI can send data to PowerApps.
+    Wenn Sie eine neue App erstellen, erstellt PowerApps eine einfache App mit den bereits eingerichteten erforderlichen Komponenten.
 
-    If you create a new app, PowerApps creates a simple app with the required components already set up.
+    ![Neue App](./media/powerapps-custom-visual/new-app.png)
 
-    ![New app](./media/powerapps-custom-visual/new-app.png)
+4. In PowerApps Studio können Sie nun die Datenfelder verwenden, die Sie in Schritt 2 festgelegt haben. Die `PowerBIIntegration`-Objekte fungieren wie jede andere schreibgeschützte PowerApps-Datenquelle oder -Auflistung. Sie können das Objekt verwenden, um ein beliebiges Steuerelement aufzufüllen oder um Steuerelemente mit anderen Datenquellen zu verknüpfen oder zu filtern.
 
-4. Now in PowerApps Studio, you can use the data fields you set in step 2. The `PowerBIIntegration` object acts like any other PowerApps read-only data source or collection. You can use the object to populate any control, or join and filter with other data sources.
+    ![Benutzerdefinierte Formel](./media/powerapps-custom-visual/custom-formula.png)
 
-    ![Custom formula](./media/powerapps-custom-visual/custom-formula.png)
+    Diese Formel verknüpft Power BI-Daten mit der benutzerdefinierten Datenquelle: `LookUp(Customer,Customer_x0020_Name=First(PowerBIIntegration.Data).Customer_Name)`.
 
-    This formula joins Power BI data with the Customer data source: `LookUp(Customer,Customer_x0020_Name=First(PowerBIIntegration.Data).Customer_Name)`
+   Der Power BI-Bericht und die gestartete Instanz von PowerApps Studio verwenden eine gemeinsame Livedatenverbindung. Während beide Programme geöffnet sind, können Sie filtern oder Daten in Ihrem Bericht ändern. Sie werden dann feststellen, dass die aktualisierten Daten sofort in Ihrer App in PowerApps Studio angezeigt werden.
 
-   The Power BI report and the instance of PowerApps Studio that was launched share a live data connection. While they are both open, you can filter or change the data in your report to see the updated data reflect immediately in your app in PowerApps Studio.
+5. Nachdem Sie mit dem Erstellen oder Aktualisieren Ihrer App fertig sind, speichern Sie die App, und veröffentlichen Sie diese in PowerApps, damit sie im Power BI-Bericht angezeigt wird.
 
-5. After you have completed building or making changes to your app, save and publish the app in PowerApps to see your app in the Power BI report.
+6. Sobald Sie mit Ihren Änderungen zufrieden sind, geben Sie die PowerApps-App für die Benutzer Ihres Berichts frei, und speichern Sie Ihren Bericht anschließend.
 
-6. Once you are satisfied with your changes, make sure to share the PowerApps app with users of your report and then save your report.
+7. Dadurch haben Sie einen Bericht erstellt, in dem Ihre Benutzer Aktionen durchführen können, während Sie Einsicht in Ihre Daten haben.
 
-7. And with that, you have created a report in which your users can take actions as they gain insights from your data.
+    ![Bearbeiten eines Berichts](./media/powerapps-custom-visual/working-report.gif)
 
-    ![Working report](./media/powerapps-custom-visual/working-report.gif)
+    Wenn Sie Änderungen an einer App vornehmen müssen, öffnen Sie den Bericht im Bearbeitungsmodus, klicken oder tippen Sie im PowerApps-Visual auf **Weitere Optionen** (**...**), und klicken Sie dann auf **Bearbeiten**.
 
-    If you need to makes changes to an app, open the report in edit mode, click or tap **More options** (**. . .**) on the PowerApps visual and select **Edit**.
+    ![Bearbeiten einer App](./media/powerapps-custom-visual/edit-app.png)
 
-    ![Edit app](./media/powerapps-custom-visual/edit-app.png)
+## <a name="limitations-of-the-powerapps-custom-visual"></a>Einschränkungen des benutzerdefinierten PowerApps-Visuals
 
-## Limitations of the PowerApps custom visual
+Das benutzerdefinierte PowerApps-Visual ist in der Vorschauversion verfügbar und hat folgende Einschränkungen:
 
-The PowerApps custom visual is available in preview and has these limitations:
+- Sie können keine Apps erstellen oder bearbeiten, wenn Sie das benutzerdefinierte PowerApps-Visual in Power BI Desktop, Internet Explorer oder Mozilla Firefox verwenden. Es wird empfohlen, den Bericht zuerst im Power BI-Dienst zu veröffentlichen. Verwenden Sie anschließend Microsoft Edge oder Google Chrome, um Apps zu erstellen und zu aktualisieren.
+- Wenn Sie die mit dem Visual verknüpften Datenfelder ändern, müssen Sie die App innerhalb des Power BI-Diensts bearbeiten, indem Sie auf die Auslassungspunkte (...) und dann auf **Bearbeiten** klicken. Andernfalls werden die Änderungen nicht in PowerApps übernommen, und die App weist unerwartetes Verhalten auf.
+- Das benutzerdefinierte PowerApps-Visual kann keine Aktualisierung des Power BI-Berichts oder der Power BI-Datenquelle auslösen. Wenn Sie Daten von der App in dieselbe Datenquelle schreiben, die auch der Bericht verwendet, werden diese Änderungen nicht sofort angezeigt. Die Änderungen werden bei der nächsten geplanten Aktualisierung übernommen.
+- Das benutzerdefinierte PowerApps-Visual kann die Daten nicht filtern oder wieder an den Bericht senden.
+- Sie müssen die PowerApps-App getrennt von Ihrem Bericht freigeben. Weitere Informationen dazu finden Sie unter [sharing apps in PowerApps (Freigeben von Apps in PowerApps)](share-app.md).
+- Der Power BI-Berichtsserver und die mobile Power BI-App unterstützen das benutzerdefinierte PowerApps-Visual nicht.
 
-- You can't create or modify apps when using the PowerApps custom visual in Power BI desktop, Internet Explorer, or Mozilla Firefox. We recommend that you first publish your report to the Power BI service. Then use Microsoft Edge or Google Chrome to create and update apps.
-- If you change the data fields associated with the visual, you must edit the app from within the Power BI service by selecting the ellipsis (...) and then selecting **Edit**. Otherwise, the changes won't be propagated to PowerApps, and the app will behave in unexpected ways.
-- The PowerApps custom visual can't trigger a refresh of the Power BI report or Power BI data source. If you write back data from the app to the same data source as the report, your changes won't be reflected immediately. Changes are reflected on the next scheduled refresh.
-- The PowerApps custom visual can't filter the data or send any data back to the report.
-- You'll need to share the PowerApps app separately from your report. Learn about [sharing apps in PowerApps](share-app.md).
-- Power BI Report Server and the mobile app for Power BI don't support the PowerApps custom visual.
+## <a name="next-steps"></a>Nächste Schritte
 
-## Next steps
-
-* Go through a simple [step-by-step tutorial](embed-powerapps-powerbi.md).
-* Check out out our [video](https://aka.ms/powerappscustomvisualvideo).
+* Befolgen Sie ein einfaches, [ausführliches Tutorial](embed-powerapps-powerbi.md).
+* Sehen Sie sich unser [Video](https://aka.ms/powerappscustomvisualvideo) an.

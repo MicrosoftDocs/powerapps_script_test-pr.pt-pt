@@ -1,56 +1,62 @@
 ---
-title: What are canvas apps? | Microsoft Docs
-description: Design and build canvas apps in PowerApps so that users can manage line-of-business data in a browser or on their mobile devices
+title: Was sind Canvas-Apps? | Microsoft-Dokumentation
+description: Entwerfen und erstellen von Canvas-Apps in PowerApps, damit Benutzer Branchendaten in einem Browser oder auf ihren mobilen Geräten verwalten können
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: overview
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 04/26/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: a9f85907da60e836c1a1115f31c6faf9ea05da9b
+ms.sourcegitcommit: 02d0234bd84352bf1c43d0fc9225ab60947a0add
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49317066"
 ---
-# What are canvas apps in PowerApps?
-Design and build a business app from a canvas in Microsoft PowerApps without writing code in a traditional programming language such as C#. Design the app by dragging and dropping elements onto a canvas, just as you would design a slide in PowerPoint. Create Excel-like expressions for specifying logic and working with data. Build apps that integrate business data from a [wide variety of Microsoft and third-party sources](connections-list.md). Share your app so that users can run it in a browser or on a mobile device, and embed your app so that users can run it in SharePoint, Power BI, or Teams.
+# <a name="what-are-canvas-apps-in-powerapps"></a>Was sind Canvas-Apps in PowerApps?
+Entwerfen und erstellen Sie eine branchenspezifische Canvas-App in Microsoft PowerApps, ohne Code in einer traditionellen Programmiersprache wie C# schreiben zu müssen. Entwerfen Sie die App, indem Sie Elemente auf eine Canvas ziehen und dort platzieren wie beim Erstellen einer Folie in PowerPoint. Erstellen Sie Ausdrücke wie in Excel zum Angeben von Logik und für die Arbeit mit Daten. Erstellen Sie Apps, die Geschäftsdaten aus einer [großen Auswahl an Microsoft- und Drittanbieterquellen](connections-list.md) integrieren. Teilen Sie Ihre App, sodass Benutzer sie in einem Browser oder auf einem mobilen Gerät ausführen können, und betten Sie sie ein, damit Benutzer sie in SharePoint, Power BI oder Teams ausführen können.
 
-If you don't need a custom design and your data is in Common Data Service (CDS) for Apps, you can automatically generate a model-driven app from your business data and processes. This type of app can model forms, views, and other components, and the default UI automatically adjusts to phones, laptops, and other devices. For more information about this type of app, see [Overview of building a model-driven app](../model-driven-apps/model-driven-app-overview.md).
+Wenn Sie kein benutzerdefiniertes Design benötigen und Ihre Daten sich in Common Data Service (CDS) für Apps befinden, können Sie automatisch eine modellgesteuerte App aus Ihren Geschäftsdaten und Prozessen erstellen. Dieser App-Typ kann Formulare, Ansichten und andere Komponenten modellieren, und die Standardbenutzeroberfläche wird automatisch an Smartphones, Laptops und andere Geräte angepasst. Weitere Informationen zu diesem App-Typ finden Sie unter [Übersicht über die Erstellung einer modellgesteuerten App](../model-driven-apps/model-driven-app-overview.md).
 
-## Build an app
-To get started, automatically generate an app from one of these sources, among others:
-- [a sample app](open-and-run-a-sample-app.md)
-- [a template](get-started-test-drive.md)
-- [CDS for Apps](data-platform-create-app.md)
+## <a name="build-an-app"></a>Eine App erstellen
+Generieren Sie zunächst automatisch eine App aus einer der folgenden Quellen (u.a.):
+- [eine Beispiel-App](open-and-run-a-sample-app.md)
+- [eine Vorlage](get-started-test-drive.md)
+- [CDS für Apps](data-platform-create-app.md)
 - [SharePoint](app-from-sharepoint.md)
 - [Excel](get-started-create-from-data.md)
 
-[Sign in](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) to PowerApps, and then select **Start from data** or a sample app, such as **Service Desk** or **Budget Tracker**.
+[Melden Sie sich in PowerApps an](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), und klicken Sie auf **Mit Daten beginnen**, oder wählen Sie eine Beispiel-App wie **Service Desk** oder **Budget Tracker** aus.
 
-![PowerApps site](./media/getting-started/create-page-samples.png)
+![PowerApps-Site](./media/getting-started/create-page-samples.png)
 
-After you generate an app automatically, customize its default appearance and behavior based on your users' workflows. For example, change which types of data appear, how they're sorted, or even whether users specify a number by typing it or adjusting a slider. Add and customize [screens](add-screen-context-variables.md), [galleries](customize-layout-sharepoint.md), [forms](customize-forms-sharepoint.md), and other controls.
+Nachdem Sie die App automatisch generiert haben, passen Sie deren Standarddarstellung und -verhalten auf Grundlage der Workflows Ihrer Benutzer an. Sie können also beispielsweise ändern, welche Daten angezeigt werden, wie diese sortiert werden und sogar festlegen, ob Benutzer eine Zahl angeben, indem sie diese eingeben oder einen Schieberegler verwenden. Fügen Sie [Anzeigen](add-screen-context-variables.md), [Kataloge](customize-layout-sharepoint.md), [Formulare](customize-forms-sharepoint.md) und andere Steuerelemente hinzu, und passen Sie diese an.
 
-After you've generated an app or two automatically and gained some experience with customization, create an app from scratch based on [CDS for Apps](data-platform-create-app-scratch.md), [Excel](get-started-create-from-blank.md), or another data source. By working from the ground up, you gain flexibility in app design, flow, and controls, and you can incorporate a larger variety of data sources.
+Nachdem Sie einige Apps automatisch generiert haben und etwas Erfahrung mit dem Anpassen gesammelt haben, erstellen Sie eine App von Grund auf neu, die auf [CDS für Apps](data-platform-create-app-scratch.md), [Excel](get-started-create-from-blank.md) und anderen Datenquellen basiert. Durch das Arbeiten von Grund auf gewinnen Sie Flexibilität beim App-Design, beim Arbeitsablauf und bei Steuerelementen und können mehr verschiedene Datenquellen integrieren.
 
-## Share and run an app
-When you finish the app and save it to the cloud, [share it with others](share-app.md) in your organization. Specify which users or groups can run the app and whether they can also customize and share it with additional people in the organization.
+## <a name="share-and-run-an-app"></a>Freigeben und Ausführen einer App
+Wenn Sie mit der App fertig sind und sie in der Cloud speichern, [geben Sie diese für andere Mitarbeiter Ihrer Organisation frei](share-app.md). Legen Sie fest, welche Benutzer oder Gruppen die App ausführen dürfen und ob sie sie anpassen und für weitere Personen in der Organisation freigeben können.
 
-Run your own apps - and any apps shared with you - on Windows, in a [web browser](../../user/run-app-browser.md), or on an [iOS or Android device](../../user/run-app-client.md).
+Führen Sie Ihre eigenen Apps – und alle Apps, die für Sie freigegeben wurden – unter Windows, [in einem Webbrowser](../../user/run-app-browser.md) oder auf einem [iOS- oder Android-Gerät](../../user/run-app-client.md) aus.
 
-## Learn more
-* Explore the step-by-step, conceptual, and reference topics in the navigation pane on the left.
-* Check out the [webinars](webinars-listing.md) that you can access on-demand to help you leverage the features and functions of PowerApps.
-* Review [coding standards](https://aka.ms/powerappscanvasguidelines) for maximizing app performance and keeping apps easier to maintain.
+## <a name="learn-more"></a>Weitere Informationen
+* Durchsuchen Sie die Anleitungen, Konzept- und Referenzthemen im Navigationsbereich auf der linken Seite.
+* Bearbeiten Sie die [Kurse zum geführten Lernen](https://docs.microsoft.com/powerapps/guided-learning/) im Selbststudium.
+* Sehen Sie sich die [Webinare](webinars-listing.md) an, auf die Sie bei Bedarf zugreifen können und in denen die Features und Funktionen von PowerApps behandelt werden.
 
-## Share your experience
-* Read and post in the [PowerApps Community](https://aka.ms/powerapps-community), where anyone who uses PowerApps can post a question and others can answer. Before you post a question, search the community to see whether your question has already been answered.
-* Submit an idea for how we can improve PowerApps in [PowerApps Ideas](https://powerusers.microsoft.com/t5/PowerApps-Ideas/idb-p/PowerAppsIdeas).
-* Create a [support ticket](https://powerapps.microsoft.com/support/pro/) to get technical assistance. If you're a PowerApps administrator for your organization, you can also open a support ticket in the [PowerApps admin center](https://portal.office.com/Support/Support.aspx).
+## <a name="share-your-experience"></a>Teilen Sie Ihre Erfahrungen
+* Beteiligen Sie sich an der [PowerApps-Community](https://aka.ms/powerapps-community), indem Sie mitlesen und Beiträge verfassen. Dort können alle Benutzer von PowerApps Fragen stellen, die dann von anderen Benutzern beantwortet werden. Bevor Sie eine Frage stellen, führen Sie eine Suche in der Community durch, um festzustellen, ob die Frage bereits beantwortet wurde.
+* Reichen Sie Ihren Vorschlag zur Verbesserung von PowerApps unter [PowerApps Ideas](https://powerusers.microsoft.com/t5/PowerApps-Ideas/idb-p/PowerAppsIdeas) ein.
+* Erstellen Sie ein [Supportticket](https://powerapps.microsoft.com/support/pro/), wenn Sie technische Hilfe benötigen. Wenn Sie PowerApps-Administrator für Ihre Organisation sind, können Sie auch im [PowerApps-Admin Center](https://portal.office.com/Support/Support.aspx) ein Supportticket eröffnen.
 
-## Next steps
-- [Sign up for a free license.](../signup-for-powerapps.md)
-- [Sign in to PowerApps.](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc)
-- [Open a sample app.](open-and-run-a-sample-app.md)
+## <a name="next-steps"></a>Nächste Schritte
+- [Für eine kostenlose Lizenz registrieren](../signup-for-powerapps.md)
+- [Bei PowerApps anmelden](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc)
+- [Eine Beispiel-App öffnen](open-and-run-a-sample-app.md)

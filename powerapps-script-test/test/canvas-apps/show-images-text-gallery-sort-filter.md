@@ -1,165 +1,170 @@
 ---
-title: Show, sort, and filter data in a gallery | Microsoft Docs
-description: Use a gallery to display images and text. Sort and filter the images in PowerApps.
-author: adrianorth
+title: Anzeigen, Sortieren und Filtern von Daten in einem Katalog | Microsoft-Dokumentation
+description: Verwenden Sie einen Katalog, um Bilder und Text anzuzeigen. Sortieren und filtern Sie die Bilder in PowerApps.
+author: lonu
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 06/02/2015
-ms.author: aorth
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: lonu
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: e782b7082e8dbf0d4efee2060131aa620e7a4af1
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42844456"
 ---
-# Show, sort, and filter data in a PowerApps gallery
-Create a gallery to show images and text about several products, and sort and filter that information.
+# <a name="show-sort-and-filter-data-in-a-powerapps-gallery"></a>Anzeigen, Sortieren und Filtern von Daten in einem PowerApps-Katalog
+Erstellen Sie einen Katalog, um Bilder und Text zu verschiedenen Produkten anzuzeigen, und sortieren und filtern Sie diese Informationen.
 
-In PowerApps, you can use a gallery to show several related items, just as you see in a catalog. Galleries are great for showing information about products, such as names and prices. In this topic, we create a gallery and sort and filter the information using Excel-like functions. Also, when an item is selected, a border is placed around the item.
+In PowerApps können Sie einen Katalog verwenden, um mehrere verwandte Elemente anzuzeigen. Kataloge eignen sich hervorragend zur Anzeige von Produktinformationen, z.B. Namen und Preise. In diesem Thema erstellen wir einen Katalog und sortieren und filtern die Informationen mithilfe von Excel-ähnlichen Funktionen. Außerdem wird bei Auswahl eines Elements ein Rahmen um das Element platziert.
 
 > [!NOTE]
-> This topic uses a tablet app. You can use a phone app but you will need to resize some of the controls.
+> In diesem Thema wird eine Tablet-App verwendet. Sie können auch eine Telefon-App verwenden, aber dann müssen einige der Steuerelemente in der Größe verändert werden.
 > 
 > 
 
-### Prerequisites
-* [Sign up](../signup-for-powerapps.md) for PowerApps, and then [sign in](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) using the same credentials that you used to sign up.
-* Create a tablet app from a [template](get-started-test-drive.md), from [data](get-started-create-from-data.md), or from [scratch](get-started-create-from-blank.md).
-* Learn how to [configure a control](add-configure-controls.md).
-* These steps use the [CreateFirstApp](http://pwrappssamples.blob.core.windows.net/samples/CreateFirstApp.zip) as sample input data, which includes .jpg images. The zip file includes an XML file that can be converted to Excel. Otherwise, PowerApps automatically reads the files in the .zip files and imports it successfully. You can download and use this sample data, or import your own.
+### <a name="prerequisites"></a>Voraussetzungen
+* [Registrieren Sie sich für PowerApps](../signup-for-powerapps.md), und [melden Sie sich an](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), indem Sie dieselben Anmeldeinformationen eingeben, die Sie bei der Registrierung angegeben haben.
+* Erstellen Sie aus einer [Vorlage](get-started-test-drive.md) oder mithilfe von [Daten](get-started-create-from-data.md) eine Tablet-App, oder [erstellen Sie die App von Grund auf neu](get-started-create-from-blank.md).
+* Erfahren Sie, wie Sie ein [Steuerelement konfigurieren](add-configure-controls.md).
+* In den hier gezeigten Schritten werden die [CreateFirstApp](http://pwrappssamples.blob.core.windows.net/samples/CreateFirstApp.zip)-Daten als Beispieleingabe verwendet, die auch JPG-Bilder umfassen. Die ZIP-Datei enthält eine XML-Datei, die in Excel konvertiert werden kann. Andernfalls liest PowerApps die Dateien in den ZIP-Dateien automatisch und importiert sie erfolgreich. Sie können diese Beispieldaten herunterladen und verwenden oder eigene Daten importieren.
 
-## Show data in a gallery
-1. Create a collection named **Inventory** using the sample data. Steps include:  
+## <a name="show-data-in-a-gallery"></a>Anzeigen von Daten in einem Katalog
+1. Erstellen Sie unter Verwendung der Beispieldaten eine Sammlung namens **Inventory**. Führen Sie hierbei diese Schritte aus:  
    
-   1. On the **Insert** tab, select **Controls**, and then select **Import**:
+   1. Wählen Sie auf der Registerkarte **Einfügen** die Option **Steuerelemente** und anschließend **Importieren** aus:
       
       ![][1]  
-   2. Set the **[OnSelect](controls/properties-core.md)** property of the import control to the following formula:  
-      **Collect(Inventory, Import1.Data)**
+   2. Legen Sie die Eigenschaft **[OnSelect](controls/properties-core.md)** des Importsteuerelements auf die folgende Formel fest:  
+      **Collect(Inventory, Import1!Data)**
       
       ![][12]  
-   3. Select the **Import Data** button to open Windows Explorer. Select *CreateFirstApp.zip*, and select **Open**.
-   4. In the **File** menu, select **Collections**. The Inventory collection is listed with the data you imported:
+   3. Klicken Sie auf die Schaltfläche **Daten importieren**, um den Windows-Explorer zu öffnen. Wählen Sie *CreateFirstApp.zip* und anschließend **Öffnen** aus.
+   4. Wählen Sie im Menü **Datei** die Option **Sammlungen** aus. Die Sammlung „Inventory“ wird mit den importierten Daten aufgeführt:
       
       ![][3]  
       
-      You've just created the Inventory collection, which contains information about five products, including a design image, the name of the product, and the number of units in stock.
+      Sie haben soeben die Sammlung „Inventory“ erstellt, die Informationen zu fünf Produkten enthält, darunter ein Bild des Entwurfs, den Namen des Produkts und die im Lager vorrätige Stückanzahl.
       
       > [!NOTE]
-      > The import control is used to import Excel-like data and create the collection. The import control imports data when you are creating your app, and previewing your app. Currently, the import control does not import data when you publish your app.
+      > Das Importsteuerelement wird zum Importieren von Excel-ähnlichen Daten und zum Erstellen der Sammlung verwendet. Das Importsteuerelement importiert Daten, wenn Sie Ihre App erstellen und eine Vorschau der App anzeigen. Aktuell importiert das Importsteuerelement keine Daten, wenn Sie Ihre App veröffentlichen.
       > 
       > 
-2. Select the back arrow to return to the designer.
-3. On the **Insert** tab, click or tap **Gallery**, and then click or tap the **Horizontal** gallery.
+2. Wählen Sie den nach links weisenden Pfeil aus, um zum Designer zurückzukehren.
+3. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Katalog**, und klicken oder tippen Sie dann auf den Katalog **Horizontal**.
    
     ![][4]
-4. In the right-hand pane, click or tap the option in which the title and the subtitle overlay the graphic:
+4. Klicken oder tippen Sie im rechten Bereich auf die Option, in der Titel und Untertitel die Grafik überschneiden:
    
     ![][15]
-5. Set the **[Items](controls/properties-core.md)** property of the gallery to **Inventory**:
+5. Legen Sie die **[Items](controls/properties-core.md)**-Eigenschaft des Katalogs auf **Inventory** fest:
    
     ![][5]
-6. Rename the gallery to **ProductGallery**, and move the gallery so it doesn't block the other controls. Resize the gallery so it shows three products:
+6. Benennen Sie den Katalog in **ProductGallery** um, und verschieben Sie den Katalog, damit er nicht die anderen Steuerelemente blockiert. Ändern Sie die Größe des Katalogs, sodass drei Produkte angezeigt werden:
    
     ![][6]
-7. In the first item of the gallery, select the bottom label:  
+7. Wählen Sie im ersten Katalogelement die unten angezeigte Bezeichnung aus:  
    
     ![][7]  
    
    > [!NOTE]
-   > When you change the first item in any gallery, you automatically change all other items in the gallery.  
+   > Wenn Sie das erste Element in einem Katalog ändern, ändern Sie automatisch auch alle weiteren Elemente im Katalog.  
    > 
    > 
-8. Set the **[Text](controls/properties-core.md)** property of the label to the following expression:  
-    **ThisItem.UnitsInStock** <br/>
+8. Legen Sie die **[Text](controls/properties-core.md)**-Eigenschaft der Bezeichnung auf den folgenden Ausdruck fest:  
+    **ThisItem!UnitsInStock** <br/>
    
-    When you do this, the label shows the units in stock for each product:
+    Hierdurch zeigt die Bezeichnung die für jedes Produkt im Lager vorrätige Stückanzahl an:
 
 ![][8]  
 
 > [!NOTE]
-> By default, the **[Text](controls/properties-core.md)** property of the top label is set to ```ThisItem.ProductName```. You can change it to any other item in your collection. For example, if your collection has *ProductDescription* or *Price* fields, you can set the label to ```ThisItem.ProductDescription``` or ```ThisItem.Price```.
+> Standardmäßig ist die **[Text](controls/properties-core.md)**-Eigenschaft der obersten Bezeichnung auf ```ThisItem!ProductName``` festgelegt. Sie können diese Einstellung auf ein anderes Element in Ihrer Sammlung festlegen. Wenn Ihre Sammlung beispielsweise über die Felder *ProductDescription* oder *Price* verfügt, können Sie die Bezeichnung auf ```ThisItem!ProductDescription``` oder ```ThisItem!Price``` festlegen.
 > 
 > 
 
-Using these steps, you imported data that includes .jpg images into a collection. You then added a gallery that displays the data and configured a label to show the units in stock for each product.
+Mithilfe der hier genannten Schritte haben Sie Daten in eine Sammlung importiert, die JPG-Bilder enthalten. Anschließend haben Sie einen Katalog hinzugefügt, der die Daten anzeigt, und Sie haben eine Bezeichnung konfiguriert, mit der die für jedes Produkt im Lager vorrätige Stückanzahl angezeigt wird.
 
-## Highlight the gallery item you select
-1. Select any item in the gallery *except* the first one. The edit icon displays (upper left corner). Select the edit icon:  
+## <a name="highlight-the-gallery-item-you-select"></a>Markieren des ausgewählten Katalogelements
+1. Wählen Sie ein Element im Katalog aus, *nicht jedoch* das erste Element. Das Bearbeitungssymbol wird angezeigt (oben links). Wählen Sie das Bearbeitungssymbol aus:  
    ![][9]  
-2. On the **Insert** tab, select **Shapes**, and then select the rectangle. A blue solid rectangle appears in each gallery item.
-3. On the **Home** tab, select **Fill**, and then select **No Fill**.
-4. Select **Border**, select **Border Style**, and then select the solid line.
-5. Select **Border** again, and set the thickness to 3. Resize the rectangle so that it surrounds the gallery item. The items in your gallery now have a blue border and should look similar to the following:  
+2. Wählen Sie auf der Registerkarte **Einfügen** die Option **Formen** und anschließend das Rechteck aus. Für jedes Katalogelement wird ein durchgehendes blaues Rechteck angezeigt.
+3. Wählen Sie auf der Registerkarte **Start** die Option **Füllung** und anschließend **Keine Füllung** aus.
+4. Wählen Sie **Rahmen** und anschließend **Rahmenart** aus, und wählen Sie dann die durchgezogene Linie aus.
+5. Wählen Sie erneut **Rahmen** aus, und legen Sie die Stärke auf 3 fest. Ändern Sie die Größe des Rechtecks, sodass es das Katalogelement umschließt. Die Elemente in Ihrem Katalog weisen jetzt einen blauen Rahmen auf und sollten folgendermaßen aussehen:  
    ![][10]  
-6. On the **Shape** tab, select **Visible**, and then enter the following formula in the Formula Bar:  
+6. Wählen Sie auf der Registerkarte **Form** die Option **Sichtbar** aus, und geben Sie in der Bearbeitungsleiste die folgende Formel ein:  
    
-    **If(ThisItem.IsSelected, true)**
+    **If(ThisItem!IsSelected, true)**
    
-    A blue rectangle surrounds the current selection in a gallery. Select a few gallery items to confirm that the rectangle appears around each item that you select. Remember, you can also open **Preview** ![][2] to see and test what you're creating.
+    Die aktuelle Auswahl in einem Katalog ist von einem blauen Rechteck umgeben. Wählen Sie einige Katalogelemente aus, um zu bestätigen, dass das Rechteck um jedes ausgewählte Element platziert wird. Sie können auch die **Vorschau** ![][2] öffnen, um die erstellten Elemente zu testen.
 
 > [!TIP]
-> Select the rectangle, select **Reorder** on the **Home** tab, and then select **Send to Back**. Using this feature, you can select a gallery item without the border blocking anything.
+> Wählen Sie das Rechteck aus, wählen Sie auf der Registerkarte **Start** die Option **Neu anordnen** und dann **In den Hintergrund** aus. Mithilfe dieser Funktion können Sie ein Katalogelement auswählen, ohne dass der Rahmen andere Elemente blockiert.
 > 
 > 
 
-Using these steps, you added a border around the current selection in the gallery.
+Mithilfe der hier genannten Schritte haben Sie einen Rahmen um die aktuelle Auswahl im Katalog einfügt.
 
-## Sort and filter items in the gallery
-In these steps, we are going to sort the gallery items in ascending and descending order. Also, we'll add a slider control to 'filter' gallery items by the units in stock that you choose.
+## <a name="sort-and-filter-items-in-the-gallery"></a>Sortieren und Filtern von Elementen im Katalog
+Mithilfe der nachfolgenden Schritte werden wir die Katalogelemente in aufsteigender und absteigender Reihenfolge sortieren. Darüber hinaus fügen wir einen Schieberegler hinzu, um Katalogelemente nach der im Lager vorrätigen Stückzahl zu „filtern“, die von Ihnen ausgewählt wurde.
 
-#### Sort in ascending or descending order
-1. Select any item in the gallery *except* the first one.
-2. The **[Items](controls/properties-core.md)** property is currently set to Inventory (the name of your collection). Change it to the following:  
+#### <a name="sort-in-ascending-or-descending-order"></a>Sortieren in aufsteigender oder absteigender Reihenfolge
+1. Wählen Sie ein Element im Katalog aus, *nicht jedoch* das erste Element.
+2. Die Eigenschaft **[Items](controls/properties-core.md)** ist aktuell auf „Inventory“ festgelegt (den Namen Ihrer Sammlung). Ändern Sie die Einstellung wie folgt:  
    
     **Sort(Inventory, ProductName)**
    
-    When you do this, the items in the gallery are sorted by the product name in ascending order:
-    ![][11]  
+    Hierdurch werden die Elemente im Katalog in aufsteigender Reihenfolge nach dem Produktnamen sortiert: ![][11]  
    
-    Try descending order. Set the **[Items](controls/properties-core.md)** property of the gallery to the following formula:  
+    Versuchen Sie es mit der absteigenden Reihenfolge. Legen Sie die **[Items](controls/properties-core.md)**-Eigenschaft des Katalogs auf die folgende Formel fest:  
    
     Sort(Inventory, ProductName, Descending)  
 
-#### Add a slider control and filter items in the gallery
-1. Add a Slider control (**Insert** tab > **Controls**), rename it to **StockFilter**, and move it under the gallery.
-2. Configure the slider so that users can't set it to a value outside the range of units in stock:  
+#### <a name="add-a-slider-control-and-filter-items-in-the-gallery"></a>Hinzufügen eines Schiebereglers und Filtern der Elemente im Katalog
+1. Fügen Sie ein Steuerelement vom Typ „Schieberegler“ hinzu (Registerkarte **Einfügen** > **Steuerelemente**), benennen Sie es in **StockFilter** um, und verschieben Sie es unter den Katalog.
+2. Konfigurieren Sie den Schieberegler so, dass Benutzer ihn nicht auf einen Wert außerhalb des Bereichs für die vorrätige Stückzahl festlegen können:  
    
-   1. On the **Content** tab, select **Min**, and then enter the following expression:  
+   1. Wählen Sie auf der Registerkarte **Inhalt** die Einstellung **Min**, und geben Sie den folgenden Ausdruck ein:  
       ```Min(Inventory, UnitsInStock)```  
-   2. On the **Content** tab, select **Max**, and then enter the following expression:  
+   2. Wählen Sie auf der Registerkarte **Inhalt** die Einstellung **Max**, und geben Sie den folgenden Ausdruck ein:  
       ```Max(Inventory, UnitsInStock)```
-3. Select any item in the gallery *except* the first one. Set the **[Items](controls/properties-core.md)** property of the gallery to the following expression:  
-   ```Filter(Inventory, UnitsInStock<=StockFilter.Value)```
-4. In **Preview**, adjust the slider to a value that's between the highest and the lowest quantity in the gallery. As you adjust the slider, the gallery shows only those products that are less than the value you choose:  
+3. Wählen Sie ein Element im Katalog aus, *nicht jedoch* das erste Element. Legen Sie die **[Items](controls/properties-core.md)**-Eigenschaft des Katalogs auf den folgenden Ausdruck fest:  
+   ```Filter(Inventory, UnitsInStock<=StockFilter!Value)```
+4. Stellen Sie den Schieberegler in der **Vorschau** auf einen Wert zwischen der höchsten und der niedrigsten Menge im Katalog ein. Wenn Sie den Wert über den Schieberegler ändern, werden nur die Produkte angezeigt, deren Stückzahl unter dem ausgewählten Wert liegt:  
    ![][13]  
 
-Now, let's add to our filter:
+Fügen wir jetzt unseren Filter hinzu:
 
-1. Go back to the designer.
-2. On the **Insert** tab, select **Text**, select **Input Text**, and rename the new control to **NameFilter**. Move the text control below the slider.
-3. Set the **[Items](controls/properties-core.md)** property of the gallery to the following expression:  
-   ```Filter(Inventory, UnitsInStock<=StockFilter.Value && NameFilter.Text in ProductName)```
-4. In **Preview**, set the slider to *30*, and type the letter *g* in the text-input control. The gallery shows the only product with less than 30 units in stock *and* has a name with the letter "g":  
+1. Kehren Sie zum Designer zurück.
+2. Wählen Sie auf der Registerkarte **Einfügen** die Einstellung **Text** aus, wählen Sie **Eingabetext** aus, und benennen Sie das neue Steuerelement in **NameFilter** um. Verschieben Sie das Textsteuerelement unter den Schieberegler.
+3. Legen Sie die **[Items](controls/properties-core.md)**-Eigenschaft des Katalogs auf den folgenden Ausdruck fest:  
+   ```Filter(Inventory, UnitsInStock<=StockFilter!Value && NameFilter!Text in ProductName)```
+4. Stellen Sie den Schieberegler in der **Vorschau** auf den Wert *30* ein, und geben Sie im Texteingabe-Steuerelement den Buchstaben *g* ein. Der Katalog zeigt nur Produkte an, bei denen die vorrätige Stückzahl unter 30 liegt *und* deren Name mit dem Buchstaben „g“ beginnt:  
    ![][14]  
 
-## Tips and Tricks
-* At anytime, you can select the preview button (![][2]) to see what you created and test it.
-* When designing your app, you can re-size the controls and move them around using click-and-drag.
-* Press **ESC** or select the **X** to close the preview window.
-* When using a gallery, select the first item in the gallery to change all items in the gallery. For example, select the first item to add a border to all items in the gallery.
-* To update the properties of the gallery, select any item in the gallery *except* the first one. For example, select the second item to update the *Items*, *ShowScrollbar*, and other properties that apply to the gallery (not the items in the gallery).  
+## <a name="tips-and-tricks"></a>Tipps und Tricks
+* Sie können jederzeit die Schaltfläche für die Vorschau (![][2]) auswählen, um die erstellten Elemente anzuzeigen und zu testen.
+* Beim Entwurf Ihrer App können Sie die Größe der Steuerelemente ändern und sie verschieben, indem Sie darauf klicken und das Steuerelement an eine andere Position ziehen.
+* Drücken Sie **ESC**, oder klicken Sie auf **X**, um das Vorschaufenster zu schließen.
+* Wenn Sie einen Katalog verwenden, wählen Sie das erste Element im Katalog aus, um alle Elemente im Katalog zu ändern. Wählen Sie beispielsweise das erste Element aus, um allen Elementen im Katalog einen Rahmen hinzuzufügen.
+* Um die Eigenschaften des Katalogs zu aktualisieren, wählen Sie ein beliebiges Element im Katalog aus, *nicht jedoch* das erste Element. Wählen Sie beispielsweise das zweite Element aus, um die Eigenschaften *Items*, *ShowScrollbar* und weitere Eigenschaften zu aktualisieren, die auf den Katalog angewendet werden (nicht auf die Elemente im Katalog).  
 
-## What you learned
-In this topic, you:
+## <a name="what-you-learned"></a>Vermittelte Inhalte
+In diesem Thema haben Sie folgende Aufgaben ausgeführt:
 
-* Created a collection, imported data that includes .jpg images into that collection, and showed the data in a gallery.
-* Under each image in the gallery, configured a label that lists the units in stock for that item.
-* Added a border around the item that you select.
-* Sorted the items by product name in ascending and descending order.
-* Added a slider and an input text control to filter the products by units in stock and product name.
+* Sie haben eine Sammlung erstellt, Daten mit JPG-Bildern in diese Sammlung importiert und die Daten in einem Katalog angezeigt.
+* Sie haben unter jedem Bild im Katalog eine Bezeichnung konfiguriert, um die im Lager vorrätige Stückzahl anzugeben.
+* Sie haben einen Rahmen um das ausgewählte Element hinzugefügt.
+* Sie haben die Elemente nach Produktnamen in aufsteigender und absteigender Reihenfolge sortiert.
+* Sie haben einen Schieberegler und ein Eingabetextfeld hinzugefügt, um die Produkte nach vorrätiger Stückzahl und nach dem Produktnamen zu filtern.
 
 [1]: ./media/show-images-text-gallery-sort-filter/import.png
 [2]: ./media/show-images-text-gallery-sort-filter/preview.png

@@ -1,6 +1,6 @@
 ---
-title: 'Screen control: reference | Microsoft Docs'
-description: Information, including properties and examples, about a Screen control
+title: 'Bildschirm-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, zum Bildschirm-Steuerelement
 author: emcoope-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,96 +9,79 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: emcoope
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: d90c82b29ebc77b67731903d7a950790e13661e1
+ms.sourcegitcommit: 6851486b8a44d76b6d87837952b7a7f38a8752b6
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53570395"
 ---
-# Screen control in PowerApps
+# <a name="screen-control-in-powerapps"></a>Bildschirm-Steuerelement in PowerApps
+Ein Benutzeroberflächenelement, das in einer App ein oder mehrere Steuerelemente enthält
 
-A UI element that contains one or more other controls in an app.
+## <a name="description"></a>Beschreibung
+Die meisten Apps verfügen über mehrere **Bildschirm**-Steuerelemente, die **[Bezeichnung](control-text-box.md)**-Steuerelemente, **[Schaltflächen-](control-button.md)** und andere Steuerelemente enthalten und Daten anzeigen sowie die Navigation unterstützen.
 
-## Description
+## <a name="key-properties"></a>Haupteigenschaften
+**[BackgroundImage](properties-visual.md)** : der Name einer Bilddatei, die im Hintergrund eines Bildschirms angezeigt wird
 
-Most apps have multiple **Screen** controls that contain **[Label](control-text-box.md)** controls, **[Button](control-button.md)** controls, and other controls that show data and support navigation. For information about how to add a screen, reorder screens, and configure navigation, review [Add a screen](../add-screen-context-variables.md).
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-## Key properties
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[ImagePosition](properties-visual.md)**: Die Position (**Fill**, **Fit**, **Stretch**, **Tile** oder **Center**) eines Bilds auf einem Bildschirm oder in einem Steuerelement, wenn die Größe nicht mit der Bildgröße identisch ist.
 
-**[BackgroundImage](properties-visual.md)** – The name of an image file that appears in the background of a screen.
+**OnHidden**: Das Verhalten einer App, wenn der Benutzer zu einer anderen Bildschirmansicht wechselt.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**OnVisible**: Das Verhalten einer App, wenn der Benutzer zu einem Bildschirm navigiert.
 
-## Additional properties
+**OnStart**: Das Verhalten einer App, wenn sie vom Benutzer geöffnet wird.
 
-**[ImagePosition](properties-visual.md)** – The position (**Fill**, **Fit**, **Stretch**, **Tile**, or **Center**) of an image in a screen or a control if it isn't the same size as the image.
+* Die Formel, auf die diese Eigenschaft festgelegt ist, wird vor dem Anzeigen des ersten Bildschirms der App ausgeführt. Rufen Sie die [**Navigate**](../functions/function-navigate.md)-Funktion zum Ändern des Bildschirms auf, der beim Start der App zuerst angezeigt wird.
+* Sie können mit der [**UpdateContext**](../functions/function-updatecontext.md)-Funktion keine [Kontextvariablen](../working-with-variables.md) festlegen, da noch kein Bildschirm angezeigt wurde. Sie können Kontextvariablen allerdings an die **Navigate**-Funktion übergeben und eine [Sammlung](../working-with-variables.md) mithilfe der [**Collect**](../functions/function-clear-collect-clearcollect.md)-Funktion erstellen und auffüllen.
+* Wenn Sie eine App aktualisieren, wird die Formel, auf die diese Eigenschaft festgelegt ist, beim Laden der App in PowerApps Studio ausgeführt. Um die Auswirkungen einer Änderung dieser Eigenschaft anzuzeigen, müssen Sie Ihre App speichern, schließen und neu laden.
+* Die **OnStart**-Eigenschaft ist tatsächlich eine Eigenschaft der App und nicht des Bildschirms. Zur Vereinfachung der Bearbeitung wird sie als Eigenschaft auf dem ersten Bildschirm Ihrer App angezeigt und geändert. Wenn Sie den ersten Bildschirm entfernen oder Bildschirme neu anordnen, kann diese Eigenschaft schwer zu finden sein. In diesem Fall sollten Sie Ihre App speichern, schließen und neu laden, woraufhin die Eigenschaft wieder als Eigenschaft auf dem ersten Bildschirm angezeigt wird.
 
-**OnHidden** – The behavior of an app when the user navigates away from a screen.
-
-**OnVisible** – The behavior of an app when the user navigates to a screen.
-
-**OnStart** – The behavior of the app when the user opens the app.
-
-- The formula to which this property is set runs before the first screen of the app appears. Call the [**Navigate**](../functions/function-navigate.md) function to change which screen appears first when the app starts.
-- You can't set [context variables](../working-with-variables.md) with the [**UpdateContext**](../functions/function-updatecontext.md) function because no screen has appeared yet. However, you can pass context variables in the **Navigate** function and create and fill a [collection](../working-with-variables.md) by using the [**Collect**](../functions/function-clear-collect-clearcollect.md) function.
-- When you update an app, the formula to which this property is set runs when the app is loaded into PowerApps Studio. To see the impact of changing this property, you'll need to save, close, and reload your app.
-- The **OnStart** property is actually a property of the app, not the screen. For editing convenience, you view and modify it as a property on the first screen of your app. If you remove the first screen or reorder screens, this property may become hard to find. In this case, save, close, and reload your app, and the property will reappear as a property of the first screen.
-
-## Related functions
-
+## <a name="related-functions"></a>Verwandte Funktionen
 [**Distinct**( *DataSource*, *ColumnName* )](../functions/function-distinct.md)
 
-## Example
+## <a name="example"></a>Beispiel
+1. Fügen Sie ein**[Optionsfeld](control-radio.md)**-Steuerelement hinzu, nennen Sie es **ScreenFills**, und legen Sie seine **[Items](properties-core.md)**-Eigenschaft auf folgenden Wert fest:<br>
+   **["Red", "Green"]**
+   
+    Möchten Sie wissen, wie Sie [ein Steuerelement hinzufügen, benennen und konfigurieren](../add-configure-controls.md)?
+2. Nennen Sie die das **Bildschirm**-Standardsteuerelement **Source**, fügen Sie ein weiteres **Bildschirm**-Steuerelement hinzu, und nennen Sie es **Target**.
+3. Fügen Sie in **Source** ein **[Shape](control-shapes-icons.md)**-Steuerelement (z.B. einen Pfeil) hinzu, und legen Sie seine **[OnSelect](properties-core.md)**-Eigenschaft auf diese Formel fest:<br>
+   **Navigate(Target, ScreenTransition.Fade)**
+   
+    Benötigen Sie weitere Informationen zur **[Navigate](../functions/function-navigate.md)**-Funktion oder [anderen Funktionen](../formula-reference.md)?
+4. Fügen Sie in **Target** ein **[Shape](control-shapes-icons.md)**-Steuerelement hinzu (z.B. einen Pfeil), und legen Sie seine **[OnSelect](properties-core.md)**-Eigenschaft auf diese Formel fest:<br>
+   **Navigate(Source, ScreenTransition.Fade)**
+5. Legen Sie die **[Fill](properties-color-border.md)**-Eigenschaft von **Target** auf diese Formel fest:<br>
+   **If("Red" in ScreenFills.Selected.Value, RGBA(255, 0, 0, 1), RGBA(54, 176, 75, 1))**
+6. Drücken Sie von **Source** auf F5, klicken oder tippen Sie auf eine der Optionen im **[Optionsfeld](control-radio.md)**-Steuerelement, und klicken oder tippen Sie anschließend auf das **[Shape](control-shapes-icons.md)**-Steuerelement.
+   
+    **Target** wird in der von Ihnen ausgewählten Farbe angezeigt.
+7. Klicken oder tippen Sie in **Target** auf das **[Shape](control-shapes-icons.md)**-Steuerelement, um zu **Source** zurückzukehren.
+8. (optional) Klicken oder tippen Sie auf die andere Option im  **[Optionsfeld](control-radio.md)-Steuerelement** , und klicken oder tippen Sie anschließend auf das **[Shape](control-shapes-icons.md)** -Steuerelement, um zu bestätigen, dass  **Target** in einer anderen Farbe angezeigt wird.
+9. Drücken Sie ESC, um zum Standardarbeitsbereich zurückzukehren.
 
-1. Add a **[Radio](control-radio.md)** control, name it **ScreenFills**, and set its **[Items](properties-core.md)** property to this value:
 
-    `["Red", "Green"]`
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+Wenn die **Anzeige** als Hintergrund für Text gilt, muss zwischen den folgenden Eigenschaften ein angemessener Farbkontrast bestehen:
+* **[Fill](properties-color-border.md)** und Text
+* (Ggf.) **[BackgroundImage](properties-visual.md)** und Text
 
-    Don't know how to [add, name, and configure a control](../add-configure-controls.md)?
+Wenn beispielsweise eine **Anzeige** eine **[Bezeichnung](control-text-box.md)** enthält und die Füllung der Bezeichnung durchsichtig ist, wird diese **[Füllung](properties-color-border.md)** als Hintergrundfarbe für die Bezeichnung verwendet.
 
-1. Name the default **Screen** control **Source**, add another **Screen** control, and name it **Target**.
+Sie sollten nicht nur den Text überprüfen, sondern auch den Farbkontrast mit grundlegenden graphischen Objekten wie Bildern mit Sternen in einem **[Bewertungs](control-rating.md)**-Steuerelement.
 
-1. In **Source**, add a **[Shape](control-shapes-icons.md)** control (such as an arrow), and set its **[OnSelect](properties-core.md)** property to this formula:
-
-    `Navigate(Target, ScreenTransition.Fade)`
-
-    Want more information about the **[Navigate](../functions/function-navigate.md)** function or [other functions](../formula-reference.md)?
-
-1. In **Target**, add a **[Shape](control-shapes-icons.md)** control (such as an arrow), and set its **[OnSelect](properties-core.md)** property to this formula:
-
-    `Navigate(Source, ScreenTransition.Fade)`
-
-1. Set the **[Fill](properties-color-border.md)** property of **Target** to this formula:
-
-    `If("Red" in ScreenFills.Selected.Value, RGBA(255, 0, 0, 1), RGBA(54, 176, 75, 1))`
-
-1. Select the **Source** screen and then, while holding down the Alt key, select either option in the **[Radio](control-radio.md)** control, and then select the **[Shape](control-shapes-icons.md)** control.
-
-    **Target** appears in the color that you selected.
-
-1. In **Target**, select the **[Shape](control-shapes-icons.md)** control to return to **Source**.
-
-1. (optional) Select the other option in the **[Radio](control-radio.md)** control, and then select the **[Shape](control-shapes-icons.md)** control to confirm that **Target** appears in the other color.
-
-1. (optional) Reorder the screens by hovering over **Target** in the left navigation bar, selecting the ellipsis that appears, and then selecting **Move up**.
-
-    **Target** appears first when the user opens the app.
-
-## Accessibility guidelines
-
-### Color contrast
-
-When the **Screen** is the effective background for text, there must be adequate color contrast between:
-
-- **[Fill](properties-color-border.md)** and text
-- **[BackgroundImage](properties-visual.md)** and text (if applicable)
-
-For example, if a **Screen** contains a **[Label](control-text-box.md)** and the label has transparent fill, then the screen's **[Fill](properties-color-border.md)** effectively becomes the background color for the label.
-
-In addition to text, consider checking color contrast with essential graphical objects like the star images in a **[Rating](control-rating.md)** control.
-
-### Screen reader support
-
-- There must be a meaningful name for each **Screen**. The screen name can be viewed and edited in the same way as other controls: in the tree view of the controls pane or in the header of the properties pane.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* Jeder **Ansicht** muss ein eindeutiger Name zugewiesen sein. Der Anzeigename kann auf dieselbe Weise wie andere Steuerelemente angezeigt und bearbeitet werden, also entweder in der Strukturansicht des Bereichs „Steuerelemente“ oder im Header im Bereich „Eigenschaften“.
 
     > [!NOTE]
-  > When a new **Screen** is loaded, screen readers will announce its name.
+  > Wenn eine neue **Anzeige** geladen wird, nennt die Sprachausgabe deren Namen. 

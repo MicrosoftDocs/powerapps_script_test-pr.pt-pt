@@ -1,47 +1,53 @@
 ---
-title: Edit a canvas app | Microsoft Docs
-description: Step-by-step instructions for editing canvas apps and session-locking scenarios in PowerApps.
-author: emcoope-msft
+title: Bearbeiten einer Canvas-App | Microsoft-Dokumentation
+description: Hier finden Sie Schrittanleitungen zum Bearbeiten von Canvas-Apps und Szenarien mit gesperrten Sitzungen in PowerApps.
+author: karthik-1
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 05/19/2017
-ms.author: emcoope
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: sharik
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 97dc8b245da9dc48a67f22243f11cf26b7bd6d8e
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42835073"
 ---
-# Edit a canvas app in PowerApps
-Edit any canvas app that you built, that you own, or for which you have **Can edit** permissions. You can edit an app in PowerApps Studio. If you try to edit an app that's open for editing elsewhere, a message tells you whether you already have it open or another user does.
+# <a name="edit-a-canvas-app-in-powerapps"></a>Bearbeiten einer Canvas-App in PowerApps
+Sie können alle Canvas-Apps bearbeiten, die Sie erstellt haben, deren Besitzer Sie sind oder für die Sie die Berechtigung **Kann bearbeiten** haben. Sie können eine App in PowerApps Studio bearbeiten. Wenn Sie versuchen, eine App zu bearbeiten, die an anderer Stelle zur Bearbeitung geöffnet ist, gibt eine Meldung Aufschluss darüber, ob Sie oder ein anderer Benutzer sie bereits geöffnet hat.
 
-## Verify your permissions
-1. Sign in to [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), and then click or tap **Apps** in the **File** menu (on the left edge).
+## <a name="verify-your-permissions"></a>Überprüfen Ihrer Berechtigungen
+1. Melden Sie sich bei [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an, und klicken oder tippen Sie im Menü **Datei** auf der linken Seite auf **Apps**.
    
-    ![Apps option on the File menu](./media/edit-app/file-apps.png)
+    ![Option „Apps“ im Menü „Datei“](./media/edit-app/file-apps.png)
 
-2. In the app-category selector, click or tap **Apps I can edit**.
+2. Klicken oder tippen Sie in der App-Kategorieauswahl auf **Apps, die ich bearbeiten kann**.
 
-    You can edit any app in the list that appears. You can also search for an app by typing one or more characters in the search box near the upper-right corner.
+    Sie können alle Apps in der angezeigten Liste bearbeiten. Sie können auch nach einer App suchen, indem Sie in das Suchfeld rechts oben ein oder mehrere Zeichen eingeben.
 
     > [!NOTE]
-    > If you still don't see the app that you want to edit, verify that you've selected the correct environment near the upper-right corner.
+    > Wenn die App, die Sie bearbeiten möchten, immer noch nicht angezeigt wird, überprüfen Sie rechts oben, ob Sie die richtige Umgebung ausgewählt haben.
    
-    ![Environment list](./media/edit-app/environment-list.png)
+    ![Liste der Umgebungen](./media/edit-app/environment-list.png)
 
-1. Click or tap the ellipsis icon (...) for the app you want to edit, and then click or tap **Edit**.
+1. Klicken oder tippen Sie für die App, die Sie bearbeiten möchten, auf die Auslassungspunkte (...), und klicken oder tippen Sie anschließend auf **Bearbeiten**.
 
-## Collaborate on an app
-Anybody who has **Can edit** permission for an app can edit it, but only one person can edit an app at a time. If you try to edit an app that someone else is already editing, this message appears. You can't proceed until the other person closes the app (or that person's session times out).
+## <a name="collaborate-on-an-app"></a>Zusammenarbeiten an einer App
+Jeder Benutzer mit der Berechtigung **Bearbeiten** für eine App kann diese bearbeiten. Doch die App kann immer nur von einem Benutzer gleichzeitig bearbeitet werden. Wenn Sie versuchen, eine App zu bearbeiten, die bereits von einem anderen Benutzer bearbeitet wird, wird diese Meldung angezeigt. Sie können erst fortfahren, nachdem der andere Benutzer die App geschlossen hat (oder ein Timeout der Sitzung des Benutzers eintritt).
 
 ![](./media/edit-app/applock-otheruser.png)
 
-In addition, this message appears if you open an app for editing and then try to open it on another device or in another browser window. You can override the previous session, but you might lose any changes that you haven't saved.
+Darüber hinaus wird diese Meldung angezeigt, wenn Sie eine App zur Bearbeitung öffnen und versuchen, sie auf einem anderen Gerät oder in einem anderen Browserfenster zu öffnen. Sie können die vorherige Sitzung überschreiben, aber Sie verlieren möglicherweise alle Änderungen, die Sie nicht gespeichert haben.
 
 ![](./media/edit-app/applock-selfuser.png)
 
-## Next Steps
-Learn more about how to add a [screen](add-screen-context-variables.md), a [control](add-configure-controls.md) or a [data connection](add-data-connection.md).
+## <a name="next-steps"></a>Nächste Schritte
+Erfahren Sie mehr dazu, wie Sie einen [Bildschirm](add-screen-context-variables.md), ein [Steuerelement](add-configure-controls.md) oder eine [Datenverbindung](add-data-connection.md) hinzufügen.
 

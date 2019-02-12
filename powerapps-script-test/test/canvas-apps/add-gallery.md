@@ -1,145 +1,151 @@
 ---
-title: Show a list of items in a canvas app | Microsoft Docs
-description: Use a gallery to show a list of items in your canvas app, and filter the list by specifying a criterion.
-author: emcoope-msft
+title: Anzeigen einer Liste von Elementen in einer Canvas-App | Microsoft-Dokumentation
+description: Verwenden Sie einen Katalog, um eine Liste der Elemente in Ihrer Canvas-App anzuzeigen, und filtern Sie die Liste, indem Sie ein Kriterium angeben.
+author: karthik-1
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 09/28/2017
-ms.author: emcoope
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: sharik
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 1c8498fb02182d289727385b111c564669408368
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42835096"
 ---
-# Show a list of items in PowerApps
+# <a name="show-a-list-of-items-in-powerapps"></a>Anzeigen einer Liste mit Elementen in PowerApps
 
-Show a list of items from any data source by adding a **[Gallery](controls/control-gallery.md)** control to your canvas app. This topic uses Excel as the data source. Filter the list by configuring the **Gallery** control to show only those items that match the filter criterion in a **[Text input](controls/control-text-input.md)** control.
+Sie können eine Liste von Elementen aus beliebigen Datenquellen anzeigen, indem Sie Ihrer Canvas-App ein **[Katalog](controls/control-gallery.md)**-Steuerelement hinzufügen. In diesem Thema wird Excel als Datenquelle verwendet. Filtern Sie die Liste, indem Sie das **Katalog**-Steuerelement so konfigurieren, dass nur die Elemente angezeigt werden, die dem Filterkriterium in einem **[Texteingabe](controls/control-text-input.md)**-Steuerelement entsprechen.
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-* Learn how to [add and configure a control](add-configure-controls.md) in PowerApps.
+* Erfahren Sie, wie Sie in PowerApps [ein Steuerelement hinzufügen und konfigurieren](add-configure-controls.md).
 
-* Set up the sample data:
-    1. Download [this Excel file](https://az787822.vo.msecnd.net/documentation/get-started-from-data/FlooringEstimates.xlsx), which contains sample data for this tutorial.
+* Einrichten der Beispieldaten:
+    1. Laden Sie [diese Excel-Datei](https://az787822.vo.msecnd.net/documentation/get-started-from-data/FlooringEstimates.xlsx) mit Beispieldaten für dieses Lernprogramm herunter.
 
-    2. Upload the Excel file to a [cloud-storage account](connections/cloud-storage-blob-connections.md), such as OneDrive for Business.
+    2. Laden Sie die Excel-Datei in ein [Cloudspeicherkonto](connections/cloud-storage-blob-connections.md) hoch, z.B. in OneDrive for Business.
 
-## Add a Gallery control
-1. Open PowerApps, and then click or tap **New** near the left edge.
+## <a name="add-a-gallery-control"></a>Ein Katalog-Steuerelement hinzufügen
+1. Öffnen Sie PowerApps, und klicken oder tippen Sie dann am linken Bildschirmrand auf **Neu**.
 
-2. On the **Blank app** tile, click or tap **Phone layout**.
+2. Klicken oder tippen Sie in der Kachel **Leere App** auf **Telefonlayout**.
 
-3. In the **Welcome to PowerApps Studio** dialog box, click or tap **Skip**.
+3. Klicken oder tippen Sie im Dialogfeld **Willkommen bei PowerApps Studio** auf **Überspringen**.
 
-4. [Add a connection](add-data-connection.md) to the **FlooringEstimates** table in the Excel file.
+4. [Fügen Sie eine Verbindung](add-data-connection.md) mit der **FlooringEstimates**-Tabelle in der Excel-Datei hinzu.
 
-5. (optional) Add a **Gallery** control to the default screen by clicking or tapping the **Insert** tab, clicking or tapping **Gallery**, and then clicking or tapping a **Gallery** control that's empty (blank) or that contains a default set of controls.
+5. (Optional) Fügen Sie dem Standardbildschirm ein **Katalog**-Steuerelement hinzu, indem Sie auf die Registerkarte **Einfügen**, auf **Katalog** und dann auf ein **Katalog**-Steuerelement klicken oder tippen, das leer ist oder eine Standardauswahl von Steuerelementen enthält.
 
-    These options include **Gallery** controls that scroll horizontally or vertically. You can also add a **Gallery** control that automatically bases its size on the amount of content in each item.
+    Diese Optionen beinhalten **Katalog**-Steuerelemente, die horizontal oder vertikal scrollen. Sie können aber auch ein **Katalog**-Steuerelement hinzufügen, dessen Größe automatisch aus der Inhaltsmenge in den einzelnen Elementen abgeleitet wird.
 
-    ![Add gallery](./media/add-gallery/gallery-dropdown.png)
+    ![Hinzufügen des Katalogs](./media/add-gallery/gallery-dropdown.png)
 
-6. On the **Home** tab, click or tap **New screen**.
+6. Klicken oder tippen Sie auf der Registerkarte **Start** auf **Neuer Bildschirm**.
 
-    You can add a screen that's empty, that scrolls, that contains a **Gallery** control, or that contains a form.
+    Sie können einen leeren Bildschirm, einen Scrollbildschirm, einen Bildschirm mit einem **Katalog**-Steuerelement oder einen Bildschirm mit einem Formular hinzufügen.
 
-7. Click or tap **List screen** to add a screen that contains a **Gallery** control and other controls such as a search bar.
+7. Klicken oder tippen Sie auf **Listenbildschirm**, um einen Bildschirm mit einem **Katalog**-Steuerelement und weiteren Steuerelementen (z.B. einer Suchleiste) hinzuzufügen.
 
     > [!NOTE]
-   > Whether you add a **Gallery** control to a new screen or an existing one, you can click or tap near the bottom of the **Gallery** control to select it, click or tap **Flooring Estimates** in the right-hand pane, and then click or tap a different layout in the **Data** pane. For this tutorial, leave the default layout.
+   > Gleich, ob Sie ein **Katalog**-Steuerelement einem neuen oder einem vorhandenen Bildschirm hinzufügen, Sie können nahe dem unteren Rand des **Katalog**-Steuerelements klicken oder tippen, um es auszuwählen, dann im rechten Bereich auf **Flooring Estimates** und anschließend auf ein anderes Layout im Bereich **Daten** klicken oder tippen. Lassen Sie für dieses Tutorial das Standardlayout eingestellt.
 
-    ![Choose gallery layout](./media/add-gallery/select-layout.png)
+    ![Auswählen des Kataloglayouts](./media/add-gallery/select-layout.png)
 
-8. Click or tap the **Gallery** control in the screen that you just added.
+8. Klicken oder tippen Sie auf das **Katalog**-Steuerelement im soeben hinzugefügten Bildschirm.
 
-9. On the **Properties** tab of the right-hand pane, click or tap **CustomGallerySample**.
+9. Klicken oder tippen Sie auf der Registerkarte **Eigenschaften** im rechten Bereich auf **CustomGallerySample**.
 
-10. In the **Data** pane, click or tap **CustomGallerySample**, and then click or tap **FlooringEstimates**.
+10. Klicken oder tippen Sie im Bereich **Daten** auf **CustomGallerySample**, und klicken oder tippen Sie anschließend auf **FlooringEstimates**.
 
-    ![Select datasource](./media/add-gallery/choose-data.png)
+    ![Auswählen der Datenquelle](./media/add-gallery/choose-data.png)
 
-    The **Gallery** control shows the sample data.
+    Im **Katalog**-Steuerelement werden die Beispieldaten angezeigt.
 
-    ![Show data](./media/add-gallery/show-data-default.png)
+    ![Anzeigen von Daten](./media/add-gallery/show-data-default.png)
 
-    You'll configure sort and search later in this topic.
+    Die Konfiguration von Suche und Sortierung erfolgt später in diesem Thema.
 
-## Add a control to the Gallery control
-Before you do any customization, decide on a **Gallery** control layout. The first set of controls in a **Gallery** control is the template, which determines how all data in the **Gallery** control appears.
+## <a name="add-a-control-to-the-gallery-control"></a>Hinzufügen eines Steuerelements zum Katalog-Steuerelement
+Entscheiden Sie sich für ein **Katalog**-Steuerelementlayout, bevor Sie Anpassungen vornehmen. Der erste Satz von Steuerelementen in einem **Katalog**-Steuerelement ist die Vorlage, die bestimmt, wie die Daten im **Katalog**-Steuerelement dargestellt werden.
 
-1. Select the template by clicking or tapping near the bottom of the **Gallery** control and then clicking or tapping the pencil icon in the upper-left corner.
+1. Wählen Sie die Vorlage aus, indem Sie nahe dem unteren Rand des **Katalog**-Steuerelements klicken oder tippen und dann in der oberen linken Ecke auf das Bleistiftsymbol klicken oder tippen.
 
-    ![Edit gallery template](./media/add-gallery/edit-item.png)
+    ![Bearbeiten der Katalogvorlage](./media/add-gallery/edit-item.png)
 
-2. With the template still selected, add a **[Label](controls/control-text-box.md)** control, and then move and resize it so that it doesn't overlap with other controls in the template.
+2. Fügen Sie bei ausgewählter Vorlage ein **[Label](controls/control-text-box.md)**-Steuerelement (Bezeichnung) hinzu, verschieben Sie es, und ändern Sie seine Größe, sodass es sich nicht mit anderen Steuerelementen in der Vorlage überschneidet.
 
-    ![Add label](./media/add-gallery/add-text-box.png)
-3. Open the **Data** pane by selecting the template and then clicking or tapping **Flooring Estimates** in the right-hand pane.
+    ![Bezeichnung hinzufügen](./media/add-gallery/add-text-box.png)
+3. Öffnen Sie den Bereich **Daten**, indem Sie die Vorlage auswählen und im rechten Bereich auf **Flooring Estimates** klicken oder tippen.
 
-4. Select the label that you added earlier in this procedure, and then open the highlighted list in the **Data** pane.
+4. Wählen Sie die soeben in diesem Verfahren hinzugefügte Bezeichnung aus, und öffnen Sie die hervorgehobene Liste im Bereich **Daten**.
 
-    ![Open drop-down list](./media/add-gallery/open-dropdown.png)
+    ![Dropdownliste öffnen](./media/add-gallery/open-dropdown.png)
 
-5. In that list, click or tap **Price**.
+5. Klicken oder tippen Sie in dieser Liste auf **Price** (Preis).
 
-    ![Change label binding](./media/add-gallery/change-binding.png)
+    ![Ändern der Bezeichnungsbindung](./media/add-gallery/change-binding.png)
 
-    The **Gallery** control shows the new values.
+    Im **Katalog**-Steuerelement werden die neuen Werte angezeigt.
 
-    ![Final Gallery](./media/add-gallery/final-gallery.png)
+    ![Endgültiger Katalog](./media/add-gallery/final-gallery.png)
 
-## Filter the Gallery control
-The **[Items](controls/properties-core.md)** property of a **Gallery** control determines which items it shows. In this procedure, you configure that property so that the **Gallery** control shows only those items for which the product name contains the text in **TextSearchBox1**.
+## <a name="filter-the-gallery-control"></a>Filtern des Katalog-Steuerelements
+Die **[Items](controls/properties-core.md)**-Eigenschaft eines **Katalog**-Steuerelements bestimmt, welche Elemente angezeigt werden. In diesem Verfahren konfigurieren Sie diese Eigenschaft, sodass im **Katalog**-Steuerelement nur die Elemente angezeigt werden, deren Produktname den Text in **TextSearchBox1** enthält.
 
-![Text search box](./media/add-gallery/text-search-box.png)
+![Textsuchfeld](./media/add-gallery/text-search-box.png)
 
-1. Select the **Gallery** control by clicking or tapping near the bottom of that control.
+1. Wählen Sie das **Katalog**-Steuerelement aus, indem Sie unten im Steuerelement klicken oder tippen.
 
-2. On the **Advanced** tab, set the **[Items](controls/properties-core.md)** property of the **Gallery** control to this formula:
+2. Legen Sie auf der Registerkarte **Erweitert** die **[Items](controls/properties-core.md)**-Eigenschaft des **Katalog**-Steuerelements auf diese Formel fest:
 
     **If(IsBlank(TextSearchBox1.Text), FlooringEstimates, Filter(FlooringEstimates, TextSearchBox1.Text in Text(Name)))**
 
-    For more information about the functions in this formula, see the [formula reference](formula-reference.md).
+    Weitere Informationen zu den Funktionen in dieser Formel finden Sie unter [formula reference (Formelreferenz)](formula-reference.md).
 
-3. Type part or all of a product name in the search box.
+3. Geben Sie einen Produktnamen ganz oder teilweise im Suchfeld ein.
 
-    The **Gallery** control shows only those items that meet the filter criterion.
+    Im **Katalog**-Steuerelement werden nur die Elemente angezeigt, die das Filterkriterium erfüllen.
 
-## Sort the Gallery control
-The **[Items](controls/properties-core.md)** property of a **Gallery** control determines the order in which it shows items. In this procedure, you configure that property so that the **Gallery** control shows the order of items as set by **ImageSortUpDown1**.
+## <a name="sort-the-gallery-control"></a>Sortieren des Katalog-Steuerelements
+Die **[Items](controls/properties-core.md)**-Eigenschaft eines **Katalog**-Steuerelements bestimmt die Anzeigereihenfolge der Elemente. In diesem Verfahren konfigurieren Sie diese Eigenschaft so, dass im **Katalog**-Steuerelement die Elemente in der Reihenfolge angezeigt werden, die von **ImageSortUpDown1** festgelegt wird.
 
-![Image for sorting](./media/add-gallery/image-sorting.png)
+![Bild für Sortierung](./media/add-gallery/image-sorting.png)
 
-1. Set the **[Items](controls/properties-core.md)** property of the **Gallery** control to this formula:
+1. Legen Sie die **[Items](controls/properties-core.md)**-Eigenschaft des **Katalog**-Steuerelements auf diese Formel fest:
 
     **Sort(If(IsBlank(TextSearchBox1.Text), FlooringEstimates, Filter(FlooringEstimates, TextSearchBox1.Text in Text(Name))), Name, If(SortDescending1, SortOrder.Descending, SortOrder.Ascending))**
 
-2. Select the sort icon to change the sorting order of the **Gallery** control by the names of the products.
+2. Wählen Sie das Sortieren-Symbol aus, um die Sortierreihenfolge des **Katalog**-Steuerelements in Bezug auf die Namen der Produkte zu ändern.
 
-To sort *and* filter your **Gallery** control:
+So sortieren *und* filtern Sie das **Katalog**-Steuerelement:
 
-* Replace both instances of *DataSource* in this formula with the name of your data source.
+* Ersetzen Sie in dieser Formel beide Instanzen von *DataSource* durch den Namen der Datenquelle.
 
-* Replace both instances of *ColumnName* with the name of the column by which you want to sort and filter.
+* Ersetzen Sie beide Instanzen von *ColumnName* durch den Namen der Spalte, nach der Sie sortieren und filtern möchten.
 
 **Sort(If(IsBlank(TextSearchBox1.Text),** *DataSource*, **Filter(** *DataSource*, **TextSearchBox1.Text in Text(** *ColumnName* **))),** *ColumnName*, **If(SortDescending1, SortOrder.Descending, SortOrder.Ascending))**
 
-## Highlight the selected item
-Set the **Gallery** control's **TemplateFill** property to a formula that's similar to this example:
+## <a name="highlight-the-selected-item"></a>Hervorheben des ausgewählten Elements
+Legen Sie die **TemplateFill**-Eigenschaft des **Katalog**-Steuerelements auf eine Formel fest, die der in diesem Beispiel ähnelt:
 
 **If(ThisItem.IsSelected, LightCyan, White)**
 
-## Change the default selection
-Set the **Gallery** control's **Default** property to the record that you want to select by default. For example, specify the fifth item in the **FlooringEstimates** data source:
+## <a name="change-the-default-selection"></a>Ändern der Standardauswahl
+Legen Sie die **Default**-Eigenschaft des **Katalog**-Steuerelements auf den Datensatz fest, der standardmäßig ausgewählt sein soll. Geben Sie beispielsweise das fünfte Element in der Datenquelle **FlooringEstimates** an:
 
 **Last(FirstN(FlooringEstimates, 5))**
 
-In this example, you specify the first item in the **Hardwood** category of the **FlooringEstimates** data source:
+In diesem Beispiel geben Sie das erste Element in der Kategorie **Hardwood** der Datenquelle **FlooringEstimates** an:
 
 **First(Filter(FlooringEstimates, Category = "Hardwood"))**
 
-## Next steps
-Learn how to work with [forms](working-with-forms.md) and [formulas](working-with-formulas.md).
+## <a name="next-steps"></a>Nächste Schritte
+Informationen zum Arbeiten mit [Formularen](working-with-forms.md) und [Formeln](working-with-formulas.md).

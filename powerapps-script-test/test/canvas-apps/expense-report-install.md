@@ -1,381 +1,387 @@
 ---
-title: Install and configure the Expense Report sample for canvas apps | Microsoft Docs
-description: Step-by-step instructions for, in PowerApps, installing and configuring the Expense Report sample for canvas apps.
-author: mr-dang-msft
+title: Installieren und Konfigurieren des Beispiels „Expense Report“ für Canvas-Apps | Microsoft-Dokumentation
+description: Exemplarische Vorgehensweise zum Installieren und Konfigurieren des Beispiels „Expense Report“ für Canvas-Apps in PowerApps
+author: caburk
 manager: kvivek
 ms.service: powerapps
 ms.topic: sample
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/08/2018
-ms.author: brdang
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: caburk
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 43d1dc6ef2d264dd60b6a9f3de0f5c0fed633283
+ms.sourcegitcommit: d3d665500b9c49c14657d044b084bdd64c52c5a3
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44124473"
 ---
-# Install and configure the Expense Report sample for canvas apps in PowerApps
+# <a name="install-and-configure-the-expense-report-sample-for-canvas-apps-in-powerapps"></a>Installieren und Konfigurieren des Beispiels „Expense Report“ für Canvas-Apps in PowerApps
 
-Step-by-step instructions for installing and configuring the Expense Report sample. You can also preview the sample app [here](https://aka.ms/previewmyexpenses).
+Ausführliche Anleitung zum Installieren und Konfigurieren der Beispiel-App „Expense Report“ [Hier](https://aka.ms/previewmyexpenses) können Sie auch eine Vorschau der Beispiel-App anzeigen.
 
-Estimated time to complete these steps: **10-15 minutes**
-
-> [!TIP]
-> Watch [this video](https://youtu.be/kJXZPILfbwU) for a demonstration of how to use the Expense Report sample app. 
-
-Track expense reports from submission to approval. Tally line items as individual expenses accrue and submit for approval when ready. This app requires a small amount of setup to make it your own.
-
-![Opening screen of the Expense Report PowerApp](./media/expense-report-install/expense-report-powerapp.png)
+Geschätzte Dauer: **10–15 Minuten**.
 
 > [!TIP]
-> Watch [this](https://youtu.be/h6E9cdrOvMU) video to see how to use the Expense Report PowerApps Sample.
+> Sehen Sie sich [in diesem Video](https://youtu.be/kJXZPILfbwU) eine Demonstration zur Verwendung der Beispiel-App „Expense Report“ an. 
 
-## Prerequisites
+Verfolgen Sie Ausgabenberichte nach – von der Einreichung bis zur Genehmigung. Buchen Sie Positionen als individuellen Ausgabenzuwachs, und senden Sie die Berichte zur Genehmigung, wenn sie fertig sind. Diese App erfordert ein geringes Maß an Einrichtung, um sie an Ihre Anforderungen anzupassen.
 
-- [Sign up](../signup-for-powerapps.md) for PowerApps.
+![Startbildschirm der PowerApp „Expense Report“](./media/expense-report-install/expense-report-powerapp.png)
 
-## Create the Expenses SharePoint list
+> [!TIP]
+> Sehen Sie sich [dieses Video](https://youtu.be/h6E9cdrOvMU) an, um mehr über die Verwendung der PowerApps-Beispiel-App „Expense Report“ zu erfahren.
 
-This list stores the expense reports.
+## <a name="prerequisites"></a>Voraussetzungen
 
-1. Open a web browser and navigate to https://portal.office.com.
-2. Log in with an account that has permission to create lists.
-3. Navigate to the site collection where you want the Expenses list to reside.
-4. Click the **gear icon** in the top right portion of the web page.
-5. Click **Add an app**.
-6. In the **Find an app** textbox, enter **Custom**.
-7. Click the **search icon**.
-8. Click the **Custom List** app.
-9. In the **Name** textbox, enter **Expenses**.
+- [Registrieren Sie sich](../signup-for-powerapps.md) bei PowerApps.
 
-	> [!IMPORTANT]
-	> If you choose a different name for the list make sure you write it down because you will need to substitute it for Expenses everywhere you see it during the installation and configuration process.
+## <a name="create-the-expenses-sharepoint-list"></a>Erstellen der SharePoint-Liste „Ausgaben“
 
-10. Click **Create**.
+In dieser Liste werden die Ausgabenbereich gespeichert.
 
-### Create Cost Center column
+1. Öffnen Sie einen Webbrowser, und navigieren Sie zu https://portal.office.com.
+2. Melden Sie sich mit einem Konto an, das über die Berechtigung zum Erstellen von Listen verfügt.
+3. Navigieren Sie zur Websitesammlung, in der Sie die Ausgabenliste erstellen möchten.
+4. Klicken Sie auf das **Zahnradsymbol** oben rechts auf der Webseite.
+5. Klicken Sie auf **Add an App** (Eine App hinzufügen).
+6. Geben Sie im Textfeld **Eine App suchen** **Benutzerdefiniert** ein.
+7. Klicken Sie auf das **Lupensymbol**.
+8. Klicken Sie auf die App **Benutzerdefinierte Liste**.
+9. Geben Sie im Textfeld **Name** **Ausgaben** ein.
 
-1. Click the **Expenses** list.
-2. Click the **gear icon** in the top right portion of the web page.
-3. Click **List settings**.
-4. Click **Create column**.
-5. In the **Column name** textbox enter **Cost Center**.
-6. In the **type of information in this column is** radio button list, select **Choice**.
-7. In the **Type each choice on a separate line** textbox enter the following values, each on a separate line: 
-	- Microsoft
-	- Contoso
-8. In the **Default value** textbox, enter **Microsoft**.
-9. Click **OK**.
+    > [!IMPORTANT]
+    > Wenn Sie einen anderen Namen für die Liste eingeben, schreiben Sie sich diesen auf, da Sie ihn während der Installation und Konfiguration überall dort eingeben müssen, wo hier „Ausgaben“ verwendet wird.
 
-### Create Comments column
+10. Klicken Sie auf **Erstellen**.
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **Comments**.
-3. In the **type of information in this column is** radio button list, select **Multiple lines of text**.
-4. Click **OK**.
+### <a name="create-cost-center-column"></a>Erstellen der Spalte „Kostenstelle“
 
-### Create Status column
+1. Klicken Sie auf die Liste **Ausgaben**.
+2. Klicken Sie auf das **Zahnradsymbol** oben rechts auf der Webseite.
+3. Klicken Sie auf **Listeneinstellungen**.
+4. Klicken Sie auf **Spalte erstellen**.
+5. Geben Sie im Textfeld **Spaltenname** **Kostenstelle** ein.
+6. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Auswahl**.
+7. Geben Sie im Textfeld **Geben Sie jede Auswahl in einer neuen Zeile ein** die folgenden Werte jeweils in einer neuen Zeile ein: 
+    - Microsoft
+    - Contoso
+8. Geben Sie im Textfeld **Standardwert** **Microsoft** ein.
+9. Klicken Sie auf **OK**.
 
-1. Click the **Expenses** list.
-2. Click the **gear icon** in the top right portion of the web page.
-3. Click **List settings**.
-4. Click **Create column**.
-5. In the **Column name** textbox enter **Status**.
-6. In the **type of information in this column is** radio button list, select **Choice**.
-7. In the **Type each choice on a separate line** textbox enter the following values, each on a separate line: 
-	- Open
-	- Pending
-	- Approved
-8. In the **Default value** textbox, enter **Open**.
-9. Click **OK**.
+### <a name="create-comments-column"></a>Erstellen der Spalte „Kommentare“
 
-### Create ApproverName column
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** **Kommentare** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Mehrere Textzeilen**.
+4. Klicken Sie auf **OK**.
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **ApproverName**.
-3. In the **type of information in this column is** radio button list, select **Person or Group**.
-4. In the **Require that this column contains information** radio button list, select **Yes**.
-5. Click **OK**.
+### <a name="create-status-column"></a>Erstellen der Spalte „Status“
 
-### Create DateSubmitted column
+1. Klicken Sie auf die Liste **Ausgaben**.
+2. Klicken Sie auf das **Zahnradsymbol** oben rechts auf der Webseite.
+3. Klicken Sie auf **Listeneinstellungen**.
+4. Klicken Sie auf **Spalte erstellen**.
+5. Geben Sie im Textfeld **Spaltenname** **Status** ein.
+6. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Auswahl**.
+7. Geben Sie im Textfeld **Geben Sie jede Auswahl in einer neuen Zeile ein** die folgenden Werte jeweils in einer neuen Zeile ein: 
+    - Offen
+    - Ausstehend
+    - Approved (Genehmigt)
+8. Geben Sie im Textfeld **Standardwert** **Öffnen** ein.
+9. Klicken Sie auf **OK**.
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **DateSubmitted**.
-3. In the **type of information in this column is** radio button list, select **Date and Time**.
-4. In the **Require that this column contains information** radio button list, select **Yes**.
-5. Click **OK**.
+### <a name="create-approvername-column"></a>Erstellen der Spalte „NameDesGenehmigers“
 
-### Create StartDate column
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** **NameDesGenehmigers** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Person or Group** (Person oder Gruppe).
+4. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Ja**.
+5. Klicken Sie auf **OK**.
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **StartDate**.
-3. In the **type of information in this column is** radio button list, select **Date and Time**.
-4. In the **Require that this column contains information** radio button list, select **Yes**.
-5. Click **OK**.
+### <a name="create-datesubmitted-column"></a>Erstellen der Spalte „DatumDerÜbermittlung“
 
-### Create EndDate column
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** **DatumDerÜbermittlung** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Datum und Uhrzeit**.
+4. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Ja**.
+5. Klicken Sie auf **OK**.
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **EndDate**.
-3. In the **type of information in this column is** radio button list, select **Date and Time**.
-4. In the **Require that this column contains information** radio button list, select **Yes**.
-5. Click **OK**.
+### <a name="create-startdate-column"></a>Erstellen der Spalte „Startdatum“
 
-## Create the Line Items SharePoint list
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** **Startdatum** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Datum und Uhrzeit**.
+4. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Ja**.
+5. Klicken Sie auf **OK**.
 
-This list stores the lines items associated with expense reports.
+### <a name="create-enddate-column"></a>Erstellen der Spalte „Enddatum“
 
-1. Navigate to the same site collection where you created the Expense list.
-2. Click the **gear icon** in the top right portion of the web page.
-3. Click **Add an app**.
-4. In the **Find an app** textbox, enter **Custom**.
-5. Click the **search icon**.
-6. Click the **Custom List** app.
-7. In the **Name** textbox, enter **LineItems**.
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** **Enddatum** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Datum und Uhrzeit**.
+4. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Ja**.
+5. Klicken Sie auf **OK**.
 
-	> [!IMPORTANT] 
-	> If you choose a different name for the list make sure you write it down because you will need to substitute it for Expense everywhere you see it during the installation and configuration process.
+## <a name="create-the-line-items-sharepoint-list"></a>Erstellen der SharePoint-Liste mit separaten Positionen
 
-8. Click **Create**.
+In dieser Liste werden die Positionen der Ausgabenberichte gespeichert.
+
+1. Navigieren Sie zur gleichen Websitesammlung, in der Sie die Ausgabenliste erstellt haben.
+2. Klicken Sie auf das **Zahnradsymbol** oben rechts auf der Webseite.
+3. Klicken Sie auf **Add an App** (Eine App hinzufügen).
+4. Geben Sie im Textfeld **Eine App suchen** **Benutzerdefiniert** ein.
+5. Klicken Sie auf das **Lupensymbol**.
+6. Klicken Sie auf die App **Benutzerdefinierte Liste**.
+7. Geben Sie im Textfeld **Name** **Positionen** ein.
+
+    > [!IMPORTANT] 
+    > Wenn Sie einen anderen Namen für die Liste eingeben, schreiben Sie sich diesen auf, da Sie ihn während der Installation und Konfiguration überall dort eingeben müssen, wo hier „Ausgaben“ verwendet wird.
+
+8. Klicken Sie auf **Erstellen**.
  
-### Create Category column
+### <a name="create-category-column"></a>Erstellen der Spalte „Kategorie“
 
-1. Click the **LineItems** list.
-2. Click the **gear icon** in the top right portion of the web page.
-3. Click **List settings**.
-4. Click **Create column**.
-5. In the **Column name** textbox enter **Category**.
-6. In the **type of information in this column is** radio button list, select **Choice**.
-7. In the **Type each choice on a separate line** textbox enter the following values, each on a separate line: 
-	- Food & Beverage
-	- Transportation
-	- Business needs
-8. In the **Default value** textbox, enter **Food & Beverage**.
-9. Click **OK**.
+1. Klicken Sie auf die Liste **Positionen**.
+2. Klicken Sie auf das **Zahnradsymbol** oben rechts auf der Webseite.
+3. Klicken Sie auf **Listeneinstellungen**.
+4. Klicken Sie auf **Spalte erstellen**.
+5. Geben Sie im Textfeld **Spaltenname** das Wort **Kategorie** ein.
+6. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Auswahl**.
+7. Geben Sie im Textfeld **Geben Sie jede Auswahl in einer neuen Zeile ein** die folgenden Werte jeweils in einer neuen Zeile ein: 
+    - Essen & Trinken
+    - Transport und Verkehr
+    - Geschäftsanforderungen
+8. Geben Sie im Textfeld **Standardwert** **Essen & Trinken** ein.
+9. Klicken Sie auf **OK**.
 
-### Create Cost column
+### <a name="create-cost-column"></a>Erstellen der Spalte „Kosten“
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **Cost**.
-3. In the **type of information in this column is** radio button list, select **Number (1, 10, 100)**.
-4. In the **Require that this column contains information** radio button list, select **Yes**.
-5. Click **OK**.
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** **Kosten** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Number (1, 10, 100)** (Zahl (1, 10, 100)).
+4. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Ja**.
+5. Klicken Sie auf **OK**.
 
-### Create Date column
+### <a name="create-date-column"></a>Erstellen der Spalte „Datum“
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **Date**.
-3. In the **type of information in this column is** radio button list, select **Date and Time**.
-4. In the **Require that this column contains information** radio button list, select **Yes**.
-5. Click **OK**.
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** **Datum** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Datum und Uhrzeit**.
+4. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Ja**.
+5. Klicken Sie auf **OK**.
 
-### Create Description column
+### <a name="create-description-column"></a>Erstellen der Spalte „Beschreibung“
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **Description**.
-3. In the **type of information in this column is** radio button list, select **Multiple lines of text**.
-4. In the **Require that this column contains information** radio button list, select **Yes**.
-5. In the **Specify the type of text to allow** radio button list, select **Plain text**.
-6. Click **OK**.
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** das Wort **Beschreibung** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Mehrere Textzeilen**.
+4. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Ja**.
+5. Wählen Sie in der Optionsfeldliste **Specify the type of text to allow** (Zu erlaubender Textyp auswählen) **Nur-Text** aus.
+6. Klicken Sie auf **OK**.
 
-### Create ReportID column
+### <a name="create-reportid-column"></a>Erstellen der Spalte „BerichtsID“
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **ReportID**.
-3. In the **type of information in this column is** radio button list, select **Lookup (information already on this site)**.
-4. In the **Require that this column contains information** radio button list, select **Yes**.
-5. In the **Get information from** dropdown list, select the **Expense** list you created.
-6. In the **In this column** dropdown list, select **ID**.
-7. Click **OK**.
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** **BerichtsID** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Lookup (information already on this site)** (Suchen (Informationen, die sich bereits auf dieser Website befinden)).
+4. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Ja**.
+5. Klicken Sie in der Dropdownliste **Get information from** (Informationen abrufen von) auf die Liste **Ausgabe**, die Sie erstellt haben.
+6. Klicken Sie in der Dropdownliste **In this column** (In dieser Spalte) auf **ID**.
+7. Klicken Sie auf **OK**.
 
-### Edit Title column
+### <a name="edit-title-column"></a>Bearbeiten der Spalte „Titel“
 
-1. Click the **Title** column link.
-2. In the **Require that this column contains information** radio button list, select **No**.
-3. Click **OK**.
+1. Klicken Sie auf den Link zur Spalte **Titel**.
+2. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Nein**.
+3. Klicken Sie auf **OK**.
 
-## Download the Expense Report PowerApp
+## <a name="download-the-expense-report-powerapp"></a>Herunterladen der PowerApp „Expense Report“
 
-1.	In a web browser, navigate to the following link:
+1.  Navigieren Sie in einem Webbrowser zu folgendem Link:
 
-	[http://pappsfeprodwestuscontent.blob.core.windows.net/sampleapps/myexpenses/docs/MyExpenses(SP_List).zip](http://pappsfeprodwestuscontent.blob.core.windows.net/sampleapps/myexpenses/docs/MyExpenses(SP_List).zip).
+    [http://pappsfeprodwestuscontent.blob.core.windows.net/sampleapps/myexpenses/docs/MyExpenses(SP_List).zip](http://pappsfeprodwestuscontent.blob.core.windows.net/sampleapps/myexpenses/docs/MyExpenses(SP_List).zip).
 
-2.	Download the Expense Report PowerApps Sample package and save it to your machine.
+2.  Laden Sie das PowerApps-Beispielpaket „Expense Report“ herunter, und speichern Sie es auf Ihrem Computer.
 
-## Create connections
+## <a name="create-connections"></a>Erstellen von Verbindungen
 
-1.	In a web browser, navigate to [web.powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
-2.	Sign in by providing the same credentials that you used to sign up.
-3.	In the menu on the left, select **Connections**.
+1.  Navigieren Sie in einem Webbrowser zu [web.powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
+2.  Melden Sie sich mit denselben Anmeldeinformationen an, die Sie bei der Registrierung verwendet haben.
+3.  Wählen Sie im Menü auf der linken Seite **Verbindungen** aus.
 
-### Create Approvals connection
+### <a name="create-approvals-connection"></a>Erstellen der Verbindung „Approvals“ (Genehmigungen)
 
-1.	Click **+ New connection**.
-2.	In the **Search** textbox, enter **Approvals**.
-3.	Select **Approvals** in the list.
-4.	Click **Create**.
-	
-### Create Office 365 Outlook connection
+1.  Klicken Sie auf **+ Neue Verbindung**.
+2.  Geben Sie in das **Suchfeld** **Approvals** (Genehmigungen) ein.
+3.  Klicken Sie in der Liste auf **Approvals**.
+4.  Klicken Sie auf **Erstellen**.
+    
+### <a name="create-office-365-outlook-connection"></a>Erstellen einer Office 365 Outlook-Verbindung
 
-1.	Click **+ New connection**.
-2.	In the **Search** textbox, enter **Office 365 Outlook**.
-3.	Select **Office 365 Outlook** in the list.
-4.	Click **Create**.
-5.	In the popup window, select the account you logged in with.
+1.  Klicken Sie auf **+ Neue Verbindung**.
+2.  Geben Sie im **Suchfeld** die Verbindung **Office 365 Outlook** ein.
+3.  Klicken Sie in der Liste auf **Office 365 Outlook**.
+4.  Klicken Sie auf **Erstellen**.
+5.  Wählen Sie im Popupfenster das Konto aus, mit dem Sie sich angemeldet haben.
 
-### Create SharePoint connection
+### <a name="create-sharepoint-connection"></a>Erstellen einer SharePoint-Verbindung
 
-1.	Click **+ New connection**.
-2.	In the **Search** textbox, enter **SharePoint**.
-3.	Select **SharePoint** in the list.
-4.	Click **Create**.
-5.	In the popup window, select the account you logged in with.
+1.  Klicken Sie auf **+ Neue Verbindung**.
+2.  Geben Sie in das **Suchfeld** die Verbindung **SharePoint** ein.
+3.  Klicken Sie in der Liste auf **SharePoint**.
+4.  Klicken Sie auf **Erstellen**.
+5.  Wählen Sie im Popupfenster das Konto aus, mit dem Sie sich angemeldet haben.
 
-## Import the Expense Report PowerApp
+## <a name="import-the-expense-report-powerapp"></a>Importieren der PowerApp „Expense Report“
 
-1. In a web browser, navigate to https://web.powerapps.com.
-2. Sign in by providing the same credentials that you used to sign up.
-3. In the menu on the left, select **Apps**. 
-4. Click **Import package(preview)**.
-	
-   ![Import package screen](./media/expense-report-install/import-package.png)
+1. Navigieren Sie in einem Webbrowser zu https://web.powerapps.com.
+2. Melden Sie sich mit denselben Anmeldeinformationen an, die Sie bei der Registrierung verwendet haben.
+3. Wählen Sie im Menü auf der linken Seite **Apps** aus. 
+4. Klicken Sie auf **Paket importieren (Vorschau)**.
+    
+   ![Anzeige „Paket importieren“](./media/expense-report-install/import-package.png)
 
-5. Click the **Upload** button and select the PowerApp package you downloaded in previous steps.
-6. For the **App** and **Flow** resource types, set **IMPORT SETUP** to **Create as new**.
-7. For the **SharePoint** and **Outlook** connections, set **IMPORT SETUP** to **Select during import**.
-	
-   ![Import settings screen](./media/expense-report-install/import-settings.png)
+5. Klicken Sie auf **Hochladen**, und wählen Sie das PowerApps-Paket aus, das Sie in den vorherigen Schritten heruntergeladen haben.
+6. Legen Sie für die Ressourcentypen **App** und **Flow** für **IMPORTEINRICHTUNG** die Option **Als neu erstellen** fest.
+7. Legen Sie für die Verbindungen **SharePoint** und **Outlook** für **IMPORTEINRICHTUNG** die Option **Beim Import auswählen** fest.
+    
+   ![Anzeige „Importeinstellungen“](./media/expense-report-install/import-settings.png)
 
-8. Click the **red icon** for the **SharePoint Connection**.
-9. In the connections list, click the item with your username.
+8. Klicken Sie auf das **rote Symbol** für die **SharePoint-Verbindung**.
+9. Klicken Sie in der Verbindungsliste auf das Element mit ihrem Benutzernamen.
 
-   ![Import settings screen](./media/expense-report-install/import-settings-sharepoint.png)
+   ![Anzeige „Importeinstellungen“](./media/expense-report-install/import-settings-sharepoint.png)
 
-10. Click **Save**.
-11. Click the **red icon** for the **Approval Connection**.
-12. In the connections list, click the item with your username.
+10. Klicken Sie auf **Speichern**.
+11. Klicken Sie auf das **rote Symbol** für die **Genehmigungsverbindung**.
+12. Klicken Sie in der Verbindungsliste auf das Element mit ihrem Benutzernamen.
 
-	![Import settings screen](./media/expense-report-install/import-settings-approvals.png)
+    ![Anzeige „Importeinstellungen“](./media/expense-report-install/import-settings-approvals.png)
 
-13. Click **Save**.
-14. Click the **red icon** for the **Office 365 Outlook Connection**.
-15. In the connections list, click the item with your username.
+13. Klicken Sie auf **Speichern**.
+14. Klicken Sie auf das **rote Symbol** für die **Office 365 Outlook-Verbindung**.
+15. Klicken Sie in der Verbindungsliste auf das Element mit ihrem Benutzernamen.
 
-	![Import settings screen](./media/expense-report-install/import-settings-office365outlook.png)
+    ![Anzeige „Importeinstellungen“](./media/expense-report-install/import-settings-office365outlook.png)
 
-16. Click **Save**.
+16. Klicken Sie auf **Speichern**.
 
-	> [!TIP] 
-	> When you are done, it will look like this:
+    > [!TIP] 
+    > Anschließend wird Folgendes auf dem Bildschirm angezeigt:
 
-	![Import settings screen](./media/expense-report-install/import-settings-done.png)
+    ![Anzeige „Importeinstellungen“](./media/expense-report-install/import-settings-done.png)
 
-17.	Click **Import** and wait until the process is complete.
+17. Klicken Sie auf **Importieren**, und warten Sie, bis der Vorgang abgeschlossen ist.
 
-	![Import settings screen](./media/expense-report-install/import-done.png)
+    ![Anzeige „Importeinstellungen“](./media/expense-report-install/import-done.png)
 
-## Configure the PowerApp to use the SharePoint lists
+## <a name="configure-the-powerapp-to-use-the-sharepoint-lists"></a>Konfigurieren der PowerApps-App, sodass sie die SharePoint-Liste verwendet
 
-1. In the web browser, click **Apps**.
-2. Click the **ellipses** next to the Expense Report PowerApp.
-3. Click **Edit on the web**.
-4. Click **Allow**.
+1. Klicken Sie im Webbrowser auf **Apps**.
+2. Klicken Sie auf die **Auslassungspunkte** neben der Expense Report-PowerApp.
+3. Klicken Sie auf **Im Web bearbeiten**.
+4. Klicken Sie auf **Allow** (Zulassen).
 
-### Delete connections
-1. Click **View**.
-2. Click **Data sources**.
-3. In the **Data** pane, click the **ellipses** next to **Expenses**.
-4. Click **Remove**.
-5. In the **Data** pane, click the **ellipses** next to **LineItems**.
-6. Click **Remove**.
+### <a name="delete-connections"></a>Löschen von Verbindungen
+1. Klicken Sie auf **Ansicht**.
+2. Klicken Sie auf **Datenquellen**.
+3. Klicken Sie im Bereich **Daten** auf die **Auslassungspunkte** neben **Ausgaben**.
+4. Klicken Sie auf **Entfernen**.
+5. Klicken Sie im Bereich **Daten** auf die **Auslassungspunkte** neben **Positionen**.
+6. Klicken Sie auf **Entfernen**.
 
-### Expenses list
+### <a name="expenses-list"></a>Ausgabenliste
 
-1. Click **View**.
-2. Click **Data sources**.
-3. In the **Data** pane, click **+ Add data source**.
-4. Click **+ New connection**.
-5. Select **SharePoint**.
-6. Click **Create**.
-7. In the **Recent sites** list, select the SharePoint site where you created the Expenses List.
+1. Klicken Sie auf **Ansicht**.
+2. Klicken Sie auf **Datenquellen**.
+3. Klicken Sie im Bereich **Daten** auf **Datenquelle hinzufügen**.
+4. Klicken Sie auf **+ Neue Verbindung**.
+5. Wählen Sie **SharePoint** aus.
+6. Klicken Sie auf **Erstellen**.
+7. Wählen Sie in der Liste **Zuletzt geöffnete Websites** die SharePoint-Website aus, auf der Sie die Ausgabenliste erstellt haben.
 
-	> [!TIP] 
-	> If the site does not appear in the list, enter the URL to the SharePoint site in the textbox and click, **Go**.
+    > [!TIP] 
+    > Wenn die Website nicht in der Liste angezeigt wird, geben Sie die URL der SharePoint-Website im Testfeld ein, und klicken Sie auf **Los**.
 
-8. In the **Search** textbox at the top of the list enter **Expenses**.
-9. Check the checkbox next to the **Expenses** list.
-10. Click **Connect**.
+8. Geben Sie im **Suchfeld** über der Liste **Ausgaben** ein.
+9. Aktivieren Sie das Kontrollkästchen neben der **Ausgabenliste**.
+10. Klicken Sie auf **Verbinden**.
 
-### LineItems list
+### <a name="lineitems-list"></a>Liste „Positionen“
 
-1. Click **View**.
-2. Click **Data sources**.
-3. In the **Data** pane, click **+ Add data source**.
-4. Click **+ New connection**.
-5. Select **SharePoint**.
-6. Click **Create**.
-7. In the **Recent sites** list, select the SharePoint site where you created the LineItems List.
+1. Klicken Sie auf **Ansicht**.
+2. Klicken Sie auf **Datenquellen**.
+3. Klicken Sie im Bereich **Daten** auf **Datenquelle hinzufügen**.
+4. Klicken Sie auf **+ Neue Verbindung**.
+5. Wählen Sie **SharePoint** aus.
+6. Klicken Sie auf **Erstellen**.
+7. Wählen Sie in der Liste **Zuletzt geöffnete Websites** die SharePoint-Website aus, auf der Sie die Liste „Positionen“ erstellt haben.
 
-	> [!TIP] 
-	> If the site does not appear in the list, enter the URL to the SharePoint site in the textbox and click, **Go**.
+    > [!TIP] 
+    > Wenn die Website nicht in der Liste angezeigt wird, geben Sie die URL der SharePoint-Website im Testfeld ein, und klicken Sie auf **Los**.
 
-8. In the **Search** textbox at the top of the list enter **LineItems**.
-9. Check the checkbox next to the **LineItems** list.
-10. Click **Connect**.
-11. Click **File**.
-12. Click **Save**.
-13. Click **Publish**.
-14. Click **Publish this version**.
+8. Geben Sie im **Suchfeld** über der Liste **Postionen** ein.
+9. Aktivieren Sie das Kontrollkästchen neben der Liste **Positionen**.
+10. Klicken Sie auf **Verbinden**.
+11. Klicken Sie auf **Datei**.
+12. Klicken Sie auf **Speichern**.
+13. Klicken Sie auf **Veröffentlichen**.
+14. Klicken Sie auf **Diese Version veröffentlichen**.
 
-## Modify the Flow
+## <a name="modify-the-flow"></a>Ändern des Flows
 
-1.	In the menu on the left, click **Flows**.
-2.	If prompted to sign in, sign in by providing the same credentials that you used to sign up.
-3.	Select **My flows** in the top menu.
-4.	Next to the **ApproveExpense** Flow, click the **pencil icon**.
+1.  Klicken Sie links im Menü auf **Flows**.
+2.  Wenn Sie dazu aufgefordert werden, melden Sie sich mit denselben Anmeldeinformationen an, die Sie bei der Registrierung verwendet haben.
+3.  Wählen Sie im oberen Menü **Meine Flows** aus.
+4.  Klicken Sie neben dem Flow **ApproveExpense** (AusgabeGenehmigen) auf das **Stiftsymbol**.
  
-	![Edit Flow screen](./media/expense-report-install/edit-flow.png)
+    ![Anzeige „Flow bearbeiten“](./media/expense-report-install/edit-flow.png)
 
-5.	Expand the **Get items** action. 
-6.	Change the **Site Address** and **List Name** to match the Expense SharePoint list you created.
-	
-	![Edit Flow screen](./media/expense-report-install/edit-flow-getitems.png)
+5.  Erweitern Sie die Aktion **Elemente abrufen**. 
+6.  Passen Sie die **Websiteadresse** und den **Listennamen** so an, dass sie der Expense SharePoint-Liste entsprechen, die Sie erstellt haben.
+    
+    ![Anzeige „Flow bearbeiten“](./media/expense-report-install/edit-flow-getitems.png)
 
-	> [!TIP] 
-	> You don’t need to type it manually, you can choose it in the dropdown lists.
+    > [!TIP] 
+    > Sie müssen keine manuelle Angabe machen, sondern können in der Dropdownliste eine Auswahl treffen.
 
-7.	Expand the **Condition**.
-8.	Expand the **If yes** section.
-9.	Expand the **Change item status to Approved** action.
-10.	Change the **Site Address** and **List Name** to match the Expense SharePoint list you created.
+7.  Erweitern Sie die **Bedingung**.
+8.  Erweitern Sie den Bereich **Wenn ja**.
+9.  Erweitern Sie die Aktion **Change item status to Approved** (Elementstatus in Genehmigt ändern).
+10. Passen Sie die **Websiteadresse** und den **Listennamen** so an, dass sie der Expense SharePoint-Liste entsprechen, die Sie erstellt haben.
 
-	![Edit Flow screen](./media/expense-report-install/edit-flow-condition-ifyes.png) 
+    ![Anzeige „Flow bearbeiten“](./media/expense-report-install/edit-flow-condition-ifyes.png) 
 
-	> [!TIP] 
-	> You don’t need to type it manually, you can choose it in the dropdown lists.
+    > [!TIP] 
+    > Sie müssen keine manuelle Angabe machen, sondern können in der Dropdownliste eine Auswahl treffen.
 
-11. Expand the **If no** section.
-12.	Expand the **Change item status to Open** action.
-13.	Change the **Site Address** and **List Name** to match the Expense SharePoint list you created. 
+11. Erweitern Sie den Bereich **Wenn nein**.
+12. Erweitern Sie die Aktion **Change item status to Open** (Elementstatus in „Offen“ ändern).
+13. Passen Sie die **Websiteadresse** und den **Listennamen** so an, dass sie der Expense SharePoint-Liste entsprechen, die Sie erstellt haben. 
 
-	![Edit Flow screen](./media/expense-report-install/edit-flow-condition-ifno.png)
+    ![Anzeige „Flow bearbeiten“](./media/expense-report-install/edit-flow-condition-ifno.png)
 
-	> [!TIP] 
-	> You don’t need to type it manually, you can choose it in the dropdown lists.
+    > [!TIP] 
+    > Sie müssen keine manuelle Angabe machen, sondern können in der Dropdownliste eine Auswahl treffen.
 
-14.	Click **Update flow**.
+14. Klicken Sie auf **Flow aktualisieren**.
 
-## Play the PowerApp
+## <a name="play-the-powerapp"></a>Wiedergeben der PowerApps-App
 
-1. In the web browser, click **Apps**.
-2. Click the **ellipses** next to the Expense Report PowerApp.
-3. Click **Open**.
+1. Klicken Sie im Webbrowser auf **Apps**.
+2. Klicken Sie auf die **Auslassungspunkte** neben der Expense Report-PowerApp.
+3. Klicken Sie auf **Öffnen**.
 
 
-## Next steps
-- [Customize a SharePoint list form](https://docs.microsoft.com/powerapps/maker/canvas-apps/customize-list-form)
-- [Add and configure a control](https://docs.microsoft.com/powerapps/maker/canvas-apps/add-configure-controls)
-- [Edit and manage permissions for a SharePoint list or library](https://support.office.com/en-us/article/edit-and-manage-permissions-for-a-sharepoint-list-or-library-02d770f3-59eb-4910-a608-5f84cc297782)
+## <a name="next-steps"></a>Nächste Schritte
+- [Anpassen eines SharePoint-Listenformulars mit PowerApps](https://docs.microsoft.com/powerapps/maker/canvas-apps/customize-list-form)
+- [Hinzufügen und Konfigurieren eines Steuerelements in PowerApps](https://docs.microsoft.com/powerapps/maker/canvas-apps/add-configure-controls)
+- [Bearbeiten und Verwalten von Berechtigungen für eine SharePoint-Liste oder -Bibliothek](https://support.office.com/en-us/article/edit-and-manage-permissions-for-a-sharepoint-list-or-library-02d770f3-59eb-4910-a608-5f84cc297782)
 
 
 

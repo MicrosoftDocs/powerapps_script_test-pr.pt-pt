@@ -1,191 +1,185 @@
 ---
-title: Text function | Microsoft Docs
-description: Reference information, including syntax and examples, for the Text function in PowerApps
+title: Funktion „Text“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Text“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
 ms.topic: reference
 ms.custom: canvas
 ms.reviewer: anneta
-ms.date: 11/14/2018
+ms.date: 10/25/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: dab6004afe7350b2375ade21871efe9144b6325b
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42849291"
 ---
-# Text function in PowerApps
-Converts any value and formats a number or date/time value to a string of text.
+# <a name="text-function-in-powerapps"></a>Funktion „Text“ in PowerApps
+Formatiert eine Zahl oder einen Datums-/Uhrzeit-Wert für die Anzeige als Textzeichenfolge.
 
-## Description
-The **Text** function formats a number or a date/time value based on one of these types of arguments:
+## <a name="description"></a>Beschreibung
+Die Funktion **Text** formatiert eine Zahl oder einen Datums-/Uhrzeit-Wert auf der Grundlage eines dieser Argumenttypen:
 
-* A predefined date/time format, which you specify by using the **DateTimeFormat** enumeration. For dates and times, this approach is preferred as it automatically adjusts to each user's language and region.
-* A custom format, which comprises a string of placeholders that define, for example, whether numbers show a decimal separator and dates show the full name of the month, the month as an abbreviation, or the month as a number. PowerApps supports a subset of the placeholders that Microsoft Excel does. In this string, the language placeholder specifies the language in which to interpret the other placeholders. If the custom format includes a period, for example, the language-format placeholder specifies whether the period is a decimal separator (ja-JP) or a thousands separator (es-ES).
+* Eines vordefinierten Datums-/Uhrzeitformats, das Sie mithilfe der **DateTimeFormat**-Enumeration angeben.  Dies ist das bevorzugte Format für Datums- und Uhrzeitwerte, da es sich automatisch an die Sprache und das Gebietsschema des Benutzers anpasst.
+* Eines benutzerdefinierten Formats, d.h. einer Textzeichenfolge, die Platzhalter beinhaltet, die ihrerseits die Formatierung der Zahl oder des Datums-/Uhrzeitwerts beschreiben. Platzhalter definieren, wie viele Stellen angezeigt, ob Gruppentrennzeichen verwendet und wie Monatsnamen angezeigt werden sollen. PowerApps unterstützt eine Teilmenge der von Microsoft Excel unterstützten Platzhalter.
 
-See [working with dates and times](../show-text-dates-times.md) for more information.
+Weitere Informationen finden Sie unter [Arbeiten mit Datums- und Uhrzeitangaben](../show-text-dates-times.md).
 
-The **Text** function can also convert any data type to a text representation using a default format. Use this to pass non-text values to text-based functions such as [**Len**](function-len.md), [**Right**](function-left-mid-right.md), and [**IsMatch**](function-ismatch.md).
+### <a name="predefined-datetime-formats"></a> Vordefinierte Datums-/Uhrzeitformate
 
-### <a name="predefined-datetime-formats"></a> Predefined date/time formats
-
-| Predefined Format | Description |
+| Vordefiniertes Format | Beschreibung |
 | --- | --- |
-| **DateTimeFormat.LongDate** |Full year, month, day of the month, and day of the week. The names of the month and the day of the week aren't abbreviated. |
-| **DateTimeFormat.LongDateTime** |Full year, month, day of the month, and day of the week, plus hour (12-hour clock), minutes, seconds, and AM/PM designation. The names of the month and the day of the week aren't abbreviated. |
-| **DateTimeFormat.LongDateTime24** |Full year, month, day of the month, and day of the week, plus hour (24-hour clock), minutes, and seconds. The names of the month and the day of the week aren't abbreviated. |
-| **DateTimeFormat.LongTime** |Hour (12-hour clock), minutes, seconds, and AM/PM designation. Same as ShortTime. |
-| **DateTimeFormat.LongTime24** |Hour (24-hour clock), minutes, seconds. Same as ShortTime24. |
-| **DateTimeFormat.ShortDate** |Four-digit year with two-digit month and day of the month. |
-| **DateTimeFormat.ShortDateTime** |Four-digit year with two-digit month and day of the month, plus hour (12-hour clock), minutes, seconds, and AM/PM designation. |
-| **DateTimeFormat.ShortDateTime24** |Four-digit year with two-digit month and day of the month, plus hour (24-hour clock), minutes, and seconds. |
-| **DateTimeFormat.ShortTime** |Hour (12-hour clock), minutes, seconds, and AM/PM designation.  Same as LongTime. |
-| **DateTimeFormat.ShortTime24** |Hour (24-hour clock), minutes, and seconds.  Same as LongTime24. |
-| **DateTimeFormat.UTC** |The date/time value is converted to UTC based on the current user's time zone and formatted according to the ISO 8601 standard. |
+| **DateTimeFormat.LongDate** |Vollständiges Jahr, Monat, Tag des Monats und Wochentag. Monatsnamen und Wochentage sind nicht abgekürzt. |
+| **DateTimeFormat.LongDateTime** |Vollständiges Jahr, Monat, Tag des Monats und Wochentag plus Stunde (12-Stunden-Format), Minuten, Sekunden und AM/PM-Angabe. Monatsnamen und Wochentage sind nicht abgekürzt. |
+| **DateTimeFormat.LongDateTime24** |Vollständiges Jahr, Monat, Tag des Monats und Wochentag plus Stunde (24-Stunden-Format), Minuten und Sekunden. Monatsnamen und Wochentage sind nicht abgekürzt. |
+| **DateTimeFormat.LongTime** |Stunde (12-Stunden-Format), Minuten, Sekunden und AM/PM-Angabe. Identisch mit ShortTime. |
+| **DateTimeFormat.LongTime24** |Stunde (24-Stunden-Format), Minuten, Sekunden. Identisch mit ShortTime24. |
+| **DateTimeFormat.ShortDate** |Vierstellige Jahresangabe mit zweistellig angegebenem Monat und Tag im Monat. |
+| **DateTimeFormat.ShortDateTime** |Vierstellige Jahresangabe mit zweistellig angegebenem Monat und Tag im Monat plus Stunde (12-Stunden-Format), Minuten, Sekunden und AM/PM-Angabe. |
+| **DateTimeFormat.ShortDateTime24** |Vierstellige Jahresangabe mit zweistellig angegebenem Monat und Tag im Monat plus Stunde (24-Stunden-Format), Minuten und Sekunden. |
+| **DateTimeFormat.ShortTime** |Stunde (12-Stunden-Format), Minuten, Sekunden und AM/PM-Angabe.  Identisch mit LongTime. |
+| **DateTimeFormat.ShortTime24** |Stunde (24-Stunden-Format), Minuten und Sekunden.  Identisch mit LongTime24. |
+| **DateTimeFormat.UTC** |Der Datums-/Uhrzeitwert wird basierend auf der Zeitzone des Benutzers in UTC konvertiert und gemäß dem ISO 8601-Standard formatiert. |
 
-### Number placeholders
+### <a name="number-placeholders"></a>Zahlplatzhalter
 
-| Placeholder | Description |
+| Platzhalter | Beschreibung |
 | --- | --- |
-| **0** (*zero*) |Displays insignificant zeros if a number has fewer digits than there are zeros in the format. For example, use the format **#.00** if you want to display **8.9** as **8.90**. |
-| **#** |Follows the same rules as the **0** (zero). However, **Text** doesn't return extra zeros when the number has fewer digits on either side of the decimal than there are # symbols in the format. For example, **8.9** is displayed if the custom format is **#.##** and the number to format is **8.9**. |
-| **.** (*period*) |Displays the decimal point in a number. Depends on the language of the custom format; see [global apps](#global-apps) for more details. |
-| **,** (*comma*) |Displays the grouping separator in a number, often used for thousands. **Text** separates groups by commas if the format contains a comma that's enclosed by number signs (**#**) or by zeros. Depends on the language of the custom format; see [global apps](#global-apps) for more details. |
+| **0** (*null*) |Zeigt nicht signifikante Nullen an, wenn eine Zahl weniger Stellen aufweist, als Nullen im Format festgelegt sind. Verwenden Sie beispielsweise das Format **#,00**, wenn Sie **8,9** im Format **8,90** anzeigen möchten. |
+| **#** |Folgt den gleichen Regeln wie **0** (null). **Text** gibt jedoch keine zusätzlichen Nullen zurück, wenn die Zahl weniger Stellen auf beiden Seiten des Dezimaltrennzeichens aufweist, als #-Symbole im Format vorhanden sind. Beispielsweise wird **8,9** angezeigt, wenn das benutzerdefinierte Format **#,##** und die zu formatierende Zahl **8,9** ist. |
+| **.** (*Punkt*) |Zeigt das Dezimaltrennzeichen in einer Zahl an.  Hängt von der Sprache des benutzerdefinierten Formats ab, Details finden Sie unter [globale Anwendungen](#global-apps). |
+| **.** (*Komma*) |Zeigt das Gruppierungstrennzeichen in einer Zahl an, häufig für Tausender verwendet. **Text** trennt Gruppen durch Punkte ab, wenn ein Format einen Punkt enthält, der von Zahlenzeichen (**#**) oder Nullen eingeschlossen ist.  Hängt von der Sprache des benutzerdefinierten Formats ab, Details finden Sie unter [globale Anwendungen](#global-apps). |
 
-If a number has more digits to the right of the decimal point than there are placeholders in the format, the number rounds to as many decimal places as there are placeholders. If there are more digits to the left of the decimal point than there are placeholders, the extra digits are displayed. If the format contains only number signs (#) to the left of the decimal point, numbers less than 1 start with a decimal point (for example, **.47**).
+Wenn eine Zahl mehr Stellen rechts vom Dezimaltrennzeichen aufweist, als Platzhalter im Format vorhanden sind, wird die Zahl zu der im Format definierten Anzahl Dezimalstellen gerundet. Wenn links vom Dezimaltrennzeichen mehr Stellen als Platzhalter vorhanden sind, werden die zusätzlichen Stellen angezeigt. Wenn das Format nur Zahlenzeichen (#) links vom Dezimaltrennzeichen aufweist, beginnen Zahlen kleiner als 1 mit dem Dezimaltrennzeichen (z. B. **,47**).
 
-### Date and time placeholders
+### <a name="date-and-time-placeholders"></a>Platzhalter für Datum und Uhrzeit
 
-|   Placeholder    |   Description                                                  |
-|------------------|----------------------------------------------------------------|
-|  **m**   |   Displays the month as a number without a leading zero.               |
-|  **mm**  |   Displays the month as a number with a leading zero when appropriate. |
-|  **mmm** |   Displays the month as an abbreviation (**Jan** to **Dec**).          |
-|                                                                                                   **mmmm**                                                                                                   |                                                                          Displays the month as a full name (**January** to **December**).                                                                           |
-|                                                                                                    **d**                                                                                                     |                                                                                Displays the day as a number without a leading zero.                                                                                 |
-|                                                                                                    **dd**                                                                                                    |                                                                         Displays the day as a number with a leading zero when appropriate.                                                                          |
-|                                                                                                   **ddd**                                                                                                    |                                                                              Displays the day as an abbreviation (**Sun** to **Sat**).                                                                              |
-|                                                                                                   **dddd**                                                                                                   |                                                                            Displays the day as a full name (**Sunday** to **Saturday**).                                                                            |
-|                                                                                                    **yy**                                                                                                    |                                                                                      Displays the year as a two-digit number.                                                                                       |
-|                                                                                                   **yyyy**                                                                                                   |                                                                                      Displays the year as a four-digit number.                                                                                      |
-|                                                                                                    **h**                                                                                                     |                                                                                Displays the hour as a number without a leading zero.                                                                                |
-|   **hh** | Displays the hour as a number with a leading zero when appropriate. If the format contains **AM** or **PM**, the hour is shown based on the 12-hour clock. Otherwise, the hour is shown based on the 24-hour clock. | 
-|  **m**   |   Displays the minute as a number without a leading zero.<br><br>This placeholder must appear immediately after the **h** or **hh** code or immediately before the **ss** code; otherwise, **Text** returns the month instead of minutes.  |    
-| **mm**   | Displays the minute as a number with a leading zero when appropriate.<br><br>This placeholder must appear immediately after the **h** or **hh** placeholder or immediately before the **ss** placeholder. Otherwise, **Text** returns the month instead of minutes. |                                                                                                                   
-| **s**   |  Displays the second as a number without a leading zero.  |
-| **ss**  | Displays the second as a number with a leading zero when appropriate.                                                                        |
-|                                                                                                    **f**                                                                                                     |                                                                                         Displays the fractions of seconds.                                                                                          |
-|                                                                                    **AM/PM**, **a/p**                                                                                    |               Displays the hour based on a 12-hour clock. **Text** returns "AM" or "a" for times from midnight until noon and "PM" or "p" for times from noon until midnight                |
+|                                                                                                 Platzhalter                                                                                                  |                                                                                                     Beschreibung                                                                                                     |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                                                                                    **m**                                                                                                     |                                                                               Zeigt den Monat als Zahl ohne führende Null an.                                                                                |
+|                                                                                                    **mm**                                                                                                    |                                                                        Zeigt den Monat als Zahl mit führender Null an, wenn das angebracht ist.                                                                         |
+|                                                                                                   **mmm**                                                                                                    |                                                                             Zeigt den Monat als Abkürzung an (**Jan** bis **Dez**).                                                                             |
+|                                                                                                   **mmmm**                                                                                                   |                                                                          Zeigt den Monat als vollständigen Namen an (**Januar** bis **Dezember**).                                                                           |
+|                                                                                                    **d**                                                                                                     |                                                                                Zeigt den Tag als Zahl ohne führende Null an.                                                                                 |
+|                                                                                                    **dd**                                                                                                    |                                                                         Zeigt den Tag als Zahl mit führender Null an, wenn das angebracht ist.                                                                          |
+|                                                                                                   **ddd**                                                                                                    |                                                                              Zeigt den Tag als Abkürzung an (**So** bis **Sa**).                                                                              |
+|                                                                                                   **dddd**                                                                                                   |                                                                            Zeigt den Tag als vollständigen Namen an (**Sonntag** bis **Samstag**).                                                                            |
+|                                                                                                    **yy**                                                                                                    |                                                                                      Zeigt das Jahr als zweistellige Zahl an.                                                                                       |
+|                                                                                                   **yyyy**                                                                                                   |                                                                                      Zeigt das Jahr als vierstellige Zahl an.                                                                                      |
+|                                                                                                    **h**                                                                                                     |                                                                                Zeigt die Stunde als Zahl ohne führende Null an.                                                                                |
+|                                                                                                    **hh**                                                                                                    | Zeigt die Stunde als Zahl mit führender Null an, wenn das angebracht ist. Wenn das Format **AM** oder **PM** enthält, wird die Stunde basierend auf der 12-Stunden-Uhr angezeigt. Andernfalls wird die Stunde auf der 24-Stunden-Uhr basierend angezeigt. |
+|                                                                                                    **m**                                                                                                     |                                                                         Zeigt die Minute als Zahl ohne führende Null an.  > [!NOTE]                                                                          |
+|            Der Code **m** oder **mm** muss unmittelbar auf den Code **h** oder **hh** folgen oder dem Code **ss** unmittelbar voranstehen, andernfalls gibt **Text** den Monat anstelle von Minuten zurück.            |                                                                                                                                                                                                                     |
+|                                                                                                    **mm**                                                                                                    |                                                                   Zeigt die Minute als Zahl mit führender Null an, wenn das angebracht ist. > [!NOTE]                                                                   |
+| Der Code **m** oder **mm** muss unmittelbar auf den Code **h** oder **hh** folgen oder dem Code **ss** unmittelbar voranstehen. Andernfalls gibt **Text** den Monat anstelle von Minuten zurück. |                                                                                                                                                                                                                     |
+|                                                                                                    **s**                                                                                                     |                                                                               Zeigt die Sekunde als Zahl ohne führende Null an.                                                                               |
+|                                                                                                    **ss**                                                                                                    |                                                                        Zeigt die Sekunde als Zahl mit führender Null an, wenn das angebracht ist.                                                                        |
+|                                                                                                    **f**                                                                                                     |                                                                                         Zeigt die Sekundenbruchteile an.                                                                                          |
+|                                                                                    **AM/PM**, **am/pm**, **A/P**, **a/p**                                                                                    |               Zeigt die Stunde basierend auf dem 12-Stunden-Format an. **Text** gibt „AM“, „am“, „A“ oder „a“ für Uhrzeiten von Mitternacht bis Mittag und „PM“, „pm“, „P“ oder „p“ für Uhrzeiten von Mittag bis Mitternacht an                |
 
-### Literal placeholders
-You can include any of these characters in your format string.  They will appear in the result of **Text** as is. Additional characters are reserved for future placeholders, so you shouldn't use them.
+### <a name="literal-placeholders"></a>Literalplatzhalter
+Sie können jedes dieser Zeichen in Ihre Formatzeichenfolge aufnehmen.  Sie werden im Ergebnis von **Text** wie eingegeben angezeigt. Zusätzliche Zeichen sind für kommende Platzhalter reserviert, daher sollten Sie diese nicht verwenden.
 
-| Character | Description |
+| Zeichen | Beschreibung |
 | --- | --- |
-| Any currency symbol |Dollar sign, cents sign, euro sign, etc. |
-| **+** |Plus sign |
-| **(** |Left parenthesis |
-| **:** |Colon |
-| **^** |Circumflex accent (caret) |
-| **'** |Apostrophe |
-| **{** |Left curly bracket |
-| **<** |Less-than sign |
-| **=** |Equal sign |
-| **-** |Minus sign |
-| **/** |Slash mark |
-| **)** |Right parenthesis |
-| **&** |Ampersand |
+| Beliebiges Währungssymbol |Dollarzeichen, Centzeichen, Eurozeichen usw. |
+| **+** |Pluszeichen |
+| **(** |Öffnende Klammer |
+| **:** |Doppelpunkt |
+| **^** |Zirkumflexakzent (Caretzeichen) |
+| **'** |Apostroph |
+| **{** |Öffnende geschweifte Klammer |
+| **<** |Kleiner-als-Zeichen |
+| **=** |Gleichheitszeichen |
+| **-** |Minuszeichen |
+| **/** |Schrägstrich |
+| **)** |Schließende Klammer |
+| **&** |Kaufmännisches Und-Zeichen |
 | **~** |Tilde |
-| **}** |Right curly bracket |
-| **>** |Greater-than sign |
-| &nbsp; |Space character |
+| **}** |Schließende geschweifte Klammer |
+| **>** |Größer-als-Zeichen |
+| &nbsp; |Leerzeichen |
 
-## Global apps
-The **Text** function is globally aware. For a wide array of languages, it knows how to properly write out dates, times, currencies, and numbers. To do its job, it needs two pieces of information:
+## <a name="global-apps"></a>Globale Anwendungen
+Die Funktion **Text** ist global kompatibel.  Sie „weiß“ für eine Vielzahl von Sprachen, wie Datumswerte, Uhrzeiten, Währungen und Zahlen ordnungsgemäß geschrieben werden.  Für ihren Job benötigt sie zwei Informationen :
 
-* **The language of the custom format:** For makers, how should a custom format be interpreted? The separator characters (**.** and **,**) have different meanings in different languages. If you specify a custom format, you can include a language placeholder or take the default value, which reflects the language to which your device is set. Even easier, you can use one of the [predefined date/time formats](#predefined-datetime-formats), which are language agnostic.
-* **The language of the result:** For users, in what language should the function result appear? Names of months and weekdays must be in the appropriate language for the user of the app, which you can specify by adding a third, optional argument to the **Text** function. 
+* **Die Sprache des benutzerdefinierten Formats:** Wie soll ein benutzerdefiniertes Format aus Autorensicht interpretiert werden?  Die Trennzeichen (**.** und **,**) haben in verschiedenen Sprachen verschiedene Bedeutungen.  Dies wird mit einem besonderen Platzhalter bearbeitet, der ein Sprachkennzeichen enthält.  Um es noch zu vereinfachen, unterscheiden die [vordefinierten Datums-/Uhrzeitformate](#predefined-datetime-formats) nicht nach der Sprache.
+* **Die Sprache des Ergebnisses:** Welche Sprache soll für Benutzer im Ergebnis der Funktion verwendet werden?  Namen von Monaten und Wochentagen müssen in der für den Benutzer der App passenden Sprache ausgegeben werden.  Dies wird mithilfe eines dritten, optionalen Arguments der Funktion **Text** verarbeitet. 
 
-For both, you specify the language by using a [language tag](function-language.md#language-tags). To see the list of supported languages, type **Text( 1234, "", )** in the formula bar or the **Advanced** tab of the right-hand pane, and then scroll through the list of locales suggested for the third argument.
+Für beide wird die Sprache in einem [Sprachkennzeichen](function-language.md#language-tags) angegeben.  Um eine Liste der unterstützten Sprachen anzuzeigen, geben Sie **Text( 1234, "", )** in die Bearbeitungsleiste oder die erweiterte Ansicht ein, und scrollen Sie durch die Liste der Gebietsschemas, die für das dritte Argument vorgeschlagen werden.
 
-### Language placeholder
-To specify the language of the custom format, use:
+#### <a name="custom-format-language-placeholder"></a>Sprachplatzhalter für benutzerdefiniertes Format
+Um die Sprache des benutzerdefinierten Formats anzugeben, verwenden Sie:
 
-| Placeholder | Description |
+| Platzhalter | Beschreibung |
 | --- | --- |
-| **[$-*LanguageTag*]** |*LanguageTag* is a language tag as returned from the **Language** function. It can specify just the language (such as **[$-en]** for English), or it can also specify the region (such as **[$-en-GB]** to further specify Great Britain). |
+| **[$-*LanguageTag*]** |*Sprachkennzeichen* ist ein Sprachkennzeichen, wie es von der Funktion **Language** zurückgegeben wird.  Es kann die Form der einfachen Sprachangabe annehmen, wie etwa **[$-de]** für Deutsch, oder außerdem die Region enthalten, wie in **[$-de-AT]**, um das Gebietsschema auf Österreich einzugrenzen. |
 
-The language placeholder can appear anywhere in the custom format but only once.
+Der Sprachplatzhalter kann an beliebiger Stelle im benutzerdefinierten Format auftreten, darf jedoch nur einmal angegeben werden.
 
-If you specify a custom format without a language placeholder and the format is ambiguous from a global standpoint, the language tag for your current language is inserted automatically.  
+Wenn Sie beim Erstellen einer Formel keinen Sprachplatzhalter angeben und das Format der Zeichenfolge vom globalen Standpunkt aus mehrdeutig ist, setzt das Verfassertool automatisch das Sprachkennzeichen für Ihre aktuelle Sprache ein.  
 
-**[$-en-US]** is assumed if this placeholder isn't present when your app is run. 
+**[$-en-US]** wird zugrunde gelegt, wenn dieser Platzhalter beim Ausführen Ihrer App nicht vorhanden ist. 
 
 > [!NOTE]
-> In a future version, the syntax of this placeholder may change to avoid confusion with a similar, but different, placeholder that Excel supports.
+> In einer kommenden Version kann sich dieser Platzhalter möglicherweise ändern, um die Verwechselung mit einem ähnlichen, aber doch unterschiedlichen Platzhalter zu vermeiden, der von Excel unterstützt wird.
 
-### Result language tag
-The result of **Text** includes translated strings for months, weekdays, and AM/PM designations, as well as the appropriate group and decimal separators.
+#### <a name="result-language-tag"></a>Sprachkennzeichen für das Ergebnis
+Im Ergebnis von **Text** werden übersetzte Zeichenfolgen für Monat, Wochentag und AM/PM-Angaben sowie die passenden Gruppen- und Dezimaltrennzeichen angezeigt.
 
-By default, **Text** uses the language of the user running the app. The **Language** function returns the language tag for the current user. You can override this default value by supplying a language tag for the third argument to **Text**.
+Standardmäßig verwendet **Text** die Sprache des Benutzers, der die Anwendung ausführt.  Die Funktion **Language** gibt das Sprachkennzeichen für den aktuellen Benutzer zurück.  Sie können diesen Standardwert überschreiben, indem Sie ein Sprachkennzeichen für das optionale dritte Argument von **Text** angeben.
 
-## Syntax
-**Text**( *NumberOrDateTime*, *DateTimeFormatEnum* [, *ResultLanguageTag* ] )
+## <a name="syntax"></a>Syntax
+**Text**( *Number*, *DateTimeFormatEnum* [, *ResultLanguageTag* ] )
 
-* *NumberOrDateTime* - Required. The number or the date/time value to format.
-* *DateTimeFormat* - Required.  A member of the **DateTimeFormat** enumeration.
-* *ResultLanguageTag* - Optional. The language tag to use for the result text. By default, the language of the current user is used.
+* *Number*: erforderlich. Die zu formatierende Zahl bzw. der zu formatierende Datums-/Uhrzeitwert.
+* *DateTimeFormat*: erforderlich.  Ein Mitglied der **DateTimeFormat**-Enumeration.
+* *ResultLanguageTag*: optional.  Das Sprachkennzeichen, das für den Ergebnistext verwendet werden soll.  Standardmäßig wird die Sprache des aktuellen Benutzers verwendet.
 
-**Text**( *NumberOrDateTime*, *CustomFormat* [, *ResultLanguageTag* ] )
+**Text**( *Number*, *CustomFormat* [, *ResultLanguageTag* ] )
 
-* *Number* - Required. The number or the date/time value to format.
-* *CustomFormat* - Required. One or more placeholders enclosed in double quotation marks.
-* *ResultLanguageTag* - Optional. The language tag to use for the result text. By default, the language of the current user is used.
+* *Number*: erforderlich. Die zu formatierende Zahl bzw. der zu formatierende Datums-/Uhrzeitwert.
+* *CustomFormat*: erforderlich. Mindestens ein in doppelte Anführungszeichen gesetzter Platzhalter.
+* *ResultLanguageTag*: optional.  Das Sprachkennzeichen, das für den Ergebnistext verwendet werden soll.  Standardmäßig wird die Sprache des aktuellen Benutzers verwendet.
 
-**Text**( *AnyValue* )
+## <a name="examples"></a>Beispiele
+Der Benutzer, der diese Formeln ausführt, befindet sich in den USA und hat Englisch als seine Sprache ausgewählt.  Die Funktion **Language** gibt „en-US“ zurück.
 
-* *AnyValue* - Required. Value to convert to a text representation. A default format is used.
+### <a name="number"></a>Number
 
-## Examples
-Unless otherwise specified, the user running these formulas is located in the United States and has selected English as their language.  The **Language** function is returning "en-US".
-
-### Number
-
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Text(&nbsp;1234.59,&nbsp;"####.#"&nbsp;)** |Formats the number with one decimal place. |"1234.6" |
-| **Text(&nbsp;8.9,&nbsp;"#.000"&nbsp;)** |Pads the decimal portion of the number with trailing zeros, if needed. |"8.900" |
-| **Text(&nbsp;0.631,&nbsp;"0.#"&nbsp;)** |Pads the whole portion of the number with leading zeros, if needed. |"0.6" |
-| **Text(&nbsp;12,&nbsp;"#.0#"&nbsp;)**<br>**Text(&nbsp;1234.568,&nbsp;"#.0#"&nbsp;)** |Pads the decimal portion of the number with zeros for one decimal place, and includes a second decimal place if supplied. |"12.0"<br>"1234.57" |
-| **Text(&nbsp;12000,&nbsp;"$ #,###"&nbsp;)**<br>**Text(&nbsp;1200000,&nbsp;"$&nbsp;#,###"&nbsp;)** |Places a thousands separator every three digits, and includes a currency symbol. |"$&nbsp;12,000"<br>"$&nbsp;1,200,000" |
+| **Text (&nbsp;1234.59,&nbsp;"###, #"&nbsp;)** |Formatiert die Zahl mit einer Dezimalstelle. |"1234,6" |
+| **Text (&nbsp;8,9&nbsp;"#,000"&nbsp;)** |Füllt die Nachkommastellen der Zahl mit nachfolgenden Nullen auf, falls erforderlich. |"8,900" |
+| **Text (&nbsp;0,631,&nbsp;"0,#"&nbsp;)** |Füllt den ganzzahligen Teil der Zahl mit führenden Nullen auf, falls erforderlich. |"0,6" |
+| **Text(&nbsp;12;&nbsp;"#,0#"&nbsp;)**<br>**Text(&nbsp;1234,568;&nbsp;"#,0#"&nbsp;)** |Füllt die Nachkommastellen der Zahl mit Nullen für eine Dezimalstelle auf und schließt eine zweite Dezimalstelle ein, wenn sie angegeben wird. |"12,0"<br>"1234,57" |
+| **Text(&nbsp;12000;&nbsp;"$ #.###"&nbsp;)**<br>**Text(&nbsp;1200000;&nbsp;"$&nbsp;#.###"&nbsp;)** |Fügt nach jeweils drei Stellen ein Tausendertrennzeichen ein und schließt ein Währungssymbol mit ein. |"$&nbsp;12.000"<br>"$&nbsp;1.200.000" |
 
-### Date/Time
-* At **2:37:47 PM** on **Monday, November 23, 2015**
-* United States Pacific Time Zone (UTC-8)
+### <a name="datetime"></a>Datum/Uhrzeit
+* Um **2:37:47 PM** am **Montag, 23. November 2015**
+* Pacific-Zeitzone der USA (UTC-8)
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Text( Now(), DateTimeFormat.LongDate )** |Formats as a long date string, in the language and locale of the current user. |"Monday, November 23, 2015" |
-| **Text( Now(), DateTimeFormat.LongDateTime )** |Formats as a long date and time string, in the language and locale of the current user, using a 12-hour clock. |"Monday, November 23, 2015 2:37:47 PM" |
-| **Text( Now(), DateTimeFormat.LongTime24 )** |Formats as a long time string, using a 24-hour clock. |"14:37:47" |
-| **Text( Now(), DateTimeFormat.ShortDate )** |Formats as a short date string, in the language and locale of the current user. |"11/23/2015" |
-| **Text( Now(), "d-mmm-yy" )** |Formats using placeholder characters: <ul><li>**d** for a single-digit or double-digit day of the month<li>**-** as a literal character copied to the result<li>**mmm** for a three-letter abbreviation of the month<li>**-** as another literal character copied to the result<li>**yy** for a two-digit abbreviation of the year</ul> |"23-Nov-15" |
+| **Text( Now(); DateTimeFormat.LongDate )** |Formatiert als lange Datumszeichenfolge in der Sprache und dem Gebietsschema des aktuellen Benutzers. |"Montag, 23 November 2015" |
+| **Text( Now(); DateTimeFormat.LongDateTime )** |Formatiert als lange Datums- und Uhrzeitzeichenfolge in der Sprache und dem Gebietsschema des aktuellen Benutzers und legt eine 12-Stunden-Uhr zugrunde. |"Montag, 23. November 2015 2:37:47 PM" |
+| **Text( Now(); DateTimeFormat.LongTime24 )** |Formatiert als lange Uhrzeitzeichenfolge und legt eine 24-Stunden-Uhr zugrunde. |"14:37:47" |
+| **Text( Now(); DateTimeFormat.ShortDate )** |Formatiert als kurze Datumszeichenfolge in der Sprache und dem Gebietsschema des aktuellen Benutzers. |"23.11.2015" |
+| **Text( Now(); "d-mmm-yy" )** |Formate mit Platzhalterzeichen: <ul><li>**d** für eine einstellige oder zweistellige Angabe des Tags im Monat<li>**-** als literales Zeichen, das in das Ergebnis kopiert wird<li>**mmm** für eine aus drei Buchstaben bestehende Abkürzung des Monats<li>**-** als weiteres literales Zeichen, das in das Ergebnis kopiert wird<li>**yy** für eine zweistellige Kurzform für das Jahr</ul> |"23. Nov. 15" |
 
-### Global apps
+### <a name="global-apps"></a>Globale Anwendungen
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Text(1234567.89, "[$-fr-FR]# ###,## &euro;", "fr-FR")** | Shows a space as a grouping separator, the comma as a decimal separator, and **&euro;** as the currency symbol. |"1&nbsp;234&nbsp;567,89 &euro;" |
-| **Text(1234567,89; "[$-fr-FR]# ###,## &euro;")** | If the source data follows the French custom of using a comma as the decimal separator, you must change your locale to French and separate the arguments with a semi-colon instead of a comma to get the same result as above. |"1&nbsp;234&nbsp;567,89 &euro;" |
-| **Text( Date(2016,1,31), "dddd mmmm d" )** |Returns the weekday, month, and day of the month in the language of the current user. Because none of the placeholders are language dependent, there is no need for a format text language tag. |"Saturday&nbsp;January&nbsp;31" |
-| **Text( Date(2016,1,31), "dddd mmmm d", "es-ES" )** |Returns the weekday, month, and day of the month in the "es-ES" language. |"domingo&nbsp;enero&nbsp;31" |
+| **Text( 1234567,89; "[$-en-US]$ #.###" )** |Interpretiert **.** als Gruppierungszeichen, das nach jedem dritten Zeichen eingefügt wird, und **$** als Währungssymbol. Da keine Dezimalstellen angezeigt werden sollen, wird der Wert auf die nächsthöhere ganze Zahl aufgerundet. Die Angabe **[$-en-US]** ist in diesem Fall optional, da sie den Standardwert darstellt. |"$ 1.234.568" |
+| **Text( 1234567.89, "[$-es-ES]&euro; #,###" )** |Interpretiert **,** als Dezimaltrennzeichen und **&euro;** als Währungssymbol.  Da die Angabe **[$-fr-FR]** nur bestimmt, wie die Formatierungszeichenfolge interpretiert werden soll, verwendet das Ergebnis die Zeichen aus dem standardmäßigen Sprachkennzeichen "en-US" – **.** (Punkt) – als Dezimaltrennzeichen und **$** als Währungssymbol. |"$ 1234567.89" |
+| **Text( 1234567.89, "[$-es-ES]&euro; #,###", "es-ES" )** |Interpretiert **,** als Dezimaltrennzeichen.  Das Sprachkennzeichen für das Ergebnis wurde auf „fr-FR“ festgelegt, was bewirkt, dass **,** (Komma) als Dezimaltrennzeichen und **&euro;** als Währungssymbol verwendet wird. |"&euro; 1234567,89" |
+| **Text( Date(2016,1,31), "dddd mmmm d" )** |Gibt den Wochentag, Monat und Tag des Monats in der Sprache des aktuellen Benutzers zurück. Da keiner der Platzhalter sprachabhängig ist, gibt es keine Notwendigkeit für ein Textformat-Sprachkennzeichen. |"Saturday January 31" |
+| **Text( Date(2016,1,31), "dddd mmmm d", "es-ES" )** |Gibt den Wochentag, Monat und Tag des Monats in der Sprache „es-ES“ zurück. |"Domingo Enero 31" |
 
-### Converting values to text
-
-| Formula | Description | Result |
-| --- | --- | --- |
-| **Text(&nbsp;1234567.89&nbsp;)** | Converts a number to a string. There are no thousands separators or control over the number of digits before or after the decimal separator; for more control, supply number placeholders as the second argument. | "1234567.89" |
-| **Text(&nbsp;DateTimeValue(&nbsp;"01/04/2003"&nbsp;)&nbsp;)** | Converts a date/time value to a string of text. To control the conversion, provide either a member of the DateTimeFormat enumeration or a custom-format string. | "1/4/2003 12:00 AM" |
-| **Text(&nbsp;true&nbsp;)** | Converts a Boolean value to a string. | "true" |
-| **Text(&nbsp;GUID()&nbsp;)** | Converts a generated GUID value to a string.  | "f8b10550-0f12-4f08-9aa3-bb10958bc3ff" |
-| **Left(&nbsp;Text(&nbsp;GUID()&nbsp;),&nbsp;4&nbsp;)** | Returns the first four characters of a generated GUID. | "2d9c" | 

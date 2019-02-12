@@ -1,6 +1,6 @@
 ---
-title: 'PDF viewer control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the PDF viewer control
+title: 'PDF-Viewer-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, zum PDF-Viewer-Steuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,109 +9,108 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 8d3add2ccb460e11211baa993c61902856c8f083
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42833719"
 ---
-# PDF viewer control (experimental) in PowerApps
-An experimental control that shows the content of a PDF file.
+# <a name="pdf-viewer-control-experimental-in-powerapps"></a>PDF-Viewer-Steuerelement in PowerApps (experimentell)
+Ein experimentelles Steuerelement, das den Inhalt einer PDF-Datei anzeigt.
 
-## Description
-Show text, graphics, and other content in a PDF file by adding this type of control and setting its **Document** property to the URL, enclosed in double quotation marks, of the file that you want to show.
+## <a name="description"></a>Beschreibung
+Zeigen Sie Text, Grafiken und anderen Inhalt in einer PDF-Datei an, indem Sie diese Art von Steuerelement hinzufügen und seine **Document**-Eigenschaft auf die URL der Datei festlegen, die Sie anzeigen möchten. Verwenden Sie dabei doppelte Anführungszeichen.
 
-## Limitations
-1. The security architecture of PowerApps requires the PDF Viewer to support only HTTPS links, not HTTP.  
+## <a name="limitations"></a>Beschränkungen
+Beachten Sie, dass der PDF-Viewer aufgrund der Sicherheitsarchitektur PowerApps nur HTTPS-Links und nicht HTTP unterstützt.  
+Wenn sich das PDF-Dokument auf einem Server mit restriktiven CORS-Einstellungen befindet, können es möglicherweise nicht in Ihrer App angezeigt werden.  Um dieses Problem zu beheben, muss der Server, der PDF-Dokumente hostet, Cross-Origin-Anfragen (CORS) von powerapps.com zulassen.
 
-2. The **Document** property must link directly to the PDF file. Server redirects or HTML views of the document aren't supported.
+Wenn das Dokument in PowerApps nicht geöffnet werden kann, wird dem Endanwender die Option zum Öffnen des Dokuments in einem externen Browser angezeigt.  Diese Option ist auch im Systemmenü für alle externen Dokumente verfügbar.
 
-3. The server that hosts the document must not require authentication.
+## <a name="key-properties"></a>Haupteigenschaften
+**Document**: gibt die, in doppelten Anführungszeichen gesetzte, URL der PDF-Datei an.
 
-4. You may not be able to view a PDF document in your app if the document resides on a server that has restrictive cross-origin resource sharing (CORS) settings. To resolve this issue, the server that hosts PDF documents must permit cross-origin requests from powerapps.com.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**ActualZoom**: gibt den tatsächlichen Vergrößerungsfaktor des Steuerelements an. Dieser kann sich von dem Faktor unterscheiden, der mit der **Zoom**-Eigenschaft angefordert wurde.
 
-App users can work around these limitations by opening PDF documents in an external browser, as prompted if the control can't open a document. This option is also available in the control menu for all external documents.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-App makers can work around these limitations by including PDF documents as media resources in the app. That way, the PDF Viewer control can always show the document.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-## Key properties
-**Document** – The URL, enclosed in double-quotation marks, of a PDF file.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-## Additional properties
-**ActualZoom** – The actual zoom of the control, which may differ from the zoom requested with the **Zoom** property.
+**CurrentFindText**: gibt den aktuellen Suchbegriff an, der verwendet wird.
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**CurrentPage**: gibt die Anzahl der Seiten in einer PDF-Datei an, die tatsächlich angezeigt wird.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[DisabledBorderColor](properties-color-border.md)**: Die Farbe des Steuerelementrahmens, wenn die **[DisplayMode](properties-core.md)**-Eigenschaft des Steuerelements auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**CurrentFindText** – The current search term that is in use.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**CurrentPage** – The number of the page in a PDF file that is actually being shown.
+**FindNext**: sucht nach der nächsten Instanz von **FindText** im Dokument.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**FindPrevious**: sucht nach der vorherigen Instanz von **FindText** im Dokument.
 
-**[DisabledBorderColor](properties-color-border.md)** – The color of a control's border if the control's **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**FindText**: gibt den Suchbegriff an, der im Dokument gesucht.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**FindNext** – Finds the next instance of **FindText** in the document.
+**[HoverBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über das Steuerelement hält.
 
-**FindPrevious** – Finds the previous instance of **FindText** in the document.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**FindText** – The search term to look for in the document.
+**OnStateChange**: gibt an, wie eine App reagiert, wenn sich der Zustand des Steuerelements ändert.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[PaddingBottom](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem unteren Rand des Steuerelements.
 
-**[HoverBorderColor](properties-color-border.md)** – The color of a control's border when the user keeps the mouse pointer on that control.
+**[PaddingLeft](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem linken Rand des Steuerelements.
 
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+**[PaddingRight](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem rechten Rand des Steuerelements.
 
-**OnStateChange** – How an app responds when the state of the control changes.
+**[PaddingTop](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem oberen Rand des Steuerelements.
 
-**[PaddingBottom](properties-size-location.md)** – The distance between text in a control and the bottom edge of that control.
+**Page**: gibt die Nummer der Seite an, die Sie anzeigen möchten.
 
-**[PaddingLeft](properties-size-location.md)** – The distance between text in a control and the left edge of that control.
+**PageCount**: gibt die Anzahl der Seiten in einem Dokument an.
 
-**[PaddingRight](properties-size-location.md)** – The distance between text in a control and the right edge of that control.
+**[PressedBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PaddingTop](properties-size-location.md)** – The distance between text in a control and the top edge of that control.
+**ShowControls**: Gibt beispielsweise an, ob für einen Audio- oder Videoplayer eine Schaltfläche für die Wiedergabe und ein Lautstärkeregler und für ein Stift-Steuerelement Symbole zum Zeichnen oder Löschen angezeigt werden.
 
-**Page** – The number of the page that you want to show.
+**[Tooltip](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**PageCount** – The number of pages in a document.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[PressedBorderColor](properties-color-border.md)** – The color of a control's border when the user taps or clicks that control.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**ShowControls** – Whether an audio or video player shows, for example, a play button and a volume slider, and a pen control shows, for example, icons for drawing, erasing, and clearing.
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**Zoom**: Der Prozentsatz, mit dem ein Bild einer Kamera vergrößert wird (oder die Ansicht einer Datei in einem PDF-Viewer).
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+## <a name="example"></a>Beispiel
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+Fügen Sie ein Steuerelement des Typs **PDF-Viewer** hinzu, und legen Sie seine **Document**-Eigenschaft (in doppelten Anführungszeichen) auf die URL einer PDF-Datei fest, wie im folgenden Beispiel gezeigt:
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
-
-**Zoom** – The percentage by which an image from a camera is magnified or the view of a file in a PDF viewer.
-
-## Example
-
-Add a **PDF viewer** control, and set its **Document** property to the URL, enclosed in double quotation marks, of a PDF file as in this example:
-
-  **"https://blog.mozilla.org/security/files/2015/05/HTTPS-FAQ.pdf"**
+  **„https://blog.mozilla.org/security/files/2015/05/HTTPS-FAQ.pdf“**
 
     The control shows the PDF file.
 
     Don't know how to [add and configure a control](../add-configure-controls.md)?
 
-## Accessibility guidelines
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
 
-Not all accessibility features of PDF documents are supported because the **PDF viewer** is still in the experimental stage. Therefore, **ShowControls** should be set to **true** to allow users to open the document in an external application.
+Es werden nicht alle Barrierefreiheitsfeatures von PDF-Dokumenten unterstützt, da sich der **PDF-Viewer** noch in der Experimentierphase befindet. Daher sollte **ShowControls** auf **TRUE** festgelegt sein, damit Benutzer das Dokument in einer externen Anwendung öffnen können.
 
-Learn how to create accessible PDF documents with the [WCAG 2.0](https://www.w3.org/TR/WCAG-TECHS/pdf.html) and [PDF/UA](https://www.pdfa.org/pdfua-the-iso-standard-for-universal-accessibility/) standards.
+Erfahren Sie, wie Sie mithilfe der [WCAG 2.0](https://www.w3.org/TR/WCAG-TECHS/pdf.html)- und [PDF/UA](https://www.pdfa.org/pdfua-the-iso-standard-for-universal-accessibility/)-Standards PDF-Dokumente erstellen können, auf die zugegriffen werden kann.
 
-### Screen reader support
-* Consider adding a heading using a **[Label](control-text-box.md)**, if the PDF document does not have a title. The heading can be positioned immediately before the **PDF viewer**.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* Fügen Sie ggf. mithilfe einer **[Bezeichnung](control-text-box.md)** einen Titel hinzu, wenn dem PDF-Dokument noch keiner zugeteilt ist. Der Titel kann direkt vor dem **PDF-Viewer** platziert werden.

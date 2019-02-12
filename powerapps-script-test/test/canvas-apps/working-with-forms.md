@@ -1,6 +1,6 @@
 ---
-title: Understand canvas-app forms | Microsoft Docs
-description: In PowerApps, add a form to a canvas app so that you can collect and display information from a data source.
+title: Grundlegendes zu Canvas-App-Formularen | Microsoft-Dokumentation
+description: Fügen Sie in PowerApps einer Canvas-App ein Formular hinzu, damit Sie Informationen aus einer Datenquelle erfassen und anzeigen können.
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,331 +9,336 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/27/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 661f6710c8cec55868ccc9d67d0f83dd230f89c1
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42851735"
 ---
-# Understand canvas-app forms in Microsoft PowerApps
+# <a name="understand-canvas-app-forms-in-microsoft-powerapps"></a>Grundlegendes zu Canvas-App-Formularen in Microsoft PowerApps
 
-Add three types of controls to a canvas app so that the user can browse for a record, display details about that record, and edit or create a record:
+Fügen Sie einer Canvas-App drei Arten von Steuerelementen hinzu, damit Benutzer nach einem Datensatz suchen, Einzelheiten zu dem Datensatz anzeigen oder einen Eintrag dazu bearbeiten oder erstellen können:
 
-| Activity | Control | Description |
+| Aktivität | Steuerelement | Beschreibung |
 | --- | --- | --- |
-| **Browse for a record** |**[Gallery](controls/control-gallery.md)** control |Filter, sort, search, and scroll through records in a data source, and select a specific record. Display only a few fields from each record to show several records at a time, even on a small screen. |
-| **Show details of a record** |**[Display form](controls/control-form-detail.md)** control |For a single record, display many or all fields in that record. |
-| **Edit or create a record** |**[Edit form](controls/control-form-detail.md)** control |Update one or more fields in a single record (or create a record starting with default values), and save those changes back to the underlying data source. |
+| **Nach einem Datensatz suchen** |**[Katalog](controls/control-gallery.md)**-Steuerelement |Filtern, sortieren, suchen Sie nach und scrollen Sie durch Datensätze in einer Datenquelle, und wählen Sie einen bestimmten Datensatz aus. Zeigen Sie nur ein paar Felder aus jedem Datensatz an, um mehrere Einträge gleichzeitig anzuzeigen, sogar auf einem kleinen Bildschirm. |
+| **Details eines Datensatzes anzeigen** |**[Formular anzeigen](controls/control-form-detail.md)**-Steuerelement |Zeigen Sie für einen einzelnen Datensatz viele oder alle Felder in diesem Datensatz an. |
+| **Einen Datensatz erstellen oder bearbeiten** |**[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelement |Aktualisieren Sie mindestens ein Feld in einem einzelnen Datensatz (oder erstellen Sie einen Datensatz, der mit Standardwerten beginnt), und speichern Sie diese Änderungen in der zugrunde liegenden Datenquelle. |
 
-Put each control on a different screen to make them easier to distinguish:
+Platzieren Sie jedes Steuerelement auf einem anderen Bildschirm, um die Unterscheidung zu erleichtern:
 
-![Browse, viewing, and editing records across three screens](./media/working-with-forms/three-screens.png)
+![Durchsuchen, Anzeigen und Bearbeiten von Datensätzen auf drei Bildschirmen](./media/working-with-forms/three-screens.png)
 
-As this topic describes, combine these controls with formulas to create the overall user experience.
+Kombinieren Sie diese Steuerelemente mit Formeln, wie in diesem Thema beschrieben, um die allgemeine Benutzeroberfläche zu erstellen.
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-* [Sign up](../signup-for-powerapps.md) for PowerApps, and then [sign in](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) by providing the same credentials that you used to sign up.
-* Learn how to [configure a control](add-configure-controls.md) in PowerApps.
+* [Registrieren Sie sich](../signup-for-powerapps.md) für PowerApps, und [melden Sie sich an](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), indem Sie dieselben Anmeldeinformationen bereitstellen, die Sie bei der Registrierung angegeben haben.
+* Erfahren Sie, wie Sie [ein Steuerelement](add-configure-controls.md) in PowerApps konfigurieren.
 
-## Explore a generated app
-PowerApps can automatically generate an app based on a data source that you specify. Each app contains three screens with the controls described earlier and formulas that connect them. Run these apps "out of the box," customize them for your specific goals, or examine how they work so that you can learn useful concepts that apply to your own apps. In the following sections, inspect the screens, controls, and formulas that drive a generated app.  
+## <a name="explore-a-generated-app"></a>Kennenlernen einer generierten App
+Mit PowerApps können Sie automatisch basierend auf einer von Ihnen ausgesuchten Datenquelle eine App generieren. Jede App enthält drei Bildschirme mit den zuvor beschriebenen Steuerelementen und Formeln, die diese verbinden. Diese Apps lassen sich ohne vorherige Installation ausführen, an Ihre bestimmten Ziele anpassen oder in ihrer Funktionsweise untersuchen, damit Sie nützliche Konzepte erfahren und auf Ihre eigenen Apps anwenden können. Überprüfen Sie in den folgenden Abschnitten die Bildschirme, Steuerelemente und Formeln, die eine generierte App steuern.  
 
-### Browse screen
-![Browse screen controls](./media/working-with-forms/afd-browse-screen-basic.png)
+### <a name="browse-screen"></a>Bildschirm zum Durchsuchen
+![Steuerelemente auf dem Bildschirm zum Durchsuchen](./media/working-with-forms/afd-browse-screen-basic.png)
 
-This screen features these key formulas:
+Dieser Bildschirm bietet folgende Schlüsselformeln:
 
-| Control | Supported behavior | Formula |
+| Steuerelement | Unterstütztes Verhalten | Formel |
 | --- | --- | --- |
-| **BrowseGallery1** |Display records from the **Assets** data source. |The **[Items](controls/properties-core.md)** property of the gallery is set to a formula that's based on the **Assets** data source. |
-| **ImageNewItem1** |Display the **Edit and Create** screen with each field set to a default value, so that the user can easily create a record. |The **[OnSelect](controls/properties-core.md)** property of the image is set to this formula:<br> **NewForm( EditForm1 );<br>Navigate( EditScreen1, None )** |
-| **NextArrow1** (in the gallery) |Display the **Details** screen to view many or all fields of the currently selected record. |The **[OnSelect](controls/properties-core.md)** property of the arrow is set to this formula:<br>**Navigate( DetailScreen1, None )** |
+| **BrowseGallery1** |Zeigen Sie Datensätzen aus der **Assets**-Datenquelle (verfügbare Objekte) an. |Legen Sie die **[Items](controls/properties-core.md)**-Eigenschaft des Katalogs auf eine Formel fest, die auf der Datenquelle **Bestand** basiert. |
+| **ImageNewItem1** |Zeigen Sie den Bildschirm **Bearbeiten und Erstellen** an, wobei jedes Feld auf einen Standardwert festlegen, sodass der Benutzer einen Datensatz leicht erstellen kann. |Die **[OnSelect](controls/properties-core.md)**-Eigenschaft des Bilds ist auf die folgende Formel festgelegt:<br> **NewForm( EditForm1 );<br>Navigate( EditScreen1, None )** |
+| **NextArrow1** (im Katalog) |Zeigen Sie den Bildschirm **Details** an, um den aktuell ausgewählten Datensatz viele oder alle Felder anzeigen. |Die **[OnSelect](controls/properties-core.md)**-Eigenschaft des Pfeils ist auf die folgende Formel festgelegt:<br>**Navigate( DetailScreen1, None )** |
 
-The primary control on this screen, **BrowseGallery1**, covers most of the area of the screen. The user can scroll through the gallery to find a specific record to display more fields or to update.
+Das primäre Steuerelement auf diesem Bildschirm, **BrowseGallery1**, deckt die meisten der Bildschirmbereiche ab. Der Benutzer kann durch den Katalog scrollen, um einen bestimmten Datensatz zu suchen und weitere Felder anzuzeigen oder um zu aktualisieren.
 
-Set the **[Items](controls/properties-core.md)** property of a gallery to show records from a data source in it. For example, set that property to **Assets** to show records from a data source of that name.
+Legen Sie die **[Items](controls/properties-core.md)**-Eigenschaft einer Katalogeigenschaft fest, um Datensätze auf Adoptionsheimen aus einer Datenquelle darin angezeigt. Legen Sie diese Eigenschaft beispielsweise auf **Bestand** fest, um Datensätze aus einer gleichnamigen Datenquelle anzuzeigen.
 
 > [!NOTE]
-> In a generated app, **[Items](controls/properties-core.md)** is set to a significantly more complicated formula by default so that the user can sort and search for records. You'll learn how to build that formula later in this topic; the simpler version is enough for now.
+> In einer generierten App wird **[Items](controls/properties-core.md)** standardmäßig auf eine wesentlich schwierigere Formel festgelegt, damit der Nutzer Daten sortieren und nach Datensätzen suchen kann. Sie erfahren später in diesem Thema, wie Sie die Formel erstellen. Die einfachere Version ist genug für heute.
 
-Instead of finding a record to display or edit, the user can create a record by selecting the "+" symbol above the gallery. Create this effect by adding an **[Image](controls/control-image.md)** control, showing a "+" symbol in it, and setting its **[OnSelect](controls/properties-core.md)** property to this formula:
+Anstatt einen Datensatz zum Anzeigen oder Bearbeiten zu suchen, kann der Benutzer einen Datensatz erstellen, indem er auf das Symbol „+“ über dem Katalog klickt. Erzeugen Sie diesen Effekt , indem Sie ein **[Image](controls/control-image.md)**-Steuerelement mit einem „+“ darin hinzufügen und seine Eigenschaft **[OnSelect](controls/properties-core.md)** auf diese Formel festlegen:
 <br>**NewForm( EditForm1 ); Navigate( EditScreen1, None )**
 
-This formula opens the **Edit and Create** screen, which features an **[Edit form](controls/control-form-detail.md)** control named **EditForm1**. The formula also switches that form into **New** mode, in which the form shows default values from the data source so that the user can easily create a record from scratch.
+Mit dieser Formel wird der Bildschirm **Bearbeiten und Erstellen** geöffnet, der ein Steuerelement **[Formular bearbeiten](controls/control-form-detail.md)** namens **EditForm1** enthält. Die Formel ändert dieses Formular auch in den Modus **Neu**, in dem das Formular Standardwerte aus der Datenquelle zeigt, damit der Benutzer einen Datensatz leicht neu erstellen kann.
 
-To examine any control that appears in **BrowseGallery1**, select that control in the first section of that gallery, which serves as a template for all other sections. For example, select the middle **[Label](controls/control-text-box.md)** control on the left edge:
+Um alle Steuerelemente in **BrowseGallery1** zu untersuchen, wählen Sie das Steuerelement im ersten Abschnitt des Katalogs aus, das als Vorlage für alle weiteren Abschnitte dient. Wählen Sie beispielsweise das mittlere **[Label](controls/control-text-box.md)**-Steuerelement am linken Rand aus:
 
-![Browse screen controls](./media/working-with-forms/afd-browse-gallery-controls.png)
+![Steuerelemente auf dem Bildschirm zum Durchsuchen](./media/working-with-forms/afd-browse-gallery-controls.png)
 
-In this example, the control's **[Text](controls/properties-core.md)** property is set to **ThisItem.AssignedTo**, which is a field in the **Assets** data source. The **[Text](controls/properties-core.md)** property of the other three **[Label](controls/control-text-box.md)** controls in the gallery are set to similar formulas, and each control shows a different field in the data source.  
+In diesem Beispiel wird die **[Text](controls/properties-core.md)**-Eigenschaft des Steuerelements auf **ThisItem.AssignedTo** festgelegt, wobei es sich um ein Feld in der Datenquelle **Bestand** handelt. Die **[Text](controls/properties-core.md)**-Eigenschaft der anderen drei **[Label](controls/control-text-box.md)**-Steuerelemente im Katalog sind auf ähnliche Formeln festgelegt, und jedes Steuerelement zeigt ein anderes Feld in der Datenquelle.  
 
-Select the **[Shape](controls/control-shapes-icons.md)** control (the arrow), and confirm that its **[OnSelect](controls/properties-core.md)** property is set to this formula:
+Wählen Sie das Steuerelement **[Symbole](controls/control-shapes-icons.md)** (Pfeil) aus, und überprüfen Sie, ob die **[OnSelect](controls/properties-core.md)**-Eigenschaft auf diese Formel festgelegt wurde:
 <br>**Navigate( DetailScreen1, None )**
 
-If the user finds a record in **BrowseGallery1**, the user can select the arrow for that record to show more information about it in **DetailScreen1**. By selecting an arrow, the user changes the value of the **Selected** property of **BrowseGallery1**. In this app, that property determines which record appears in not only **DetailScreen1** but also, if the user decides to update the record, the **Edit and Create** screen.
+Wenn der Benutzer in **BrowseGallery1** einen Datensatz findet, kann der Benutzer auf den Pfeil für den entsprechenden Datensatz klicken, um weitere Informationen in **DetailScreen1** anzuzeigen. Durch einen Klick auf den Pfeil ändert der Benutzer den Wert der Eigenschaft **Selected** von **BrowseGallery1**. In dieser App bestimmt diese Eigenschaft, welcher Datensatz nicht nur auf dem Bildschirm **DetailScreen1** erscheint, sondern – falls der Benutzer den Datensatz aktualisieren möchte – auch auf dem Bildschirm **Bearbeiten und Erstellen**.
 
-### Detail screen
-![Detail screen controls](./media/working-with-forms/afd-detail-screen-basic.png)
+### <a name="detail-screen"></a>Details-Bildschirm
+![Steuerelemente auf dem Details-Bildschirm](./media/working-with-forms/afd-detail-screen-basic.png)
 
-This screen features these key formulas:
+Dieser Bildschirm bietet folgende Schlüsselformeln:
 
-| Control | Supported behavior | Formula |
+| Steuerelement | Unterstütztes Verhalten | Formel |
 | --- | --- | --- |
-| **DetailForm1** |Displays a record in the **Assets** data source |Set the **[DataSource](controls/control-form-detail.md)** property to **Assets**. |
-| **DetailForm1** |Determines which record to display. In a generated app, displays the record that the user selected in the gallery. |Set the **[Item](controls/control-form-detail.md)** property of this control to this value:<br>**BrowseGallery1.Selected** |
-| **[Card](controls/control-card.md)** controls |In a **[Display form](controls/control-form-detail.md)** control, displays a single field in a record. |Set the **[DataField](controls/control-card.md)** property to the name of a field, enclosed in double quotation marks (for example, **"Name"**). |
-| **ImageBackArrow1** |When the user selects this control, opens **BrowseScreen1**. |Set the **[OnSelect](controls/properties-core.md)** property to this formula:<br>**Back()** |
-| **ImageDelete1** |When the user selects this control, deletes a record. |Set the **[OnSelect](controls/properties-core.md)** property to this formula:<br>**Remove( Assets, BrowseGallery1.Selected )** |
-| **ImageEdit1** |When the user selects this control, opens the **Edit and Create** screen to the current record. |Set the **[OnSelect](controls/properties-core.md)** property to this formula:<br>**Navigate( EditScreen1, None )** |
+| **DetailForm1** |Zeigt einen Datensatz in der Datenquelle **Bestand** |Legen Sie die **[DataSource](controls/control-form-detail.md)**-Eigenschaft auf **Assets** fest. |
+| **DetailForm1** |Bestimmt, welcher Datensatz angezeigt wird. In einer generierten App wird der Datensatz angezeigt, den der Benutzer im Katalog ausgewählt hat. |Legen Sie die **[Item](controls/control-form-detail.md)**-Eigenschaft dieses Steuerelements auf diesen Wert fest:<br>**BrowseGallery1.Selected** |
+| **[Karten](controls/control-card.md)**-Steuerelemente |In einem Steuerelement **[Formular anzeigen](controls/control-form-detail.md)** wird ein einzelnes Feld in einem Datensatz angezeigt. |Legen Sie die **[DataField](controls/control-card.md)**-Eigenschaft auf den Namen eines Felds in doppelten Anführungszeichen (z.B. **"Name"**) fest. |
+| **ImageBackArrow1** |Wenn der Benutzer dieses Steuerelement auswählt, öffnet sich **BrowseScreen1**. |Legen Sie die **[OnSelect](controls/properties-core.md)**-Eigenschaft auf die folgende Formel fest:<br>**Back()** |
+| **ImageDelete1** |Wenn der Benutzer dieses Steuerelement auswählt, wird ein Datensatz gelöscht. |Legen Sie die **[OnSelect](controls/properties-core.md)**-Eigenschaft auf die folgende Formel fest:<br>**Remove( Assets, BrowseGallery1.Selected )** |
+| **ImageEdit1** |Wenn der Benutzer dieses Steuerelement auswählt, öffnet sich der Bildschirm **Bearbeiten und Erstellen** des aktuellen Datensatzes. |Legen Sie die **[OnSelect](controls/properties-core.md)**-Eigenschaft auf die folgende Formel fest:<br>**Navigate( EditScreen1, None )** |
 
-At the top of the screen, three images sit outside of **DetailForm1** and act as buttons, orchestrating between the three screens of the app.
+Am oberen Bildschirmrand befinden sich drei Bilder außerhalb von **DetailForm1** und fungieren als Schaltflächen, die zwischen den drei Bildschirmen der App orchestriert.
 
-**DetailForm1** dominates this screen and displays the record that the user selected in the gallery (because the form's **[Item](controls/control-form-detail.md)** property is set to **BrowseGallery1.Selected**). The **[DataSource](controls/control-form-detail.md)** property of the form also provides metadata about the data source, such as a user-friendly display name for each field.
+**DetailForm1** überwiegt auf diesem Bildschirm und zeigt den Datensatz an, den der Benutzer im Katalog ausgewählt hat (weil die **[Item](controls/control-form-detail.md)**-Eigenschaft des Formulars auf **BrowseGallery1.Selected** festgelegt ist). Die **[DataSource](controls/control-form-detail.md)**-Eigenschaft des Formulars stellt auch Metadaten über die Datenquelle bereit, z.B. einen benutzerfreundlichen Anzeigenamen für jedes Feld.
 
-**DetailForm1** contains several **[Card](controls/control-card.md)** controls. You can select either the **[Card](controls/control-card.md)** control itself or the control that it contains to discover additional information.
+**DetailForm1** enthält mehrere **[Karten](controls/control-card.md)**-Steuerelemente. Sie können entweder das **[Karten](controls/control-card.md)**-Steuerelement selbst oder das Steuerelement auswählen, das es enthält, um zusätzliche Informationen abzurufen.
 
-![Detail card and card controls selected in the authoring experience](./media/working-with-forms/afd-detail-card-controls.png)
+![Details zu „Karten“ und ausgewählte Karten-Steuerelemente in der Autoren-Benutzeroberfläche](./media/working-with-forms/afd-detail-card-controls.png)
 
-The **[DataField](controls/control-card.md)** property of a **[Card](controls/control-card.md)** control determines which field the card displays. In this case, that property is set to **AssetID**. The card contains a **[Label](controls/control-text-box.md)** control for which the **[Text](controls/properties-core.md)** property is set to **Parent.Default**. This control shows the **Default** value for the card, which is set through the **[DataField](controls/control-card.md)** property.
+Die **[DataField](controls/control-card.md)**-Eigenschaft eines **[Karten](controls/control-card.md)**-Steuerelements bestimmt, welches Feld die Karte anzeigt. In diesem Fall wird diese Eigenschaft auf **AssetID** festgelegt. Die Karte enthält ein **[Label](controls/control-text-box.md)**-Steuerelement, für das die **[Text](controls/properties-core.md)**-Eigenschaft auf **Parent.Default** festgelegt wird. Dieses Steuerelement zeigt den **Standardwert** für die Karte an, der über die **[DataField](controls/control-card.md)**-Eigenschaft festgelegt wird.
 
-In a generated app, **[Card](controls/control-card.md)** controls are locked by default. When a card is locked, you can't modify some properties, such as **[DataField](controls/control-card.md)**, and the formula bar is unavailable for those properties. This restriction helps ensure that your customizations don't break the basic functionality of the generated app. However, you can change some properties of a card and its controls in the right-hand pane:
+In einer generierten App sind **[Karten](controls/control-card.md)**-Steuerelemente standardmäßig gesperrt. Wenn eine Karte gesperrt ist, können Sie einige Eigenschaften wie **[DataField](controls/control-card.md)** nicht ändern, und die Bearbeitungsleiste ist für diese Eigenschaften nicht verfügbar. Diese Einschränkung trägt dazu bei, dass Ihre Anpassungen die grundlegende Funktionalität der generierten App nicht unterbrechen. Sie können allerdings einige Eigenschaften einer Karte und ihrer Steuerelemente im rechten Bereich ändern:
 
-![Detail screen with options pane open](./media/working-with-forms/detail-screen-new.png)
+![Details-Bildschirm mit geöffnetem Optionsbereich](./media/working-with-forms/detail-screen-new.png)
 
-In the right-hand pane, you can select which fields to display and in which kind of control each field displays.
+Sie können im rechten Bereich auswählen, welche Felder angezeigt werden sollen und welche Art von Steuerelement jedes Feld anzeigen soll.
 
-### Edit/Create screen
-![Edit screen controls](./media/working-with-forms/afd-edit-screen-basic.png)
+### <a name="editcreate-screen"></a>Bildschirm zum Erstellen/Bearbeiten
+![Steuerelemente zum Erstellen/Bearbeiten](./media/working-with-forms/afd-edit-screen-basic.png)
 
-This screen features these key formulas:
+Dieser Bildschirm bietet folgende Schlüsselformeln:
 
-| Control | Supported behavior | Formula |
+| Steuerelement | Unterstütztes Verhalten | Formel |
 | --- | --- | --- |
-| **EditForm1** |Displays a record in the **Assets** data source. |Set the **[DataSource](controls/control-form-detail.md)** property to **Assets**. |
-| **EditForm1** |Determines which record to display. In a generated app, displays the record that the user selected in **BrowseScreen1**. |Set the **[Item](controls/control-form-detail.md)** property to this value:<br>**BrowseGallery1.Selected** |
-| **[Card](controls/control-card.md)** controls |In a **[Edit form](controls/control-form-detail.md)** control, provides controls so that the user can edit one or more fields in a record. |Set the **[DataField](controls/control-card.md)** property to the name of a field, enclosed in double quotation marks (for example, **"Name"**). |
-| **ImageCancel1** |When the user selects this control, discards any changes in progress, and opens the **Details** screen. |Set the **[OnSelect](controls/properties-core.md)** property to this formula:<br>**ResetForm( EditForm1 ); Back()** |
-| **ImageAccept1** |When the user selects this control, submits changes to the data source. |Set the **[OnSelect](controls/properties-core.md)** property to this formula:<br>**SubmitForm( EditForm1 )** |
-| **EditForm1** |If changes are accepted, returns to the previous screen. |Set the **[OnSuccess](controls/control-form-detail.md)** property to this formula:<br>**Back()** |
-| **EditForm1** |If changes aren't accepted, remain on the current screen so that the user can fix any issues and try to submit again. |Leave the **[OnFailure](controls/control-form-detail.md)** property blank. |
-| **LblFormError1** |If changes aren't accepted, shows an error message. |Set the **[Text](controls/properties-core.md)** property to this value:<br>**EditForm1.Error** |
+| **EditForm1** |Zeigt einen Datensatz in der **Assets**-Datenquelle |Legen Sie die **[DataSource](controls/control-form-detail.md)**-Eigenschaft auf **Assets** fest. |
+| **EditForm1** |Bestimmt, welcher Datensatz angezeigt wird. In einer generierten App wird der Datensatz angezeigt, den der Benutzer in **BrowseScreen1** ausgewählt hat. |Legen Sie die **[Item](controls/control-form-detail.md)**-Eigenschaft auf diesen Wert fest:<br>**BrowseGallery1.Selected** |
+| **[Karten](controls/control-card.md)**-Steuerelemente |In einem Steuerelement **[Formular bearbeiten](controls/control-form-detail.md)** werden Steuerelemente bereitgestellt, damit der Benutzer mindestens ein Feld in einem Datensatz bearbeiten kann. |Legen Sie die **[DataField](controls/control-card.md)**-Eigenschaft auf den Namen eines Felds in doppelten Anführungszeichen (z.B. **"Name"**) fest. |
+| **ImageCancel1** |Wenn der Benutzer dieses Steuerelement auswählt, werden alle aktuellen Änderungen verworfen, und es öffnet sich der Bildschirm **Details**. |Legen Sie die **[OnSelect](controls/properties-core.md)**-Eigenschaft auf die folgende Formel fest:<br>**ResetForm( EditForm1 ); Back()** |
+| **ImageAccept1** |Wenn der Benutzer dieses Steuerelement auswählt, werden Änderungen an die Datenquelle gesendet. |Legen Sie die **[OnSelect](controls/properties-core.md)**-Eigenschaft auf die folgende Formel fest:<br>**SubmitForm( EditForm1 )** |
+| **EditForm1** |Wenn Änderungen akzeptiert werden, gelangen Sie zurück zum vorherigen Bildschirm. |Legen Sie die **[OnSuccess](controls/control-form-detail.md)**-Eigenschaft auf die folgende Formel fest:<br>**Back()** |
+| **EditForm1** |Wenn die Änderungen nicht akzeptiert werden, bleiben Sie auf dem aktuellen Bildschirm, damit der Benutzer Sie jegliche Probleme beseitigen und versuchen kann, die Änderungen erneut zu senden. |Lassen Sie die **[OnFailure](controls/control-form-detail.md)**-Eigenschaft leer. |
+| **LblFormError1** |Wenn die Änderungen nicht akzeptiert werden, wird eine Fehlermeldung angezeigt. |Legen Sie die **[Text](controls/properties-core.md)**-Eigenschaft auf diesen Wert fest:<br>**EditForm1.Error** |
 
-As in the **Details** screen, a form control, named **EditForm1**, dominates the **Edit and Create** screen. In addition, the **[Item](controls/control-form-detail.md)** property of **EditForm1** is set to **BrowseGallery1.Selected**, so the form displays the record that the user selected in **BrowseScreen1**. While the **Details** screen shows each field as read-only, the user can update the value of one or more fields by using the controls in **EditForm1**. It also uses the **[DataSource](controls/control-form-detail.md)** property to access metadata about this data source, such as the user-friendly display name for each field and the location where changes should be saved.
+Wie auf dem Bildschirm **Details** überwiegt auf dem Bildschirm **Bearbeiten und Erstellen** ein Formularsteuerelement namens **EditForm1**. Darüber hinaus wird die **[Item](controls/control-form-detail.md)**-Eigenschaft von **EditForm1** auf **BrowseGallery1.Selected** festgelegt, sodass das Formular den Datensatz anzeigt, den der Benutzer in **BrowseScreen1** ausgewählt hat. Während der Bildschirm **Details** jedes Feld als schreibgeschützt anzeigt, kann der Benutzer den Wert von mindestens einem Feld mithilfe der Steuerelemente in **EditForm1** aktualisieren. Darüber hinaus wird die **[DataSource](controls/control-form-detail.md)**-Eigenschaft verwendet, um auf Metadaten zu dieser Datenquelle wie den benutzerfreundlichen Anzeigenamen für jedes Feld und den Speicherort für Änderungen zuzugreifen.
 
-If the user selects the "X" icon to cancel an update, the **[ResetForm](functions/function-form.md)** function discards any unsaved changes, and the **[Back](functions/function-navigate.md)** function opens the **Details** screen. Both the **Details** screen and the **Edit and Create** screen show the same record until the user selects a different one on **BrowseScreen1**. The fields in that record remain set to the values that were most recently saved, not any changes that the user made and then abandoned.
+Klickt der Benutzer das Symbol "X" klickt, um ein Update abzubrechen, verwirft die Funktion **[ResetForm](functions/function-form.md)** alle nicht gespeicherten Änderungen, und die Funktion **[Back](functions/function-navigate.md)** öffnet den Bildschirm **Details**. Sowohl der Bildschirm **Details** als auch der Bildschirm **Bearbeiten und Erstellen** zeigen den gleichen Datensatz an, bis der Benutzer einen anderen in **BrowseScreen1** auswählt. Die Felder in diesem Datensatz bleiben auf die zuletzt gespeicherten Werte festgelegt, nicht auf die vorgenommenen und dann verworfenen Änderungen.
 
-If the user changes one or more values in the form and then selects the "checkmark" icon, the **[SubmitForm](functions/function-form.md)** function sends the user's changes to the data source.
+Wenn der Benutzer einen oder mehrere Werte im Formular ändert und dann das Häkchensymbol anklickt, sendet die Funktion **[SubmitForm](functions/function-form.md)** die Änderungen des Benutzers an die Datenquelle.
 
-* If the changes are successfully saved, the form's **[OnSuccess](controls/control-form-detail.md)** formula runs, and the **Back()** function opens the detail screen to show the updated record.
-* If the changes aren't successfully saved, the form's **[OnFailure](controls/control-form-detail.md)** formula runs, but it doesn't change anything because it's *blank*. The **Edit and Create** screen remains open so that the user can either cancel the changes or fix the error. **LblFormError1** shows a user-friendly error message, to which the form's **Error** property is set.
+* Wenn die Änderungen erfolgreich gespeichert wurden, wird **[OnSuccess](controls/control-form-detail.md)**-Formel des Formulars ausgeführt, und die **Back()**-Funktion öffnet den Detailbildschirm, um den aktualisierten Datensatz anzuzeigen.
+* Wenn die Änderungen nicht erfolgreich gespeichert wurden, wird die **[OnFailure](controls/control-form-detail.md)**-Formel des Formulars ausgeführt, was nichts ändert, da sie *leer* ist. Der Bildschirm **Bearbeiten und Erstellen** bleibt geöffnet, damit der Benutzer die Änderungen verwerfen oder den Fehler beheben kann. **LblFormError1** zeigt eine benutzerfreundliche Fehlermeldung an, auf die die **Error**-Eigenschaft des Formulars festgelegt ist.
 
-As with a **[Display form](controls/control-form-detail.md)** control, an **[Edit form](controls/control-form-detail.md)** control contains **[Card](controls/control-card.md)** controls, which contain other controls that show different fields in a record:
+Wie bei einem **[Formular anzeigen](controls/control-form-detail.md)**-Steuerelement enthält ein **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelement **[Karten](controls/control-card.md)**-Steuerelemente, die andere Steuerelemente enthalten, die verschiedenen Felder in einem Datensatz anzeigen:
 
-![Edit card and card controls selected in the authoring experience](./media/working-with-forms/afd-edit-card-controls.png)
+![Karten bearbeiten und ausgewählte Karten-Steuerelemente in der Autoren-Benutzeroberfläche](./media/working-with-forms/afd-edit-card-controls.png)
 
-In the previous image, the selected card shows the **AssetID** field and  contains a **[Text input](controls/control-text-input.md)** control so that the user can edit the value of that field. (In contrast, the detail screen shows the same field in a **[Label](controls/control-text-box.md)** control, which is read-only.) The **[Text input](controls/control-text-input.md)** control has a **[Default](controls/properties-core.md)** property, which is set to **Parent.Default**. If the user were creating a record instead of editing one, that control would show an initial value that the user can change for the new record.
+In der vorherigen Abbildung zeigt die ausgewählte Karte das **AssetID**-Feld und enthält ein **[Texteingabe](controls/control-text-input.md)**-Steuerelement, sodass der Benutzer den Wert dieses Felds bearbeiten kann. (Der Detailbildschirm zeigt das gleiche Feld im Gegensatz dazu in einem **[Label](controls/control-text-box.md)**-Steuerelement an, das schreibgeschützt ist.) Das **[Texteingabe](controls/control-text-input.md)**-Steuerelement verfügt über eine **[Default](controls/properties-core.md)**-Eigenschaft, die auf **Parent.Default** festgelegt wird. Würde der Benutzer einen Datensatz erstellen anstatt ihn zu bearbeiten, würde dieses Steuerelement einen Anfangswert anzeigen, den der Benutzer durch den neuen Eintrag austauschen kann.
 
-In the right-hand pane, you can show or hide each card, rearrange them, or configure them to show fields in different types of controls.
+Im rechten Bereich können Sie alle Karten ein- oder ausblenden, sie anordnen oder sie so konfigurieren, dass sie Felder in verschiedenen Arten von Steuerelementen anzeigen.
 
-![Edit screen with options pane open](./media/working-with-forms/edit-screen.png)
+![Bearbeitungsbildschirm mit geöffnetem Optionsbereich](./media/working-with-forms/edit-screen.png)
 
-## Build an app from scratch
-By understanding how PowerApps generates an app, you can build one yourself that uses the same building blocks and formulas discussed earlier in this topic.
+## <a name="build-an-app-from-scratch"></a>Eine App von Grund auf neu erstellen
+Wenn Sie verstehen, wie PowerApps eine App generiert, können Sie selbst eine erstellen, die dieselben Bausteine und Formeln verwendet, die weiter oben in diesem Thema erläutert wurden.
 
-## Identify test data
-To get the most from this topic, start with a data source with which you can experiment. It should contain test data that you can read and update without concern.
+## <a name="identify-test-data"></a>Ermitteln von Testdaten
+Um so viel wie möglich aus diesem Thema zu lernen, sollten Sie eine Datenquelle suchen, mit der Sie experimentieren können. Sie sollte Testdaten enthalten, die Sie ohne Bedenken lesen und aktualisieren können.
 
 > [!NOTE]
-> If you use a SharePoint list or an Excel table that contains column names with spaces as your data source, PowerApps will replace the spaces with **"\_x0020\_"**. For example, **"Column Name"** in SharePoint or Excel will appear as **"Column_x0020_Name"** in PowerApps when displayed in the data layout or used in a formula.
+> Bei Verwendung einer SharePoint-Liste oder Excel-Tabelle als Datenquelle, die Spaltennamen mit Leerzeichen enthält, ersetzt PowerApps die Leerzeichen durch **"\_X0020\_"**. **"Name der Spalte"** in SharePoint oder Excel wird beispielsweise in PowerApps bei Anzeige im Datenlayout oder Verwendung in einer Formel als **"Name_x0020_der_x0020_Spalte"** angezeigt.
 
-To follow the rest of this topic exactly, create a SharePoint list named "Ice Cream" that contains this data:
+Um die restlichen Schritte in diesem Thema genau befolgen zu können, erstellen Sie eine SharePoint-Liste namens „Ice Cream“ (Eiscreme), die folgende Daten enthält:
 
-![Ice cream SharePoint list](./media/working-with-forms/sharepointlist-icecream.png)
+![Eiscreme-SharePoint-Liste](./media/working-with-forms/sharepointlist-icecream.png)
 
-* Create an app from blank, for phones, and [connect it to your data source](add-data-connection.md).
+* Erstellen Sie eine Telefon-App von Grund auf, und [verbinden Sie sie mit Ihrer Datenquelle](add-data-connection.md).
   
     > [!NOTE]
-  > Tablet apps are very similar, but you may want a different [screen layout](#screen-design) to make the most of the extra screen space.
+  > Tablet-Apps sind Telefon-Apps sehr ähnlich. Sie können sich aber für ein anderes [Bildschirmlayout](#screen-design) entscheiden, um den zusätzlichen Platz auf dem Bildschirm optimal auszunutzen.
   
-    The examples in the rest of the topic are based on a data source named **Ice Cream**.
+    Die Beispiele im Rest des Themas basieren auf einer Datenquelle namens **Ice Cream**.
 
-## Browse records
-Get a quick piece of information from a record by finding it in a gallery on a browse screen.
+## <a name="browse-records"></a>Durchsuchen von Datensätzen
+Rufen Sie schnelle Informationen aus einem Datensatz ab, indem Sie sie in einem Katalog auf einem Bildschirm zum Durchsuchen suchen.
 
-1. Add a **Vertical** gallery, and change the layout to **Title** only.
+1. Fügen Sie den Katalog **Vertical** hinzu, und ändern Sie nur das Layout in **Titel**.
    
-    ![Gallery connected to Ice Cream data source](./media/working-with-forms/new-gallery.png)
-2. Set the gallery's **[Items](controls/properties-core.md)** property to **Ice Cream**.
-3. Set the **[Text](controls/properties-core.md)** property of the first label in the gallery to **ThisItem.Title** if it's set to something else.
+    ![Mit der Eiscreme-Datenquelle verbundener Katalog](./media/working-with-forms/new-gallery.png)
+2. Legen Sie die **[Items](controls/properties-core.md)**-Eigenschaft des Katalogs auf **Ice Cream** fest.
+3. Legen Sie die **[Text](controls/properties-core.md)**-Eigenschaft der ersten Bezeichnung im Katalog auf **ThisItem.Title** fest, falls diese auf etwas anderes festgelegt ist.
    
-    The label now shows the value in the **Title** field for each record.
+    Die Bezeichnung zeigt jetzt im Feld **Titel** den Wert für jeden Datensatz.
    
-    ![Gallery connected to Ice Cream data source](./media/working-with-forms/new-gallery-2.png)
-4. Resize the gallery to fill the screen, and set its **[TemplateSize](controls/control-gallery.md)** property to **60**.
+    ![Mit der Eiscreme-Datenquelle verbundener Katalog](./media/working-with-forms/new-gallery-2.png)
+4. Ändern Sie die Größe des Katalogs so, dass der Bildschirm eingenommen wird, und legen Sie die **[TemplateSize](controls/control-gallery.md)**-Eigenschaft auf **60** fest.
    
-    The screen resembles this example, which shows all records in the data source:
+    Der Bildschirm ähnelt diesem Beispiel, das alle Datensätze in der Datenquelle zeigt:
    
-    ![Gallery connected to Ice Cream data source](./media/working-with-forms/new-gallery-icecream.png)
+    ![Mit der Eiscreme-Datenquelle verbundener Katalog](./media/working-with-forms/new-gallery-icecream.png)
 
-## View details
-If the gallery doesn't show the information that you want, select the arrow for a record to open the details screen. A **[Display form](controls/control-form-detail.md)** control on that screen shows more, possibly all, fields for the record that you selected.
+## <a name="view-details"></a>Details anzeigen
+Wenn der Katalog die gewünschten Informationen nicht angezeigt, klicken Sie auf den Pfeil für einen Datensatz, um den Bildschirm „Details“ zu öffnen. Ein **[Formular anzeigen](controls/control-form-detail.md)**-Steuerelement auf diesem Bildschirm zeigt mehrere, möglicherweise alle Felder für den Datensatz an, den Sie ausgewählt haben.
 
-The **[Display form](controls/control-form-detail.md)** control uses two properties to display the record:
+Das **[Formular anzeigen](controls/control-form-detail.md)**-Steuerelement verwendet zwei Eigenschaften, um den Datensatz anzuzeigen:
 
-* **[DataSource](controls/control-form-detail.md)** property.  The name of the data source that holds the record. This property populates the right-hand panel with fields and determines the display name and data type (string, number, date, etc.) of each field.  
-* **[Item](controls/control-form-detail.md)** property.  The record to display.  This property is often connected to the **Selected** property of the **[Gallery](controls/control-gallery.md)** control so that the user can select a record in the **[Gallery](controls/control-gallery.md)** control and then drill into that record.
+* **[DataSource](controls/control-form-detail.md)**-Eigenschaft.  Der Name der Datenquelle, die den Datensatz enthält. Diese Eigenschaft füllt den rechten Bereich mit Feldern auf und bestimmt den Anzeigenamen und Datentyp (Zeichenfolge, Zahl, Datum usw.) eines jeden Felds.  
+* **[Item](controls/control-form-detail.md)**-Eigenschaft  Der anzuzeigende Datensatz.  Diese Eigenschaft ist häufig mit der **Selected**-Eigenschaft des **[Katalog](controls/control-gallery.md)**-Steuerelements verbunden, sodass der Benutzer einen Datensatz im **[Katalog](controls/control-gallery.md)**-Steuerelement auswählen und diesen Datensatz dann tiefgreifender analysieren kann.
 
-When the **[DataSource](controls/control-form-detail.md)** property is set, you can add and remove fields through the right-hand pane and change how they're displayed.
+Wenn die **[DataSource](controls/control-form-detail.md)**-Eigenschaft festgelegt ist, können Sie Felder über den rechten Bereich hinzufügen und entfernen sowie ändern, wie die Felder angezeigt werden.
 
-On this screen, users can't intentionally or accidentally change any values of the record. The **[Display form](controls/control-form-detail.md)** control is a read-only control, so it won't modify a record.
+Auf diesem Bildschirm können Benutzer weder absichtlich noch versehentlich Werte des Datensatzes ändern. Das **[Formular anzeigen](controls/control-form-detail.md)**-Steuerelement ist ein schreibgeschütztes Steuerelement, das einen Datensatz nicht ändert.
 
-To add a **[Display form](controls/control-form-detail.md)** control:
+So fügen Sie ein **[Formular anzeigen](controls/control-form-detail.md)**-Steuerelement hinzu:
 
-1. Add a screen, and then add a **[Display form](controls/control-form-detail.md)** control to it
-2. Set the **[DataSource](controls/control-form-detail.md)** property of the form control to **'Ice Cream'**.
+1. Fügen Sie einen Bildschirm hinzu, und fügen Sie dann ein **[Formular anzeigen](controls/control-form-detail.md)**-Steuerelement hinzu.
+2. Legen Sie die **[DataSource](controls/control-form-detail.md)**-Eigenschaft des Formularsteuerelements auf **Ice Cream** fest.
 
-In the right-hand pane, you can select the fields to display on your screen and which type of card to display for each field. As you make changes in the right-hand pane, the **[DataField](controls/control-card.md)** property on each **[Card](controls/control-card.md)** control is set to the field that the user will interact with. Your screen should resemble this example:
+Im rechten Bereich können Sie auswählen, welche Felder auf dem Bildschirm angezeigt werden sollen und welcher Kartentyp für jedes Feld angezeigt werden soll. Wenn Sie Änderungen im rechten Bereich vornehmen, wird die **[DataField](controls/control-card.md)**-Eigenschaft auf jedem **[Karten](controls/control-card.md)**-Steuerelement auf das Feld festgelegt, mit dem der Benutzer interagieren wird. Ihr Bildschirm sollte diesem Beispiel ähneln:
 
-![Display form for Ice Cream data source](./media/working-with-forms/ice-cream-new.png)
+![„Formular anzeigen“ für die Eiscreme-Datenquelle](./media/working-with-forms/ice-cream-new.png)
 
-Finally, we need to connect the **[Display form](controls/control-form-detail.md)** control to the **[Gallery](controls/control-gallery.md)** control so that we can look at details for a specific record.  As soon as we complete setting the **[Item](controls/control-form-detail.md)** property, the first record from the gallery will appear in our form.
+Schließlich muss das **[Formular anzeigen](controls/control-form-detail.md)**-Steuerelement mit dem **[Katalog](controls/control-gallery.md)**-Steuerelement verbunden werden, sodass ein bestimmter Datensatz detaillierter betrachtet werden kann.  Sobald die **[Item](controls/control-form-detail.md)**-Eigenschaft festgelegt ist, wird der erste Datensatz aus dem Katalog im Formular angezeigt.
 
-* Set the **[Item](controls/control-form-detail.md)** property of the **[Display form](controls/control-form-detail.md)** control to **Gallery1.Selected**.
+* Legen Sie die **[Item](controls/control-form-detail.md)**-Eigenschaft des **[Formular anzeigen](controls/control-form-detail.md)**-Steuerelements auf **Gallery1.Selected** fest.
    
-    The details for the selected item appear in the form.
+    Die Details zum ausgewählten Element werden im Formular angezeigt.
    
-    ![Display form for Ice Cream data source, connected to the gallery control](./media/working-with-forms/view-form-select-coconut.png)
+    ![„Formular anzeigen“ für die Eiscreme-Datenquelle, verbunden mit dem Katalog-Steuerelement](./media/working-with-forms/view-form-select-coconut.png)
 
-Great!  We now turn to navigation: how a user opens the details screen from the gallery screen and opens the gallery screen from the details screen.
+Super!  Widmen wir uns jetzt der Navigation: wie ein Benutzer den Detailbildschirm vom Katalogbildschirm und den Katalogbildschirm vom Bildschirm „Details“ aus öffnet.
 
-* Add a **[Button](controls/control-button.md)** control to the screen, set its **[Text](controls/properties-core.md)** property to show **[Back](functions/function-navigate.md)**, and set its **[OnSelect](controls/properties-core.md)** property to **Back()**.
+* Fügen Sie eine **[Schaltflächen](controls/control-button.md)**-Steuerelement auf dem Bildschirm hinzu, legen Sie seine **[Text](controls/properties-core.md)**-Eigenschaft auf das Anzeigen von **[Back](functions/function-navigate.md)** fest, und legen Sie seine **[OnSelect](controls/properties-core.md)**-Eigenschaft auf **Back()** fest.
    
-    This formula returns the user back to the gallery when they finish viewing details.
+    Mit dieser Formel gelangt der Benutzer zurück zum Katalog, wenn er die Details angesehen hat.
 
-    ![Display form for Ice Cream data source with back button](./media/working-with-forms/viewform-icecream-back.png)
+    ![„Formular anzeigen“ für die Eiscreme-Datenquelle mit der Schaltfläche „Zurück“](./media/working-with-forms/viewform-icecream-back.png)
 
-Now, let's return to the **[Gallery](controls/control-gallery.md)** control and add some navigation to our detail screen.
+Kehren wir jetzt zum **[Katalog](controls/control-gallery.md)**-Steuerelement zurück und fügen einige Navigationselemente zu unserem Detailbildschirm hinzu.
 
-1. Switch to the first screen, which is hosting our **[Gallery](controls/control-gallery.md)** control, and select the arrow in the first item in the gallery.
+1. Wechseln Sie zum ersten Bildschirm, auf dem sich das **[Katalog](controls/control-gallery.md)**-Steuerelement befindet, und wählen Sie den Pfeil im ersten Element im Katalog aus.
 
-2. Set the **[OnSelect](controls/properties-core.md)** property of the shape to this formula:
+2. Legen Sie die **[OnSelect](controls/properties-core.md)**-Eigenschaft des Symbols auf die folgende Formel fest:
    <br>**Navigate( Screen2, None )**
    
-    ![Display form for Ice Cream data source with back button](./media/working-with-forms/gallery-icecream-nav-new.png)
+    ![„Formular anzeigen“ für die Eiscreme-Datenquelle mit der Schaltfläche „Zurück“](./media/working-with-forms/gallery-icecream-nav-new.png)
 
-3. Press F5, and then select an arrow in the gallery to show the details for an item.
+3. Drücken Sie F5, und wählen Sie dann einen Pfeil im Katalog aus, um die Details eines Elements anzuzeigen.
 
-4. Select the **[Back](functions/function-navigate.md)** button to return to the gallery of products, and then press Esc.
+4. Wählen Sie die **[Zurück](functions/function-navigate.md)**-Schaltfläche an aus, um zum Produktkatalog zurückzukehren, und drücken Sie die ESC-TASTE.
 
-## Editing details
-Finally, our last core activity is changing the contents of a record, which users accomplish in an **[Edit form](controls/control-form-detail.md)** control.
+## <a name="editing-details"></a>Bearbeiten von Details
+Die letzte Kernaktivität besteht im Ändern des Inhalts eines Datensatzes, was Benutzer mithilfe eines **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelements erreichen.
 
-The **[Edit form](controls/control-form-detail.md)** control uses two properties to display and edit the record:
+Das **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelement verwendet zwei Eigenschaften, um den Datensatz anzuzeigen zu bearbeiten:
 
-* **[DataSource](controls/control-form-detail.md)** property.  The name of the data source that holds the record.  Just as with the **[Display form](controls/control-form-detail.md)** control, this property populates the right-hand panel with fields and determines the display name and data type (string, number, date, etc.) for each field. This property also determines whether each field's value is valid before submitting it to the underlying data source.
-* **[Item](controls/control-form-detail.md)** property.  The record to edit, which is often connected to the **Selected** property of the **[Gallery](controls/control-gallery.md)** control. That way, you can select a record in the **[Gallery](controls/control-gallery.md)** control, show it in the details screen, and edit it in the **Edit and Create** screen.
+* **[DataSource](controls/control-form-detail.md)**-Eigenschaft.  Der Name der Datenquelle, die den Datensatz enthält.  Wie bei dem **[Formular anzeigen](controls/control-form-detail.md)**-Steuerelement füllt diese Eigenschaft den rechten Bereich mit Feldern auf und bestimmt den Anzeigenamen und Datentyp (Zeichenfolge, Zahl, Datum usw.) eines jeden Felds. Diese Eigenschaft bestimmt auch, ob der Wert jedes Felds gültig ist, bevor er an die zugrunde liegende Datenquelle gesendet wird.
+* **[Item](controls/control-form-detail.md)**-Eigenschaft  Der zu bearbeitende Datensatz, der häufig mit der **Selected**-Eigenschaft des **[Katalog](controls/control-gallery.md)**-Steuerelements verbunden ist. Auf diese Weise können Sie einen Datensatz im **[Katalog](controls/control-gallery.md)**-Steuerelement auswählen, auf dem Bildschirm „Details“ anzeigen und auf dem Bildschirm **Bearbeiten und Erstellen** bearbeiten.
 
-To add an **[Edit form](controls/control-form-detail.md)** control:
+So fügen Sie ein **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelement hinzu:
 
-1. Add a screen, add an **[Edit form](controls/control-form-detail.md)** control, and then set the form's **[DataSource](controls/control-form-detail.md)** property to **'Ice Cream'**.
-2. Set the **[Item](controls/control-form-detail.md)** property to **Gallery1.Selected**.
+1. Fügen Sie einem Bildschirm und anschließend ein **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelement hinzu, und legen Sie dann die **[DataSource](controls/control-form-detail.md)**-Eigenschaft des Formulars auf **Ice Cream** fest.
+2. Legen Sie die **[Item](controls/control-form-detail.md)**-Eigenschaft auf **Gallery1.Selected** fest.
 
-You can now select the fields to display on your screen. You can also select which type of card to display for each field. As you make changes in the right-hand pane, the **[DataField](controls/control-card.md)** property on each **[Card](controls/control-card.md)** control is set to the field your user will interact with.  Your screen should resemble this example:
+Sie können nun die Felder auswählen, die auf dem Bildschirm angezeigt werden sollen. Sie können auch den Kartentyp auswählen, der für jedes Feld angezeigt werden soll. Wenn Sie Änderungen im rechten Bereich vornehmen, wird die **[DataField](controls/control-card.md)**-Eigenschaft auf jedem **[Karten](controls/control-card.md)**-Steuerelement auf das Feld festgelegt, mit dem Ihr Benutzer interagieren wird.  Ihr Bildschirm sollte diesem Beispiel ähneln:
 
-![Display form for Ice Cream data source](./media/working-with-forms/icecream-edit.png)
+![„Formular anzeigen“ für die Eiscreme-Datenquelle](./media/working-with-forms/icecream-edit.png)
 
-These two properties are the same as the properties on the **[Display form](controls/control-form-detail.md)** control.  And with these alone, we can display the details of a record.  
+Diese beiden Eigenschaften stimmen mit den Eigenschaften auf dem **[Formular anzeigen](controls/control-form-detail.md)**-Steuerelement überein.  Allein mit diesen Eigenschaften können die Details eines Datensatzes angezeigt werden.  
 
-The **[Edit form](controls/control-form-detail.md)** control goes further by offering the **[SubmitForm](functions/function-form.md)** function to write back changes to the data source. You use this with a button or image control to save a user's changes.
+Das **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelement bietet zudem die Funktion **[SubmitForm](functions/function-form.md)**, mit der Änderungen zurück in die Datenquelle geschrieben werden können. Mithilfe dieser Funktion und einem Schaltflächen- oder Bild-Steuerelement können die Änderungen eines Benutzers gespeichert werden.
 
-* Add a **[Button](controls/control-button.md)** control, set its **[Text](controls/properties-core.md)** property to show **Save**, and set its **[OnSelect](controls/properties-core.md)** property to this formula:<br>
+* Fügen Sie ein **[Schaltflächen](controls/control-button.md)**-Steuerelement hinzu, legen Sie dessen **[Text](controls/properties-core.md)**-Eigenschaft auf **Save** (Speichern) und dessen **[OnSelect](controls/properties-core.md)**-Eigenschaft auf diese Formel fest:<br>
   **SubmitForm( Form1 )**
 
-![Edit form for Ice Cream data source](./media/working-with-forms/edit-icecream-save.png)
+![Bearbeitungsformular für die Eiscreme-Datenquelle](./media/working-with-forms/edit-icecream-save.png)
 
-To add navigation to and from this screen:
+So fügen Sie Navigationselemente zu und von diesem Bildschirm hinzu:
 
-1. Add another **[Button](controls/control-button.md)** control, set its **[Text](controls/properties-core.md)** property to show **Cancel**, and set its **[OnSelect](controls/properties-core.md)** property to this formula: <br>**ResetForm( Form1 ); Back()**
+1. Fügen Sie ein weiteres **[Schaltflächen](controls/control-button.md)**-Steuerelement hinzu, legen Sie dessen **[Text](controls/properties-core.md)**-Eigenschaft auf **Cancel** (Abbrechen) und dessen **[OnSelect](controls/properties-core.md)**-Eigenschaft auf diese Formel fest: <br>**ResetForm( Form1 ); Back()**
    
-    This formula discards any unsaved edits and opens the previous screen.
+    Diese Formel verwirft alle ungespeicherten Änderungen und öffnet den vorherigen Bildschirm.
    
-    ![Display form for Ice Cream data source](./media/working-with-forms/edit-icecream-cancel.png)
-2. Set the **[OnSuccess](controls/control-form-detail.md)** property of the form to **Back()**.
+    ![„Formular anzeigen“ für die Eiscreme-Datenquelle](./media/working-with-forms/edit-icecream-cancel.png)
+2. Legen Sie die **[OnSuccess](controls/control-form-detail.md)**-Eigenschaft des Formulars auf **Back()** fest.
    
-    When updates are successfully saved, the previous screen (in this case, the details screen) opens automatically.
+    Wenn die Updates erfolgreich gespeichert wurden, wird der vorherige Bildschirm (in diesem Fall der Bildschirm „Details“) automatisch geöffnet.
    
-    ![Edit form with added "OnSuccess" rule](./media/working-with-forms/edit-icecream-onsuccess.png)
-3. On the **Display** screen, add a button, set its **[Text](controls/properties-core.md)** property to show **Edit**, and set its **[OnSelect](controls/properties-core.md)** property to this formula:<br> **Navigate( Screen3, None )**
+    ![„Formular bearbeiten“ mit hinzugefügter „OnSuccess“-Regel](./media/working-with-forms/edit-icecream-onsuccess.png)
+3. Fügen Sie auf dem **Display**-Bildschirm (Anzeigen) eine Schaltfläche hinzu, legen Sie deren **[Text](controls/properties-core.md)**-Eigenschaft auf **Edit** (Bearbeiten) und dessen **[OnSelect](controls/properties-core.md)**-Eigenschaft auf diese Formel fest:<br> **Navigate( Screen3, None )**
    
-    ![Display form with added "Edit" button](./media/working-with-forms/viewform-icecream-edit.png)
+    ![„Formular anzeigen“ mit hinzugefügter Schaltfläche „Bearbeiten“](./media/working-with-forms/viewform-icecream-edit.png)
 
-You've built a basic app with three screens for viewing and entering data.  To try it out, show the gallery screen, and then press F5 (or select the forward arrow "Preview" button near the upper-left corner of the screen). The pink dot indicates where the user clicks or taps the screen at each step.
+Sie haben eine grundlegende App mit drei Bildschirmen zum Anzeigen und Eingeben von Daten erstellt.  Um sie zu testen, rufen Sie den Katalog-Bildschirm auf, und drücken Sie dann F5 (oder klicken Sie auf die Vorschauschaltfläche (Rechtspfeil) oben rechts am Bildschirmrand). Die rosa Punkt zeigt an, wo der Benutzer bei jedem Schritt auf den Bildschirm klickt oder tippt.
 
-![Try out the ice cream app](./media/working-with-forms/try-icecream.png)
+![Testen Sie die Eiscreme-App](./media/working-with-forms/try-icecream.png)
 
-## Create a record
-The user interacts with the same **Edit** form to both update and create records. When the user wants to create a record, the **[NewForm](functions/function-form.md)** function switches the form to **New** mode.
+## <a name="create-a-record"></a>Erstellen eines Datensatzes
+Der Benutzer interagiert sowohl zum Aktualisieren als auch zum Erstellen von Datensätzen mit dem gleichen **Bearbeitungsformular**. Wenn der Benutzer einen Datensatz erstellen möchte, wechselt die **[NewForm](functions/function-form.md)**-Funktion den Modus des Formulars auf **New** (Neu).
 
-When the form is in **New** mode, the value of each field is set to the defaults of the data source. The record that's provided to the form's **[Item](controls/control-form-detail.md)** property is ignored.  
+Wenn sich das Formular im Modus **New** befindet, wird der Wert der einzelnen Felder auf die Standardwerte der Datenquelle festgelegt. Der Datensatz für die **[Item](controls/control-form-detail.md)**-Eigenschaft des Formulars wird ignoriert.  
 
-When the user is ready to save the new record, **[SubmitForm](functions/function-form.md)** runs. After the form is successfully submitted, the form is switched back to **EditMode**.  
+Wenn der Benutzer zum Speichern des neuen Datensatzes bereit ist, wird **[SubmitForm](functions/function-form.md)** ausgeführt. Nachdem das Formular erfolgreich gesendet wurde, wechselt das Formular zurück in den Modus **EditMode**.  
 
-On the first screen, you'll add a **New** button:
+Fügen Sie auf dem ersten Bildschirm eine **neue** Schaltfläche hinzu:
 
-1. On the screen with the gallery, add a **[Button](controls/control-button.md)** control.
-2. Set the button's **[Text](controls/properties-core.md)** property to **New** and its **[OnSelect](controls/properties-core.md)** property to this formula:<br>
+1. Fügen Sie auf dem Katalog-Bildschirm ein **[Schaltflächen](controls/control-button.md)**-Steuerelement hinzu.
+2. Legen Sie die **[Text](controls/properties-core.md)**-Eigenschaft der Schaltfläche auf **New** (Neu) und ihre **[OnSelect](controls/properties-core.md)**-Eigenschaft auf diese Formel fest:<br>
    **NewForm( Form1 ); Navigate( Screen3, None )**
    
-    This formula switches the **[Edit form](controls/control-form-detail.md)** control on **Screen3** to **New** mode and opens that screen so that the user can fill it in.
+    Mit dieser Formel wechselt das **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelement auf **Screen3** in den Modus **New** und öffnet den Bildschirm, damit der Benutzer ihn auffüllen kann.
 
-![Display form with added "Edit" button](./media/working-with-forms/gallery-icecream-new.png)
+![„Formular anzeigen“ mit hinzugefügter Schaltfläche „Bearbeiten“](./media/working-with-forms/gallery-icecream-new.png)
 
-When the Edit and Create screen opens, the form is empty, ready for the user to add an item. When the user selects the **Save** button, the **[SubmitForm](functions/function-form.md)** function ensures that a record is created instead of being updated. If the user selects the **Cancel** button, the **[ResetForm](functions/function-form.md)** function switches the form back to **Edit** mode, and the **[Back](functions/function-navigate.md)** function opens the screen for browsing the gallery.
+Wenn sich der Bildschirm „Bearbeiten und Erstellen“ öffnet, ist das Formular leer, und der Benutzer kann Elemente einfügen. Wenn der Benutzer auf die Schaltfläche **Save** klickt, stellt die **[SubmitForm](functions/function-form.md)**-Funktion sicher, dass ein Datensatz erstellt und nicht aktualisiert wird. Wenn der Benutzer auf die Schaltfläche **Cancel** klickt, ändert die **[ResetForm](functions/function-form.md)**-Funktion das Formular in den **Edit**-Modus zurück, und die **[Back](functions/function-navigate.md)**-Funktion öffnet den Bildschirm zum Durchsuchen des Katalogs.
 
-## Delete a record
-1. On the **Display** screen, add a button, and set its **[Text](controls/properties-core.md)** property to show **Delete**..
-2. Set the button's **[OnSelect](controls/properties-core.md)** property to this formula:
+## <a name="delete-a-record"></a>Löschen eines Datensatzes
+1. Fügen Sie auf dem **Display**-Bildschirm (Anzeigen) eine Schaltfläche hinzu, und legen Sie deren **[Text](controls/properties-core.md)**-Eigenschaft auf **Delete** (Löschen) fest.
+2. Legen Sie die **[OnSelect](controls/properties-core.md)**-Eigenschaft auf die folgende Formel fest:
    <br>**Remove( 'Ice Cream', Gallery1.Selected ); Back()**
    
-    ![Display form with added "Edit" button](./media/working-with-forms/viewform-icecream-remove.png)
+    ![„Formular anzeigen“ mit hinzugefügter Schaltfläche „Bearbeiten“](./media/working-with-forms/viewform-icecream-remove.png)
 
-## Handling errors
-In this app, an error occurs when the value of a field is not valid, a required field is blank, you're disconnected from the network, or any number of other problems pop up.  
+## <a name="handling-errors"></a>Behandeln von Fehlern
+In dieser App tritt ein Fehler auf, wenn der Wert eines Felds nicht gültig oder ein erforderliches Feld leer ist, wenn keine Verbindung zum Netzwerk besteht oder wenn andere Probleme auftauchen.  
 
-If **[SubmitForm](functions/function-form.md)** fails for any reason, the **Error** property of the **[Edit form](controls/control-form-detail.md)** control contains an error message to show the user. With this information, the user should be able to correct the issue and resubmit the change, or they can cancel the update.
+Wenn **[SubmitForm](functions/function-form.md)** aus irgendeinem Grund einen Fehler auslöst, enthält die **Error**-Eigenschaft des **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelements eine Fehlermeldung für den Benutzer. Anhand dieser Informationen sollte der Benutzer das Problem beheben und die Änderung erneut übermitteln oder das Update abbrechen können.
 
-1. On the Edit and Create screen, add a **[Label](controls/control-text-box.md)** control, and move it just below the **Save** button. Any error will be easy to see after the user selects this control to save changes.
+1. Fügen Sie auf dem Bildschirm „Bearbeiten und Erstellen“ ein **[Label](controls/control-text-box.md)**-Steuerelement hinzu, und platzieren Sie es direkt unter der Schaltfläche **Speichern**. Alle Fehler sind leicht zu entdecken, nachdem der Benutzer die Änderungen durch einen Klick auf dieses Steuerelement gespeichert hat.
 
-2. Set the **[Text](controls/properties-core.md)** property of the **[Label](controls/control-text-box.md)** control to show **Form1.Error**.
+2. Legen Sie die **[Text](controls/properties-core.md)**-Eigenschaft des **[Label](controls/control-text-box.md)**-Steuerelements auf **Form1.Error** fest.
 
-    ![Display form with added "Edit" button](./media/working-with-forms/edit-icecream-error.png)
+    ![„Formular anzeigen“ mit hinzugefügter Schaltfläche „Bearbeiten“](./media/working-with-forms/edit-icecream-error.png)
 
-In an app that PowerApps generates from data, the **[AutoHeight](controls/control-text-box.md)** property on this control is set to *true* so that no space is consumed if no error occurs. The **[Height](controls/properties-size-location.md)** and **[Y](controls/properties-size-location.md)** properties of the **[Edit form](controls/control-form-detail.md)** control are also adjusted dynamically to account for this control growing when an error occurs. For more details, generate an app from existing data, and inspect these properties. The text-box control for errors is very short when no error has occurred, you may need to open the **Advanced** view (available on the **View** tab) to select this control.
+Die **[AutoHeight](controls/control-text-box.md)**-Eigenschaft auf diesem Steuerelement ist in einer App, die PowerApps aus Daten generiert, auf *TRUE* festgelegt, damit kein Speicherplatz beansprucht wird, wenn kein Fehler auftritt. Die Eigenschaften **[Height](controls/properties-size-location.md)** und **[Y](controls/properties-size-location.md)** des **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelements werden auch dynamisch angepasst, damit dieses Steuerelement wächst, wenn ein Fehler auftritt. Generieren Sie eine App aus bestehenden Daten, und prüfen Sie diese Eigenschaften, um weitere Informationen zu erhalten. Das Textfeld-Steuerelement für Fehler ist sehr kurz, wenn kein Fehler aufgetreten ist, weswegen Sie möglicherweise die Ansicht **Advanced** (Erweitert) (in der Registerkarte **Ansicht**) öffnen müssen, um dieses Steuerelement auszuwählen.
 
-![App from data edit form with error text control selected](./media/working-with-forms/edit-assets-error1.png)
+![App aus dem Datenbearbeitungsformular mit ausgewähltem Fehlertext-Steuerelement](./media/working-with-forms/edit-assets-error1.png)
 
-![App from data edit form with form control selected](./media/working-with-forms/edit-assets-error2.png)
+![App aus dem Datenbearbeitungsformular mit ausgewähltem Formular-Steuerelement](./media/working-with-forms/edit-assets-error2.png)
 
-## Refresh data
-The data source is refreshed whenever the user opens the app, but the user might want to refresh the records in the gallery without closing the app. Add a **Refresh** button so that the user can select it to manually refresh the data:
+## <a name="refresh-data"></a>Aktualisieren von Daten
+Die Datenquelle wird bei jedem Öffnen der App aktualisiert. Manchmal möchten Benutzer die Datensätze im Katalog aber aktualisieren, ohne die App zu schließen. Fügen Sie dazu eine Schaltfläche **Refresh** (Aktualisieren) ein, damit Benutzer Daten manuell aktualisieren können:
 
-1. On the screen with the **[Gallery](controls/control-gallery.md)** control, add a **[Button](controls/control-button.md)** control and set its **[Text](controls/properties-core.md)** property to show **Refresh**.
+1. Fügen Sie auf dem Bildschirm mit dem **[Katalog](controls/control-gallery.md)**-Steuerelement ein **[Schaltflächen](controls/control-button.md)**-Steuerelement hinzu, und legen Sie dessen **[Text](controls/properties-core.md)**-Eigenschaft auf **Refresh** fest.
 
-2. Set the **[OnSelect](controls/properties-core.md)** property of this control to this formula:<br> **Refresh( 'Ice Cream' )**
+2. Legen Sie die Eigenschaft **[OnSelect](controls/properties-core.md)** dieses Steuerelements auf die folgende Formel fest:<br> **Refresh( 'Ice Cream' )**
 
-    ![Refresh the data source](./media/working-with-forms/browse-icecream-refresh.png)
+    ![Aktualisieren der Datenquelle](./media/working-with-forms/browse-icecream-refresh.png)
 
-## Search and sort the gallery
-In the app that PowerApps generated from data, we neglected to discuss two controls at the top of the Browse screen. By using these controls, the user can search for one or more records, sort the list of records in ascending or descending order, or both.
+## <a name="search-and-sort-the-gallery"></a>Durchsuchen und Sortieren des Katalogs
+Bisher wurde noch nicht über zwei Steuerelemente oben im Bildschirm zum Durchsuchen der App gesprochen, die PowerApps aus Daten erstellt. Mithilfe dieser Steuerelemente können Benutzer nach mindestens einem Datensatz suchen und die Liste der Datensätze in aufsteigender oder absteigender Reihenfolge sortieren, oder beides.
 
-![Sorting and searching controls on browse screen](./media/working-with-forms/afd-browse-search-sort.png)
+![Sortieren und Durchsuchen von Steuerelementen auf dem Bildschirm zum Durchsuchen](./media/working-with-forms/afd-browse-search-sort.png)
 
-When the user selects the sort button, the sort order of the gallery reverses. To create this behavior, we use a *context variable* to track the direction in which the gallery is sorted. When the user selects the button, the variable is updated, and the direction reverses. The **[OnSelect](controls/properties-core.md)** property of the sort button is set to this formula:
-**UpdateContext( {SortDescending1: !SortDescending1} )**
+Wenn der Benutzer auf die Sortierschaltfläche klickt, wird die Sortierreihenfolge des Katalogs umgekehrt. Um dieses Verhalten hervorzurufen, verwenden wir eine *Kontextvariable*, um die Richtung zu verfolgen, in der der Katalog sortiert wird. Wenn der Benutzer diese Schaltfläche auswählt, wird die Variable aktualisiert und die Richtung umgekehrt. Die **[OnSelect](controls/properties-core.md)**-Eigenschaft der Sortierschaltfläche wird auf diese Formel festgelegt: **UpdateContext( {SortDescending1: !SortDescending1} )**
 
-The **[UpdateContext](functions/function-updatecontext.md)** function creates the **SortDescending1** context variable if it doesn't already exist. The function will read the value of the variable and set it to the logical opposite by using the **!** operator. If the value is *true*, it becomes *false*. If the value is *false*, it becomes *true*.
+Die **[UpdateContext](functions/function-updatecontext.md)**-Funktion erstellt die **SortDescending1**-Kontextvariable, wenn sie nicht bereits vorhanden ist. Die Funktion liest den Wert der Variablen und legt diesen mithilfe des **!**-Operators auf das logische Gegenteil fest. Wenn der Wert *TRUE* lautet, entspricht die Variable *FALSE*. Wenn der Wert *FALSE* lautet, entspricht die Variable *TRUE*.
 
-The formula for the **[Items](controls/properties-core.md)** property of the **[Gallery](controls/control-gallery.md)** control uses this context variable, along with the text in the **TextSearchBox1** control:
+Die Formel für die **[Items](controls/properties-core.md)**-Eigenschaft des **[Katalog](controls/control-gallery.md)**-Steuerelements verwendet diese Kontextvariable zusammen mit dem Text im **TextSearchBox1**-Steuerelement:
 
     Gallery1.Items = Sort( If( IsBlank(TextSearchBox1.Text),
                                Assets,
@@ -342,27 +347,27 @@ The formula for the **[Items](controls/properties-core.md)** property of the **[
                             ApproverEmail,
                             If(SortDescending1, Descending, Ascending) )
 
-Let's break this down:
+Lassen Sie uns das noch einmal aufgliedern:
 
-* On the outside, we have the **[Sort](functions/function-sort.md)** function, which takes three arguments: a table, a field on which to sort, and the direction in which to sort.  
+* Äußerlich gibt es die **[Sort](functions/function-sort.md)**-Funktion, die drei Argumente annimmt: eine Tabelle, ein Feld, nach dem sortiert wird, und eine Richtung, nach der ebenfalls sortiert wird.  
   
-  * The sort direction is taken from the context variable that toggles when the user selects the **ImageSortUpDown1** control. The *true*/*false* value is translated to the constants **Descending** and **Ascending**.
-  * The field to sort on is fixed to **ApproverEmail**. If you change the fields that appear in the gallery, you'll need to change this argument too.
-* On the inside, we have the **[Filter](functions/function-filter-lookup.md)** function, which takes a table as an argument and an expression to evaluate for each record.
+  * Die Sortierrichtung wird der Kontextvariablen entnommen, die umgeschaltet, wenn der Benutzer das **ImageSortUpDown1**-Steuerelement auswählt. Der Wert *TRUE*/*FALSE* wird in die Konstanten **Descending** (Absteigend) und **Ascending** (Aufsteigend) übersetzt.
+  * Das Feld, nach dem sortiert wird, ist an **ApproverEmail** gebunden. Wenn Sie die Felder ändern, die im Katalog angezeigt werden, müssen Sie auch dieses Argument ändern.
+* Innerlich gibt es die **[Filter](functions/function-filter-lookup.md)**-Funktion, die eine Tabelle als Argument und einen für jeden Datensatz auszuwertenden Ausdruck annimmt.
   
-  * The table is the raw **Assets** data source, which is the starting point before filtering or sorting.
-  * The expression searches for an instance of the string in **TextSearchBox1** within the **ApproverEmail** field.  Again, if you change the fields that appear in the gallery, you'll also need to update this argument.
-  * If **TextSearchBox1** is empty, the user wants to show all records, and the **[Filter](functions/function-filter-lookup.md)** function is bypassed.
+  * Die Tabelle ist die rohe **Assets**-Datenquelle, den Ausgangspunkt vor dem Filtern oder Sortieren darstellt.
+  * Der Ausdruck sucht nach einer Instanz der Zeichenfolge in **TextSearchBox1** innerhalb des **ApproverEmail**-Felds.  Wenn Sie die Felder ändern, die im Katalog angezeigt werden, müssen Sie wie gesagt auch dieses Argument aktualisieren.
+  * Wenn **TextSearchBox1** leer ist, sollen alle Datensätze angezeigt werden, und die **[Filter](functions/function-filter-lookup.md)**-Funktion wird umgangen.
 
-This is but one example; you can craft your own formula for the **[Items](controls/properties-core.md)** property, depending on the needs of your app, by composing **[Filter](functions/function-filter-lookup.md)**, **[Sort](functions/function-sort.md)**, and other functions and operators together.    
+Dies ist nur ein mögliches Beispiel. Sie können je nach den Anforderungen der App eigene Formeln für die **[Items](controls/properties-core.md)**-Eigenschaft erstellen, indem Sie die **[Filter](functions/function-filter-lookup.md)**, **[Sort](functions/function-sort.md)**- und andere Funktionen und Operatoren zusammen erstellen.    
 
-## Screen design
-So far, we haven't discussed other ways to distribute controls across screens. That's because you have many options, and the best selection depends on your specific app's needs.
+## <a name="screen-design"></a>Bildschirmdesign
+Bisher noch nicht wurden die weiteren Möglichkeiten zum Verteilen von Steuerelementen auf Bildschirmen besprochen. Denn Ihnen stehen zahlreiche Optionen zur Verfügung, und die beste Wahl hängt von den spezifischen Anforderungen Ihrer App ab.
 
-Because real estate on phone screens is so limited, you probably want to browse, display, and edit/create on different screens. In this topic, the **[Navigate](functions/function-navigate.md)** and **[Back](functions/function-navigate.md)** functions open each screen.  
+Da der Platz auf dem Bildschirmen von Mobiltelefonen so beschränkt ist, möchten Sie wahrscheinlich auf unterschiedlichen Bildschirmen durchsuchen, anzeigen und bearbeiten/erstellen. In diesem Thema öffnen die Funktionen **[Navigate](functions/function-navigate.md)** und **[Back](functions/function-navigate.md)** die jeweiligen Bildschirme.  
 
-On a tablet, you can browse, display, and edit/create on two or even one screen. For the latter, no **[Navigate](functions/function-navigate.md)** or **[Back](functions/function-navigate.md)** function would be required.
+Auf einem Tablet können Sie auf zwei oder sogar einem Bildschirm durchsuchen, anzeigen und bearbeiten/erstellen. Für Letzteres ist weder die **[Navigate](functions/function-navigate.md)** noch **[Back](functions/function-navigate.md)**-Funktion erforderlich.
 
-If the user is working on the same screen, you need to be careful that the user can't change the selection in the **[Gallery](controls/control-gallery.md)** and potentially lose edits in the **[Edit form](controls/control-form-detail.md)** control.  To keep the user from selecting a different record when changes to another record haven't been saved yet, set the **[Disabled](controls/properties-core.md)** property of the gallery to this formula:<br>
+Wenn der Benutzer an demselben Bildschirm arbeitet, müssen Sie darauf achten, dass der Benutzer die Auswahl im **[Katalog](controls/control-gallery.md)** nicht ändern kann und keine Änderungen im **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelement verloren gehen.  Um zu verhindern, dass den Benutzer einen anderen Datensatz auswählen, wenn Änderungen an einem anderen Datensatz noch gespeichert wurden, legen Sie die **[Disabled](controls/properties-core.md)**-Eigenschaft (Deaktiviert) des Katalogs auf diese Formel fest:<br>
 **EditForm.Unsaved**
 

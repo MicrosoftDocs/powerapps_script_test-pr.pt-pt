@@ -1,6 +1,6 @@
 ---
-title: Value function | Microsoft Docs
-description: Reference information, including syntax, for the Value function in PowerApps
+title: Funktion „Value“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Value“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,45 +9,51 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 1e54072771bf92dc6237620cfbd260cd4af55e22
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42853509"
 ---
-# Value function in PowerApps
-Converts a string of text to a number.
+# <a name="value-function-in-powerapps"></a>Funktion „Value“ in PowerApps
+Konvertiert eine Textzeichenfolge in eine Zahl
 
-## Description
-The **Value** function converts a string of text that contains number characters to a number value. Use this function when you need to perform calculations on numbers that were entered as text by a user.
+## <a name="description"></a>Beschreibung
+Die **Value**-Funktion konvertiert eine Textzeichenfolge, die numerische Zeichen enthält, in einen numerischen Wert. Verwenden Sie diese Funktion, wenn Sie eine Rechnung mit Zahlen durchführen müssen, die von einem Benutzer als Text eingegeben wurden.
 
-Different languages interpret **,** and **.** differently.  By default, the text is interpreted in the language of the current user.  You can specify the language to use with a language tag, using the same language tags that are returned by the **[Language](function-language.md)** function.
+Verschiedene Sprachen interpretieren **,** und **.** unterschiedlich.  Standardmäßig wird der Text in der Sprache des aktuellen Benutzers interpretiert.  Sie können die zu verwendende Sprache mit einem Sprachkennzeichen angeben mithilfe der gleichen Sprachkennzeichen, die auch von der **[Language](function-language.md)**-Funktion zurückgegeben werden.
 
-Notes on the format of the string:
+Hinweise zum Format der Zeichenfolge:
 
-* The string may be prefixed with the currency symbol for the current language.  The currency symbol is ignored.  Currency symbols for other languages are not ignored.
-* The string may be include a percent sign (**%**) at the end, indicating that it is a percentage.  The number will be divided by 100 before being returned.  Percentages and currency symbols cannot be mixed.
-* The string may be in scientific notation, with 12 x 10<sup>3</sup> expressed as "12e3".
+* Für die aktuelle Sprache kann der Zeichenfolge das Währungssymbol vorangestellt werden.  Das Währungssymbol wird ignoriert.  Währungssymbole für andere Sprachen werden nicht ignoriert.
+* Der Zeichenfolge wird eventuell ein Prozentzeichen (**%**) am Ende hinzugefügt, das angibt, dass es sich um einen Prozentsatz handelt.  Die Anzahl wird vor der Rückgabe durch 100 dividiert.  Prozentsätze und Währungssymbolen können nicht kombiniert werden.
+* Die Zeichenfolge kann in wissenschaftlicher Schreibweise sein, in der 12 x 10<sup>3</sup> als "12e3" ausgedrückt wird.
 
-If the number is not in a proper format, **Value** will return *blank*.
+Wenn die Anzahl nicht in einem entsprechenden Format ist, gibt **Value** *blank* zurück.
 
-To convert date and time values, use the [**DateValue**](function-datevalue-timevalue.md), [**TimeValue**](function-datevalue-timevalue.md), or [**DateTimeValue**](function-datevalue-timevalue.md) functions.
+Verwenden Sie zum Konvertieren von Datums-und Uhrzeitwerten die Funktionen [**DateValue**](function-datevalue-timevalue.md), [ **TimeValue**](function-datevalue-timevalue.md) oder [**DateTimeValue**](function-datevalue-timevalue.md).
 
-## Syntax
-**Value**( *String* [, *LanguageTag* ] )
+## <a name="syntax"></a>Syntax
+**Value**(*Zeichenfolge* [,*LanguageTag*])
 
-* *String* - Required. String to convert to a numeric value.
-* *LanguageTag* - Optional.  The language tag in which to parse the string.  If not specified, the language of the current user is used.
+* *Zeichenfolge*: erforderlich. Die Zeichenfolge, die in einen numerischen Wert konvertiert werden soll
+* *LanguageTag*: optional.  Das Sprachkennzeichen, in dem die Zeichenfolge analysiert werden soll.  Standardmäßig wird die Sprache des aktuellen Benutzers verwendet, wenn die Sprache nicht angegeben wurde.
 
-## Examples
-The user running these formulas is located in the United States and has selected English as their language.  The **Language** function is returning "en-US".
+## <a name="examples"></a>Beispiele
+Der Benutzer, der diese Formeln ausführt, befindet sich in den USA und hat Englisch als seine Sprache ausgewählt.  Die Funktion **Language** gibt „en-US“ zurück.
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Value( "123.456" )** |The default language of "en-US" will be used, which uses a period as the decimal separator. |123.456 |
-| **Value( "123.456", "es-ES" )** |"es-ES" is the language tag for Spanish in Spain.  In Spain, a period is a thousands separator. |123456 |
-| **Value( "123,456" )** |The default language of "en-US" will be used, which uses a comma as a thousands separator. |123456 |
-| **Value( "123,456", "es-ES" )** |"es-ES" is the language tag for Spanish in Spain.  In Spain, a comma is the decimal separator. |123.456 |
-| **Value( "12.34%" )** |The percentage sign at the end of the string indicates that this is a percentage. |0.1234 |
-| **Value( "$ 12.34" )** |The currency symbol for the current language is ignored. |12.34 |
-| **Value( "24e3" )** |Scientific notation for 12 x 10<sup>3</sup>. |24000 |
+| **Value( "123.456" )** |Die Standardsprache "En-US" wird verwendet, in der ein Punkt als Dezimaltrennzeichen verwendet wird. |123.456 |
+| **Value( "123.456", "es-ES" )** |"es-ES" steht für Spanisch (Spanien).  In Spanien ist ein Punkt ein Tausendertrennzeichen. |123456 |
+| **Value( "123,456" )** |Die Standardsprache "En-US" wird verwendet, in der ein Komma als Tausendertrennzeichen verwendet wird. |123456 |
+| **Value( "123,456", "es-ES" )** |"es-ES" steht für Spanisch (Spanien).  In Spanien ist das Dezimaltrennzeichen ein Komma. |123.456 |
+| **Value( "12.34%" )** |Das Prozentzeichen am Ende der Zeichenfolge gibt an, dass dies ein Prozentsatz ist. |0.1234 |
+| **Value( "$ 12.34" )** |Das Währungssymbol der aktuellen Sprache wird ignoriert. |12.34 |
+| **Value( "24e3" )** |Wissenschaftliche Schreibweise für 12 x 10<sup>3</sup>. |24000 |
 

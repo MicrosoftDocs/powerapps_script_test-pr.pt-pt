@@ -1,64 +1,70 @@
 ---
-title: Generate a canvas app from Common Data Service for Apps | Microsoft Docs
-description: In PowerApps, automatically generate a canvas app to manage data in Common Data Service for Apps
+title: Generieren einer Canvas-App aus Common Data Service für Apps | Microsoft-Dokumentation
+description: Automatisches Generieren einer Canvas-App in PowerApps zum Verwalten von Daten in Common Data Service für Apps
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: quickstart
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 05/06/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: c8b24c9064e5012ff1ddb15d13dc338ed9565bef
+ms.sourcegitcommit: 02d0234bd84352bf1c43d0fc9225ab60947a0add
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49316767"
 ---
-# Generate a canvas app from Common Data Service for Apps in PowerApps
+# <a name="generate-a-canvas-app-from-common-data-service-for-apps-in-powerapps"></a>Generieren einer Canvas-App aus Common Data Service für Apps in PowerApps
 
-In PowerApps, automatically generate a canvas app based on a list of sample accounts in [Common Data Service (CDS) for Apps](../common-data-service/data-platform-intro.md). In this app, you can browse all accounts, show details of a single account, and create, update, or delete an account.
+Generieren Sie automatisch eine Canvas-App in PowerApps, die auf einer Liste von Beispielkonten in [Common Data Service (CDS) für Apps](../common-data-service/data-platform-intro.md) basiert. In dieser App können Sie alle Konten durchsuchen, Details zu einem einzelnen Konto anzeigen und ein Konto erstellen, aktualisieren oder löschen.
 
-If you're not signed up for PowerApps, [sign up for free](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) before you start.
+Wenn Sie noch nicht bei PowerApps registriert sind, [registrieren Sie sich zuerst kostenlos](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-To follow this quickstart, you must be assigned to the [Environment Maker](https://docs.microsoft.com/power-platform/admin/database-security.md#predefined-security-roles) security role, and you must [switch to an environment](working-with-environments.md) in which a database in CDS for Apps has been created, contains data, and allows updates. If no such environment exists and you have administrative privileges, you can [create an environment](https://docs.microsoft.com/power-platform/admin/environments-administration.md#create-an-environment) that meets this requirement.
+Damit Sie diesem Schnellstart folgen können, müssen Sie [zu einer Umgebung wechseln](working-with-environments.md), in der eine Datenbank in CDS für Apps erstellt wurde, die Daten enthält und Updates zulässt. Wenn keine Umgebung dieser Art vorhanden ist, und Sie über Administratorrechte verfügen, können Sie [eine Umgebung erstellen](../../administrator/environments-administration.md#create-an-environment), die diese Anforderungen erfüllt.
 
-## Generate an app
+## <a name="generate-an-app"></a>Eine App generieren
 
-1. Sign in to [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) and, if necessary, switch environments as specified earlier in this topic.
+1. Melden Sie sich bei [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an, und wechseln Sie gegebenenfalls die Umgebung, wie weiter oben in diesem Thema erläutert.
 
-1. Under **Make your own app**, hover over **Start from data**, and then select **Make this app**.
+1. Zeigen Sie unter **Eigene App erstellen** auf **Mit Daten beginnen**, und wählen Sie dann **Diese App erstellen** aus.
 
-	![Option to create an app](./media/data-platform-create-app/start-from-data.png)
+    ![Option zum Erstellen einer App](./media/data-platform-create-app/start-from-data.png)
 
-1. On the **Common Data Service** tile, select **Phone layout**.
+1. Wählen Sie auf der Kachel **Common Data Service** die Option **Telefonlayout** aus.
 
-	![Connection tile](./media/data-platform-create-app/connection-tile.png)
+    ![Verbindungskachel](./media/data-platform-create-app/connection-tile.png)
 
-1. Under **Choose a table**, select **Accounts**, and then select **Connect**.
+1. Wählen Sie unter **Tabelle auswählen** die Option **Konten** und dann **Verbinden** aus.
 
-1. If the **Welcome to PowerApps Studio** dialog box appears, select **Skip**.
+1. Falls das Dialogfeld **Willkommen bei PowerApps Studio** angezeigt wird, klicken Sie auf **Überspringen**.
 
-Your app opens to the browse screen, which shows a list of accounts in a control called a gallery. Near the top of the screen, a title bar shows icons for refreshing the data in the gallery, sorting the data in the gallery alphabetically, and adding data to the gallery. Under the title bar, a search box provides the option to filter the data in the gallery based on text that you type or paste. 
+Ihre App wird auf dem Bildschirm zum Durchsuchen geöffnet, auf dem eine Liste der Konten im sogenannten Katalog angezeigt wird. Am oberen Rand des Bildschirms wird eine Titelleiste mit Symbolen zum Aktualisieren und alphabetischen Sortieren der Daten im Katalog und Hinzufügen von Daten zum Katalog angezeigt. Unterhalb der Titelleiste können Sie über ein Suchfeld die Daten im Katalog filtern, indem Sie Text eingeben oder einfügen. 
 
-By default, the gallery shows an email address, a city, and an account name. As you'll see in [Next steps](data-platform-create-app.md#next-steps), you can customize the gallery to change how the data appears and even show other types of data.
+Standardmäßig zeigt der Katalog eine E-Mail-Adresse, eine Stadt und einen Kontonamen an. Sie können den Katalog an Ihre Ansprüche anpassen, sodass die Daten anders angezeigt bzw. andere Daten angezeigt werden (dies wird unter [Nächste Schritte](data-platform-create-app.md#next-steps) erläutert).
 
-![Browse screen](./media/data-platform-create-app/browse-screen.png)
+![Bildschirm zum Durchsuchen](./media/data-platform-create-app/browse-screen.png)
 
-## Save the app
-You'll probably want to make more changes before you use this app or share it with others. As a best practice, save your work so far before you proceed.
+## <a name="save-the-app"></a>Speichern der App
+Sie sollten möglicherweise Änderungen vornehmen, bevor Sie diese App verwenden oder für andere freigeben. Es wird empfohlen, dass Sie Ihre bisherige Arbeit speichern, bevor Sie fortfahren.
 
-1. Near the upper-left corner, select the **File** tab.
+1. Wählen Sie in der oberen linken Ecke die Registerkarte **Datei** aus.
 
-1. In the **App settings** page, set the app name to **AppGen**, change the background color to deep red, and change the icon to a checkmark.
+1. Legen Sie auf der Seite **App-Einstellungen** den Namen der App auf **AppGen** fest, ändern Sie die Farbe des Hintergrunds in ein dunkles Rot, und ändern Sie das Symbol in ein Häkchen.
 
-	![App settings page](./media/data-platform-create-app/app-settings.png)
+    ![Seite „App-Einstellungen“](./media/data-platform-create-app/app-settings.png)
 
-1. Near the left edge, select **Save** and then, in the lower-left corner, select **Save**.
+1. Wählen Sie am linken Rand **Speichern** und dann in der unteren linken Ecke **Speichern** aus.
 
-## Next steps
-In this quickstart, you created an app to manage sample data about accounts in CDS for Apps. As a next step, customize the gallery and other elements of the default browse screen to better suit your needs.
+## <a name="next-steps"></a>Nächste Schritte
+In diesem Schnellstart haben Sie eine App für das Verwalten von Beispieldaten zu Konten in CDS für Apps erstellt. Passen Sie im nächsten Schritt den Katalog und andere Elemente des Standardbildschirms zum Durchsuchen Ihren Bedürfnissen an.
 
 > [!div class="nextstepaction"]
-> [Customize a gallery](customize-layout-sharepoint.md).
+> [Katalog anpassen](customize-layout-sharepoint.md)

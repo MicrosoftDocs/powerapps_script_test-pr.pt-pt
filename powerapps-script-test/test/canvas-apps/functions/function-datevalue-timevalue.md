@@ -1,6 +1,6 @@
 ---
-title: DateValue, TimeValue, and DateTimeValue functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the DateValue, TimeValue, and DateTimeValue functions in PowerApps
+title: Funktionen „DateValue“, „TimeValue“ und „DateTimeValue“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „DateValue“, „TimeValue“ und „DateTimeValue“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,87 +9,93 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: c1f11be30f56859ede0950feebc27dd1be39d011
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42834725"
 ---
-# DateValue, TimeValue, and DateTimeValue functions in PowerApps
-Converts a date, a time, or both in a string to a date/time value.
+# <a name="datevalue-timevalue-and-datetimevalue-functions-in-powerapps"></a>Die Funktionen „DateValue“, „TimeValue“ und „DateTimeValue“ in PowerApps
+Konvertiert ein Datum und/oder eine Uhrzeit in einer Zeichenfolge in einen Datum/Uhrzeit-Wert
 
-## Description
-The **DateValue** function converts a date string (for example, "10/01/2014") to a date/time value.
+## <a name="description"></a>Beschreibung
+Die **DateValue**-Funktion konvertiert eine Datumzeichenfolge (z.B. „10/01/2014“) in einen Datum/Uhrzeit-Wert.
 
-The **TimeValue** function converts a time string (for example, "12:15 PM") to a date/time value.
+Die **TimeValue**-Funktion konvertiert eine Uhrzeitzeichenfolge (z.B. „12:15 PM“) in einen Datum/Uhrzeit-Wert.
 
-The **DateTimeValue** functions converts a date and time string (for example, "January 10, 2013 12:13 AM") to a date/time value.
+Die **DateTimeValue**-Funktion konvertiert eine Datums- und Uhrzeitzeichenfolge (z.B. „January 10, 2013 12:13 AM“) in einen Datum/Uhrzeit-Wert.
 
-The **DateValue** function ignores any time information in the date string, and the **TimeValue** function ignores any date information in the time string.
+Die **DateValue**-Funktion ignoriert Zeitinformationen in der Datumzeichenfolge, und die **TimeValue**-Funktion ignoriert Datuminformationen in der Uhrzeitzeichenfolge.
 
-By default, the language used is that of the current user, but you can override this to ensure that strings are interpreted properly. For example, "10/1/1920" is interpreted as October 1<sup>st</sup> in "en" and as January 10<sup>th</sup> in "fr".
+Standardmäßig wird die Sprache des aktuellen Benutzers verwendet; Sie können dies außer Kraft setzen, um sicherzustellen, dass Zeichenfolgen ordnungsgemäß interpretiert werden. Beispielsweise wird „10/1/1920“ als der 1. Oktober in „en“ und als 10. Januar in „fr“ interpretiert.
 
-Dates must be in one of these formats:
+Datumsangaben müssen eines der folgenden Formate aufweisen:
 
-* MM/DD/YYYY
-* DD/MM/YYYY
-* DD Mon YYYY
-* Month DD, YYYY
+* MM/TT/JJJJ
+* TT/MM/JJJJ
+* TT Mon JJJJ
+* Monat DD, YYYY
 
-See the **[Date](function-date-time.md)** and **[Time](function-date-time.md)** functions to convert from numeric components date, month, and year, and hour, minute, and second.
+Weitere Informationen zum Konvertieren der numerischen Komponenten Datum, Monat und Jahr, und Stunde, Minute und Sekunde finden Sie unter den **[Date](function-date-time.md)**- und **[Time](function-date-time.md)**-Funktionen.
 
-Also see [working with dates and times](../show-text-dates-times.md) for more information.
+Weitere Informationen finden Sie unter [Working with dates and times (Arbeiten mit Datums- und Uhrzeitangaben)](../show-text-dates-times.md).
 
-To convert numbers, see the **[Value](function-value.md)** function.
+Informationen zum Konvertieren von Zahlen finden Sie unter der **[Value](function-value.md)**-Funktion.
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **DateValue**( *String* [, *Language* ])<br>**DateTimeValue**( *String* [, *Language* ])<br>**TimeValue**( *String* [, *Language* ])
 
-* *String* - Required.  A text string that contains a date, time, or combination date and time value.
-* *Language* - Optional.  A language string, such as would be returned by the first two characters from the **[Language](function-language.md)** function.  If not provided, the language of the current user's client is used.  
+* *Zeichenfolge*: erforderlich.  Eine Textzeichenfolge, die einen Datum-, Uhrzeit- oder einen Datum/Uhrzeit-Wert enthält.
+* *Sprache*: optional.  Eine Sprachzeichenfolge, wie man sie durch die ersten beiden Zeichen des Rückgabewertes der **[Language](function-language.md)**-Funktion erhält.  Wenn nicht anders angegebenen, wird die Sprache des Clients des aktuellen Benutzers verwendet.  
 
-## Examples
-### DateValue
-If you typed **10/11/2014** into a text-input control named **Startdate** and then set the **[Text](../controls/properties-core.md)** property of a label to this function:
+## <a name="examples"></a>Beispiele
+### <a name="datevalue"></a>DateValue
+Wenn Sie **10/11/2014** in ein Texteingabe-Steuerelement mit dem Namen **StartDate** eingegeben haben, und Sie dann die **[Text](../controls/properties-core.md)**-Eigenschaft einer Bezeichnung für diese Funktion festgelegt haben, gibt es mehrere Möglichkeiten:
 
 * **Text(DateValue(Startdate.Text), DateTimeFormat.LongDate)**
   
-    The label would show **Saturday, October 11, 2014**, if your computer were set to the **en** locale.
+    Die Bezeichnung zeigt **Saturday, October 11, 2014** an, wenn das Gebietsschema Ihres Computers auf **en** festgelegt wurde.
   
     > [!NOTE]
-  > You can use several options, other than **LongDateTime**, with the **DateTimeFormat** parameter. To display a list of those options, type the parameter, followed immediately by an exclamation point, in the function box.
+  > Sie können mehrere Optionen mit dem **DateTimeFormat**-Parameter verwenden, allerdings nicht **LongDateTime**. Geben Sie den Parameter, unmittelbar gefolgt von einem Ausrufezeichen, in das Funktionsfeld ein, um eine Liste dieser Optionen anzuzeigen.
 * **Text(DateValue(Startdate.Text, "fr"), DateTimeFormat.LongDate)**
   
-    The label would show **Monday, November 10, 2014**.
+    Die Bezeichnung zeigt **Monday, November 10, 2014** an.
 
-If you did the same thing on **October 20, 2014**:
+Wenn Sie dasselbe für **October 20, 2014** durchgeführt haben:
 
 * **DateDiff(DateValue(Startdate.Text), Today())**
   
-    If your computer were set to the **en** language, the label would show **9**, indicating the number of days between October 11 and October 20. The **[DateDiff](function-dateadd-datediff.md)** function can also show the difference in months, quarters, or years.
+    Wenn die Sprache Ihres Computers auf **en** festgelegt wurde, zeigt die Bezeichnung **9** an, was die Anzahl der Tage zwischen dem 11. und 20. Oktober ist. Die **[DateDiff](function-dateadd-datediff.md)**-Funktion kann auch die Differenz in Monaten, Quartalen oder Jahren angezeigt.
 
-### DateTimeValue
-If you typed **10/11/2014 1:50:24.765 PM** into a text-input control named **Start** and then set the **[Text](../controls/properties-core.md)** property of a label to this function:
+### <a name="datetimevalue"></a>DateTimeValue
+Wenn Sie **10/11/2014 1:50:24.765 PM** in ein Texteingabe-Steuerelement mit dem Namen **Start** eingegeben haben, und Sie anschließend die **[Text](../controls/properties-core.md)**-Eigenschaft einer Bezeichnung auf folgende Funktion festgelegt haben, gibt es mehrere Möglichkeiten:
 
 * **Text(DateTimeValue(Start.Text), DateTimeFormat.LongDateTime)**
   
-    The label would show **Saturday, October 11, 2014 1:50:24 PM** if your computer were set to the "en" locale.
+    Die Bezeichnung zeigt **Saturday, October 11, 2014 1:50:24 PM**, wenn das Gebietsschema Ihres Computers auf „en“ konfiguriert wurde.
   
     > [!NOTE]
-  > You can use several options, other than **LongDateTime**, with the **DateTimeFormat** parameter. To display a list of those options, type the parameter, followed immediately by an exclamation point, in the function box.
+  > Sie können mehrere Optionen mit dem **DateTimeFormat**-Parameter verwenden, allerdings nicht **LongDateTime**. Geben Sie den Parameter, unmittelbar gefolgt von einem Ausrufezeichen, in das Funktionsfeld ein, um eine Liste dieser Optionen anzuzeigen.
 * **Text(DateTimeValue(Start.Text, "fr"), DateTimeFormat.LongDateTime)**
   
-    The label would show **Monday, November 10, 2014 1:50:24 PM**.
+    Die Bezeichnung zeigt **Monday, November 10, 2014 1:50:24 PM** an.
 * **Text(DateTimeValue(Start.Text), "dddd, mmmm dd, yyyy hh:mm:ss.fff AM/PM")**
   
-    The label would show **Saturday, October 11, 2014 01:50:24:765 PM** if your computer were set to the **en** locale.
+    Die Bezeichnung zeigt **Saturday, October 11, 2014 01:50:24:765 PM**, wenn das Gebietsschema Ihres Computers auf **en** festgelegt ist.
   
-    As an alternative, you can specify **hh:mm:ss.f** or **hh:mm:ss.ff** to round the time to the nearest tenth or hundredth of a second.
+    Als Alternative können Sie **hh:mm:ss.f** oder **hh:mm:ss.ff** angeben, um die Zeit auf das nächste Zehntel oder Hundertstel einer Sekunde zu runden.
 
-### TimeValue
-Name a text-input control **FinishedAt**, and set the **[Text](../controls/properties-core.md)** property of a label to this function:
+### <a name="timevalue"></a>TimeValue
+Benennen Sie ein Texteingabe-Steuerelement **FinishedAt**, und legen Sie die **[Text](../controls/properties-core.md)**-Eigenschaft einer Bezeichnung auf folgende Funktion fest:
 
 **If(TimeValue(FinishedAt.Text)<TimeValue("5:00:00.000 PM"), "You made it!", "Too late!")**
 
-* If you type **4:59:59.999 PM** into the **FinishedAt** control, the label shows "You made it!"
-* If you type **5:00:00.000 PM** into the **FinishedAt** control, the label shows "Too late!"
+* Wenn Sie **4:59:59.999 PM** in das **FinishedAt**-Steuerelement eingegeben haben, zeigt die Bezeichnung „You made it!“ (Geschafft!) an
+* Wenn Sie **5:00:00.000 PM** in das **FinishedAt**-Steuerelement eingeben, zeigt die Bezeichnung „Too late!“ (Zu spät!) an
 

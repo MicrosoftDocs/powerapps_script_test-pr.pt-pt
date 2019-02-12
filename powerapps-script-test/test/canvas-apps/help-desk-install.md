@@ -1,294 +1,298 @@
 ---
-title: Install and configure the Help Desk sample for canvas apps | Microsoft Docs
-description: Step-by-step instructions for, in PowerApps, installing and configuring the Help Desk sample for canvas apps.
-author: mr-dang-msft
+title: Installieren und Konfigurieren des Beispiels „Help Desk“ für Canvas-Apps | Microsoft-Dokumentation
+description: Exemplarische Vorgehensweise zum Installieren und Konfigurieren des Beispiels „Help Desk“ für Canvas-Apps in PowerApps.
+author: caburk
 manager: kvivek
 ms.service: powerapps
 ms.topic: sample
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/08/2018
-ms.author: brdang
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: caburk
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 3945bc2e164d9fa88ee122910d3e15371b9e239e
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42834622"
 ---
-# Install and configure the Help Desk sample in PowerApps
+# <a name="install-and-configure-the-help-desk-sample-in-powerapps"></a>Installieren und Konfigurieren des Beispiels „Help Desk“ in PowerApps
 
-Step-by-step instructions for, in PowerApps, installing and configuring the Help Desk sample for canvas apps.
+Exemplarische Vorgehensweise zum Installieren und Konfigurieren des Beispiels „Help Desk“ für Canvas-Apps in PowerApps.
 
-Estimated time to complete these steps: **10-15 minutes**
-
-> [!TIP]
-> For a demonstration of this process, please watch this [video](https://youtu.be/z4cdtD6hB_4).
-
-## Overview of the sample
-
-Help Desk provides a user-friendly experience to connect end users with support professionals. Quickly find answers to your most important questions, track progress of open tickets, and review details of previous requests. This app requires a small amount of setup to make it your own.
-
-![Opening screen of the Help Desk PowerApp](./media/help-desk-install/Login-screen.png)
+Geschätzte Dauer: **10–15 Minuten**.
 
 > [!TIP]
-> Watch this [video](https://youtu.be/sl5fXwwnvzI) to see how to use the Help Desk PowerApp Sample.
+> Eine Demonstration dieses Vorgangs finden Sie in diesem [Video](https://youtu.be/z4cdtD6hB_4).
 
-## Prerequisites
+## <a name="overview-of-the-sample"></a>Übersicht über das Beispiel
 
-- [Sign up](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) for PowerApps.
-- Must have a valid SharePoint Online license and permission to create lists.
+Help Desk stellt eine benutzerfreundliche Oberfläche bereit, auf der Endbenutzer Supportexperten kontaktieren können. Hier finden Sie schnell Antworten auf Ihre wichtigsten Fragen und können den Status von offenen Tickets nachverfolgen sowie die Einzelheiten früherer Anfragen nachlesen. Diese App erfordert ein geringes Maß an Einrichtung, um sie an Ihre Anforderungen anzupassen.
 
-## Create the HelpDesk SharePoint list
+![Startbildschirm der PowerApps-App „Help Desk“](./media/help-desk-install/Login-screen.png)
 
-This list stores the Help Desk tickets.
+> [!TIP]
+> Sehen Sie sich dieses [Video](https://youtu.be/sl5fXwwnvzI) an, um mehr über die Verwendung der PowerApps-Beispiel-App „Help Desk“ zu erfahren.
 
-1. Open a web browser and navigate to https://portal.office.com.
-2. Log in with an account that has permission to create SharePoint lists.
-3. Navigate to the site collection where you want the HelpDesk list to reside.
-4. Click the **gear icon** in the top right portion of the web page.
-5. Click **Add an app**.
-6. In the **Find an app** textbox, enter **Custom**.
-7. Click the **search icon**.
-8. Click the **Custom List** app.
-9. In the **Name** textbox, enter **HelpDesk**.
+## <a name="prerequisites"></a>Voraussetzungen
 
-	> [!IMPORTANT]
-	> If you choose a different name for the list make sure you write it down because you will need to substitute it for HelpDesk everywhere you see it during the installation and configuration process.
+- [Registrieren Sie sich](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) bei PowerApps.
+- Sie müssen über eine gültige SharePoint Online-Lizenz und Berechtigung zum Erstellen von Listen verfügen.
 
-10. Click **Create**.
+## <a name="create-the-helpdesk-sharepoint-list"></a>Erstellen der HelpDesk-SharePoint-Liste
 
-### Create Description column
+In dieser Liste werden die Help Desk-Tickets gespeichert.
 
-1. Select the ellipsis next to the HelpDesk list and click **Settings**.
-2. Click **Create column**.
-3. In the **Column name** textbox enter **Description**.
-4. In the **type of information in this column is** radio button list, select **Multiple lines of text**.
-5. In the **Require that this column contains information** radio button list, select **Yes**.
-6. In the **Specify the type of text to allow** radio button list, select **Plain text**.
-7. Click **OK**.
+1. Öffnen Sie einen Webbrowser, und navigieren Sie zu https://portal.office.com.
+2. Melden Sie sich mit einem Konto an, das über die Berechtigung zum Erstellen von SharePoint-Listen verfügt.
+3. Navigieren Sie zur Websitesammlung, in der Sie die Liste „HelpDesk“ erstellen möchten.
+4. Klicken Sie auf das **Zahnradsymbol** oben rechts auf der Webseite.
+5. Klicken Sie auf **Add an App** (Eine App hinzufügen).
+6. Geben Sie im Textfeld **Eine App suchen** **Benutzerdefiniert** ein.
+7. Klicken Sie auf das **Lupensymbol**.
+8. Klicken Sie auf die App **Benutzerdefinierte Liste**.
+9. Geben Sie im Textfeld **Name** den Namen **HelpDesk** ein.
 
-### Create Category column
+    > [!IMPORTANT]
+    > Wenn Sie einen anderen Namen für die Liste eingeben, schreiben Sie sich diesen auf, da Sie ihn während der Installation und Konfiguration überall dort eingeben müssen, wo „HelpDesk“ verwendet wird.
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **Category**.
-3. In the **type of information in this column is** radio button list, select **Choice**.
-4. In the **Type each choice on a separate line** textbox enter the following values, each on a separate line: 
-	- LAPTOP / PC equipment issue
-	- LAPTOP / PC software issue
-5. In the **Enforce unique values** radio button list, select **No**.
-6. In the **Display choices using** radio button list, select **Drop-Down Menu**.
-7. In the **Default value** textbox, enter **LAPTOP / PC equipment issue**.
-8. Click **OK**.
+10. Klicken Sie auf **Erstellen**.
 
-### Create PercentComplete column
+### <a name="create-description-column"></a>Erstellen der Spalte „Beschreibung“
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **PercentComplete**.
-3. In the **type of information in this column is** radio button list, select **Number (1, 10, 100)**.
-4. In the **Require that this column contains information** radio button list, select **No**.
-5. Click **OK**.
+1. Klicken Sie auf die Auslassungspunkte neben der HelpDesk-Liste, und klicken Sie auf **Einstellungen**.
+2. Klicken Sie auf **Spalte erstellen**.
+3. Geben Sie im Textfeld **Spaltenname** das Wort **Beschreibung** ein.
+4. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Mehrere Textzeilen**.
+5. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Ja**.
+6. Wählen Sie in der Optionsfeldliste **Specify the type of text to allow** (Zu erlaubender Textyp auswählen) **Nur-Text** aus.
+7. Klicken Sie auf **OK**.
 
-### Create Priority column
+### <a name="create-category-column"></a>Erstellen der Spalte „Kategorie“
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **Priority**.
-3. In the **type of information in this column is** radio button list, select **Choice**.
-4. In the **Type each choice on a separate line** textbox enter the following values, each on a separate line: 
-	- HIGH
-	- MEDIUM
-	- LOW
-5. In the **Enforce unique values** radio button list, select **No**.
-6. In the **Display choices using** radio button list, select **Drop-Down Menu**.
-7. In the **Default value** textbox, enter **LOW**.
-8. Click **OK**.
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** das Wort **Kategorie** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Auswahl**.
+4. Geben Sie im Textfeld **Geben Sie jede Auswahl in einer neuen Zeile ein** die folgenden Werte jeweils in einer neuen Zeile ein: 
+    - LAPTOP/PC Geräteproblem
+    - LAPTOP/PC Softwareproblem
+5. Wählen Sie in der Optionsfeldliste **Eindeutige Werte erzwingen** den Wert **Nein** aus.
+6. Wählen Sie in der Optionsfeldliste **Auswahl anzeigen durch** den Wert **Dropdownmenü** aus.
+7. Geben Sie im Textfeld **Standardwert** den Wert **LAPTOP/PC Geräteproblem** an.
+8. Klicken Sie auf **OK**.
 
-### Create TaskStatus column
+### <a name="create-percentcomplete-column"></a>Erstellen der Spalte „% abgeschlossen“
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **TaskStatus**.
-3. In the **type of information in this column is** radio button list, select **Choice**.
-4. In the **Type each choice on a separate line** textbox enter the following values, each on a separate line: 
-	- NOT STARTED
-	- IN PROGRESS
-	- COMPLETED
-	- DEFERRED
-	- WAITING ON CSR
-5. In the **Enforce unique values** radio button list, select **No**.
-6. In the **Display choices using** radio button list, select **Drop-Down Menu**.
-7. In the **Default value** textbox, enter **NOT STARTED**.
-8. Click **OK**.
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** den Namen **% abgeschlossen** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Number (1, 10, 100)** (Zahl (1, 10, 100)).
+4. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Nein**.
+5. Klicken Sie auf **OK**.
 
-### Create AssignedTo column
+### <a name="create-priority-column"></a>Erstellen der Spalte „Priorität“
 
-1. Click **Create column**.
-2. In the **Column name** textbox enter **AssignedTo**.
-3. In the **type of information in this column is** radio button list, select **Person or Group**.
-4. In the **Require that this column contains information** radio button list, select **No**.
-5. In the **Allow multiple selections** radio button list, select **NO**.
-6. Click **OK**.
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** das Wort **Priorität** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Auswahl**.
+4. Geben Sie im Textfeld **Geben Sie jede Auswahl in einer neuen Zeile ein** die folgenden Werte jeweils in einer neuen Zeile ein: 
+    - HOCH
+    - MITTEL (mittlere Nutzungsdauer)
+    - NIEDRIG
+5. Wählen Sie in der Optionsfeldliste **Eindeutige Werte erzwingen** den Wert **Nein** aus.
+6. Wählen Sie in der Optionsfeldliste **Auswahl anzeigen durch** den Wert **Dropdownmenü** aus.
+7. Geben Sie im Textfeld **Standardwert** den Wert **NIEDRIG** ein.
+8. Klicken Sie auf **OK**.
 
-### Edit 'Title' column
+### <a name="create-taskstatus-column"></a>Erstellen der Spalte „TaskStatus“
 
-1. Click the **Title** column link.
-2. In the **Require that this column contains information** radio button list, select **No**.
-3. Click **OK**.
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** die Zeichenfolge **TaskStatus** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Auswahl**.
+4. Geben Sie im Textfeld **Geben Sie jede Auswahl in einer neuen Zeile ein** die folgenden Werte jeweils in einer neuen Zeile ein: 
+    - NICHT GESTARTET
+    - IN BEARBEITUNG
+    - ABGESCHLOSSEN
+    - ZURÜCKGESTELLT
+    - WARTEN AUF CSR
+5. Wählen Sie in der Optionsfeldliste **Eindeutige Werte erzwingen** den Wert **Nein** aus.
+6. Wählen Sie in der Optionsfeldliste **Auswahl anzeigen durch** den Wert **Dropdownmenü** aus.
+7. Geben Sie im Textfeld **Standardwert** den Wert **NICHT GESTARTET** ein.
+8. Klicken Sie auf **OK**.
 
-## Download the Help Desk PowerApp
+### <a name="create-assignedto-column"></a>Erstellen der Spalte „ZugewiesenAn“
 
-1.	[Download](http://pappsfeprodwestuscontent.blob.core.windows.net/sampleapps/helpdesk/docs/HelpDesk(SP_List).zip) the PowerApps package and save it to your machine.
+1. Klicken Sie auf **Spalte erstellen**.
+2. Geben Sie im Textfeld **Spaltenname** die Zeichenfolge **ZugewiesenAn** ein.
+3. Klicken Sie in der Optionsfeldliste **Type of information in this column is** (Der Informationstyp dieser Spalte ist) auf **Person or Group** (Person oder Gruppe).
+4. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Nein**.
+5. Wählen Sie in der Optionsfeldliste **Mehrfachauswahl zulassen** den Wert **NEIN** aus.
+6. Klicken Sie auf **OK**.
 
-## Create connections
+### <a name="edit-title-column"></a>Bearbeiten der Spalte „Titel“
 
-1.	In a web browser, navigate to [web.powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
-2.	Sign in by providing the same credentials that you used to sign up.
-3.	In the menu on the left, select **Data** then **Connections**.
-	
-### Create Office 365 Outlook connection
+1. Klicken Sie auf den Link zur Spalte **Titel**.
+2. Klicken Sie in der Optionsfeldliste **Require that this column contains information** (Diese Spalte muss Informationen enthalten) auf **Nein**.
+3. Klicken Sie auf **OK**.
 
-1.	Click **+ New connection**.
-2.	In the **Search** textbox, enter **Office 365 Outlook**.
-3.	Select **Office 365 Outlook** in the list.
-4.	Click **Create**.
-5.	In the popup window, select the account you logged in with.
+## <a name="download-the-help-desk-powerapp"></a>Herunterladen der PowerApps-App „Help Desk“
 
-### Create SharePoint connection
+1.  [Laden Sie das PowerApps-Paket herunter](http://pappsfeprodwestuscontent.blob.core.windows.net/sampleapps/helpdesk/docs/HelpDesk(SP_List).zip), und speichern Sie es auf Ihrem Computer.
 
-1.	Click **+ New connection**.
-2.	In the **Search** textbox, enter **SharePoint**.
-3.	Select **SharePoint** in the list.
-4.	Click **Create**.
-5.	In the popup window, select the account you logged in with.
+## <a name="create-connections"></a>Erstellen von Verbindungen
 
-### Create Office 365 Users connection
+1.  Navigieren Sie in einem Webbrowser zu [web.powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
+2.  Melden Sie sich mit denselben Anmeldeinformationen an, die Sie bei der Registrierung verwendet haben.
+3.  Wählen Sie im Menü auf der linken Seite **Daten** und dann **Verbindungen** aus.
+    
+### <a name="create-office-365-outlook-connection"></a>Erstellen einer Office 365 Outlook-Verbindung
 
-1.	Click **+ New connection**.
-2.	In the **Search** textbox, enter **office 365 users**.
-3.	Select **Office 365 Users** in the list.
-4.	Click **Create**.
-5.	In the popup window, select the account you logged in with.
+1.  Klicken Sie auf **+ Neue Verbindung**.
+2.  Geben Sie im **Suchfeld** die Verbindung **Office 365 Outlook** ein.
+3.  Klicken Sie in der Liste auf **Office 365 Outlook**.
+4.  Klicken Sie auf **Erstellen**.
+5.  Wählen Sie im Popupfenster das Konto aus, mit dem Sie sich angemeldet haben.
 
-## Import the Help Desk PowerApp
+### <a name="create-sharepoint-connection"></a>Erstellen einer SharePoint-Verbindung
 
-1. In a web browser, navigate to https://web.powerapps.com.
-2. Sign in by providing the same credentials that you used to sign up.
-3. In the menu on the left, select **Apps**. 
-4. Click **Import package(preview)**.
-	
-   ![Import package screen](./media/help-desk-install/import-package.png)
+1.  Klicken Sie auf **+ Neue Verbindung**.
+2.  Geben Sie in das **Suchfeld** die Verbindung **SharePoint** ein.
+3.  Klicken Sie in der Liste auf **SharePoint**.
+4.  Klicken Sie auf **Erstellen**.
+5.  Wählen Sie im Popupfenster das Konto aus, mit dem Sie sich angemeldet haben.
 
-5. Click the **Upload** button and select the PowerApp package you downloaded in previous steps.
-6. For the **App** and **Flow** resource types, set **IMPORT SETUP** to **Create as new**.
-7. For the **SharePoint** and **Outlook** connections, set **IMPORT SETUP** to **Select during import**.
-	
-   ![Import settings screen](./media/help-desk-install/import-settings.png)
+### <a name="create-office-365-users-connection"></a>Erstellen einer Office 365-Benutzer-Verbindung
 
-8. Click the **red icon** for the **SharePoint Connection**.
-9. In the connections list, click the item with your username.
+1.  Klicken Sie auf **+ Neue Verbindung**.
+2.  Geben Sie im **Suchfeld** die Verbindung **Office 365-Benutzer** ein.
+3.  Wählen Sie in der Liste **Office 365-Benutzer** aus.
+4.  Klicken Sie auf **Erstellen**.
+5.  Wählen Sie im Popupfenster das Konto aus, mit dem Sie sich angemeldet haben.
 
-   ![Import settings screen](./media/help-desk-install/import-settings-sharepoint.png)
+## <a name="import-the-help-desk-powerapp"></a>Importieren der PowerApps-App „Help Desk“
 
-10. Click **Save**.
-11. Click the **red icon** for the **Office 365 Outlook Connection**.
-12. In the connections list, click the item with your username.
+1. Navigieren Sie in einem Webbrowser zu https://web.powerapps.com.
+2. Melden Sie sich mit denselben Anmeldeinformationen an, die Sie bei der Registrierung verwendet haben.
+3. Wählen Sie im Menü auf der linken Seite **Apps** aus. 
+4. Klicken Sie auf **Paket importieren (Vorschau)**.
+    
+   ![Anzeige „Paket importieren“](./media/help-desk-install/import-package.png)
 
-	![Import settings screen](./media/help-desk-install/import-settings-office365outlook.png)
+5. Klicken Sie auf **Hochladen**, und wählen Sie das PowerApps-Paket aus, das Sie in den vorherigen Schritten heruntergeladen haben.
+6. Legen Sie für die Ressourcentypen **App** und **Flow** für **IMPORTEINRICHTUNG** die Option **Als neu erstellen** fest.
+7. Legen Sie für die Verbindungen **SharePoint** und **Outlook** für **IMPORTEINRICHTUNG** die Option **Beim Import auswählen** fest.
+    
+   ![Anzeige „Importeinstellungen“](./media/help-desk-install/import-settings.png)
 
-13. Click **Save**.
+8. Klicken Sie auf das **rote Symbol** für die **SharePoint-Verbindung**.
+9. Klicken Sie in der Verbindungsliste auf das Element mit ihrem Benutzernamen.
 
-	> [!TIP] 
-	> When you are done, it will look like this.
+   ![Anzeige „Importeinstellungen“](./media/help-desk-install/import-settings-sharepoint.png)
 
-	![Import settings screen](./media/help-desk-install/import-settings-done.png)
+10. Klicken Sie auf **Speichern**.
+11. Klicken Sie auf das **rote Symbol** für die **Office 365 Outlook-Verbindung**.
+12. Klicken Sie in der Verbindungsliste auf das Element mit ihrem Benutzernamen.
 
-14.	Click **Import** and wait until the process is complete.
+    ![Anzeige „Importeinstellungen“](./media/help-desk-install/import-settings-office365outlook.png)
 
-	![Import settings screen](./media/help-desk-install/import-done.png)
+13. Klicken Sie auf **Speichern**.
 
-## Configure the PowerApp to use the SharePoint list
+    > [!TIP] 
+    > Anschließend wird Folgendes auf dem Bildschirm angezeigt:
 
-1. Under Next steps, click **Open app**.
-2. Click **Allow** when prompted for permission.
+    ![Anzeige „Importeinstellungen“](./media/help-desk-install/import-settings-done.png)
 
-### Delete connections
+14. Klicken Sie auf **Importieren**, und warten Sie, bis der Vorgang abgeschlossen ist.
 
-1. Click **View**.
-2. Click **Data sources**.
-3. In the **Data** pane, click the **ellipses** next to the **HelpDesk** SharePoint connection.
-4. Click **Remove**.
+    ![Anzeige „Importeinstellungen“](./media/help-desk-install/import-done.png)
 
-### HelpDesk list
+## <a name="configure-the-powerapp-to-use-the-sharepoint-list"></a>Konfigurieren der PowerApps-App, sodass sie die SharePoint-Liste verwendet
 
-1. Click **View**.
-2. Click **Data sources**.
-3. In the **Data** pane, click **+ Add data source**.
-4. Select **SharePoint**.
-5. Click **Create**.
-6. In the **Recent sites** list, select the SharePoint site where you created the HelpDesk List.
+1. Klicken Sie unter „Nächste Schritte“ auf **App öffnen**.
+2. Klicken Sie auf **Zulassen**, wenn Sie dazu aufgefordert werden.
 
-	> [!TIP] 
-	> If the site does not appear in the list, enter the URL to the SharePoint site in the textbox and click, **Go**.
+### <a name="delete-connections"></a>Löschen von Verbindungen
 
-7. In the **Search** textbox at the top of the list enter **HelpDesk**.
-8. Check the checkbox next to the **HelpDesk** list.
-9. Click **Connect**.
+1. Klicken Sie auf **Ansicht**.
+2. Klicken Sie auf **Datenquellen**.
+3. Klicken Sie im Bereich **Daten** auf die **Auslassungspunkte** neben der SharePoint-Verbindung **HelpDesk**.
+4. Klicken Sie auf **Entfernen**.
 
-### Update admin list
+### <a name="helpdesk-list"></a>HelpDesk-Liste
 
-1. Select the **LoginScreen**.
-2. Select **OnStart** in the dropdown.
-3. Expand the formula window and find the **AdminList** collection.
-4. Replace <strong>user@microsoft.com</strong> with your HelpDesk administrator(s).
+1. Klicken Sie auf **Ansicht**.
+2. Klicken Sie auf **Datenquellen**.
+3. Klicken Sie im Bereich **Daten** auf **Datenquelle hinzufügen**.
+4. Wählen Sie **SharePoint** aus.
+5. Klicken Sie auf **Erstellen**.
+6. Wählen Sie in der Liste **Zuletzt geöffnete Websites** die SharePoint-Website aus, auf der Sie die HelpDesk-Liste erstellt haben.
 
-	![Update Admin list](./media/help-desk-install/Change-admin.png)
-	
+    > [!TIP] 
+    > Wenn die Website nicht in der Liste angezeigt wird, geben Sie die URL der SharePoint-Website im Testfeld ein, und klicken Sie auf **Los**.
+
+7. Geben Sie im **Suchfeld** über der Liste **HelpDesk** ein.
+8. Aktivieren Sie das Kontrollkästchen neben der **HelpDesk**-Liste.
+9. Klicken Sie auf **Verbinden**.
+
+### <a name="update-admin-list"></a>Aktualisieren der Administratorliste
+
+1. Klicken Sie auf **LoginScreen** (Startseite).
+2. Wählen Sie in der Dropdownliste **OnStart** (Beim Start) aus.
+3. Erweitern Sie das Formelfenster, und suchen die Sammlung **AdminList**.
+4. Ersetzen Sie <strong>user@microsoft.com</strong> durch Ihre HelpDesk-Administratoren.
+
+    ![Aktualisieren der Administratorliste](./media/help-desk-install/Change-admin.png)
+    
    > [!TIP]
-   > If you have more than 1 admin, please use a comma to delimit the admin.  Example:
-   > "admin1@microsoft.com","admin2@microsoft.com".
-   > To ensure the addresses in the AdminList match the format PowerApps expects, select
-   > View > Variables > Global > MyProfile and look at the 'Mail' column to see the expected email format.
+   > Wenn Sie über mehr als einen Administrator verfügen, trennen Sie die Auflistung durch ein Komma ab.  Beispiel: "admin1@microsoft.com","admin2@microsoft.com".
+   > Sehen Sie sich unter „Ansicht“ > „Variablen“ > „Global“ > „MyProfile“ (Mein Profil) in der Spalte „E-Mail“ das E-Mail-Format an, um zu überprüfen, ob die Adressen in „AdminList“ dem von PowerApps erwarteten Format entsprechen.
 
-5. Click **File**.
-6. Click **Save**.
-7. Click **Publish**.
-8. Click **Publish this version**.
+5. Klicken Sie auf **Datei**.
+6. Klicken Sie auf **Speichern**.
+7. Klicken Sie auf **Veröffentlichen**.
+8. Klicken Sie auf **Diese Version veröffentlichen**.
 
-## Modify the Flow
+## <a name="modify-the-flow"></a>Ändern des Flows
 
-1.	In the menu on the left, click **Flows**.
-2.	If prompted to sign in, sign in by providing the same credentials that you used to sign up.
-3.	Select **My flows** in the top menu.
-4.	Next to the **HelpDeskFlow** Flow, click the **pencil icon**. 
+1.  Klicken Sie links im Menü auf **Flows**.
+2.  Wenn Sie dazu aufgefordert werden, melden Sie sich mit denselben Anmeldeinformationen an, die Sie bei der Registrierung verwendet haben.
+3.  Wählen Sie im oberen Menü **Meine Flows** aus.
+4.  Klicken Sie neben dem Flow **HelpDeskFlow** auf das **Stiftsymbol**. 
  
-	![Edit Flow screen](./media/help-desk-install/edit-flow.png)
+    ![Anzeige „Flow bearbeiten“](./media/help-desk-install/edit-flow.png)
 
-5.	Expand the **Get items** action. 
-6.	Change the **Site Address** and **List Name** to match the HelpDesk SharePoint list you created.
-	
-	![Edit Flow screen](./media/help-desk-install/edit-flow-getitems.png)
+5.  Erweitern Sie die Aktion **Elemente abrufen**. 
+6.  Passen Sie die **Websiteadresse** und den **Listennamen** so an, dass sie der HelpDesk-SharePoint-Liste entsprechen, die Sie erstellt haben.
+    
+    ![Anzeige „Flow bearbeiten“](./media/help-desk-install/edit-flow-getitems.png)
 
-	> [!TIP] 
-	> You don’t need to type it manually, you can choose it in the dropdown lists.
+    > [!TIP] 
+    > Sie müssen keine manuelle Angabe machen, sondern können in der Dropdownliste eine Auswahl treffen.
 
-7.	Expand the **Switch**.
-8.	Expand the **NOT STARTED** case.
-9.  Expand the **Case not started** action.
-10.	Change the **To** to match the HelpDesk admin email.
+7.  Erweitern Sie den **Schalter**.
+8.  Erweitern Sie den Fall **NICHT GESTARTET**.
+9.  Erweitern Sie die Aktion **Case not started** (Fall nicht gestartet).
+10. Ändern Sie das Feld **An**, sodass der Inhalt der E-Mail-Adresse des HelpDesk-Administrators entspricht.
 
-	![Edit Flow screen](./media/help-desk-install/edit-flow-condition-send-email.png) 
+    ![Anzeige „Flow bearbeiten“](./media/help-desk-install/edit-flow-condition-send-email.png) 
 
-11.	Click **Update flow**.
+11. Klicken Sie auf **Flow aktualisieren**.
 
-## Play the PowerApp
+## <a name="play-the-powerapp"></a>Wiedergeben der PowerApps-App
 
-1. In the web browser, click **Apps**.
-2. Click the **ellipses** next to the Help Desk PowerApp.
-3. Click **Open**. 
+1. Klicken Sie im Webbrowser auf **Apps**.
+2. Klicken Sie auf die **Auslassungspunkte** neben der PowerApps-App „Help Desk“.
+3. Klicken Sie auf **Öffnen**. 
 
 > [!TIP]
-> Watch this [video](https://youtu.be/sl5fXwwnvzI) to see how to use the Help Desk PowerApp Sample.
+> Sehen Sie sich dieses [Video](https://youtu.be/sl5fXwwnvzI) an, um mehr über die Verwendung der PowerApps-Beispiel-App „Help Desk“ zu erfahren.
 
 
-## Next steps
-- [Customize a SharePoint list form](https://docs.microsoft.com/powerapps/maker/canvas-apps/customize-list-form)
-- [Add and configure a control](https://docs.microsoft.com/powerapps/maker/canvas-apps/add-configure-controls)
-- [Edit and manage permissions for a SharePoint list or library](https://support.office.com/en-us/article/edit-and-manage-permissions-for-a-sharepoint-list-or-library-02d770f3-59eb-4910-a608-5f84cc297782)
+## <a name="next-steps"></a>Nächste Schritte
+- [Anpassen eines SharePoint-Listenformulars mit PowerApps](https://docs.microsoft.com/powerapps/maker/canvas-apps/customize-list-form)
+- [Hinzufügen und Konfigurieren eines Steuerelements in PowerApps](https://docs.microsoft.com/powerapps/maker/canvas-apps/add-configure-controls)
+- [Bearbeiten und Verwalten von Berechtigungen für eine SharePoint-Liste oder -Bibliothek](https://support.office.com/en-us/article/edit-and-manage-permissions-for-a-sharepoint-list-or-library-02d770f3-59eb-4910-a608-5f84cc297782)
  

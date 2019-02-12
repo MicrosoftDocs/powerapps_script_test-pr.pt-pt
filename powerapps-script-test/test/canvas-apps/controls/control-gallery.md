@@ -1,6 +1,6 @@
 ---
-title: 'Gallery control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Gallery control
+title: 'Bildkatalog-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, über das Bildkatalog-Steuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,132 +9,110 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 05/25/2017
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 710bc4a11e4de9921e0efa077cb0e18f58f09cb5
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42831502"
 ---
-# Gallery control in canvas apps
+# <a name="gallery-control-in-powerapps"></a>Bildkatalog-Steuerelement in PowerApps
+Ein Steuerelement, das andere Steuerelemente enthält und einen Datensatz anzeigt.
 
-A control that contains other controls and shows a set of data.
+## <a name="description"></a>Beschreibung
+Ein **Bildkatalog**-Steuerelement kann mehrere Datensätze aus einer Datenquelle darstellen. Jeder Datensatz kann mehrere Datentypen enthalten. Ein **Bildkatalog**-Steuerelement kann beispielsweise mehrere Kontakte darstellen, wobei jedes Element Kontaktdaten wie den Namen, eine Adresse und eine Telefonnummer umfasst. Jedes Datenfeld wird in einem eigenen Steuerelement innerhalb des **Bildkatalog**-Steuerelements angezeigt. Sie können diese Steuerelemente mithilfe dieser Vorlage konfigurieren. Die Vorlage wird im Bildkatalog als erstes Element angezeigt. Sie finden sie am linken Rand des **Bildkatalog**-Steuerelements (Querformat bzw. horizontale Ausrichtung) bzw. an der Oberseite des **Bildkatalog**-Steuerelements (Hochformat bzw. vertikale Ausrichtung). Änderungen an der Vorlage beziehen sich auf das **Bildkatalog**-Steuerelement insgesamt.
 
-## Description
+Es stehen vordefinierte Bildkatalog-Vorlagen für die Darstellung von Bildern, von Text und von Elementen mit unterschiedlicher Höhe zur Verfügung.
 
-A **Gallery** control can show multiple records from a data source, and each record can contain multiple types of data. For example, a **Gallery** control can show multiple contacts with each item showing contact information that includes a name, an address, and a phone number for each contact. Each data field appears in a separate control within the **Gallery** control, and you can configure those controls in its template. The template appears as the first item inside the gallery, on the left edge of a **Gallery** control in horizontal/landscape orientation and at the top of a **Gallery** control in vertical/portrait orientation. Any changes that you make in the template are reflected throughout the **Gallery** control.
+## <a name="key-properties"></a>Haupteigenschaften
+**[Default:](properties-core.md)** Das Element oder der Datensatz aus der Datenquelle, das bzw. der beim Starten der App im Katalog ausgewählt werden soll.
 
-Predefined templates for showing images and text in a gallery are available, as well as a gallery for variable-height items.
+**[Items](properties-core.md)**: Die Quelle der Daten, die in einem Steuerelement angezeigt werden, z.B. ein Katalog, eine Liste oder ein Diagramm.
 
-## Limitations
+**Selected** – Das ausgewählte Element.
 
-If a user scrolls the **Flexible height** gallery control before all items are loaded, the item that's currently in view may be pushed down and out of view when the data loading is finished. To avoid this issue, use a standard **Gallery** control instead of the **Flexible height** variant.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[AccessibleLabel](properties-accessibility.md)**: Bezeichnung für Sprachausgaben Sollte die Elementliste beschreiben.
 
-## Key properties
+**AllItems** – Alle Elemente eines Katalogs, einschließlich zusätzlicher Steuerelementwerte, die Teil der Vorlage des Katalogs sind.
 
-**[Default](properties-core.md)** – The item or record from the data source to be selected in the gallery when the app starts up.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[Items](properties-core.md)** – The source of data that appears in a control such as a gallery, a list, or a chart.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**Selected** – The selected item.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-## Additional properties
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[AccessibleLabel](properties-accessibility.md)** – Label of the gallery (not the items it contains) for screen readers. Should describe what the list of items are.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**AllItems** – All items in a gallery, including additional control values that are a part of the gallery's template.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**Layout** – Gibt an, ob der Benutzer in einem Katalog scrollen oder einen Schieberegler von oben nach unten (**Vertical**) oder von links nach rechts (**Horizontal**) verschieben muss.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**NavigationStep** – Gibt an, wie weit in einem Katalog gescrollt werden kann, wenn die **ShowNavigation**-Eigenschaft auf **true** festgelegt ist und der Benutzer am Ende des Katalogs jeweils einen Navigationspfeil verwendet.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**ShowNavigation** – Gibt an, ob in einem Katalog an beiden Enden ein Pfeil angezeigt wird, damit Benutzer durch die Elemente scrollen können, indem Sie auf einen Pfeil klicken oder tippen.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**ShowScrollbar** – Gibt an, ob eine Bildlaufleiste angezeigt wird, wenn Benutzer auf einen Katalog zeigen.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**Snap** – Gibt an, ob in einem Katalog ein automatischer Sprung zum nächsten vollständigen Element durchgeführt wird, wenn Benutzer durch den Katalog scrollen.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**TemplateFill** – Die Hintergrundfarbe eines Katalogs.
 
-**ItemAccessibleLabel** – Label of each gallery item for screen readers. Should describe what each item is.
+**TemplatePadding** – Der Abstand zwischen den Elementen eines Katalogs.
 
-**Layout** – Whether the user scrolls through a gallery or adjusts a slider top to bottom (**Vertical**) or left to right (**Horizontal**).
+**TemplateSize** – Die Höhe der Vorlage für einen Katalog im Hochformat (vertikal) bzw. die Breite der Vorlage für einen Katalog im Querformat (horizontal).
 
-**NavigationStep** – How far a gallery scrolls if its **ShowNavigation** property is set to **true** and the user selects a navigation arrow at either end of that gallery.
+**Transition** – Der visuelle Effekt (**Pop**, **Push** oder **None**), wenn Benutzer im Katalog auf ein Element zeigen.
 
-**Selectable** – Whether gallery items can be selected. When set to **true**, screen readers identify the gallery as a selectable list, and you select an item by clicking or tapping it. When set to **false**, screen readers identify the gallery as a regular list, and clicking or tapping an item doesn't select it.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**ShowNavigation** – Whether an arrow appears at each end of a gallery so that a user can scroll through the items in the gallery by clicking or tapping an arrow.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**ShowScrollbar** – Whether a scrollbar appears when the user hovers over a gallery.
+**WrapCount** – Die Anzahl der in einer Zeile oder Spalte angezeigten Elemente (je nachdem, ob ein horizontales oder vertikales Layout verwendet wird).
 
-**Snap** – Whether, when a user scrolls through a gallery, it automatically snaps so that the next item appears in full.
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**TemplateFill** – The background color of a gallery.
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**TemplatePadding** – The distance between items in a gallery.
-
-**TemplateSize** – The height of the template for a gallery in vertical/portrait orientation or the width of the template for a gallery in horizontal/landscape orientation.
-
-**Transition** – The visual effect (**Pop**, **Push**, or **None**) when the user hovers over an item in a gallery.
-
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
-
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
-
-**WrapCount** – Number of items shown per row or column based on horizontal or vertical layout.
-
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
-
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
-
-## Related functions
-
+## <a name="related-functions"></a>Verwandte Funktionen
 [**Filter**( *DataSource*, *Formula* )](../functions/function-filter-lookup.md)
 
-## Examples
+## <a name="examples"></a>Beispiele
+### <a name="show-and-filter-data"></a>Anzeigen und Filtern von Daten
+* [Anzeigen von Text](control-text-box.md#show-data-in-a-gallery)
+* [Anzeigen von Bildern](control-image.md#show-a-set-of-images-from-a-data-source)
+* [Filtern von Daten mithilfe einer Listenoption](control-drop-down.md#example)
+* [Filtern von Daten mithilfe eines Schiebereglers](control-slider.md#example)
 
-### Show and filter data
+### <a name="get-data-from-the-user"></a>Abrufen von Daten eines Benutzers
+* [Abrufen von Text](control-text-input.md#collect-data)
+* [Abrufen von Bildern](control-add-picture.md#add-images-to-an-image-gallery-control)
+* [Abrufen von Fotos](control-camera.md#example)
+* [Abrufen von Tönen](control-microphone.md#example)
+* [Abrufen von Zeichnungen](control-pen-input.md#create-a-set-of-images)
 
-* [Show text](control-text-box.md#show-data-in-a-gallery)
-* [Show images](control-image.md#show-a-set-of-images-from-a-data-source)
-* [Filter data by selecting a list option](control-drop-down.md#example)
-* [Filter data by adjusting a slider](control-slider.md#example)
 
-### Get data from the user
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+Wenn ein Katalogelement aktiviert wird, indem man auf eine beliebige Stelle klickt, muss zwischen den folgenden Elementen ein angemessener Farbkontrast vorhanden sein:
+* Zwischen **[BorderColor](properties-color-border.md)** und der Farbe außerhalb des Katalogs, wenn es einen Rahmen gibt
+* Zwischen **[Fill](properties-color-border.md)** und der Farbe außerhalb des Katalogs, wenn es keinen Rahmen gibt
 
-* [Get text](control-text-input.md#collect-data)
-* [Get images](control-add-picture.md#add-images-to-an-image-gallery-control)
-* [Get photos](control-camera.md#example)
-* [Get sounds](control-microphone.md#example)
-* [Get drawings](control-pen-input.md#create-a-set-of-images)
-
-## Accessibility guidelines
-
-### Color contrast
-
-If clicking anywhere in a gallery item is meant to select it, there must be adequate color contrast between:
-
-* **[BorderColor](properties-color-border.md)** and the color outside the gallery (if there is a border)
-* **[Fill](properties-color-border.md)** and the color outside the gallery (if there is no border)
-
-### Screen reader support
-
-* **[AccessibleLabel](properties-accessibility.md)** must be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **[AccessibleLabel](properties-accessibility.md)** muss vorhanden sein.
 
     > [!NOTE]
-    > Screen readers will announce when items in the gallery change. The **AccessibleLabel** is also mentioned. This gives context to the announcement and is even more important when there are multiple galleries on the same screen.
+  > Die Sprachausgabe meldet, wenn Elemente im Katalog verändert werden. **AccessibleLabel** wird ebenfalls erwähnt. Dadurch wird die Meldung in einen Kontext gesetzt und hat eine noch wichtigere Funktion, wenn mehrere Kataloge gleichzeitig angezeigt werden.
 
-* When a gallery item contains multiple controls, use **ItemAccessibleLabel** to summarize the gallery item's contents.
-
-* Set the value of **Selectable** to **true** if you want users to select a gallery item. Otherwise, set that value to **false**.
-
-* When a gallery item contains multiple controls, use **ItemAccessibleLabel** to provide a summary of the gallery item's contents.
-
-* **Selectable** should be set appropriately, depending on whether users are meant to select a gallery item.
-
-### Keyboard support
-
-* Consider setting **ShowScrollbar** to **true**. On most touch screen devices, the scrollbar will not show until scrolling begins.
-* If clicking anywhere in a gallery item is meant to select it, there must also be way for keyboard users to select the gallery item. For example, adding a **[Button](control-button.md)** that has its **OnSelect** property set to **Select(Parent)**.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* Sie sollten **ShowScrollbar** auf **TRUE** festlegen. Auf den meisten Geräten mit Touchscreen wird die Scrollleiste erst angezeigt, wenn der Benutzer mit dem Scrollen beginnt.
+* Wenn ein Katalogelement aktiviert wird, indem man auf eine beliebige Stelle klickt, muss es auch eine Möglichkeit für Tastaturbenutzer geben, dieses Katalogelement auszuwählen. Sie können z.B. eine **[Schaltfläche](control-button.md)** hinzufügen, für die die **OnSelect**-Eigenschaft auf **Select(Parent)** festgelegt ist.
 
     > [!NOTE]
-  > Controls outside the gallery are not considered in the keyboard navigation order within the gallery. **[TabIndex](properties-accessibility.md)** of controls inside a gallery are scoped. See [accessibility properties](properties-accessibility.md) to learn more.
+  > Steuerelemente, die sich außerhalb des Katalogs befinden, werden nicht in der Reihenfolge der Tastaturnavigation innerhalb des Katalogs abgefragt. Die **[TabIndex](properties-accessibility.md)**-Eigenschaft von Steuerelementen innerhalb eines Katalogs ist eingeschränkt. Weitere Informationen finden Sie unter [Eigenschaften von Bedienungshilfen in PowerApps](properties-accessibility.md).

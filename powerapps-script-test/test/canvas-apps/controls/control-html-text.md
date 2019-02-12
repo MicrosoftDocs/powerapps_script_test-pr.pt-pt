@@ -1,6 +1,6 @@
 ---
-title: 'HTML text control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the HTML text control
+title: 'HTML-Textsteuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispielen, über das HTML-Textsteuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,91 +9,97 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: d41ef04d3cd070373f6772bdfced029a7d09e244
+ms.sourcegitcommit: ebd39753e2a0b60c1d8c016e38c00dd1accf5d0c
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49307859"
 ---
-# HTML text control in PowerApps
-A box that shows text and converts HTML tags to formatting.
+# <a name="html-text-control-in-powerapps"></a>HTML-Textsteuerelement in PowerApps
+Ein Feld, in dem Text angezeigt wird und in dem HTML-Tags in Textformatierungen konvertiert werden.
 
-## Description
-An **HTML text** control not only shows plain text and numbers but also converts HTML tags, such as non-breaking spaces.
+## <a name="description"></a>Beschreibung
+In einem Steuerelement für **HTML-Text** werden nicht nur Klartext und Zahlen angezeigt, sondern auch HTML-Tags konvertiert, wie etwa geschützte Leerzeichen.
 
-## Key properties
-**[Color](properties-color-border.md)** – The color of text in a control.
+## <a name="key-properties"></a>Haupteigenschaften
+**[Color](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement.
 
-**[Font](properties-text.md)** – The name of the family of fonts in which text appears.
+**[Font](properties-text.md)** – Der Name der Schriftfamilie des angezeigten Texts.
 
-**HtmlText** – Text that appears in an HTML text control and that may contain HTML tags.
+**HtmlText**: Text, der in einem HTML-Textsteuerelement angezeigt wird und HTML-Tags enthalten kann.
 
-## Additional properties
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[DisabledBorderColor](properties-color-border.md)** – The color of a control's border if the control's **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledBorderColor](properties-color-border.md)**: Die Farbe des Steuerelementrahmens, wenn die **[DisplayMode](properties-core.md)**-Eigenschaft des Steuerelements auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledFill](properties-color-border.md)** – The background color of a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledFill](properties-color-border.md)**: Die Hintergrundfarbe eines Steuerelements, wenn dessen **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[HoverBorderColor](properties-color-border.md)** – The color of a control's border when the user keeps the mouse pointer on that control.
+**[HoverBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über das Steuerelement hält.
 
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**[PaddingBottom](properties-size-location.md)** – The distance between text in a control and the bottom edge of that control.
+**[PaddingBottom](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem unteren Rand des Steuerelements.
 
-**[PaddingLeft](properties-size-location.md)** – The distance between text in a control and the left edge of that control.
+**[PaddingLeft](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem linken Rand des Steuerelements.
 
-**[PaddingRight](properties-size-location.md)** – The distance between text in a control and the right edge of that control.
+**[PaddingRight](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem rechten Rand des Steuerelements.
 
-**[PaddingTop](properties-size-location.md)** – The distance between text in a control and the top edge of that control.
+**[PaddingTop](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem oberen Rand des Steuerelements.
 
-**[Size](properties-text.md)** – The font size of the text that appears on a control.
+**[Size](properties-text.md)** – Der Schriftgrad des Texts, der in einem Steuerelement angezeigt wird.
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[QuickInfo](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## Related functions
+## <a name="related-functions"></a>Verwandte Funktionen
 [**Find**( *FindString*, *WithinString* )](../functions/function-find.md)
 
-## Example
-1. Add a **[Label](control-text-box.md)** control, name it **Source**, and set its **[Text](properties-core.md)** property to this string:
+## <a name="example"></a>Beispiel
+1. Fügen Sie ein **[Label](control-text-box.md)**-Steuerelement (Bezeichnung) hinzu, geben Sie ihm den Namen **Quelle**, und geben Sie als Wert für die **[Text](properties-core.md)**-Eigenschaft diese Zeichenfolge ein:
 
-"\<p>We've\&nbsp;done an unusually \&quot;deep\&quot; globalization and localization.\<p>"
+„\<p> Uns ist eine besonders \&nbsp; \&quot; weitreichende \&quot; Globalisierung und Lokalisierung gelungen.\<p>“
 
-Don't know how to [add, name, and configure a control](../add-configure-controls.md)?
+Möchten Sie wissen, wie Sie [ein Steuerelement hinzufügen, benennen und konfigurieren](../add-configure-controls.md)?
 
-1. Add an **HTML text** control, and set its **HtmlText** property to this value:<br>
+1. Fügen Sie ein **HTML-Text**-Steuerelement hinzu, und legen Sie die **HtmlText**-Eigenschaft auf diesen Wert fest:<br>
    **Source.Text**
    
-     The **HTML text** control shows the same text as the **[Label](control-text-box.md)** control but converts the tags to the appropriate characters.
+     Das **HTML-Text**-Steuerelement zeigt denselben Text wie das **[Label](control-text-box.md)**-Steuerelement (Bezeichnung) an. Allerdings werden Tags in die entsprechenden Zeichen umgewandelt.
 
 
-## Accessibility guidelines
-**HTML text** is not meant to be interactive. It should only be used for text display.
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+**HTML-Text** soll nicht interaktiv sein. Dieses Steuerelement sollte nur zum Anzeigen von Text verwendet werden.
 
-### Color contrast
-There must be adequate color contrast between:
-* **[Color](properties-color-border.md)** and **[Fill](properties-color-border.md)**
-* Text with custom colors and its background
+### <a name="color-contrast"></a>Farbkontrast
+Zwischen folgenden Eigenschaften muss es einen ausreichenden Farbkontrast geben:
+* **[Color](properties-color-border.md)** und **[Fill](properties-color-border.md)**
+* Text mit benutzerdefinierten Farben und dessen Hintergrund
 
-### Screen reader support
-* **HtmlText** must be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **HtmlText** muss vorhanden sein.
 
-### Keyboard support
-* **HtmlText** should not contain interactive elements like `<button>`, `<a>`, or `<input>`. The **[TabIndex](properties-accessibility.md)** system in PowerApps does not consider elements inside **HtmlText**.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* **HtmlText** sollte keine interaktiven Elemente wie `<button>`, `<a>` oder `<input>` enthalten. Das **[TabIndex](properties-accessibility.md)**-System in PowerApps ignoriert Elemente in **HtmlText**.

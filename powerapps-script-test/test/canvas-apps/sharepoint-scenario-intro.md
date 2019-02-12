@@ -1,54 +1,60 @@
 ---
-title: Integrate PowerApps, Microsoft Flow, and Power BI with SharePoint Online (Introduction) | Microsoft Docs
-description: 'This series of tutorials explores how to build out a basic canvas app for project management based on SharePoint lists and three key technologies that integrate with SharePoint Online: PowerApps, Microsoft Flow, and Power BI.'
-author: NickWaggoner
+title: Integrieren von PowerApps, Microsoft Flow und Power BI mit SharePoint Online (Einführung) | Microsoft-Dokumentation
+description: 'In dieser Reihe von Tutorials wird untersucht, wie eine grundlegende Canvas-App für das Projektmanagement entwickelt wird, die auf SharePoint-Listen und drei Schlüsseltechnologien basiert, die mit SharePoint Online integriert sind: PowerApps, Microsoft Flow und Power BI.'
+author: mgblythe
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 12/19/2017
-ms.author: niwaggon
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: mblythe
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: afbb6211ee947abd59e74a0712dd080f6911ec65
+ms.sourcegitcommit: 2300de0a0486187762f830068c872116d5b04c32
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49806177"
 ---
-# Integrate PowerApps, Microsoft Flow, and Power BI with SharePoint Online
-Do you have SharePoint Online and want to better automate and streamline your business processes? Have you worked with PowerApps, Microsoft Flow, or Power BI, but you're not sure how to use them with SharePoint Online? You've come to the right place! This series of tutorials explores how to build out a basic canvas app for project management based on SharePoint lists and three key technologies that integrate with SharePoint Online: PowerApps, Microsoft Flow, and Power BI. These technologies work together, making it easy to *measure* your business, *act* on the results, and *automate* your workflows. When you're done with this series, you will have a cool scenario like the following:
+# <a name="integrate-powerapps-microsoft-flow-and-power-bi-with-sharepoint-online"></a>Integrieren von PowerApps, Microsoft Flow, und Power BI mit SharePoint Online
+Sie verfügen über SharePoint Online und möchten Ihre Geschäftsprozesse besser automatisieren und optimieren? Sie haben mit PowerApps, Microsoft Flow oder Power BI gearbeitet, sind aber nicht sicher, wie Sie diese mit SharePoint Online verwenden können? Dann sind Sie hier richtig. In dieser Reihe von Tutorials wird untersucht, wie eine grundlegende Canvas-App für das Projektmanagement entwickelt wird, die auf SharePoint-Listen und drei Schlüsseltechnologien basiert, die mit SharePoint Online integriert sind: PowerApps, Microsoft Flow und Power BI. Diese Technologien wirken zusammen und erleichtern das *Messen* Ihrer Geschäftsprozesse, das *Reagieren* auf die Ergebnisse und das *Automatisieren* Ihrer Workflows. Wenn Sie diese Reihe abgeschlossen haben, liegt Ihnen ein cooles Szenario wie die folgenden vor:
 
-![Diagram of completed scenario](./media/sharepoint-scenario-intro/composite-with-background.png)
+![Diagramm des abgeschlossenen-Szenarios](./media/sharepoint-scenario-intro/composite-with-background.png)
 
-## Business scenario
-In this series of tutorials, the company Contoso has a SharePoint Online site where they manage the lifecycle of projects, from request, to approval, to development, to final review. A *project requestor*, such as a department head, requests an IT project by adding an item to a SharePoint list. A *project approver*, such as an IT manager, reviews the project, and then approves it or rejects it. If approved, the project is assigned to a *project manager*, and additional detail is added to a second list through the same app. A *business analyst* reviews current and completed projects using a Power BI report embedded in SharePoint.  Microsoft Flow is used to send approval email and respond to Power BI alerts.
+## <a name="business-scenario"></a>Geschäftsszenario
+In dieser Reihe von Tutorials verfügt das Unternehmen Contoso über eine SharePoint Online-Website, auf welcher der Lebenszyklus von Projekten von der Anforderung über die Genehmigung und Entwicklung bis hin zur Endabnahme verwaltet wird. Ein *Projektanforderer*, beispielsweise ein Abteilungsleiter, fordert ein IT-Projekt an, indem er einer SharePoint-Liste einen Eintrag hinzufügt. Durch einen *Projektgenehmiger*, beispielsweise einen IT-Manager, wird das Projekt geprüft und anschließend genehmigt bzw. abgelehnt. Wenn das Projekt genehmigt wurde, wird es einem *Projektmanager* zugewiesen, und über die gleiche App wird einer zweiten Liste ein weiterer Eintrag hinzugefügt. Ein *Wirtschaftsanalytiker* prüft laufende und abgeschlossene Projekte anhand eines Power BI-Berichts, der in SharePoint eingebettet ist.  Mit Microsoft Flow werden Genehmigungs-E-Mails versendet, und es wird auf Power BI-Warnungen reagiert.
 
-## Getting started quickly
-The scenario we present in this series of tutorials is simple compared to a full-blown project management and analysis app, but it still takes some time to complete all the tasks. If you just want a quick introduction to using PowerApps, Microsoft Flow, and Power BI with SharePoint, check out the following articles:
+## <a name="getting-started-quickly"></a>Schnelleinstieg
+Das in dieser Reihe von Tutorials vorgestellte Szenario scheint unkompliziert, wenn es einer umfassenden App für Projektmanagement und -analyse gegenübergestellt wird, dennoch dauert es jedoch eine gewisse Zeit, alle Aufgaben auszuführen. Wenn Sie lediglich eine rasche Einführung zum Verwenden von PowerApps, Microsoft Flow und Power BI mit SharePoint wünschen, sehen Sie die folgenden Artikel ein:
 
-* **PowerApps**: [Generate an app from within SharePoint using PowerApps](app-from-sharepoint.md#generate-an-app-from-within-sharepoint-online) and [Generate an app to manage data in a SharePoint list](app-from-sharepoint.md)
-* **Microsoft Flow**: [Wait for approval in Microsoft Flow](https://docs.microsoft.com/flow/wait-for-approvals)
-* **Power BI**: [Embed with report web part in SharePoint Online](https://docs.microsoft.com/power-bi/service-embed-report-spo)
+* **PowerApps:** [Generieren einer App aus SharePoint mit PowerApps](app-from-sharepoint.md#generate-an-app-from-within-sharepoint-online) und [Generieren einer App, um Daten in einer SharePoint-Liste zu verwalten](app-from-sharepoint.md)
+* **Microsoft Flow:** [Warten auf Genehmigung in Microsoft Flow](https://docs.microsoft.com/flow/wait-for-approvals)
+* **Power BI:** [Einbetten mit einem Berichts-Webpart in SharePoint Online](https://docs.microsoft.com/power-bi/service-embed-report-spo)
 
-When you're done, we hope you'll be back to check out this full scenario.
+Wenn Sie diese Artikel durchgelesen haben, kehren Sie hoffentlich zu diesem kompletten Szenario zurück.
 
-Even within the scenario, you can focus on the tasks that interest you, and complete the tasks as you have time. After you set up SharePoint lists in task 1, you can work through tasks 2-5 in any order; then tasks 6-8 are sequential. Lastly, we have included two finished apps and a Power BI Desktop report as part of the [download package](https://aka.ms/o4ia0f) for this scenario. You can look at these and learn by example even if you don't go through all the steps in each task.
+Selbst innerhalb dieses Szenarios können Sie sich auf die Aufgaben konzentrieren, die für Sie von größter Relevanz sind und die Aufgaben ausführen, wenn Sie ausreichend Zeit dafür haben. Nachdem Sie SharePoint-Listen in Aufgabe 1 eingerichtet haben, können Sie die Aufgaben 2 bis 5 in beliebiger Reihenfolge durcharbeiten. Die Aufgaben 6 bis 8 sind der Reihe nach auszuführen. Schließlich haben wir zwei vollständige Apps und einen Power BI Desktop-Bericht als Teil des [Downloadpakets](https://aka.ms/o4ia0f) für dieses Szenario eingebunden. Sie können diese eingehend untersuchen und sich einen exemplarischen Überblick verschaffen, selbst wenn Sie nicht alle Schritte in den einzelnen Aufgaben durcharbeiten.
 
-## Prerequisites
-To complete the scenario, you need the following subscriptions and desktop tools. The Office 365 Business Premium subscription includes PowerApps and Microsoft Flow.
+## <a name="prerequisites"></a>Voraussetzungen
+Zum Durcharbeiten dieses Szenarios benötigen Sie die folgenden Abonnements und Desktoptools. Das Office 365 Business Premium-Abonnement schließt PowerApps und Microsoft Flow ein.
 
-| **Subscription or tool** | **Link** |
+| **Abonnement oder Tool** | **Link** |
 | --- | --- |
-| Office 365 Business Premium subscription |[Trial subscription](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) |
-| Power BI Pro subscription |[Trial subscription](https://powerbi.microsoft.com/get-started/) (click **TRY FREE**) |
-| Power BI Desktop |[Free download](https://powerbi.microsoft.com/get-started/) (click **DOWNLOAD FREE**) |
+| Office 365 Business Premium-Abonnement |[Abonnement für die Testversion](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) |
+| Power BI Pro-Abonnement |[Abonnement für die Testversion](https://powerbi.microsoft.com/get-started/) (klicken Sie auf **KOSTENLOS TESTEN**) |
+| Power BI Desktop |[Kostenloser Download](https://powerbi.microsoft.com/get-started/) (klicken Sie auf **KOSTENLOS HERUNTERLADEN**) |
 
-Ideally, you have basic familiarity with each technology, but you can still complete the scenario if you're new to some of these technologies. Use the following content to get up to speed:
+Im Idealfall sind Sie im Wesentlichen mit den einzelnen Technologien vertraut. Sie können das Szenario jedoch auch durcharbeiten, wenn Sie mit einer dieser Technologien keine Erfahrung haben. Die folgenden Ressourcen erleichtern Ihnen den schnellen Einstieg:
 
-* [Get started with SharePoint](https://support.office.com/article/Get-started-with-SharePoint-909ec2f0-05c8-4e92-8ad3-3f8b0b6cf261)
-* [PowerApps Guided Learning](../../guided-learning/index.md)
-* [Microsoft Flow Guided Learning](https://docs.microsoft.com/flow/guided-learning/)
-* [Power BI Guided Learning](https://docs.microsoft.com/power-bi/guided-learning/)
+* [Erste Schritte mit SharePoint](https://support.office.com/article/Get-started-with-SharePoint-909ec2f0-05c8-4e92-8ad3-3f8b0b6cf261)
+* [Geführtes Lernen zu PowerApps](../../guided-learning/index.md)
+* [Geführtes Lernen zu Microsoft Flow](https://docs.microsoft.com/flow/guided-learning/)
+* [Geführtes Lernen zu Power BI](https://docs.microsoft.com/power-bi/guided-learning/)
 
-## Next steps
-The next step in this tutorial series is to [set up the SharePoint Online lists](sharepoint-scenario-setup.md) that we use throughout the series.
+## <a name="next-steps"></a>Nächste Schritte
+Der nächste Schritt in dieser Reihe von Tutorials besteht im [Einrichten der SharePoint Online-Listen](sharepoint-scenario-setup.md), die in der gesamten Reihe verwendet werden.
 

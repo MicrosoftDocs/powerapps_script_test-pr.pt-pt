@@ -1,6 +1,6 @@
 ---
-title: Concat and Concatenate functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the Concat and Concatenate functions in PowerApps
+title: Funktionen „Concat“ und „Concatenate“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „Concat“ und „Concatenate“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,53 +9,59 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 08/28/2017
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 525c55a68478c4b51181fa72525eed802b0f10aa
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42865116"
 ---
-# Concat and Concatenate functions in PowerApps
-Concatenates individual strings of text and strings in [tables](../working-with-tables.md).
+# <a name="concat-and-concatenate-functions-in-powerapps"></a>Funktionen „Concat“ und „Concatenate“ in PowerApps
+Verketten einzelne Zeichenfolgen von Text und Zeichenfolgen in [Tabellen](../working-with-tables.md)
 
-## Description
-The **Concat** function concatenates the result of a formula applied across all the [records](../working-with-tables.md#records) of a table, resulting in a single string. Use this function to summarize the strings of a table, just as the **[Sum](function-aggregates.md)** function does for numbers.
+## <a name="description"></a>Beschreibung
+Die **Concat**-Funktion verkettet das Ergebnis einer Formel, das in allen [Datensätzen](../working-with-tables.md#records) einer Tabelle angewendet wird, was zu einer einzelnen Zeichenfolge führt. Verwenden Sie diese Funktion, um die Zeichenfolgen einer Tabelle zusammenzufassen, wie es die **[Sum](function-aggregates.md)**-Funktion bei Zahlen macht.
 
 [!INCLUDE [record-scope](../../../includes/record-scope.md)]
 
-Use the **[Split](function-split.md)** function to split a string into a table of substrings.
+Verwenden Sie die **[Split](function-split.md)**-Funktion zum Aufteilen einer Zeichenfolge in eine Tabelle von Teilzeichenfolgen.
 
-The **Concatenate** function concatenates a mix of individual strings and a single-column table of strings. Used with individual strings, this function is equivalent to using the **&** [operator](operators.md). You can use a formula that includes the **[ShowColumns](function-table-shaping.md)** function to create a single-column table from a table that has multiple columns.
+Die **Concatenate**-Funktion verkettet eine Mischung aus einzelnen Zeichenfolgen und eine einspaltige Tabelle von Zeichenfolgen. Wenn sie mit einzelnen Zeichenfolgen verwendet wird, entspricht diese Funktion der Verwendung des [Operators](operators.md) **&**. Sie können eine Formel verwenden, die die **[ShowColumns](function-table-shaping.md)**-Funktion umfasst, um aus einer Tabelle mit mehreren Spalten eine einspaltige Tabelle zu erstellen.
 
-## Syntax
-**Concat**( *Table*, *Formula* )
+## <a name="syntax"></a>Syntax
+**Concat**( *Tabelle*, *Formel* )
 
-* *Table* - Required.  Table to operate on.
-* *Formula* - Required.  Formula to apply across the records of the table.
+* *Tabelle* (erforderlich):  Die zu verarbeitende Tabelle.
+* *Formel* (erforderlich):  Die auf alle Datensätze der Tabelle anzuwendende Formel.
 
-**Concatenate**( *String1* [, *String2*, ...] )
+**Concatenate**( *Zeichenfolge1* [, *Zeichenfolge2*, ...] )
 
-* *String(s)* - Required.  Mix of individual strings or a single-column table of strings.
+* *Zeichenfolge(n)*: Erforderlich.  Mischung aus einzelnen Zeichenfolgen oder eine einspaltige Tabelle von Zeichenfolgen.
 
-## Examples
-#### Concat
-1. Add a **[Button](../controls/control-button.md)** control, and set its **[OnSelect](../controls/properties-core.md)** property to this formula:
+## <a name="examples"></a>Beispiele
+#### <a name="concat"></a>Concat
+1. Fügen Sie ein **[Button](../controls/control-button.md)**-Steuerelement (Schaltfläche) hinzu, und legen Sie seine **[OnSelect](../controls/properties-core.md)**-Eigenschaft auf diese Formel fest:
    
     **Collect(Products, {String:"Violin", Wind:"Trombone", Percussion:"Bongos"}, {String:"Cello", Wind:"Trumpet", Percussion:"Tambourine"})**
-2. Press F5, click the button, and then press Esc to return to the design workspace.
-3. Add a **[Label](../controls/control-text-box.md)** control, and set its **[Text](../controls/properties-core.md)** property to this formula:
+2. Drücken Sie F5, klicken Sie auf die Schaltfläche, und drücken Sie anschließend die ESC-TASTE, um zum Designarbeitsbereich zurückzukehren.
+3. Fügen Sie ein **[Label](../controls/control-text-box.md)**-Steuerelement (Bezeichnung) hinzu, und legen Sie dessen **[Text](../controls/properties-core.md)**-Eigenschaft auf diese Formel fest:
    
     **Concat(Products, String & " ")**
    
-    The label shows **Violin Cello**.
+    Die Bezeichnung zeigt **Violin Cello** (Violoncello) an.
 
-#### Concatenate
-1. Add a **[Text input](../controls/control-text-input.md)** control, and name it **AuthorName**.
-2. Add a **[Label](../controls/control-text-box.md)** control, and set its **[Text](../controls/properties-core.md)** property to this formula:<br>
+#### <a name="concatenate"></a>Concatenate
+1. Fügen Sie ein **[Texteingabe](../controls/control-text-input.md)**-Steuerelement hinzu, und benennen Sie es **AuthorName**.
+2. Fügen Sie ein **[Label](../controls/control-text-box.md)**-Steuerelement (Bezeichnung) hinzu, und legen Sie dessen **[Text](../controls/properties-core.md)**-Eigenschaft auf diese Formel fest:<br>
    **Concatenate("By ", AuthorName.Text)**
-3. Type your name in **AuthorName**.
+3. Geben Sie Ihren Namen in **AuthorName** (Autorenname) ein.
    
-    The label shows **By** followed by your name.
+    Die Bezeichnung zeigt **By** gefolgt von Ihrem Namen an.
 
-If you had an **Employees** table that contained a **FirstName** column and a **LastName** column, this formula would concatenate the data in each row of those columns.
+Wenn Sie über eine Tabelle **Employees** (Mitarbeiter) verfügten, die eine Spalte **FirstName** (Vorname) und eine Spalte **LastName** (Nachname) umfasst, würde diese Formel die Daten in jeder Zeile dieser Spalten verketten.
 <br>**Concatenate(Employees.FirstName, " ", Employees.LastName)**
 

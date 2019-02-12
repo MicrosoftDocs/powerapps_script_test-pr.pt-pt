@@ -1,6 +1,6 @@
 ---
-title: 'Microphone control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Microphone control
+title: 'Mikrofon-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, zum Mikrofon-Steuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,117 +9,123 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 302c2fad419146f03fe47e25b8a7563564ee7e2d
+ms.sourcegitcommit: 5a1864d1531b55b332749437674fd1378e1f55ca
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49307813"
 ---
-# Microphone control in PowerApps
-A control that allows app users to record sounds from their device.
+# <a name="microphone-control-in-powerapps"></a>Mikrofon-Steuerelement in PowerApps
+Ein Steuerelement, über das App-Benutzer mit ihren Geräten Ton aufnehmen können.
 
-## Description
-App users can make audio recordings if the device where the app is running has a microphone.
+## <a name="description"></a>Beschreibung
+App-Benutzer können Audioaufnahmen aufzeichnen, wenn das Gerät, auf dem die App ausgeführt wird, über ein Mikrofon verfügt.
 
-Audio is stored in 3gp format in Android, AAC format in iOS, and OGG format in web browsers.
+Audiodaten werden unter Android im Format 3gp, unter iOS im Format AAC und in Webbrowsern im OGG-Format gespeichert.
 
-## Key properties
-**Mic** – On a device that has more than one microphone, the numeric ID of the microphone that the app uses.
+## <a name="key-properties"></a>Haupteigenschaften
+**Mic**: gibt auf einem Gerät mit mehr als einem Mikrofon die numerische ID des Mikrofons an, das die App verwendet.
 
-**OnStop** – How the app responds when the user stops recording with a microphone control.
+**OnStop**: gibt an, wie die App reagiert, wenn der Benutzer die Aufzeichnung mit einem Mikrofon-Steuerelement beendet.
 
-## Additional properties
-**[AccessibleLabel](properties-accessibility.md)** – Label for screen readers. Should describe the purpose of the microphone.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[AccessibleLabel](properties-accessibility.md)**: Bezeichnung für Sprachausgaben Sollte den Zweck dieses Mikrofons beschreiben.
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**[Color](properties-color-border.md)** – The color of text in a control.
+**[Color](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[DisabledBorderColor](properties-color-border.md)** – The color of a control's border if the control's **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledBorderColor](properties-color-border.md)**: Die Farbe des Steuerelementrahmens, wenn die **[DisplayMode](properties-core.md)**-Eigenschaft des Steuerelements auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledColor](properties-color-border.md)** – The color of text in a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledColor](properties-color-border.md)**: Die Farbe des Texts in einem Steuerelement, wenn seine **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledFill](properties-color-border.md)** – The background color of a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledFill](properties-color-border.md)**: Die Hintergrundfarbe eines Steuerelements, wenn dessen **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[FocusedBorderColor](properties-color-border.md)** – The color of a control's border when the control is focused.
+**[FocusedBorderColor](properties-color-border.md)**: die Rahmenfarbe eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[FocusedBorderThickness](properties-color-border.md)** – The thickness of a control's border when the control is focused.
+**[FocusedBorderThickness](properties-color-border.md)**: die Rahmendicke eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[HoverBorderColor](properties-color-border.md)** – The color of a control's border when the user keeps the mouse pointer on that control.
+**[HoverBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über das Steuerelement hält.
 
-**[HoverColor](properties-color-border.md)** – The color of the text in a control when the user keeps the mouse pointer on it.
+**[HoverColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[HoverFill](properties-color-border.md)** – The background color of a control when the user keeps the mouse pointer on it.
+**[HoverFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[Image](properties-visual.md)** – The name of the image that appears in an image, audio, or microphone control.
+**[Image](properties-visual.md)**: Der Name des Bilds, das in einem Bild-, Audio- oder Mikrofon-Steuerelement angezeigt wird.
 
-**[ImagePosition](properties-visual.md)** – The position (**Fill**, **Fit**, **Stretch**, **Tile**, or **Center**) of an image in a screen or a control if it isn't the same size as the image.
+**[ImagePosition](properties-visual.md)**: Die Position (**Fill**, **Fit**, **Stretch**, **Tile** oder **Center**) eines Bilds auf einem Bildschirm oder in einem Steuerelement, wenn die Größe nicht mit der Bildgröße identisch ist.
 
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**OnStart** – How the app responds when the user starts to record with a microphone control.
+**OnStart**: gibt an, wie die App reagiert, wenn der Benutzer eine Aufzeichnung mit einem Steuerelement-Mikrofon beginnt.
 
-**[PressedBorderColor](properties-color-border.md)** – The color of a control's border when the user taps or clicks that control.
+**[PressedBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PressedColor](properties-color-border.md)** – The color of text in a control when the user taps or clicks that control.
+**[PressedColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PressedFill](properties-color-border.md)** – The background color of a control when the user taps or clicks that control.
+**[PressedFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[Reset](properties-core.md)** – Whether a control reverts to its default value.
+**[Reset](properties-core.md)** – Legt fest, ob ein Steuerelement auf seinen Standardwert zurückgesetzt wird.
 
-**[TabIndex](properties-accessibility.md)** – Keyboard navigation order in relation to other controls.
+**[TabIndex](properties-accessibility.md)**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[Tooltip](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## Related functions
+## <a name="related-functions"></a>Verwandte Funktionen
 [**Patch**( *DataSource*, *BaseRecord*, *ChangeRecord* )](../functions/function-patch.md)
 
-## Example
-### Add sounds to a Custom gallery control
-1. Add a **Microphone**, name it **MyMic**, and set its **OnStop** property to this formula:<br>
+## <a name="example"></a>Beispiel
+### <a name="add-sounds-to-a-custom-gallery-control"></a>Hinzufügen von Tönen zu einem benutzerdefinierten Katalog-Steuerelement
+1. Fügen Sie ein **Mikrofon** hinzu, nennen Sie es **MyMic**, und legen Sie seine **OnStop**-Eigenschaft auf folgende Formel fest:<br>
    **Collect(MySounds, MyMic.Audio)**
 
-    Don't know how to [add, name, and configure a control](../add-configure-controls.md)?
+    Möchten Sie wissen, wie Sie [ein Steuerelement hinzufügen, benennen und konfigurieren](../add-configure-controls.md)?
 
-    Want more information about the **[Collect](../functions/function-clear-collect-clearcollect.md)** function or [other functions](../formula-reference.md)?
-2. Add a **Custom gallery** control, move it below **MyMic**, and set the **[Items](properties-core.md)** property for the **Custom gallery** control to **MySounds**.
-3. In the template for the **Custom gallery** control, add an **[Audio](control-audio-video.md)** control, and set its **Media** property to **ThisItem.Url**.
-4. Press F5, click or tap **MyMic** to start recording, and then click or tap it again to stop recording.
-5. In the **Custom gallery** control, click or tap the play button in the **[Audio](control-audio-video.md)** control to play back your recording.
-6. Add as many recordings as you want, and then return to the default workspace by pressing Esc.
-7. (optional) In the template for the **Custom gallery** control, add a **[Button](control-button.md)** control, set its **[OnSelect](properties-core.md)** property to **Remove(MySounds, ThisItem)**, press F5, and then remove a recording by clicking or tapping the corresponding **Button** control.
+    Benötigen Sie weitere Informationen zur **[Collect](../functions/function-clear-collect-clearcollect.md)**-Funktion oder [anderen Funktionen](../formula-reference.md)?
+2. Fügen Sie ein Steuerelement des Typs **benutzerdefinierter Katalog** hinzu, verschieben Sie es unter **MyMic**, und legen Sie die **[Items](properties-core.md)**-Eigenschaft für das Steuerelement des Typs **benutzerdefinierter Katalog** auf **MySounds** fest.
+3. Fügen Sie in der Vorlage für das Steuerelement des Typs **benutzerdefinierter Katalog** ein **[Audio](control-audio-video.md)**-Steuerelement hinzu, und legen Sie seine **Media**-Eigenschaft auf **ThisItem.Url** fest.
+4. Drücken Sie F5, klicken oder tippen Sie auf **MyMic**, um mit der Aufzeichnung zu beginnen, und klicken oder tippen Sie anschließend erneut, um die Aufzeichnung zu beenden.
+5. Klicken oder tippen Sie im Steuerelement des Typs **benutzerdefinierter Katalog** auf die Schaltfläche zur Wiedergabe im **[Audio](control-audio-video.md)**-Steuerelement, um Ihre Aufzeichnung wiederzugeben.
+6. Fügen Sie eine beliebig große Anzahl von Aufzeichnungen ein, und kehren Sie anschließend durch Drücken von ESC in den Standardarbeitsbereich zurück.
+7. (optional) Fügen Sie in der Vorlage für das Steuerelement des Typs **benutzerdefinierter Katalog** ein **[Schaltflächen](control-button.md)**-Steuerelement ein, und legen Sie seine  **[OnSelect](properties-core.md)**-Eigenschaft auf **Remove(MySounds, ThisItem)** fest. Drücken Sie anschließend F5, und entfernen Sie eine Aufzeichnung durch Klicken oder Tippen auf das entsprechende **Schaltflächen**-Steuerelement.
 
-Use the **[SaveData](../functions/function-savedata-loaddata.md)** function to save the recordings locally or the **[Patch](../functions/function-patch.md)** function to update a data source.
+Verwenden Sie die  **[SaveData](../functions/function-savedata-loaddata.md)**-Funktion, um die Aufzeichnungen lokal zu speichern, oder die  **[Patch](../functions/function-patch.md)**-Funktion, um eine Datenquelle zu aktualisieren.
 
 
-## Accessibility guidelines
-The same guidelines for **[Button](control-button.md)**  apply because **Microphone** is just a specialized button. In addition, consider the following:
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+Es gelten dieselben Richtlinien wie für **[Schaltflächen](control-button.md)**, da ein **Mikrofon** nur eine besondere Schaltfläche ist. Ziehen Sie außerdem Folgendes in Betracht:
 
-### Audio alternatives
-* Consider adding an alternative form of input for users with speech disabilities or without a microphone. For example, **[Text input](control-text-input.md)** to allow users to enter text.
+### <a name="audio-alternatives"></a>Audioalternativen
+* Sie sollten eine alternative Eingabemöglichkeit für Benutzer hinzufügen, die eine Sprachbehinderung haben oder nicht über ein Mikrofon verfügen. Z.B. eine **[Texteingabe](control-text-input.md)**, über die Benutzer Text eingeben können
 
-### Color contrast
-There must be adequate color contrast between:
-* **[Image](properties-visual.md)** and the button text and icon (if applicable)
+### <a name="color-contrast"></a>Farbkontrast
+Zwischen folgenden Eigenschaften muss es einen ausreichenden Farbkontrast geben:
+* **[Bild](properties-visual.md)** und ggf. die Schaltfläche „Text“ und das Symbol
 
-This is in addition to the [standard color contrast requirements](../accessible-apps-color.md).
+Dies ist ein Zusatz zu den [Standardanforderungen für Farbkontraste](../accessible-apps-color.md).
 
-### Screen reader support
-* **[AccessibleLabel](properties-accessibility.md)** must be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **[AccessibleLabel](properties-accessibility.md)** muss vorhanden sein.

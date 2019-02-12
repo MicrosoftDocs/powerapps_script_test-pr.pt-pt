@@ -1,6 +1,6 @@
 ---
-title: 'Column control: reference | Microsoft Docs'
-description: This topic provides information about the Column control in Microsoft PowerApps.
+title: 'Spalten-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Dieses Thema enthält Informationen zum Spalten-Steuerelement in Microsoft PowerApps.
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,56 +9,62 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 06/05/2017
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: e1c8ba704a01c989da990fd1b2b17f7b5def5541
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42850853"
 ---
-# Column control in PowerApps
-Provides the display experience for a single field in a [**Data table**](control-data-table.md) control.
+# <a name="column-control-in-powerapps"></a>Spalten-Steuerelement in PowerApps
+Dient zum Anzeigen eines einzelnes Felds in einem [**Datentabellen**](control-data-table.md)-Steuerelement.
 
-## Description
-The [**Data table**](control-data-table.md) control shows a dataset in a tabular format, and each column in that tabular format is represented by a **Column** control. The **Column** control provides properties that the app maker can use to customize the appearance and behavior of the column.
+## <a name="description"></a>Beschreibung
+Das [**Datentabellen**](control-data-table.md)-Steuerelement zeigt ein Dataset in einem Tabellenformat. Jede Spalte in diesem Tabellenformat wird durch ein **Spalten**-Steuerelement dargestellt. Das **Spalten**-Steuerelement bietet Eigenschaften, mit deren Hilfe der Autor der App das Aussehen und Verhalten der Spalte anpassen kann.
 
-## Capabilities
-### Now available
-* Change the width of a **Column** control.
-* Change the text for a **Column** control.
-* Navigate by clicking or tapping the value in a **Column** control.
+## <a name="capabilities"></a>Funktionen
+### <a name="now-available"></a>Jetzt verfügbar
+* Ändern der Breite eines **Spalten**-Steuerelements.
+* Ändern des Texts eines **Spalten**-Steuerelements.
+* Navigieren durch Klicken oder Tippen auf einen Wert im **Spalten**-Steuerelement.
 
-### Not yet available
-* Customize the styling of a **Column** control.
+### <a name="not-yet-available"></a>Noch nicht verfügbar
+* Anpassen des Formats eines **Spalten**-Steuerelements.
 
-### Known issues
-* The **Visible** property doesn't work yet.
+### <a name="known-issues"></a>Bekannte Probleme
+* Die **Visible**-Eigenschaft funktioniert noch nicht.
 
-## Properties
-* **DisplayName** – The text that appears in the header for the column.
+## <a name="properties"></a>Eigenschaften
+* **DisplayName**: Der Text, der in der Kopfzeile der Spalte angezeigt wird.
   
   > [!NOTE]
-  > This property will soon be renamed **HeaderText**.
+  > Diese Eigenschaft wird in Kürze in **HeaderText** umbenannt.
   > 
   > 
-* **IsHyperlink** – A value that indicates whether the data in the column should be underlined to indicate that it's a hyperlink.
-* [**Width**](properties-size-location.md) – The distance between the **Column** control’s left and right edges.
+* **IsHyperlink**: Ein Wert, der angibt, ob die Daten in der Spalte unterstrichen werden sollen, um anzugeben, dass es sich um einen Link handelt.
+* [**Width**](properties-size-location.md): Der Abstand zwischen dem linken und rechten Rand eines **Spalten**-Steuerelements.
 
-## Examples
-### Resize a column
-1. Create a blank tablet app.
-2. On the **Insert** tab, click or tap **Data table**, and then resize the **Data table** control so that it covers the whole screen.
-3. In the right pane, click or tap the down arrow to the right of **No data source selected**, and then click or tap **Add a data source**.
-4. In the list of connections, click or tap the connection for your Common Data Service database.
-5. In the list of entities, click or tap **Account**, and then click or tap **Connect**.
+## <a name="examples"></a>Beispiele
+### <a name="resize-a-column"></a>Ändern der Größe einer Spalte
+1. Erstellen Sie eine leere Tablet-App.
+2. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Datentabelle**,und ändern Sie die Größe des **Datentabellen**-Steuerelements so, dass es den gesamten Bildschirm einnimmt.
+3. Klicken oder tippen Sie im rechten Bereich auf den Abwärtspfeil neben **Keine Datenquelle ausgewählt**, und klicken oder tippen Sie dann auf **Datenquelle hinzufügen**.
+4. Klicken oder tippen Sie in der Liste der Verbindungen auf die Verbindung für Ihre Common Data Service-Datenbank.
+5. Klicken oder tippen Sie in der Liste der Entitäten auf **Account** (Kunde) und dann auf **Verbinden**.
    
-    The **Data table** control is initialized and shows a set of default fields.
-6. Click or tap the **Full name** column.
+    Das **Datentabellen**-Steuerelement wird initialisiert und zeigt eine Gruppe von Standardfeldern.
+6. Klicken oder tippen Sie auf die Spalte **Vollständiger Name**.
    
-    ![Column control selected](./media/control-column/pre-resize-column.png)
-7. Drag the adorner on the right side to resize the field.
+    ![Ausgewähltes Spalten-Steuerelement](./media/control-column/pre-resize-column.png)
+7. Ziehen Sie den Adorner auf der rechten Seite, um die Größe des Felds zu ändern.
    
-    ![Column control resized](./media/control-column/post-resize-column.png)
+    ![Größe des Spalten-Steuerelements geändert](./media/control-column/post-resize-column.png)
 
 
-## Accessibility guidelines
-### Screen reader support
-* **DisplayName** must be present.
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **DisplayName** muss vorhanden sein.

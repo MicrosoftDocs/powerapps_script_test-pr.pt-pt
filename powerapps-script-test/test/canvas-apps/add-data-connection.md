@@ -1,6 +1,6 @@
 ---
-title: Add a data connection in a canvas app | Microsoft Docs
-description: Add a data connection in an existing canvas app or a blank app
+title: Hinzufügen einer Datenverbindung in einer Canvas-App | Microsoft-Dokumentation
+description: Hinzufügen einer Datenverbindung in einer vorhandenen Canvas-App oder in einer leeren App
 author: lancedMicrosoft
 manager: kvivek
 ms.service: powerapps
@@ -9,76 +9,82 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/06/2018
 ms.author: lanced
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 33ca717967989a202fabbf8281b93f8b8263b79d
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42853202"
 ---
-# Add a data connection to a canvas app in PowerApps
+# <a name="add-a-data-connection-to-a-canvas-app-in-powerapps"></a>Hinzufügen einer Datenverbindung in einer Canvas-App in PowerApps
 
-In PowerApps, add a data connection to an existing canvas app or to an app that you're building from scratch. Your app can connect to SharePoint, Salesforce, OneDrive, or [many other data sources](connections-list.md).
+Fügen Sie in PowerApps einer vorhandenen Canvas-App oder einer von Grund auf neu erstellten App eine Datenverbindung hinzu. Ihre App kann eine Verbindung zu SharePoint, Salesforce, OneDrive oder [vielen anderen Datenquellen](connections-list.md) herstellen.
 
-Your [next step](#next-steps) after this article is to display and manage data from that data source in your app, as in these examples:
+Ihr [nächster Schritt](#next-steps) nach diesem Artikel besteht darin, Daten aus dieser Datenquelle in der App anzuzeigen und zu verwalten; siehe folgende Beispiele:
 
-* Connect to OneDrive, and manage data in an Excel workbook in your app.
-* Connect to Twilio, and send an SMS message from your app.
-* Connect to SQL Server, and update a table from your app.
+* Verbinden mit OneDrive und Verwalten von Daten in einer Excel-Arbeitsmappe in Ihrer App.
+* Verbinden mit Twilio und Senden einer SMS-Nachricht von Ihrer App.
+* Herstellen einer Verbindung mit SQL Server und Aktualisieren einer Tabelle aus Ihrer App.
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-[Sign up](../signup-for-powerapps.md) for PowerApps, and then [sign in](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) by providing the same credentials that you used to sign up.
+[Registrieren Sie sich](../signup-for-powerapps.md) für PowerApps, und [melden Sie sich an](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), indem Sie dieselben Anmeldeinformationen bereitstellen, die Sie bei der Registrierung angegeben haben.
 
-## Add a data source
-1. On the **Home** tab, hover over the **Start from blank** tile, and then select **Make this app.**
+## <a name="add-a-data-source"></a>Datenquelle hinzufügen
+1. Zeigen Sie auf der Registerkarte **Start** auf die Kachel **Mit leerer App starten**, und klicken Sie auf **Diese App erstellen**.
 
-    ![Create an app from scratch](./media/add-data-connection/blank-app-tile.png)
+    ![App von Grund auf neu erstellen](./media/add-data-connection/blank-app-tile.png)
 
-1. If the **Welcome to PowerApps Studio** dialog box appears, select **Skip**.
+1. Falls das Dialogfeld **Willkommen bei PowerApps Studio** angezeigt wird, klicken Sie auf **Überspringen**.
 
-3. In the center pane, click or tap **connect to data**.
+3. Klicken oder tippen Sie im mittleren Bereich auf **Mit Daten verbinden**.
 
-4. If the list of connections in the **Data** pane includes the one that you want, select it to add it to the app. Otherwise, skip to the next step.
+4. Wenn die gewünschte Verbindung in der Liste im Bereich **Daten** aufgeführt wird, klicken Sie darauf, um sie der App hinzuzufügen. Andernfalls fahren Sie mit dem nächsten Schritt fort.
 
-    ![Add data source](./media/add-data-connection/choose-existing-connections.png)
+    ![Datenquelle hinzufügen](./media/add-data-connection/choose-existing-connections.png)
 
-5. Select **New connection** to display a list of connectors.
+5. Klicken Sie auf **Neue Verbindung**, um eine Liste der Connectors anzuzeigen.
 
-    ![Add connection](./media/add-data-connection/new-connection.png)
+    ![Hinzufügen einer Verbindung](./media/add-data-connection/new-connection.png)
 
-6. Scroll through the list of connectors until the type of connection that you want to create appears (for example, **Office 365 Outlook**), and then select it.
+6. Scrollen Sie durch die Liste der Connectors bis zum gewünschten Verbindungstyp (z.B. **Office 365 Outlook**), und klicken Sie darauf.
 
-    ![Choose connection](./media/add-data-connection/choose-connection.png)
+    ![Auswählen der Verbindung](./media/add-data-connection/choose-connection.png)
 
-7. Select **Create** to both create the connection and add it to your app.
+7. Klicken Sie auf **Erstellen**, um die Verbindung zu erstellen und der App hinzuzufügen.
 
-    Some connectors, such as **Office 365 Outlook**, require no additional steps, and you can show data from them immediately. Other connectors prompt you to provide credentials, specify a particular set of data, or perform other steps. For example, [SharePoint](connections/connection-sharepoint-online.md) and [SQL Server](connections/connection-azure-sqldatabase.md) require additional information before you can use them.
+    Einige Connectors wie **Office 365 Outlook** erfordern keine weiteren Schritte, und Sie können sofort Daten daraus anzeigen. Andere Connectors fordern Sie auf, Anmeldeinformationen bereitzustellen, einen bestimmten Satz von Daten anzugeben oder weitere Schritte durchzuführen. In [SharePoint](connections/connection-sharepoint-online.md) und [SQL Server](connections/connection-azure-sqldatabase.md) sind z.B. zusätzliche Informationen erforderlich, bevor Sie sie verwenden können.
 
-## Add another data source
-1. Add a control to which you want to add a data source.
+## <a name="add-another-data-source"></a>Hinzufügen einer anderen Datenquelle
+1. Fügen Sie ein Steuerelement hinzu, dem Sie eine Datenquelle hinzufügen möchten.
 
-    The control must have an **Items** property, as galleries and listboxes do, or an **Item** property, as a form does.
+    Das Steuerelement muss so wie Kataloge und Listenfelder über eine **Items**-Eigenschaft oder so wie Formulare über eine **Item**-Eigenschaft verfügen.
 
-1. In the **Data** pane (which opens automatically), open the list under **Data source**, and then select **Add a data source**.
+1. Öffnen Sie im Bereich **Daten** (wird automatisch geöffnet) die Liste unter **Datenquelle**, und klicken Sie auf **Datenquelle hinzufügen**.
 
-1. Follow the previous procedure, starting with step 4.
+1. Führen Sie die vorherige Anleitung ab Schritt 4 aus.
 
-## Identify or change a data source
-If you're updating an app, you might need to identify or change the source of data that appears in a gallery, a form, or another control. For example, you might need to identify a data source as you update an app that someone else created or you that you created long ago.
+## <a name="identify-or-change-a-data-source"></a>Identifizieren oder Ändern einer Datenquelle
+Wenn Sie eine App aktualisieren, müssen Sie möglicherweise die im Katalog angezeigte Datenquelle, ein Formular oder ein anderes Steuerelement angeben oder ändern. Beispiel: Beim Aktualisieren einer App müssen Sie eine Datenquelle identifizieren, die von jemand anderem vor Kurzem oder von Ihnen selbst vor längerer Zeit erstellt wurde.
 
-1. Select the control for which you want to identify or change the data source.
+1. Wählen Sie das Steuerelement aus, für das Sie die Datenquelle identifizieren oder ändern möchten.
 
-    For example, select a gallery (not a control within the gallery) by clicking or tapping it in the hierarchical list of screens and controls near the left edge.
+    Wählen Sie z.B. einen Katalog (und kein Steuerelement im Katalog) aus, indem Sie in der hierarchischen Liste der Bildschirme und Steuerelemente am linken Rand darauf klicken oder tippen.
 
-    The name of the data source appears on the **Properties** tab of the right-hand pane.
+    Der Name der Datenquelle wird im rechten Bereich auf der Registerkarte **Eigenschaften** angezeigt.
 
-2. Select the data source to change it or to show more information about it.
+2. Wählen Sie die Datenquelle aus, um sie zu ändern oder um weitere Informationen dazu anzuzeigen.
 
-    ![Data pane](./media/add-data-connection/data-pane.png)
+    ![Bereich „Daten“](./media/add-data-connection/data-pane.png)
 
-3. To change the data source, open the list of data sources, and then select or create another source.
+3. Um die Datenquelle zu ändern, öffnen Sie die Liste der Datenquellen, und wählen Sie eine andere Quelle aus, oder erstellen Sie eine neue.
 
-     ![Data pane](./media/add-data-connection/datasource-list.png)
+     ![Bereich „Daten“](./media/add-data-connection/datasource-list.png)
 
-## Next steps
-* To show and update data in a source such as Excel, SharePoint, or SQL Server, [add a gallery](add-gallery.md), and [add a form](add-form.md).
-* For data in other sources, use connector-specific functions such as those for [Office 365 Outlook](connections/connection-office365-outlook.md), [Twitter](connections/connection-twitter.md), and [Microsoft Translator](connections/connection-microsoft-translator.md).
+## <a name="next-steps"></a>Nächste Schritte
+* Zum Anzeigen und Aktualisieren von Daten in einer Quelle wie Excel, SharePoint oder SQL Server [fügen Sie einen Katalog hinzu](add-gallery.md), und [fügen Sie ein Formular hinzu](add-form.md).
+* Verwenden Sie für die Daten in anderen Quellen Connector-spezifische Funktionen, z.B. für [Office 365 Outlook](connections/connection-office365-outlook.md), [Twitter](connections/connection-twitter.md) und [Microsoft Translator](connections/connection-microsoft-translator.md).

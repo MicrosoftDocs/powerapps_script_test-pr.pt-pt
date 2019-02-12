@@ -1,6 +1,6 @@
 ---
-title: Manage an on-premises data gateway for canvas apps | Microsoft Docs
-description: Manage an on-premises data gateway and its connections
+title: Verwalten eines lokalen Datengateways für Canvas-Apps | Microsoft-Dokumentation
+description: Ein lokales Datengateway und seine Verbindungen verwalten
 author: archnair
 manager: kvivek
 ms.service: powerapps
@@ -9,66 +9,72 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/30/2016
 ms.author: archanan
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 85806799a5f5ea91a4671a27e71cf95daabcd01a
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42863847"
 ---
-# Manage an on-premises data gateway in PowerApps
-Install an on-premises data gateway to transfer data quickly and securely between a canvas app that's built in PowerApps and a data source that isn't in the cloud, such as an on-premises SQL Server database or an on-premises SharePoint site. View all gateways for which you have administrative permissions, and manage permissions and connections for those gateways.
+# <a name="manage-an-on-premises-data-gateway-in-powerapps"></a>Verwalten eines lokalen Datengateways in PowerApps
+Installieren Sie ein lokales Datengateway zur schnellen und sicheren Datenübertragung zwischen einer in PowerApps erstellten Canvas-App und einer Datenquelle, die sich nicht in der Cloud befindet, z.B. eine lokale SQL Server-Datenbank oder eine lokale SharePoint-Website. Zeigen Sie alle Gateways an, für die Sie Administratorberechtigungen haben, und verwalten Sie Berechtigungen und Verbindungen für diese Gateways.
 
-With a gateway, you can connect to on-premises data over these connections:
+Ein Gateway ermöglicht Ihnen die folgenden Verbindungen mit lokalen Daten:
 
 * SharePoint
 * SQL Server
 * Oracle
 * Informix
-* Filesystem
+* FileSystem
 * DB2
 
-## Prerequisites
-* The user name and password that you used to [sign up](../signup-for-powerapps.md) for PowerApps.
-* Administrative permissions on a gateway. (You have these permissions by default for each gateway that you install, and an administrator of another gateway can grant you these permissions for that gateway.)
-* A license that supports accessing on-premises data using an on-premises gateway. For more information, see the “Connectivity” section of the [pricing page](https://powerapps.microsoft.com/pricing/).
-* Gateways and on-premises connections can only be created and used in the user's [default environment](working-with-environments.md).
+## <a name="prerequisites"></a>Voraussetzungen
+* Benutzername und Kennwort, mit dem Sie sich für PowerApps [registriert](../signup-for-powerapps.md) haben
+* Administrative Berechtigungen für ein Gateway (Sie verfügen über diese Berechtigungen standardmäßig für jedes Gateway, das Sie installieren, und ein Administrator eines anderen Gateways kann Ihnen diese Berechtigungen für jenes Gateway erteilen.)
+* Eine Lizenz, die Zugriff auf lokale Daten über ein lokales Gateway unterstützt. Weitere Informationen finden Sie im Abschnitt "Verbindungen" auf der Seite mit den [Preisinformationen](https://powerapps.microsoft.com/pricing/).
+* Gateways und lokale Verbindungen können nur in der [Standardumgebung](working-with-environments.md) des Benutzers erstellt und verwendet werden.
 
-## Install a gateway
-1. In the left navigation bar of [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), click or tap **Gateways**.
+## <a name="install-a-gateway"></a>Gateway installieren
+1. Klicken oder tippen Sie in der linken Navigationsleiste von [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) auf **Gateways**.
 
-    ![Gateways in left navigation bar](./media/gateway-management/manage-gateway.png)
+    ![„Gateways“ in der linken Navigationsleiste](./media/gateway-management/manage-gateway.png)
 
-2. If you don't have administrative permissions for a gateway, click or tap [Install a gateway now](http://go.microsoft.com/fwlink/?LinkID=820931) (or **New Gateway** in the upper-right corner), and then follow the prompts in the wizard that appears.
+2. Wenn Sie nicht über Administratorberechtigungen für das Gateway verfügen, klicken oder tippen Sie auf [Gateway installieren](http://go.microsoft.com/fwlink/?LinkID=820931) (oder **Neues Gateway** in der oberen rechten Ecke), und befolgen Sie anschließend die Anweisungen im Assistenten, der angezeigt wird.
 
-    ![Gateways Install](./media/gateway-management/no-gateway-installed.png)
+    ![Gateways installieren](./media/gateway-management/no-gateway-installed.png)
 
-    For details about how to install a gateway, see [Understand on-premises data gateways](gateway-reference.md).
+    Weitere Informationen dazu, wie Sie ein Gateway installieren, finden Sie unter [Grundlegendes zu lokalen Datengateways](gateway-reference.md).
 
-## View and manage gateway permissions
-1. In the left navigation bar of [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), click or tap **Gateways**, and then click or tap a gateway.
+## <a name="view-and-manage-gateway-permissions"></a>Anzeigen und Verwalten von Gatewayberechtigungen
+1. Klicken oder tippen Sie unter [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) im linken Navigationsbereich auf **Gateways** und anschließend auf ein Gateway.
 
-2. Add a user to a gateway by clicking or tapping **Users**, specifying a user or group, and then specifying a permission level:
+2. Fügen Sie einen Benutzer zu einem Gateway hinzu, indem Sie auf **Benutzer** klicken oder tippen, einen Benutzer oder eine Gruppe und anschließend eine Berechtigungsstufe angeben:
 
-   * **Can use**: Users who can create connections on the gateway to use for apps and flows, but cannot share the gateway. Use this permission for users who will run apps but not share them.
-   * **Can use + share**: Users who can create a connection on the gateway to use for apps and flows, and automatically share the gateway when sharing an app. Use this permission for users who need to share apps with other users or with the organization.
-   * **Admin**: Administrators who have full control of the gateway, including adding users, setting permissions, creating connections to all available data sources, and deleting the gateway.
+   * **Verwenden**: Benutzer, die Verbindungen im Gateway erstellen dürfen, die für Apps und Flows verwendet werden, aber das Gateway nicht freigeben dürfen. Wählen Sie diese Berechtigung für Benutzer, die Apps ausführen, aber nicht freigeben.
+   * **Verwenden + freigeben**: Benutzer, die Verbindungen im Gateway erstellen dürfen, die für Apps und Flows verwendet werden, und das Gateway automatisch freigeben, wenn eine App freigegeben wird. Wählen Sie diese Berechtigung für Benutzer, die Apps für andere Benutzer oder die Organisation freigeben.
+   * **Administrator**: Administratoren mit Vollzugriff auf das Gateway dürfen u. a. Benutzer hinzufügen, Berechtigungen festlegen, Verbindungen mit allen verfügbaren Datenquellen erstellen und das Gateway löschen.
 
-For **Can use** and **Can use + share** permission levels, select the data sources that the user can connect to over the gateway.
+Für die Berechtigungsstufen **Verwenden** und **Verwenden + freigeben** wählen Sie die Datenquellen, mit denen der Benutzer über das Gateway eine Verbindung herstellen kann.
 
-## View and manage gateway connections
-1. In the left navigation bar of [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), click or tap **Gateways**, and then click or tap a gateway.
+## <a name="view-and-manage-gateway-connections"></a>Anzeigen und Verwalten von Gatewayverbindungen
+1. Klicken oder tippen Sie unter [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) im linken Navigationsbereich auf **Gateways** und anschließend auf ein Gateway.
 
-2. Click or tap **Connections**, and then click or tap a connection to view its details, edit the settings, or delete it.
+2. Klicken oder tippen Sie auf **Verbindungen** und anschließend auf eine Verbindung, um ihre Details anzuzeigen, die Einstellungen zu bearbeiten oder sie zu löschen.
 
-3. To share a connection, click or tap **Share**, and then add or remove users.
+3. Um eine Verbindung freizugeben, klicken oder tippen Sie auf **Freigeben**, und fügen Sie anschließend Benutzer hinzu oder entfernen Sie Benutzer.
 
     > [!NOTE]
-   > You can share only some types of connections, such as SQL Server. For more information, see [Share app resources](share-app-resources.md).
+   > Sie können nur einige Arten von Verbindungen freigeben, z.B. SQL Server. Weitere Informationen finden Sie unter [Freigeben von App-Ressourcen](share-app-resources.md).
 
-For more information about how to manage a connection, see [Manage your connections](add-manage-connections.md).
+Weitere Informationen zum Verwalten einer Verbindung finden Sie unter [Verwalten von Verbindungen](add-manage-connections.md).
 
-## Troubleshooting and Advanced Configuration
-For more information on troubleshooting issues with gateways, or configuring the gateway service for your network, see [Understand on-premises data gateways](gateway-reference.md).
+## <a name="troubleshooting-and-advanced-configuration"></a>Problembehandlung und erweiterte Konfiguration
+Weitere Informationen zur Behandlung von Problemen mit Gateways und Konfiguration des Gatewaydiensts für Ihr Netzwerk finden Sie unter [Grundlegendes zu lokalen Datengateways](gateway-reference.md).
 
-## Next steps
-* Create an app that connects to an on-premises data source, such as [SQL Server](connections/connection-azure-sqldatabase.md) or [SharePoint](connections/connection-sharepoint-online.md).
-* [Share an app](share-app.md) that connects to an on-premises data source.
+## <a name="next-steps"></a>Nächste Schritte
+* Erstellen Sie eine App, die eine Verbindung mit einer lokalen Datenquelle herstellt, z.B. [SQL Server](connections/connection-azure-sqldatabase.md) oder [SharePoint](connections/connection-sharepoint-online.md).
+* [Geben Sie eine App frei](share-app.md), die eine Verbindung mit einer lokalen Datenquelle herstellt.

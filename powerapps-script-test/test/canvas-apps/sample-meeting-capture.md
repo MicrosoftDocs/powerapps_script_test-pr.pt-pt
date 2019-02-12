@@ -1,56 +1,62 @@
 ---
-title: Meeting Capture sample template | Microsoft Docs
-description: Learn about the Meeting Capture sample template in PowerApps with setup, overview, and deep dives into how the app was built.
-author: mr-dang-msft
+title: Meeting Capture-Beispielvorlage | Microsoft-Dokumentation
+description: Erfahren Sie mehr über die Meeting Capture-Beispielvorlage in PowerApps mit Informationen zum Setup, einer Übersicht und umfassenden Einblicken in die Erstellung der App.
+author: caburk
 manager: kvivek
 ms.service: powerapps
 ms.topic: sample
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 07/03/2018
-ms.author: brdang
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: caburk
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 7a83ce913fbc688640eb2da2de6d9d5d66c7cde7
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42848355"
 ---
-# Set up and learn about the Meeting Capture sample template in PowerApps
+# <a name="set-up-and-learn-about-the-meeting-capture-sample-template-in-powerapps"></a>Einrichtung und Informationen zur Meeting Capture-Beispielvorlage in PowerApps
 
-## Overview
+## <a name="overview"></a>Übersicht
 
- In PowerApps, the Meeting Capture sample template is an all-in-one tool for capturing information from meetings as they happen. If you run the app, you can view meeting details, capture notes, take pictures of whiteboards, draw sketches and assign tasks. You can also export all of these items, send them to all meeting attendees, and schedule followup meetings quickly and easily.
+ Die Meeting Capture-Beispielvorlage in PowerApps ist ein All-in-One-Tool zur Erfassung von Informationen während Besprechungen. Wenn Sie die App ausführen, können Sie Besprechungsdetails anzeigen, Notizen erfassen, Whiteboards fotografieren, Skizzen zeichnen und Aufgaben zuweisen. Zudem können Sie alle diese Elemente exportieren, sie an alle Besprechungsteilnehmer senden und Folgebesprechungen schnell und einfach planen.
 
 [![Meeting Capture](media/sample-meeting-capture/MeetingCapture.png)](https://aka.ms/previewmeetingcapture)
 
-## Where can I run the app?
+## <a name="where-can-i-run-the-app"></a>Wo kann ich die App ausführen?
 
-You can run this sample app in your browser, on a tablet, or other device that has a similar form factor.
+Sie können diese Beispiel-App in Ihrem Browser, auf einem Tablet oder einem anderen Gerät mit ähnlichem Formfaktor ausführen.
 
-## How do I open the template and run the app?
+## <a name="how-do-i-open-the-template-and-run-the-app"></a>Wie öffne ich die Vorlage und starte die App?
 
-[Preview Meeting Capture](https://aka.ms/previewmeetingcapture) or watch these videos to find out more:
+Sehen Sie sich die [Vorschau von Meeting Capture](https://aka.ms/previewmeetingcapture) oder diese Videos an, um Antworten auf folgende Fragen zu erhalten:
 
-- How to [open the template](https://www.youtube.com/watch?v=MTsbjln1AcA&index=1&list=PL8IYfXypsj2B5FizD0ZVVuzf49vr8yXFU).
-- How to [run the app](https://youtu.be/mGyxyJL4gJk) from start to finish.
+- Wie [öffne ich die Vorlage](https://www.youtube.com/watch?v=MTsbjln1AcA&index=1&list=PL8IYfXypsj2B5FizD0ZVVuzf49vr8yXFU)?
+- Wie [führe ich die App](https://youtu.be/mGyxyJL4gJk) von Anfang bis zum Ende aus?
 
-## How do I build the app myself?
+## <a name="how-do-i-build-the-app-myself"></a>Wie erstelle ich die App selbst?
 
-Meeting Capture includes a lot of functionality commonly used in PowerApps. By watching these videos, you can explore this functionality and find out how to implement it so you can implement the same functionality and patterns in your own apps.
+Meeting Capture enthält eine Vielzahl von Funktionen, die in PowerApps häufig verwendet werden. Wenn Sie sich diese Videos ansehen, können Sie die Funktionen erkunden und herausfinden, wie Sie die gleichen Funktionen und Muster in Ihren eigenen Apps implementieren können.
 
-- [Export content](https://youtu.be/D6kmeM0UFH0) from PowerApps to OneNote.
-- [Find available meeting times](https://youtu.be/gSD8m6d_Gv0) for attendees.
+- [Exportieren Sie Inhalte](https://youtu.be/D6kmeM0UFH0) von PowerApps nach OneNote.
+- [Finden Sie passende Besprechungszeiten](https://youtu.be/gSD8m6d_Gv0), in denen Teilnehmer verfügbar sind.
 
-Meeting Capture connects to these services in Office 365.
+Meeting Capture verbindet sich mit diesen Diensten in Office 365.
 
-- [Office 365 Users](https://docs.microsoft.com/en-us/connectors/office365users/)
+- [Office 365-Benutzer](https://docs.microsoft.com/en-us/connectors/office365users/)
 - [Office 365 Outlook](https://docs.microsoft.com/en-us/connectors/office365/)
 - [Planner](https://docs.microsoft.com/en-us/connectors/planner/)
 - [OneNote (Business)](https://docs.microsoft.com/en-us/connectors/onenote/)
-- [Content Conversion](https://docs.microsoft.com/en-us/connectors/conversionservice/)
+- [Inhaltskonvertierung](https://docs.microsoft.com/en-us/connectors/conversionservice/)
 
-We hope you enjoy exploring Meeting Capture, and we look forward to hearing how you extend it for your organization!
+Viel Spaß beim Erkunden von Meeting Capture! Wir hoffen, Sie können es in Ihrer Organisation umfassend einsetzen.
 
-## Next steps
-- [Formula reference](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/formula-reference)
-- [Controls reference](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/reference-properties)
+## <a name="next-steps"></a>Nächste Schritte
+- [Referenz zu Formeln](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/formula-reference)
+- [Referenz zu Steuerelementen](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/reference-properties)
  

@@ -1,70 +1,76 @@
 ---
-title: Set up data alerts for the Power BI dashboard | Microsoft Docs
-description: In this task, we'll add an alert in Power BI to let us know if pending projects are taking too long to approve, and a flow that responds when that alert occurs.
-author: NickWaggoner
+title: Einrichten von Datenwarnungen für das Power BI-Dashboard | Microsoft-Dokumentation
+description: In dieser Aufgabe wird Power BI eine Warnung hinzugefügt, die mitteilt, ob die Genehmigung ausstehender Projekte zu lange dauert, sowie ein Flow, der bei Auftreten dieser Warnung reagiert.
+author: mgblythe
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 06/12/2017
-ms.author: niwaggon
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: mblythe
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 6426dedc9ce9d1a4648f9c880a53337767ec53d3
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42836393"
 ---
-# Set up data alerts for the Power BI dashboard
+# <a name="set-up-data-alerts-for-the-power-bi-dashboard"></a>Einrichten von Datenwarnungen für das Power BI-Dashboard
 > [!NOTE]
-> This article is part of a tutorial series on using PowerApps, Microsoft Flow, and Power BI with SharePoint Online. Make sure you read the [series introduction](sharepoint-scenario-intro.md) to get a sense of the big picture, as well as related downloads.
+> Dieser Artikel ist Teil einer Reihe von Tutorials zur Verwendung von PowerApps, Microsoft Flow und Power BI mit SharePoint Online. Lesen Sie unbedingt die [Einführung zur Reihe](sharepoint-scenario-intro.md) durch, um sich einen allgemeinen Überblick zu verschaffen und auf die zugehörigen Downloads zuzugreifen.
 
-In this task we'll add an alert in Power BI to let us know if pending projects are taking too long to approve, and a flow that responds when that alert occurs. For more information on alerts, see [Data alerts in Power BI service](https://docs.microsoft.com/power-bi/service-set-data-alerts).
+In dieser Aufgabe wird Power BI eine Warnung hinzugefügt, mit der informiert wird, ob die Genehmigung ausstehender Projekte zu lange dauert, sowie einen Flow, der bei Auftreten dieser Warnung reagiert. Weitere Informationen zu Warnungen finden Sie unter [Datenwarnungen im Power BI-Dienstservice](https://docs.microsoft.com/power-bi/service-set-data-alerts).
 
-## Step 1: Create an alert
-1. In the Power BI service, open the dashboard you created in the last task.
-2. On the card with the single number, click or tap the ellipsis (**. . .**).
+## <a name="step-1-create-an-alert"></a>Schritt 1: Erstellen einer Warnung
+1. Öffnen Sie im Power BI-Dienst das Dashboard, das Sie in der vorherigen Aufgabe erstellt haben.
+2. Klicken oder tippen Sie auf der Karte mit der Zahl auf die Auslassungspunkte (**. . .**).
    
-    ![Max days pending approval card](./media/sharepoint-scenario-alerts-flow/07-01-01-tile-ellipsis.png)
-3. Click or tap ![Bell icon](./media/sharepoint-scenario-alerts-flow/icon-bell.png).
+    ![Karte „Max days pending approval“ (Max. Anzahl Tage ausstehende Genehmigung)](./media/sharepoint-scenario-alerts-flow/07-01-01-tile-ellipsis.png)
+3. Klicken oder tippen Sie auf ![Glockensymbol](./media/sharepoint-scenario-alerts-flow/icon-bell.png).
    
-    ![Tile menu](./media/sharepoint-scenario-alerts-flow/07-01-02-tile-bell.png)
-4. In the right pane, click or tap **Add alert rule**.
+    ![Kachel-Menü](./media/sharepoint-scenario-alerts-flow/07-01-02-tile-bell.png)
+4. Klicken oder tippen Sie im rechten Bereich auf **Warnungsregel hinzufügen**.
    
-    ![Add alert rule](./media/sharepoint-scenario-alerts-flow/07-01-03-add-alert.png)
-5. Look at the options that are available for alerts, such as how frequently an alert should run. Enter a value of 25 for **Threshold**, then click or tap **Save and close**.
+    ![Warnungsregel hinzufügen](./media/sharepoint-scenario-alerts-flow/07-01-03-add-alert.png)
+5. Betrachten Sie die Optionen, die für Warnungen verfügbar sind, beispielsweise die Häufigkeit für die Ausführung einer Warnung. Geben Sie für **Schwellenwert** den Wert 25 ein, und klicken oder tippen Sie anschließend auf **Speichern und schließen**.
    
-    ![Set alert threshold and save](./media/sharepoint-scenario-alerts-flow/07-01-04-save-alert.png)
+    ![Festlegen und Speichern eines Schwellenwerts für Warnungen](./media/sharepoint-scenario-alerts-flow/07-01-04-save-alert.png)
 
-The alert won't fire right now even though 56 is above the threshold of 25. It will fire when data is updated, which we'll see when we [run through the scenario end-to-end](sharepoint-scenario-summary.md).
+Die Warnung wird nicht sofort ausgelöst, obwohl der Wert 56 über dem Schwellenwert 25 liegt. Sie wird beim Aktualisieren der Daten ausgelöst. Dies wird beim [vollständigen Durcharbeiten des Szenarios](sharepoint-scenario-summary.md) veranschaulicht.
 
-When the alerts fires, Power BI sends email to the creator of the alert, and we'll see how to send additional mail using Microsoft Flow, in the next step.
+Beim Auslösen der Warnung sendet Power BI eine E-Mail an den Ersteller der Warnung, und im nächsten Schritt erfahren Sie, wie zusätzliche E-Mails mit Microsoft Flow gesendet werden.
 
-## Step 2: Create a flow that responds to the alert
-1. Sign into flow.microsoft.com, click or tap **Services**, then **Power BI**.
+## <a name="step-2-create-a-flow-that-responds-to-the-alert"></a>Schritt 2: Erstellen eines Flows, der auf die Warnung reagiert
+1. Melden Sie sich bei flow.microsoft.com an, und klicken oder tippen Sie auf **Dienste** und anschließend auf **Power BI**.
    
     ![Power BI in Microsoft Flow](./media/sharepoint-scenario-alerts-flow/07-01-05-power-bi.png)
-2. Click or tap **Send an e-mail to any audience when a Power BI data alert is triggered**.
+2. Klicken oder tippen Sie auf **Eine E-Mail an eine beliebige Zielgruppe senden, sobald durch Power BI-Daten eine Warnung ausgelöst wird**.
    
-    ![Send email when a Power BI data alert is triggered](./media/sharepoint-scenario-alerts-flow/07-01-06-alert-flow.png)
-3. Click or tap **Use this template**.
-4. If you're not already signed in, sign into Outlook and Power BI, then click or tap **Continue**.
+    ![Eine E-Mail an eine beliebige Zielgruppe senden, sobald durch Power BI-Daten eine Warnung ausgelöst wird](./media/sharepoint-scenario-alerts-flow/07-01-06-alert-flow.png)
+3. Klicken oder tippen Sie auf **Diese Vorlage verwenden**.
+4. Wenn Sie noch nicht angemeldet sind, melden Sie sich bei Outlook und Power BI an, und klicken oder tippen Sie anschließend auf **Weiter**.
    
-    ![Sign in and continue](./media/sharepoint-scenario-alerts-flow/07-01-08-continue.png)
-5. In the **Alert Id** drop-down list, select **Alert for Max days pending approval**.
+    ![Anmelden und fortfahren](./media/sharepoint-scenario-alerts-flow/07-01-08-continue.png)
+5. Wählen Sie in der Dropdownliste **Warnungs-ID** den Eintrag **Alert for Max days pending approval** (Warnung für Max. Anzahl Tage ausstehende Genehmigung) aus.
    
-    ![Specify and alert as a trigger](./media/sharepoint-scenario-alerts-flow/07-01-09-choose-alert.png)
-6. In the **To** box, enter a valid email address.
+    ![Angeben und Warnung als Trigger](./media/sharepoint-scenario-alerts-flow/07-01-09-choose-alert.png)
+6. Geben Sie im Feld **An** eine gültige E-Mail-Adresse ein.
    
-    ![Specify who to send email to](./media/sharepoint-scenario-alerts-flow/07-01-10-choose-email.png)
-7. Click or tap **Edit** to see other fields that you can update.
+    ![Angeben des Empfängers der E-Mail](./media/sharepoint-scenario-alerts-flow/07-01-10-choose-email.png)
+7. Klicken oder tippen Sie auf **Bearbeiten**, um weitere Felder einzublenden, die bearbeitet werden können.
    
-    ![Edit alert email](./media/sharepoint-scenario-alerts-flow/07-01-11-email-full.png)
-8. At the top right of the screen, click **Create flow**, then **Done**.
+    ![Bearbeiten der E-Mail-Adresse für Warnungen](./media/sharepoint-scenario-alerts-flow/07-01-11-email-full.png)
+8. Klicken Sie am rechten oberen Rand des Bildschirms auf **Flow erstellen** und anschließend auf **Fertig**.
    
-    ![Done button](./media/sharepoint-scenario-alerts-flow/07-01-12-done.png)
+    ![Schaltfläche „Fertig“](./media/sharepoint-scenario-alerts-flow/07-01-12-done.png)
 
-We will see this flow run when we [run through the scenario end-to-end](sharepoint-scenario-summary.md). Now we'll move on to the last task in this scenario - embedding a Power BI report into SharePoint.
+Die Flowausführung wird beim [vollständigen Durcharbeiten des Szenarios](sharepoint-scenario-summary.md) veranschaulicht. Kommen wir nun zur letzten Aufgabe in diesem Szenario – zum Einbetten eines Power BI-Berichts in SharePoint.
 
-## Next steps
-The next step in this tutorial series is to [embed the Power BI project report in SharePoint Online](sharepoint-scenario-embed-report.md).
+## <a name="next-steps"></a>Nächste Schritte
+Der nächste Schritt in dieser Reihe von Tutorials besteht im [Einbetten des Power BI-Projektberichts in SharePoint Online](sharepoint-scenario-embed-report.md).
 

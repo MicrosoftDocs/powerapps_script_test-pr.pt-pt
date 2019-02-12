@@ -1,6 +1,6 @@
 ---
-title: Shuffle function | Microsoft Docs
-description: Reference information, including syntax and an example, for the Shuffle function in PowerApps
+title: Funktion „Shuffle“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Shuffle“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,26 +9,32 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 3fd93ce6cf9703e9e9fbf69c5826213d9aa78e02
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42863566"
 ---
-# Shuffle function in PowerApps
-Randomly reorders the [records](../working-with-tables.md#records) of a [table](../working-with-tables.md).
+# <a name="shuffle-function-in-powerapps"></a>Funktion „Shuffle“ in PowerApps
+Sortiert die [Datensätze](../working-with-tables.md#records) einer [Tabelle](../working-with-tables.md) nach dem Zufallsprinzip neu
 
-## Description
-The **Shuffle** function reorders the records of a table.
+## <a name="description"></a>Beschreibung
+Die **Shuffle**-Funktion sortiert die Datensätze einer Tabelle neu.
 
-**Shuffle** returns a table that has the same [columns](../working-with-tables.md#columns) and number of rows as the argument.
+**Shuffle** gibt eine Tabelle zurück, die über die gleichen [Spalten](../working-with-tables.md#columns) und die gleiche Anzahl von Zeilen als das Argument verfügt.
 
-## Syntax
-**Shuffle**( *Table* )
+## <a name="syntax"></a>Syntax
+**Shuffle**( *Tabelle* )
 
-* *Table* - Required.  Table to shuffle.
+* *Tabelle* (erforderlich):  Die nach dem Zufallsprinzip zu sortierende Tabelle.
 
-## Example
-If you stored details about playing cards in a [collection](../working-with-data-sources.md#collections) named **Deck**, this formula would return a copy of that collection that has been randomly shuffled.
+## <a name="example"></a>Beispiel
+Wenn Sie Informationen zu Spielkarten in einer [Sammlung](../working-with-data-sources.md#collections) mit dem Namen **Deck** gespeichert hätten, würde diese Formel eine Kopie dieser Sammlung zurückgeben, die nach dem Zufallsprinzip sortiert wurde.
 
 **Shuffle(Deck)**
 

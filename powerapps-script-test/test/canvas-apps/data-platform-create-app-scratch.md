@@ -1,159 +1,164 @@
 ---
-title: Create a canvas app from scratch using Common Data Service for Apps | Microsoft Docs
-description: In PowerApps, create a canvas app to add, update, and delete records in Common Data Service for Apps.
+title: Erstellen einer Canvas-App von Grund auf mit Common Data Service für Apps | Microsoft-Dokumentation
+description: Erstellen Sie in PowerApps eine Canvas-App, um Datensätze in Common Data Service für Apps hinzuzufügen, zu aktualisieren und zu löschen.
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 03/18/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 710df8899fa11e46a83e4ba670c4081b04fa7bde
+ms.sourcegitcommit: c1f58a16f8dcd309a1d5fc4658ca16d82c615994
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "51333959"
 ---
-# Create a canvas app from scratch using Common Data Service for Apps
+# <a name="create-a-canvas-app-from-scratch-using-common-data-service-for-apps"></a>Erstellen einer Canvas-App von Grund auf mit Common Data Service für Apps
 
-Build a canvas app to manage data that's stored in Common Data Service for Apps, using standard entities (which are built in), custom entities (which your organization creates), or both.
+Erstellen Sie eine Canvas-App, um Daten zu verwalten, die in Common Data Service für Apps gespeichert sind. Verwenden Sie dazu (integrierte) Standardentitäten, (von Ihrem Unternehmen erstellte) benutzerdefinierte Entitäten oder beides.
 
-When you build an app from the Common Data Service, you don't need to create a connection from PowerApps, as you do with data sources such as SharePoint, Dynamics 365, or Salesforce. You only need to specify the entities that you want to show, manage, or use for both activities in the app.
+Wenn Sie eine App in Common Data Service erstellen, müssen Sie keine Verbindung über PowerApps herstellen, wie dies bei Datenquellen wie SharePoint, Dynamics 365 und Salesforce erforderlich ist. Sie müssen lediglich angeben, welche Entitäten Sie anzeigen und verwalten oder für beide Aktivitäten in der App verwenden möchten.
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-- Before you create an app from scratch, familiarize yourself with PowerApps basics by [generating an app](data-platform-create-app.md) and then customizing that app's [gallery](customize-layout-sharepoint.md), [forms](customize-forms-sharepoint.md), and [cards](customize-card.md).
-- [Switch to an environment](working-with-environments.md) in which a database has been created with sample data. If you have an appropriate license, you can [create an environment](../../administrator/create-environment.md) to meet this need.
-- To create an app, you must be assigned to the [Environment Maker](https://docs.microsoft.com/power-platform/admin/database-security.md#predefined-security-roles) security role.
+- Bevor Sie eine App von Grund auf neu erstellen, sollten Sie sich mit den PowerApps-Grundlagen vertraut machen, indem Sie erst eine [App generieren](data-platform-create-app.md) und anschließend den [Katalog](customize-layout-sharepoint.md), die [Formulare](customize-forms-sharepoint.md) und die [Karten](customize-card.md) der App anpassen.
+- [Wechseln Sie in eine Umgebung](working-with-environments.md), in der mithilfe von einfachen Daten eine Datenbank erstellt wurde. Wenn Sie über eine entsprechende Lizenz verfügen, können Sie dafür eine [Umgebung erstellen](../../administrator/create-environment.md).
 
-## Open a blank app
+## <a name="open-a-blank-app"></a>Öffnen einer leeren App
 
-1. Sign in to [PowerApps](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
+1. Melden Sie sich bei [PowerApps](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an.
 
-1. Under **Make your own app**, hover over the **Start from blank** tile for canvas apps, click or tap the phone icon, and then click or tap **Make this app**.
+1. Zeigen Sie unter **Eigene App erstellen** auf die Kachel **Mit leerer App starten**, klicken oder tippen Sie erst auf das Telefonsymbol und anschließend auf **Diese App erstellen**.
 
-    ![Blank-app tile](./media/data-platform-create-app-scratch/start-from-blank.png)
+    ![Kachel für leere App](./media/data-platform-create-app-scratch/start-from-blank.png)
 
-    You can design an app from scratch for phones or other devices (such as tablets); this topic will focus on designing an app for phones.
+    Sie können für Smartphones oder andere Geräte (wie Tablets) Apps von Grund auf neu erstellen. In diesem Artikel erfahren Sie, wie Sie Apps für Smartphone erstellen können.
 
-## Specify an entity
+## <a name="specify-an-entity"></a>Angeben einer Entität
 
-1. In the middle of the screen, click or tap **connect to data** and then, in the **Data** pane, click or tap the **Common Data Service** connection.
+1. Klicken oder tippen Sie in der Mitte des Bildschirms auf **Mit Daten verbinden** und dann im Bereich **Daten** auf die Verbindung **Common Data Service**.
 
-1. In the search box, type or paste the first few letters of **Accounts** to filter the list of entities, select the **Accounts** check box, and then click or tap **Connect**.
+1. Geben Sie im Suchfeld die ersten Buchstaben des Worts **Accounts** (Konten) ein (bzw. fügen Sie sie ein), um die Liste mit den Entitäten zu filtern. Aktvieren Sie das Kontrollkästchen **Konten**, und klicken oder tippen Sie auf **Verbinden**.
 
-    ![Specify the Accounts entity](./media/data-platform-create-app-scratch/cds-connect.png)
+    ![Angeben der Entität „Accounts“](./media/data-platform-create-app-scratch/cds-connect.png)
 
-1. Close the **Data** pane by clicking or tapping the close icon in the upper-right corner.
+1. Schließen Sie den Bereich **Daten**, indem Sie in der oberen rechten Ecke auf das Symbol zum Schließen klicken oder tippen.
 
-## Add a list screen
+## <a name="add-a-list-screen"></a>Hinzufügen einer Listenanzeige
 
-1. On the **Home** tab, click or tap the down arrow for **New screen**, and then click or tap **List screen**.
+1. Klicken oder tippen Sie auf der Registerkarte **Start** unter **Neuer Bildschirm** auf den Pfeil nach unten, und klicken oder tippen Sie dann auf **Bildschirmliste**.
 
-    ![Add a list screen](./media/data-platform-create-app-scratch/list-screen.png)
+    ![Hinzufügen einer Listenanzeige](./media/data-platform-create-app-scratch/list-screen.png)
 
-1. In the left navigation bar, click or tap **TemplateGalleryList1** to select it, and then set the value of the **Items** property to this formula:
+1. Klicken oder tippen Sie in der Navigationsleiste auf der linken Seite auf **TemplateGalleryList1**, und legen Sie dann den Wert für die Eigenschaft **Items** auf die folgende Formel fest:
 
     `SortByColumns(Search(Accounts, TextSearchBox1.Text, "name"), "name", If(SortDescending1, SortOrder.Descending, SortOrder.Ascending))`
 
-    This formula specifies that:
+    Diese Formel gibt Folgendes an:
 
-   - The gallery should show data from the **Accounts** entity.
-   - The data should be sorted in ascending order until a user clicks or taps the sort button to toggle the sort order.
-   - If a user types or pastes one or more characters into the search bar, the list will show only those accounts for which the name field contains the characters that the user specified.
+   - Im Katalog sollten die Daten aus der Entität **Accounts** angezeigt werden.
+   - Die Daten sollten in aufsteigender Reihenfolge angezeigt werden, bis der Benutzer auf die Schaltfläche „Sortieren“ klickt oder tippt, um die Reihenfolge zu ändern.
+   - Wenn der Benutzer mindestens ein Zeichen in die Suchleiste eintippt (bzw. einfügt), werden in der Liste nur die Konten angezeigt, in denen die Namensfelder die vom Benutzer angegebenen Zeichen enthalten.
 
-     You can use [these and many other functions](formula-reference.md) to specify how your app appears and behaves.
+     Sie können [diese sowie viele weitere Funktionen](formula-reference.md) verwenden, um anzugeben, wie Ihre App angezeigt werden und sich verhalten soll.
 
-     ![Set the gallery's Items property](./media/data-platform-create-app-scratch/gallery-items.png)
+     ![Festlegen der Items-Eigenschaft des Katalogs](./media/data-platform-create-app-scratch/gallery-items.png)
 
-1. Set the gallery's layout to show only the name of each account, and configure the title bar to show the word **Browse**, as [Customize a gallery](customize-layout-sharepoint.md) describes.
+1. Legen Sie das Layout des Katalogs fest, damit nur die Namen der einzelnen Konten angezeigt werden, und konfigurieren Sie die Titelleiste, um das Wort **Durchsuchen** anzuzeigen. Dies wird unter [Customize a gallery (Anpassen eines Katalogs)](customize-layout-sharepoint.md) beschrieben.
 
-    ![Browse screen](./media/data-platform-create-app-scratch/final-browse.png)
+    ![Bildschirm zum Durchsuchen](./media/data-platform-create-app-scratch/final-browse.png)
 
-1. In the left navigation bar, hover over **Screen1**, click or tap the ellipsis icon (...), and then click or tap **Delete**.
+1. Klicken oder tippen Sie in der linken Navigationsleiste erst auf **Screen1**, dann auf die Auslassungspunkte (...) und anschließend auf **Löschen**.
 
-1. In the left navigation bar, hover over **Screen2**, click or tap the ellipsis icon (...), and then click or tap **Rename**.
+1. Klicken oder tippen Sie in der linken Navigationsleiste erst auf **Screen2**, dann auf die Auslassungspunkte (...) und anschließend auf **Umbenennen**.
 
-1. Type or paste **BrowseScreen**, and then rename the gallery in that screen as **BrowseGallery**.
+1. Geben bzw. fügen Sie **BrowseScreen** ein, und benennen Sie den Katalog in dieser Anzeige in **BrowseGallery** um.
 
-    ![Rename Browse screen, gallery](./media/data-platform-create-app-scratch/rename-browse.png)
+    ![Katalog: Bildschirm zum Durchsuchen umbenennen](./media/data-platform-create-app-scratch/rename-browse.png)
 
-## Add a form screen
+## <a name="add-a-form-screen"></a>Hinzufügen eines Formularbildschirm
 
-1. Repeat the first step of the previous procedure, except add a **Form screen** instead of a **List screen**.
+1. Wiederholen Sie den ersten Schritt des letzten Vorgangs, aber fügen Sie einen **Formularbildschirm** anstelle einer **Bildschirmliste** hinzu.
 
-1. Set the form's **DataSource** property to **Accounts** and its **Item** property to **BrowseGallery.Selected**, as shown on the **Advanced tab** of the right-hand pane.
+1. Legen Sie die **DataSource**-Eigenschaft des Kontos auf **Accounts** und die **Item**-Eigenschaft auf **BrowseGallery.Selected** fest. Dies wird auf der rechten Seite in der Registerkarte **Erweitert** angezeigt.
 
-    ![Set the form's Datasource and Item property](./media/data-platform-create-app-scratch/form-datasource.png)
+    ![Festlegen der Eigenschaften „Datasource“ und „Item“ des Formulars](./media/data-platform-create-app-scratch/form-datasource.png)
 
-1. On the **Properties** tab of the right-hand pane, click or tap **Accounts** to open the **Data** pane, and then select the checkboxes for these fields:
+1. Klicken oder tippen Sie rechts auf der Registerkarte **Eigenschaften** auf **Konten**, um den Bereich **Daten** zu öffnen, und aktivieren Sie die Kontrollkästchen für diese Felder:
 
-    - Account name
-    - Address 1: Street 1
-    - Address 1: City
-    - Address 1: ZIP/Postal code
-    - Number of Employees
-    - Annual Revenue
+    - Kontoname
+    - Adresse 1: Straße 1
+    - Adresse 1: Stadt
+    - Adresse 1: Postleitzahl
+    - Anzahl der Mitarbeiter
+    - Jahresumsatz
 
-1. Set the title bar's **Text** property to show **Create/Edit**.
+1. Legen Sie die **Text**-Eigenschaft der Titelleiste auf **Create/Edit** (Erstellen/Bearbeiten) fest.
 
-    The screen reflects your changes.
+    Auf dem Bildschirm werden dann die vorgenommenen Änderungen angezeigt.
 
-    ![Set the form's Datasource and Item property](./media/data-platform-create-app-scratch/field-list.png)
+    ![Festlegen der Eigenschaften „Datasource“ und „Item“ des Formulars](./media/data-platform-create-app-scratch/field-list.png)
 
-1. Rename this screen **FormScreen**.
+1. Bennen Sie diese Anzeige in **FormScreen** um.
 
-## Configure icons
+## <a name="configure-icons"></a>Konfigurieren von Symbolen
 
-1. On the **BrowseScreen**, click or tap the circular icon near the top of the screen, and set its **OnSelect** property to this formula:
+1. Klicken oder tippen Sie unter **BrowseScreen** auf den kreisförmigen Pfeil im oberen Bereich des Bildschirms, und legen Sie die **OnSelect**-Eigenschaft auf die folgende Formel fest:
 
     `Refresh(Accounts)`
 
-    ![Refresh icon](./media/data-platform-create-app-scratch/refresh-icon.png)
+    ![Symbol zum Aktualisieren](./media/data-platform-create-app-scratch/refresh-icon.png)
 
-1. Click or tap the plus icon, and set its **OnSelect** property to this formula:
+1. Klicken oder tippen Sie auf das Pluszeichen und legen Sie die **OnSelect**-Eigenschaft auf die folgende Formel fest:
 
     `NewForm(EditForm1); Navigate(FormScreen, ScreenTransition.None)`
 
-    ![Add icon](./media/data-platform-create-app-scratch/plus-icon.png)
+    ![Symbol „Hinzufügen“](./media/data-platform-create-app-scratch/plus-icon.png)
 
-1. Click or tap the first arrow pointing to the right, and set its **OnSelect** property to this formula:
+1. Klicken oder tippen Sie auf den ersten Pfeil nach rechts, und legen Sie die **OnSelect**-Eigenschaft auf die folgende Formel fest:
 
     `EditForm(EditForm1); Navigate(FormScreen, ScreenTransition.None)`
 
-    ![Next icon](./media/data-platform-create-app-scratch/next-icon.png)
+    ![Symbol „Weiter“](./media/data-platform-create-app-scratch/next-icon.png)
 
-1. On the **FormScreen**, click or tap the cancel icon, and set its **OnSelect** property to this formula:
+1. Klicken oder tippen Sie unter **FormScreen** auf das Symbol „Abbrechen“, und legen Sie die **OnSelect**-Eigenschaft auf die folgende Formel fest:
 
     `ResetForm(EditForm1);Navigate(BrowseScreen, ScreenTransition.None)`
 
-    ![Cancel icon](./media/data-platform-create-app-scratch/cancel-icon.png)
+    ![Symbol „Abbrechen“](./media/data-platform-create-app-scratch/cancel-icon.png)
 
-1. Click or tap the checkmark icon, and set its **OnSelect** property to this formula:
+1. Klicken oder tippen Sie auf das Häkchensymbol, und legen Sie die **OnSelect**-Eigenschaft auf die folgende Formel fest:
 
     `SubmitForm(EditForm1); Navigate(BrowseScreen, ScreenTransition.None)`
 
-    ![Checkmark icon](./media/data-platform-create-app-scratch/checkmark-icon.png)
+    ![Häkchensymbol](./media/data-platform-create-app-scratch/checkmark-icon.png)
 
-1. On the **Insert** tab, click or tap **Icons**, and then click or tap the **Trash** icon.
+1. Klicken oder tippen Sie auf der Registerkarte **Einfügen** erst auf **Symbole** und dann auf das **Papierkorbsymbol**.
 
-1. Set the **Trash** icon's **Color** property to **White** and its **OnSelect** property to this formula:
+1. Legen Sie für das **Papierkorbsymbol** die **Color**-Eigenschaft auf **Weiß** und die **OnSelect**-Eigenschaft auf die folgende Formel fest:
 
     `Remove(Accounts, BrowseGallery.Selected); Navigate(BrowseScreen, ScreenTransition.None)`
 
-    ![Trash icon](./media/data-platform-create-app-scratch/trash-icon.png)
+    ![Papierkorbsymbol](./media/data-platform-create-app-scratch/trash-icon.png)
 
-## Test the app
+## <a name="test-the-app"></a>Testen der App
 
-1. In the left navigation bar, select **BrowseScreen**, and then open Preview by pressing F5 (or by clicking or tapping the play icon near the upper-right corner).
+1. Klicken oder tippen Sie im linken Navigationsbereich auf **BrowseScreen**, und öffnen Sie dann die Vorschau, indem Sie F5 drücken bzw. auf das Wiedergabesymbol in der oberen rechten Ecke klicken oder tippen.
 
-    ![Open Preview](./media/data-platform-create-app-scratch/open-preview.png)
+    ![Vorschau öffnen](./media/data-platform-create-app-scratch/open-preview.png)
 
-1. Toggle the list between ascending and descending sort orders, and filter the list by specific characters in each account name.
+1. Lassen Sie die Liste abwechselnd in aufsteigender und absteigender Reihenfolge anzeigen, und filtern Sie diese nach bestimmten Zeichen in den einzelnen Kontonamen.
 
-1. Add an account, edit the account that you added, start to update the account but cancel your changes, and then delete the account.
+1. Fügen Sie ein Konto hinzu, bearbeiten Sie dieses, und beginnen Sie mit dem Update des Kontos. Verwerfen Sie jedoch Ihre Änderungen, und löschen Sie das Konto.
 
-## Next steps
+## <a name="next-steps"></a>Nächste Schritte
 
-- [Link this app to a solution](add-app-solution.md) so that you can, for example, deploy it to a different environment or publish it on AppSource.
-- [Open one or more sample apps](open-and-run-a-sample-app.md), and explore different types of apps that you can create.
+- [Verknüpfen Sie diese App mit einer Projektmappe](add-app-solution.md), damit Sie diese beispielsweise in einer anderen Umgebung bereitstellen oder sie auf AppSource veröffentlichen können.
+- [Öffnen Sie mindestens eine Beispiel-App](open-and-run-a-sample-app.md), um verschiedene App-Typen zu untersuchen, die Sie erstellen können.

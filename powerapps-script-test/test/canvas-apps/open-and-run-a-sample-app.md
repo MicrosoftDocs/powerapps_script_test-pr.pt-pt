@@ -1,64 +1,70 @@
 ---
-title: Use a sample app (quickstart) | Microsoft Docs
-description: Step-by-step instructions for creating a canvas app based on a sample in PowerApps
+title: Verwenden einer Beispiel-App (Schnellstart) | Microsoft-Dokumentation
+description: Ausführliche Anleitungen zum Erstellen einer Canvas-App auf Grundlage eines Beispiels in PowerApps
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 03/11/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 09d2bc10d465510887b546df8341c8798df136c1
+ms.sourcegitcommit: 02d0234bd84352bf1c43d0fc9225ab60947a0add
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49316814"
 ---
-# Quickstart: Create a canvas app from a sample in PowerApps
-In this quickstart, you'll create a canvas app from a sample so that you can explore design possibilities and discover concepts that you can apply as you develop your own canvas apps.
+# <a name="quickstart-create-a-canvas-app-from-a-sample-in-powerapps"></a>Schnellstart: Erstellen einer Canvas-App aus einem Beispiel in PowerApps
+In diesem Schnellstart erstellen Sie eine Canvas-App aus einem Beispiel. Dadurch können Sie die verschiedenen Möglichkeiten entdecken, diese zu gestalten und Konzepte entdecken, die Sie anwenden können, wenn Sie eigene Canvas-Apps entwickeln.
 
-Each sample showcases a real-world scenario but uses fictitious data. To store this data, you'll need a cloud-storage account, such as Dropbox, Google Drive, or OneDrive.
+Jedes Beispiel stellt ein reales Szenario dar, verwendet jedoch fiktive Daten. Sie benötigen ein Cloudspeicherkonto wie Dropbox, Google Drive oder OneDrive, um diese Daten zu speichern.
 
-If you don't have a license for PowerApps, you can [sign up for free](../signup-for-powerapps.md).
+Wenn Sie über keine Lizenz für PowerApps verfügen, können Sie sich [kostenlos registrieren](../signup-for-powerapps.md).
 
-## Open a sample app
-1. Sign in to [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
+## <a name="open-a-sample-app"></a>Öffnen von Beispiel-Apps
+1. Melden Sie sich bei [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an.
 
-1. In the list of sample apps, hover over a sample app (such as **Cost Estimator**) with your mouse.
+1. Zeigen Sie in der Liste der Beispiel-Apps mit der Maus auf eine Beispiel-App (z.B. **Cost Estimator**).
 
-	![](./media/open-and-run-a-sample-app/cost-estimator.png)
+    ![](./media/open-and-run-a-sample-app/cost-estimator.png)
 
-1. Click or tap the phone icon to create a version of the app for mobile devices (or leave the tablet icon selected), and then click or tap **Make this app**.
+1. Klicken oder tippen Sie auf das Telefonsymbol, um eine Version der App für Mobilgeräte zu erstellen (oder belassen Sie die Auswahl beim Tabletsymbol), und klicken oder tippen Sie dann auf **Diese App erstellen**.
 
-1. In PowerApps Studio, click or tap **Make my own app** in the banner near the top-center of the screen.
+1. Klicken oder tippen Sie in PowerApps Studio auf dem Banner im oberen mittleren Bereich des Bildschirms auf **Eigene App erstellen**.
 
-	![](./media/open-and-run-a-sample-app/banner.png)
+    ![](./media/open-and-run-a-sample-app/banner.png)
 
-1. Specify the cloud-storage account where you want to store the fictitious data for this app, and then provide credentials for that account.
+1. Geben Sie das Cloudspeicherkonto an, in dem Sie die fiktiven Daten für diese App speichern möchten, und geben Sie dann die Anmeldeinformationen für dieses Konto ein.
 
-1. Open Preview mode by pressing F5 (or by clicking or tapping the play button near the upper-right corner).
+1. Öffnen Sie den Vorschaumodus durch Drücken von F5 (oder durch Klicken oder Tippen der Schaltfläche „Wiedergabe“ in der Nähe der oberen rechten Ecke).
 
-	![](./media/open-and-run-a-sample-app/open-preview.png)
+    ![](./media/open-and-run-a-sample-app/open-preview.png)
 
-	Each sample represents a different scenario with a variety of screens and other controls. If you opened the Cost Estimator sample, you can use the default app to perform these tasks:
+    Jedes Beispiel stellt ein anderes Szenario mit unterschiedlichen Bildschirmen und Steuerelementen dar. Wenn Sie das Cost Estimator-Beispiel geöffnet haben, können Sie die Standard-App verwenden, um folgende Aufgaben auszuführen:
 
-	- Create an appointment for estimating the cost of installing a flooring product in a room of a particular size.
-	- Capture details such as address and square footage, and calculate the price based on discounts and tax rates.
-	- Filter a list of appointments to show those for which estimates have been created, for which estimates haven't been created, or all appointments.
-	
-1. When you finish exploring the app, close Preview mode by pressing Esc (or by clicking or tapping the close icon near the upper-right corner, under the title bar for PowerApps).
+    - Erstellen Sie eine Beauftragung, um die Kosten für den Einbau eines Fußbodenprodukts in einem Raum einer bestimmten Größe zu schätzen.
+    - Erfassen Sie Informationen wie Adresse und Quadratmeterzahl, und schätzen Sie den Preis basierend auf Rabatten und Steuersätzen.
+    - Filtern Sie in der Liste der Beauftragungen, um die anzuzeigen, für die Schätzungen erstellt wurden, für die keine Schätzungen erstellt wurden, oder um alle Beauftragungen anzuzeigen.
+    
+1. Wenn Sie mit dem Erkunden der App fertig sind, schließen Sie den Vorschaumodus durch Drücken der ESC-TASTE (oder durch Klicken oder Tippen auf das Schließen-Symbol in der Nähe der oberen linken Ecke unter der Titelleiste für PowerApps).
 
-## Save the app
-1. Near the upper-left corner, click or tap the **File** tab.
+## <a name="save-the-app"></a>Speichern der App
+1. Klicken oder tippen Sie in der Nähe der oberen linken Ecke auf die Registerkarte **Datei**.
 
-1. In the **App settings** page, review the default settings.
+1. Überprüfen Sie die Standardeinstellungen auf der Seite **App-Einstellungen**.
 
-	![](./media/open-and-run-a-sample-app/app-settings.png)
+    ![](./media/open-and-run-a-sample-app/app-settings.png)
 
-1. Near the left edge, click or tap **Save**. 
+1. Klicken oder tippen Sie am linken Rand auf **Speichern**. 
 
-## Next steps
-In this quickstart, you created your own app based on a sample that uses fictitious data stored in your cloud account. For more help learning how to create an app, you can also automatically generate an app based on data in other sources such as the Common Data Service for Apps, SharePoint, or Excel.
+## <a name="next-steps"></a>Nächste Schritte
+In diesem Schnellstart haben Sie eine eigene App erstellt, die auf einem Beispiel basiert, das fiktive Daten verwendet, die in Ihrem Cloudkonto gespeichert sind. Wenn Sie mehr über das Erstellen einer App erfahren möchten, können Sie ebenfalls eine App automatisch generieren, die auf Daten anderer Quellen wie Common Data Service für Apps, SharePoint oder Excel basiert.
 
 > [!div class="nextstepaction"]
-> [Generate an app](data-platform-create-app.md)
+> [Generate an app (Generieren einer App)](data-platform-create-app.md)

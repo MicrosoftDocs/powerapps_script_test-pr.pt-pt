@@ -1,6 +1,6 @@
 ---
-title: Overview of the Power BI connection | Microsoft Docs
-description: See the available Power BI connections
+title: Übersicht über die Power BI-Verbindung | Microsoft-Dokumentation
+description: Liste der verfügbaren Power BI-Verbindungen
 author: lancedMicrosoft
 manager: kvivek
 ms.service: powerapps
@@ -9,89 +9,95 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/12/2016
 ms.author: lanced
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 73ce15ff171ce72b9364844ed77f6e3aed079a64
+ms.sourcegitcommit: 3dc330d635aaf5bc689efa6bd39826d6e396c832
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48875805"
 ---
-# Connect to Power BI from PowerApps
+# <a name="connect-to-power-bi-from-powerapps"></a>Herstellen einer Verbindung mit Power BI aus PowerApps
 ![Power BI](./media/connection-powerbi/powerbiicon.png)
 
-Power BI is a suite of business analytics tools to analyze data and share insights. Monitor your business and get answers quickly with rich dashboards available on every device. In your app, you can check the status of the data alerts that you have set up in the Power BI service. For more information on data alerts in Power BI, head to the [documentation page](https://docs.microsoft.com/power-bi/service-set-data-alerts).
+Power BI ist eine Suite von Business Analytics-Tools zum Analysieren von Daten und Teilen von Erkenntnissen. Mit funktionsreichen Dashboards auf jedem Gerät behalten Sie die Kontrolle über Ihr Geschäft und erhalten schnell Antworten. Sie können in Ihrer App den Status der Datenwarnungen überprüfen, die Sie im Power BI-Dienst eingerichtet haben. Weitere Informationen zu Datenwarnungen in Power BI finden Sie auf der [Dokumentationsseite](https://docs.microsoft.com/power-bi/service-set-data-alerts).
 
-This topic shows you how to use the Power BI connection in an app, and lists the available functions.
+In diesem Thema wird gezeigt, wie Sie die Power BI-Verbindung in einer App verwenden, und die verfügbaren Funktionen werden aufgelistet.
 
-## Prerequisites
-* [Sign up](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc)
-* Add the Power BI [connection](https://powerapps.microsoft.com/tutorials/add-manage-connections/)
-* Create an app from a [template](https://powerapps.microsoft.com/tutorials/get-started-test-drive/), from [data](https://powerapps.microsoft.com/tutorials/get-started-create-from-data/), or from [scratch](https://powerapps.microsoft.com/tutorials/get-started-create-from-blank/)
+## <a name="prerequisites"></a>Voraussetzungen
+* [Registrieren](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc)
+* Die Power BI-[Verbindung](https://powerapps.microsoft.com/tutorials/add-manage-connections/) hinzufügen
+* Eine App aus einer [Vorlage](https://powerapps.microsoft.com/tutorials/get-started-test-drive/), aus [Daten](https://powerapps.microsoft.com/tutorials/get-started-create-from-data/) oder [von Grund auf neu](https://powerapps.microsoft.com/tutorials/get-started-create-from-blank/) erstellen
 
-## Use the Power BI connection in your app
-### List the alerts that you've set up in the Power BI service
-1. On the **Insert** menu, select **Gallery**, and add any of the **Text galleries**.
-2. To show the current user's alerts, set the [Items](../controls/properties-core.md) property of the gallery to the following formula:
+## <a name="use-the-power-bi-connection-in-your-app"></a>Verwenden der Power BI-Verbindung in der App
+### <a name="list-the-alerts-that-youve-set-up-in-the-power-bi-service"></a>Auflisten der Warnungen, die Sie im Power BI-Dienst eingerichtet haben
+1. Wählen Sie im Menü **Insert** (Einfügen) die Option **Katalog** aus, und fügen Sie eine der **Text galleries** (Textkataloge) hinzu.
+2. Um die Warnungen des aktuellen Benutzers anzuzeigen, legen Sie die [Items](../controls/properties-core.md)-Eigenschaft des Katalogs auf die folgende Formel fest:
 
    `PowerBI.GetAlerts()`
 
-The gallery will update with the list of alerts. For each alert, you will receive the alert name, the ID number of the alert, and the ID of the group workspace in which the alert was configured. You will need the alert ID to get further information about the alert.
+Der Katalog wird mit der Liste der Warnungen aktualisiert. Für jede Warnung erhalten Sie den Namen der Warnung, die ID der Warnung und die ID des Gruppenarbeitsbereichs, in dem die Warnung konfiguriert wurde. Sie benötigen die Warnungs-ID, um weitere Informationen zur Warnung zu erhalten.
 
-### View the status of an alert
-To view the status of the alert, call the CheckAlertStatus function with the alert ID obtained from the step above.
+### <a name="view-the-status-of-an-alert"></a>Anzeigen des Status einer Warnung
+Um den Status der Warnung anzuzeigen, rufen Sie die CheckAlertStatus-Funktion mit der Warnungs-ID auf, die Sie im obigen Schritt erhalten haben.
 
-The alert ID can be passed in either as a literal string (e.g. "1234") or as a reference to a gallery section populated using the GetAlerts() call (e.g. Gallery1.Selected.alertId)
+Die Warnungs-ID kann entweder als Literalzeichenfolge (z. B. „1234“) oder als Verweis auf einen durch den Aufruf von GetAlerts() aufgefüllten Katalogabschnitt (z. B. Gallery1.Selected.alertId) übergeben werden.
 
-To proceed, add a label, and then set its [Text](../controls/properties-core.md) property to one of these formulas:
+Um den Vorgang fortzusetzen, fügen Sie eine Bezeichnung hinzu, und legen Sie dessen [Text](../controls/properties-core.md)-Eigenschaft auf eine der folgenden Formeln fest:
 
 * `PowerBI.CheckAlertStatus( /* alert ID that you received from GetAlert */ ).alertTitle`
 * `PowerBI.CheckAlertStatus( /* alert ID that you received from GetAlert */ ).currentTileValue`
 * `PowerBI.CheckAlertStatus( /* alert ID that you received from GetAlert */ ).alertThreshold`
 * `PowerBI.CheckAlertStatus( /* alert ID that you received from GetAlert */ ).isAlertTriggered`
 
-The label will update with the current status of the alert.
+Die Bezeichnung wird mit dem aktuellen Status der Warnung aktualisiert.
 
-## View the available functions
-This connection includes the following functions:
+## <a name="view-the-available-functions"></a>Anzeigen der verfügbaren Funktionen
+Diese Verbindung umfasst die folgenden Funktionen:
 
-| Function Name | Description |
+| Funktionsname | Beschreibung |
 | --- | --- |
-| GetAlerts |List the alerts that you have set up in the Power BI service |
-| CheckAlertStatus |Check the status of a particular alert |
+| GetAlerts |Listet die Warnungen auf, die Sie im Power BI-Dienst eingerichtet haben. |
+| CheckAlertStatus |Überprüft den Status einer bestimmten Warnung. |
 
-## GetAlerts
-List the alerts that you have set up in the Power BI service.
+## <a name="getalerts"></a>GetAlerts
+Auflisten der Warnungen, die Sie im Power BI-Dienst eingerichtet haben.
 
-#### Input properties
-None.
+#### <a name="input-properties"></a>Eingabeeigenschaften
+Keine
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| value |array |No |An array of the data alerts that you have set up in the Power BI service. Each element in the array will include: <ul><li>alertTitle: the title of the alert</li><li>alertId: the ID of the alert</li><li>groupId: the ID of the group that the alert was created in</li></ul> |
+| value |Array |Nein |Ein Array der Datenwarnungen, die Sie im Power BI-Dienst eingerichtet haben. Jedes Element im Array enthält: <ul><li>alertTitle: der Titel der Warnung</li><li>alertId: die ID der Warnung</li><li>groupId: die ID der Gruppe, in der die Warnung erstellt wurde</li></ul> |
 
-## CheckAlertStatus
-Check the status of an alert.
+## <a name="checkalertstatus"></a>CheckAlertStatus
+Überprüfen des Status einer Warnung.
 
 > [!NOTE]
-> Requests to this endpoint will be throttled on a per-alert basis if called too frequently.
+> Anforderungen an diesen Endpunkt werden pro Warnung gedrosselt, wenn die Funktion zu häufig aufgerufen wird.
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| alertId |integer |Yes |The ID of the alert, as returned by GetAlerts |
+| alertId |Ganze Zahl |Ja |Die von GetAlerts zurückgegebene ID der Warnung |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| tileValue |number |No |The value of the tile when the alert was triggered |
-| tileUrl |string |No |URL for the tile that has the alert |
-| alertTitle |string |No |Name of the alert |
-| isAlertTriggered |boolean |No |Whether the alert is currently triggered |
-| alertThreshold |number |No |The threshold at which the alarm is triggered |
+| tileValue |Zahl |Nein |Der Wert der Kachel, als die Warnung ausgelöst wurde |
+| tileUrl |Zeichenfolge |Nein |Die URL für die Kachel, die die Warnung aufweist |
+| alertTitle |Zeichenfolge |Nein |Der Name der Warnung |
+| isAlertTriggered |Boolesch |Nein |Gibt an, ob die Warnung derzeit ausgelöst ist |
+| alertThreshold |Zahl |Nein |Der Schwellenwert, ab dem die Warnung ausgelöst wird |
 
-## Helpful links
-See all the [available connections](../connections-list.md).  
-Learn how to [add connections](../add-manage-connections.md) to your apps.
+## <a name="helpful-links"></a>Nützliche Links
+Alle [verfügbaren Verbindungen](../connections-list.md).  
+Erfahren Sie, wie Sie Ihren Apps [Verbindungen hinzufügen](../add-manage-connections.md).
 

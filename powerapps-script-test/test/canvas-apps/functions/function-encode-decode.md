@@ -1,6 +1,6 @@
 ---
-title: EncodeUrl and PlainText functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the EncodeUrl and PlainText functions in PowerApps
+title: Funktionen „EncodeUrl“ und „PlainText“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „EncodeUrl“ und „PlainText“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,38 +9,44 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 30d3378f46e587e45314c30be1fce3c36b2bb120
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42832995"
 ---
-# EncodeUrl and PlainText functions in PowerApps
-Encodes and decodes strings.
+# <a name="encodeurl-and-plaintext-functions-in-powerapps"></a>Die Funktionen „EncodeUrl“ und „PlainText“ in PowerApps
+Codiert und decodiert Zeichenfolgen
 
-## Description
-The **EncodeUrl** function encodes a URL string, replacing certain non-alphanumeric characters with % and a hexadecimal number.  
+## <a name="description"></a>Beschreibung
+Die **EncodeUrl**-Funktion codiert eine URL-Zeichenfolge, indem sie nicht alphanumerische Zeichen durch „%“ und eine hexadezimale Zahl ersetzt.  
 
-The **PlainText** function removes HTML and XML tags, converting certain tags such as these to an appropriate symbol:
+Die **PlainText**-Funktion entfernt HTML- und XML-Tags und konvertiert Tags wie die folgenden in ein entsprechendes Symbol:
 
 * **&amp;nbsp;**
 * **&amp;quot;**
 
-The return value from these functions is the encoded or decoded string. This function doesn't remove all HTML and XML tags. 
+Der Rückgabewert dieser Funktionen ist die codierte oder decodierte Zeichenfolge.   
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **EncodeUrl**( *String* )
 
-* *String* - Required.  URL to be encoded.
+* *Zeichenfolge*: erforderlich.  Die zu codierende URL
 
 **PlainText**( *String* )
 
-* *String* - Required. String from which HTML and XML tags will be stripped.
+* *Zeichenfolge*: erforderlich. Die Zeichenfolge, aus der HTML- und XML-Tags entfernt werden sollen
 
-## Examples
-If you show an RSS feed in a text gallery and then set the **[Text](../controls/properties-core.md)** property of a label in that gallery to **ThisItem.description**, the label might show raw HTML or XML code as in this example:
+## <a name="examples"></a>Beispiele
+Wenn Sie einen RSS-Feed in einem Textkatalog anzeigen, und Sie anschließend die **[Text](../controls/properties-core.md)**-Eigenschaft einer Bezeichnung in dem Katalog auf **ThisItem.description** festlegen, zeigt die Bezeichnung möglicherweise unformatierten HTML- oder XML-Code wie in folgendem Beispiel:
 
     <p>We have done an unusually&nbsp;&quot;deep&quot; globalization and localization.<p>
 
-If you set the **[Text](../controls/properties-core.md)** property of the label to **PlainText(ThisItem.description)**, the text appears as in this example:
+Wenn Sie die **[Text](../controls/properties-core.md)**-Eigenschaft auf **PlainText(ThisItem.description)** festlegen, wird der Text wie in folgendem Beispiel angezeigt:
 
     We have done an unusually "deep" globalization and localization.

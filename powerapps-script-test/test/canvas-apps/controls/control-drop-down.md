@@ -1,6 +1,6 @@
 ---
-title: 'Drop down control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Drop down control
+title: 'Dropdown-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen über das Dropdown-Steuerelement, einschließlich Eigenschaften und Beispielen
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,153 +9,159 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: f5e4e0ad13280783b7b6cd00121b4dc05cca6df8
+ms.sourcegitcommit: e4fe4b27651b62edb67e5995fc5955577d8ac5b8
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49075378"
 ---
-# Drop down control in PowerApps
-A list that shows only the first item unless the user opens it.
+# <a name="drop-down-control-in-powerapps"></a>Dropdown-Steuerelement in PowerApps
+Eine Liste, die nur das erste Element anzeigt, bis der Benutzer sie öffnet.
 
-## Description
-A **Drop down** control conserves screen real estate, especially when the list contains a large number of choices. The control takes up only one line unless the user selects the chevron to reveal more choices.  The control will show a maximum of 500 items.
+## <a name="description"></a>Beschreibung
+Ein **Dropdown**-Steuerelement ist platzsparend und eignet sich besonders für umfangreiche Listen. Das Steuerelement beansprucht nur eine Zeile, bis der Benutzer den Abwärtspfeil auswählt, um weitere Optionen einzublenden.  Das Steuerelement zeigt maximal 500 Elemente an.
 
-## Key properties
-**[Default](properties-core.md)** – The initial value of a control before the user specifies a different value.
+## <a name="key-properties"></a>Haupteigenschaften
+**[Default](properties-core.md)**: Der Anfangswert eines Steuerelements, bevor der Benutzer einen anderen Wert angibt.
 
-**[Items](properties-core.md)** – The source of data that contains the items that appear in the control. If the source has multiple columns, set the control's **Value** property to the column of data that you want to show.
+**[Items](properties-core.md)**: Die Datenquelle, welche die im Steuerelement angezeigten Elemente enthält. Wenn die Quelle mehrere Spalten besitzt, stellen Sie die **Value**-Eigenschaft des Steuerelements auf die Datenspalte ein, die Sie anzeigen möchten.
   
-**Value** – The column of data that you want to show in the control (for example, if a data source has multiple columns).
+**Value**: Die Datenspalte, die Sie im Steuerelement anzeigen möchten (z.B., wenn eine Datenquelle mehrere Spalten besitzt).
 
-**Selected** – The selected item.
+**Selected**: Das ausgewählte Element.
 
-## Additional properties
-**[AccessibleLabel](properties-accessibility.md)** – Label for screen readers.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[AccessibleLabel](properties-accessibility.md)**: Bezeichnung für Sprachausgaben
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**ChevronBackground** – The color behind the down arrow in a dropdown list.
+**ChevronBackground** – Die Farbe im Hintergrund des Abwärtspfeils einer Dropdownliste.
 
-**ChevronFill** – The color of the down arrow in a dropdown list.
+**ChevronFill** – Die Farbe des Abwärtspfeils in einer Dropdownliste.
 
-**[Color](properties-color-border.md)** – The color of text in a control.
+**[Color](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[DisabledBorderColor](properties-color-border.md)** – The color of a control's border if the control's **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledBorderColor](properties-color-border.md)**: Die Farbe des Steuerelementrahmens, wenn die **[DisplayMode](properties-core.md)**-Eigenschaft des Steuerelements auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledColor](properties-color-border.md)** – The color of text in a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledColor](properties-color-border.md)**: Die Farbe des Texts in einem Steuerelement, wenn seine **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledFill](properties-color-border.md)** – The background color of a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledFill](properties-color-border.md)**: Die Hintergrundfarbe eines Steuerelements, wenn dessen **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[FocusedBorderColor](properties-color-border.md)** – The color of a control's border when the control is focused.
+**[FocusedBorderColor](properties-color-border.md)**: die Rahmenfarbe eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[FocusedBorderThickness](properties-color-border.md)** – The thickness of a control's border when the control is focused.
+**[FocusedBorderThickness](properties-color-border.md)**: die Rahmendicke eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[Font](properties-text.md)** – The name of the family of fonts in which text appears.
+**[Font](properties-text.md)** – Der Name der Schriftfamilie des angezeigten Texts.
 
-**[FontWeight](properties-text.md)** – The weight of the text in a control: **Bold**, **Semibold**, **Normal**, or **Lighter**.
+**[FontWeight](properties-text.md)** – Die Schriftbreite des Texts in einem Steuerelement: **Bold** (Fett), **Semibold** (Halbfett), **Normal** oder **Lighter** (Heller).
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[HoverBorderColor](properties-color-border.md)** – The color of a control's border when the user keeps the mouse pointer on that control.
+**[HoverBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über das Steuerelement hält.
 
-**[HoverColor](properties-color-border.md)** – The color of the text in a control when the user keeps the mouse pointer on it.
+**[HoverColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[HoverFill](properties-color-border.md)** – The background color of a control when the user keeps the mouse pointer on it.
+**[HoverFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[Italic](properties-text.md)** – Whether the text in a control is italic.
+**[Italic](properties-text.md)** – Legt fest, ob der Text in einem Steuerelement kursiv formatiert ist.
 
-**[OnChange](properties-core.md)** – How the app responds when the user changes the value of a control (for example, by adjusting a slider).
+**[OnChange](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer den Wert eines Steuerelements ändert (z.B. per Schieberegler).
 
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**[PaddingBottom](properties-size-location.md)** – The distance between text in a control and the bottom edge of that control.
+**[PaddingBottom](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem unteren Rand des Steuerelements.
 
-**[PaddingLeft](properties-size-location.md)** – The distance between text in a control and the left edge of that control.
+**[PaddingLeft](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem linken Rand des Steuerelements.
 
-**[PaddingRight](properties-size-location.md)** – The distance between text in a control and the right edge of that control.
+**[PaddingRight](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem rechten Rand des Steuerelements.
 
-**[PaddingTop](properties-size-location.md)** – The distance between text in a control and the top edge of that control.
+**[PaddingTop](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem oberen Rand des Steuerelements.
 
-**[PressedBorderColor](properties-color-border.md)** – The color of a control's border when the user taps or clicks that control.
+**[PressedBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PressedColor](properties-color-border.md)** – The color of text in a control when the user taps or clicks that control.
+**[PressedColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PressedFill](properties-color-border.md)** – The background color of a control when the user taps or clicks that control.
+**[PressedFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[Reset](properties-core.md)** – Whether a control reverts to its default value.
+**[Reset](properties-core.md)** – Legt fest, ob ein Steuerelement auf seinen Standardwert zurückgesetzt wird.
 
-**[SelectionColor](properties-color-border.md)** – The text color of a selected item or items in a list or the color of the selection tool in a pen control.
+**[SelectionColor](properties-color-border.md)**: Die Textfarbe des ausgewählten Elements oder der Elemente in einer Liste oder die Farbe des Auswahltools in einem Stift-Steuerelement.
 
-**[SelectionFill](properties-color-border.md)** – The background color of a selected item or items in a list or a selected area of a pen control.
+**[SelectionFill](properties-color-border.md)** – Die Hintergrundfarbe des ausgewählten Elements oder der Elemente in einer Liste oder eines ausgewählten Bereichs eines Stift-Steuerelements.
 
-**[Size](properties-text.md)** – The font size of the text that appears on a control.
+**[Size](properties-text.md)** – Der Schriftgrad des Texts, der in einem Steuerelement angezeigt wird.
 
-**[Strikethrough](properties-text.md)** – Whether a line appears through the text that appears on a control.
+**[Strikethrough](properties-text.md)** – Legt fest, ob der in einem Steuerelement angezeigte Text durchgestrichen ist.
 
-**[TabIndex](properties-accessibility.md)** – Keyboard navigation order in relation to other controls.
+**[TabIndex](properties-accessibility.md)**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[Tooltip](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**[Underline](properties-text.md)** – Whether a line appears under the text that appears on a control.
+**[Underline](properties-text.md)** – Legt fest, ob der in einem Steuerelement angezeigte Text unterstrichen ist.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## Example
+## <a name="example"></a>Beispiel
 
-### Simple list
+### <a name="simple-list"></a>Einfache Liste
 
-1. Add a **Drop down** control, and then set its **[Items](properties-core.md)** property to this expression:
+1. Fügen Sie ein **Dropdown**-Steuerelement hinzu, und legen Sie seine **[Items](properties-core.md)**-Eigenschaft auf diesen Ausdruck fest:
 
-    `["Seattle", "Tokyo", "London", "Johannesburg", "Rio de Janeiro"]`
+    ```["Seattle", "Tokyo", "London", "Johannesburg", "Rio de Janeiro"]```
 
-    Don't know how to [add, name, and configure a control](../add-configure-controls.md)?
+    Möchten Sie wissen, wie Sie [ein Steuerelement hinzufügen, benennen und konfigurieren](../add-configure-controls.md)?
 
-1. Show the items in the list by selecting the control's down arrow while pressing the Alt key.
+1. Zeigen Sie die Elemente in der Liste an, indem Sie auf den Abwärtspfeil des Steuerelements klicken und gleichzeitig die ALT-Taste drücken.
 
-### List from a data source
-The principles in this procedure apply to any [data source that provides tables](../connections-list.md#tables) but, to follow these steps exactly, you must open an environment for which a Common Data Service for Apps database has been created and sample data added.
+### <a name="list-from-a-data-source"></a>Liste aus einer Datenquelle
+Die Prinzipien in diesem Verfahren gelten für jede [Datenquelle, die Tabellen enthält (data source that provides tables)](../connections-list.md#tables). Um diese Schritte jedoch genau auszuführen, müssen Sie eine Umgebung öffnen, für die eine Datenbank für Common Data Service für Apps erstellt wurde und Beispieldaten hinzugefügt wurden.
 
-1. [Open a blank app](../data-platform-create-app-scratch.md#open-a-blank-app), and then [specify the **Accounts** entity](../data-platform-create-app-scratch.md#specify-an-entity).
+1. [Öffnen einer leeren App](../data-platform-create-app-scratch.md#open-a-blank-app) (Open a blank app), dann [Angeben des **(specify the )** Elements](../data-platform-create-app-scratch.md#specify-an-entity) (entity) des Kontos.
 
-1. Add a **Drop down** control, and set its **[Items](properties-core.md)** property to this formula:
+1. Fügen Sie ein **Dropdown**-Steuerelement hinzu, und legen Sie seine **[Items](properties-core.md)**-Eigenschaft auf diese Formel fest:
 
-    `Distinct(Accounts, address1_city)`
+    ```Distinct(Accounts, address1_city)```
 
-    This formula shows all the cities in the **Accounts** entity. If more than one record has the same city, the **[Distinct](../functions/function-distinct.md)** function hides the duplication in your drop-down control.
+    Diese Formel zeigt alle Städte in dem Element **Konten** (Accounts) an. Wenn mehr als ein Datensatz die gleiche Stadt besitzt, versteckt die **[Distinct](../functions/function-distinct.md)**-Funktion die Duplizierung in Ihrem Dropdown-Steuerelement.
 
-1. (optional) Rename your **Drop down** control to **Cities**, add a vertical **Gallery** control, and set the gallery's **[Items](properties-core.md)** property to this formula:
+1. (optional) Benennen Sie Ihr **Dropdown**-Steuerelement in **Cities** (Städte) um, fügen Sie ein vertikales **Gallery**-Steuerelement (Katalog) hinzu, und legen Sie die **[Items](properties-core.md)**-Eigenschaft des Katalogs auf diese Formel fest:
 
-    `Filter(Accounts, address1_city = Cities.Selected.Value)`
+    ```Filter(Accounts, address1_city = Cities.Selected.Value)```
 
-    This **[Filter](../functions/function-filter-lookup.md)** function shows only those records in the **Accounts** entity for which the city matches the selected value in the **Cities** control.
+    Diese **[Filter](../functions/function-filter-lookup.md)**-Funktion zeigt nur die Datensätze im **Accounts**-Element (Konten) an, bei denen die Stadt zu dem ausgewählten Wert im Steuerelement **Cities** (Städte) passt.
 
-## Accessibility guidelines
-### Color contrast
-There must be adequate color contrast between:
-* **ChevronFill** and **ChevronBackground**
-* **ChevronHoverFill** and **ChevronHoverBackground**
-* **SelectionColor** and **SelectionFill**
-* **SelectionFill** and **[Fill](properties-color-border.md)**
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+Zwischen folgenden Eigenschaften muss es einen ausreichenden Farbkontrast geben:
+* **ChevronFill** und **ChevronBackground**
+* **ChevronHoverFill** und **ChevronHoverBackground**
+* **SelectionColor** und **SelectionFill**
+* **SelectionFill** und **[Fill](properties-color-border.md)**
 
-This is in addition to the [standard color contrast requirements](../accessible-apps-color.md).
+Dies ist ein Zusatz zu den [Standardanforderungen für Farbkontraste](../accessible-apps-color.md).
 
-### Screen reader support
-* **[AccessibleLabel](properties-accessibility.md)** must be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **[AccessibleLabel](properties-accessibility.md)** muss vorhanden sein.
 
-### Keyboard support
-* **[TabIndex](properties-accessibility.md)** must be zero or greater so that keyboard users can navigate to it.
-* Focus indicators must be clearly visible. Use **[FocusedBorderColor](properties-color-border.md)** and **[FocusedBorderThickness](properties-color-border.md)** to achieve this.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* **[TabIndex](properties-accessibility.md)** muss gleich 0 (null) oder größer sein, damit Tastaturbenutzer dorthin navigieren können.
+* Fokusindikatoren müssen deutlich sichtbar sein. **[FocusedBorderColor](properties-color-border.md)** und **[FocusedBorderThickness](properties-color-border.md)** können Ihnen dabei helfen.

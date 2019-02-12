@@ -1,134 +1,140 @@
 ---
-title: Overview of the SharePoint connection | Microsoft Docs
-description: See the available functions, responses, and examples for SharePoint
-author: NickWaggoner
+title: Übersicht über die SharePoint-Verbindung | Microsoft-Dokumentation
+description: Hier finden Sie die verfügbaren Funktionen, Antworten und Beispiele für SharePoint.
+author: sarafankit
 manager: kvivek
 ms.service: powerapps
 ms.topic: reference
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 07/12/2017
-ms.author: niwaggon
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: ankitsar
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 0a13d2602f06f436d4b805669b004f1ee63daeb9
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42836733"
 ---
-# Connect to SharePoint from PowerApps
+# <a name="connect-to-sharepoint-from-powerapps"></a>Verbinden mit SharePoint aus PowerApps
 ![SharePoint](./media/connection-sharepoint-online/sharepointicon.png)
 
-Connect to a SharePoint site to generate an app automatically from a list, build an app from scratch, or update an existing app.
+Stellen Sie eine Verbindung mit einer SharePoint-Website her, um automatisch eine App aus einer Liste zu generieren, eine App neu zu erstellen oder eine vorhandene App zu aktualisieren.
 
-## Known issues
-You can add data from a custom list but not a library. In addition, not all types of columns are supported, and not all types of columns support all types of cards.
+## <a name="known-issues"></a>Bekannte Probleme
+Sie können Daten aus einer benutzerdefinierten Liste, nicht jedoch aus einer Bibliothek hinzufügen. Darüber hinaus werden nicht alle Typen von Spalten unterstützt, und nicht alle Spaltentypen unterstützen alle Typen von Karten.
 
-| Column type | Support | Default cards |
+| Spaltentyp | Support | Standardkarten |
 | --- | --- | --- |
-| Single line of text |Yes |View text |
-| Multiple lines of text |Yes |View text |
-| Choice |Yes |View lookup<br>Edit lookup<br>View multiselect<br>Edit multiselect |
-| Number |Yes |View percentage<br>View rating<br>View text |
-| Currency |Yes |View percentage<br>View rating<br>View text |
-| Date and Time |Yes |View text |
-| Lookup |Yes |View lookup<br>Edit lookup<br>View multiselect<br>Edit multiselect |
-| Boolean (Yes/No) |Yes |View text<br>View toggle |
-| Person or Group |Yes |View lookup<br>Edit lookup<br>View multiselect<br>Edit multiselect |
-| Hyperlink |Yes |View URL<br>View text |
-| Picture |Yes (read-only) |View image<br>View text |
-| Attachment |Yes (read-only) |View Attachments|
-| Calculated |Yes (read-only) | |
-| Task Outcome |No | |
-| External data |No | |
-| Managed Metadata |Yes (read-only) | |
-| Rating |No | |
+| Eine Textzeile |Ja |Text anzeigen |
+| Mehrere Textzeilen |Ja |Text anzeigen |
+| Auswahl |Ja |Suche anzeigen<br>Suche bearbeiten<br>Mehrfachauswahl anzeigen<br>Mehrfachauswahl bearbeiten |
+| Number |Ja |Prozentsatz anzeigen<br>Bewertung anzeigen<br>Text anzeigen |
+| Währung |Ja |Prozentsatz anzeigen<br>Bewertung anzeigen<br>Text anzeigen |
+| Datum und Uhrzeit |Ja |Text anzeigen |
+| Nachschlagen |Ja |Suche anzeigen<br>Suche bearbeiten<br>Mehrfachauswahl anzeigen<br>Mehrfachauswahl bearbeiten |
+| Boolesch (Ja/Nein) |Ja |Text anzeigen<br>Ansicht umschalten |
+| Person oder Gruppe |Ja |Suche anzeigen<br>Suche bearbeiten<br>Mehrfachauswahl anzeigen<br>Mehrfachauswahl bearbeiten |
+| Hyperlink |Ja |URL anzeigen<br>Text anzeigen |
+| Bild |Ja (schreibgeschützt) |Bild anzeigen<br>Text anzeigen |
+| Anlage |Ja (schreibgeschützt) |Anlagen anzeigen|
+| Berechnet |Ja (schreibgeschützt) | |
+| Ergebnis der Aufgabe |Nein | |
+| Externe Daten |Nein | |
+| Verwaltete Metadaten |Ja (schreibgeschützt) | |
+| Bewertung |Nein | |
 
-PowerApps can read columns that contain spaces, but the spaces are replaced with the hexadecimal escape code **"\_x0020\_"**. For example, **"Column Name"** in SharePoint will appear as **"Column_x0020_Name"** in PowerApps when displayed in the data layout or used in a formula.
+PowerApps kann Spalten mit Leerzeichen lesen, aber die Leerzeichen werden durch den hexadezimalen Escapecode **"\_X0020\_"** ersetzt. **"Name der Spalte"** in SharePoint wird beispielsweise in PowerApps bei Anzeige im Datenlayout oder Verwendung in einer Formel als **"Name_x0020_der_x0020_Spalte"** angezeigt.
 
-## Prerequisites
-1. [Sign up](../../signup-for-powerapps.md) for PowerApps.
+## <a name="prerequisites"></a>Voraussetzungen
+1. [Registrieren Sie sich](../../signup-for-powerapps.md) bei PowerApps.
 
-1. [Sign in](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) to PowerApps by providing the same credentials that you used to sign up.
+1. [Melden Sie sich bei PowerApps an](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), indem Sie dieselben Anmeldeinformationen eingeben, die Sie bei der Registrierung verwendet haben.
 
-1. Near the left edge, select **Apps**, and then select **Create an app** in the banner.
+1. Klicken Sie am linken Rand auf **Apps** und dann auf dem Banner auf **App erstellen**.
 
-## Create an app
-* [Generate an app automatically](../app-from-sharepoint.md) based on data in a SharePoint list.
+## <a name="create-an-app"></a>Erstellen einer App
+* [Generieren Sie eine App automatisch](../app-from-sharepoint.md) auf Grundlage der Daten in einer SharePoint-Liste.
 
-    The app will have three screens by default: one each for browsing records, displaying details of a record, and creating or updating a record. After the app is generated, you'll probably want to customize [the browse screen](../customize-layout-sharepoint.md) and [the details and edit screens](../customize-forms-sharepoint.md) to suit your needs.
+    Die App verfügt standardmäßig über drei Bildschirme: jeweils einen zum Durchsuchen von Datensätzen, zum Anzeigen von Details zu einem Datensatz und zum Erstellen oder Aktualisieren eines Datensatzes. Nach dem Generieren der App können Sie [den Bildschirm zum Durchsuchen](../customize-layout-sharepoint.md) und [den Bearbeitungs- und Detailbildschirm](../customize-forms-sharepoint.md) an Ihre Anforderungen anpassen.
 
-    **Note:** If your SharePoint list contains a **Choice**, **Lookup**, or **Person or group** column, see [Show data in a gallery](connection-sharepoint-online.md#show-data-in-a-gallery) later in this topic.
+    **Hinweis:** Wenn Ihre SharePoint-Liste eine Spalte vom Typ **Auswahl**, **Nachschlagen**, oder **Person oder Gruppe** enthält, finden Sie weitere Informationen unter [Anzeigen von Daten in einem Katalog](connection-sharepoint-online.md#show-data-in-a-gallery) weiter unten in diesem Thema.
 
-* Build your own app from scratch by [connecting to SharePoint](../connect-to-sharepoint.md), reviewing the concepts in [Create an app from scratch](../get-started-create-from-blank.md), and applying them to SharePoint instead of Excel.
+* Erstellen Sie eine eigene Anwendung von Grund auf neu, indem Sie [eine Verbindung mit SharePoint herstellen](../connect-to-sharepoint.md), sich mit den Konzepten in [App von Grund auf neu erstellen](../get-started-create-from-blank.md) vertraut machen und sie in SharePoint anstelle von Excel anwenden.
 
-## Add a SharePoint list to an existing app
-1. In PowerApps Studio, open the app that you want to update.
+## <a name="add-a-sharepoint-list-to-an-existing-app"></a>Hinzufügen einer SharePoint-Liste zu einer vorhandenen App
+1. Öffnen Sie in PowerApps Studio die App, die Sie aktualisieren möchten.
 
-2. On the **View** tab of the ribbon, click or tap **Data sources**
+2. Klicken oder tippen Sie im Menüband auf der Registerkarte **Ansicht** auf **Datenquellen**
 
-3. In the right-hand pane, click or tap **Add data source**.
+3. Klicken oder tippen Sie im rechten Bereich auf **Datenquelle hinzufügen**.
 
-    ![Add data source](./media/connection-sharepoint-online/add-data-source.png)
+    ![Datenquelle hinzufügen](./media/connection-sharepoint-online/add-data-source.png)
 
-4. Click or tap **New connection**, click or tap **SharePoint**, and then click or tap **Connect**.
+4. Klicken oder tippen Sie auf **Neue Verbindung**, anschließend auf **SharePoint** und dann auf **Verbinden**.
 
-    ![Add SharePoint connection](./media/connection-sharepoint-online/add-sharepoint.png)
+    ![Hinzufügen einer SharePoint-Verbindung](./media/connection-sharepoint-online/add-sharepoint.png)
 
-5. Specify the type of SharePoint site to which you want to connect:
+5. Geben Sie den Typ der SharePoint-Website ein, mit dem Sie eine Verbindung herstellen möchten:
 
-    ![Specify type of connection](./media/connection-sharepoint-online/choose-type.png)
+    ![Angeben des Verbindungstyps](./media/connection-sharepoint-online/choose-type.png)
 
-   * Click or tap **Connect directly (cloud services)** to connect to SharePoint Online.
+   * Klicken oder tippen Sie auf **Direkte Verbindung (Clouddienste)**, um eine Verbindung mit SharePoint Online herzustellen.
 
-   * Click or tap **Connect using on-premises data gateway** to connect to an on-premises SharePoint site.
+   * Klicken oder tippen Sie auf **Verbindung mit einem lokalen Datengateway herstellen**, um eine Verbindung mit einer lokalen SharePoint-Website herzustellen.
 
-       Specify **Windows** as the authentication type, and then specify your credentials. (If your credentials include a domain name, specify it as *domain\alias*.)
+       Geben Sie **Windows** als Authentifizierungstyp an, und geben Sie dann Ihre Anmeldeinformationen ein. (Wenn Ihre Anmeldeinformationen einen Domänennamen enthalten, geben Sie sie folgendermaßen an: *Domäne\Alias*.)
 
-       ![Specify credentials](./media/connection-sharepoint-online/specify-creds.png)
+       ![Eingeben der Anmeldeinformationen](./media/connection-sharepoint-online/specify-creds.png)
 
-       **Note:** If you don't have an on-premises data gateway installed, [install one](../gateway-reference.md), and then click or tap the icon to refresh the list of gateways.
+       **Hinweis:** Wenn Sie kein lokales Datengateway installiert haben, [installieren Sie eines](../gateway-reference.md), und klicken oder tippen Sie anschließend auf das Symbol zum Aktualisieren der Liste der Gateways.
 
-       Under **Choose a gateway**, click or tap the gateway that you want to use.
+       Klicken oder tippen Sie unter **Gateway auswählen** auf das Gateway, das Sie verwenden möchten.
 
-       ![Choose gateway](./media/connection-sharepoint-online/choose-gateway.png)
+       ![Auswählen des Gateways](./media/connection-sharepoint-online/choose-gateway.png)
 
-6. Click or tap **Connect**.
+6. Klicken oder tippen Sie auf **Verbinden**.
 
-7. Under **Connect to a SharePoint site**, click or tap an entry in the **Recent sites** list (or type or paste the URL for the site that you want to use), and then click or tap **Go**.
+7. Unter **Verbindung mit einer SharePoint-Website herstellen** klicken oder tippen Sie auf einen Eintrag in der Liste **Zuletzt geöffnete Websites** (oder geben Sie die URL der Website ein, die Sie verwenden möchten, bzw. fügen Sie sie ein). Klicken oder tippen Sie auf dann auf **Los**.
 
-    ![Select a SharePoint site](./media/connection-sharepoint-online/select-sp-site.png)
+    ![Auswählen der SharePoint-Website](./media/connection-sharepoint-online/select-sp-site.png)
 
-8. Under **Choose a list**, select the check box for one or more lists that you want to use, and then click or tap **Connect**:  
+8. Aktivieren Sie unter **Liste auswählen** das Kontrollkästchen für eine oder mehrere Listen, die Sie verwenden möchten, und klicken oder tippen Sie dann auf **Verbinden**:  
 
-    ![Select the tables in SharePoint](./media/connection-sharepoint-online/select-sp-tables.png)
+    ![Auswählen der Tabellen in SharePoint](./media/connection-sharepoint-online/select-sp-tables.png)
 
-    Not all types of lists appear by default. PowerApps supports custom lists, not template-based lists.  If the name of the list that you want to use doesn't appear, scroll to the bottom, and then type the name of the list in the box that contains **Enter a custom list name**.
+    Nicht alle Typen von Listen werden standardmäßig angezeigt. PowerApps unterstützt benutzerdefinierte Liste, aber keine vorlagenbasierten Listen.  Wenn der Name der Liste, die Sie verwenden möchten, nicht angezeigt wird, scrollen Sie nach unten, und geben Sie dann den Namen der Liste in das Feld **Benutzerdefinierten Listennamen eingeben** ein.
 
-    ![Custom list in SharePoint](./media/connection-sharepoint-online/custom-list.png)
+    ![Benutzerdefinierte Liste in SharePoint](./media/connection-sharepoint-online/custom-list.png)
 
-    The data sources are added to your app.
+    Die Datenquellen werden Ihrer App hinzugefügt.
 
-    ![List of data sources added to the app](./media/connection-sharepoint-online/data-sources-list.png)
+    ![Liste der der App hinzugefügten Datenquellen](./media/connection-sharepoint-online/data-sources-list.png)
 
-## Show data in a gallery
-To show data from any of these types of columns in a gallery, use the formula bar to set the **Text** property of one or more **Label** controls in that gallery:
+## <a name="show-data-in-a-gallery"></a>Anzeigen von Daten in einem Katalog
+Wenn Sie Daten aus einem dieser Spaltentypen in einem Katalog anzeigen möchten, legen Sie über die Formelleiste die **Text**-Eigenschaft für eines oder mehrere **Label**-Steuerelemente (Bezeichnung) in diesem Katalog fest:
 
-* For a **Choice** or **Lookup** column, specify **ThisItem.[ColumnName].Value** to show data in that column.
+* Geben Sie für eine Spalte vom Typ **Auswahl** oder **Nachschlagen** **ThisItem.[Spaltenname].Value** an, um Daten in dieser Spalte anzuzeigen.
 
-    For example, specify **ThisItem.Location.Value** if you have a **Choice** column named **Location**, and specify **ThisItem.PostalCode.Value** if you have a **Lookup** column named **PostalCode**.
+    Geben Sie z.B. **ThisItem.Standort.Value** an, wenn Sie eine **Auswahl**-Spalte mit dem Namen **Standort** haben. Geben Sie **ThisItem.PostalCode.Value** für eine **Nachschlage**-Spalte namens **PostalCode** ein.
 
-* For a **Person or Group** column, specify **ThisItem.[ColumnName].DisplayName** to show the display name of the user or the group.
+* Geben Sie bei einer Spalte vom Typ **Person oder Gruppe** **ThisItem.[Spaltenname].DisplayName** an, um den Anzeigenamen des Benutzers oder der Gruppe anzuzeigen.
 
-    For example, specify **ThisItem.Manager.DisplayName** to show display names from a **Person or Group** column named **Manager**.
+    Geben Sie z.B. **ThisItem.Manager.DisplayName** an, um die Anzeigenamen aus einer **Person oder Gruppe**-Spalte mit dem Namen **Manager** anzuzeigen.
 
-    You can also show different information about users, such as email addresses or job titles. To display a complete list of options, specify **ThisItem.[ColumnName].** (with the trailing period).
+    Sie können auch andere Informationen zu Benutzern anzeigen, z.B. E-Mail-Adressen oder Positionsbeschreibungen. Um eine vollständige Liste der Optionen anzuzeigen, geben Sie **ThisItem.[Spaltenname].** (mit dem abschließenden Punkt) ein.
 
-    **Note:** For a **CreatedBy** column, specify **ThisItem.Author.DisplayName** to show the display names of users who created items in the list. For a **ModifiedBy** column, specify **ThisItem.Editor.DisplayName** to show the display names of users who changed items in the list.
+    **Hinweis:** Für eine **CreatedBy**-Spalte geben Sie **ThisItem.Author.DisplayName** ein, um die Anzeigenamen von Benutzern anzuzeigen, die die Elemente in der Liste erstellt haben. Für eine **ModifiedBy**-Spalte geben Sie **ThisItem.Editor.DisplayName** ein, um die Anzeigenamen von Benutzern anzuzeigen, die die Elemente in der Liste geändert haben.
 
-* For a **Managed Metadata** column, specify **ThisItem.[ColumnName].Label** to show data in that column.
+* Geben Sie für eine Spalte vom Typ **Verwaltete Metadaten** **ThisItem.[Spaltenname].Label** an, um Daten in dieser Spalte anzuzeigen.
 
-    For example, specify **ThisItem.Languages.Label** if you have a **Managed Metadata** column named **Languages**.
+    Geben Sie z.B. **ThisItem.Sprachen.Label** ein, wenn Sie mit einer **Verwaltete Metadaten**-Spalte mit dem Namen **Sprachen** arbeiten.
 
-## Next steps
-* Learn how to [show data from a data source](../add-gallery.md).
-* Learn how to [view details and create or update records](../add-form.md).
-* See other types of [data sources](../connections-list.md) to which you can connect.
+## <a name="next-steps"></a>Nächste Schritte
+* Erfahren Sie, wie Sie [Daten aus einer Datenquelle anzeigen](../add-gallery.md).
+* Erfahren Sie, wie Sie [Details anzeigen und Datensätze erstellen oder aktualisieren](../add-form.md).
+* Hier erhalten Sie Informationen zu anderen Arten von [Datenquellen](../connections-list.md), mit denen Sie eine Verbindung herstellen können.

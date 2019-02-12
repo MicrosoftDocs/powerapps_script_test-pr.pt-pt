@@ -1,6 +1,6 @@
 ---
-title: 'Add picture control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Add picture control
+title: 'Steuerelement „Bild hinzufügen“: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, über das Steuerelement „Bild hinzufügen“
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,139 +9,145 @@ ms.custom: canvas
 ms.date: 10/25/2016
 ms.author: fikaradz
 ms.reviewer: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 1cc2b7c1752abe4f12e76c30f59978fc753f4ac5
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42835649"
 ---
-# Add picture control in PowerApps
-Takes a photo or loads images from the local device.
+# <a name="add-picture-control-in-powerapps"></a>Steuerelement „Bild hinzufügen“ in PowerApps
+Nimmt ein Foto auf oder lädt Bilder vom lokalen Gerät.
 
-## Description
-With this control users can take photos or upload image files from their device and update the data source with this content. On a mobile device the user is presented with the device's choice dialog to choose between taking a photo or selecting one already available.
+## <a name="description"></a>Beschreibung
+Mit diesem Steuerelement können die Benutzer Fotos aufnehmen oder Bilddateien von ihrem Gerät laden und die Datenquelle mit diesem Inhalt aktualisieren. Auf einem mobilen Gerät wird für den Benutzer das Auswahldialogfeld des Geräts angezeigt, in dem zwischen dem Aufnehmen eines Fotos und dem Auswählen eines bereits verfügbaren Fotos gewählt werden kann.
 
-This control is a grouped control containing two controls: an **Image** and an **Add media button**. The **Image** control shows the uploaded image or a placeholder if no image has been uploaded. The **Add media button** prompts for an image to be uploaded.
+Bei dem Steuerelement handelt es sich um ein gruppiertes Steuerelement mit zwei weiteren Steuerelementen: ein **Bild** und eine **Medien hinzufügen**-Schaltfläche. Das **Bild**-Steuerelement zeigt das hochgeladene Bild bzw. (wenn kein Bild hochgeladen wurde) einen Platzhalter an. Über die Schaltfläche **Medien hinzufügen** werden Sie dazu aufgefordert, ein Bild hochzuladen.
 
-See the [Image control reference](control-image.md) for **Image** properties.
+Weitere Informationen zu den **Bild**-Eigenschaften erhalten Sie in der [Referenz zu dem Steuerelement „Bild“](control-image.md).
 
-## Add media button properties
-**[AccessibleLabel](properties-accessibility.md)** – Label for screen readers. Should describe the purpose of adding a picture.
+## <a name="add-media-button-properties"></a>Eigenschaften der Schaltfläche „Medien hinzufügen“
+**[AccessibleLabel](properties-accessibility.md)**: Bezeichnung für Sprachausgaben Sollte beschreiben, warum ein Bild hochgeladen werden soll.
 
-**[Align](properties-text.md)** – The location of text in relation to the horizontal center of its control.
+**[Align](properties-text.md)** – Die Position von Text in Relation zur horizontalen Mitte des Steuerelements.
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**ChangePictureText** – Text that appears on the button when an image has been uploaded.
+**ChangePictureText**: Text, der angezeigt wird, wenn ein Bild hochgeladen wurde.
 
-**[Color](properties-color-border.md)** – The color of text in a control.
+**[Color](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement.
 
-**[DisabledBorderColor](properties-color-border.md)** – The color of a control's border if the control's **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledBorderColor](properties-color-border.md)**: Die Farbe des Steuerelementrahmens, wenn die **[DisplayMode](properties-core.md)**-Eigenschaft des Steuerelements auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledColor](properties-color-border.md)** – The color of text in a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledColor](properties-color-border.md)**: Die Farbe des Texts in einem Steuerelement, wenn seine **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledFill](properties-color-border.md)** – The background color of a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledFill](properties-color-border.md)**: Die Hintergrundfarbe eines Steuerelements, wenn dessen **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**Error** - If there is a problem uploading an image, this property will contain an appropriate error string.
+**Error** – Falls beim Hochladen eines Bilds ein Problem auftritt, enthält diese Eigenschaft eine entsprechende Fehlerzeichenfolge.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[FocusedBorderColor](properties-color-border.md)** – The color of a control's border when the control is focused.
+**[FocusedBorderColor](properties-color-border.md)**: die Rahmenfarbe eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[FocusedBorderThickness](properties-color-border.md)** – The thickness of a control's border when the control is focused.
+**[FocusedBorderThickness](properties-color-border.md)**: die Rahmendicke eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[Font](properties-text.md)** – The name of the family of fonts in which text appears.
+**[Font](properties-text.md)** – Der Name der Schriftfamilie des angezeigten Texts.
 
-**[FontWeight](properties-text.md)** – The weight of the text in a control: **Bold**, **Semibold**, **Normal**, or **Lighter**.
+**[FontWeight](properties-text.md)** – Die Schriftbreite des Texts in einem Steuerelement: **Bold** (Fett), **Semibold** (Halbfett), **Normal** oder **Lighter** (Heller).
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[HoverBorderColor](properties-color-border.md)** – The color of a control's border when the user keeps the mouse pointer on that control.
+**[HoverBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über das Steuerelement hält.
 
-**[HoverColor](properties-color-border.md)** – The color of the text in a control when the user keeps the mouse pointer on it.
+**[HoverColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[HoverFill](properties-color-border.md)** – The background color of a control when the user keeps the mouse pointer on it.
+**[HoverFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[Italic](properties-text.md)** – Whether the text in a control is italic.
+**[Italic](properties-text.md)** – Legt fest, ob der Text in einem Steuerelement kursiv formatiert ist.
 
-**Media** – An identifier for the clip that an audio or video control plays.
+**Media**: Ein Bezeichner für den Clip, der von einem Audio- oder Video-Steuerelement wiedergegeben wird.
 
-**[OnChange](properties-core.md)** – How the app responds when the user changes the value of a control (for example, by adjusting a slider).
+**[OnChange](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer den Wert eines Steuerelements ändert (z.B. per Schieberegler).
 
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**[Padding](properties-size-location.md)** – The distance between the text on an import or export button and the edges of that button.
+**[Padding](properties-size-location.md)** – Der Abstand zwischen dem Text auf einer Import- oder Exportschaltfläche und den Rändern der Schaltfläche.
 
-**[PressedBorderColor](properties-color-border.md)** – The color of a control's border when the user taps or clicks that control.
+**[PressedBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PressedColor](properties-color-border.md)** – The color of text in a control when the user taps or clicks that control.
+**[PressedColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PressedFill](properties-color-border.md)** – The background color of a control when the user taps or clicks that control.
+**[PressedFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[Reset](properties-core.md)** – Whether a control reverts to its default value.
+**[Reset](properties-core.md)** – Legt fest, ob ein Steuerelement auf seinen Standardwert zurückgesetzt wird.
 
-**[Size](properties-text.md)** – The font size of the text that appears on a control.
+**[Size](properties-text.md)** – Der Schriftgrad des Texts, der in einem Steuerelement angezeigt wird.
 
-**[Strikethrough](properties-text.md)** – Whether a line appears through the text that appears on a control.
+**[Strikethrough](properties-text.md)** – Legt fest, ob der in einem Steuerelement angezeigte Text durchgestrichen ist.
 
-**[TabIndex](properties-accessibility.md)** – Keyboard navigation order in relation to other controls.
+**[TabIndex](properties-accessibility.md)**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**[Text](properties-core.md)** – Text that appears on the button when an image has not been uploaded.
+**[Text](properties-core.md)**: Text, der angezeigt wird, wenn kein Bild hochgeladen wurde.
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[Tooltip](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**[Underline](properties-text.md)** – Whether a line appears under the text that appears on a control.
+**[Underline](properties-text.md)** – Legt fest, ob der in einem Steuerelement angezeigte Text unterstrichen ist.
 
-**[VerticalAlign](properties-text.md)** – The location of text on a control in relation to the vertical center of that control.
+**[VerticalAlign](properties-text.md)** – Die Position des Texts in einem Steuerelement in Relation zur vertikalen Mitte des Steuerelements.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## Related functions
+## <a name="related-functions"></a>Verwandte Funktionen
 [**Patch**( *DataSource*, *BaseRecord*, *ChangeRecord* )](../functions/function-patch.md)
 
-## Examples
-### Add images to an Image gallery control
-1. Add an **Add picture** control, and then triple-click it.
+## <a name="examples"></a>Beispiele
+### <a name="add-images-to-an-image-gallery-control"></a>Hinzufügen von Bildern zu einem Bildkatalog-Steuerelement
+1. Fügen Sie ein **Bild hinzufügen**-Steuerelement hinzu, und klicken Sie dann dreimal darauf.
    
-    Don't know how to [add, name, and configure a control](../add-configure-controls.md)?
-2. In the **Open** dialog box, click or tap an image file, and then click or tap **Open**.
-3. Add a **[Button](control-button.md)** control, move it under the **Add picture** control, and set the **[OnSelect](properties-core.md)** property for the **[Button](control-button.md)** control to this formula:<br>
+    Möchten Sie wissen, wie Sie [ein Steuerelement hinzufügen, benennen und konfigurieren](../add-configure-controls.md)?
+2. Klicken oder tippen Sie im Dialogfeld **Öffnen** auf eine Bilddatei, und klicken oder tippen Sie dann auf **Öffnen**.
+3. Fügen Sie ein **[Schaltfläche](control-button.md)**-Steuerelement hinzu, verschieben Sie es unter das Steuerelement **Bild hinzufügen**, und legen Sie die **[OnSelect](properties-core.md)**-Eigenschaft für das **[Schaltfläche](control-button.md)**-Steuerelement auf die folgende Formel fest:<br>
    **Collect(MyPix, AddMediaButton1.Media)**
    
-    Want more information about the **[Collect](../functions/function-clear-collect-clearcollect.md)** function or [other functions](../formula-reference.md)?
-4. Add an **Image gallery** control, and set its **[Items](properties-core.md)** property to **MyPix**.
-5. Press F5, and then click or tap the **[Button](control-button.md)** control.
+    Benötigen Sie weitere Informationen zur **[Collect](../functions/function-clear-collect-clearcollect.md)**-Funktion oder [anderen Funktionen](../formula-reference.md)?
+4. Fügen Sie ein **Bildkatalog**-Steuerelement hinzu, und legen Sie dessen **[Items](properties-core.md)**-Eigenschaft auf **MyPix** fest.
+5. Drücken Sie F5, und klicken oder tippen Sie auf das **[Schaltfläche](control-button.md)**-Steuerelement.
    
-    The image from the **Add picture** control appears in the **Image gallery** control. If your image doesn't have the same aspect ratio as the **[Image](control-image.md)** control in the **Image gallery** control, set the **[ImagePosition](properties-visual.md)** property of the **[Image](control-image.md)** control to **Fit**.
-6. Click or tap the **Add picture** control, click or tap another image file, click or tap **Open**, and then click or tap the **[Button](control-button.md)** control that you added.
+    Das Bild aus dem **Bild hinzufügen**-Steuerelement wird im Steuerelement **Bildkatalog** angezeigt. Wenn das Bild nicht das gleiche Seitenverhältnis wie das **[Bild](control-image.md)**-Steuerelement im **Bildkatalog**-Steuerelement aufweist, legen Sie die **[ImagePosition](properties-visual.md)**-Eigenschaft des **[Bild](control-image.md)**-Steuerelements auf **Fit** fest.
+6. Klicken oder tippen Sie auf das **Bild hinzufügen**-Steuerelement, auf eine andere Bilddatei, auf **Öffnen** und dann auf das hinzugefügte **[Schaltfläche](control-button.md)**-Steuerelement.
    
-    The second image appears in the **Image gallery** control.
-7. (optional) Repeat the previous step one or more times, and then return to the default workspace by pressing Esc.
+    Das zweite Bild wird im **Bildkatalog**-Steuerelement angezeigt.
+7. (optional) Wiederholen Sie den vorherigen Schritt beliebig oft, und kehren Sie dann zurück zum Standardarbeitsbereich, indem Sie ESC drücken.
 
-Use the **[SaveData](../functions/function-savedata-loaddata.md)** function to save the images locally or the **[Patch](../functions/function-patch.md)** function to update a data source.
+Verwenden Sie die **[SaveData](../functions/function-savedata-loaddata.md)**-Funktion, um die Bilder lokal zu speichern, oder die **[Patch](../functions/function-patch.md)**-Funktion, um eine Datenquelle zu aktualisieren.
 
 
-## Accessibility guidelines
-The same guidelines for **[Button](control-button.md)** and **[Image](control-image.md)** apply. In addition, consider the following:
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+Es gelten für die **[Schaltfläche](control-button.md)** und das **[Bild](control-image.md)** dieselben Richtlinien. Ziehen Sie außerdem Folgendes in Betracht:
 
-### Color contrast
-* **Add media button** must have adequate contrast between its text and background. Since the uploaded image may have varying colors, use an opaque **[Fill](properties-color-border.md)** on the **Add media button** to ensure consistent contrast.
+### <a name="color-contrast"></a>Farbkontrast
+* Der Farbkontrast zwischen dem Text und dem Hintergrund der Schaltfläche **Medien hinzufügen** muss angemessen sein. Da die Farben des hochgeladenen Bilds unterschiedlich sein können, sollte die **[Füllfarbe](properties-color-border.md)** auf der Schaltfläche **Medien hinzufügen** undurchsichtig sein, damit der Kontrast immer gleich hoch ist.
 
-### Screen reader support
-* **Add media button** must have **Text** and **ChangePictureText** that prompts the user to add or change a picture.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* Die Schaltfläche **Medien hinzufügen** muss die Eigenschaften **Text** und **ChangePictureText** aufweisen, über die der Benutzer aufgefordert wird, ein Bild hinzuzufügen oder zu ändern.
 
-### Keyboard support
-* **Add media button** must have **[TabIndex](properties-accessibility.md)** of zero or greater so that keyboard users can navigate to it.
-* **Add media button** must have clearly visible focus indicators. Use **[FocusedBorderColor](properties-color-border.md)** and **[FocusedBorderThickness](properties-color-border.md)** to achieve this.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* Für die Schaltfläche **Medien hinzufügen** muss **[TabIndex](properties-accessibility.md)** gleich 0 (null) oder größer sein, damit Tastaturbenutzer dorthin navigieren können.
+* Die Schaltfläche **Medien hinzufügen** muss für Fokusindikatoren deutlich sichtbar sein. **[FocusedBorderColor](properties-color-border.md)** und **[FocusedBorderThickness](properties-color-border.md)** können Ihnen dabei helfen.
  

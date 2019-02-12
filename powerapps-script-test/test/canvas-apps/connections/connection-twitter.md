@@ -1,6 +1,6 @@
 ---
-title: Overview of the Twitter connection | Microsoft Docs
-description: See how to connect to Twitter, step through some examples, and see all the functions
+title: Übersicht über die Twitter-Verbindung | Microsoft-Dokumentation
+description: Anleitung zum Herstellen einer Verbindung mit Twitter, einige Beispiele für die erforderlichen Schritte und Auflistung aller Funktionen
 author: lancedMicrosoft
 manager: kvivek
 ms.service: powerapps
@@ -9,125 +9,131 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 07/12/2017
 ms.author: lanced
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 2ab480b0bb2aa61c65e33f67cca5a3b0974ca2c8
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42834524"
 ---
-# Connect to Twitter from PowerApps
+# <a name="connect-to-twitter-from-powerapps"></a>Herstellen einer Verbindung mit Twitter aus PowerApps
 ![Twitter](./media/connection-twitter/twittericon.png)
 
-Twitter lets you post tweets and get tweets, timeline, friends, and followers from your Twitter account.
+Über Twitter können Sie Tweets senden und Tweets, Timeline, Freunde und Follower aus Ihrem Twitter-Konto abrufen.
 
-You can display this information in a label on your app. For example, you can add an input text box, ask the user to enter in some Tweet text, and then add a button that "posts" the tweet. You can use similar methods to get a tweet or search for a tweet, and then display the text in a label or gallery control in your app.
+Sie können diese Informationen in einer Bezeichnung in Ihrer App anzeigen. Sie können z.B. ein Eingabetextfeld hinzufügen, die Benutzer auffordern, Text für einen Tweet einzugeben und dann eine Schaltfläche zum Senden des Tweets hinzufügen. Auf ähnliche Weise können Sie einen Tweet abrufen oder suchen und den Text dann in einem Bezeichnung- oder Katalog-Steuerelement in Ihrer App anzeigen.
 
-This topic shows you how to create the Twitter connection, use the Twitter connection in an app, and lists the available functions.
+In diesem Thema wird gezeigt, wie Sie die Twitter-Verbindung erstellen und in einer App verwenden, und es werden die verfügbaren Funktionen aufgeführt.
 
 [!INCLUDE [connection-requirements](../../../includes/connection-requirements.md)]
 
-## Connect to Twitter
-1. Open PowerApps, select **New**, and then create a **Blank app**. Choose phone or tablet layout. Tablet layout gives you more workspace:  
+## <a name="connect-to-twitter"></a>Herstellen einer Verbindung mit Twitter
+1. Öffnen Sie PowerApps, wählen Sie **Neu** aus, und erstellen Sie eine **Leere App**. Wählen Sie das Layout für Smartphone oder Tablet aus. Das Tablet-Layout bietet Ihnen einen größeren Arbeitsbereich:  
 
-   ![Open a blank app](./media/connection-twitter/blank-app.png)
-2. In the right-hand pane, click or tap the **Data** tab, and then click or tap **Add data source**.
-3. Select **New connection**, and then select **Twitter**:  
+   ![Öffnen einer leeren App](./media/connection-twitter/blank-app.png)
+2. Klicken oder tippen Sie im rechten Bereich auf die Registerkarte **Daten** und dann auf **Datenquelle hinzufügen**.
+3. Wählen Sie **Neue Verbindung** und anschließend **Twitter** aus:  
 
-    ![Connect to Twitter](./media/connection-twitter/addconnection.png)
+    ![Herstellen einer Verbindung mit Twitter](./media/connection-twitter/addconnection.png)
 
-    ![Connect to Twitter](./media/connection-twitter/add-twitter.png)
-4. Select **Connect**, enter your Twitter sign in credentials, and then select **Authorize app**.
-5. Select **Add Data Source**. Your connection appears under **Data sources**:  
-    ![Close the Options pane](./media/connection-twitter/twitterdatasource.png)
+    ![Herstellen einer Verbindung mit Twitter](./media/connection-twitter/add-twitter.png)
+4. Wählen Sie **Verbinden** aus, geben Sie Ihre Anmeldeinformationen für Twitter ein, und wählen Sie dann **App autorisieren** aus.
+5. Wählen Sie **Datenquelle hinzufügen** aus. Die Verbindung wird unter **Datenquellen** angezeigt:  
+    ![Bereich „Optionen“ schließen](./media/connection-twitter/twitterdatasource.png)
 
-The Twitter connection has been created, and added to your app. Now, it's ready to be used.
+Die Verbindung mit Twitter wurde erstellt und Ihrer App hinzugefügt. Sie kann jetzt verwendet werden.
 
-## Use the Twitter connection in your app
-### Show a timeline
-1. On the **Insert** menu, select **Gallery**, and add any of the **With text** galleries.
-2. Let's show some timelines:  
+## <a name="use-the-twitter-connection-in-your-app"></a>Verwenden der Twitter-Verbindung in der App
+### <a name="show-a-timeline"></a>Anzeigen einer Timeline
+1. Wählen Sie im Menü **Einfügen** die Option **Katalog** aus, und fügen Sie einen der **Mit Text**-Kataloge hinzu.
+2. So zeigen Sie Timelines an  
 
-   * To show the current user's timeline, set the **[Items](../controls/properties-core.md)** property of the gallery to the following formulas:
+   * Um die Timeline des aktuellen Benutzers anzuzeigen, legen Sie die **[Items](../controls/properties-core.md)**-Eigenschaft des Katalogs auf die folgenden Formeln fest:
 
        `Twitter.HomeTimeline().TweetText`  
        `Twitter.HomeTimeline({maxResults:3}).TweetText`  
-   * To show another user's timeline, set the **[Items](../controls/properties-core.md)** property of the gallery to the following formula:  
+   * Um die Timeline eines anderen Benutzers anzuzeigen, legen Sie die **[Items](../controls/properties-core.md)**-Eigenschaft des Katalogs auf die folgende Formel fest:  
 
        `Twitter.UserTimeline( *TwitterHandle* ).TweetText`
 
-       Enter a Twitter handle in double quotation marks or an equivalent value. For example, enter `"satyanadella"` or `"powerapps"` directly in the formula expression.
-   * Add a text input control named **Tweep**, and set its Default property to `Tweep.Text`. In the Tweep text box, type in a Twitter handle such as `satyanadella` (without quotation marks and without the @ symbol).
+       Geben Sie einen Twitter-Benutzernamen in doppelten Anführungszeichen oder einen entsprechenden Wert ein. Geben Sie z.B. `"satyanadella"` oder `"powerapps"` direkt im Formelausdruck ein.
+   * Fügen Sie ein Texteingabe-Steuerelement mit dem Namen **Tweep** hinzu, und legen Sie die Default-Eigenschaft auf `Tweep.Text` fest. Geben Sie im Textfeld „Tweep“ einen Twitter-Benutzernamen wie `satyanadella` (ohne Anführungszeichen und das Symbol @) ein.
 
-       In the gallery control, set the Items property to the following formula:  
+       Legen Sie im Katalog-Steuerelement die Items-Eigenschaft auf die folgende Formel fest:  
 
        `Twitter.UserTimeline(Tweep.Text, {maxResults:5}).TweetText`
 
-       The gallery control automatically shows the tweets of the Twitter handler you type in.
+       Im Katalog-Steuerelement werden automatisch die Tweets des eingegebenen Twitter-Benutzernamens angezeigt.
 
      > [!TIP]
-     > Some of these formulas use the **maxResults** argument to show the *x* number of most recent tweets in a timeline.
-3. Set the gallery's **Items** property to `Twitter.HomeTimeline()`.
+     > In einigen dieser Formeln wird das Argument **maxResults** zum Anzeigen der letzten *x* Tweets in einer Timeline verwendet.
+3. Legen Sie die **Items**-Eigenschaft des Katalogs auf `Twitter.HomeTimeline()` fest.
 
-    With the gallery selected, the right-hand pane shows options for that gallery.
-4. Select **TweetText** in the first list, select **TweetedBy** in the second list, and select **CreatedAt** in the third list.
+    Wenn der Katalog ausgewählt ist, werden im rechten Bereich Optionen für diesen Katalog angezeigt.
+4. Wählen Sie **TweetText** in der ersten Liste, **TweetedBy** in der zweiten Liste und **CreatedAt** in der dritten Liste aus.
 
-    The gallery now shows the values of the properties you chose.
+    Im Katalog werden nun die Werte der ausgewählten Eigenschaften angezeigt.
 
-### Show followers
-1. Using a **With text** gallery, let's show some followers:  
+### <a name="show-followers"></a>Anzeigen von Followern
+1. So zeigen Sie mit einem **Mit Text**-Katalog Follower an  
 
-   * To show the current user's followers, set the **[Items](../controls/properties-core.md)** property of the gallery to the following formula:  
+   * Um die Follower des aktuellen Benutzers anzuzeigen, legen Sie die **[Items](../controls/properties-core.md)**-Eigenschaft des Katalogs auf die folgende Formel fest:  
 
        `Twitter.MyFollowers()`  
        `Twitter.MyFollowers({maxResults:3})`
-   * To show the another user's followers, set the **[Items](../controls/properties-core.md)** property of the gallery to the following formula:  
+   * Um die Follower eines anderen Benutzers anzuzeigen, legen Sie die **[Items](../controls/properties-core.md)**-Eigenschaft des Katalogs auf die folgende Formel fest:  
 
        `Twitter.Followers( *TwitterHandle* )`
 
-       Enter a Twitter handle in double quotation marks or an equivalent value. For example, enter `"satyanadella"` or `"powerapps"` directly in the formula expression.
-   * Add a text input control named **Tweep**, and set its Default property to `Tweep.Text`. In the Tweep text box, type in a Twitter handle such as `satyanadella` (without quotation marks and without the @ symbol).
+       Geben Sie einen Twitter-Benutzernamen in doppelten Anführungszeichen oder einen entsprechenden Wert ein. Geben Sie z.B. `"satyanadella"` oder `"powerapps"` direkt im Formelausdruck ein.
+   * Fügen Sie ein Texteingabe-Steuerelement mit dem Namen **Tweep** hinzu, und legen Sie die Default-Eigenschaft auf `Tweep.Text` fest. Geben Sie im Textfeld „Tweep“ einen Twitter-Benutzernamen wie `satyanadella` (ohne Anführungszeichen und das Symbol @) ein.
 
-       In the gallery control, set the Items property to the following formula:  
+       Legen Sie im Katalog-Steuerelement die Items-Eigenschaft auf die folgende Formel fest:  
 
        `Twitter.Followers(Tweep.Text, {maxResults:5})`
 
-       The gallery control automatically shows who is following the Twitter handle you type in.
+       Im Katalog-Steuerelement wird automatisch angezeigt, wer dem eingegebenen Twitter-Benutzernamen folgt.
 
      > [!TIP]
-     > Some of these formulas use the **maxResults** argument to show the *x* number of most recent tweets in a timeline.
-2. Set the gallery's **Items** property to `Twitter.MyFollowers()`.
+     > In einigen dieser Formeln wird das Argument **maxResults** zum Anzeigen der letzten *x* Tweets in einer Timeline verwendet.
+2. Legen Sie die **Items**-Eigenschaft des Katalogs auf `Twitter.MyFollowers()` fest.
 
-    With the gallery selected, the right-hand pane shows options for that gallery.
-3. Select **UserName** in the second list, and select **FullName** in the third list.
+    Wenn der Katalog ausgewählt ist, werden im rechten Bereich Optionen für diesen Katalog angezeigt.
+3. Wählen Sie **UserName** in der zweiten Liste aus, und wählen Sie **FullName** in der dritten Liste aus.
 
-    The gallery now shows the values of the properties you chose.
+    Im Katalog werden nun die Werte der ausgewählten Eigenschaften angezeigt.
 
-### Show followed users
-1. Using a **With text** gallery, let's show some followed users:  
+### <a name="show-followed-users"></a>Anzeigen der Benutzer, denen gefolgt wird
+1. So zeigen Sie mit einem **Mit Text**-Katalog an, welchen Benutzern gefolgt wird  
 
-   * To show which users the current user is following, set the **[Items](../controls/properties-core.md)** property of the gallery to the following formula:  
+   * Um anzuzeigen, welchen Benutzern der aktuelle Benutzer folgt, legen Sie die **[Items](../controls/properties-core.md)**-Eigenschaft des Katalogs auf die folgende Formel fest:  
 
        `Twitter.MyFollowing()`  
        `Twitter.MyFollowing({maxResults:3})`
-   * To show which users another user is following, set the **[Items](../controls/properties-core.md)** property of the gallery to to the following formula:
+   * Um anzuzeigen, welchen Benutzern ein anderer Benutzer folgt, legen Sie die **[Items](../controls/properties-core.md)**-Eigenschaft des Katalogs auf die folgende Formel fest:
 
        `Twitter.Following( *TwitterHandle* )`
 
-       Enter a Twitter handle in double quotation marks or an equivalent value. For example, enter `"satyanadella"` or `"powerapps"` directly in the formula expression.
-   * Add a text input control named **Tweep**, and set its Default property to `Tweep.Text`. In the Tweep text box, type in a Twitter handle such as `satyanadella` (without quotation marks and without the @ symbol).
+       Geben Sie einen Twitter-Benutzernamen in doppelten Anführungszeichen oder einen entsprechenden Wert ein. Geben Sie z.B. `"satyanadella"` oder `"powerapps"` direkt im Formelausdruck ein.
+   * Fügen Sie ein Texteingabe-Steuerelement mit dem Namen **Tweep** hinzu, und legen Sie die Default-Eigenschaft auf `Tweep.Text` fest. Geben Sie im Textfeld „Tweep“ einen Twitter-Benutzernamen wie `satyanadella` (ohne Anführungszeichen und das Symbol @) ein.
 
-       In the gallery control, set the Items property to the following formula:  
+       Legen Sie im Katalog-Steuerelement die Items-Eigenschaft auf die folgende Formel fest:  
 
        `Twitter.Following(Tweep.Text, {maxResults:5})`
 
-       The gallery control automatically shows the other handles you are following.
+       Im Katalog-Steuerelement werden automatisch die anderen Benutzernamen angezeigt, denen Sie folgen.
 
-     With the gallery selected, the right-hand pane shows options for that gallery.
-2. Select **Description** in the **Body1** list, **UserName** in the **Heading1** list, and **FullName** in the **Subtitle1** list.
+     Wenn der Katalog ausgewählt ist, werden im rechten Bereich Optionen für diesen Katalog angezeigt.
+2. Wählen Sie **Beschreibung** in der Liste **Body1**, **UserName** in der Liste **Heading1** und **FullName** in der Liste **Subtitle1** aus.
 
-    The gallery now shows the values of the properties you chose.
+    Im Katalog werden nun die Werte der ausgewählten Eigenschaften angezeigt.
 
-### Show information about a user
-Add a label, and then set its **[Text](../controls/properties-core.md)** property to one of these formulas:  
+### <a name="show-information-about-a-user"></a>Anzeigen von Informationen zu einem Benutzer
+Fügen Sie eine Bezeichnung hinzu, und legen Sie deren **[Text](../controls/properties-core.md)**-Eigenschaft auf eine der folgenden Formeln fest:  
 
 * `twitter.User( *TwitterHandle* ).Description`
 * `twitter.User( *TwitterHandle* ).FullName`
@@ -138,259 +144,259 @@ Add a label, and then set its **[Text](../controls/properties-core.md)** propert
 * `twitter.User( *TwitterHandle* ).Id`
 * `twitter.User( *TwitterHandle* ).StatusesCount`
 
-Enter a Twitter handle in double quotation marks or an equivalent value. For example, enter `"satyanadella"` or `"powerapps"` directly in the formula expression.
+Geben Sie einen Twitter-Benutzernamen in doppelten Anführungszeichen oder einen entsprechenden Wert ein. Geben Sie z.B. `"satyanadella"` oder `"powerapps"` direkt im Formelausdruck ein.
 
-Or, you can use an input text control to type in a Twitter handle, just as we have throughout this topic.
+Sie können ein auch Texteingabe-Steuerelement verwenden, um einen Twitter-Benutzernamen einzugeben, so wie in den anderen Abschnitten dieses Themas.
 
-### Search tweets
-1. Using a **With text** gallery, set its **[Items](../controls/properties-core.md)** property to the following formula:  
+### <a name="search-tweets"></a>Suchen von Tweets
+1. Legen Sie bei einem **Mit Text**-Katalog die **[Items](../controls/properties-core.md)**-Eigenschaft auf die folgende Formel fest:  
 
     `Twitter.SearchTweet( *SearchTerm* ).TweetText`
 
-    Enter a *SearchTerm* in double quotation marks or by referring to an equivalent value. For example, enter `"PowerApps"` or `"microsoft"` directly in the formula.
+    Geben Sie einen *SearchTerm* in doppelten Anführungszeichen oder durch einen Verweis auf einen entsprechenden Wert ein. Geben Sie z.B. `"PowerApps"` oder `"microsoft"` direkt in der Formel ein.
 
-    Or, you can use an **Input text** control to specify a search term, just as we have throughout this topic.
+    Sie können ein auch ein **Eingabetext**-Steuerelement verwenden, um einen Suchbegriff anzugeben, so wie in den anderen Abschnitten dieses Themas.
 
     > [!TIP]
-   > Show the first five results by using maxResults:  
+   > Mit „maxResults“ werden die ersten fünf Ergebnisse angezeigt:  
 
     `Twitter.SearchTweet(SearchTerm.Text, {maxResults:5}).TweetText`
-2. Set the gallery's **Items** property to `Twitter.SearchTweet(SearchTerm.Text, {maxResults:5})`.
+2. Legen Sie die **Items**-Eigenschaft des Katalogs auf `Twitter.SearchTweet(SearchTerm.Text, {maxResults:5})` fest.
 
-    With the gallery selected, the right-hand pane shows options for that gallery.
-3. Select **TweetText** in the first list, **TweetedBy** in the second list, and **CreatedAt** in the third list.
+    Wenn der Katalog ausgewählt ist, werden im rechten Bereich Optionen für diesen Katalog angezeigt.
+3. Wählen Sie **TweetText** in der ersten Liste, **TweetedBy** in der zweiten Liste und **CreatedAt** in der dritten Liste aus.
 
-    The gallery now shows the values of the properties you chose.
+    Im Katalog werden nun die Werte der ausgewählten Eigenschaften angezeigt.
 
-### Send a tweet
-1. Add a text input control, and then rename it **MyTweet**.
-2. Add a button, and then set its **[OnSelect](../controls/properties-core.md)** property to the following formula:  
+### <a name="send-a-tweet"></a>Senden eines Tweets
+1. Fügen Sie ein Texteingabe-Steuerelement hinzu, und benennen Sie es in **MyTweet** um.
+2. Fügen Sie eine Schaltfläche hinzu, und legen Sie die **[OnSelect](../controls/properties-core.md)**-Eigenschaft auf die folgende Formel fest:  
     `Twitter.Tweet({tweetText: MyTweet.Text})`
-3. Press F5, or select the Preview button (![](./media/connection-twitter/preview.png)). Type some text into **MyTweet**, and then select the button to tweet the text that you entered.
-4. Press Esc to return to the default workspace.
+3. Drücken Sie F5, oder wählen Sie die Vorschauschaltfläche aus (![](./media/connection-twitter/preview.png)). Geben Sie Text in **MyTweet** ein, und wählen Sie dann die Schaltfläche aus, um den eingegebenen Text zu twittern.
+4. Drücken Sie die ESC-Taste, um zum Standardarbeitsbereich zurückzukehren.
 
-## View the available functions
-This connection includes the following functions:
+## <a name="view-the-available-functions"></a>Anzeigen der verfügbaren Funktionen
+Diese Verbindung umfasst die folgenden Funktionen:
 
-| Function Name | Description |
+| Funktionsname | Beschreibung |
 | --- | --- |
-| [UserTimeline](connection-twitter.md#usertimeline) |Retrieves a collection of the most recent tweets posted by the specified user |
-| [HomeTimeline](connection-twitter.md#hometimeline) |Retrieves the most recent tweets and re-tweets posted me and my followers |
-| [SearchTweet](connection-twitter.md#searchtweet) |Retrieves a collection of relevant tweets matching a specified query |
-| [Followers](connection-twitter.md#followers) |Retrieves users following the specified user |
-| [MyFollowers](connection-twitter.md#myfollowers) |Retrieves users who are following me |
-| [Following](connection-twitter.md#following) |Retrieves users who the specified user is following |
-| [MyFollowing](connection-twitter.md#myfollowing) |Retrieves users that I am following |
-| [User](connection-twitter.md#user) |Retrieves details about the specified user (example: user name, description, followers count, etc.) |
+| [UserTimeline](connection-twitter.md#usertimeline) |Ruft eine Sammlung der letzten Tweets ab, die vom angegebenen Benutzer gesendet wurden |
+| [HomeTimeline](connection-twitter.md#hometimeline) |Ruft die letzten Tweets und Re-Tweets von mir und meinen Followern ab |
+| [SearchTweet](connection-twitter.md#searchtweet) |Ruft eine Sammlung von relevanten Tweets ab, die mit einer angegebenen Abfrage übereinstimmen |
+| [Followers](connection-twitter.md#followers) |Ruft die Benutzer ab, die dem angegebenen Benutzer folgen |
+| [MyFollowers](connection-twitter.md#myfollowers) |Ruft die Benutzer ab, die mir folgen |
+| [Following](connection-twitter.md#following) |Ruft die Benutzer, denen der angegebene Benutzer folgt |
+| [MyFollowing](connection-twitter.md#myfollowing) |Ruft die Benutzer ab, denen ich folge |
+| [User](connection-twitter.md#user) |Ruft Details zum angegebenen Benutzer ab (Beispiel: Benutzername, Beschreibung, Anzahl der folgenden Benutzer usw.) |
 | [Tweet](connection-twitter.md#tweet) |Tweet |
-| [OnNewTweet](connection-twitter.md#onnewtweet) |Triggers a workflow when a new tweet is posted which matches your search query |
+| [OnNewTweet](connection-twitter.md#onnewtweet) |Löst einen Workflow aus, wenn ein neuer Tweet gesendet wird, der mit Ihrer Suchabfrage übereinstimmt |
 
-### UserTimeline
-Get user timeline: Retrieves a collection of the most recent tweets posted by the specified user
+### <a name="usertimeline"></a>UserTimeline
+Timeline des Benutzers abrufen: Ruft eine Sammlung der letzten Tweets ab, die vom angegebenen Benutzer gesendet wurden
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| userName |string |yes |Twitter handle |
-| maxResults |integer |no |Maximum number of tweets to retrieve, e.g. {maxResults:5} |
+| userName |Zeichenfolge |ja |Twitter-Benutzername |
+| maxResults |Ganze Zahl |Nein |Maximale Anzahl von abzurufenden Tweets, z.B. {maxResults:5} |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| TweetText |string |Yes | |
-| TweetId |string |No | |
-| CreatedAt |string |No | |
-| RetweetCount |integer |Yes | |
-| TweetedBy |string |Yes | |
-| MediaUrls |array |No | |
+| TweetText |Zeichenfolge |Ja | |
+| TweetId |Zeichenfolge |Nein | |
+| CreatedAt |Zeichenfolge |Nein | |
+| RetweetCount |Ganze Zahl |Ja | |
+| TweetedBy |Zeichenfolge |Ja | |
+| MediaUrls |Array |Nein | |
 
-### HomeTimeline
-Get home timeline: Retrieves the most recent tweets and re-tweets posted me and my followers
+### <a name="hometimeline"></a>HomeTimeline
+Home-Timeline: Ruft die letzten Tweets und Re-Tweets von mir und meinen Followern ab
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| maxResults |integer |no |Maximum number of tweets to retrieve, e.g. {maxResults:5} |
+| maxResults |Ganze Zahl |Nein |Maximale Anzahl von abzurufenden Tweets, z.B. {maxResults:5} |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| TweetText |string |Yes | |
-| TweetId |string |No | |
-| CreatedAt |string |No | |
-| RetweetCount |integer |Yes | |
-| TweetedBy |string |Yes | |
-| MediaUrls |array |No | |
+| TweetText |Zeichenfolge |Ja | |
+| TweetId |Zeichenfolge |Nein | |
+| CreatedAt |Zeichenfolge |Nein | |
+| RetweetCount |Ganze Zahl |Ja | |
+| TweetedBy |Zeichenfolge |Ja | |
+| MediaUrls |Array |Nein | |
 
-### SearchTweet
-Search tweet: Retrieves a collection of relevant tweets matching a specified query
+### <a name="searchtweet"></a>SearchTweet
+Tweet suchen: Ruft eine Sammlung von relevanten Tweets ab, die mit einer angegebenen Abfrage übereinstimmen
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| searchQuery |string |yes |Query text (you may use any Twitter supported query operators: http://www.twitter.com/search) |
-| maxResults |integer |no |Maximum number of tweets to retrieve, e.g. {maxResults:5} |
+| searchQuery |Zeichenfolge |ja |Abfragetext (Sie können alle von Twitter unterstützten Abfrageoperatoren verwenden: http://www.twitter.com/search)) |
+| maxResults |Ganze Zahl |Nein |Maximale Anzahl von abzurufenden Tweets, z.B. {maxResults:5} |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| TweetText |string |Yes | |
-| TweetId |string |No | |
-| CreatedAt |string |No | |
-| RetweetCount |integer |Yes | |
-| TweetedBy |string |Yes | |
-| MediaUrls |array |No | |
+| TweetText |Zeichenfolge |Ja | |
+| TweetId |Zeichenfolge |Nein | |
+| CreatedAt |Zeichenfolge |Nein | |
+| RetweetCount |Ganze Zahl |Ja | |
+| TweetedBy |Zeichenfolge |Ja | |
+| MediaUrls |Array |Nein | |
 
-### Followers
-Get followers: Retrieves users following the specified user
+### <a name="followers"></a>Followers
+Follower abrufen: Ruft die Benutzer ab, die dem angegebenen Benutzer folgen
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| userName |string |yes |Twitter handle of the user |
-| maxResults |integer |no |Maximum number of users to retrieve, e.g. {maxResults:5} |
+| userName |Zeichenfolge |ja |Twitter-Name des Benutzers |
+| maxResults |Ganze Zahl |Nein |Maximale Anzahl von abzurufenden Benutzern, z.B. {maxResults:5} |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| FullName |string |Yes | |
-| Location |string |Yes | |
-| Id |integer |No | |
-| UserName |string |Yes | |
-| FollowersCount |integer |No | |
-| Description |string |Yes | |
-| StatusesCount |integer |No | |
-| FriendsCount |integer |No | |
+| FullName |Zeichenfolge |Ja | |
+| Ort |Zeichenfolge |Ja | |
+| Id |Ganze Zahl |Nein | |
+| UserName |Zeichenfolge |Ja | |
+| FollowersCount |Ganze Zahl |Nein | |
+| Beschreibung |Zeichenfolge |Ja | |
+| StatusesCount |Ganze Zahl |Nein | |
+| FriendsCount |Ganze Zahl |Nein | |
 
-### MyFollowers
-Get my followers: Retrieves users who are following me
+### <a name="myfollowers"></a>MyFollowers
+Meine Follower abrufen: Ruft die Benutzer ab, die mir folgen
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| maxResults |integer |no |Maximum number of users to retrieve, e.g. {maxResults:5} |
+| maxResults |Ganze Zahl |Nein |Maximale Anzahl von abzurufenden Benutzern, z.B. {maxResults:5} |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| FullName |string |Yes | |
-| Location |string |Yes | |
-| Id |integer |No | |
-| UserName |string |Yes | |
-| FollowersCount |integer |No | |
-| Description |string |Yes | |
-| StatusesCount |integer |No | |
-| FriendsCount |integer |No | |
+| FullName |Zeichenfolge |Ja | |
+| Ort |Zeichenfolge |Ja | |
+| Id |Ganze Zahl |Nein | |
+| UserName |Zeichenfolge |Ja | |
+| FollowersCount |Ganze Zahl |Nein | |
+| Beschreibung |Zeichenfolge |Ja | |
+| StatusesCount |Ganze Zahl |Nein | |
+| FriendsCount |Ganze Zahl |Nein | |
 
-### Following
-Get following: Retrieves users who the specified user is following
+### <a name="following"></a>Following
+Gefolgte Benutzer abrufen: Ruft die Benutzer ab, denen der angegebene Benutzer folgt
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| userName |string |yes |Twitter handle of the user |
-| maxResults |integer |no |Maximum number of users to retrieve, e.g. {maxResults:5} |
+| userName |Zeichenfolge |ja |Twitter-Name des Benutzers |
+| maxResults |Ganze Zahl |Nein |Maximale Anzahl von abzurufenden Benutzern, z.B. {maxResults:5} |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| FullName |string |Yes | |
-| Location |string |Yes | |
-| Id |integer |No | |
-| UserName |string |Yes | |
-| FollowersCount |integer |No | |
-| Description |string |Yes | |
-| StatusesCount |integer |No | |
-| FriendsCount |integer |No | |
+| FullName |Zeichenfolge |Ja | |
+| Ort |Zeichenfolge |Ja | |
+| Id |Ganze Zahl |Nein | |
+| UserName |Zeichenfolge |Ja | |
+| FollowersCount |Ganze Zahl |Nein | |
+| Beschreibung |Zeichenfolge |Ja | |
+| StatusesCount |Ganze Zahl |Nein | |
+| FriendsCount |Ganze Zahl |Nein | |
 
-### MyFollowing
-Get my following: Retrieves users that I am following
+### <a name="myfollowing"></a>MyFollowing
+Meine gefolgten Benutzer: Ruft die Benutzer ab, denen ich folge
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| maxResults |integer |no |Maximum number of users to retrieve, e.g. {maxResults:5} |
+| maxResults |Ganze Zahl |Nein |Maximale Anzahl von abzurufenden Benutzern, z.B. {maxResults:5} |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| FullName |string |Yes | |
-| Location |string |Yes | |
-| Id |integer |No | |
-| UserName |string |Yes | |
-| FollowersCount |integer |No | |
-| Description |string |Yes | |
-| StatusesCount |integer |No | |
-| FriendsCount |integer |No | |
+| FullName |Zeichenfolge |Ja | |
+| Ort |Zeichenfolge |Ja | |
+| Id |Ganze Zahl |Nein | |
+| UserName |Zeichenfolge |Ja | |
+| FollowersCount |Ganze Zahl |Nein | |
+| Beschreibung |Zeichenfolge |Ja | |
+| StatusesCount |Ganze Zahl |Nein | |
+| FriendsCount |Ganze Zahl |Nein | |
 
-### User
-Get user: Retrieves details about the specified user (example: user name, description, followers count, etc.)
+### <a name="user"></a>User
+Benutzer abrufen: Ruft Details zum angegebenen Benutzer ab (Beispiel: Benutzername, Beschreibung, Anzahl der Follower usw.)
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| userName |string |yes |Twitter handle of the user |
+| userName |Zeichenfolge |ja |Twitter-Name des Benutzers |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| FullName |string |Yes | |
-| Location |string |Yes | |
-| Id |integer |No | |
-| UserName |string |Yes | |
-| FollowersCount |integer |No | |
-| Description |string |Yes | |
-| StatusesCount |integer |No | |
-| FriendsCount |integer |No | |
+| FullName |Zeichenfolge |Ja | |
+| Ort |Zeichenfolge |Ja | |
+| Id |Ganze Zahl |Nein | |
+| UserName |Zeichenfolge |Ja | |
+| FollowersCount |Ganze Zahl |Nein | |
+| Beschreibung |Zeichenfolge |Ja | |
+| StatusesCount |Ganze Zahl |Nein | |
+| FriendsCount |Ganze Zahl |Nein | |
 
-### Tweet
-Post a new tweet: Tweet
+### <a name="tweet"></a>Tweet
+Neuen Tweet senden: Tweet
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| tweetText |string |no |Text to be posted e.g. {tweetText:"hello"} |
-| body |string |no |Media to be posted |
+| tweetText |Zeichenfolge |Nein |Zu twitternder Text, z.B. {tweetText: "hello"} |
+| body |Zeichenfolge |Nein |Zu sendende Medien |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| TweetId |string |Yes | |
+| TweetId |Zeichenfolge |Ja | |
 
-### OnNewTweet
-When a new tweet appears: Triggers a workflow when a new tweet is posted which matches your search query
+### <a name="onnewtweet"></a>OnNewTweet
+Wenn ein neuer Tweet eingeht: Löst einen Workflow aus, wenn ein neuer Tweet gesendet wird, der mit Ihrer Suchabfrage übereinstimmt
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| searchQuery |string |yes |Query text (you may use any Twitter supported query operators: http://www.twitter.com/search) |
+| searchQuery |Zeichenfolge |ja |Abfragetext (Sie können alle von Twitter unterstützten Abfrageoperatoren verwenden: http://www.twitter.com/search)) |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Data Type | Required | Description |
+| Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| value |array |No | |
+| value |Array |Nein | |
 
-## Helpful links
-See all the [available connections](../connections-list.md).  
-Learn how to [add connections](../add-manage-connections.md) to your apps.
+## <a name="helpful-links"></a>Nützliche Links
+Alle [verfügbaren Verbindungen](../connections-list.md).  
+Erfahren Sie, wie Sie Ihren Apps [Verbindungen hinzufügen](../add-manage-connections.md).
 

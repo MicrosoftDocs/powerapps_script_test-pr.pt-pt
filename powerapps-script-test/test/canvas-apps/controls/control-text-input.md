@@ -1,6 +1,6 @@
 ---
-title: 'Text-input control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the text-input control
+title: 'Texteingabe-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispielen, über das Texteingabe-Steuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,168 +9,174 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: a46635276f6598cf0591dc21ae5aeb855b6667c1
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42830545"
 ---
-# Text input control in PowerApps
-A box in which the user can type text, numbers, and other data.
+# <a name="text-input-control-in-powerapps"></a>Texteingabe-Steuerelement in PowerApps
+Ein Feld, in das der Benutzer Text, Zahlen und andere Daten eingeben kann
 
-## Description
-The user can specify data by typing into a text-input control. Depending on how you configure the app, that data might be added to a data source, used to calculate a temporary value, or incorporated in some other way.
+## <a name="description"></a>Beschreibung
+Der Benutzer kann Daten angeben, indem er Text in ein Texteingabe-Steuerelement eingibt. Abhängig davon, wie Sie die App konfigurieren, werden diese Daten möglicherweise zu einer Datenquelle hinzugefügt, dazu verwendet, einen temporären Wert zu berechnen oder auf eine andere Weise eingebunden.
 
-## Key properties
-**[Default](properties-core.md)** – The initial value of a control before it is changed by the user.
+## <a name="key-properties"></a>Haupteigenschaften
+**[Default](properties-core.md)** – Der Anfangswert eines Steuerelements, bevor es vom Benutzer geändert wird.
 
-**[Text](properties-core.md)** – Text that appears on a control or that the user types into a control.
+**[Text](properties-core.md)** – Text, der in einem Steuerelement angezeigt wird oder von einem Benutzer in ein Steuerelement eingegeben wird.
 
-## Additional properties
-**[AccessibleLabel](properties-accessibility.md)** – Label for screen readers.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[AccessibleLabel](properties-accessibility.md)**: Bezeichnung für Sprachausgaben
 
-**[Align](properties-text.md)** – The location of text in relation to the horizontal center of its control.
+**[Align](properties-text.md)** – Die Position von Text in Relation zur horizontalen Mitte des Steuerelements.
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**Clear** – Whether a text-input control shows an "X" that the user can tap or click to clear the contents of that control.
+**Clear**: Legt fest, ob ein Texteingabe-Steuerelement ein „X“ anzeigt, auf das der Benutzer tippen oder klicken kann, um den Inhalt dieses Steuerelements zu löschen.
 
-**[Color](properties-color-border.md)** – The color of text in a control.
+**[Color](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement.
 
-**DelayOutput** – When set to true, user input is registered after half a second delay.  Useful for delaying expensive operations until user completes inputting text (i.e. for filtering when input is used in other formulas).
+**DelayOutput**: Wenn auf TRUE festgelegt, wird die Benutzereingabe mit einer Verzögerung von einer halben Sekunde registriert.  Dies ist nützlich für die Verzögerung von teuren Vorgängen, bis der Benutzer die Texteingabe abschließt (d.h. für die Filterung, wenn die Eingabe in anderen Formeln verwendet wird).
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[DisabledBorderColor](properties-color-border.md)** – The color of a control's border if the control's **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledBorderColor](properties-color-border.md)**: Die Farbe des Steuerelementrahmens, wenn die **[DisplayMode](properties-core.md)**-Eigenschaft des Steuerelements auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledColor](properties-color-border.md)** – The color of text in a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledColor](properties-color-border.md)**: Die Farbe des Texts in einem Steuerelement, wenn seine **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledFill](properties-color-border.md)** – The background color of a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledFill](properties-color-border.md)**: Die Hintergrundfarbe eines Steuerelements, wenn dessen **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[FocusedBorderColor](properties-color-border.md)** – The color of a control's border when the control is focused.
+**[FocusedBorderColor](properties-color-border.md)**: die Rahmenfarbe eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[FocusedBorderThickness](properties-color-border.md)** – The thickness of a control's border when the control is focused.
+**[FocusedBorderThickness](properties-color-border.md)**: die Rahmendicke eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[Font](properties-text.md)** – The name of the family of fonts in which text appears.
+**[Font](properties-text.md)** – Der Name der Schriftfamilie des angezeigten Texts.
 
-**[FontWeight](properties-text.md)** – The weight of the text in a control: **Bold**, **Semibold**, **Normal**, or **Lighter**.
+**[FontWeight](properties-text.md)** – Die Schriftbreite des Texts in einem Steuerelement: **Bold** (Fett), **Semibold** (Halbfett), **Normal** oder **Lighter** (Heller).
 
-**Format** – Whether the user input is restricted to numbers only or can be any text.
+**Format**: Legt fest, ob die Benutzereingabe auf Zahlen beschränkt ist, oder ob Text zulässig ist.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**HintText** – Light-grey text that appears in an input-text control if it's empty.
+**HintText**: Hellgrauer Text, der in einem Texteingabe-Steuerelement erscheint, wenn dieses leer ist.
 
-**[HoverBorderColor](properties-color-border.md)** – The color of a control's border when the user keeps the mouse pointer on that control.
+**[HoverBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über das Steuerelement hält.
 
-**[HoverColor](properties-color-border.md)** – The color of the text in a control when the user keeps the mouse pointer on it.
+**[HoverColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[HoverFill](properties-color-border.md)** – The background color of a control when the user keeps the mouse pointer on it.
+**[HoverFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[Italic](properties-text.md)** – Whether the text in a control is italic.
+**[Italic](properties-text.md)** – Legt fest, ob der Text in einem Steuerelement kursiv formatiert ist.
 
-**[LineHeight](properties-text.md)** – The distance between, for example, lines of text or items in a list.
+**[LineHeight](properties-text.md)**: Der Abstand zwischen Elementen, z.B. Textzeilen oder Elementen in einer Liste.
 
-**MaxLength** – The number of characters that the user can type into a text-input control.
+**MaxLength**: Die Anzahl der Zeichen, die der Benutzer in ein Texteingabe-Steuerelement eingeben kann.
 
-**Mode** – The control is in **SingleLine**, **MultiLine**, or **Password** mode.
+**Mode**: Das Steuerelement befindet sich im Modus **SingleLine**, **MultiLine** oder **Password**.
 
-**[OnChange](properties-core.md)** – How the app responds when the user changes the value of a control (for example, by adjusting a slider).
+**[OnChange](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer den Wert eines Steuerelements ändert (z.B. per Schieberegler).
 
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**[PaddingBottom](properties-size-location.md)** – The distance between text in a control and the bottom edge of that control.
+**[PaddingBottom](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem unteren Rand des Steuerelements.
 
-**[PaddingLeft](properties-size-location.md)** – The distance between text in a control and the left edge of that control.
+**[PaddingLeft](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem linken Rand des Steuerelements.
 
-**[PaddingRight](properties-size-location.md)** – The distance between text in a control and the right edge of that control.
+**[PaddingRight](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem rechten Rand des Steuerelements.
 
-**[PaddingTop](properties-size-location.md)** – The distance between text in a control and the top edge of that control.
+**[PaddingTop](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem oberen Rand des Steuerelements.
 
-**[PressedBorderColor](properties-color-border.md)** – The color of a control's border when the user taps or clicks that control.
+**[PressedBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PressedColor](properties-color-border.md)** – The color of text in a control when the user taps or clicks that control.
+**[PressedColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PressedFill](properties-color-border.md)** – The background color of a control when the user taps or clicks that control.
+**[PressedFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[RadiusBottomLeft](properties-size-location.md)** – The degree to which the bottom-left corner of a control is rounded.
+**[RadiusBottomLeft](properties-size-location.md)** – Der Grad der Rundung der linken unteren Ecke eines Steuerelements.
 
-**[RadiusBottomRight](properties-size-location.md)** – The degree to which the bottom-right corner of a control is rounded.
+**[RadiusBottomRight](properties-size-location.md)** – Der Grad der Rundung der rechten unteren Ecke eines Steuerelements.
 
-**[RadiusTopLeft](properties-size-location.md)** – The degree to which the top-left corner of a control is rounded.
+**[RadiusTopLeft](properties-size-location.md)** – Der Grad der Rundung der linken oberen Ecke eines Steuerelements.
 
-**[RadiusTopRight](properties-size-location.md)** – The degree to which the top-right corner of a control is rounded.
+**[RadiusTopRight](properties-size-location.md)** – Der Grad der Rundung der rechten oberen Ecke eines Steuerelements.
 
-**[Reset](properties-core.md)** – Whether a control reverts to its default value.
+**[Reset](properties-core.md)** – Legt fest, ob ein Steuerelement auf seinen Standardwert zurückgesetzt wird.
 
-**[Size](properties-text.md)** – The font size of the text that appears on a control.
+**[Size](properties-text.md)** – Der Schriftgrad des Texts, der in einem Steuerelement angezeigt wird.
 
-**[Strikethrough](properties-text.md)** – Whether a line appears through the text that appears on a control.
+**[Strikethrough](properties-text.md)** – Legt fest, ob der in einem Steuerelement angezeigte Text durchgestrichen ist.
 
-**[TabIndex](properties-accessibility.md)** – Keyboard navigation order in relation to other controls.
+**[TabIndex](properties-accessibility.md)**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[Tooltip](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**[Underline](properties-text.md)** – Whether a line appears under the text that appears on a control.
+**[Underline](properties-text.md)** – Legt fest, ob der in einem Steuerelement angezeigte Text unterstrichen ist.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## Related functions
-[**DateTimeValue**( *String* )](../functions/function-datevalue-timevalue.md)
+## <a name="related-functions"></a>Verwandte Funktionen
+[**DateTimeValue**( *Zeichenfolge* )](../functions/function-datevalue-timevalue.md)
 
-## Examples
-### Collect data
-1. Add two text-input controls, and name them **inputFirst** and **inputLast**.
+## <a name="examples"></a>Beispiele
+### <a name="collect-data"></a>Sammeln von Daten
+1. Fügen Sie zwei Texteingabe-Steuerelemente hinzu, und nennen Sie diese **inputFirst** und **inputLast**.
    
-    Don't know how to [add, name, and configure a control](../add-configure-controls.md)?
-2. Add a button, set its **[Text](properties-core.md)** property to **Add**, and set its **[OnSelect](properties-core.md)** property to this formula:<br>
+    Möchten Sie wissen, wie Sie [ein Steuerelement hinzufügen, benennen und konfigurieren](../add-configure-controls.md)?
+2. Fügen Sie eine Schaltfläche hinzu, legen Sie ihre **[Text](properties-core.md)**-Eigenschaft auf **Add** (Hinzufügen) und ihre **[OnSelect](properties-core.md)**-Eigenschaft auf diese Formel fest:<br>
    **Collect(Names, {FirstName:inputFirst.Text, LastName:inputLast.Text})**
    
-    Want more information about the **[Collect](../functions/function-clear-collect-clearcollect.md)** function or [other functions](../formula-reference.md)?
-3. Add a text gallery in portrait/vertical orientation, set its **[Items](properties-core.md)** property to **Names**, and set the **[Text](properties-core.md)** property of **Subtitle1** to **ThisItem.FirstName**.
-4. (optional) In the template gallery, delete the bottom label, named **Body1**, and set the **[TemplateSize](control-gallery.md)** property of the gallery to **80**.
-5. Press F5, type a string of text into **inputFirst** and **inputLast**, and then click or tap the **Add** button.
-6. (optional) Add more names to the collection, and then press Esc to return to the default workspace.
+    Benötigen Sie weitere Informationen zur **[Collect](../functions/function-clear-collect-clearcollect.md)**-Funktion oder [anderen Funktionen](../formula-reference.md)?
+3. Fügen Sie einen Textkatalog im Hochformat hinzu, legen sie seine **[Items](properties-core.md)**-Eigenschaft auf **Names** und seine **[Text](properties-core.md)**-Eigenschaft von **Subtitle1** auf **ThisItem.FirstName** fest.
+4. (Optional:) Löschen Sie im Vorlagenkatalog die untere Bezeichnung mit dem Namen **Body1**, und legen Sie die **[TemplateSize](control-gallery.md)**-Eigenschaft des Katalogs auf **80** fest.
+5. Drücken Sie F5, geben Sie eine Textzeichenfolge in **inputFirst** und **inputLast** ein, und klicken oder tippen Sie anschließend auf die Schaltfläche **Hinzufügen**.
+6. (Optional:) Fügen Sie der Sammlung mehr Namen hinzu, und drücken Sie anschließend die ESC-TASTE, um zum Standardarbeitsbereich zurückzukehren.
 
-### Prompt for a password
+### <a name="prompt-for-a-password"></a>Aufforderung zur Kennworteingabe
 
-1. Add a text-input control, name it **inputPassword**, and set its **Mode** property to **Password**.
+1. Fügen Sie ein Texteingabe-Steuerelement hinzu, nennen Sie es **inputPassword**, und legen Sie seine **Mode**-Eigenschaft auf **Password** fest.
 
-1. Add a label, and set its **[Text](properties-core.md)** property to this formula:<br>
+1. Fügen Sie eine Bezeichnung hinzu, und legen Sie deren Eigenschaft **[Text](properties-core.md)** auf diese Funktion fest:<br>
    **If(inputPassword.Text = "P@ssw0rd", "Access granted", "Access denied")**
 
-    Want more information about the **[If](../functions/function-if.md)** function or [other functions](../formula-reference.md)?
+    Benötigen Sie weitere Informationen zur **[If](../functions/function-if.md)**-Funktion oder [anderen Funktionen](../formula-reference.md)?
 
-1. Press F5, and then type **P@ssw0rd** in **inputPassword**.
+1. Drücken Sie F5, und geben Sie anschließend **P@ssw0rd** in **inputPassword** ein.
 
-    When you finish typing the password, the label stops showing **Access denied** and starts to show **Access granted**.
+    Wenn Sie mit der Eingabe des Kennworts fertig sind, zeigt die Bezeichnung nicht mehr **Access denied** (Zugriff verweigert) sondern **Access granted** (Zugriff gewährt) an.
 
-1. To return to the default workspace, press Esc.
+1. Drücken Sie ESC, um zum Standardarbeitsbereich zurückzukehren.
 
-1. (optional) Add a control such as an arrow, configure it to navigate to another screen, and show it only after the user types the password.
+1. (Optional:) Fügen Sie ein Steuerelement wie z.B. einen Pfeil hinzu, konfigurieren Sie es so, dass es zu einem anderen Bildschirm navigiert, und lassen Sie es erst anzeigen, wenn der Benutzer das Kennwort eingegeben hat.
 
-1. (optional) Add a button, configure its **[Text](properties-core.md)** property to show **Sign in**, add a timer, and disable the input-text control for a certain amount of time if the user types the wrong password and then clicks or taps the **Sign in** button.
+1. (Optional:) Fügen Sie eine Schaltfläche hinzu, konfigurieren Sie deren **[Text](properties-core.md)**-Eigenschaft so, dass **Anmelden** angezeigt wird, fügen Sie einen Zeitgeber hinzu, und deaktivieren Sie das Textsteuerelement für einen bestimmten Zeitraum, wenn der Benutzer das falsche Kennwort eingibt und anschließend auf die Schaltfläche **Anmelden** klickt oder tippt.
 
 
-## Accessibility guidelines
-### Color contrast
-* [Standard color contrast requirements](../accessible-apps-color.md) apply.
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+* Es gelten die [Standardanforderungen für Farbkontraste](../accessible-apps-color.md).
 
-### Screen reader support
-* **[AccessibleLabel](properties-accessibility.md)** must be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **[AccessibleLabel](properties-accessibility.md)** muss vorhanden sein.
 
-### Keyboard support
-* **[TabIndex](properties-accessibility.md)** must be zero or greater so that keyboard users can navigate to it.
-* Focus indicators must be clearly visible. Use **[FocusedBorderColor](properties-color-border.md)** and **[FocusedBorderThickness](properties-color-border.md)** to achieve this.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* **[TabIndex](properties-accessibility.md)** muss gleich 0 (null) oder größer sein, damit Tastaturbenutzer dorthin navigieren können.
+* Fokusindikatoren müssen deutlich sichtbar sein. **[FocusedBorderColor](properties-color-border.md)** und **[FocusedBorderThickness](properties-color-border.md)** können Ihnen dabei helfen.
  

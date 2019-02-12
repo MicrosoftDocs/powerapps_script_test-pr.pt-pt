@@ -1,6 +1,6 @@
 ---
-title: 'Pen input control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Pen input control
+title: 'Stifteingabe-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, über das Stifteingabe-Steuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,98 +9,104 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: bad3dcf3b0268a8bb08036fec709281b2cbba253
+ms.sourcegitcommit: e4fe4b27651b62edb67e5995fc5955577d8ac5b8
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49075355"
 ---
-# Pen input control in PowerApps
-A control in which the user can draw, erase, and highlight areas of an image.
+# <a name="pen-input-control-in-powerapps"></a>Stifteingabe-Steuerelement in PowerApps
+Ein Steuerelement, mit dem der Benutzer Bereiche eines Bildes zeichnen, löschen oder markieren kann.
 
-## Description
-The user can use this control like a whiteboard, drawing diagrams and writing words that can be converted to typed text.
+## <a name="description"></a>Beschreibung
+Benutzer können dieses Steuerelement wie ein Whiteboard verwenden. Sie können Diagramme zeichnen und Wörter schreiben, die in eingegebenen Text konvertiert werden können.
 
-## Key properties
-**Image** – Output property that represents the image drawn by the end user.
+## <a name="key-properties"></a>Haupteigenschaften
+**Image**: Ausgabeeigenschaft, die das vom Endbenutzer gezeichnete Bild repräsentiert.
 
-**[Color](properties-color-border.md)** – The color of input strokes.
+**[Color](properties-color-border.md)**  – Die Farbe der Eingabestriche.
 
-**Mode** – The control is in **Draw** or **Erase** mode.  Select mode has been deprecated.
+**Mode** – Das Steuerelement ist im Modus **Draw** oder **Erase**.  Der Modus „Select“ ist veraltet.
 
-## Additional properties
-**[AccessibleLabel](properties-accessibility.md)** – Label for screen readers. Can be used to describe the purpose of the control as well as alternative methods of input.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[AccessibleLabel](properties-accessibility.md)**: Bezeichnung für Sprachausgaben Kann verwendet werden, um den Zweck des Steuerelements sowie alternative Eingabemethoden zu beschreiben.
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**Input** – **Deprecated.** Whether the input supports mouse, pen, or touch inputs.  Defalut value (7) supports all three.
+**Input**: **veraltet**. Gibt an, ob Eingaben per Maus, Stift oder Berührung unterstützt werden.  Der Standardwert (7) unterstützt alle drei Möglichkeiten.
 
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**[SelectionColor](properties-color-border.md)** – The text color of a selected item or items in a list or the color of the selection tool in a pen control.
+**[SelectionColor](properties-color-border.md)**: Die Textfarbe des ausgewählten Elements oder der Elemente in einer Liste oder die Farbe des Auswahltools in einem Stift-Steuerelement.
 
-**SelectionThickness** – The thickness of the selection tool for a pen-input control.
+**SelectionThickness**: Die Stärke des Auswahltools für ein Stifteingabe-Steuerelement.
 
-**ShowControls** – Whether an audio or video player shows, for example, a play button and a volume slider, and a pen control shows, for example, icons for drawing, erasing, and clearing.
+**ShowControls**: Gibt beispielsweise an, ob für einen Audio- oder Videoplayer eine Schaltfläche für die Wiedergabe und ein Lautstärkeregler und für ein Stift-Steuerelement Symbole zum Zeichnen oder Löschen angezeigt werden.
 
-**[Size](properties-text.md)** – The font size of the text that appears on a control.
+**[Size](properties-text.md)** – Der Schriftgrad des Texts, der in einem Steuerelement angezeigt wird.
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[QuickInfo](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## Related functions
+## <a name="related-functions"></a>Verwandte Funktionen
 [**Collect**( *CollectionName*, *DatatoCollect* )](../functions/function-clear-collect-clearcollect.md)
 
-## Example
-### Create a set of images
-1. Add a **Pen input** control, name it **MyDoodles**, and set its **ShowControls** property to **true**.
+## <a name="example"></a>Beispiel
+### <a name="create-a-set-of-images"></a>Erstellen Sie einen Satz von Bildern
+1. Fügen Sie ein **Pen input**-Steuerelement hinzu, benennen Sie es **MyDoodles** und legen Sie seine Eigenschaft **ShowControls** auf **TRUE** fest.
    
-    Don't know how to [add, name, and configure a control](../add-configure-controls.md)?
-2. Add a **[Button](control-button.md)** control, move it below **MyDoodles**, and set the **[Text](properties-core.md)** property of the **[Button](control-button.md)** control to show **Add**.
-3. Set the **[OnSelect](properties-core.md)** property of the **[Button](control-button.md)** control to this formula:<br>
+    Möchten Sie wissen, wie Sie [ein Steuerelement hinzufügen, benennen und konfigurieren](../add-configure-controls.md)?
+2. Fügen Sie ein Steuerelement **[Button](control-button.md)** hinzu, verschieben Sie es unter **MyDoodles**, und legen Sie die Eigenschaft **[Text](properties-core.md)** des Steuerelements **[Button](control-button.md)** so fest, dass **Add** angezeigt wird.
+3. Legen Sie die Eigenschaft **[OnSelect](properties-core.md)** des Steuerelements **[Button](control-button.md)** auf die folgende Formel fest:<br>
    **Collect(Doodles, {Sketch:MyDoodles.Image})**
-4. Add an **Image gallery** control, move it below the **[Button](control-button.md)** control, and shrink the width of the **Image gallery** control until it shows three items.
-5. Set the **[Items](properties-core.md)** property of the **Image gallery** control to **Doodles**, and then  press F5.
-6. Draw an image in **MyDoodles**, and then click or tap the **[Button](control-button.md)** control.
+4. Fügen Sie ein Steuerelement **Image gallery** hinzu, verschieben Sie es unter das Steuerelement **[Button](control-button.md)**, und verkleinern Sie die Breite des **Image gallery**, bis drei Elemente angezeigt werden.
+5. Legen Sie die Eigenschaft **[Items](properties-core.md)** des Steuerelements **Image gallery** auf **Doodles** fest, und drücken Sie anschließend F5.
+6. Zeichnen Sie ein Bild in **MyDoodles**, und klicken oder tippen Sie anschließend auf das Steuerelement **[Button](control-button.md)**.
    
-    The image that you drew appears in the **Image gallery** control.
-7. (optional) In the **Pen input** control, click or tap the icon to clear the image that you drew, draw another image, and then click or tap the **[Button](control-button.md)** control.
-8. In the **Image gallery** control, set the **[OnSelect](properties-core.md)** property of the **[Image](control-image.md)** control to this formula:<br>
+    Das Bild, das Sie gezeichnet haben, wird im Steuerelement **Image gallery** angezeigt.
+7. (optional) Klicken oder tippen Sie im Steuerelement **Pen input** auf das Symbol, um das gezeichnete Bild zu löschen, zeichnen Sie ein anderes Bild, und klicken oder tippen Sie auf das Steuerelement **[Button](control-button.md)**.
+8. Legen Sie im Steuerelement **Image gallery** die Eigenschaft **[OnSelect](properties-core.md)** des Steuerelements **[Image](control-image.md)** auf diese Formel fest:<br>
    **Remove(Doodles, ThisItem)**
-9. Remove a drawing by clicking or tapping it in the **Image gallery** control.
+9. Entfernen Sie eine Zeichnung, indem Sie auf das Steuerelement **Image gallery** klicken oder tippen.
 
-Use the **[SaveData](../functions/function-savedata-loaddata.md)** function to save your drawings locally or the **[Patch](../functions/function-patch.md)** function to save them to a data source.
+Verwenden Sie die **[SaveData](../functions/function-savedata-loaddata.md)**-Funktion, um Ihre Zeichnungen lokal zu speichern, oder die **[Patch](../functions/function-patch.md)**-Funktion zur Speicherung in einer Datenquelle.
 
 
-## Accessibility guidelines
-### Color contrast
-There must be adequate color contrast between:
-* **[BorderColor](properties-color-border.md)** and the color outside the control (if there is a border)
-* **[Fill](properties-color-border.md)** and the color outside the control (if there is no border)
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+Zwischen folgenden Eigenschaften muss es einen ausreichenden Farbkontrast geben:
+* **[BorderColor](properties-color-border.md)** und die Farbe außerhalb des Steuerelements, wenn es einen Rahmen gibt
+* **[Fill](properties-color-border.md)** und die Farbe außerhalb des Steuerelements, wenn es keinen Rahmen gibt
 
-### Screen reader support
-* **[AccessibleLabel](properties-accessibility.md)** should be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **[AccessibleLabel](properties-accessibility.md)** sollte vorhanden sein.
 
     > [!IMPORTANT]
-  > **Pen input** is not accessible to screen reader users. Always provide an alternative form of input. For example, if a sketch is required, consider adding an **[Add picture](control-add-picture.md)** control for users to upload an image. Both methods can be offered and the user can choose the one they are more comfortable with.
+  > Die **Stifteingabe** ist für Benutzer der Sprachausgabe nicht verfügbar. Stellen Sie stets eine alternative Eingabemöglichkeit zur Verfügung. Wenn z.B. eine Skizze erforderlich ist, sollten Sie ein **[Bild hinzufügen](control-add-picture.md)**-Steuerelement hinzufügen, damit Benutzer Bilder hochladen können. Sie können beide Methoden zur Verfügung stellen und der Benutzer die von ihm bevorzugte auswählen.
 
-### Keyboard support
+### <a name="keyboard-support"></a>Tastaturunterstützung
 
 > [!IMPORTANT]
-> **Pen input** is not accessible to keyboard users. Always provide an alternative form of input. For example, if a signature is required, consider adding a **[Text input](control-text-input.md)** for users to enter their name. Both methods can be offered and the user can choose the one they are more comfortable with.
+> Benutzer, die mit der Tastatur arbeiten, können die **Stifteingabe** nicht verwenden. Stellen Sie stets eine alternative Eingabemöglichkeit zur Verfügung. Wenn z.B. eine Signatur erforderlich ist, sollten Sie eine **[Textausgabe](control-text-input.md)** hinzufügen, damit Benutzer ihren Namen eingeben können. Sie können beide Methoden zur Verfügung stellen und der Benutzer die von ihm bevorzugte auswählen.

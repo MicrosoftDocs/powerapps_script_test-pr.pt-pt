@@ -1,6 +1,6 @@
 ---
-title: Acceleration, App, Compass, Connection, and Location signals | Microsoft Docs
-description: Reference information, including syntax and examples, for the Acceleration, App, Compass, Connection, and Location sensors in PowerApps
+title: Die Signale „Acceleration“, „App“, „Compass“, „Connection“ und „Location“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Signale „Acceleration“, „App“, „Compass“, „Connection“ und „Location“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,79 +9,82 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 0038a3a5a7f5e23e9777dafeb181dc2cb867c7a2
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42832143"
 ---
-# Acceleration, App, Compass, Connection, and Location signals in PowerApps
-Returns information about the app's environment, such as where the user is located in the world and which screen is displayed.  
+# <a name="acceleration-app-compass-connection-and-location-signals-in-powerapps"></a>Die Signale „Acceleration“, „App“, „Compass“, „Connection“ und „Location“
+Gibt Informationen zur App-Umgebung zurück, z.B. den Standort des Benutzers und welcher Bildschirm angezeigt wird  
 
-## Description and syntax
-All signals return a [record](../working-with-tables.md#records) of information. You can use and store this information as a record, or you can extract individual properties by using the **.** [operator](operators.md).
+## <a name="description-and-syntax"></a>Beschreibung und Syntax
+Alle Signale geben einen [Datensatz](../working-with-tables.md#records) von Informationen zurück. Sie können diese Informationen als Datensatz verwenden und speichern oder einzelne Eigenschaften mithilfe des **.**- [Operators](operators.md) extrahieren.
 
-> [!NOTE]
-> The **Acceleration** and **Compass** functions return accurate values in a native player such as on iOS or Android, but those functions return zero values as you create or modify an app in the browser.
+### <a name="acceleration"></a>Acceleration
+Das Signal **Acceleration** gibt die Beschleunigung des Geräts dreidimensional im Verhältnis zum Bildschirm des Geräts zurück. Die Beschleunigung wird in *g*-Einheiten von 9.81 m/Sekunde<sup>2</sup> oder 32.2 ft/Sekunde<sup>2</sup> gemessen (die Erdbeschleunigung wird aufgrund der Schwerkraft an Objekte auf der Erdoberfläche übertragen).
 
-### Acceleration
-The **Acceleration** signal returns the device's acceleration in three dimensions relative to the device's screen. Acceleration is measured in *g* units of 9.81 m/second<sup>2</sup> or 32.2 ft/second<sup>2</sup> (the acceleration that the Earth imparts to objects at its surface due to gravity).
-
-| Signal Property | Description |
+| Signaleigenschaft | Beschreibung |
 | --- | --- |
-| **Acceleration.X** |Right and left.  Right is a positive number. |
-| **Acceleration.Y** |Forward and back.  Forward is a positive number. |
-| **Acceleration.Z** |Up and down.  Up is a positive number. |
+| **Acceleration.X** |Rechts und links.  Rechts ist eine positive Zahl. |
+| **Acceleration.Y** |Vorwärts und zurück.  Vorwärts ist eine positive Zahl. |
+| **Acceleration.Z** |Hoch und herunter.  Hoch ist eine positive Zahl. |
 
-### App
-The **App** signal returns information about the running app.
+### <a name="app"></a>App
+Das Signal **App** gibt Informationen über die ausgeführte App zurück.
 
-| Signal Property | Description |
+| Signaleigenschaft | Beschreibung |
 | --- | --- |
-| **App.ActiveScreen** |Screen that's displayed. Returns a screen object, which you can use to reference properties of the screen or compare to another screen to determine which screen is displayed.  By using the **[Back](function-navigate.md)** or **[Navigate](function-navigate.md)** function, you can change the displayed screen. |
+| **App.ActiveScreen** |Der angezeigte Bildschirm. Gibt ein Bildschirmobjekt zurück, das Sie zum Verweisen auf Bildschirmeigenschaften oder Vergleichen mit einem anderen Bildschirm verwenden können, um zu bestimmen, welcher Bildschirm angezeigt wird.  Mithilfe der Funktionen **[Back](function-navigate.md)** oder **[Navigate](function-navigate.md)** können Sie den angezeigten Bildschirm ändern. |
 
-### Compass
-The **Compass** signal returns the compass heading of the top of the screen. The heading is based on magnetic north.
+### <a name="compass"></a>Compass
+Das Signal **Compass** gibt die Kompassausrichtung des oberen Bildschirmrands zurück. Die Ausrichtung basiert auf dem elektromagnetischen Norden.
 
-| Signal Property | Description |
+| Signaleigenschaft | Beschreibung |
 | --- | --- |
-| **Compass.Heading** |Heading in degrees.  Returns a number 0 to 360, and 0 is north. |
+| **Compass.Heading** |Ausrichtung in Grad.  Gibt eine Zahl von 0 bis 360 zurück, 0 ist Norden. |
 
-### Connection
-The **Connection** signal returns the information about the network connection. When on a metered connection, you may want to limit how much data you send or receive over the network.
+### <a name="connection"></a>Verbindung
+Das Signal **Connection** gibt die Informationen über die Netzwerkverbindung zurück. Bei einer getakteten Verbindung empfiehlt es sich, die über das Netzwerk gesendeten oder empfangenen Daten zu beschränken.
 
-| Signal Property | Description |
+| Signaleigenschaft | Beschreibung |
 | --- | --- |
-| **Connection.Connected** |Returns a Boolean **true** or **false** value that indicates whether the device is connected to a network. |
-| **Connection.Metered** |Returns a Boolean **true** or **false** value that indicates whether the connection is metered. |
+| **Connection.Connected** |Gibt einen booleschen Wert **TRUE** oder **FALSE** zurück, der angibt, ob das Gerät mit einem Netzwerk verbunden ist |
+| **Connection.Metered** |Gibt einen booleschen Wert **TRUE** oder **FALSE** zurück, der angibt, ob die Verbindung getaktet ist |
 
-### Location
-The **Location** signal returns the location of the device based on the Global Positioning System (GPS) and other device information, such as cell-tower communications and IP address.
+### <a name="location"></a>Ort
+Das Signal **Location** gibt den Standort des Geräts anhand des Globalen Positionsbestimmungssystems (GPS) und anderer Geräteinformationen zurück, z.B. der Kommunikation von Funktürmen und der IP-Adresse.
 
-When a user accesses the location information for the first time, the device may prompt that user to allow access to this information.
+Wenn ein Benutzer zum ersten Mal auf die Positionsinformationen zugreift, kann das Gerät diesen Benutzer dazu auffordern, Zugriff auf diese Informationen zu erteilen.
 
-As the location changes, dependencies on the location will continuously recalculate, which will consume power from the device's battery. To conserve battery life, you can use the **[Enable](function-enable-disable.md)** and **[Disable](function-enable-disable.md)** functions to turn location updates on and off. Location is automatically turned off if the displayed screen doesn't depend on location information.
+Wenn sich der Standort ändert, werden Abhängigkeiten vom Standort kontinuierlich neu berechnet, was die Batterieleistung beeinträchtigt. Um Akkulaufzeit zu erhöhen, können Sie die Standortupdates mithilfe der Funktionen **[Enable](function-enable-disable.md)** und **[Disable](function-enable-disable.md)** an- und ausschalten. Das Signal „Location“ wird automatisch deaktiviert, wenn der angezeigte Bildschirm nicht von Standortinformationen abhängig ist.
 
-| Signal Property | Description |
+| Signaleigenschaft | Beschreibung |
 | --- | --- |
-| **Location.Altitude** |Returns a number that indicates the altitude, measured in feet, above sea level. |
-| **Location.Latitude** |Returns a number, from -90 to 90, that indicates the latitude, as measured in degrees from the equator. A positive number indicates a location that's north of the equator. |
-| **Location.Longitude** |Returns a number, from 0 to 180, that indicates the longitude, as measured in degrees west from Greenwich, England. |
+| **Location.Altitude** |Gibt eine Zahl zurück, die die Höhe über dem Meeresspiegel in Metern angibt |
+| **Location.Latitude** |Gibt eine Zahl zwischen -90 und 90 zurück, die den Breitengrad vom Äquator aus in Grad angibt. Eine positive Zahl gibt einen Standort nördlich vom Äquator an. |
+| **Location.Longitude** |Gibt eine Zahl zwischen 0 und 180 zurück, die den Längengrad westwärts von Greenwich, England in Grad angibt. |
 
-## Examples
-In a baseball field, a pitcher throws a phone from the pitcher's mound to a catcher at home plate. The phone is lying flat with respect to the ground, the top of the screen is pointed at the catcher, and the pitcher adds no spin. At this location, the phone has cellular network service that's metered but no WiFi. The **PlayBall** screen is displayed.   
+## <a name="examples"></a>Beispiele
+Ein Pitcher wirft in Safeco Field in Seattle, Washington einem Catcher auf der Home Plate ein Mobiltelefon zu. Das Telefon fliegt flach über dem Boden, der obere Bildschirmrand zeigt auf den Catcher, und der Pitcher fügt kein Drehmoment hinzu. In diesem Moment hat das Telefon getakteten Mobilfunknetzdienst, jedoch kein WLAN. Die **PlayBall**-Bildschirm wird angezeigt.   
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Location.Latitude** |Returns the latitude of the current location. The field is located at map coordinates 47.591 N, 122.333 W. |47.591<br><br>The latitude will change continuously as the ball moves between the pitcher and the catcher. |
-| **Location.Longitude** |Returns the longitude of the current location. |122.333<br><br>The longitude will change continuously as the ball moves between the pitcher and the catcher. |
-| **Location** |Returns the latitude and longitude of the current location, as a record. |{&nbsp;Latitude:&nbsp;47.591, Longitude:&nbsp;122.333&nbsp;} |
-| **Compass.Heading** |Returns the compass heading of the top of the screen. At this field, home plate is roughly southwest from the pitcher's mound. |230.25 |
-| **Acceleration.X** |Returns the acceleration of the device side to side. The pitcher is throwing the phone straight ahead with respect to the screen's top, so the device isn't accelerating side to side. |0 |
-| **Acceleration.Y** |Returns the acceleration of the device front to back. The pitcher initially gives the device a large acceleration when throwing the device, going from 0 to 90 miles per hour (132 feet per second) in half a second. After the device is in the air, ignoring air friction, the device doesn't accelerate further. The device decelerates when the catcher catches it, bringing it to a stop. |8.2, while the pitcher throws the device.<br><br>0, while the device is in the air.<br><br>-8.2, as the catcher catches the device. |
-| **Acceleration.Z** |Returns the acceleration of the device top to bottom. While in the air, the device experiences the effects of gravity. |0, before the pitcher throws the device.<br><br>1, while the device is in the air.<br><br>0, after the catcher catches the device. |
-| **Acceleration** |Returns the acceleration as a record. |{ X: 0, Y: 264, Z: 0 } as the pitcher throws the device. |
-| **Connection.Connected** |Returns a Boolean value that indicates whether the device is connected to a network |**true** |
-| **Connection.Metered** |Returns a Boolean value that indicates whether the connection is metered |**true** |
-| **App.ActiveScreen = PlayBall** |Returns a Boolean value that indicates whether **PlayBall** is displayed. |**true** |
-| **App.ActiveScreen.Fill** |Returns the background color for the displayed screen. |**Color.Green** |
+| **Location.Latitude** |Gibt den Breitengrad der aktuellen Position zurück.  Safeco Field befindet sich an den Koordinaten 47.591 N, 122.333 W. |47.591<br><br>Der Breitengrad wird fortlaufend geändert, während sich der Ball vom Pitcher zum Catcher bewegt. |
+| **Location.Longitude** |Gibt den Längengrad der aktuellen Position zurück |122.333<br><br>Der Längengrad wird fortlaufend geändert, während sich der Ball vom Pitcher zum Catcher bewegt. |
+| **Location** |Gibt den Längen- und Breitengrad des aktuellen Standorts in einem Datensatz zurück |{&nbsp;Breitengrad:&nbsp;47.591, Längengrad:&nbsp;122.333&nbsp;} |
+| **Compass.Heading** |Gibt die Kompassausrichtung des oberen Bildschirmrands zurück In Safeco Field liegt die Home Platte ungefähr südwestlich von er Abwurfstelle des Pitchers. |230.25 |
+| **Acceleration.X** |Gibt die Beschleunigung des Geräts von linkem zu rechtem Rand an. Der Pitcher wirft das Gerät in Bezug auf den oberen Bildschirmrand geradeaus, sodass das Gerät nicht von Seite zu Seite beschleunigt. |0 |
+| **Acceleration.Y** |Gibt die Beschleunigung des Geräts zwischen Vorder- und Rückseite an. Der Pitcher beschleunigt das Gerät anfänglich durch den Wurf erheblich, von 0 auf 90 Meilen pro Stunde (132 Fuß pro Sekunde) innerhalb einer halben Sekunde. Einmal in der Luft beschleunigt das Telefon, wenn die Luftreibung außen vor gelassen wird, nicht weiter. Das Gerät wird verlangsamt, wenn der Catcher es fängt, und wird angehalten. |8.2, während der Pitcher das Geräts wirft<br><br>0, während sich das Gerät in der Luft befindet<br><br>-8.2, während der Catcher das Gerät fängt |
+| **Acceleration.Z** |Gibt die Beschleunigung des Geräts vom oberen zum unteren Rand an. Das Telefon unterliegt in der Luft den Auswirkungen der Schwerkraft. |0, bevor der Pitcher das Geräts wirft<br><br>1, während sich das Gerät in der Luft befindet<br><br>0, nachdem der Catcher das Gerät gefangen hat |
+| **Acceleration** |Gibt die Beschleunigung als Datensatz zurück |{ X: 0, Y: 264, Z: 0 }, während der Pitcher das Telefon wirft |
+| **Connection.Connected** |Gibt einen booleschen Wert zurück, der angibt, ob das Gerät mit einem Netzwerk verbunden ist |**TRUE** |
+| **Connection.Metered** |Gibt einen booleschen Wert zurück, der angibt, ob die Verbindung getaktet ist |**TRUE** |
+| **App.ActiveScreen = PlayBall** |Gibt einen booleschen Wert zurück, der angibt, ob **PlayBall** angezeigt wird. |**TRUE** |
+| **App.ActiveScreen.Fill** |Gibt die Hintergrundfarbe des angezeigten Bildschirms zurück |**Color.Green** |
 

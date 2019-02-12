@@ -1,86 +1,92 @@
 ---
-title: Customize a card | Microsoft Docs
-description: Change the default control that appears in a card on a Details or Edit form in PowerApps
+title: Anpassen einer Karte | Microsoft-Dokumentation
+description: Ändern des Standardsteuerelements, das in PowerApps auf einer Karte in einem Details- oder Edit-Formular angezeigt wird
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 03/18/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 31c0810b9da5a52bcd5cc3b28b6def858541e15b
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42841784"
 ---
-# Customize a card in PowerApps
-Perform basic customization (without unlocking a card) by, for example, changing its control. Perform advanced customization by unlocking the card and, for example, adding a control that isn't available for that card by default.
+# <a name="customize-a-card-in-powerapps"></a>Anpassen einer Karte in PowerApps
+Führen Sie eine grundlegende Anpassung (ohne Entsperren einer Karte) durch, indem Sie beispielsweise das Steuerelement ändern. Erweiterte Anpassung (mit Aufheben der Sperre einer Karte), indem Sie z.B. ein Steuerelement hinzufügen, das für diese Karte standardmäßig nicht verfügbar ist.
 
-For an overview, see [Understand data cards](working-with-cards.md).
+Eine Übersicht finden Sie unter [Grundlegendes zu Datenkarten](working-with-cards.md).
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-* Learn how to [add and configure controls](add-configure-controls.md).
-* You can review this topic for general concepts only, or you can follow it step by step if you complete the procedures in these topics:
+* Grundlegende Informationen zum [Hinzufügen und Konfigurieren von Steuerelementen](add-configure-controls.md).
+* Sie können diesen Artikel zur allgemeinen Information verwenden oder die in den folgenden Artikeln beschriebenen Vorgänge exakt ausführen:
 
-  1. [Generate an app](data-platform-create-app.md).
-  2. [Customize its gallery](customize-layout-sharepoint.md).
-  3. [Customize its forms](customize-forms-sharepoint.md).
+  1. [Generate an app (Generieren einer App)](data-platform-create-app.md)
+  2. [Customize its gallery (Anpassen des Katalogs)](customize-layout-sharepoint.md)
+  3. [Customize its forms (Anpassen der Formulare)](customize-forms-sharepoint.md)
 
-## Customize a locked card
-In this procedure, you'll replace a **[Text-input](controls/control-text-input.md)** control with a **[Slider](controls/control-slider.md)** control without unlocking the card.
+## <a name="customize-a-locked-card"></a>Anpassen einer gesperrten Karte
+Ersetzen Sie in diesem Verfahren ein **[Texteingabe](controls/control-text-input.md)**-Steuerelement durch ein **[Schieberegler](controls/control-slider.md)**-Steuerelement, ohne die Karte zu entsperren.
 
-1. Sign in to [PowerApps](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
+1. Melden Sie sich bei [PowerApps](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an.
 
-    ![Home page for PowerApps](./media/customize-card/sign-in.png)
+    ![PowerApps-Startseite](./media/customize-card/sign-in.png)
 
-1. Open the app that you generated and customized, select **EditForm1**, and then open the **Data** pane by selecting **Accounts** in the right-hand pane.
+1. Öffnen Sie die App, die Sie generiert und angepasst haben, klicken Sie auf **EditForm1**, und öffnen Sie dann den Bereich **Daten**, indem Sie im Bereich rechts auf **Konten** klicken.
 
-1. In the list of fields, select the down arrow for **Number of Employees** to show a list of options, and then select **Edit Slider**.
+1. Klicken Sie in der Liste der Felder auf den Pfeil nach unten, damit für die **Anzahl der Mitarbeiter** eine Liste von Optionen angezeigt wird, und klicken Sie anschließend auf **Schieberegler bearbeiten**.
 
-    ![Drop-down list of options for a number card](./media/customize-card/card-selector.png)
+    ![Dropdownliste der Optionen für eine Zahlenkarte](./media/customize-card/card-selector.png)
 
-    The screen reflects your change.
+    Der Bildschirm spiegelt die vorgenommene Änderung wider.
 
-    ![EditForm1 with slider control](./media/customize-card/add-slider.png)
+    ![EditForm1 mit Schieberegler-Steuerelement](./media/customize-card/add-slider.png)
 
-## Unlock and customize a card
-In this procedure, you'll unlock a card and then replace a **[Toggle](controls/control-toggle.md)** control with a **[Checkbox](controls/control-check-box.md)** control.
+## <a name="unlock-and-customize-a-card"></a>Entsperren und Anpassen einer Karte
+In diesem Verfahren entsperren Sie eine Karte und ersetzen anschließend ein **[Schalter](controls/control-toggle.md)** -Steuerelement durch ein **[Kontrollkästchen](controls/control-check-box.md)** -Steuerelement.
 
-1. In **EditForm1**, show the **Send Marketing Materials** field.
+1. Rufen Sie das Feld **Send Marketing Materials** (Marketingmaterialien senden) in **EditForm1** ab.
 
-    ![Show field for Send Marketing Materials](./media/customize-card/show-field.png)
+    ![Anzeigen des Felds „Send Marketing Materials“ (Marketingmaterialien senden)](./media/customize-card/show-field.png)
 
-2. With that card selected, click or tap **Advanced** near the top of the right-hand pane, and then click or tap the lock icon to unlock the card.
+2. Wenn Sie diese Karte ausgewählt haben, klippen oder tippen Sie erst im oberen Bereich recht auf **Erweitert** und dann auf das Schlosssymbol, um die Karte zu entsperren.
 
-    ![Show field for Send Marketing Materials](./media/customize-card/unlock-card.png)
+    ![Anzeigen des Felds „Send Marketing Materials“ (Marketingmaterialien senden)](./media/customize-card/unlock-card.png)
 
-1. In the card, delete the **Toggle** control, add a **Check box** control, and name the new control **chkMktg**.
+1. Löschen Sie in der Karte das **Schalter**-Steuerelement, fügen Sie ein **Kontrollkästchen**-Steuerelement hinzu, und nennen Sie das neue Steuerelement z.B. **chkMktg**.
 
-    ![Replace toggle with checkbox](./media/customize-card/add-checkbox.png)
+    ![„Schalter“ durch „Kontrollkästchen“ ersetzen](./media/customize-card/add-checkbox.png)
 
-1. Select the card that you just updated.
+1. Wählen Sie die Karte aus, die Sie gerade aktualisiert haben.
 
-    ![Select card](./media/customize-card/select-card.png)
+    ![Karte auswählen](./media/customize-card/select-card.png)
 
-1. In the right-hand pane, ensure that the **Advanced** tab is still showing, and then click or tap **More options**.
+1. Überprüfen Sie auf der rechten Seite, ob die Registerkarte **Erweitert** immer noch angezeigt wird, und klicken oder tippen Sie dann auf **Weitere Optionen**.
 
-    ![More options button](./media/customize-card/more-options.png)
+    ![Schaltfläche „Weitere Optionen“](./media/customize-card/more-options.png)
 
-1. Change the value of the card's **Update** property to this expression:
+1. Ändern Sie den Wert der **Update**-Eigenschaft der Karte in den folgenden Ausdruck:
 <br>`chkMktg.Value`
 
-1. Change value of the **Y** property of the error message for that card to this expression:<br>
+1. Ändern Sie den Wert der **Y**-Eigenschaft der Fehlermeldung zu dieser Karte in den folgenden Ausdruck:<br>
 `chkMktg.Y + chkMktg.Height`
 
-    ![Select error message for new card](./media/customize-card/select-error.png)
+    ![Fehlermeldung für die neue Karte auswählen](./media/customize-card/select-error.png)
 
-1. Change the value of the **Text** property of **chkMktg** to **Yes**.
+1. Ändern Sie den Wert der **Text**-Eigenschaft Ihres neuen **chkMktg**-Steuerelements in **Ja**.
 
-    The screen reflects your changes, and the errors are resolved.
+    Dann werden auf dem Bildschirm Ihre Änderungen angezeigt und die Fehler behoben.
 
-    ![Final screen with errors resolved](./media/customize-card/final-screen.png)
+    ![Letzte Anzeige mit behobenen Fehlern](./media/customize-card/final-screen.png)
 
-## Next steps
-Now that you have a basic understanding of how to generate an app and customize a gallery, a form, and a card, you can [build your own app from scratch](data-platform-create-app-scratch.md).
+## <a name="next-steps"></a>Nächste Schritte
+Da Sie jetzt einen grundlegenden Überblick darüber haben, wie Sie eine App generieren und einen Katalog, ein Formular und eine Karte anpassen können, sollten Sie Ihre [App von Grund auf neu erstellen können](data-platform-create-app-scratch.md).

@@ -1,64 +1,70 @@
 ---
-title: Create a canvas app from a template | Microsoft Docs
-description: Step-by-step instructions for creating a canvas app automatically based on a PowerApps template.
+title: Erstellen einer Canvas-App aus einer Vorlage | Microsoft-Dokumentation
+description: Ausführliche Anleitung zum automatischen Erstellen einer Canvas-App auf Grundlage einer PowerApps-Vorlage
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 03/19/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: ea5912a043dc00fa197a2070c11610c358c3201d
+ms.sourcegitcommit: 02d0234bd84352bf1c43d0fc9225ab60947a0add
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49316721"
 ---
-# Create a canvas app from a template in PowerApps
+# <a name="create-a-canvas-app-from-a-template-in-powerapps"></a>Erstellen einer Canvas-App aus einer Vorlage in PowerApps
 
-Create a canvas app automatically based on a template for a specific scenario, such as tracking budgets and scheduling vacations, and then run the app to understand its default behavior.
+Erstellen Sie eine Canvas-App automatisch aus einer Vorlage für ein bestimmtes Szenario, z.B. das Nachverfolgen von Budgets oder das Planen von Urlauben, und führen Sie die App dann aus, um deren Standardverhalten nachvollziehen zu können.
 
-To create an app from a template, you need a cloud-storage account (such as DropBox, OneDrive, or Google Drive) to store the template's sample data.
+Sie benötigen ein Cloudspeicherkonto (z.B. Dropbox, OneDrive oder Google Drive), um die Beispieldaten von Vorlagen zu speichern und eine App aus einer Vorlage zu erstellen.
 
-If you don't have a license for PowerApps, you can [sign up for free](../signup-for-powerapps.md).
+Wenn Sie nicht eine Lizenz für PowerApps verfügen, können Sie sich [kostenlos registrieren](../signup-for-powerapps.md).
 
-## Create an app
+## <a name="create-an-app"></a>Erstellen einer App
 
-1. Sign in to [PowerApps](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
+1. Melden Sie sich bei [PowerApps](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an.
 
-1. Under **Make your own app**, hover over **Start from data**, and then click or tap **Make this app**.
+1. Zeigen Sie unter **Eigene App erstellen** auf **Mit Daten beginnen**, und klicken oder tippen Sie dann auf **Diese App erstellen**.
 
-    ![Make this app tile](./media/get-started-test-drive/make-this-app.png)
+    ![Kachel „Diese App erstellen“](./media/get-started-test-drive/make-this-app.png)
 
-1. On the **App templates** tile, click or tap **Phone layout** or **Tablet layout**.
+1. Klicken oder tippen Sie auf der Kachel **App-Vorlagen** auf **Smartphonelayout** oder **Tabletlayout**.
 
-    ![App from template tile](./media/get-started-test-drive/template-tile.png)
+    ![Kachel „App aus Vorlage“](./media/get-started-test-drive/template-tile.png)
 
-4. In the list of templates, click or tap a template, and then click or tap **Use** (near the lower-right corner).
+4. In der Liste der Vorlagen, klicken oder tippen Sie auf eine Vorlage, und klicken oder tippen Sie anschließend auf **Use** (Verwenden) in der Nähe der rechten unteren Ecke.
 
-    ![Open a PowerApps template](./media/get-started-test-drive/open-template.png)
+    ![PowerApps-Vorlage öffnen](./media/get-started-test-drive/open-template.png)
 
-    The sample data is copied to your cloud-storage account, the app is created, and its home page appears.
+    Die Beispieldaten werden in Ihr Cloudspeicherkonto kopiert, die App wird erstellt und die Startseite wird angezeigt.
 
-## Run the app
-An app from a template opens in the default workspace, where you'll spend most of your time customizing. Before you make any changes to the app, explore how the app works in **Preview** mode.
+## <a name="run-the-app"></a>Ausführen der App
+Eine App aus einer Vorlage wird im Standardarbeitsbereich geöffnet, wo Sie den größten Teil Ihrer Zeit mit Anpassen verbringen. Testen Sie, wie die App im **Vorschaumodus** funktioniert, bevor Sie Änderungen an der App vornehmen.
 
-1. Press F5 (or click or tap the right arrow in the upper-right corner) to open the app in **Preview** mode.
+1. Drücken Sie F5 (oder klicken oder tippen Sie auf den Pfeil nach rechts in der oberen rechten Ecke), um die App im **Vorschaumodus** zu öffnen.
 
-    ![Button to open Preview mode](./media/get-started-test-drive/open-preview.png)
+    ![Schaltfläche zum Öffnen der Vorschau](./media/get-started-test-drive/open-preview.png)
 
-    The app is populated with sample data to demonstrate the functionality of the app. For example, the Cost Estimator app contains data for creating appointments and estimating the cost of installing a specific flooring product in a room of a particular size.
+    Die App wird mit Beispieldaten zur Veranschaulichung der Funktionalität der App aufgefüllt. Die App für die Kostenschätzung enthält z.B. Daten für das Erstellen von Beauftragungen und die Schätzung der Kosten für die Installation eines bestimmten Fußbodenprodukts in einem Raum einer bestimmten Größe.
 
-4. Explore the app's default behavior by creating, updating, and deleting sample data, and then verify that the data in your cloud-storage account reflects your changes.
+4. Testen Sie das Standardverhalten der App, indem Sie Beispieldaten erstellen, aktualisieren und löschen. Überprüfen Sie dann, ob die Daten in Ihrem Cloudspeicherkonto Ihre Änderungen wiedergeben.
 
-    For example, make an appointment, and create a cost estimate in the Cost Estimator app.
+    Machen Sie beispielsweise eine Beauftragung, und erstellen Sie eine Kostenschätzung in der App für die Kostenschätzung.
 
-5. Return to the default workspace by pressing Esc (or by clicking or tapping the **X** icon near the upper-right corner).
+5. Kehren Sie durch Drücken der ESC-TASTE oder durch Klicken oder Tippen auf das Symbol **X** in der oberen rechten Ecke zum Standardarbeitsbereich zurück.
 
-## Next steps
-1. Press Ctrl-S, give your app a name, and then click or tap **Save** to save your app to the cloud.
+## <a name="next-steps"></a>Nächste Schritte
+1. Drücken Sie STRG+S, geben Sie Ihre App einen Namen, und klicken oder tippen Sie anschließend auf **Save** (Speichern), um Ihre App in der Cloud zu speichern.
 
-1. [Share your app](share-app.md) with other people in your organization.
+1. Mit [Share your app](share-app.md) (App freigeben) stellen Sie Ihre App anderen Personen zur Verfügung.
 
 > [!IMPORTANT]
-> Before you share an app, make sure that the people with whom you're sharing it have access to the data. For example, you must [share an Excel or other file](share-app-data.md) in a cloud-storage account.
+> Stellen Sie vor dem Freigeben einer App sicher, dass die Personen, für die Sie die App freigeben, auf die Daten zugreifen können. Beispielsweise müssen Sie [eine Excel- oder andere Datei freigeben](share-app-data.md) über ein Cloudspeicherkonto durchführen.

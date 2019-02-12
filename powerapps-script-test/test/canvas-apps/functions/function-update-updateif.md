@@ -1,6 +1,6 @@
 ---
-title: Update and UpdateIf functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the Update and UpdateIf functions in PowerApps
+title: Funktionen „Update“ und „UpdateIf“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „Update“ und „UpdateIf“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,66 +9,72 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/21/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: d74f05c87cd5b9a3e7aed7891c6d2aaa54adfd1a
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42834306"
 ---
-# Update and UpdateIf functions in PowerApps
-Updates [records](../working-with-tables.md#records) in a [data source](../working-with-data-sources.md).
+# <a name="update-and-updateif-functions-in-powerapps"></a>Funktionen „Update“ und „UpdateIf“ in PowerApps
+Aktualisieren [Datensätze](../working-with-tables.md#records) in einer [Datenquelle](../working-with-data-sources.md)
 
-## Description
-### Update function
-Use the **Update** function to replace an entire record in a data source. In contrast, the **UpdateIf** and the **[Patch](function-patch.md)** functions modify one or more values in a record, leaving the other values alone.
+## <a name="description"></a>Beschreibung
+### <a name="update-function"></a>„Update“-Funktion
+Verwenden Sie die **Update**-Funktion, um einen gesamten Datensatz in einer Datenquelle zu ersetzen. Im Gegensatz dazu ändern die Funktionen **UpdateIf** und **[Patch](function-patch.md)** einen oder mehrere Werte in einem Datensatz, ohne dabei die anderen Werte zu ändern.
 
-For a [collection](../working-with-data-sources.md#collections), the entire record must match. Collections allow duplicate records, so multiple records might match. You can use the **All** argument to update all copies of a record; otherwise, only one copy of the record is updated.
+Bei einer [Sammlung](../working-with-data-sources.md#collections) muss der gesamte Datensatz übereinstimmen. Sammlungen lassen doppelte Datensätze zu, sodass mehrere Datensätze übereinstimmen könnten. Sie können das **All**-Argument verwenden, um alle Kopien eines Datensatzes zu aktualisieren; andernfalls wird nur eine Kopie des Datensatzes aktualisiert.
 
-If the data source generates a column's value automatically, the value of that [column](../working-with-tables.md#columns) must be reaffirmed.
+Wenn die Datenquelle den Wert einer Spalte automatisch generiert, muss der Wert dieser [Spalte](../working-with-tables.md#columns) erneut bestätigt werden.
 
-### UpdateIf function
-Use the **UpdateIf** function to modify one or more values in one or more records that match one or more conditions. The condition can be any formula that results in a **true** or **false** and can reference columns of the data source by name. The function evaluates the condition for each record and modifies any record for which the result is **true**.  
+### <a name="updateif-function"></a>„UpdateIf“-Funktion
+Verwenden Sie die **UpdateIf**-Funktion, um einen oder mehrere Werte in einem oder mehreren Datensätzen zu ändern, die mit mindestens einer Bedingungen übereinstimmen. Bei der Bedingung kann es sich um jede Formel handeln, die zu **TRUE** oder **FALSE** führt und über den Namen auf Spalten der Datenquelle verweisen kann. Die Funktion wertet die Bedingung für jeden Datensatz aus und bearbeitet jeden Datensatz, für den das Ergebnis **TRUE** ist.  
 
-To specify a modification, use a change record that contains new property values. If you provide this change record inline with curly braces, property formulas can reference properties of the record that's being modified. You can use this behavior to modify records based on a formula.
+Um eine Änderung anzugeben, verwenden Sie einen Änderungsdatensatz, der neue Eigenschaftenwerte enthält. Wenn Sie diesen Änderungsdatensatz in geschweifte Klammern eingebunden bereitstellen, können Eigenschaftenformeln auf Eigenschaften des Datensatzes verweisen, der bearbeitet wird. Sie können dieses Verhalten verwenden, um Datensätze anhand einer Formel zu ändern.
 
-Similar to **UpdateIf**, you can also use the **[Patch](function-patch.md)** function to change specific columns of a record without affecting other columns.
+Ähnlich wie die **UpdateIf**-Funktion können Sie auch die **[Patch](function-patch.md)**-Funktion verwenden, um bestimmte Spalten eines Datensatzes zu ändern, ohne dass sich dies auf andere Spalten auswirkt.
 
-Both **Update** and **UpdateIf** return the modified data source as a [table](../working-with-tables.md). You must use either function in a [behavior formula](../working-with-formulas-in-depth.md).
+Sowohl **Update** als auch **UpdateIf** geben die geänderte Datenquelle als [Tabelle](../working-with-tables.md) zurück. Sie müssen beide Funktionen in einer [Verhaltensformel](../working-with-formulas-in-depth.md) verwenden.
 
-### Delegation
+### <a name="delegation"></a>Delegierung
 [!INCLUDE [delegation-no](../../../includes/delegation-no.md)]
 
-## Syntax
-**Update**( *DataSource*, *OldRecord*, *NewRecord* [, **All** ] )
+## <a name="syntax"></a>Syntax
+**Update**( *Datenquelle*, *AlterDatensatz*, *NeuerDatensatz* [, **All** ] )
 
-* *DataSource* – Required. The data source that contains the record that you want to replace.
-* *OldRecord* – Required. The record to replace.
-* *NewRecord* – Required. The replacement record. This isn't a change record. The entire record is replaced, and missing properties will contain *blank*.
-* **All** – Optional. In a collection, the same record may appear more than once. Specify the **All** argument to remove all copies of the record.
+* *Datenquelle*: Erforderlich. Die Datenquelle, die den Datensatz enthält, den Sie ersetzen möchten.
+* *AlterDatensatz*: Erforderlich. Der zu ersetzende Datensatz.
+* *NeuerDatensatz*: Erforderlich. Der Ersatzdatensatz. Dabei handelt es sich nicht um einen Änderungsdatensatz. Der gesamte Datensatz wird ersetzt, und fehlende Eigenschaften werden als *blank* angezeigt.
+* **All**: Optional. In einer Sammlung wird möglicherweise der gleiche Datensatz mehr als einmal angezeigt. Geben Sie das **All**-Argument an, um alle Kopien des Datensatzes zu entfernen.
 
-**UpdateIf**( *DataSource*, *Condition1*, *ChangeRecord1* [, *Condition2*, *ChangeRecord2*, ... ] )
+**UpdateIf**( *Datenquelle*, *Bedingung1*, *Änderungsdatensatz1* [, *Bedingung2*, *Änderungsdatensatz2*, ... ] )
 
-* *DataSource* – Required. The data source that contains the record or records that you want to modify.
-* *Condition(s)* – Required. A formula that evaluates to **true** for the record or records that you want to modify.  You can use column names of *DataSource* in the formula.  
-* *ChangeRecord(s)* - Required.  For each corresponding condition, a change record of new property values to apply to records of *DataSource* that satisfy the condition. If you provide the record inline using curly braces, property values of the existing record can be used in the property formulas.
+* *Datenquelle*: Erforderlich. Die Datenquelle, die den Datensatz bzw. die Datensätze enthält, die Sie ändern möchten.
+* *Bedingung(en)*: Erforderlich. Eine Formel, die für den Datensatz bzw. die Datensätze, die Sie ändern möchten, **TRUE** ergibt.  Sie können Spaltennamen von *Datenquelle* in der Formel verwenden.  
+* *Änderungsdatensatz bzw. -sätze*: Erforderlich.  Für jede entsprechende Bedingung ein Änderungsdatensatz mit neuen Eigenschaftenwerten, die auf Datensätze von *Datenquelle* angewandt werden, die die Bedingung erfüllen. Wenn Sie den Datensatz in geschweifte Klammern eingebunden bereitstellen, können Eigenschaftenwerte des vorhandenen Datensatzes in den Eigenschaftenformeln verwendet werden.
 
-## Examples
-In these examples, you'll replace or modify records in a data source that's named **IceCream** and that starts with the data in this table:
+## <a name="examples"></a>Beispiele
+In diesen Beispielen ersetzen oder ändern Sie Datensätze in einer Datenquelle mit dem Namen **IceCream**, die mit den Daten in dieser Tabelle beginnt:
 
 ![](media/function-update-updateif/icecream.png)
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Update(&nbsp;IceCream,<br>First(&nbsp;Filter(&nbsp;IceCream,&nbsp;Flavor="Chocolate"&nbsp;)&nbsp;), {&nbsp;ID:&nbsp;1,&nbsp;Flavor:&nbsp;"Mint&nbsp;Chocolate",&nbsp;Quantity:150&nbsp;} )** |Replaces a record from the data source. |<style> img { max-width: none } </style> ![](media/function-update-updateif/icecream-mint.png)<br><br>The **IceCream** data source has been modified. |
-| **UpdateIf(&nbsp;IceCream, Quantity > 175, {&nbsp;Quantity:&nbsp;Quantity&nbsp;+&nbsp;10&nbsp;} )** |Modifies records that have a **Quantity** that is greater than **150**.  The **Quantity** field is incremented by 10, and no other fields are modified. |![](media/function-update-updateif/icecream-mint-plus10.png)<br><br>The **IceCream** data source has been modified. |
-| **Update(&nbsp;IceCream,<br>First(&nbsp;Filter(&nbsp;IceCream, Flavor="Strawberry"&nbsp;)&nbsp;),<br>{&nbsp;ID:&nbsp;3, Flavor:&nbsp;"Strawberry Swirl"} )** |Replaces a record from the data source. The **Quantity** property hasn't been supplied in the replacement record, so that property will be *blank* in the result. |![](media/function-update-updateif/icecream-mint-swirl.png)<br><br>The **IceCream** data source has been modified. |
-| **UpdateIf(&nbsp;IceCream, true, {&nbsp;Quantity:&nbsp;0&nbsp;} )** |Sets the value of the **Quantity** property for all records in the data source to 0. |![ ](./media/function-update-updateif/icecream-mint-zero.png)<br> <br>The **IceCream** data source has been modified. |
+| **Update(&nbsp;IceCream,<br>First(&nbsp;Filter(&nbsp;IceCream,&nbsp;Flavor="Chocolate"&nbsp;)&nbsp;), {&nbsp;ID:&nbsp;1,&nbsp;Flavor:&nbsp;"Mint&nbsp;Chocolate",&nbsp;Quantity:150&nbsp;} )** |Ersetzt einen Datensatz aus der Datenquelle |<style> img { max-width: none } </style> ![](media/function-update-updateif/icecream-mint.png)<br><br>Die Datenquelle **IceCream** (Eiscreme) wurde geändert. |
+| **UpdateIf(&nbsp;IceCream, Quantity > 175, {&nbsp;Quantity:&nbsp;Quantity&nbsp;+&nbsp;10&nbsp;} )** |Ändert Datensätze, bei der **Quantity** größer als **150** ist.  Das Feld **Quantity** wird um 10 erhöht, und es werden keine anderen Felder geändert. |![](media/function-update-updateif/icecream-mint-plus10.png)<br><br>Die Datenquelle **IceCream** (Eiscreme) wurde geändert. |
+| **Update(&nbsp;IceCream,<br>First(&nbsp;Filter(&nbsp;IceCream, Flavor="Strawberry"&nbsp;)&nbsp;),<br>{&nbsp;ID:&nbsp;3, Flavor:&nbsp;"Strawberry Swirl"} )** |Ersetzt einen Datensatz aus der Datenquelle Die Eigenschaft **Quantity** wurde im Ersatzdatensatz nicht bereitgestellt. Diese Eigenschaft bleibt im Ergebnis also *blank*. |![](media/function-update-updateif/icecream-mint-swirl.png)<br><br>Die Datenquelle **IceCream** (Eiscreme) wurde geändert. |
+| **UpdateIf(&nbsp;IceCream, true, {&nbsp;Quantity:&nbsp;0&nbsp;} )** |Legt den Wert für die Eigenschaft **Quantity** für alle Datensätze in der Datenquelle auf 0 fest. |![ ](./media/function-update-updateif/icecream-mint-zero.png)<br> <br>Die Datenquelle **IceCream** (Eiscreme) wurde geändert. |
 
-### Step by step
-1. Import or create a collection named **Inventory**, and show it in a gallery as [Show data in a gallery](../show-images-text-gallery-sort-filter.md) describes.
-2. Name the gallery **ProductGallery**.
-3. Add a slider named **UnitsSold**, and set its **Max** property to this expression:<br>**ProductGallery.Selected.UnitsInStock**
-4. Add a button, and set its **[OnSelect](../controls/properties-core.md)** property to this formula:<br>**UpdateIf(Inventory, ProductName = ProductGallery.Selected.ProductName, {UnitsInStock:UnitsInStock-UnitsSold.Value})**
-5. Press F5, select a product in the gallery, specify a value with the slider, and then select the button.
+### <a name="step-by-step"></a>Schritt für Schritt
+1. Importieren oder erstellen Sie eine Sammlung mit dem Namen **Inventory** (Lagerbestand), und zeigen Sie diese in einem Katalog an, wie unter [Show images and text in a gallery, including gallery selection, sort, and filter (Anzeigen von Bildern und Text in einem Katalog, einschließlich Auswählen, Sortieren und Filtern des Katalogs)](../show-images-text-gallery-sort-filter.md) beschrieben.
+2. Nennen Sie den Katalog **ProductGallery**.
+3. Fügen Sie einen Schieberegler mit dem Namen **UnitsSold** hinzu, und legen Sie dessen **Max**-Eigenschaft auf diesen Ausdruck fest:<br>**ProductGallery.Selected.UnitsInStock**
+4. Fügen Sie eine Schaltfläche hinzu, und legen Sie ihre Eigenschaft **[OnSelect](../controls/properties-core.md)** auf diese Formel fest:<br>**UpdateIf(Inventory, ProductName = ProductGallery.Selected.ProductName, {UnitsInStock:UnitsInStock-UnitsSold.Value})**
+5. Drücken Sie F5, wählen Sie ein Produkt aus dem Katalog aus, geben Sie mit dem Schieberegler einen Wert an, und wählen Sie dann die Schaltfläche aus.
    
-    The number of units in stock for the product you specified decreases by the amount that you specified.
+    Die Anzahl der Einheiten des von Ihnen angegebenen Produkts im Lager sinkt um die Anzahl, die Sie angegeben haben.
 

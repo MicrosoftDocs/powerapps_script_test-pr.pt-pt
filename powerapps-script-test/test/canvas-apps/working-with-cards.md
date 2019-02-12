@@ -1,6 +1,6 @@
 ---
-title: Understand data cards | Microsoft Docs
-description: In PowerApps, use form cards to collect and display information from a data source.
+title: Grundlegendes zu Datenkarten | Microsoft-Dokumentation
+description: Verwenden Sie in PowerApps Formularkarten zum Sammeln und Anzeigen von Informationen aus einer Datenquelle.
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,156 +9,162 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/26/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: db0e42a45af217e9e5703242c2a5a867a52b687b
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42850528"
 ---
-# Understand data cards in PowerApps
+# <a name="understand-data-cards-in-powerapps"></a>Grundlegendes zu Datenkarten in PowerApps
 
-**[Card](controls/control-card.md)** controls are the building blocks of the **[Edit form](controls/control-form-detail.md)** and **[Display form](controls/control-form-detail.md)** controls in canvas apps. The form represents the entire record, and each card represents a single field of that record.
+**[Card](controls/control-card.md)**-Steuerelemente sind die Bausteine der Steuerelemente **[Formular bearbeiten](controls/control-form-detail.md)** und **[Formular anzeigen](controls/control-form-detail.md)** in Canvas-Apps. Das Formular stellt den gesamten Datensatz dar, und jede Karte stellt ein einzelnes Feld dieses Datensatzes dar.
 
-You can interact with cards most easily in the right-hand pane after you select a form control in the design workspace. In that pane, you can choose which fields to show, how to show each field, and in what order to show them. This example shows an **Edit form** control in an app built from a SharePoint list that's named **Assets**.
+Am einfachsten können Sie mit Karten im rechten Bereich interagieren, nachdem Sie ein Formularsteuerelement im Designarbeitsbereich ausgewählt haben. In diesem Bereich können Sie auswählen, welche Felder auf welche Weise in welcher Reihenfolge angezeigt werden sollen. In diesem Beispiel wird ein **Bearbeitungsformular**-Steuerelement in einer App veranschaulicht, die anhand der SharePoint-Liste **Assets** erstellt wurde.
 
-![First screen](./media/working-with-cards/first-screen.png)
+![Erster Bildschirm](./media/working-with-cards/first-screen.png)
 
-To get started with cards, see [add a form](add-form.md) and [understand data forms](working-with-forms.md). The remainder of this topic goes into more detail about how cards work and how you can customize or even create your own.
+Weitere Informationen zu den ersten Schritten mit Karten finden Sie unter [Add a form (Formular hinzufügen)](add-form.md) und [Understand data forms (Grundlegendes zu Datenformularen)](working-with-forms.md). Im weiteren Verlauf dieses Themas wird ausführlicher erläutert, wie Karten funktionieren, und wie Sie sie anpassen oder sogar Ihre eigenen Karten erstellen können.
 
-## Predefined cards
+## <a name="predefined-cards"></a>Vordefinierte Karten
 
-PowerApps offers a predefined set of cards for strings, numbers, and other data types. In the right-hand pane, you can see the variations available and change the card used for a field:
+PowerApps bietet einen vordefinierten Satz von Smartcards, die für Zeichenfolgen, Zahlen und andere Datentypen geeignet sind. Im rechten Bereich finden Sie die verfügbaren Varianten; hier können Sie auch die für ein Feld verwendete Karte anpassen:
 
 ![](./media/working-with-cards/selected-card.png)
 
-In this example, a single-line text card is selected, but the URL's text is longer than can be shown on a single line. Let's change this to a multi-line text card to give our users more room to edit:
+In diesem Beispiel wird eine Karte für einzeiligen Text verwendet, aber der Text der URL ist länger als in einer einzelnen Zeile angezeigt werden kann. Ändern Sie diese Karte also in eine Karte für mehrzeiligen Text, damit Ihr Benutzer mehr Spielraum zum Bearbeiten hat:
 
 ![](./media/working-with-cards/multiline-edit.png)
 
-Several fields of this data source aren't being shown, but you can show or hide a field by selecting its checkbox. This example illustrates how to show the **SecurityCode** field.
+Verschiedene Felder dieser Datenquelle werden nicht angezeigt, Sie können jedoch die einzelnen Felder ein- oder ausblenden, indem Sie das entsprechende Kontrollkästchen aktivieren. In diesem Beispiel wird veranschaulicht, wie das Feld **SecurityCode** angezeigt wird.
 
 ![](./media/working-with-cards/add-security-code.png)
 
-## Customize a card
-Cards comprise other controls. In an **Edit form** control, the user enters data in a standard **[Text input](controls/control-text-input.md)** control that you add from the **Insert** tab.  
+## <a name="customize-a-card"></a>Eine Karte anpassen
+Karten enthalten andere Steuerelemente. Der Benutzer gibt in einem **Bearbeitungsformular**-Steuerelement Daten in einem standardmäßigen **[Texteingabe](controls/control-text-input.md)**-Steuerelement ein, das Sie von der Registerkarte **Einfügen** hinzufügen.  
 
-Let's walk through an example of how to change a card's appearance by manipulating controls in it.
+Arbeiten wir schrittweise ein Beispiel dafür durch, wie Sie das Erscheinungsbild einer Karte ändern können, indem Sie ihre Steuerelemente bearbeiten.
 
-1. First, let's return to the card that we inserted most recently, for the **SecurityCode** field. Select this card by clicking or tapping it once:
+1. Kehren Sie zunächst zu der Karte zurück, die Sie als letztes hinzugefügt haben, und machen Sie das Feld **SecurityCode** (Sicherheitscode) ausfindig. Wählen Sie diese Karte aus, indem Sie einmal darauf klicken oder tippen:
    
     ![](./media/working-with-cards/select-security-code.png)
-2. Select the **[Text input](controls/control-text-input.md)** control inside the card by clicking or tapping the input control itself.
+2. Klicken oder tippen Sie auf das **[Texteingabe](controls/control-text-input.md)**-Steuerelement auf der Karte, um es auszuwählen.
    
     ![](./media/working-with-cards/select-text-input.png)
-3. Move this control within the card by dragging the selection box, and resize the control by dragging the handles along the edge of the selection box:
+3. Verschieben Sie das Steuerelement auf der Karte durch Ziehen des Auswahlfelds, und ändern Sie die Größe des Steuerelements mithilfe der Ziehpunkte am Rand des Auswahlfelds:
    
     ![](./media/working-with-cards/customize-text-input.png)  
 
-You can resize, move, and make other modifications to controls within a card, but you can't delete it without unlocking it first.
+Sie können die Größe des Steuerelements in der Karte anpassen, es verschieben und weitere Änderungen vornehmen, aber Sie können es nicht löschen, ohne es zunächst entsperrt zu haben.
 
-## Unlock a card
-In addition to containing controls, cards themselves are controls that have properties and formulas just like any other control. When you choose to display a field on a form, the right-hand pane automatically creates the card for you and generates the needed formulas.  We can see these formulas in the **Advanced** tab of the right-hand pane:
+## <a name="unlock-a-card"></a>Entsperren einer Karte
+Karten sind selbst auch Steuerelemente, die über Eigenschaften und Formeln verfügen, genauso wie jedes andere Steuerelement – auch wenn sie selbst wiederum Steuerelemente enthalten. Wenn Sie ein Feld in einem Formular anzeigen möchten, erstellt der rechte Bereich automatisch die Karte für Sie und generiert die benötigten Formeln.  Diese Formeln finden sich auf der Registerkarte **Erweitert** im rechten Bereich:
 
 ![](./media/working-with-cards/advanced-locked.png)
 
-We immediately see one of the most important properties of the card: the **[DataField](controls/control-card.md)** property. This property indicates which field of the data source the user sees and can edit in this card.  
+Sie sehen umgehend eine der wichtigsten Eigenschaften der Karte: die **[DataField](controls/control-card.md)**-Eigenschaft (Datenfeld). Diese Eigenschaft gibt an, welches Feld der Datenquelle dem Benutzer angezeigt wird und was er auf dieser Karte bearbeiten kann.  
 
-On the **Advanced** tab, the banner at the top indicates that the properties of this card are locked. A lock icon also appears next to the **[DataField](controls/control-card.md)**, **[DisplayName](controls/control-card.md)**, and **[Required](controls/control-card.md)** properties. The right-hand pane created these formulas, and the lock prevents accidental changes to these properties.
+Auf der Registerkarte **Erweitert** gibt das Banner am oberen Rand an, dass die Eigenschaften dieser Karte gesperrt sind. Außerdem wird neben den Eigenschaften **[DataField](controls/control-card.md)**, **[DisplayName](controls/control-card.md)** und **[Required](controls/control-card.md)** ein Schlosssymbol angezeigt. Diese Formeln wurden im rechten Bereich erstellt, und das Schloss verhindert das versehentliche Ändern dieser Eigenschaften.
 
 ![](./media/working-with-cards/lock-icons.png)
 
-Click or tap the banner at the top to unlock the card so that you can modify these properties:
+Klicken oder tippen Sie auf das Banner oben, um die Smartcard zu entsperren, damit Sie diese Eigenschaften ändern können:
 
 ![](./media/working-with-cards/unlocked-card.png)
 
-Let's modify the **[DisplayName](controls/control-card.md)** to put a space between **Asset** and **ID**. By making this change, we're altering what was generated for us.  In the right-hand pane, this card has a different label:
+Ändern Sie **[DisplayName](controls/control-card.md)**, um ein Leerzeichen zwischen **Asset** und **ID** einzufügen. Durch diese Änderung ändern Sie das, was für Sie generiert wurde.  Im rechten Bereich hat diese Karte eine andere Bezeichnung:
 
 ![](./media/working-with-cards/change-display-name.png)
 
-We've now taken control over this card and can modify it further to fit our need. But we've lost the ability to change the card from one representation to another (for example, single-line text to multi-line text) as we did before. We've transformed the predefined card into a "custom card" that we now control.  
+Jetzt können Sie diese Karte steuern und noch weiter an Ihre Bedürfnisse anpassen. Allerdings haben Sie nicht mehr wie vorher die Möglichkeit, die Darstellung der Karte zu ändern (z.B. von einzeiligem in mehrzeiligen Text). Sie haben die vordefinierten Karte in eine „benutzerdefinierte Karte“ umgewandelt, die Sie nun steuern können.  
 
 > [!IMPORTANT]
-> You can't relock a card if you unlock it. To get a card back to a locked state, remove it, and reinsert it in the right-hand pane.
+> Wenn Sie eine Karte entsperrt haben, können Sie sie nicht wieder sperren. Entfernen Sie die Karte, und fügen Sie sie nochmals im rechten Bereich ein, um sie erneut zu sperren.
 
-You can change the appearance and behavior of an unlocked card in a variety of ways, such as adding and deleting controls within it. For example, you can add a star shape from the **Icons** menu on the **Insert** tab.
+Sie haben vielfältige Möglichkeiten, um das Erscheinungsbild und das Verhalten einer entsperrten Karte zu ändern. Sie können in der Karte z.B. Steuerelemente hinzufügen oder löschen. Sie können beispielsweise über das Menü **Symbole** auf der Registerkarte **Einfügen** eine Sternform hinzufügen.
 
 ![](./media/working-with-cards/add-star.png)
 
-The star is now a part of the card and will travel with it if, for example, you reorder the cards within the form.
+Der Stern ist nun Bestandteil der Karte und verbleibt auf dieser, auch wenn Sie z.B. die Karten innerhalb des Formulars neu anordnen.
 
-As another example, unlock the **ImageURL** card, and then add an **Image** control to it from the **Insert** tab:
+Ein weiteres Beispiel: Entsperren Sie die Karte **ImageURL**, und fügen Sie ihr von der Registerkarte **Einfügen** ein **Bild**-Steuerelement hinzu:
 
 ![](./media/working-with-cards/add-image.png)
 
-In the formula bar, set the **Image** property of this control to *TextBox*.**Text**, where *TextBox* is the name of the **Text input** control that holds the URL:
+Legen Sie auf der Bearbeitungsleiste die **Image**-Eigenschaft dieses Steuerelements auf *TextBox*.**Text** fest, wobei *TextBox* der Name des **Texteingabe**-Steuerelements ist, das die URL enthält:
 
 > [!TIP]
-> Press the Alt key to show the name of each control.
+> Drücken Sie die ALT-TASTE, um den Namen der einzelnen Steuerelemente anzuzeigen.
 
 ![](./media/working-with-cards/show-image.png)
 
-And now we can see the images and edit their URLs. Note that we could have used **Parent.Default** as the **Image** property, but it wouldn't have updated if the user changed the URL.
+Jetzt sehen Sie die Bilder und können deren URLs bearbeiten. Beachten Sie, dass Sie auch **Parent.Default** als **Image**-Eigenschaft hätten verwenden können, bei einer Änderung der URL durch den Benutzer würde dann jedoch keine Aktualisierung stattfinden.
 
-We can do the same thing on the second screen of this app, where we use a **Display form** control to display the details of a record. In this case, we may want to hide the label (set the **Visible** property of the label, not the card, to **false**) because the user won't edit the URL on that screen:
+Den gleichen Vorgang können Sie auch auf dem zweiten Bildschirm der App ausführen, wo Sie ein **Anzeigeformular**-Steuerelement verwenden, um die Details eines Datensatzes anzuzeigen. In diesem Fall empfiehlt es sich, die Bezeichnung auszublenden (legen Sie die **Visible**-Eigenschaft der Bezeichnung und nicht der Karte auf **FALSE** fest), da der Benutzer die URL auf diesem Bildschirm nicht bearbeitet:
 
 ![](./media/working-with-cards/show-image-display.png)
 
-## Interact with a form
-After you unlock a card, you can change how it interacts with the form that contains it.
+## <a name="interact-with-a-form"></a>Interagieren mit einem Formular
+Nach dem Entsperren einer Karte können Sie ändern, wie sie mit dem Formular interagiert, in dem sie enthalten ist.
 
-Below are some guidelines for how controls should work with their card and how the cards should work with the form. These are only guidelines. As with any control in PowerApps, you can create formulas that reference any other control in PowerApps, and that's no less true for cards and controls within cards. Be creative: you can create an app in many ways.  
+Im Folgenden finden Sie einige Richtlinien für die Funktionsweise von Steuerelementen mit ihrer Karte und mit dem Formular. Dies sind nur Richtlinien. Genauso wie mit jedem anderen Steuerelement in PowerApps können Sie Formel erstellen, die auf jedes beliebige Steuerelement in PowerApps verweisen – und dies gilt auch für Karten und Steuerelementen auf Karten. Seien Sie kreativ: Erstellen Sie eine Anwendung auf verschiedene Arten.  
 
-### DataField property
-The most important property on the card is the **[DataField](controls/control-card.md)** property.  This property drives validation, what field is updated, and other aspects of the card.
+### <a name="datafield-property"></a>DataField-Eigenschaft
+Die wichtigste Eigenschaft auf der Karte ist die **[DataField](controls/control-card.md)**-Eigenschaft.  Diese Eigenschaft steuert die Validierung, die Aktualisierung von Feldern und andere Aspekte der Karte.
 
-### Information flowing in
-As a container, the form makes **ThisItem** available to all cards within it. This record contains all of the fields for the current record of interest.  
+### <a name="information-flowing-in"></a>Informationsfluss (eingehend)
+Als Container stellt das Formular **ThisItem** für alle Karten, die es enthält, zur Verfügung. Dieser Datensatz enthält alle Felder für den aktuellen, relevanten Datensatz.  
 
-The **[Default](controls/properties-core.md)** property of every card should be set to **ThisItem**.*FieldName*.  Under certain circumstances, you might want to transform this value on the way in. For example, you might want to format a string or translate the value from one language to another.
+Die **[Default](controls/properties-core.md)**-Eigenschaft jeder Karte sollte auf **ThisItem**.*FieldName* festgelegt werden.  Unter bestimmten Umständen möchten Sie diesen Wert vor der Zuweisung umwandeln. Z.B. möchten Sie möglicherweise eine Zeichenfolge formatieren oder einen Wert in eine andere Sprache übersetzen.
 
-Each control within the card should reference **Parent.Default** to get at the field's value. This strategy provides a level of encapsulation for the card so that the card's **[Default](controls/properties-core.md)** property can change without changing the internal formulas of the card.
+Jedes Steuerelement der Karte sollte auf **Parent.Default** verweisen, um den Wert des Feld abrufen zu können. Diese Strategie bietet ein Maß an Datenkapselung für die Karte, damit sich die **[Default](controls/properties-core.md)**-Eigenschaft der Karte ändern kann, ohne die interne Formeln der Karte zu ändern.
 
-By default, **DefaultValue** and **[Required](controls/control-card.md)** properties are taken from the data source's metadata based on the **[DataField](controls/control-card.md)** property. You can override these formulas with your own logic, integrating the data source's metadata by using the **[DataSourceInfo](functions/function-datasourceinfo.md)** function.
+Standardmäßig werden die Eigenschaften **DefaultValue** und **[Required](controls/control-card.md)** aus den Metadaten der Datenquelle genommen, auf der Grundlage der **[DataField](controls/control-card.md)**-Eigenschaft. Sie können diese Formeln mit Ihrer eigenen Logik überschreiben und die Metadaten der Datenquelle mithilfe der **[DataSourceInfo](functions/function-datasourceinfo.md)**-Funktion integrieren.
 
-### Information flowing out
-After the user modifies a record by using controls in the cards, the **[SubmitForm](functions/function-form.md)** function saves those changes to the data source. When that function runs, the form control reads the values of each card's **[DataField](controls/control-card.md)** property to know what field to change.  
+### <a name="information-flowing-out"></a>Informationsfluss (ausgehend)
+Nachdem der Benutzer einen Datensatz mithilfe der Steuerelemente auf den Karten geändert hat, speichert die **[SubmitForm](functions/function-form.md)**-Funktion die Änderungen der Datenquelle. Wenn diese Funktion ausgeführt wird, liest das Formularsteuerelement die Werte der **[DataField](controls/control-card.md)**-Eigenschaft jeder Karte, um herauszufinden, welches Feld geändert werden soll.  
 
-The form control also reads the value of each card's **[Update](controls/control-card.md)** property. This value will be stored in the data source for this field. This is the place to apply another transform, perhaps to reverse the transform that was applied in the card's **[Default](controls/properties-core.md)** formula.
+Des Formularsteuerelements liest auch den Wert der **[Update](controls/control-card.md)**-Eigenschaft jeder Karte. Dieser Wert wird in der Datenquelle für dieses Feld gespeichert. Hier können Sie eine weiter Transformierung anwenden, um eventuell die Transformierung umzukehren, die auf die **[Default](controls/properties-core.md)**-Formel der Karte angewendet wurde.
 
-The **Valid** property is driven from the metadata of the data source, based on the **[DataField](controls/control-card.md)** property. It's also based on the **[Required](controls/control-card.md)** property and whether the **[Update](controls/control-card.md)** property contains a value. If the value on the **[Update](controls/control-card.md)** property isn't valid, the **Error** property provides a user-friendly error message.
+Die **Valid**-Eigenschaft wird von den Metadaten der Datenquelle gesteuert, auf Grundlage der **[DataField](controls/control-card.md)**-Eigenschaft. Außerdem basiert sie auf der **[Required](controls/control-card.md)**-Eigenschaft und darauf, ob die **[Update](controls/control-card.md)**-Eigenschaft einen Wert enthält. Wenn der Wert für die **[Update](controls/control-card.md)**-Eigenschaft nicht gültig ist, bietet die **Fehler**-Eigenschaft eine benutzerfreundliche Fehlermeldung.
 
-If the **[DataField](controls/control-card.md)** property of a card is *blank*, the card is just a container of controls. Its **Valid** and **[Update](controls/control-card.md)** properties don't participate when the form is submitted.
+Wenn die **[DataField](controls/control-card.md)**-Eigenschaft einer Karte *blank* ist, ist die Smartcard lediglich ein Container für Steuerelemente. Seine Eigenschaften **Valid** und **[Update](controls/control-card.md)** werden nicht einbezogen, wenn das Formular gesendet wird.
 
-## Dissecting an example
-Let's look at the controls that make up a basic data-entry card. The space between controls has been increased to show each more clearly:
+## <a name="dissecting-an-example"></a>Analyse eines Beispiels
+Sehen Sie sich die Steuerelemente an, aus denen eine einfache Dateneingabekarte besteht. Der Zwischenraum zwischen Steuerelementen wurde verbessert, um sie besser voneinander abgrenzen zu können:
 
 ![](./media/working-with-cards/dissect-card1.png)
 
-Hold down the Alt key to show the names of the controls that make up this card:
+Halten Sie die ALT-TASTE gedrückt, um die Namen der Steuerelemente anzuzeigen, aus denen diese Karte besteht:
 
 ![](./media/working-with-cards/dissect-card2.png)
 
-Four controls make this card work:
+Dies Karte funktioniert durch vier Steuerelemente:
 
-| Name | Type | Description |
+| Name | Typ | Beschreibung |
 | --- | --- | --- |
-| **TextRequiredStar** |**[Label](controls/control-text-box.md)** control |Displays a star, which is commonly used on data-entry forms to indicate that a field is required. |
-| **TextFieldDisplayName** |**[Label](controls/control-text-box.md)** control |Displays the user-friendly name of this field. This name can differ from what is in the data source's schema. |
-| **InputText** |**Input text** control |Displays the initial value of the field and allows the user to change that value. |
-| **TextErrorMessage** |**[Label](controls/control-text-box.md)** control |Displays a user-friendly error message to the user if a problem occurs with validation. Also ensures that the field has a value if one is required. |
+| **TextRequiredStar** |**[Label](controls/control-text-box.md)**-Steuerelement (Bezeichnung) |Zeigt einen Stern an, der häufig in Dateneingabeformularen verwendet wird, um erforderliche Felder zu kennzeichnen |
+| **TextFieldDisplayName** |**[Label](controls/control-text-box.md)**-Steuerelement (Bezeichnung) |Zeigt den benutzerfreundlichen Namen dieses Felds an. Dieser Name kann von dem im Schema der Datenquelle abweichen. |
+| **InputText** |**Eingabetext**-Steuerelement |Zeigt den anfänglichen Wert des Felds und ermöglicht es dem Benutzer, diesen Wert zu ändern |
+| **TextErrorMessage** |**[Label](controls/control-text-box.md)**-Steuerelement (Bezeichnung) |Zeigt eine benutzerfreundliche Fehlermeldung für den Benutzer an, wenn ein Problem mit der Validierung auftritt. Außerdem stellt es sicher, dass das Feld einen Wert hat, wenn einer erforderlich ist. |
 
-To populate these controls with data, their properties can be driven from the properties of the card, through these key formulas. Note that none of these formulas refers to a specific field. Instead, all information comes from the card.
+Um diese Steuerelemente mit Daten aufzufüllen, können deren Eigenschaften von den Eigenschaften der Karte anhand dieser Schlüsselformeln gesteuert werden. Beachten Sie, dass keine dieser Formeln auf ein bestimmtes Feld verweist. Stattdessen stammen alle Informationen von der Karte.
 
-| Control property | Formula | Description |
+| Control-Eigenschaft | Formel | Beschreibung |
 | --- | --- | --- |
-| **TextRequiredStar.Visible** |**Parent.Required** |The star appears only if the field is required. Required is a formula that's driven by you or the metadata of the data source. |
-| **TextFieldDisplayName.Text** |**Parent.DisplayName** |The text-box control shows the user-friendly name, which you or the data source's metadata provides, and which is set on the card's **[DisplayName](controls/control-card.md)** property. |
-| **InputText.Default** |**Parent.Default** |The text-input control initially shows the value of the field from the data source, as provided by the card's default value. |
-| **TextErrorMessage.Text** |**Parent.Error** |If a validation problem occurs, the card's **Error** property provides an appropriate error message. |
+| **TextRequiredStar.Visible** |**Parent.Required** |Der Stern erscheint nur, wenn das Feld erforderlich ist. Eine Formel ist erforderlich, die von Ihnen oder den Metadaten der Datenquelle gesteuert wird. |
+| **TextFieldDisplayName.Text** |**Parent.DisplayName** |Das Textfeld-Steuerelement zeigt den benutzerfreundlichen Namen, den Sie oder die Metadaten der Datenquelle bereitstellen, und die in der **[DisplayName](controls/control-card.md)**-Eigenschaft der Karte festgelegt wird. |
+| **InputText.Default** |**Parent.Default** |Das Texteingabe-Steuerelements zeigt zuerst den Wert des Felds der Datenquelle, wie er vom Standardwert der Karte bereitgestellt wird. |
+| **TextErrorMessage.Text** |**Parent.Error** |Wenn ein Überprüfungsproblem auftritt, bietet die **Error**-Eigenschaft der Karte eine entsprechende Fehlermeldung. |
 
-To pull information out of these controls and push it back into the data source, we have the following key formulas:
+Folgende Schlüsselformeln stehen zur Verfügung, um Informationen aus diesen Steuerelementen abzurufen und sie wieder in die Datenquelle einzufügen:
 
-| Control name | Formula | Description |
+| Steuerelementname | Formel | Beschreibung |
 | --- | --- | --- |
-| **DataCard.DataField** |**"ApproverEmail"** |The name of the field that the user can display and edit in this card. |
-| **DataCard.Update** |**InputText.Text** |The value to validate and push back into the data source when **[SubmitForm](functions/function-form.md)** runs. |
+| **DataCard.DataField** |**"ApproverEmail"** |Der Name des Felds, das der Benutzer auf dieser Karte anzeigen und bearbeiten kann. |
+| **DataCard.Update** |**InputText.Text** |Der zu überprüfende Wert, der wieder in die Datenquelle eingefügt werden soll, wenn **[SubmitForm](functions/function-form.md)** ausgeführt wird. |
 

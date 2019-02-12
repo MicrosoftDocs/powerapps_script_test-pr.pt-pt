@@ -1,6 +1,6 @@
 ---
-title: Refresh function | Microsoft Docs
-description: Reference information, including syntax and an example, for the Refresh function in PowerApps
+title: Funktion „Refresh“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Refresh“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,34 +9,40 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/21/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 2999665e5882245b594468b6babe67be575c5c1e
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42843595"
 ---
-# Refresh function in PowerApps
-Refreshes the [records](../working-with-tables.md#records) of a [data source](../working-with-data-sources.md).
+# <a name="refresh-function-in-powerapps"></a>Funktion „Refresh“ in PowerApps
+Aktualisiert die [Datensätze](../working-with-tables.md#records) einer [Datenquelle](../working-with-data-sources.md)
 
-## Description
-The **Refresh** function retrieves a fresh copy of a data source.  You'll see changes that other users made.
+## <a name="description"></a>Beschreibung
+Die **Refresh**-Funktion ruft eine neue Kopie einer Datenquelle ab.  Sie können die Änderungen anzeigen, die andere Benutzer vorgenommen haben.
 
-**Refresh** has no return value, and you can use it only in [behavior formulas](../working-with-formulas-in-depth.md).
+**Refresh** weist keinen Rückgabewert auf; Sie können diese Funktion nur innerhalb einer [Verhaltensformel](../working-with-formulas-in-depth.md) verwenden.
 
-## Syntax
-**Refresh**( *DataSource* )
+## <a name="syntax"></a>Syntax
+**Refresh**( *Datenquelle* )
 
-* *DataSource* – Required. The data source that you want to refresh.
+* *Datenquelle*: Erforderlich. Die Datenquelle, die Sie aktualisieren möchten.
 
-## Example
-In this example, you'll refresh the data source named **IceCream**, which starts with this data:
+## <a name="example"></a>Beispiel
+In diesem Beispiel aktualisieren Sie die Datenquelle namens **IceCream** (Eiscreme), die mit den Daten in dieser Tabelle beginnt:
 
 ![](media/function-refresh/icecream.png)
 
-A user on another device changes the **Quantity** in the **Strawberry** record to **400**.  You won't see this change until this formula executes:
+Ein Benutzer auf einem anderen Gerät ändert die **Quantity** (Menge) des Datensatzes **Strawberry** (Erdbeere) auf **400**.  Diese Änderung wird erst angezeigt, wenn diese Formel ausgeführt wird:
 
 **Refresh( IceCream )**
 
-After that formula executes, galleries that are bound to the **IceCream** data source will show the updated value for **Strawberry**:
+Nachdem diese Formel ausgeführt wurde, zeigen Kataloge, die mit der **IceCream**-Datenquelle verbunden sind, den aktualisierten Wert für **Strawberry** an:
 
 ![](media/function-refresh/icecream-after.png)
 

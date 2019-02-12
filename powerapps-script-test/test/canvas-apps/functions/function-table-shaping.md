@@ -1,6 +1,6 @@
 ---
-title: AddColumns, DropColumns, RenameColumns, and ShowColumns functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the AddColumns, DropColumns, RenameColumns, and ShowColumns functions in PowerApps
+title: Funktionen „AddColumns“, „DropColumns“, „RenameColumns“ und „ShowColumns“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „AddColumns“, „DropColumns“, „RenameColumns“ und „ShowColumns“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,89 +9,92 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 08/24/2018
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 056c5e1142b3a34776e72f788f5b2cef9e3b2a27
+ms.sourcegitcommit: 3dc330d635aaf5bc689efa6bd39826d6e396c832
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48875897"
 ---
-# AddColumns, DropColumns, RenameColumns, and ShowColumns functions in PowerApps
-Shapes a [table](../working-with-tables.md) by adding, dropping, renaming, and selecting its [columns](../working-with-tables.md#columns).
+# <a name="addcolumns-dropcolumns-renamecolumns-and-showcolumns-functions-in-powerapps"></a>Die Funktionen „AddColumns“, „DropColumns“, „RenameColumns“ und „ShowColumns“ in PowerApps
+Formen eine [Tabelle](../working-with-tables.md) durch Hinzufügen, Verwerfen, Umbenennen und Auswählen der [Spalten](../working-with-tables.md#columns)
 
-## Overview
-These functions shape a table by adjusting its columns:
+## <a name="overview"></a>Übersicht
+Diese Funktionen formen eine Tabelle, indem sie deren Spalten anpassen:
 
-* Reduce a table that contains multiple columns down to a single column for use with single-column functions, such as **[Lower](function-lower-upper-proper.md)** or **[Abs](function-numericals.md)**.  
-* Add a calculated column to a table (for example, a **Total Price** column that shows the results of multiplying **Quantity** by **Unit Price**).
-* Rename a column to something more meaningful, for display to users or for use in formulas.
+* Verringern Sie mehreren Spalten in einer Tabelle auf eine einige Spalte, um sie mit Funktionen wie **[Lower](function-lower-upper-proper.md)** oder **[Abs](function-numericals.md)** zu verwenden, die sich nur auf einzelne Spalten beziehen.  
+* Fügen Sie einer Tabelle eine berechnete Spalte hinzu (z.B. die Spalte **Gesamtpreis**, die das Ergebnis der Multiplikation von **Quantität** und **Stückpreis** anzeigt).
+* Geben Sie einer Spalte für die Benutzer oder die Verwendung in Formeln einen aussagekräftigeren Namen.
 
-A table is a value in PowerApps, just like a string or a number.  You can specify a table as an argument in a formula, and functions can return a table as a result.
+Tabellen stellen in PowerApps einen Wert dar, genau wie Zeichenfolgen oder Zahlen.  Sie können eine Tabelle als Argument in einer Formel angeben, und Formeln können eine Tabelle als Ergebnis zurückgeben. Die in diesem Thema beschriebenen Funktionen ändern eine Tabelle nicht. Stattdessen nehmen sie eine Tabelle als Argument und geben eine neue Tabelle mit einer angewendeten Transformation zurück.  Weitere Details erfahren Sie unter [Arbeiten mit Tabellen](../working-with-tables.md).  
 
-> [!NOTE]
-> The functions that this topic describes don't modify the original table. Instead, they take that table as an argument and return a new table with a transform applied. See [working with tables](../working-with-tables.md) for more details.  
+Die Spalten einer [Datenquelle](../working-with-data-sources.md) können durch diese Funktionen nicht geändert werden. Daten müssen an ihrer Quelle geändert werden. Sie können einer [Sammlung](../working-with-data-sources.md#collections) mit der **[Collect](function-clear-collect-clearcollect.md)** -Funktion Spalten hinzufügen.  Weitere Informationen finden Sie unter [Arbeiten mit Datenquellen](../working-with-data-sources.md).  
 
-You can't modify the columns of a [data source](../working-with-data-sources.md) by using these functions. You must modify the data at its source. You can add columns to a [collection](../working-with-data-sources.md#collections) with the **[Collect](function-clear-collect-clearcollect.md)** function. See [working with data sources](../working-with-data-sources.md) for more details.  
+## <a name="description"></a>Beschreibung
+Die Funktion **AddColumns** fügt einer Tabelle eine Spalte hinzu, und eine Formel definiert die Werte in dieser Spalte. Vorhandene Spalten bleiben unverändert.
 
-## Description
-The **AddColumns** function adds a column to a table, and a formula defines the values in that column. Existing columns remain unmodified.
-
-The formula is evaluated for each record of the table.
+Die Formel wird für jeden Datensatz der Tabelle ausgewertet.
 [!INCLUDE [record-scope](../../../includes/record-scope.md)]
 
-The **DropColumns** function excludes columns from a table.  All other columns remain unmodified. **DropColumns** excludes columns, and **ShowColumns** includes columns.
+Die Funktion **DropColumns** schließt Spalten aus einer Tabelle aus.  Alle anderen Spalten bleiben unverändert. **DropColumns** schließt Spalten aus, und **ShowColumns** schließt Spalten ein.
 
-Use the **RenameColumns** function to rename one or more columns of a table by providing at least one argument pair that specifies the name of a column that the table contains (the old name, which you want to replace) and the name of a column that the table doesn't contain (the new name, which you want to use). The old name must already exist in the table, and the new name must not exist. Each column name may appear only once in the argument list as either an old column name or a new column name. To rename a column to an existing column name, first drop the existing column with **DropColumns**, or rename the existing column out of the way by nesting one **RenameColumns** function within another.
+Verwenden Sie die Funktion **RenameColumns**, um eine oder mehrere Spalten einer Tabelle mithilfe von mindestens einem Argumentpaar, das den Namen einer in der Tabelle enthaltenen Spalte (der alte Name, den Sie ersetzen möchten) und den Namen einer in der Tabelle nicht enthaltenen Spalte (der neue Name, den Sie verwenden möchten) angibt. Der alte Name muss bereits in der Tabelle vorhanden sein, und der neue Name darf noch nicht vorhanden sein. Jeder Spaltenname darf nur einmal in der Argumentliste angezeigt werden, entweder als alter Spaltenname oder als neuer Spaltenname. Um eine Spalte in eine vorhandene Spalte umzubenennen, verwerfen Sie zuerst die vorhandene Spalte mit einem Klick auf **DropColumns**, oder benennen Sie die vorhandene Spalte separat um, indem Sie eine Funktion **RenameColumns** innerhalb einer anderen schachteln.
 
-The **ShowColumns** function includes columns of a table and drops all other columns. You can use **ShowColumns** to create a single-column table from a multi-column table.  **ShowColumns** includes columns, and **DropColumns** excludes columns.  
+Die Funktion **ShowColumns** schließt Spalten einer Tabelle ein und verwirft alle anderen Spalten. Sie können **ShowColumns** verwenden, um eine einspaltige Tabelle aus einer Tabelle mit mehreren Spalten zu erstellen.  **ShowColumns** schließt Spalten ein, und **DropColumns** schließt Spalten aus.  
 
-For all these functions, the result is a new table with the transform applied.  The original table isn't modified.
+Das Ergebnis all dieser Funktionen ist eine neue Tabelle mit angewendeter Transformation.  Die ursprüngliche Tabelle wird nicht geändert.
 
 [!INCLUDE [delegation-no](../../../includes/delegation-no.md)]
 
-## Syntax
-**AddColumns**( *Table*, *ColumnName1*, *Formula1* [, *ColumnName2*, *Formula2*, ... ] )
+## <a name="syntax"></a>Syntax
+**AddColumns**( *Tabelle*, *Spaltenname1*, *Formel1* [, *Spaltenname2*, *Formel2*, ... ] )
 
-* *Table* - Required.  Table to operate on.
-* *ColumnName(s)* - Required. Name(s) of the column(s) to add.  You must specify a string (for example, **"Name"** with double quotes included) for this argument.
-* *Formula(s)* - Required.  Formula(s) to evaluate for each record. The result is added as the value of the corresponding new column. You can reference other columns of the table in this formula.
+* *Tabelle* (erforderlich):  Die zu verarbeitende Tabelle.
+* *ColumnName(s)*: erforderlich. Name(n) der hinzuzufügenden Spalte(n).  Sie müssen für dieses Argument eine Zeichenfolge angeben (z.B. **"Name"** in doppelten Anführungszeichen)
+* *Formel(n)* (erforderlich):  Die für jeden Datensatz der Tabelle auszuwertende(n) Formel(n). Das Ergebnis wird als der Wert der entsprechenden neuen Spalte hinzugefügt. Sie können in dieser Formel auf andere Spalten der Tabelle verweisen.
 
-**DropColumns**( *Table*, *ColumnName1* [, *ColumnName2*, ... ] )
+**DropColumns**( *Tabelle*, *Spaltenname1* [, *Spaltenname2*, ... ] )
 
-* *Table* - Required.  Table to operate on.
-* *ColumnName(s)* - Required. Name(s) of the column(s) to drop. You must specify a string (for example, **"Name"** with double quotes included) for this argument.
+* *Tabelle* (erforderlich):  Die zu verarbeitende Tabelle.
+* *ColumnName(s)*: erforderlich. Name(n) der zu verwerfenden Spalte(n). Sie müssen für dieses Argument eine Zeichenfolge angeben (z.B. **"Name"** in doppelten Anführungszeichen)
 
-**RenameColumns**( *Table*, *OldColumneName1*, *NewColumnName1* [, *OldColumnName2*, *NewColumnName2*, ... ] )
+**RenameColumns**( *Tabelle*, *AlterSpaltenname1*, *NeuerSpaltenname1* [, *AlterSpaltenname2*, *NeuerSpaltenname2*, ... ] )
 
-* *Table* - Required.  Table to operate on.
-* *OldColumnName* - Required. Name of a column to rename from the original table. This element appears first in the argument pair (or first in each argument pair if the formula includes more than one pair). This name must be a string (for example **"Name"** with double quotation marks included).
-* *NewColumnName* - Required. Replacement name. This element appears last in the argument pair (or last in each argument pair if the formula includes more than one pair). You must specify a string (for example, **"Customer Name"** with double quotation marks included) for this argument.
+* *Tabelle* (erforderlich):  Die zu verarbeitende Tabelle.
+* *AlterSpaltenname*: erforderlich. Name einer umzubenennenden Spalte aus der ursprünglichen Tabelle. Dieses Element wird als erstes in dem Argumentpaar angezeigt (oder als erstes in jedem Argumentpaar, wenn die Formel mehr als ein Paar enthält). Der Name muss eine Zeichenfolge sein (z.B. **"Name"** in doppelten Anführungszeichen).
+* *NeuerSpaltenname*: erforderlich. Der neue Name. Dieses Element wird als letztes in dem Argumentpaar angezeigt (oder als letztes in jedem Argumentpaar, wenn die Formel mehr als ein Paar enthält). Sie müssen für dieses Argument eine Zeichenfolge angeben (z.B. **"Customer Name"** (Kundenname) in doppelten Anführungszeichen).
 
-**ShowColumns**( *Table*, *ColumnName1* [, *ColumnName2*, ... ] )
+**ShowColumns**( *Tabelle*, *Spaltenname1* [, *Spaltenname2*, ... ] )
 
-* *Table* - Required.  Table to operate on.
-* *ColumnName(s)* - Required. Name(s) of the column(s) to include. You must specify a string (for example, **"Name"** with double quotes included) for this argument.
+* *Tabelle* (erforderlich):  Die zu verarbeitende Tabelle.
+* *ColumnName(s)*: erforderlich. Name(n) der einzuschließenden Spalte(n). Sie müssen für dieses Argument eine Zeichenfolge angeben (z.B. **"Name"** in doppelten Anführungszeichen)
 
-## Examples
-The examples in this section use the **IceCreamSales** data source, which contains the data in this table:
+## <a name="examples"></a>Beispiele
+In den Beispielen in diesem Abschnitt wird die Datenquelle **IceCreamSales** (Eiscremeverkäufe) verwendet, die die Daten in dieser Tabelle enthält:
 
 ![](media/function-table-shaping/icecream.png)
 
-None of these examples modify the **IceCreamSales** data source. Each function transforms the value of the data source as a table and returns that value as the result.
+Keines dieser Beispiele verändert die Datenquelle **IceCreamSales**. Jede Funktion transformiert den Wert der Datenquelle in eine Tabelle und gibt den Wert als Ergebnis zurück.
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **AddColumns( IceCreamSales, "Revenue", UnitPrice * QuantitySold )** |Adds a **Revenue** column to the result.  For each record, **UnitPrice * QuantitySold** is evaluated, and the result is placed in the new column. |<style> img { max-width: none; } </style> ![](media/function-table-shaping/icecream-add-revenue.png) |
-| **DropColumns( IceCreamSales, "UnitPrice" )** |Excludes the **UnitPrice** column from the result. Use this function to exclude columns, and use **ShowColumns** to include them. |![](media/function-table-shaping/icecream-drop-price.png) |
-| **ShowColumns( IceCreamSales, "Flavor" )** |Includes only the **Flavor** column in the result. Use this function include columns, and use **DropColumns** to exclude them. |![](media/function-table-shaping/icecream-select-flavor.png) |
-| **RenameColumns( IceCreamSales, "UnitPrice", "Price")** |Renames the **UnitPrice** colum in the result. |![](media/function-table-shaping/icecream-rename-price.png) |
-| **RenameColumns( IceCreamSales, "UnitPrice", "Price", "QuantitySold", "Number")** |Renames the **UnitPrice** and **QuantitySold** columns in the result. |![](media/function-table-shaping/icecream-rename-price-quant.png) |
-| **DropColumns(<br>RenameColumns(<br>AddColumns( IceCreamSales, "Revenue",<br>UnitPrice * QuantitySold ),<br>"UnitPrice", "Price" ),<br>"Quantity" )** |Performs the following table transforms in order, starting from the inside of the formula: <ol><li>Adds a **Revenue** column based on the per-record calculation of **UnitPrice * Quantity**.<li>Renames **UnitPrice** to **Price**.<li>Excludes the **Quantity** column.</ol>  Note that order is important. For example, we can't calculate with **UnitPrice** after it has been renamed. |![](media/function-table-shaping/icecream-all-transforms.png) |
+| **AddColumns( IceCreamSales, "Revenue", UnitPrice * QuantitySold )** |Fügt dem Ergebnis die Spalte **Revenue** (Umsatz) hinzu.  **UnitPrice * QuantitySold** (Stückpreis * verkaufte Menge) wird für jeden Datensatz ausgewertet, und das Ergebnis wird in die neue Spalte eingefügt. |<style> img { max-width: none; } </style> ![](media/function-table-shaping/icecream-add-revenue.png) |
+| **DropColumns( IceCreamSales, "UnitPrice" )** |Schließt die Spalte **UnitPrice** aus dem Ergebnis aus. Mit dieser Funktion können Spalten ausgeschlossen und mit **ShowColumns** eingeschlossen werden. |![](media/function-table-shaping/icecream-drop-price.png) |
+| **ShowColumns( IceCreamSales, "Flavor" )** |Schließt nur die Spalte **Flavor** (Geschmack) im Resultset ein. Mithilfe dieser Funktion können Sie Spalten einschließen und mithilfe der Funktion **DropColumns** ausschließen. |![](media/function-table-shaping/icecream-select-flavor.png) |
+| **RenameColumns( IceCreamSales, "UnitPrice", "Price")** |Benennt die Spalte **UnitPrice** im Resultset um. |![](media/function-table-shaping/icecream-rename-price.png) |
+| **RenameColumns( IceCreamSales, "UnitPrice", "Price", "QuantitySold", "Number")** |Benennt die Spalten **UnitPrice** und **QuantitySold** im Ergebnis um. |![](media/function-table-shaping/icecream-rename-price-quant.png) |
+| **DropColumns(<br>RenameColumns(<br>AddColumns( IceCreamSales, "Revenue",<br>UnitPrice * QuantitySold ),<br>"UnitPrice", "Price" ),<br>"Quantity" )** |Führt der Reihe nach die folgenden Transformationen aus, beginnend im Kern der Formel: <ol><li>Fügt eine **Revenue**-Spalte basierend auf der Berechnung von **UnitPrice * Quantity** (Stückpreis * Menge) pro Datensatz hinzu.<li>Benennt **UnitPrice** in **Price** (Preis) um.<li>Schließt die Spalte **Quantity** aus.</ol>  Beachten Sie, dass diese Reihenfolge wichtig ist. Angenommen, **UnitPrice** kann nach der Umbenennung nicht berechnet werden. |![](media/function-table-shaping/icecream-all-transforms.png) |
 
-### Step by step
-1. Import or create a collection named **Inventory** as the first subprocedure in [Show text and images in a gallery](../show-images-text-gallery-sort-filter.md) describes.
-2. Add a button, and set its **[OnSelect](../controls/properties-core.md)** property to this formula:
+### <a name="step-by-step"></a>Schritt für Schritt
+1. Importieren oder erstellen Sie eine Sammlung namens **Inventory** (Inventar), wie im ersten Unterverfahren unter [Anzeigen von Bildern und Text in einem Katalog](../show-images-text-gallery-sort-filter.md) beschrieben.
+2. Fügen Sie eine Schaltfläche hinzu, und legen Sie ihre Eigenschaft **[OnSelect](../controls/properties-core.md)** auf diese Formel fest:
    
     **ClearCollect(Inventory2, RenameColumns(Inventory, "ProductName", "JacketID"))**
-3. Press F5, select the button that you just created, and then press Esc to return to the design workspace.
-4. On the **File** menu, select **Collections**.
-5. Confirm that you've created a collection, named **Inventory2**. The new collection contains the same information as **Inventory** except that the column named **ProductName** in **Inventory** is named **JacketID** in **Inventory2**.
+3. Drücken Sie F5, klicken Sie auf die Schaltfläche, die Sie gerade erstellt haben, und drücken Sie die ESC-TASTE, um zum Designarbeitsbereich zurückzukehren.
+4. Wählen Sie im Menü **Datei** **Sammlungen** aus.
+5. Vergewissern Sie sich, dass Sie eine Sammlung namens **Inventory2** erstellt haben. Die neue Sammlung enthält fast dieselben Informationen wie **Inventory**, nur die Spalte **ProductName** in **Inventory** heißt **JacketID** in **Inventory2**.
 

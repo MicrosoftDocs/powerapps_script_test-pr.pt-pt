@@ -1,6 +1,6 @@
 ---
-title: Use the Entity form control | Microsoft Docs
-description: Create apps faster by using the Entity form control to add rich forms for a Common Data Service entity.
+title: Verwenden des Steuerelements „Formularentität“ | Microsoft-Dokumentation
+description: Erstellen Sie Apps schneller, indem Sie das Steuerelement „Formularentität“ verwenden, mit dem Sie umfangreiche Formulare für eine Common Data Service-Entität hinzufügen können.
 author: aneesmsft
 manager: kvivek
 ms.service: powerapps
@@ -9,217 +9,223 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 03/11/2017
 ms.author: aneesa
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: ee8573cb9ae4df5ac42deefad4ac67aede3a3502
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42836275"
 ---
-# Use the Entity form control
-Create apps faster by using the **Entity form** control to add rich forms for a Common Data Service entity.
+# <a name="use-the-entity-form-control"></a>Verwenden des Steuerelements „Formularentität“
+Erstellen Sie Apps schneller, indem Sie das Steuerelement **Formularentität** verwenden, mit dem Sie umfangreiche Formulare für eine Common Data Service-Entität hinzufügen können.
 
-For an introduction to the **Entity form** control, see this blog post: [New entity form control (experimental feature) for Common Data Service](https://powerapps.microsoft.com/blog/new-entity-form-control-experimental-feature-for-common-data-service/).
+Eine Einführung in das Steuerelement **Formularentität** finden Sie in diesem Blogbeitrag: [New entity form control (experimental feature) for Common Data Service (Neues Steuerelement „Formularentität“ (experimentelle Funktion) für Common Data Service)](https://powerapps.microsoft.com/blog/new-entity-form-control-experimental-feature-for-common-data-service/).
 
 > [!IMPORTANT]
-> Please be aware of the experimental nature of the **Entity form** control as outlined in the blog post, and be careful about using the **Entity form** control in production apps, at least for now.
+> Beachten Sie, dass es sich bei dem Steuerelement **Formularentität** wie im Blogbeitrag beschrieben um eine experimentelle Funktion handelt, und seien Sie zunächst vorsichtig, wenn Sie das Steuerelement **Formularentität** in Produktions-Apps verwenden.
 
-## Key properties
-Here are the key properties of an **Entity form** control.
+## <a name="key-properties"></a>Haupteigenschaften
+Hier sind die wichtigsten Eigenschaften des Steuerelements **Formularentität**.
 
-**DataSource** – Specifies the data source that contains the record(s) that you want to display.   
+**DataSource**: Gibt die Datenquelle an, die den Datensatz (die Datensätze) enthält, den (die) Sie anzeigen möchten.   
 > [!NOTE]
-> Currently only entities in the Common Data Service are supported as data sources for the **Entity form** control.  
+> Derzeit werden nur Entitäten in Common Data Service als Datenquellen für das Steuerelement **Formularentität** unterstützt.  
 
-**Pattern** – Specifies the style of the form that you want to display in the **Entity form** control. Set this property by using the **FormPattern** enumeration.
+**Pattern**: Gibt die Formatvorlage des Formulars an, das im Steuerelement **Formularentität** angezeigt werden soll. Legen Sie diese Eigenschaft mithilfe der **FormPattern**-Enumeration fest.
 
-* **FormPattern.List** – Displays a tabular list of records.
-* **FormPattern.CardList** – Displays a card list of records.
-* **FormPattern.Details** – Displays a form to view or edit the details of a single record.
-* **FormPattern.None** – No style has been explicitly specified. Defaults to **List** for tablet apps and **CardList** for phone apps.
+* **FormPattern.List**: Zeigt eine tabellarische Liste von Datensätzen an.
+* **FormPattern.CardList**: Zeigt eine Kartenliste von Datensätzen an.
+* **FormPattern.Details**: Zeigt ein Formular zum Anzeigen oder Bearbeiten der Details eines einzelnen Datensatzes an.
+* **FormPattern.None**: Es wurde keine Formatvorlage explizit angegeben. Verwendet standardmäßig **List** für Tablet-Apps und **CardList** für Phone-Apps.
 
-**Item** – Specifies the record in the data source that the **Entity form** control should display. This property is used only when **Pattern** is set to **FormPattern.Details**.
+**Item**: Gibt den Datensatz in der Datenquelle an, den das Steuerelement **Formularentität** anzeigen soll. Diese Eigenschaft wird nur verwendet, wenn **Pattern** auf **FormPattern.Details** festgelegt ist.
 
-**Selected** – Gets the record that’s currently selected.  
-Example: If the **Entity form** control displays a list of sales-order records, the **Selected** property will give you the record that’s currently selected. You can also access a field within a record. (For example, specify the value of the **Account** field of the selected record as **Selected.Account**.)
+**Selected**: Ruft den Datensatz ab, der gerade ausgewählt ist.  
+Beispiel: Wenn das Steuerelement **Formularentität** eine Liste mit Verkaufsauftrag-Datensätzen anzeigt, gibt die **Selected**-Eigenschaft den Datensatz an, der gerade ausgewählt ist. Sie können auch auf ein Feld in einem Datensatz zugreifen. (Geben Sie z.B. für den Wert des **Account**-Felds (Konto) des ausgewählten Datensatzes **Selected.Account** an.)
 
-**SelectableFields** – Specifies which fields should appear as links. Set the value of this property by using this syntax:  
+**SelectableFields**: Gibt an, welche Felder als Links angezeigt werden sollen. Legen Sie den Wert dieser Eigenschaft mithilfe der folgenden Syntax fest:  
 **{Field1Name : true, Field2Name : true}**  
-Example: If you want the **SalesOrderId** and **Account** fields to appear as links in a form, set the **SelectableFields** property of that form to this value:  
+Beispiel: Wenn Sie möchten, dass die Felder **SalesOrderId** und **Account** in einem Formular als Links angezeigt werden, müssen Sie die **SelectableFields**-Eigenschaft dieses Formulars auf diesen Wert festlegen:  
 **{SalesOrderId : true, Account : true}**
 
-**SelectedField** – Determines which field was clicked or tapped. This applies only to the fields specified as **SelectableFields**.  
-Example: If you set the **SelectableFields** property to **{SalesOrderId : true, Account : true}** and the user clicks or taps the **Account** field, **SelectedField.Account** is set to true.
+**SelectedField**: Bestimmt, welches Feld angeklickt oder angetippt wurde. Dies gilt nur für die Felder, die als **SelectableFields** angegeben werden.  
+Beispiel: Wenn Sie die **SelectableFields**-Eigenschaft auf **{SalesOrderId : true, Account : true}** festlegen und der Benutzer auf das **Account**-Feld klickt oder tippt, wird **SelectedField.Account** auf TRUE festgelegt.
 
-**OnFieldSelect** – How an app responds when the user clicks or taps a field. This applies only to the fields specified as **SelectableFields**.
+**OnFieldSelect**: Gibt an, wie eine App reagiert, wenn der Benutzer auf ein Feld klickt oder tippt. Dies gilt nur für die Felder, die als **SelectableFields** angegeben werden.
 
-**Mode** – Determines the mode of the form. To change the mode, use the **ViewForm**, **EditForm**, or **NewForm** function. These functions work only when the **Pattern** property is set to **FormPattern.Details**. Set the value of the **Mode** property to a value of the **FormMode** enumeration.
+**Mode**: Bestimmt den Modus des Formulars. Verwenden Sie zum Ändern des Modus die Funktion **ViewForm**, **EditForm** oder **NewForm**. Diese Funktionen funktionieren nur, wenn die **Pattern**-Eigenschaft auf **FormPattern.Details** festgelegt ist. Legen Sie den Wert der **Mode**-Eigenschaft auf den Wert der **FormMode**-Enumeration fest.
 
-* **FormMode.View** – Allows users to view but not edit or add a record.
-* **FormMode.Edit** – Allows users to edit a record.
-* **FormMode.New** – Allows users to add a record.
+* **FormMode.View**: Ermöglicht Benutzern das Anzeigen, aber nicht das Bearbeiten oder Hinzufügen eines Datensatzes.
+* **FormMode.Edit**: Ermöglicht Benutzern das Bearbeiten eines Datensatzes.
+* **FormMode.New**: Ermöglicht Benutzern das Hinzufügen eines Datensatzes.
 
-**OnSuccess** – How an app responds when a data operation has been successful.
+**OnSuccess**: Gibt an, wie eine App reagiert, wenn ein Datenvorgang erfolgreich ausgeführt wurde.
 
-**OnFailure** - How an app responds when a data operation has been unsuccessful.
+**OnFailure**: Gibt an, wie eine App reagiert, wenn ein Datenvorgang nicht erfolgreich ausgeführt wurde.
 
-**Unsaved** – Determines whether a record that a user is editing has unsaved changes.
+**Unsaved**: Gibt an, ob ein Datensatz, den ein Benutzer bearbeitet, über nicht gespeicherte Änderungen verfügt.
 
-## Related functions
-You can use these  shared functions with either the **Entity form** control or the [Edit form control](functions/function-form.md). These functions work with the **Entity form** control only when its **Pattern** property is set to **FormPattern.Details**.
+## <a name="related-functions"></a>Verwandte Funktionen
+Sie können diese freigegebenen Funktionen entweder mit dem Steuerelement **Formularentität** oder mit dem Steuerelement [Formular bearbeiten](functions/function-form.md) verwenden. Diese Funktionen arbeiten nur mit dem Steuerelement **Formularentität**, wenn dessen **Pattern**-Eigenschaft auf **FormPattern.Details** festgelegt ist.
 
-**ViewForm** – Sets the **Mode** property of an **Entity form** control to **FormMode.View**.
+**ViewForm**: Legt die **Mode**-Eigenschaft eines Steuerelements **Formularentität** auf **FormMode.View** fest.
 
-**EditForm**- Sets the **Mode** property of an **Entity form** control to **FormMode.Edit**.
+**EditForm**: Legt die **Mode**-Eigenschaft eines Steuerelements **Formularentität** auf **FormMode.Edit** fest.
 
-**NewForm** - Sets the **Mode** property of an **Entity form** control to **FormMode.New**.
+**NewForm**: Legt die **Mode**-Eigenschaft eines Steuerelements **Formularentität** auf **FormMode.New** fest.
 
-**SubmitForm** - Saves changes when a user edits a record in an **Entity form** control.
+**SubmitForm**: Speichert Änderungen, wenn ein Benutzer einen Datensatz in einem Steuerelement **Formularentität** bearbeitet.
 
-**ResetForm** - Abandons unsaved changes when a user edits a record in an **Entity form** control.
+**ResetForm**: Verwirft nicht gespeicherte Änderungen, wenn ein Benutzer einen Datensatz in einem Steuerelement **Formularentität** bearbeitet.
 
-Now that you have an overview of the various properties and functions, let’s look at them in action.
+Nun haben Sie einen Überblick über die verschiedenen Eigenschaften und Funktionen erhalten, und als Nächstes sehen wir sie uns in Aktion an.
 
 > [!NOTE]
-> If you don’t have access to a Common Data Service database, create one before you start to follow these steps.
+> Wenn Sie keinen Zugriff auf eine Common Data Service-Datenbank haben, erstellen Sie eine, bevor Sie die folgenden Schritte ausführen.
 
-## Display a list of records
-The next five procedures provide a single, end-to-end example of how to use **Entity form** controls. In this procedure, add a form that shows a list of sales orders.  
+## <a name="display-a-list-of-records"></a>Anzeigen einer Liste von Datensätzen
+Die folgenden fünf Vorgehensweisen bieten ein einzelnes, umfassendes Beispiel zur Verwendung von **Formularentität**-Steuerelementen. Fügen Sie in dieser Vorgehensweise ein Formular hinzu, das eine Liste mit Verkaufsaufträgen anzeigt.  
 
-1. Create a blank tablet app.
+1. Erstellen Sie eine leere Tablet-App.
    
     ![](media/entity-form-control/entityform-tutorial-01-01.png)
-2. Rename the first screen **SalesOrderListScreen**.
+2. Benennen Sie den ersten Bildschirm in **SalesOrderListScreen** um.
    
     ![](media/entity-form-control/entityform-tutorial-01-02.png)
-3. On the **Insert** tab, click or tap **Forms**, and then click or tap **Entity form (experimental)**.  
+3. Klicken oder tippen Sie auf der Registerkarte **Insert** (Einfügen) auf **Forms** (Formulare) und dann auf **Entity form (experimental)** (Formularentität (experimentell)).  
    
-    An **Entity form** control is added to the screen.  
+    Ein **Formularentität**-Steuerelement wird dem Bildschirm hinzugefügt.  
    
     ![](media/entity-form-control/entityform-tutorial-01-03.png)
-4. Rename the **Entity form** control **SalesOrderListForm**, and resize it to cover the entire screen.
-5. In the right-hand pane, click or tap the database icon next to the text **No data source selected**, and then click or tap **Add a data source**.  
+4. Benennen Sie das Steuerelement **Formularentität** in **SalesOrderListForm** um, und ändern Sie seine Größe so, dass es den gesamten Bildschirm abdeckt.
+5. Klicken oder tippen Sie im rechten Bereich auf das Datenbanksymbol neben dem Text **No data source selected** (Es ist keine Datenquelle ausgewählt) und dann auf **Add a data source** (Datenquelle hinzufügen).  
    
     ![](media/entity-form-control/entityform-tutorial-01-04.png)
-6. In the list of connections, click or tap the connection for your database.  
+6. Klicken oder tippen Sie in der Liste der Verbindungen auf die Verbindung für die Datenbank.  
    
     ![](media/entity-form-control/entityform-tutorial-01-05.png)
-7. In the list of entities, click or tap **Sales order**, and then click or tap **Connect**.  
+7. Klicken oder tippen Sie in der Liste der Entitäten auf **Sales order** (Verkaufsauftrag) und dann auf **Connect** (Verbinden).  
    
-    A data source for the **Sales order** entity is created, and the **DataSource** property of the **SalesOrderListForm** is set to that data source.
+    Eine Datenquelle für die **Sales order**-Entität wird erstellt, und die **DataSource**-Eigenschaft von **SalesOrderListForm** wird auf diese Datenquelle festgelegt.
    
     ![](media/entity-form-control/entityform-tutorial-01-06.png)  
    
-    The **Entity form** control shows a list of sales orders. By using the **Entity form** control, you quickly displayed a list form without having to manually build it.
+    Das Steuerelement **Formularentität** zeigt eine Liste mit Verkaufsaufträgen an. Mithilfe des Steuerelements **Formularentität** haben Sie schnell ein Listenformular angezeigt, ohne dass Sie es manuell erstellen mussten.
    
     ![](media/entity-form-control/entityform-tutorial-01-07.png)  
    
-    You didn’t set the **Pattern** property for the **Entity form** control, so it defaults to the **List** pattern. In addition, the **DefaultList** field group of the **Sales order** entity is used to display the list form. The form is also dynamic and will automatically reflect any change in the field group.
+    Da Sie die **Pattern**-Eigenschaft für das Steuerelement **Formularentität** nicht festgelegt haben, wird es standardmäßig auf das **List**-Muster festgelegt. Darüber hinaus wird die **DefaultList**-Feldgruppe der **Sales order**-Entität verwendet, um das Listenformular anzuzeigen. Das Formular ist auch dynamisch, und jede Änderung in der Feldgruppe wird automatisch darauf angewendet.
 
 
-## Display the details of a record
-Let’s add another **Entity form** control to display the details of the sales order that’s selected in the list that you created earlier.  
+## <a name="display-the-details-of-a-record"></a>Anzeigen der Details eines Datensatzes
+Fügen Sie ein weiteres **Formularentität**-Steuerelement hinzu, um die Details des Verkaufsauftrags anzuzeigen, der in der zuvor erstellten Liste ausgewählt ist.  
 
-1. Resize **SalesOrderListForm** to cover half the screen, and add a second **Entity form** control to cover the other half of the screen.  
+1. Ändern Sie die Größe von **SalesOrderListForm** auf die halbe Bildschirmgröße, und fügen Sie ein zweites **Formularentität**-Steuerelement hinzu, um die andere Hälfte des Bildschirms abzudecken.  
    <br>![](media/entity-form-control/entityform-tutorial-01-09.png)
-2. Rename the second **Entity form** control **SalesOrderDetailsForm**, and connect it to the **Sales order** data source that you created earlier.  
+2. Benennen Sie das zweite **Formularentität**-Steuerelement in **SalesOrderDetailsForm** um, und verbinden Sie es mit der zuvor erstellten Datenquelle **Sales order** (Verkaufsauftrag).  
    <br>![](media/entity-form-control/entityform-tutorial-01-10.png)
-3. Set the **Pattern** property of **SalesOrderDetailsForm** to **FormPattern.Details**.  
+3. Legen Sie die **Pattern**-Eigenschaft von **SalesOrderDetailsForm** auf **FormPattern.Details** fest.  
    
-    **SalesOrderDetailsForm** uses the **DefaultDetails** field group of the **Sales order** entity to display the form. As with the **SalesOrderListForm**, you can quickly show record details without having to manually build a form.  
+    **SalesOrderDetailsForm** verwendet die Feldgruppe **DefaultDetails** der **Sales order**-Entität, um das Formular anzuzeigen. Wie bei **SalesOrderListForm** können Sie schnell Details des Datensatzes anzeigen, ohne manuell ein Formular erstellen zu müssen.  
    
     ![](media/entity-form-control/entityform-tutorial-01-11.png)
-4. Set the **Item** property of **SalesOrderDetailsForm** to **SalesOrderListForm.Selected**.
+4. Legen Sie die **Item**-Eigenschaft von **SalesOrderDetailsForm** auf **SalesOrderListForm.Selected** fest.
    
-    **SalesOrderDetailsForm** will display the details of the record that the user clicks or taps in **SalesOrderListForm**.
+    **SalesOrderDetailsForm** zeigt die Details des Datensatzes an, auf den der Benutzer in **SalesOrderListForm** klickt oder tippt.
    
     ![](media/entity-form-control/entityform-tutorial-01-12.png)
-5. Preview the app by pressing F5, and then click or tap a sales order in the list on the left.  
+5. Zeigen Sie eine Vorschau der App durch Drücken von F5 an, und klicken oder tippen Sie dann in der Liste auf der linken Seite auf einen Verkaufsauftrag.  
    
-    The details of the order that you selected appear on the right side.  
+    Die Details der Bestellung, die Sie ausgewählt haben, werden auf der rechten Seite angezeigt.  
    
     ![](media/entity-form-control/entityform-tutorial-01-13.png)  
 
-## Configure a field to navigate to another screen
-Next let’s add more screens to our app and then configure fields in an **Entity form** control to navigate to another screen in the app when the user clicks or taps a field.  
+## <a name="configure-a-field-to-navigate-to-another-screen"></a>Konfigurieren eines Felds zum Navigieren zu einem anderen Bildschirm
+Als Nächstes fügen wir der App weitere Bildschirme hinzu, und konfigurieren dann Felder in einem **Formularentität**-Steuerelement, um zu einem anderen Bildschirm in der App zu navigieren, wenn der Benutzer auf ein Feld klickt oder tippt.  
 
-1. Add a second screen to the app, and rename the screen **SalesOrderDetailsScreen**.
-2. Cut the **SalesOrderDetailsForm**, paste it on the **SalesOrderDetailsScreen**, and resize the form to cover most of the screen, leaving enough space for an icon at the top.
-3. Add a back-arrow icon near the upper-left corner of **SalesOrderDetailsScreen**.
-4. Set the **OnSelect** property of the back-arrow icon to the [**Back**](functions/function-navigate.md) function.  
+1. Fügen Sie der App einen zweiten Bildschirm hinzu, und benennen Sie den Bildschirm in **SalesOrderDetailsScreen** um.
+2. Schneiden Sie **SalesOrderDetailsForm** aus, fügen Sie es auf **SalesOrderDetailsScreen** ein, und ändern Sie die Größe des Formulars, sodass es fast den ganzen Bildschirm abdeckt und am oberen Rand genügend Platz für ein Symbol bleibt.
+3. Fügen Sie ein Rückwärtspfeil-Symbol in der oberen linken Ecke von **SalesOrderDetailsScreen** hinzu.
+4. Legen Sie die **OnSelect**-Eigenschaft des Rückwärtspfeil-Symbols auf die [**Back**](functions/function-navigate.md)-Funktion fest.  
    
     ![](media/entity-form-control/entityform-tutorial-01-14.png)
-5. On the **SalesOrderListScreen**, resize the **SalesOrderListForm** to cover the entire screen.
-6. Click or tap the **SalesOrderListForm** to select it.
-7. In the right-hand pane, under **Fields**, set **SalesOrderId** to navigate to the **SalesOrderDetailsScreen**.  
+5. Ändern Sie auf **SalesOrderListScreen** die Größe von **SalesOrderListForm** so, dass es den gesamten Bildschirm abdeckt.
+6. Klicken oder tippen Sie auf **SalesOrderListForm**, um es auszuwählen.
+7. Legen Sie im rechten Bereich unter **Fields** (Felder) **SalesOrderId** so fest, dass es zu **SalesOrderDetailsScreen** navigiert.  
    
     ![](media/entity-form-control/entityform-tutorial-01-15.png)
    
-    The **Entity form** control displays the values in the **SalesOrderId** field (the first column in the list) as links.
+    Das Steuerelement **Formularentität** zeigt die Werte im **SalesOrderId**-Feld (erste Spalte in der Liste) als Links an.
    
     ![](media/entity-form-control/entityform-tutorial-01-16.png)  
-8. Preview the app by pressing F5, and then click or tap a link in the list of sales orders.
+8. Zeigen Sie eine Vorschau der App durch Drücken von F5 an, und klicken oder tippen Sie dann in der Liste der Verkaufsaufträge auf einen Link.
    
     ![](media/entity-form-control/entityform-tutorial-01-17.png)  
    
-    The second screen opens and displays the details of the sales order that you specified.
+    Der zweite Bildschirm wird geöffnet und zeigt die Details zum angegebenen Verkaufsauftrag an.
    
     ![](media/entity-form-control/entityform-tutorial-01-18.png)  
    
-    To display the details of a different sales order, click or tap the back arrow to navigate back to the list, and then click or tap the link of the order for which you want to show details.
+    Klicken oder tippen Sie zum Anzeigen der Details zu einem anderen Verkaufsauftrag auf den Rückwärtspfeil, um zurück zur Liste zu navigieren, und klicken oder tippen Sie dann auf den Link des Verkaufsauftrags, für den Sie Details anzeigen möchten.
 
-## Navigate with a context variable
-The **Item** property of the **SalesOrderDetailsForm** is set to **SalesOrderListForm.Selected** so that **SalesOrderDetailsForm** shows details about the record that the user selects in **SalesOrderListForm**. You can also get the context of the selected record by using the **NavigationContext** context variable, which gets automatically created when you use the form-customization pane to configure a field to navigate.  
+## <a name="navigate-with-a-context-variable"></a>Navigieren mit einer Kontextvariablen
+Die **Item**-Eigenschaft von **SalesOrderDetailsForm** ist auf **SalesOrderListForm.Selected** festgelegt, sodass **SalesOrderDetailsForm** Details zu dem Datensatz anzeigt, den der Benutzer in **SalesOrderListForm** auswählt. Sie können den Kontext des ausgewählten Datensatzes auch mithilfe der Kontextvariablen **NavigationContext** abrufen, die automatisch erstellt wird, wenn Sie den Bereich für die Anpassung von Formularen verwenden, um ein Feld zum Navigieren zu konfigurieren.  
 
-1. Set the **Item** property of **SalesOrderDetailsForm** to **NavigationContext**.
+1. Legen Sie die **Item**-Eigenschaft von **SalesOrderDetailsForm** auf **NavigationContext** fest.
    
     ![](media/entity-form-control/entityform-tutorial-01-19.png)
-2. Preview the app by pressing F5, and then click or tap a link in the list of sales orders.
+2. Zeigen Sie eine Vorschau der App durch Drücken von F5 an, und klicken oder tippen Sie dann in der Liste der Verkaufsaufträge auf einen Link.
    
-    The app opens **SalesOrderDetailsScreen** and displays the details of the sales order that you specified.
+    Die App öffnet **SalesOrderDetailsScreen** und zeigt die Details des angegebenen Verkaufsauftrags an.
 
-Let’s dig into how the form-customization pane sets up the navigation and context for us.  
+Befassen wir uns nun näher damit, wie der Bereich für die Anpassung von Formularen für uns Navigation und Kontext einrichtet.  
 
-The **SelectableFields** property of the **SalesOrderListForm** specifies **SalesOrderId** as a selectable field.
+Die **SelectableFields**-Eigenschaft von **SalesOrderListForm** legt **SalesOrderId** als auswählbares Feld fest.
 
 ![](media/entity-form-control/entityform-tutorial-01-20.png)  
 
-This was set up automatically when we used the form-customization pane to make the **SalesOrderId** field navigate to the **SalesOrderDetailsScreen**. Therefore, the values in the **SalesOrderId** field appear as links.
+Dies wurde automatisch eingerichtet, als wir den Bereich für die Anpassung von Formularen verwendet haben, um das **SalesOrderId**-Feld für die Navigation zu **SalesOrderDetailsScreen** einzurichten. Aus diesem Grund werden die Werte im **SalesOrderId**-Feld als Links angezeigt.
 
-The **OnFieldSelect** property of the **SalesOrderListForm** is set to an [**If**](functions/function-if.md) function, which determines whether the user clicks or taps the **Sales order ID** field: **SalesOrderListForm.SelectedField.SalesOrderId = true**.  
+Die **OnFieldSelect**-Eigenschaft von **SalesOrderListForm** ist auf eine [**If**](functions/function-if.md)-Funktion festgelegt, die bestimmt, ob der Benutzer auf das **SalesOrderId**-Feld klickt oder tippt: **SalesOrderListForm.SelectedField.SalesOrderId = true**.  
 
-If the function is evaluated as true, the **SalesOrderDetailsScreen** opens with the context variable named **NavigationContext** that we used earlier.  
+Wenn die Funktion als TRUE ausgewertet wird, öffnet sich **SalesOrderDetailsScreen** mit der zuvor verwendeten Kontextvariablen **NavigationContext**.  
 
-All this was also set up automatically when we used the form-customization pane to make the **SalesOrderId** field navigate to the **SalesOrderDetailsScreen**.  
+All dies wurde ebenfalls automatisch eingerichtet, als wir den Bereich für die Anpassung von Formularen verwendet haben, um das **SalesOrderId**-Feld für die Navigation zu **SalesOrderDetailsScreen** einzurichten.  
 
-Therefore, when the user clicks or taps a sales order ID field, the [**If**](functions/function-if.md) function evaluates to true, and the [**Navigate**](functions/function-navigate.md) function is called with the corresponding context, opening the details screen.  
+Wenn der Benutzer auf das SalesOrderId-Feld klickt oder tippt, wird deshalb die [**If**](functions/function-if.md)-Funktion zu TRUE ausgewertet, und die [**Navigate**](functions/function-navigate.md)-Funktion wird mit dem entsprechenden Kontext aufgerufen, sodass sich die Detailansicht öffnet.  
 
 ![](media/entity-form-control/entityform-tutorial-01-21.png)  
 
 > [!NOTE]
-> When you use the form-customization pane, the **NavigationContext** is intelligently determined for you. When the user clicks or taps **SalesOrderId**, **NavigationContext** is set to **SalesOrderListForm.Selected**, as the earlier formula shows. If we had specified the **Account** field for navigation instead, **NavigationContext** would have been set to **SalesOrderListForm.Selected.Account**, ensuring that the correct context is passed. However, to consume that context, you would need an **Entity form** control connected to the **Account** entity in the Common Data Service.
+> Wenn Sie den Bereich für die Anpassung von Formularen verwenden, wird **NavigationContext** für Sie intelligent bestimmt. Wenn der Benutzer auf **SalesOrderId** klickt oder tippt, wird **NavigationContext** auf **SalesOrderListForm.Selected** festgelegt, wie in der früheren Formel dargestellt. Wenn wir stattdessen das **Account**-Feld für die Navigation angegeben hätten, wäre **NavigationContext** auf **SalesOrderListForm.Selected.Account** festgelegt worden, um sicherzustellen, dass der richtige Kontext übergeben wird. Allerdings würden Sie für die Nutzung dieses Kontexts ein **Formularentität**-Steuerelement benötigen, das mit der **Account**-Entität in Common Data Service verbunden ist.
 
-## Edit and save a record
-Finally let’s look at how we can edit and save a record in an **Entity form** control.  
+## <a name="edit-and-save-a-record"></a>Bearbeiten und Speichern eines Datensatzes
+Abschließend sehen wir uns an, wie wir einen Datensatz in einem **Formularentität**-Steuerelement bearbeiten und speichern können.  
 
-1. On the **SalesOrderDetailsScreen**, add an edit icon, and then set its **OnSelect** property to this formula:  
+1. Fügen Sie auf **SalesOrderDetailsScreen** ein Bearbeitungssymbol hinzu, und legen Sie dann dessen **OnSelect**-Eigenschaft auf diese Formel fest:  
    **EditForm(SalesOrderDetailsForm)**
    
     ![](media/entity-form-control/entityform-tutorial-01-22.png)
-2. Add a checkmark icon next to the edit icon, and then set the **OnSelect** property of the checkmark icon to this formula:  
+2. Fügen Sie neben dem Bearbeitungssymbol ein Häkchen hinzu, und legen Sie dann die **OnSelect**-Eigenschaft des Häkchens auf diese Formel fest:  
    **SubmitForm(SalesOrderDetailsForm)**  
    
     ![](media/entity-form-control/entityform-tutorial-01-23.png)
-3. Preview the app by pressing F5, click or tap a **Sales order ID** link to view the details of a sales order, and then click or tap the edit icon.  
+3. Zeigen Sie eine Vorschau der App durch Drücken von F5 an, klicken oder tippen Sie auf einen **SalesOrderId**-Link, um die Details eines Verkaufsauftrags anzuzeigen, und klicken oder tippen Sie dann auf das Bearbeitungssymbol.  
    
-    The **Mode** of the **Entity form** control is set to **FormMode.Edit** so that you can edit the record.
-4. Update the **Order status** to **Invoice**.  
+    Die **Mode**-Eigenschaft des Steuerelements **Formularentität** ist auf **FormMode.Edit** festgelegt, sodass Sie den Datensatz bearbeiten können.
+4. Aktualisieren Sie **Order status** (Auftragsstatus) auf **Invoice** (Rechnung).  
    
     ![](media/entity-form-control/entityform-tutorial-01-24.png)
-5. Update the **Sales person** to **WRK014**.
+5. Aktualisieren Sie **Sales person** (Vertriebsmitarbeiter) auf **WRK014**.
    
-    To help you pick the **Sales person**, the **Entity form** control automatically renders a rich detailed lookup. To generate and display this lookup, the control uses the **DefaultLookup** field group of the **Worker** entity in the Common Data Service. The **Worker** entity is used because the **Sales person** field is of type **Worker**.
+    Um Ihnen bei der Auswahl von **Sales person** (Vertriebsmitarbeiter) zu helfen, rendert das Steuerelement **Formularentität** automatisch eine ausführliche Suche. Zum Generieren und Anzeigen dieser Suche verwendet das Steuerelement die **DefaultLookup**-Feldgruppe der **Worker**-Entität in Common Data Service. Die **Worker**-Entität wird verwendet, weil das **Sales person**-Feld vom Typ **Worker** ist.
    
     ![](media/entity-form-control/entityform-tutorial-01-25.png)
-6. Click or tap the checkmark icon to save your changes.
+6. Klicken oder tippen Sie auf das Häkchen, um die Änderungen zu speichern.
 
-This step concludes this article on how to use the **Entity form** control in your apps. We hope that you find the information covered here useful to get started using the **Entity form** control. We look forward to hearing what you think about the **Entity form** control and our overall push toward helping you quickly add rich forms to your apps.
+Mit diesem Schritt kommen wir zum Ende des Artikels über die Verwendung des Steuerelements **Formularentität** in Ihren Apps. Wir hoffen, dass die hier behandelten Informationen für Sie bei den ersten Schritten mit dem Steuerelement **Formularentität** nützlich waren. Wir freuen uns auf Ihre Meinung zum Steuerelement **Formularentität** und zu unserem allgemeinen Ansatz, Ihnen dabei zu helfen, schnell umfangreiche Formulare zu Ihren Apps hinzuzufügen.
 

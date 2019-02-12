@@ -1,6 +1,6 @@
 ---
-title: Add and manage connections from canvas apps | Microsoft Docs
-description: Add, delete, and update connections from canvas apps to data sources such as SharePoint, SQL Server, and OneDrive for Business
+title: Hinzufügen und Verwalten von Verbindungen über Canvas-Apps | Microsoft-Dokumentation
+description: Über Canvas-Apps können Sie Verbindungen mit Datenquellen wie SharePoint, SQL Server und OneDrive for Business hinzufügen, löschen und aktualisieren.
 author: lancedMicrosoft
 manager: kvivek
 ms.service: powerapps
@@ -9,75 +9,81 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 03/09/2017
 ms.author: lanced
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: d2a7da93835e5fbe588a8683bbdb0393d5b76ee5
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42834041"
 ---
-# Manage canvas-app connections in PowerApps
-In [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), create a connection to one or more data sources, delete a connection, or update its credentials.
+# <a name="manage-canvas-app-connections-in-powerapps"></a>Verwalten von Canvas-App-Verbindungen in PowerApps
+Stellen Sie in [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) eine Verbindung mit einer oder mehreren Datenquellen her, löschen Sie eine Verbindung, oder aktualisieren Sie ihre Anmeldeinformationen.
 
-Your canvas app's data connection can connect to SharePoint, SQL Server, Office 365, OneDrive for Business, Salesforce, Excel, and many other [data sources](connections-list.md).
+Über die Datenverbindung der Canvas-App können Verbindungen mit SharePoint, SQL Server, Office 365, OneDrive for Business, Salesforce, Excel und vielen anderen [Datenquellen](connections-list.md) hergestellt werden.
 
-Your next step after this article is to display and manage data from the data source in your app, as in these examples:
+Ihr nächster Schritt nach diesem Artikel besteht darin, Daten aus der Datenquelle in der App anzuzeigen und zu verwalten; siehe folgende Beispiele:
 
-* Connect to OneDrive for Business, and manage data in an Excel workbook in your app.
-* Update a list on a SharePoint site.
-* Connect to SQL Server, and update a table from your app.
-* Send email in Office 365.
-* Send a tweet.
-* Connect to Twilio, and send an SMS message from your app.
+* Herstellen einer Verbindung mit OneDrive for Business und Verwalten von Daten in einer Excel-Arbeitsmappe in der App.
+* Aktualisieren einer Liste auf einer SharePoint-Website.
+* Herstellen einer Verbindung mit SQL Server und Aktualisieren einer Tabelle aus Ihrer App.
+* Senden von E-Mail in Office 365.
+* Senden eines Tweets.
+* Verbinden mit Twilio und senden einer SMS-Nachricht von Ihrer App.
 
-## Prerequisites
-1. [Sign up](../signup-for-powerapps.md) for PowerApps.
-2. Sign in to [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) using the same credentials that you used to sign up.
+## <a name="prerequisites"></a>Voraussetzungen
+1. [Registrieren Sie sich](../signup-for-powerapps.md) bei PowerApps.
+2. Melden Sie sich unter [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) mit denselben Anmeldeinformationen an, die Sie bei der Registrierung verwendet haben.
 
-## Background on data connections
-Most PowerApps apps use external information called **Data Sources** that is stored in cloud services. A common example is a table in an Excel file stored in OneDrive for Business. Apps are able to access these data sources by using **Connections**.
+## <a name="background-on-data-connections"></a>Hintergrundinformationen zu Datenverbindungen
+Die meisten Apps in PowerApps nutzen externe Informationen, die als **Datenquellen** bezeichnet werden und in Clouddiensten gespeichert sind. Ein gängiges Beispiel ist eine Tabelle in einer Excel-Datei, die in OneDrive for Business gespeichert ist. Apps können über **Verbindungen** auf diese Datenquellen zugreifen.
 
-The commonest type of data source is the table, which you can use to retrieve and store information. You can use connections to data sources to read and write data in Microsoft Excel workbooks, SharePoint lists, SQL tables, and many other formats, which can be stored in cloud services like OneDrive for Business, DropBox, SQL Server, etc.
+Der verbreitetste Typ von Datenquelle ist die Tabelle, aus der Informationen abgerufen und in der Informationen gespeichert werden können. Über Verbindungen mit Datenquellen können Sie Daten in Microsoft Excel-Arbeitsmappen, SharePoint-Listen, SQL-Tabellen und vielen anderen Formaten lesen und schreiben; diese können in Clouddiensten wie OneDrive for Business, DropBox, SQL Server usw. gespeichert sein.
 
-There are other kinds of data sources that are not tables, such as email, calendars, twitter, and (coming soon) notifications.
+Es gibt andere Arten von Datenquellen, die keine Tabellen sind, z.B. E-Mails, Kalender, Twitter und Benachrichtigungen (demnächst verfügbar).
 
-Using the **[Gallery](controls/control-gallery.md)**, **[Display form](controls/control-form-detail.md)**, and **[Edit form](controls/control-form-detail.md)** controls, it is easy to create an app that reads and writes data from a data source. To get started, read the article [Understand data forms](working-with-forms.md).
+Mithilfe von **[Katalog](controls/control-gallery.md)**-, **[Formular anzeigen](controls/control-form-detail.md)**- und **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelementen können Sie auf einfache Weise eine App erstellen, die Daten aus einer Datenquelle liest und schreibt. Lesen Sie für den Einstieg den Artikel [Grundlegendes zu Datenformularen](working-with-forms.md).
 
-In addition to creating and managing connections in [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), you also create connections when you do these tasks:
+Zusätzlich zum Erstellen und Verwalten von Verbindungen in [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) können Sie auch Verbindungen erstellen, wenn Sie die folgenden Aufgaben ausführen:
 
-* Automatically generate an [app from data](app-from-sharepoint.md), such as a custom SharePoint list.
-* Update an existing app, or create one from scratch as [add a connection](add-data-connection.md) describes.
-* Open an app that another user created and [shared with you](share-app.md).
+* Automatisches Generieren einer [App aus Daten](app-from-sharepoint.md), z. B. aus einer benutzerdefinierten SharePoint-Liste.
+* Aktualisieren Sie eine vorhandene App, oder erstellen Sie eine wie in [Eine Verbindung hinzufügen](add-data-connection.md) beschrieben neu.
+* Öffnen einer App, die ein anderer Benutzer erstellt und [für Sie freigegeben](share-app.md) hat.
 
 > [!NOTE]
-> If you want to use PowerApps Studio instead, open the **File** menu, and then click or tap **Connections**, [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) opens so that you can create and manage connections there.
+> Wenn Sie stattdessen PowerApps Studio verwenden möchten, öffnen Sie das Menü **Datei**, und klicken oder tippen Sie auf **Verbindungen**; [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) wird geöffnet, sodass Sie dort Verbindungen herstellen und verwalten können.
 
-## Create a new connection
-1. If you have not already done so, log in to [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
-2. In the left navigation bar, click or tap **Connections**.
+## <a name="create-a-new-connection"></a>Erstellen einer neuen Verbindung
+1. Sofern noch nicht erfolgt, melden Sie sich bei [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an.
+2. Klicken oder tippen Sie in der linken Navigationsleiste auf **Verbindungen**.
    
-    ![Connections Manage](./media/add-manage-connections/open-connections.png)
-3. In the upper-right corner, click or tap **New connection**.
+    ![Verbindungen verwalten](./media/add-manage-connections/open-connections.png)
+3. Klicken oder tippen Sie in der oberen rechten Ecke auf **Neue Verbindung**.
    
-    ![Connections Add](./media/add-manage-connections/add-connection.png)
-4. Click or tap a connector in the list that appears, and then follow the prompts.
+    ![Hinzufügen von Verbindungen](./media/add-manage-connections/add-connection.png)
+4. Klicken oder tippen Sie in der angezeigten Liste auf einen Connector, und befolgen Sie dann die Eingabeaufforderungen.
    
-   ![Connections Add](./media/add-manage-connections/choose-connection.png)
-5. Click or tap the **Create** button.
+   ![Hinzufügen von Verbindungen](./media/add-manage-connections/choose-connection.png)
+5. Klicken oder tippen Sie auf die Schaltfläche **Erstellen**.
    
-   ![Connections Add](./media/add-manage-connections/create-connection.png)
-6. Follow the prompts. Some connectors prompt you to provide credentials, specify a particular set of data, or perform other steps. Others such as **Microsoft Translator**, do not.
+   ![Hinzufügen von Verbindungen](./media/add-manage-connections/create-connection.png)
+6. Befolgen Sie die Eingabeaufforderungen. Bei einigen Connectors werden Sie aufgefordert, Anmeldeinformationen einzugeben, einen bestimmten Datensatz anzugeben oder andere Schritte auszuführen. Bei anderen (z.B. **Microsoft Translator**) ist dies nicht der Fall.
    
-   For example, these connectors require additional information before you can use them.
+   Diese Connectors erfordern möglicherweise zusätzliche Informationen, bevor Sie sie verwenden können.
    
    * [SharePoint](connections/connection-sharepoint-online.md)
    * [SQL Server](connections/connection-azure-sqldatabase.md)
 
-The new connector appears under **Connections**, and you can [add it to an app](add-data-connection.md).
+Der neue Connector wird unter **Verbindungen** angezeigt, und Sie können ihn [zu einer App hinzufügen](add-data-connection.md).
 
-## Update or delete a connection
-In the list of connections, find the connection that you want to update or delete, and then click or tap the ellipsis (3-dots-symbol) on the right of the connection.
+## <a name="update-or-delete-a-connection"></a>Eine Verbindung aktualisieren oder löschen
+Suchen Sie in der Liste der Verbindungen nach der zu aktualisierenden oder zu löschenden Verbindung, und klicken oder tippen Sie anschließend auf die Auslassungszeichen (Symbol mit drei Punkten) rechts neben der Verbindung.
 
-![Update connection](./media/add-manage-connections/auth-or-delete.png)
+![Aktualisieren der Verbindung](./media/add-manage-connections/auth-or-delete.png)
 
-* To update the credentials for a connection, click or tap the key icon, and then provide credentials for that connection.
-* To delete the connection, click or tap the trash-can icon.
+* Klicken oder tippen Sie zum Aktualisieren der Anmeldeinformationen auf das Schlüsselsymbol, und geben Sie dann Anmeldeinformationen für die betreffende Verbindung an.
+* Um die Verbindung zu löschen, klicken oder tippen Sie auf das Papierkorbsymbol.
 

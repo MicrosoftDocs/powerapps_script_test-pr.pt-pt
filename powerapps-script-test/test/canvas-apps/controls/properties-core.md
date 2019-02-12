@@ -1,6 +1,6 @@
 ---
-title: Core properties | Microsoft Docs
-description: Reference information about the Disabled, Visible, and ReadOnly properties
+title: Kerneigenschaften | Microsoft-Dokumentation
+description: Enthält Referenzinformationen zu den Eigenschaften „Disabled“, „Visible“ und „ReadOnly“.
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,56 +9,62 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 16065dc29d74655cbede25cea20148b343b790e6
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42854005"
 ---
-# Core properties in PowerApps
-Configure whether the user can see and interact with a control.
+# <a name="core-properties-in-powerapps"></a>Kerneigenschaften in PowerApps
+Konfigurieren Sie, ob der Benutzer ein Steuerelement sehen und damit interagieren kann.
 
-### Properties
-**Default** – The initial value of a control before it is changed by the user.
+### <a name="properties"></a>Eigenschaften
+**Default**: Anfangswert eines Steuerelements, bevor es vom Benutzer geändert wird.
 
-* Applies to **[Card](control-card.md)**, **[Check box](control-check-box.md)**, **[Drop down](control-drop-down.md)**, **[Gallery](control-gallery.md)**, **[List Box](control-list-box.md)**, **[Radio](control-radio.md)**, **[Rating](control-rating.md)**, **[Slider](control-slider.md)**, **[Text input](control-text-input.md)**, and **[Toggle](control-toggle.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Karte](control-card.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Dropdown](control-drop-down.md)**, **[Katalog](control-gallery.md)**, **[Listenfeld](control-list-box.md)**, **[Optionsfeld](control-radio.md)**, **[Bewertung](control-rating.md)**, **[Schieberegler](control-slider.md)**, **[Texteingabe](control-text-input.md)** und **[Umschalten](control-toggle.md)**.
 
-**DelayOutput** – Set to true to delay action during text input.
+**DelayOutput**: Wird auf „true“ festgelegt, um eine Aktion während der Texteingabe zu verzögern.
 
-* Applies to  **[Text input](control-text-input.md)**, **[Card](control-card.md)**
+* Gilt für Steuerelemente des folgenden Typs: **[Texteingabe](control-text-input.md)** und **[Karte](control-card.md)**.
 
-**DisplayMode** – Values can be **Edit, View,** or **Disabled**. Configures whether the control allows user input (**Edit**), only displays data (**View**) or is disabled (**Disabled**).  In **View** mode, input controls such as **[Text input](control-text-input.md)**, **[Drop down](control-drop-down.md)**, **[Date Picker](control-date-picker.md)** will only display the text value and will not render any interactive elements or decorations.  This makes them suitable to be displayed in Forms or as readable output.
+**DisplayMode**: Mögliche Werte sind **Edit, View** und **Disabled** (Bearbeiten, Anzeigen und Deaktiviert). Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).  Im Modus **View** (Anzeigen) zeigen Eingabesteuerelemente wie **[Texteingabe](control-text-input.md)**, **[Dropdown](control-drop-down.md)**, **[Datumsauswahl](control-date-picker.md)** lediglich den Textwert an, und es werden keine interaktiven Elemente oder Dekorationen gerendert.  Dadurch sind sie für die Anzeige in Formularen oder als lesbare Ausgabe geeignet.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Button](control-button.md)**, **[Camera](control-camera.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Drop down](control-drop-down.md)**, **[Export](control-export-import.md)**, **[Gallery](control-gallery.md)**, **[HTML text](control-html-text.md)**, **[Icon](control-shapes-icons.md)**, **[Image](control-image.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[Microphone](control-microphone.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Pen input](control-pen-input.md)**, **[Pie chart](control-pie-chart.md)**, **[Radio](control-radio.md)**, **[Rating](control-rating.md)**, **[Shape](control-shapes-icons.md)**, **[Slider](control-slider.md)**, **[Text input](control-text-input.md)**, **[Timer](control-timer.md)**, **[Toggle](control-toggle.md)**, and **[Video](control-audio-video.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Schaltfläche](control-button.md)**, **[Kamera](control-camera.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Dropdown](control-drop-down.md)**, **[Export](control-export-import.md)**, **[Katalog](control-gallery.md)**, **[HTML-Text](control-html-text.md)**, **[Symbol](control-shapes-icons.md)**, **[Bild](control-image.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[Mikrofon](control-microphone.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Stifteingabe](control-pen-input.md)**, **[Kreisdiagramm](control-pie-chart.md)**, **[Optionsfeld](control-radio.md)**, **[Bewertung](control-rating.md)**, **[Form](control-shapes-icons.md)**, **[Schieberegler](control-slider.md)**, **[Texteingabe](control-text-input.md)**, **[Timer](control-timer.md)**, **[Umschalten](control-toggle.md)** und **[Video](control-audio-video.md)**.
 
-**Items** – The source of data that appears in a control such as a gallery, a list, or a chart.
+**Items**: Die Quelle der Daten, die in einem Steuerelement angezeigt werden, z.B. ein Katalog, eine Liste oder ein Diagramm.
 
-* Applies to **[Column chart](control-column-line-chart.md)**, **[Drop down](control-drop-down.md)**, **[Gallery](control-gallery.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[Pie chart](control-pie-chart.md)**, and **[Radio](control-radio.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Säulendiagramm](control-column-line-chart.md)**, **[Dropdown](control-drop-down.md)**, **[Katalog](control-gallery.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[Kreisdiagramm](control-pie-chart.md)** und **[Optionsfeld](control-radio.md)**.
 
-**OnChange** – How the app responds when the user changes the value of a control (for example, by adjusting a slider).
+**OnChange**: Gibt an, wie die App reagiert, wenn der Benutzer den Wert eines Steuerelements ändert (z.B. per Schieberegler).
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Drop down](control-drop-down.md)**, **[List Box](control-list-box.md)**, **[Radio](control-radio.md)**, **[Rating](control-rating.md)**, **[Slider](control-slider.md)**, **[Text input](control-text-input.md)**, and **[Toggle](control-toggle.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Dropdown](control-drop-down.md)**, **[Listenfeld](control-list-box.md)**, **[Optionsfeld](control-radio.md)**, **[Bewertung](control-rating.md)**, **[Schieberegler](control-slider.md)**, **[Texteingabe](control-text-input.md)** und **[Umschalten](control-toggle.md)**.
 
-**OnSelect** – How the app responds when the user taps or clicks a control.
+**OnSelect**: Gibt an, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Button](control-button.md)**, **[Camera](control-camera.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Drop down](control-drop-down.md)**, **[Export](control-export-import.md)**, **[HTML text](control-html-text.md)**, **[Icon](control-shapes-icons.md)**, **[Image](control-image.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[Microphone](control-microphone.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Pen input](control-pen-input.md)**, **[Pie chart](control-pie-chart.md)**, **[Radio](control-radio.md)**, **[Rating](control-rating.md)**, **[Shape](control-shapes-icons.md)**, **[Slider](control-slider.md)**, **[Text input](control-text-input.md)**, **[Timer](control-timer.md)**, and **[Toggle](control-toggle.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Schaltfläche](control-button.md)**, **[Kamera](control-camera.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Dropdown](control-drop-down.md)**, **[Export](control-export-import.md)**, **[HTML-Text](control-html-text.md)**, **[Symbol](control-shapes-icons.md)**, **[Bild](control-image.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[Mikrofon](control-microphone.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Stifteingabe](control-pen-input.md)**, **[Kreisdiagramm](control-pie-chart.md)**, **[Optionsfeld](control-radio.md)**, **[Bewertung](control-rating.md)**, **[Form](control-shapes-icons.md)**, **[Schieberegler](control-slider.md)**, **[Texteingabe](control-text-input.md)** ,**[Timer](control-timer.md)**  und **[Umschalten](control-toggle.md)**.
 
-**Reset** – Whether a control reverts to its default value.  Also see the **[Reset](../functions/function-reset.md)** function.
+**Reset**: Gibt an, ob ein Steuerelement auf seinen Standardwert zurückgesetzt wird.  Siehe auch die **[Reset](../functions/function-reset.md)**-Funktion.
 
-* Applies to **[Audio](control-audio-video.md)**, **[Check box](control-check-box.md)**, **[Drop down](control-drop-down.md)**, **[List Box](control-list-box.md)**, **[Microphone](control-microphone.md)**, **[Radio](control-radio.md)**, **[Rating](control-rating.md)**, **[Slider](control-slider.md)**, **[Text input](control-text-input.md)**, **[Timer](control-timer.md)**, **[Toggle](control-toggle.md)**, and **[Video](control-audio-video.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Audio](control-audio-video.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Dropdown](control-drop-down.md)**, **[Listenfeld](control-list-box.md)**, **[Mikrofon](control-microphone.md)**, **[Optionsfeld](control-radio.md)**, **[Bewertung](control-rating.md)**, **[Schieberegler](control-slider.md)**, **[Texteingabe](control-text-input.md)**, **[Timer](control-timer.md)**, **[Umschalten](control-toggle.md)** und **[Video](control-audio-video.md)**.
 
-**Text** – Text that appears on a control or that the user types into a control.
+**Text**: Text, der in einem Steuerelement angezeigt wird oder von einem Benutzer in ein Steuerelement eingegeben wird.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[Text input](control-text-input.md)**, and **[Timer](control-timer.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Texteingabe](control-text-input.md)** und **[Timer](control-timer.md)**.
 
-**Tooltip** – Explanatory text that appears when the user hovers over a control.
+**QuickInfo**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-* Applies to **[Audio](control-audio-video.md)**, **[Button](control-button.md)**, **[Camera](control-camera.md)**, **[Check box](control-check-box.md)**, **[Drop down](control-drop-down.md)**, **[HTML text](control-html-text.md)**, **[Image](control-image.md)**, **[Label](control-text-box.md)**, **[List Box](control-list-box.md)**, **[Microphone](control-microphone.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Pen input](control-pen-input.md)**, **[Radio](control-radio.md)**, **[Rating](control-rating.md)**, **[Slider](control-slider.md)**, **[Text input](control-text-input.md)**, **[Timer](control-timer.md)**, **[Toggle](control-toggle.md)**, and **[Video](control-audio-video.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Audio](control-audio-video.md)**, **[Schaltfläche](control-button.md)**, **[Kamera](control-camera.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Dropdown](control-drop-down.md)**, **[HTML-Text](control-html-text.md)**, **[Bild](control-image.md)**, **[Bezeichnung](control-text-box.md)**, **[Listenfeld](control-list-box.md)**, **[Mikrofon](control-microphone.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Stifteingabe](control-pen-input.md)**, **[Optionsfeld](control-radio.md)**, **[Bewertung](control-rating.md)**, **[Schieberegler](control-slider.md)**, **[Texteingabe](control-text-input.md)**, **[Timer](control-timer.md)**, **[Umschalten](control-toggle.md)** und **[Video](control-audio-video.md)**.
 
-**Value** – The value of an input control.
+**Value**: Gibt den Wert des Eingabesteuerelements an.
 
-* Applies to **[Check box](control-check-box.md)**, **[Radio](control-radio.md)**, **[Slider](control-slider.md)**, and **[Toggle](control-toggle.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Kontrollkästchen](control-check-box.md)**, **[Optionsfeld](control-radio.md)**, **[Schieberegler](control-slider.md)** und **[Umschalten](control-toggle.md)**.
 
-**Visible** – Whether a control appears or is hidden.
+**Visible**: Gibt an, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Button](control-button.md)**, **[Camera](control-camera.md)**, **[Card](control-card.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Display form](control-form-detail.md)**, **[Drop down](control-drop-down.md)**, **[Edit form](control-form-detail.md)**, **[Export](control-export-import.md)**, **[Gallery](control-gallery.md)**, **[HTML text](control-html-text.md)**, **[Icon](control-shapes-icons.md)**, **[Image](control-image.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[Microphone](control-microphone.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Pen input](control-pen-input.md)**, **[Pie chart](control-pie-chart.md)**, **[Radio](control-radio.md)**, **[Rating](control-rating.md)**, **[Shape](control-shapes-icons.md)**, **[Slider](control-slider.md)**, **[Text input](control-text-input.md)**, **[Timer](control-timer.md)**, **[Toggle](control-toggle.md)**, and **[Video](control-audio-video.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Schaltfläche](control-button.md)**, **[Kamera](control-camera.md)**, **[Karte](control-card.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Formular anzeigen](control-form-detail.md)**, **[Dropdown](control-drop-down.md)**, **[Formular bearbeiten](control-form-detail.md)**, **[Export](control-export-import.md)**, **[Katalog](control-gallery.md)**, **[HTML-Text](control-html-text.md)**, **[Symbol](control-shapes-icons.md)**, **[Bild](control-image.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[Mikrofon](control-microphone.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Stifteingabe](control-pen-input.md)**, **[Kreisdiagramm](control-pie-chart.md)**, **[Optionsfeld](control-radio.md)**, **[Bewertung](control-rating.md)**, **[Form](control-shapes-icons.md)**, **[Schieberegler](control-slider.md)**, **[Texteingabe](control-text-input.md)**, **[Timer](control-timer.md)**, **[Umschalten](control-toggle.md)** und **[Video](control-audio-video.md)**.
 

@@ -1,6 +1,6 @@
 ---
-title: Sort and SortByColumns functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the Sort and SortByColumns functions in PowerApps
+title: Funktionen „Sort“ und „SortByColumns“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „Sort“ und „SortByColumns“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,96 +9,102 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/26/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: d3a83f5ae96b8d9146163ed7d5ff4c4529f8d562
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42830769"
 ---
-# Sort and SortByColumns functions in PowerApps
-Sorts a [table](../working-with-tables.md).
+# <a name="sort-and-sortbycolumns-functions-in-powerapps"></a>Funktionen „Sort“ und „SortByColumns“
+Zum Sortieren von [Tabellen](../working-with-tables.md).
 
-## Description
-The **Sort** function sorts a table based on a formula.  
+## <a name="description"></a>Beschreibung
+Die Funktion **Sort** sortiert eine Tabelle basierend auf einer Formel.  
 
-The formula is evaluated for each [record](../working-with-tables.md#records) of the table, and the results are used to sort the table.  The formula must result in a number, a string, or a Boolean value; it can't result in a table or a record.
+Die Formel wird für jeden [Datensatz](../working-with-tables.md#records) der Tabelle ausgewertet, und die Ergebnisse werden zum Sortieren der Tabelle verwendet.  Die Formel muss eine Zahl, eine Zeichenfolge oder einen Booleschen Wert zum Ergebnis haben; das Ergebnis darf keine Tabelle und kein Datensatz sein.
 
 [!INCLUDE [record-scope](../../../includes/record-scope.md)]
 
-To sort first by one column and then by another, you embed a **Sort** formula within another. For example, you can use this formula to sort a **Contacts** table first by a **LastName** column and then by a **FirstName** column:  **Sort( Sort( Contacts, LastName ), FirstName )**
+Um zuerst nach einer Spalte und dann nach einer anderen zu sortieren, betten Sie eine **Sort**-Formel in eine andere ein. Beispielsweise können Sie diese Formel verwenden, um eine Tabelle **Kontakte** zuerst nach der Spalte **Nachname** und dann nach der Spalte **Vorname** zu sortieren: **Sort( Sort( Kontakte, Nachname ), Vorname )**
 
-The **SortByColumns** function can also be used to sort a table based on one or more columns.
+Die Funktion **SortByColumns** kann ebenfalls verwendet werden, um eine Tabelle basierend auf einer oder mehreren Spalten zu sortieren.
 
-The parameter list for **SortByColumns** provides the names of the columns to sort by and the sort direction per column.  Sorting is performed in the order of the parameters (sorted first by the first column, then the second, and so on).  Column names are specified as strings, requiring double quotes if directly included in the parameter list.  For example, **SortByColumns( CustomerTable, "LastName" )**.
+Die Parameterliste für **SortByColumns** gibt die Namen der Spalten, nach denen sortiert werden soll, und die Sortierungsrichtung pro Spalte an.  Die Sortierung erfolgt in der Reihenfolge der Parameter (zuerst wird nach der ersten Spalte sortiert, dann nach der zweiten usw.).  Spaltennamen werden als Zeichenfolgen angegeben, für deren direkte Aufnahme in die Parameterliste sind doppelte Anführungszeichen erforderlich.  Beispiel: **SortByColumns( Kundentabelle, "Nachname" )**.
 
-You can combine **SortByColumns** with a **[Drop down](../controls/control-drop-down.md)** or **[List box](../controls/control-list-box.md)** control to enable users to select which column to sort by.
+Sie können **SortByColumns** mit einer **[Dropdownliste](../controls/control-drop-down.md)** oder einem **[Listenfeld](../controls/control-list-box.md)** kombinieren, um Benutzern die Auswahl der Spalte zu ermöglichen, auf der die Sortierung basieren soll.
 
-In addition to sorting ascending or descending, **SortByColumns** can sort based on a single column table of values.  For example, you can sort record based on the name of a day of the week by supplying **[ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ]** as the sort order.  All records which have **Monday"** will come first, followed by **Tuesday**, and so on.  Records found that do not appear in the sort table are put at the end of the list.
+Über das aufsteigende oder absteigende Sortieren hinaus kann **SortByColumns** auf der Grundlage einer einspaltigen Wertetabelle sortieren.  Beispielsweise können Sie datensatzbasiert nach dem Namen eines Wochentags sortieren, indem Sie **[ "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag" ]** als Sortierreihenfolge angeben.  Alle Datensätze, die **Montag** enthalten, werden zuerst aufgeführt, gefolgt von **Dienstag** usw.  Gefundene Datensätze, die in der Sortierungstabelle nicht vorkommen, werden an das Ende der Liste gesetzt.
 
-[Tables](../working-with-tables.md) are a value in PowerApps, just like a string or number.  They can be passed to and returned from functions.  **Sort** and **SortByColumn** don't modify a table; instead they take a table as an argument and return a new table that has been sorted.  See [working with tables](../working-with-tables.md) for more details.
+Wie Zeichenfolgen und Zahlen sind auch [Tabellen](../working-with-tables.md) in PowerApps Werte.  Sie können an Funktionen übergeben und von diesen zurückgegeben werden.  **Sort** und **SortByColumn** ändern eine Tabelle nicht; sie nehmen vielmehr eine Tabelle als Argument an und geben eine neue Tabelle zurück, die sortiert wurde.  Weitere Details erfahren Sie unter [Arbeiten mit Tabellen](../working-with-tables.md).
 
 [!INCLUDE [delegation](../../../includes/delegation.md)]
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **Sort**( *Table*, *Formula* [, *SortOrder* ] )
 
-* *Table* - Required. Table to sort.
-* *Formula* - Required. This formula is evaluated for each record of the table, and the results are used to sort the table.  You can reference columns within the table.
-* *SortOrder* - Optional. Specify **SortOrder.Descending** to sort the table in descending order. **SortOrder.Ascending** is the default value.
+* *Tabelle* (erforderlich): Die zu sortierende Tabelle.
+* *Formel* (erforderlich): Die Formel wird für jeden Datensatz der Tabelle ausgewertet, und die Ergebnisse werden zur Sortierung der Tabelle verwendet.  Sie können auf Spalten innerhalb der Tabelle verweisen.
+* *SortOrder*: optional. Geben Sie **SortOrder.Descending** an, um die Tabelle in absteigender Reihenfolge zu sortieren. **SortOrder.Ascending** ist der Standardwert.
 
 **SortByColumns**( *Table*, *ColumnName1* [, *SortOrder1*, *ColumnName2*, *SortOrder2*, ... ] )
 
-* *Table* - Required. Table to sort.
-* *ColumnName(s)* - Required. The column names to sort on, as strings.
-* *SortOrder(s)* - Optional.  **SortOrder.Ascending** or **SortOrder.Descending**.  **SortOrder.Ascending** is the default.  If multiple *ColumnNames* are supplied, all but the last column must include a *SortOrder*.
+* *Table*: erforderlich. Die zu sortierende Tabelle.
+* *ColumnName(s)*: erforderlich. Die Spaltennamen, nach denen sortiert werden soll, als Zeichenfolgen.
+* *SortOrder(s)*: optional.  **SortOrder.Ascending** oder **SortOrder.Descending**.  **SortOrder.Ascending** ist der Standardwert.  Wenn mehrere *ColumnNames* angegeben sind, müssen alle außer dem letzten einen *SortOrder*-Parameter umfassen.
   
     > [!NOTE]
-  > For SharePoint and Excel data sources that contain column names with spaces, specify each space as **"\_x0020\_"**. For example, specify **"Column Name"** as **"Column_x0020_Name"**.
+  > Bei Excel- oder SharePoint-Datenquellen, die Spaltennamen mit Leerzeichen enthalten, geben Sie jedes Leerzeichen als **"\_x0020\_"** an. **"Name der Spalte"** wird z.B. als **"Name_x0020_der_x0020_Spalte"** angegeben.
 
 **SortByColumns**( *Table*, *ColumnName*, *SortOrderTable* )
 
-* *Table* - Required. Table to sort.
-* *ColumnName* - Required. The column name to sort on, as strings.
-* *SortOrderTable* - Required.  Single column table of values to sort by.
+* *Tabelle* (erforderlich): Die zu sortierende Tabelle.
+* *ColumnName*: erforderlich. Der Name der Spalte, nach der sortiert werden soll, als Zeichenfolge.
+* *SortOrderTable*: erforderlich.  Einspaltige Tabelle mit Werten, nach denen sortiert werden soll.
   
     > [!NOTE]
-  > For SharePoint and Excel data sources that contain column names with spaces, specify each space as **"\_x0020\_"**. For example, specify **"Column Name"** as **"Column_x0020_Name"**.
+  > Bei Excel- oder SharePoint-Datenquellen, die Spaltennamen mit Leerzeichen enthalten, geben Sie jedes Leerzeichen als **"\_x0020\_"** an. **"Name der Spalte"** wird z.B. als **"Name_x0020_der_x0020_Spalte"** angegeben.
 
-## Examples
-For the following examples, we'll use the **IceCream** [data source](../working-with-data-sources.md), which contains the data in this table:
+## <a name="examples"></a>Beispiele
+Für das folgende Beispiel verwenden wir die **Speiseeis**-[Datenquelle](../working-with-data-sources.md), die die Daten in dieser Tabelle enthält:
 
 ![](media/function-sort/icecream.png)
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Sort( IceCream, Flavor )**<br><br>**SortByColumns( IceCream, "Flavor" )** |Sorts **IceCream** by its **Flavor** column. The **Flavor** column contains strings, so the table is sorted alphabetically. By default, the sort order is ascending. |<style> img { max-width: none; } </style> ![](media/function-sort/icecream-flavor.png) |
-| **Sort( IceCream, Quantity )**<br><br>**SortByColumns( IceCream, "Quantity" )** |Sorts **IceCream** by its **Quantity** column.  The **Quantity** column contains numbers, so the table is sorted numerically.  By default, the sort order is ascending. |![](media/function-sort/icecream-quantity-asc.png) |
-| **Sort( IceCream, Quantity, SortOrder.Descending )**<br><br>**SortByColumns( IceCream, "Quantity", SortOrder.Descending )** |Sorts **IceCream** by its **Quantity** column.  The **Quantity** column contains numbers, so the sort is done numerically.  The sort order has been specified as descending. |![](media/function-sort/icecream-quantity-desc.png) |
-| **Sort( IceCream, Quantity + OnOrder )** |Sorts **IceCream** by the sum of its **Quantity** and **OnOrder** columns for each record individually. The sum is a number, so the table is sorted numerically.  By default, the sort order is ascending.  Since we are sorting by a formula and not by raw column values, there is no equivalent using **SortByColumns**. |![](media/function-sort/icecream-total.png) |
-| **Sort( Sort( IceCream, OnOrder ), Quantity )**<br><br>**SortByColumns( IceCream, "OnOrder", Ascending, "Quantity", Ascending )** |Sorts **IceCream** first by its **OnOrder** column, and then by its **Quantity** column.  Note that "Pistachio" rose above "Vanilla" in the first sort based on **OnOrder**, and then together they moved to their appropriate place based on **Quantity**. |![](media/function-sort/icecream-onorder-quantity.png) |
-| **SortByColumns( IceCream, "Flavor", [&nbsp;"Pistachio",&nbsp;"Strawberry"&nbsp;] )** |Sorts **IceCream** by it's **Flavor** column based on the single column table containing "Pistachio" and "Strawberry".  Records which have a **Flavor** of "Pistachio" will appear first in the result, followed by records that contain "Strawberry".  For values in the **Flavor** column that are not matched, such as "Vanilla", they will appear after the items that were matched. |![](media/function-sort/icecream-onflavor-sorttable.png) |
+| **Sort( Speiseeis, Geschmacksrichtung )**<br><br>**SortByColumns( Speiseeis, "Geschmacksrichtung" )** |Sortiert **Speiseeis** nach deren Spalte **Geschmacksrichtung**. Die Spalte **Geschmacksrichtung** enthält Zeichenfolgen, daher wird die Tabelle alphabetisch sortiert. Die Standard-Sortierreihenfolge ist aufsteigend. |<style> img { max-width: none; } </style> ![](media/function-sort/icecream-flavor.png) |
+| **Sort( Speiseeis, Menge )**<br><br>**SortByColumns( Speiseeis, "Menge" )** |Sortiert **Speiseeis** nach deren Spalte **Menge**.  Die Spalte **Menge** enthält Zahlen, daher wird die Tabelle numerisch sortiert.  Die Standard-Sortierreihenfolge ist aufsteigend. |![](media/function-sort/icecream-quantity-asc.png) |
+| **Sort( Speiseeis, Menge, SortOrder.Descending )**<br><br>**SortByColumns( Speiseeis, "Menge", SortOrder.Descending )** |Sortiert **Speiseeis** nach deren Spalte **Menge**.  Die Spalte **Menge** enthält Zahlen, daher erfolgt die Sortierung numerisch.  Die Sortierreihenfolge wurde als absteigend angegeben. |![](media/function-sort/icecream-quantity-desc.png) |
+| **Sort( Speiseeis, Menge + Nachbestellt )** |Sortiert **Speiseeis** für jeden Datensatz einzeln nach der Summe ihrer Spalten **Menge** und **Nachbestellt**. Die Summe ist eine Zahl, daher wird die Tabelle numerisch sortiert.  Die Standard-Sortierreihenfolge ist aufsteigend.  Da wir anhand einer Formel und nicht nach bloßen Spaltenwerten sortieren, gibt es kein Äquivalent, das **SortByColumns** verwendet. |![](media/function-sort/icecream-total.png) |
+| **Sort( Sort( Speiseeis, Nachbestellt ), Menge )**<br><br>**SortByColumns( Speiseeis, "Nachbestellt", Aufsteigend, "Menge", Aufsteigend )** |Sortiert **Speiseeis** zuerst nach deren Spalte **Nachbestellt** und dann nach der Spalte **Menge**.  Beachten Sie, dass „Pistazie“ in der ersten Sortierung basierend auf **Nachbestellung** über „Vanille“ aufstieg und sie dann gemeinsam basierend auf **Menge** an ihren passenden Platz rückten. |![](media/function-sort/icecream-onorder-quantity.png) |
+| **SortByColumns( Speiseeis, "Geschmacksrichtung", [&nbsp;"Pistazie",&nbsp;"Erdbeer"&nbsp;] )** |Sortiert **Speiseeis** nach deren Spalte **Geschmacksrichtung**, basierend auf der einspaltigen Tabelle, die „Pistazie“ und „Erdbeer“ enthält.  Datensätze mit der **Geschmacksrichtung** „Pistazie“ werden in den Ergebnissen zuerst angezeigt, gefolgt von Datensätzen, die „Erdbeer“ enthalten.  Werte in der Spalte **Geschmacksrichtung**, die nicht zugeordnet werden, wie etwa „Vanille“, werden nach den zugeordneten Werten aufgeführt. |![](media/function-sort/icecream-onflavor-sorttable.png) |
 
-### Step by step
-To run these examples yourself, create the **IceCream** data source as a [collection](../working-with-data-sources.md#collections):
+### <a name="step-by-step"></a>Schritt für Schritt
+Um diese Beispiele selbst auszuführen, erstellen Sie die Datenquelle **Speiseeis** als [Sammlung](../working-with-data-sources.md#collections):
 
-1. Add a button, and set its **[OnSelect](../controls/properties-core.md)** property to this formula:<br>**ClearCollect( IceCream, { Flavor: "Chocolate", Quantity: 100, OnOrder: 150 }, { Flavor:  "Vanilla", Quantity: 200, OnOrder: 20 }, { Flavor: "Strawberry", Quantity: 300, OnOrder: 0 }, { Flavor: "Mint Chocolate", Quantity: 60, OnOrder: 100 }, { Flavor: "Pistachio", Quantity: 200, OnOrder: 10 } )**
-2. Preview the app, select the button, and then press Esc to return to the default workspace.
-3. Select **Collections** on the **File** menu to display the collection that you just created, and then press Esc to return to the default workspace.
+1. Fügen Sie eine Schaltfläche hinzu, und legen Sie ihre Eigenschaft **[OnSelect](../controls/properties-core.md)** auf diese Formel fest:<br>**ClearCollect( Speiseeis, { Geschmacksrichtung: "Schokolade", Menge: 100, Nachbestellt: 150 }, { Geschmacksrichtung: "Vanille", Menge: 200, Nachbestellt: 20 }, { Geschmacksrichtung: "Erdbeer", Menge: 300, Nachbestellt: 0 }, { Geschmacksrichtung: "Schoko-Minz", Menge: 60, Nachbestellt: 100 }, { Geschmacksrichtung: "Pistazie", Menge: 200, Nachbestellt: 10 } )**
+2. Führen Sie eine Vorschau der App aus, wählen Sie die Schaltfläche aus, und drücken Sie dann ESC, um zum Standardarbeitsbereich zurückzukehren.
+3. Wählen Sie im Menü **Datei** das Element **Sammlungen** aus, um die soeben erstellte Sammlung anzuzeigen, und drücken Sie dann ESC, um zum Standardarbeitsbereich zurückzukehren.
 
-#### Sort
-1. Add another button, and set its **[OnSelect](../controls/properties-core.md)** property to this formula:<br>
+#### <a name="sort"></a>Sort
+1. Fügen Sie eine weitere Schaltfläche hinzu, und legen Sie ihre Eigenschaft **[OnSelect](../controls/properties-core.md)** auf diese Formel fest:<br>
    **ClearCollect( SortByFlavor, Sort( IceCream, Flavor ) )**
    
-     The previous formula creates a second collection, named **SortByFlavor**, that contains the same data as **Ice Cream**. However, the new collection contains the data sorted alphabetically by the **Flavor** column in ascending order.
-2. Press F5, select the new button, and then press Esc.
-3. Select **Collections** on the **File** menu to display both collections, and then press Esc to return to the default workspace.
-4. Repeat the last three steps, but change the name of the collection that you want to create, and replace the **Sort** formula with a different formula from the table of examples earlier in this section that uses **Sort**.
+     Die vorstehende Formel erstellt eine zweite Sammlung mit dem Namen **SortByFlavor**, die die gleichen Daten wie **Speiseeis** enthält. Die neue Sammlung enthält jedoch die Daten alphabetisch aufsteigend nach der Spalte **Geschmacksrichtung** sortiert.
+2. Drücken Sie F5, wählen Sie die neue Schaltfläche aus, und drücken Sie dann ESC.
+3. Wählen Sie im Menü **Datei** das Element **Sammlungen** aus, um beide Sammlungen anzuzeigen, und drücken Sie dann ESC, um zum Standardarbeitsbereich zurückzukehren.
+4. Wiederholen Sie die letzten drei Schritte, ändern Sie jedoch den Namen der Sammlung, die Sie erstellen möchten, und ersetzen Sie die Formel **Sort** durch eine andere Formel aus der Tabelle mit Beispielen weiter oben in diesem Abschnitt, die **Sort** verwendet.
 
-#### SortByColumns
-1. Add another button, and set its **[OnSelect](../controls/properties-core.md)** property to this formula:<br>
+#### <a name="sortbycolumns"></a>SortByColumns
+1. Fügen Sie eine weitere Schaltfläche hinzu, und legen Sie ihre Eigenschaft **[OnSelect](../controls/properties-core.md)** auf diese Formel fest:<br>
    **ClearCollect( SortByQuantity, SortByColumns( IceCream, "Quantity", Ascending, "Flavor", Descending ) )**
    
-     The previous formula creates a third collection, named **SortByQuantity**, that contains the same data as **Ice Cream**. However, the new collection contains the data sorted numerically by the **Quanity** column in ascending order, and then by the **Flavor** column in descending order.
-2. Press F5, select the new button, and then press Esc.
-3. Select **Collections** on the **File** menu to display all three collections, and then press Esc to return to the default workspace.
-4. Repeat the last three steps, but change the name of the collection that you want to create, and replace the **SortByColumns** formula with a different formula from the table of examples earlier in this section that uses **SortByColumns**.
+     Die vorstehende Formel erstellt eine dritte Sammlung mit dem Namen **SortByQuantity**, die die gleichen Daten wie **Speiseeis** enthält. Die neue Sammlung enthält die Daten jedoch numerisch aufsteigend nach der Spalte **Menge** und dann absteigend nach der Spalte **Geschmacksrichtung** sortiert.
+2. Drücken Sie F5, wählen Sie die neue Schaltfläche aus, und drücken Sie dann ESC.
+3. Wählen Sie im Menü **Datei** das Element **Sammlungen** aus, um alle drei Sammlungen anzuzeigen, und drücken Sie dann ESC, um zum Standardarbeitsbereich zurückzukehren.
+4. Wiederholen Sie die letzten drei Schritte, ändern Sie jedoch den Namen der Sammlung, die Sie erstellen möchten, und ersetzen Sie die Formel **SortByColumns** durch eine andere Formel aus der Tabelle mit Beispielen weiter oben in diesem Abschnitt, die **SortByColumns** verwendet.
 

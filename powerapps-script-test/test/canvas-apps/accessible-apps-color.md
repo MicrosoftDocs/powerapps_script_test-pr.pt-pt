@@ -1,6 +1,6 @@
 ---
-title: Accessible colors in canvas apps | Microsoft Docs
-description: Color-contrast guidelines for canvas apps in PowerApps
+title: Barrierefreiheit und Farben in Canvas-Apps | Microsoft-Dokumentation
+description: Richtlinien für Farbkontraste für Canvas-Apps in PowerApps
 author: tahoon
 manager: kvivek
 ms.service: powerapps
@@ -9,54 +9,60 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/23/2018
 ms.author: tahoon
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 96a04cdda99f379c799ccd68e2442572ac929d39
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42862908"
 ---
-# Accessible colors for canvas apps in PowerApps
-Colors used in a canvas app should be accessible to color-blind and low-vision users. All PowerApps themes are accessible by default. When modifying colors used in an app, follow these guidelines to ensure that they remain accessible. There are several tools available online which can help you identify color contrast issues.
+# <a name="accessible-colors-for-canvas-apps-in-powerapps"></a>Barrierefreiheit und Farben für Canvas-Apps in PowerApps
+In einer App sollten nur Farben verwendet werden, die für barrierefreien Zugriff für farbenblinde und sehbehinderte Benutzer geeignet sind. Alle PowerApps-Designs sind standardmäßig barrierefrei. Beachten Sie diese Richtlinien, wenn Sie die in einer App verwendeten Farben ändern, um weiterhin Barrierefreiheit sicherzustellen. Online stehen mehrere Tools zur Verfügung, die Sie beim Bestimmen von Farbkontrasten unterstützen können.
 
-## Minimum contrast for text
-* Text and its background must have a contrast ratio of at least 4.5:1
-* Large text must have a contrast ratio of at least 3:1
-* Disabled text has no contrast requirements
+## <a name="minimum-contrast-for-text"></a>Minimaler Kontrast bei Text
+* Text und Hintergrund müssen zumindest ein Kontrastverhältnis von 4,5:1 aufweisen.
+* Großer Text muss zumindest ein Kontrastverhältnis von 3:1 aufweisen.
+* Für deaktivierten Text bestehen keine Kontrastanforderungen.
 
-In practical terms, all interactive controls must have adequate color contrast between:
-* **[Color](controls/properties-color-border.md)** and **[Fill](controls/properties-color-border.md)**
-* **[PressedColor](controls/properties-color-border.md)** and **[PressedFill](controls/properties-color-border.md)**
-* **[HoverColor](controls/properties-color-border.md)** and **[HoverFill](controls/properties-color-border.md)**
+Praktisch müssen alle interaktiven Steuerelemente einen ausreichenden Farbkontrast aufweisen zwischen:
+* **[Color](controls/properties-color-border.md)** und **[Fill](controls/properties-color-border.md)**
+* **[PressedColor](controls/properties-color-border.md)** und **[PressedFill](controls/properties-color-border.md)**
+* **[HoverColor](controls/properties-color-border.md)** und **[HoverFill](controls/properties-color-border.md)**
 
-## Minimum contrast for non-text
+## <a name="minimum-contrast-for-non-text"></a>Minimaler Kontrast bei Nichttextinhalten
 
 > [!NOTE]
-> In the [WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) standard, contrast requirements only applies to text. For greater accessibility, consider the upcoming [WCAG 2.1 contrast guidelines](https://www.w3.org/TR/WCAG21/#non-text-contrast) for essential user interface components like icon buttons. A minimum ratio of 3:1 is recommended for these components. The guidelines descibed in this section are **optional** for WCAG 2.0 compliance.
+> Die Kontrastanforderungen im Standard [WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) gelten nur für Text. Um die Barrierefreiheit zu steigern, beachten Sie die kommenden [WCAG 2.1-Kontrastrichtlinien](https://www.w3.org/TR/WCAG21/#non-text-contrast) für wichtige Benutzeroberflächenkomponenten wie Symbolschaltflächen. Ein minimales Verhältnis von 3:1 wird für diese Komponenten empfohlen. Die in diesem Abschnitt beschriebenen Richtlinien sind für die WCAG 2.0-Kompatibilität **optional**.
 
-### User interface components
-All interactive controls must have adequate color contrast between:
-* **[FocusedBorderColor](controls/properties-color-border.md)** and color outside the control
+### <a name="user-interface-components"></a>Benutzeroberflächenkomponenten
+Alle interaktiven Steuerelemente müssen einen ausreichenden Farbkontrast aufweisen zwischen:
+* **[FocusedBorderColor](controls/properties-color-border.md)** und der Farbe außerhalb des Steuerelements
 
-Additional color contrast checks apply for controls where the entire area is interactive or informative. For example, a **[Button](controls/control-button.md)** or an **[Icon](controls/control-shapes-icons.md)** used as a button. This ensures that the boundaries of the control are clear and users know where they can click or tap.
+Zusätzliche Überprüfungen des Farbkontrasts sind für Steuerelemente erforderlich, wo der gesamte Bereich interaktiv oder informativ ist. Beispiel: eine **[Schaltfläche](controls/control-button.md)** oder ein als Schaltfläche verwendetes **[Symbol](controls/control-shapes-icons.md)**. So wird sichergestellt, dass die Grenzen des Steuerelements deutlich sind, und Benutzer wissen, wo sie klicken oder tippen können.
 
-If there is a border for such controls, there should be adequate color contrast between:
-* **[BorderColor](controls/properties-color-border.md)** and color outside the control
-* **[PressedBorderColor](controls/properties-color-border.md)** and color outside the control
-* **[HoverBorderColor](controls/properties-color-border.md)** and color outside the control
+Wenn ein solches Steuerelement einen Rahmen hat, sollte der Farbkontrast ausreichend sein zwischen:
+* **[BorderColor](controls/properties-color-border.md)** und der Farbe außerhalb des Steuerelements
+* **[PressedBorderColor](controls/properties-color-border.md)** und der Farbe außerhalb des Steuerelements
+* **[HoverBorderColor](controls/properties-color-border.md)** und der Farbe außerhalb des Steuerelements
 
-If there is no border, there should be adequate color contrast between:
-* **[Fill](controls/properties-color-border.md)** and color outside the control
-* **[PressedFill](controls/properties-color-border.md)** and color outside the control
-* **[HoverFill](controls/properties-color-border.md)** and color outside the control
+Wenn kein Rahmen vorhanden ist, sollte der Farbkontrast ausreichend sein zwischen:
+* **[Fill](controls/properties-color-border.md)** und der Farbe außerhalb des Steuerelements
+* **[PressedFill](controls/properties-color-border.md)** und der Farbe außerhalb des Steuerelements
+* **[HoverFill](controls/properties-color-border.md)** und der Farbe außerhalb des Steuerelements
 
-### Graphical objects
-If an image conveys important information, consider checking it for contrast issues. This applies to controls where an image can be shown: **[Audio](controls/control-audio-video.md)**, **[Image](controls/control-image.md)**, **[Microphone](controls/control-microphone.md)**, and **[Video](controls/control-audio-video.md)**.
+### <a name="graphical-objects"></a>Grafikobjekte
+Wenn ein Bild wichtige Informationen vermittelt, achten Sie besonders auf etwaige Kontrastprobleme. Dies gilt für Steuerelemente, in denen ein Bild angezeigt werden kann: **[Audio](controls/control-audio-video.md)**, **[Image](controls/control-image.md)**, **[Mikrofon](controls/control-microphone.md)** und **[Video](controls/control-audio-video.md)**.
 
-For video content, consider checking it for contrast issues. Alternatively or additionally, provide [closed captions](controls/control-audio-video.md) that describe the video.
+Überprüfen Sie Videoinhalte auf Kontrastprobleme. Stellen Sie alternativ oder darüber hinaus [Untertitel](controls/control-audio-video.md) bereit, die das Video beschreiben.
 
-## Provide other visual cues
-Ensure that the app does not convey information with just color. For example, users with red-green color blindness will not be able to distinguish a red error message from a green success message.
+## <a name="provide-other-visual-cues"></a>Bereitstellen anderer visueller Hinweise
+Stellen Sie sicher, dass die App keine Informationen einfach nur über Farbe vermittelt. Rotgrün farbenblinde Benutzer können beispielsweise keine rote Fehlermeldung von einer grünen Erfolgsmeldung unterscheiden.
 
-Additional cues like an **[Icon](controls/control-shapes-icons.md)** or text styles like **[Italic](controls/properties-text.md)** and **[Underline](controls/properties-text.md)** can help convey meaning.
+Zusätzliche Hinweise wie ein **[Symbol](controls/control-shapes-icons.md)** oder Textformate wie **[Kursiv](controls/properties-text.md)** und **[Unterstrichen](controls/properties-text.md)** können helfen, Bedeutungen zu vermitteln.
 
-## Next steps
-Learn about [accessibility properties](controls/properties-accessibility.md) in PowerApps controls and try [using the Accessibility checker](accessibility-checker.md).
+## <a name="next-steps"></a>Nächste Schritte
+Erfahren Sie mehr zu [Barrierefreiheitseigenschaften](controls/properties-accessibility.md) in PowerApps-Steuerelementen und zum [Verwenden der Barrierefreiheitsprüfung](accessibility-checker.md).

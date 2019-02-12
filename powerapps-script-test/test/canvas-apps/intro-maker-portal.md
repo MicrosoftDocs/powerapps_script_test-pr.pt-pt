@@ -1,119 +1,125 @@
 ---
-title: Sign in for the first time | Microsoft Docs
-description: A new home for all makers of apps.
+title: Erste Anmeldung | Microsoft-Dokumentation
+description: Die neue Anlaufstelle für App-Entwickler
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 08/06/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 02aaaf7fd149ca0d9f3e1325b98e5287c90bebec
+ms.sourcegitcommit: 02d0234bd84352bf1c43d0fc9225ab60947a0add
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49316997"
 ---
-# Sign in to PowerApps for the first time
+# <a name="sign-in-to-powerapps-for-the-first-time"></a>Erste Anmeldung bei PowerApps
 
-When you sign in to [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), the site offers you a variety of options for creating your own apps, opening apps that you or others have created, and performing related tasks. These tasks range from the most simple, such as identifying the license or licenses that give you access, to more advanced capabilities, such as creating custom connections to specific data sources.
+Wenn Sie sich bei [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) anmelden, bietet Ihnen die Website eine Vielzahl von Optionen zum Erstellen eigener Apps, zum Öffnen von Apps, die Sie selbst oder andere Benutzer erstellt haben, und zum Ausführen von Aufgaben rund um Apps. Einige dieser Funktionen sind ganz einfach, z.B. die Ermittlung der Lizenzen, über die Sie Zugriff erhalten. Andere sind komplexer, beispielsweise die Erstellung von benutzerdefinierten Verbindungen mit bestimmten Datenquellen.
 
-You can select options in three general areas:
+Sie können in drei allgemeinen Bereichen aus verschiedenen Optionen auswählen:
 
-- the header along the top of the page
+- Headerbereich oben auf der Seite
 
     ![Header](media/intro-maker-portal/header.png)
 
-- the navigation bar along the left edge of the page
+- Navigationsleiste am linken Rand der Seite
 
-    ![Navigation bar](media/intro-maker-portal/nav-bar.png)
+    ![Navigationsleiste](media/intro-maker-portal/nav-bar.png)
 
-- the large icons that feature prominently in the middle of the page
+- Große Symbole, die gut sichtbar in der Mitte der Seite platziert sind
 
-    ![Center area of the home page](media/intro-maker-portal/center-area.png)
+    ![Mittlerer Bereich der Startseite](media/intro-maker-portal/center-area.png)
 
-For best results, start by ensuring that the home page is set to the right environment.
+Um optimale Ergebnisse zu erzielen, stellen Sie zunächst sicher, dass die Startseite auf die richtige Umgebung festgelegt ist.
 
-## Choose an environment
+## <a name="choose-an-environment"></a>Auswählen einer Umgebung
 
-Whether you're creating an app, a flow, a data connection, or an entity in the Common Data Service for Apps, much of what you do in PowerApps is contained in a specific environment. Environments create boundaries between different types of work; for example, an organization might have separate environments for different departments. Many organizations use environments to separate apps that are still being developed from those that are ready for widespread use. You might have access to multiple environments or only one and, if you have appropriate permissions, you might be able to create your own environments.
+Wenn Sie eine App, einen Flow, eine Datenverbindung oder eine Entität in Common Data Service für Apps erstellen, befindet sich ein Großteil der Aktivitäten, die Sie in PowerApps ausführen, in einer bestimmten Umgebung. Umgebungen sorgen für Abgrenzungen zwischen verschiedenen Arbeitsbereichen. Eine Organisation kann beispielsweise über getrennte Umgebungen für verschiedene Abteilungen verfügen. Viele Organisationen verwenden Umgebungen, um Apps, die sich noch in der Entwicklung befinden, von Apps zu trennen, die für die allgemeine Verwendung bereit sind. Sie können möglicherweise auf mehrere Umgebungen zugreifen oder nur auf eine. Wenn Sie über die entsprechenden Berechtigungen verfügen, können Sie möglicherweise selbst Umgebungen erstellen.
 
-To verify which environment you're in, find the environment switcher near the right side of the header.
+Um zu überprüfen, in welcher Umgebung Sie sich befinden, suchen Sie das Umschaltfeld für Umgebungen im Headerbereich.
 
-![Environment switcher](media/intro-maker-portal/environment-switcher.png)
+![Umschaltfeld für Umgebungen](media/intro-maker-portal/environment-switcher.png)
 
-If you create an app in one environment, you won't be able to see it from another environment. In addition, people who want to run your app must have access to the environment in which you created it.
+Wenn Sie eine App in einer Umgebung erstellen, wird diese nicht in einer anderen Umgebung angezeigt. Darüber hinaus müssen Benutzer, die Ihre App ausführen möchten, Zugriff auf die Umgebung haben, in der Sie die App erstellt haben.
 
 > [!IMPORTANT]
-> Make sure that you're in the right environment *before* you create an app, a flow, or a similar component. You can't easily move components from one environment to another.
+> Stellen Sie sicher, dass Sie sich in der richtigen Umgebung befinden, *bevor* Sie eine App, einen Flow oder eine ähnliche Komponente erstellen. Sie können Komponenten nicht ohne Weiteres von einer Umgebung in eine andere verschieben.
 
-For more information, see [Environments overview](../../administrator/environments-overview.md).
+Weitere Informationen finden Sie unter [Übersicht zu Umgebungen](../../administrator/environments-overview.md).
 
-## Choose an app type
+## <a name="choose-an-app-type"></a>Auswählen eines App-Typs
 
-In PowerApps, you can create and run these types of apps:
+In PowerApps können Sie die folgenden Arten von Apps erstellen und ausführen:
 
-- **Canvas apps** support designing custom UI and connecting to data from a variety of sources.
-- **Model-driven apps** have a standard UI and connect to data only in Common Data Service (CDS) for Apps. However, you can more easily create other elements such as views, dashboards, and different types of business logic.
+- **Canvas-Apps** unterstützen das Entwerfen einer benutzerdefinierten Benutzeroberfläche und die Herstellung einer Verbindung mit Daten aus einer Vielzahl von Quellen.
+- **Modellgesteuerte Apps** verfügen über eine standardmäßige Benutzeroberfläche und stellen nur in Common Data Service (CDS) für Apps eine Verbindung mit Daten her. Sie können jedoch einfacher andere Elemente wie Ansichten, Dashboards und verschiedene Arten von Geschäftslogik erstellen.
 
-If you choose an environment that has a CDS for Apps database, you can build canvas or model-driven apps from the same **Home** page.
+Wenn Sie eine Umgebung auswählen, die über CDS für eine App-Datenbank verfügt, können Sie Canvas-Apps oder modellgesteuerte von der gleichen **Startseite** aus erstellen.
 
-## Play or edit an app
+## <a name="play-or-edit-an-app"></a>Wiedergeben oder Bearbeiten einer App
 
-If you've created an app (or someone else has created one and shared it with you), you can play or edit it from the **Home** page or the **Apps** page.
+Wenn Sie eine App erstellt haben (oder jemand anders eine App erstellt und für Sie freigegeben hat), können Sie diese über die Seite **Startseite** oder die Seite **Apps** wiedergeben oder bearbeiten.
 
-On the **Apps** page, you can filter the list of apps based on criteria such as whether you opened it recently.
+Auf der Seite **Apps** können Sie die Liste der Apps nach verschiedenen Kriterien filtern, beispielsweise danach, ob Sie eine App vor Kurzem geöffnet haben.
 
-![list of apps](./media/intro-maker-portal/find-apps.png)
+![Liste der Apps](./media/intro-maker-portal/find-apps.png)
 
-You can also search for an app by typing one or more characters in the search bar, which appears near the upper-right corner. When you find the app you want, select the banner icon to play or edit the app.
+Sie können auch nach einer App suchen, indem Sie in das Suchfeld, das rechts oben angezeigt wird, ein oder mehrere Zeichen eingeben. Wenn Sie die gewünschte App gefunden haben, klicken Sie auf das Bannersymbol, um die App zu starten oder zu bearbeiten.
 
-## Create an app
+## <a name="create-an-app"></a>Erstellen einer App
 
-From the **Home** page, you can create apps in several ways:
+Auf der **Startseite** können Sie Apps auf verschiedene Arten erstellen:
 
-- [generate a canvas app automatically from a set of data](data-platform-create-app.md)
-- [customize a pre-built sample of a canvas app](open-and-run-a-sample-app.md)
-- [build a canvas app from a blank screen](data-platform-create-app-scratch.md)
-- [create your own model-driven app](../model-driven-apps/overview-model-driven-samples.md)
-- [customize a pre-built sample for a model-driven app](../model-driven-apps/build-first-model-driven-app.md)
+- [Automatisches Generieren einer Canvas-App aus einem Satz von Daten](data-platform-create-app.md)
+- [Anpassen eines vorab erstellten Beispiels für eine Canvas-App](open-and-run-a-sample-app.md)
+- [Erstellen einer Canvas-App aus einem leeren Bildschirm](data-platform-create-app-scratch.md)
+- [Erstellen einer eigenen modellgesteuerten App](../model-driven-apps/overview-model-driven-samples.md)
+- [Anpassen eines vorab erstellten Beispiels für eine modellgesteuerte App](../model-driven-apps/build-first-model-driven-app.md)
 
-## Learn more
+## <a name="learn-more"></a>Weitere Informationen
 
-You can find more information about either canvas apps or model-driven apps in two ways:
+Es gibt zwei Möglichkeiten, weitere Informationen zu Canvas-Apps oder modellgesteuerten Apps zu finden:
 
-- In the left navigation bar, select **Learn**.
-- In the header, select the question-mark icon.
+- Klicken Sie auf der linken Navigationsleiste auf **Weitere Informationen**.
+- Klicken Sie im Header auf das Fragezeichen.
 
-    ![List of model-driven apps with an ellipsis menu open](media/intro-maker-portal/help-icon.png)
+    ![Liste der modellgesteuerten Apps mit offenem Menü nach Auswahl der Auslassungspunkte](media/intro-maker-portal/help-icon.png)
 
-Both options show links to this documentation set, the PowerApps Community (where you can share information with users in other organizations), and the PowerApps blog (where the newest features are announced).
+Beide Optionen zeigen Links zu diesem Dokumentationssatz, zur PowerApps-Community (dort können Sie Informationen mit Benutzern in anderen Organisationen teilen) und zum PowerApps-Blog (dort finden Sie Ankündigungen zu neuen Features).
 
-## Other common tasks
+## <a name="other-common-tasks"></a>Weitere allgemeine Aufgaben
 
-By selecting options in the header and left navigation bar, you can do more than create and open apps.
+Mit den Optionen im Header und der linken Navigationsleiste können Sie nicht nur Apps erstellen und öffnen.
 
-### From the header
+### <a name="from-the-header"></a>Im Header
 
-- Select the down arrow to download mobile and other clients in which you can run apps.
+- Wählen Sie den nach unten weisenden Pfeil, um mobile und andere Clients herunterzuladen, in denen Sie Apps ausführen können.
 
-    For more information, see [Find and run apps](../../user/index.md).
+    Weitere Informationen finden Sie unter [Finden und Ausführen von Apps](../../user/index.md).
 
-- Select the gear icon to perform tasks such as connecting to data sources, identifying your PowerApps license or licenses, and opening the page where you can perform administrative tasks.
+- Wählen Sie das Zahnradsymbol aus, um Aufgaben wie die folgenden auszuführen: Herstellen einer Verbindung mit Datenquellen, Ermitteln Ihrer PowerApps-Lizenz(en), Öffnen der Seite für Verwaltungsaufgaben.
 
-    For more information, see these topics:
+    Weitere Informationen finden Sie in folgenden Themen:
 
-  - [Overview of canvas-app connectors](connections-list.md)
-  - [Build and certify custom connectors for canvas apps](register-custom-api.md)
-  - [Manage an on-premises data gateway](gateway-management.md)
-  - [Administer PowerApps](../../administrator/index.md)
-  - [Licensing overview](../../administrator/pricing-billing-skus.md)
-  - [Overview of building a model-driven app](../model-driven-apps/model-driven-app-overview.md)
+  - [Übersicht über die Canvas-App-Connectors](connections-list.md)
+  - [Erstellen und Zertifizieren benutzerdefinierter Connectors für Canvas-Apps](register-custom-api.md)
+  - [Verwalten eines lokalen Datengateways](gateway-management.md)
+  - [Verwalten von PowerApps](../../administrator/index.md)
+  - [Übersicht über die Lizenzierung](../../administrator/pricing-billing-skus.md)
+  - [Übersicht über die Erstellung einer modellgesteuerten App](../model-driven-apps/model-driven-app-overview.md)
 
-### From the left navigation bar
+### <a name="from-the-left-navigation-bar"></a>Auf der linken Navigationsleiste
 
-Extend the functionality of your apps by performing these tasks:
+Erweitern Sie die Funktionalität Ihrer Apps, indem Sie folgende Aufgaben ausführen:
 
-- Manage entities, option sets, and data integration in [Common Data Service for Apps](../common-data-service/data-platform-intro.md).
-- Configure business logic in [Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
-- Author, package, and maintain [solutions](../../developer/common-data-service/introduction-solutions.md).
+- Verwalten Sie Entitäten, Optionssätze und die Datenintegration in [Common Data Service für Apps](../common-data-service/data-platform-intro.md).
+- Konfigurieren Sie Geschäftslogik in [Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
+- Erstellen, packen und verwalten Sie [Lösungen](../../developer/common-data-service/introduction-solutions.md).

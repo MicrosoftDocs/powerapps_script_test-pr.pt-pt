@@ -1,6 +1,6 @@
 ---
-title: DataSourceInfo function | Microsoft Docs
-description: Reference information, including syntax and examples, for the DataSourceInfo function in PowerApps
+title: Funktion „DataSourceInfo“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „DataSourceInfo“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,82 +9,88 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/11/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: d856ccd086a919e206175c25eee19f435325fb8c
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42835265"
 ---
-# DataSourceInfo function in PowerApps
-Provides information about a [data source](../working-with-data-sources.md).
+# <a name="datasourceinfo-function-in-powerapps"></a>Funktion „DataSourceInfo“ in PowerApps
+Stellt Informationen über eine [Datenquelle](../working-with-data-sources.md) bereit
 
-## Overview
-Data sources can provide a wealth of information to optimize the user experience.
+## <a name="overview"></a>Übersicht
+Datenquellen können eine Fülle von Informationen bereitstellen, um die Benutzerfreundlichkeit zu optimieren.
 
-You can use [column](../working-with-tables.md#columns)-level information to validate user input and provide immediate feedback to the user before using the **[Patch](function-patch.md)** function. The **[Validate](function-validate.md)** function uses this same information.
+Sie können Informationen auf [Spaltenebene](../working-with-tables.md#columns) verwenden, um Benutzereingaben zu prüfen und dem Benutzer vor dem Verwenden der **[Patch](function-patch.md)**-Funktion sofort Feedback zu geben. Die **[Validate](function-validate.md)**-Funktion verwendet die gleichen Informationen.
 
-You can use information at the data-source level, for example, to disable or hide **Edit** and **New** buttons for users who don't have permissions to edit and create [records](../working-with-tables.md#records).
+Sie können Informationen auf Datenquellenebene z.B. verwenden, um die Schaltflächen **Bearbeiten** und **Neu** für Benutzer zu deaktivieren oder auszublenden, die keine Berechtigungen haben, [Datensätze](../working-with-tables.md#records) zu bearbeiten und zu erstellen.
 
-Data sources vary in how much information they provide, including not providing any at all.  [Collections](../working-with-data-sources.md#collections) provide no information. If a piece of information isn't provided, a default is used, or *blank* is returned.
+Datenquellen stellen unterschiedlich viele Informationen zur Verfügung, manchmal sogar gar keine.  [Sammlungen](../working-with-data-sources.md#collections) stellen keine Informationen bereit. Wenn eine Information nicht bereitgestellt wird, wird ein Standardwert verwendet, oder es wird *blank* (leer) zurückgegeben.
 
-## Description
-### Column information
-You can use **DataSourceInfo** to obtain information about a particular column of a data source:  
+## <a name="description"></a>Beschreibung
+### <a name="column-information"></a>Spalteninformationen
+Sie können **DataSourceInfo** verwenden, um Informationen über eine bestimmte Spalte einer Datenquelle zu erhalten:  
 
-| Information Argument | Result Type | Description |
+| Informationsargument | Ergebnistyp | Beschreibung |
 | --- | --- | --- |
-| **DataSourceInfo.DisplayName** |String |Display name for the column. If no display name is defined, returns the column name. |
-| **DataSourceInfo.MaxLength** |Number |Maximum number of characters that the column can hold. Applies only to columns that contain strings. If a maximum isn't set, returns *blank*. |
-| **DataSourceInfo.MaxValue** |Number |Maximum numeric value that a column can hold. Applies only to columns that contain numbers. If a maximum isn't set, returns *blank*. |
-| **DataSourceInfo.MinValue** |Number |Minimum numeric value that a column can hold. Applies only to columns that contain numbers. If a minimum isn't set, returns *blank*. |
-| **DataSourceInfo.Required** |Boolean |Is a value required for this column? If not set by the data source, returns **false**. |
+| **DataSourceInfo.DisplayName** |Zeichenfolge |Anzeigename für die Spalte. Wenn kein Anzeigename definiert ist, wird der Spaltennamen zurückgegeben. |
+| **DataSourceInfo.MaxLength** |Number |Maximale Anzahl von Zeichen, die die Spalte enthalten kann. Gilt nur für Spalten, die Zeichenfolgen enthalten. Wenn ein Maximum nicht festgelegt ist, wird *blank* zurückgegeben. |
+| **DataSourceInfo.MaxValue** |Number |Höchster numerischer Wert, den eine Spalte enthalten kann. Gilt nur für Spalten, die Zahlen enthalten. Wenn ein Maximum nicht festgelegt ist, wird *blank* zurückgegeben. |
+| **DataSourceInfo.MinValue** |Number |Niedrigster numerischer Wert, den eine Spalte enthalten kann. Gilt nur für Spalten, die Zahlen enthalten. Wenn ein Minimum nicht festgelegt ist, wird *blank* zurückgegeben. |
+| **DataSourceInfo.Required** |Boolescher Wert |Ist ein Wert für diese Spalte erforderlich? Wenn nicht von der Datenquelle festgelegt, wird **FALSE** zurückgegeben. |
 
-The third argument is the name of a column as a string.  For example, column **Phone** in collection **People** would be passed as **"Phone"** including the double quotes.
+Das dritte Argument ist der Name einer Spalte als Zeichenfolge.  Beispielsweise würde die Spalte **Phone** (Telefon) in der Sammlung **People** (Personen) würde als **"Phone"**, inklusive der doppelten Anführungszeichen, übergeben werden.
 
-### Data-source information
-You can also use **DataSourceInfo** to obtain information about a data source as a whole:  
+### <a name="data-source-information"></a>Datenquelleninformationen
+Sie können **DataSourceInfo** auch dazu verwenden, Informationen über die Datenquelle als Ganzes abzurufen:  
 
-| Information Argument | Result Type | Description |
+| Informationsargument | Ergebnistyp | Beschreibung |
 | --- | --- | --- |
-| **DataSourceInfo.AllowedValues** |Boolean |What types of permissions can users be granted for this data source? If not set by the data source, returns *blank*. |
-| **DataSourceInfo.CreatePermission** |Boolean |Does the current user have permission to create records in this data source? If not set by the data source, returns **true**. |
-| **DataSourceInfo.DeletePermission** |Boolean |Does the current user have permission to delete records in this data source? If not set by the data source, returns **true**. |
-| **DataSourceInfo.EditPermission** |Boolean |Does the current user have permission to edit records in this data source? If not set by the data source, returns **true**. |
-| **DataSourceInfo.ReadPermission** |Boolean |Does the current user have permission to read records in this data source? If not set by the data source, returns **true**. |
+| **DataSourceInfo.AllowedValues** |Boolescher Wert |Welche Arten von Berechtigungen können Benutzern für diese Datenquelle werden erteilt? Gibt *leer* zurück, wenn von der Datenquelle nicht festgelegt. |
+| **DataSourceInfo.CreatePermission** |Boolescher Wert |Verfügt der aktuelle Benutzer über die Berechtigung zum Erstellen von Datensätzen in dieser Datenquelle? Wenn nicht von der Datenquelle festgelegt, wird **TRUE** zurückgegeben. |
+| **DataSourceInfo.DeletePermission** |Boolescher Wert |Verfügt der aktuelle Benutzer über die Berechtigung zum Löschen von Datensätzen in dieser Datenquelle? Wenn nicht von der Datenquelle festgelegt, wird **TRUE** zurückgegeben. |
+| **DataSourceInfo.EditPermission** |Boolescher Wert |Verfügt der aktuelle Benutzer über die Berechtigung zum Bearbeiten von Datensätzen in dieser Datenquelle? Wenn nicht von der Datenquelle festgelegt, wird **TRUE** zurückgegeben. |
+| **DataSourceInfo.ReadPermission** |Boolescher Wert |Verfügt der aktuelle Benutzer über die Berechtigung zum Lesen von Datensätzen in dieser Datenquelle? Wenn nicht von der Datenquelle festgelegt, wird **TRUE** zurückgegeben. |
 
-## Syntax
-**DataSourceInfo**( *DataSource*, *Information*, *ColumnName* )
+## <a name="syntax"></a>Syntax
+**DataSourceInfo**( *Datenquelle*, *Information*, *Spaltenname* )
 
-* *DataSource* – Required. The data source to use.
-* *Information* – Required. The type of information that you want to retrieve.
-* *ColumnName* – Optional. For column-level information, the column name as a string. Column **Phone** would be passed as **"Phone"**, including the double quotes. For information at the data-source level, the *ColumnName* argument can't be used.
+* *Datenquelle*: Erforderlich. Die zu verwendende Datenquelle.
+* *Information*: Erforderlich. Der Typ von Information, den Sie abrufen möchten.
+* *Spaltenname*: Optional. Bei Informationen auf Spaltenebene der Spaltenname als Zeichenfolge. Die Spalte **Phone** würde als **"Phone"**, inklusive der doppelten Anführungszeichen, übergeben werden. Für Informationen auf Datenbankebene kann das *Spaltenname*-Argument nicht verwendet werden.
   
     > [!NOTE]
-  > For SharePoint and Excel data sources that contain column names with spaces, specify each space as **"\_x0020\_"**. For example, specify **"Column Name"** as **"Column_x0020_Name"**.
+  > Bei Excel- oder SharePoint-Datenquellen, die Spaltennamen mit Leerzeichen enthalten, geben Sie jedes Leerzeichen als **"\_x0020\_"** an. **"Name der Spalte"** wird z.B. als **"Name_x0020_der_x0020_Spalte"** angegeben.
 
-## Examples
-The examples in this section use this data source, named **IceCream**:
+## <a name="examples"></a>Beispiele
+In den Beispielen in diesem Abschnitt wird diese Datenquelle namens **IceCream** (Eiscreme) verwendet:
 
 ![](media/function-datasourceinfo/icecream.png)
 
-The data source has also provided this information:
+Die Datenquelle hat zudem diese Informationen bereitgestellt:
 
-* The display name for **Quantity** is "Quantity on Hand".
-* The maximum length of **Flavor** is 30 characters.
-* The **Flavor** column must contain a value. The **Quantity** column isn't required.
-* The minimum **Quantity** is 0.
-* The maximum **Quantity** is 100.
-* The current user can read and edit the records of the **IceCream** data source but can't create or delete records.
+* Der Anzeigename für **Quantity** (Menge) ist "Quantity on Hand" (Lagerbestand).
+* Die maximale Länge von **Flavor** (Sorte) beträgt 30 Zeichen.
+* Die Spalte **Flavor** muss einen Wert enthalten. Die Spalte **Quantity** ist nicht erforderlich.
+* Der minimale Wert für **Quantity** ist 0.
+* Der maximale Wert für **Quantity** ist 100.
+* Der aktuelle Benutzer kann die Datensätze der Datenquelle **IceCream** lesen und bearbeiten, jedoch keine Datensätze erstellen oder löschen.
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.DisplayName,&nbsp;"Quantity"&nbsp;)** |Returns the display name for the **Quantity** column of the **IceCream** data source. |"Quantity on Hand" |
-| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.MaxLength,&nbsp;"Flavor"&nbsp;)** |Returns the maximum length of the string for the **Flavor** column of the **IceCream** data source. |30 |
-| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.Required,&nbsp;"Flavor"&nbsp;)** |Is the **Flavor** column of the **IceCream** data source required? |**true** |
-| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.Required,&nbsp;"Quantity"&nbsp;)** |Is the **Quantity** column of the **IceCream** data source required? |**false** |
-| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.MaxValue,&nbsp;"Quantity"&nbsp;)** |Returns the maximum numeric value for the **Quantity** column of the **IceCream** data source. |100 |
-| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.MinValue,&nbsp;"Quantity"&nbsp;)** |Returns the minimum numeric value for the **Quantity** column of the **IceCream** data source. |0 |
-| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.ReadPermission)** |Can the current user read records in the **IceCream** data source? |**true** |
-| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.EditPermission)** |Can the current user edit records in the **IceCream** data source? |**true** |
-| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.CreatePermission)** |Can the current user create records in the **IceCream** data source? |**false** |
-| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.DeletePermission)** |Can the current user delete records in the **IceCream** data source? |**false** |
+| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.DisplayName,&nbsp;"Quantity"&nbsp;)** |Gibt den Anzeigenamen für die Spalte **Quantity** der Datenquelle **IceCream** zurück |"Quantity on Hand" (Lagerbestand) |
+| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.MaxLength,&nbsp;"Flavor"&nbsp;)** |Gibt die maximale Länge der Zeichenfolge für die Spalte **Flavor** der Datenquelle **IceCream** zurück. |30 |
+| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.Required,&nbsp;"Flavor"&nbsp;)** |Ist die Spalte **Flavor** der Datenquelle **IceCream** erforderlich? |**TRUE** |
+| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.Required,&nbsp;"Quantity"&nbsp;)** |Ist die Spalte **Quantity** der Datenquelle **IceCream** erforderlich? |**FALSE** |
+| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.MaxValue,&nbsp;"Quantity"&nbsp;)** |Gibt den höchsten numerischen Wert für die Spalte **Quantity** der Datenquelle **IceCream** zurück |100 |
+| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.MinValue,&nbsp;"Quantity"&nbsp;)** |Gibt den niedrigsten numerischen Wert für die Spalte **Quantity** der Datenquelle **IceCream** zurück |0 |
+| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.ReadPermission)** |Kann der aktuelle Benutzer Datensätze in der Datenquelle **IceCream** lesen? |**TRUE** |
+| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.EditPermission)** |Kann der aktuelle Benutzer Datensätze in der Datenquelle **IceCream** bearbeiten? |**TRUE** |
+| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.CreatePermission)** |Kann der aktuelle Benutzer Datensätze in der Datenquelle **IceCream** erstellen? |**FALSE** |
+| **DataSourceInfo(&nbsp;IceCream, DataSourceInfo.DeletePermission)** |Kann der aktuelle Benutzer Datensätze in der Datenquelle **IceCream** löschen? |**FALSE** |
 

@@ -1,6 +1,6 @@
 ---
-title: EndsWith and StartsWith functions | Microsoft Docs
-description: Reference information, including syntax and examples for the EndsWith and StartsWith functions in PowerApps
+title: Funktionen „EndsWith“ und „StartsWith“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich von Syntax und Beispielen, für die Funktionen „EndsWith“ und „StartsWith“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,82 +9,88 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 07/24/2017
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: e202ce052bf12f5f67715deb2e86b385c2e515a7
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42835558"
 ---
-# EndsWith and StartsWith functions in PowerApps
-Tests whether a text string begins or ends another text string.
+# <a name="endswith-and-startswith-functions-in-powerapps"></a>Funktionen „EndsWith“ und „StartsWith“ in PowerApps
+Testet, ob eine Textzeichenfolge mit einer anderen Textzeichenfolge beginnt oder endet.
 
-## Description
-The **EndsWith** function tests whether one text string ends with another.
+## <a name="description"></a>Beschreibung
+Die **EndsWith**-Funktion testet, ob eine Textzeichenfolge mit einer anderen endet.
 
-The **StartsWith** function tests whether one text string begins with another.    
+Die **StartsWith**-Funktion testet, ob eine Zeichenfolge mit einer anderen beginnt.    
 
-For both functions, the tests are case insensitive.  The return value of both is a Boolean **true** or **false**.  
+Bei beiden Funktionen wird in den Tests die Groß-/Kleinschreibung nicht beachtet.  Der Rückgabewert beider Funktionen ist der boolescher Wert **TRUE** oder **FALSE**.  
 
-Use **EndsWith** and **StartsWith** with the **[Filter](function-filter-lookup.md)** function to search the data within your app. You can also use the **[in](operators.md#in-and-exactin-operators)** operator or the **[Search](function-filter-lookup.md)** function to look anywhere within text strings, not just at the beginning or end.  Your choice of functions will depend on the needs of your app and which function can be [delegated](../delegation-overview.md) for your particular data source.  If one of these functions can't be delegated, a delegation warning will appear at authoring time to warn you of this limitation.
+Verwenden Sie **EndsWith** und **StartsWith** mit der **[Filter](function-filter-lookup.md)**-Funktion, um die Daten in der App zu durchsuchen. Sie können auch mit dem **[in](operators.md#in-and-exactin-operators)**-Operator oder der **[Search](function-filter-lookup.md)**-Funktion an einer beliebigen Stelle innerhalb von Textzeichenfolgen und nicht nur am Anfang oder Ende suchen.  Die Wahl der Funktionen hängt von den Anforderungen der Anwendung ab, und davon welche Funktion für Ihre bestimmte Datenquelle [delegiert](../delegation-overview.md) werden kann.  Wenn eine dieser Funktionen nicht delegiert werden kann, wird beim Erstellen eine Delegierungswarnung angezeigt, um Sie bezüglich dieser Einschränkung zu warnen.
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **EndsWith**( *Text*, *EndText* )
 
-* *Text* – Required.  The text to test.
-* *EndText* – Required.  The text to search for at the end of *Text*.  If *EndText* is an empty string, **EndsWith** returns *true*.
+* *Text*: Erforderlich.  Der zu prüfende Text
+* *EndText*: Erforderlich.  Der am Ende von *Text* zu suchende Text.  Wenn *EndText* eine leere Zeichenfolge ist, gibt **EndsWith** *TRUE* zurück.
 
 **StartsWith**( *Text*, *StartText* )
 
-* *Text* – Required.  The text to test.
-* *StartText* – Required.  The text to search for at the beginning of *Text*.  If *StartText* is an empty string, **StartsWith** returns *true*.
+* *Text*: Erforderlich.  Der zu prüfende Text
+* *StartText*: erforderlich.  Der am Anfang von *Text* zu suchende Text  Wenn *StartText* eine leere Zeichenfolge ist, gibt **StartsWith** *TRUE* zurück.
 
-## Examples
+## <a name="examples"></a>Beispiele
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **EndsWith( "Hello World", "world" )** |Tests whether **"Hello World"** ends with **"world"**.  The test is case insensitive. |**true** |
-| **EndsWith( "Good bye", "good" )** |Tests whether **"Good bye"** ends with **"good"**.  The *EndText* argument (**"good"**) appears in the text but not at the end. |**false** |
-| **EndsWith( "Always say hello", "hello" )** |Tests whether **"Always say hello"** ends with **"hello"**. |**true** |
-| **Endswith( "Bye bye", "" )** |Tests whether **"Bye bye"** ends with an empty text string (**Len** returns 0).  Easing its use in **Filter** expressions, **EndsWith** is defined to return **true** in this case. |**true** |
+| **EndsWith( "Hello World", "world" )** |Überprüft, ob **"Hello World"** mit **"world"** endet.  Bei diesem Test wird die Groß-/Kleinschreibung nicht beachtet. |**TRUE** |
+| **EndsWith( "Good bye", "good" )** |Überprüft, ob **"Good bye"** mit **"good"** endet.  Das *EndText*-Argument (**"good"**) ist im Text enthalten, jedoch nicht am Ende. |**FALSE** |
+| **EndsWith( "Always say hello", "hello" )** |Prüft, ob **"Always say hello"** mit **"hello"** endet. |**TRUE** |
+| **EndsWith( "Bye bye", "" )** |Prüft, ob **"Bye bye"** mit einer leeren Textzeichenfolge endet (**Len** gibt 0 zurück).  Bei seiner vereinfachten Verwendung in **Filter**-Ausdrücken ist **EndsWith** so definiert, dass in diesem Fall **TRUE** zurückgegeben wird. |**TRUE** |
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **StartsWith( "Hello World", "hello" )** |Tests whether **"Hello World"** begins with **"hello"**.  The test is case insensitive. |**true** |
-| **StartsWith( "Good bye", "hello" )** |Tests whether **"Good bye"** begins with **"hello"**. |**false** |
-| **StartsWith( "Always say hello", "hello" )** |Tests whether **"Always say hello"** begins with **"hello"**.  Although **"hello"** appears in the text, it doesn't appear at the beginning. |**false** |
-| **StartsWith( "Bye bye", "" )** |Tests whether **"Bye bye"** starts with an empty text string (**Len** returns 0).  Easing its use in **Filter** expressions, **StartsWith** is defined to return **true** in this case. |**true** |
+| **StartsWith( "Hello World", "hello" )** |Prüft, ob **„Hello World“** mit **„Hello“** beginnt.  Bei diesem Test wird die Groß-/Kleinschreibung nicht beachtet. |**TRUE** |
+| **StartsWith( "Good bye", "hello" )** |Prüft, ob **„Good Bye“** mit **„Hello“** beginnt |**FALSE** |
+| **StartsWith( "Always say hello", "hello" )** |Prüft, ob **„Always Say Hello“** mit **„Hello“** beginnt.  Obwohl **„Hello“** im Text vorkommt, kommt es nicht am Anfang vor. |**FALSE** |
+| **StartsWith( "Bye bye", "" )** |Prüft, ob **"Bye bye"** mit einer leeren Textzeichenfolge beginnt (**Len** gibt 0 zurück).  Bei seiner vereinfachten Verwendung in **Filter**-Ausdrücken ist **StartsWith** so definiert, dass in diesem Fall **TRUE** zurückgegeben wird. |**TRUE** |
 
-### Search user experience
-In many apps, you can type one or more characters into a search box to filter a list of records in a large data set. As you type, the list shows only those records that match the search criteria.
+### <a name="search-user-experience"></a>Benutzererfahrung beim Durchsuchen
+In vielen Apps können Sie ein oder mehrere Zeichen in ein Suchfeld eingeben, um eine gefilterte Liste mit Datensätzen aus einem großen Datenbestand zu erzeugen. Während der Eingabe zeigt die Liste nur die Datensätze, die den Suchkriterien entsprechen.
 
-The examples in the rest of this topic show the results of searching a **Customers** list that contains this data:
+Die Beispiele im Rest dieses Themas zeigen die Ergebnisse der Suche in einer Liste **Customers** (Kunden), die diese Daten enthalten:
 
 ![](media/function-startswith/customers.png)
 
-To create this data source as a collection, create a **[Button](../controls/control-button.md)** control and set its **OnSelect** property to this formula:
+Erstellen Sie ein **[Button](../controls/control-button.md)**-Steuerelement, und legen Sie dessen **OnSelect**-Eigenschaft auf folgende Formel fest, um diese Datenquelle als Sammlung zu erstellen:
 
 **ClearCollect( Customers, Table( { Name: "Fred Garcia", Company: "Northwind Traders" }, { Name: "Cole Miller", Company: "Contoso" }, { Name: "Glenda Johnson", Company: "Contoso" }, { Name: "Mike Collins", Company: "Adventure Works" }, { Name: "Colleen Jones", Company: "Adventure Works" } ) )**
 
-As in this example, you can show a list of records in a [**Gallery control**](../controls/control-gallery.md) at the bottom of a screen. Near the top of the screen, you can add a [**Text input**](../controls/control-text-input.md) control, named **SearchInput**, so that users can specify which records interest them.
+Sie können wie in diesem Beispiel eine Datensatzliste in einem [**Katalogsteuerelement**](../controls/control-gallery.md) am unteren Rand des Bildschirms anzeigen. Fügen Sie im oberen Bereich des Bildschirms ein [**Texteingabe**](../controls/control-text-input.md)-Steuerelement mit dem Namen **SearchInput** ein, sodass Benutzer angeben können, welche Datensätze für sie relevant sind.
 
 ![](media/function-startswith/customers-ux-unfiltered.png)
 
-As the user types characters in **SearchInput**, the results in the gallery are automatically filtered. In this case, the gallery is configured to show records for which the name of the customer (not the name of the company) starts with the sequence of characters in **SearchInput**.If the user types **co** in the search box, the gallery shows these results:
+Wenn der Benutzer Zeichen in **SearchInput** eingibt, werden die Ergebnisse im Katalog automatisch gefiltert. In diesem Fall ist der Katalog so konfiguriert, dass er Datensätze anzeigt, für die der Name des Kunden (nicht der Namen des Unternehmens) mit der Zeichensequenz in **SearchInput** beginnt. Wenn der Benutzer **co** in das Suchfeld eingibt, zeigt der Katalog folgende Ergebnisse:
 
 ![](media/function-startswith/customers-ux-startswith-co.png)
 
-To filter based on the **Name** column, set the **Items** property of the gallery control to one of these formulas:
+Legen Sie die Eigenschaft **Items** des Katalogsteuerelements auf eine der folgenden Formeln fest, um anhand der Spalte **Name** zu filtern:
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Filter( Customers, StartsWith( Name, SearchInput.Text ) )** |Filters the **Customers** data source for records in which the search string appears at the start of the **Name** column. The test is case insensitive. If the user types **co** in the search box, the gallery shows **Colleen Jones** and **Cole Miller**. The gallery doesn't show **Mike Collins** because the **Name** column for that record doesn't start with the search string. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-name-co-startswith.png) |
-| **Filter( Customers, SearchInput.Text in Name )** |Filters the **Customers** data source for records in which the search string appears anywhere in the **Name** column. The test is case insensitive. If the user types **co** in the search box, the gallery shows **Colleen Jones,** **Cole Miller,** and **Mike Collins** because the search string appears somewhere in the **Name** column of all of those records. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-name-co-contains.png) |
-| **Search( Customers, SearchInput.Text, "Name" )** |Similar to using the **in** operator, the **Search** function searches for a match anywhere within the **Name** column of each record. Note that you must enclose the column name in double quotation marks. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-name-co-contains.png) |
+| **Filter( Customers, StartsWith( Name, SearchInput.Text ) )** |Filtert die **Customers**-Datenquelle nach Datensätzen, in der die Suchzeichenfolge am Anfang der Spalte **Name** vorkommt. Bei diesem Test wird die Groß-/Kleinschreibung nicht beachtet. Wenn der Benutzer **co** in das Suchfeld eingibt, zeigt der Katalog **Colleen Jones** und **Cole Miller** an. **Mike Collins** wird nicht im Katalog angezeigt, weil die Spalte **Name** dieses Datensatzes nicht mit der Suchzeichenfolge beginnt. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-name-co-startswith.png) |
+| **Filter( Customers, SearchInput.Text in Name )** |Filtert die **Customers**-Datenquelle nach Datensätzen, in der die Suchzeichenfolge am Anfang der Spalte **Name** vorkommt. Bei diesem Test wird die Groß-/Kleinschreibung nicht beachtet. Wenn der Benutzer **co** in das Suchfeld eingibt, zeigt der Katalog **Colleen Jones**, **Cole Miller** und **Mike Collins** an, da die Suchzeichenfolge an einer beliebigen Stelle in der Spalte **Name** dieser Datensätze vorkommt. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-name-co-contains.png) |
+| **Search( Customers, SearchInput.Text, "Name" )** |Die **Search**-Funktion wird so ähnlich wie der **in**-Operator verwendet und sucht nach einer Übereinstimmung in der Spalte **Name** in jedem Datensatz. Beachten Sie, dass Sie den Spaltennamen in doppelte Anführungszeichen setzen müssen. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-name-co-contains.png) |
 
-You can expand your search to include the **Company** column as well as the **Name** column:
+Sie können Ihre Suche auch so ausweiten, dass sie die Spalte **Company** sowie die Spalte **Name** enthält:
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Filter( Customers, StartsWith( Name, SearchInput.Text ) &#124;&#124; StartsWith( Company, SearchInput.Text ) )** |Filters the **Customers** data source for records in which either the **Name** column or the  **Company** column starts with the search string (for example, **co**).  The [**&#124;&#124;** operator](operators.md) is *true* if either **StartsWith** function is *true*. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-all-co-startswith.png) |
-| **Filter( Customers, SearchInput.Text in Name &#124;&#124; SearchInput.Text in Company )** |Filters the **Customers** data source for records in which either the **Name** column or the **Company** column contains the search string (for example, **co**) anywhere within it. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-all-co-contains.png) |
-| **Search( Customers, SearchInput.Text, "Name", "Company" )** |Similar to using the **in** operator, the **Search** function searches the **Customers** data source for records in which either the **Name** column or the **Company** column contains the search string (for example, **co**) anywhere within it. The **Search** function is easier to read and write than **Filter** if you want to specify multiple columns and multiple **in** operators. Note that you must enclose the names of the columns in double quotation marks. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-all-co-contains.png) |
+| **Filter( Customers, StartsWith( Name, SearchInput.Text ) &#124;&#124; StartsWith( Company, SearchInput.Text ) )** |Filtert die **Customers**-Datenquelle nach Datensätzen, in denen entweder die Spalte **Name** oder die Spalte **Company** mit der Suchzeichenfolge beginnt (z.B. **co**).  Der [**&#124;&#124;**-Operator](operators.md) ist *TRUE*, wenn eine **StartsWith**-Funktion *TRUE* ist. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-all-co-startswith.png) |
+| **Filter( Customers, SearchInput.Text in Name &#124;&#124; SearchInput.Text in Company )** |Filtert die **Customers**-Datenquelle nach Datensätzen, in denen entweder die Spalte **Name** oder die Spalte **Company** die Suchzeichenfolge (z.B. **co**) an beliebiger Stelle enthält. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-all-co-contains.png) |
+| **Search( Customers, SearchInput.Text, "Name", "Company" )** |Die **Search**-Funktion wird so ähnlich wie der **in**-Operator verwendet und durchsucht die **Customers**-Datenquelle nach Datensätzen, in denen entweder die **Name**-Spalte oder die **Company**-Spalte die Suchzeichenfolge (z.B. **co**) an beliebiger Stelle enthält. Die **Search**-Funktion ist einfacher zu lesen und zu schreiben als die **Filter**-Funktion, wenn Sie mehrere Spalten und mehrere **in**-Operatoren angeben möchten. Beachten Sie, dass Sie die Spaltennamen in doppelte Anführungszeichen setzen müssen. |<style> img { max-width: none } </style> ![](media/function-startswith/customers-all-co-contains.png) |
 

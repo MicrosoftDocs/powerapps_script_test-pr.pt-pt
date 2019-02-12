@@ -1,221 +1,218 @@
 ---
-title: Customize a SharePoint list form | Microsoft Docs
-description: Use PowerApps to customize the form with which users create and update entries in a SharePoint list.
+title: Anpassen eines SharePoint-Listenformulars | Microsoft-Dokumentation
+description: Verwenden Sie PowerApps, um das Formular anzupassen, über das Benutzer Einträge in einer SharePoint-Liste erstellen und bearbeiten.
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
-ms.date: 12/17/2018
+ms.reviewer: ''
+ms.date: 06/11/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 218fb97f6cd523275c0ba296ea120d487cf67e4c
+ms.sourcegitcommit: c26976af24a3e510e4eced78cf5c48cc2f71cae2
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48025669"
 ---
-# Customize a SharePoint list form by using PowerApps
+# <a name="customize-a-sharepoint-list-form-by-using-powerapps"></a>Anpassen eines SharePoint-Listenformulars mit PowerApps
 
-You can easily customize the form for a SharePoint list by opening PowerApps in a browser. You don't need to write traditional code, such as C#, or download another app, such as InfoPath. When you publish your changes, the form is embedded within the SharePoint list for use by all of its users. In PowerApps, you can also review analytics reports, easily create conditional formatting, and connect to other data sources.
+Sie können das Formular für eine SharePoint-Liste leicht anpassen, wenn Sie PowerApps in einem Browser öffnen. Sie müssen keinen herkömmlichen Code (wie C#) schreiben oder eine weitere App (wie InfoPath) herunterladen. Wenn Sie Ihre Änderungen veröffentlichen, wird das Formular in die SharePoint-Liste eingebettet, sodass es von allen Benutzern verwendet werden kann. Sie können sich in PowerApps auch Analyseberichte ansehen, im Handumdrehen bedingte Formatierungen erstellen und eine Verbindung mit anderen Datenquellen herstellen.
 
-To follow the steps in this topic, you'll create a simple list so that you can see how customization works, and then you can apply the same concepts to your own list.
+Für die in diesem Artikel beschriebenen Schritte benötigen Sie eine einfache Liste, um nachvollziehen zu können, wie die Anpassung funktioniert. Anschließend können Sie diese Konzepte auf Ihre eigene Liste anwenden.
 
 > [!NOTE]
-> If the **Customize forms** option isn't available or doesn't work correctly for your list, it might contain data types that [PowerApps doesn't support](connections/connection-sharepoint-online.md#known-issues). Also, you can't move your form to a different list or [environment](working-with-environments.md).
+> Wenn die Option **Formulare anpassen** nicht verfügbar ist oder nicht ordnungsgemäß für Ihre Liste ausgeführt wird, enthält diese möglicherweise Datentypen, die [von PowerApps nicht unterstützt werden](connections/connection-sharepoint-online.md#known-issues). Sie können Ihr Formular nicht in eine andere Liste oder [Umgebung](working-with-environments.md) verschieben.
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-1. On a SharePoint site, create a list.
+Erstellen Sie eine Liste auf einer SharePoint-Seite, und fügen Sie dann folgende Spalten ein:
 
-1. Rename the **Title** column to **ProductName** (no space).
+- **ProductName** (einzeiliger Text)
+- **Details** (ja/nein)
+- **Price** (Währung)
+- **Availability** (Datum ohne Uhrzeit)
+- **Color** (Auswahl)
 
-1. Add these columns:
+## <a name="open-the-form-in-powerapps"></a>Öffnen Sie das Formular in PowerApps
 
-    - **Details** (yes/no)
-    - **Price** (currency)
-    - **Availability** (date without time)
-    - **Color** (choice)
+1. Öffnen Sie die von Ihnen erstellte Liste, und klicken Sie dann auf der Befehlsleiste auf **Neu**.
 
-## Open the form in PowerApps
+    Das Formular wird mit den von Ihnen hinzugefügten Feldern sowie **Title** und **Attachements** geöffnet.
 
-1. Open the list that you created, and then select **New** in the command bar.
+1. Klicken Sie oben im Formular auf **Anpassen**.
 
-    The form opens and shows the fields that this topic specifies, plus **Attachments**.
+    PowerApps Studio wird auf der gleichen Registerkarte im Browser geöffnet.
 
-1. Near the top of the form, select **Customize**.
+1. Falls das Dialogfeld **Willkommen bei PowerApps Studio** geöffnet wird, wählen Sie **Überspringen** aus.
 
-    PowerApps Studio opens in the same browser tab.
+## <a name="hide-extra-fields"></a>Ausblenden zusätzlicher Felder
 
-1. If the **Welcome to PowerApps Studio** dialog box opens, select **Skip**.
+In der Mitte des Bildschirms zeigt PowerApps Ihr Formular an. Dieses enthält jedoch Felder, die Sie nicht benötigen.
 
-## Hide an extra field
+- Deaktivieren Sie im Bereich **Daten** die Kontrollkästchen für die Felder **Title** (Titel) und **Attachments** (Anlagen).
 
-In the center of your screen, PowerApps shows your form, but it contains fields that you don't need.
+    Diese Felder werden im Formular danach nicht mehr angezeigt, sodass Sie nur noch die von Ihnen hinzugefügten Felder sehen.
 
-- In the **Data** pane, clear the check box for the **Attachments** field.
+    ![Feldliste](./media/customize-list-form/field-list.png)
 
-    That field disappears from the form, leaving only the fields that you want.
+## <a name="set-conditional-formatting"></a>Festlegen bedingter Formatierung
 
-    ![Field list](./media/customize-list-form/field-list.png)
+Sie können die Felder **Price**, **Availability** und **Colors** so konfigurieren, dass sie nur angezeigt werden, wenn **Details** auf „Yes“ (Ja) festgelegt ist.
 
-## Set conditional formatting
+1. Wählen Sie Karte **Price** (Preis) aus, indem Sie einmal darauf klicken oder tippen.
 
-You can configure the **Price**, **Availability**, and **Colors** fields to appear only if **Details** is set to yes.
+    ![Karte „Price“ auswählen](./media/customize-list-form/select-card.png)
 
-1. In the left navigation bar, expand **Details_DataCard1**, and note the numeral that appears at the end of **DataCardValue**.
+1. Wählen Sie aus der Eigenschaftenliste **Visible** (Sichtbar) aus.
 
-    In this example, the numeral is 2.
+    ![Eigenschaft „Visible“ auswählen](./media/customize-list-form/select-property.png)
 
-    ![Data-card value for Details column](./media/customize-list-form/data-card-value.png)
+1. Geben Sie in der Formelleiste die folgende Formel ein (oder fügen Sie sie ein):
 
-1. Select the **Price** card by clicking or tapping it.
+    **If(DataCardValue3.Value = true, true)**
 
-    ![Select the Availability card](./media/customize-list-form/select-card.png)
+    ![Wert der visible-Eigenschaft festlegen](./media/customize-list-form/build-formula.png)
 
-1. In the property list, select **Visible**.
+1. Führen Sie diese Schritte auch für die Karten **Availability** und **Color** durch.
 
-    ![Select the Visible property](./media/customize-list-form/select-property.png)
+1. Halten Sie die ALT-TASTE gedrückt, und tippen oder klicken Sie mehrmals auf den Schalter **Details**.
 
-1. In the formula bar, type or paste this formula and then, if necessary, replace the numeral with the one that you noted in step 1:
+    Die drei von Ihnen konfigurierten Felder werden angezeigt und wieder ausgeblendet.
 
-    **If(DataCardValue2.Value = true, true)**
+1. Optional: Sie können Ihr Formular auch weiter anpassen, z.B. wie folgt:
 
-    ![Set the value of the Visible property](./media/customize-list-form/build-formula.png)
+    - Ändern Sie die Größe, Ausrichtung oder beides (Sie können das Formular z.B. [breiter machen](set-aspect-ratio-portrait-landscape.md))
+    - Fügen Sie ein Steuerelement hinzu, sodass Benutzer [Anlagen hochladen können](controls/properties-text.md).
+    - Erstellen Sie ein [Nachschlagefeld](sharepoint-lookup-fields.md).
 
-1. Repeat last three steps with the **Availability** and **Color** cards.
+## <a name="save-publish-and-show-the-form"></a>Speichern, veröffentlichen und zeigen Sie das Formular an
 
-1. While holding down the Alt key, select the **Details** toggle (by clicking or tapping it) multiple times.
+1. Öffnen Sie das Menü **Datei**, klicken Sie auf **Speichern**, und wählen Sie dann zweimal **In SharePoint veröffentlichen**.
 
-    The three fields that you configured appear and disappear from the form.
+1. Klicken Sie in der oberen linken Ecke auf den Zurück-Pfeil, und klicken Sie dann auf **Zurück zu SharePoint**.
 
-1. (optional) Customize your form in a variety of other ways, including these:
+1. Klicken Sie auf der Befehlsleiste auf **Neu**, um Ihr angepasstes Formular zu öffnen.
 
-    - Change its size, orientation, or both (for example, to [make the form wider](set-aspect-ratio-portrait-landscape.md)).
-    - Add a control so that users can [upload attachments](controls/properties-text.md).
-    - Create a [lookup field](sharepoint-lookup-fields.md).
+1. Klicken Sie mehrmals auf den Schalter **Details**, um die letzten drei Felder ein- oder auszublenden.
 
-## Save, publish, and show the form
+Gehen Sie zum [Anpassen Ihres Formulars](sharepoint-form-integration.md) folgendermaßen vor: Öffnen Sie das Formular, und klicken Sie oben im Formular auf **Anpassen**. Nehmen Sie dann Änderungen vor, und speichern und veröffentlichen Sie diese.
 
-1. Open the **File** menu, select **Save**, and then select **Publish to SharePoint** twice.
+Wenn Sie mindestens ein Element mit diesem Formular erstellen, ist das Feld **Title** (Titel) leer. Sie können dieses Feld ausblenden, indem Sie die Standardansicht ändern.
 
-1. In the upper-left corner, select the back arrow, and then select **Back to SharePoint**.
+## <a name="use-the-default-form"></a>Verwenden des Standardformulars
 
-1. In the command bar, select **New** to open your customized form.
+1. Öffnen Sie über Ihre Liste in SharePoint die Einstellungen (über das Zahnradsymbol in der oberen rechten Ecke), und klicken Sie dann auf **Listeneinstellungen**.
 
-1. Select the **Details** toggle multiple times to hide and show the last three fields.
+2. Wählen Sie unter **Allgemeine Einstellungen** **Formulareinstellungen** aus.
 
-To [customize your form further](sharepoint-form-integration.md), open it, select **Customize** near the top of the form, and then make, save, and publish your changes.
+3. Wählen Sie eine der folgenden Optionen in den **Formulareinstellungen**, und klicken Sie dann auf **OK**.
 
-If you create one or more items with this form, the **Title** field will be empty. You can hide this field by modifying the default view.
+    - **Das SharePoint-Standardformular verwenden**: Wenn ein Benutzer Ihre Liste öffnet und auf der Befehlsleiste auf **Neu** klickt, wird das Standardformular für die Liste angezeigt.
 
-## Use the default form
+    - **Use a custom form created in PowerApps** (Das in PowerApps erstellte Formular verwenden): Wenn ein Benutzer Ihre Liste öffnet und auf der Befehlsleiste auf **Neu** klickt, wird Ihr benutzerdefiniertes Formular angezeigt. (Alternativ können Sie das Formular auch erneut in PowerApps veröffentlichen).
 
-1. From your list in SharePoint, open the settings page (by selecting the gear icon near the upper-right corner), and then select **List settings**.
+    Sie können nach Bedarf zwischen den Optionen wechseln.
 
-2. Under **General settings**, select **Form settings**.
+    ![Optionen von „Formulareinstellungen“](./media/customize-list-form/form-settings.png)
 
-3. On the **Form Settings** page, select one of these options, and then select **OK**.
+## <a name="delete-the-custom-form"></a>Benutzerdefiniertes Formular löschen
 
-    - **Use the default SharePoint form** - When a user opens your list and selects **New** in the command bar, the default form for the list will appear.
+1. Öffnen Sie über Ihre Liste in SharePoint die Einstellungen (über das Zahnradsymbol in der oberen rechten Ecke), und klicken Sie dann auf **Listeneinstellungen**.
 
-    - **Use a custom form created in PowerApps** - When a user opens your list and selects **New** in the command bar, your custom form will appear. (As an alternative, you can publish the form again in PowerApps.)
+1. Wählen Sie unter **Allgemeine Einstellungen** **Formulareinstellungen** aus.
 
-    You can toggle back and forth between options, as needed.
+1. Wählen Sie in den **Formulareinstellungen** **Das SharePoint-Standardformular verwenden** und dann **Delete custom form** (Benutzerdefiniertes Formular löschen) aus.
 
-    ![Form Settings options](./media/customize-list-form/form-settings.png)
+    ![Benutzerdefiniertes Formular löschen](./media/customize-list-form/use-default-sharepoint.png)
 
-## Delete the custom form
+## <a name="q--a"></a>Fragen und Antworten
 
-1. From your list in SharePoint, open the settings page (by selecting the gear icon near the upper-right corner), and then select **List settings**.
+### <a name="forms-vs-apps"></a>Vergleich: Formulare und Apps
 
-1. Under **General settings**, select **Form settings**.
+**F:** Wie unterscheidet sich ein benutzerdefiniertes Formular von einer eigenständigen App, die ich in SharePoint oder PowerApps erstelle?
 
-1. On the **Form Settings** page, select **Use the default SharePoint form**, and then select **Delete custom form**.
+**A:** Wenn Sie das Formular für eine SharePoint-Liste anpassen, wird das Formular nicht als App in PowerApps Studio oder PowerApps Mobile angezeigt. Sie können das Formular nur über die Liste öffnen, für die es erstellt wurde.
 
-    ![Delete the custom form](./media/customize-list-form/use-default-sharepoint.png)
+**F:** Wann sollte ich ein Formular zum Verwalten von Daten in einer SharePoint-Liste anpassen, und wann sollte ich eine eigenständige App erstellen?
 
-## Q & A
+**A:** Passen Sie ein Formular an, wenn Sie möchten, dass Benutzer Daten in SharePoint verwalten (z.B. in einem Desktopbrowser). Erstellen Sie eine App, wenn Sie möchten, dass Benutzer Daten außerhalb von SharePoint verwalten (z.B. auf einem mobilen Gerät).
 
-### Forms vs. apps
+**F:** Kann ich ein Formular anpassen und für dieselbe Liste eine App erstellen?
 
-**Q:** How does a customized form differ from a standalone app that I create from SharePoint or PowerApps?
+**A:** Ja.
 
-**A:** If you customize the form for a SharePoint list, the form doesn't appear as an app in PowerApps Studio or PowerApps Mobile. You can open the form only from the list for which you created it.
+**F:** Kann ich eine Liste anpassen und eine App mit den gleichen Features erstellen?
 
-**Q:** When should I customize a form to manage data in a SharePoint list, and when should I create a standalone app?
+**A:** Ja.
 
-**A:** Customize a form if you want your users to manage data without leaving SharePoint (for example, in a desktop browser). Create an app if you want your users to manage data outside of SharePoint (for example, on a mobile device).
+**F:** Kann ich ein Formular in einer anderen Umgebung als der Standardumgebung meiner Organisation anpassen?
 
-**Q:** Can I customize a form and create an app for the same list?
+**A:** Nein.
 
-**A:** Yes.
+### <a name="manage-your-custom-form"></a>Verwalten des benutzerdefinierten Formulars
 
-**Q:** Can I customize a list and create an app using the same features?
+**F:** Wie kann ich mein Formular unkompliziert mit anderen teilen?
 
-**A:** Yes.
+**A:** Öffnen Sie das Formular, klicken Sie auf **Link kopieren**, und schicken Sie den Link an jeden, der das Formular verwenden soll.
 
-**Q:** Can I customize a form in an environment other than the default environment in my organization?
+**F:** Kann ich ein Formular aktualisieren, ohne dass die Änderungen für andere Personen angezeigt werden?
 
-**A:** No.
+**A:** Ja. Sie können das Formular so oft ändern und speichern, wie Sie möchten. Die Änderungen werden jedoch erst für andere Benutzer sichtbar, wenn Sie zweimal auf **In SharePoint veröffentlichen** klicken.
 
-### Manage your custom form
+**F:** Kann ich eine frühere Version wiederherstellen, wenn mir beim Anpassen eines Listenformulars ein Fehler unterläuft?
 
-**Q:** How can I easily share my form with others?
+**A:** Ja.
 
-**A:** Open the form, select **Copy link**, and then send the link to anyone you want to use the form.
+1. Öffnen Sie Ihre Liste, klicken Sie auf der Befehlsleiste auf **PowerApps**, und wählen Sie dann **Customize forms** (Formulare anpassen) aus.
 
-**Q:** Can I update my form without making my changes visible to others?
-
-**A:** Yes. You can change your form and save as many times as you want, but your changes won't be visible to anyone else unless you select **Publish to SharePoint** twice.
-
-**Q:** If I customize a list form and make a mistake, can I revert to a previous version?
-
-**A:** Yes.
-
-1. Open your list, select **PowerApps** on the command bar, and then select **Customize forms**.
-
-1. In PowerApps Studio, select **File**, and then select **See all versions**. The **Versions** page opens in a new browser tab.
+1. Klicken Sie in PowerApps Studio auf **Datei** und dann auf **Alle Versionen anzeigen**. Die Seite **Versionen** wird in einer neuen Browserregisterkarte geöffnet.
 
     > [!NOTE]
-    > If you don't see the **See all versions** button, select **Save**. The button should appear.
+    > Wenn die Schaltfläche **Alle Versionen anzeigen** nicht angezeigt wird, klicken Sie auf **Speichern**. Anschließend wird die Schaltfläche angezeigt.
 
-1. Without closing the **Versions** page or the browser tab, go back to the **Save** page in the other browser tab, click or tap the arrow at the top of the left navigation pane, and then click or tap **Back to SharePoint** to unlock your form and close PowerApps Studio.
+1. Lassen Sie die Seite oder Browserregisterkarte **Versionen** geöffnet, und kehren Sie zur Seite **Speichern** auf der anderen Browserregisterkarte zurück. Klicken oder tippen Sie dann auf den Pfeil am oberen Rand des linken Navigationsbereichs, und klicken oder tippen Sie auf **Zurück zu SharePoint**, um das Formular zu entsperren und PowerApps Studio zu schließen.
 
-1. Go back to the **Versions** page in the other browser tab, locate the version that you want to restore, and then select **Restore**.
+1. Kehren Sie zur Seite **Versionen** auf der anderen Browserregisterkarte zurück, suchen Sie die Version, die Sie wiederherstellen möchten, und klicken Sie dann auf **Wiederherstellen**.
 
     > [!NOTE]
-    > If you get an error message saying the restore failed because the form is locked by another user, wait until the user unlocks the form, and then try again.
+    > Wenn Sie die Fehlermeldung erhalten, dass die Wiederherstellung fehlgeschlagen ist, da das Formular von einem anderen Benutzer gesperrt ist, warten Sie, bis der Benutzer das Formular entsperrt, und wiederholen Sie den Vorgang.
 
-**Q:** Can I move my form from one list to another?
+**F:** Kann ich mein Formular aus einer Liste in eine andere verschieben?
 
-**A:** No.
+**A:** Nein.
 
-### Administer your custom form
+### <a name="administer-your-custom-form"></a>Verwalten des benutzerdefinierten Formulars
 
-**Q:** How do I share my form?
+**F:** Wie gebe ich mein Formular frei?
 
-**A:** You don't need to share the form - the form inherits permissions from the SharePoint list. When you're done customizing it, just [publish it back to SharePoint](customize-list-form.md#save-and-publish-the-list-form-back-to-sharepoint) so that others can use it.
+**A:** Sie müssen das Formular nicht freigeben – es erbt die Berechtigungen aus der SharePoint-Liste. Wenn Sie es angepasst haben, [veröffentlichen Sie es einfach wieder in SharePoint](customize-list-form.md#save-and-publish-the-list-form-back-to-sharepoint), damit es von anderen Benutzern verwendet werden kann.
 
-**Q:** Who can customize forms?
+**F:** Wer kann Formulare anpassen?
 
-**A:** Anyone with SharePoint permissions to manage, design, or edit the associated list.
+**A:** Jeder Benutzer mit SharePoint-Berechtigungen zum Verwalten, Entwerfen oder Bearbeiten der zugehörigen Liste.
 
-**Q:** Do I need a PowerApps license to create or use custom list forms?
+**F:** Benötige ich eine PowerApps-Lizenz, um benutzerdefinierte Listenformulare zu erstellen und zu verwenden?
 
-**A:** You need an [Office 365 plan that includes PowerApps](https://docs.microsoft.com/power-platform/admin/pricing-billing-skus.md#licenses).
+**A:** Sie benötigen [einen Office 365-Plan, der PowerApps beinhaltet](../../administrator/pricing-billing-skus.md#licenses).
 
-**Q:** What happens when guest users access a list that has a custom form?
+**F:** Was geschieht, wenn Gastbenutzer auf eine Liste zuzugreifen, die ein benutzerdefiniertes Formular aufweist?
 
-**A:** Guest users get an error message if they try to access a list form that's been customized using PowerApps.
+**A:** Gastbenutzer erhalten eine Fehlermeldung, wenn sie versuchen, auf ein Listenformular zuzugreifen, das mit PowerApps angepasst wurde.
 
-**Q:** As an administrator, how do I get a list of all customized forms in my organization?
+**F:** Wie erhalte ich als Administrator eine Liste aller benutzerdefinierten Formulare in meiner Organisation?
 
-**A:** If you're a tenant administrator for PowerApps or you have environment-administrator permissions on the default PowerApps environment of your organization, do the following:
+**A:** Wenn Sie ein Mandantenadministrator für PowerApps sind oder über Umgebungsadministratorberechtigungen für die PowerApps-Standardumgebung Ihrer Organisation verfügen, gehen Sie wie folgt vor:
 
-1. In the [PowerApps admin center](https://admin.powerapps.com), select the default environment for your organization from the list of environments.
+1. Wählen Sie im [PowerApps Admin Center](https://admin.powerapps.com) in der Liste der Umgebungen die Standardumgebung für Ihre Organisation aus.
 
-1. At the top of the default environment page, select **Resources**.
+1. Wählen Sie oben auf der Seite für die Standardumgebung **Ressourcen** aus.
 
-1. From the list of apps, look for apps with a **SharePoint Form** app type - these are the customized forms.
+1. Suchen Sie in der Liste der Apps nach Apps mit dem App-Typ **SharePoint-Formular** – dies sind die angepassten Formulare.
 
-    ![List of customized forms](./media/customize-list-form/all-customized-forms.png)
+    ![Liste der benutzerdefinierten Formulare](./media/customize-list-form/all-customized-forms.png)

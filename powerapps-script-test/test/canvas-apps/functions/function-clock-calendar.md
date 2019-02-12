@@ -1,6 +1,6 @@
 ---
-title: Calendar and Clock functions | Microsoft Docs
-description: Reference information for the Calendar and Clock functions in PowerApps, including syntax and examples
+title: Funktionen „Calendar“ und „Clock“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „Calendar“ und „Clock“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,32 +9,38 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 6625df3f822462c86de1f720b7a310f5e516a6ca
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42849869"
 ---
-# Calendar and Clock functions in PowerApps
-Retrieves calendar and clock information about the current locale.
+# <a name="calendar-and-clock-functions-in-powerapps"></a>Die Funktionen „Calendar“ und „Clock“ in PowerApps
+Ruft Kalender- und Uhrzeitinformationen zum aktuellen Gebietsschema ab
 
-## Description
-The **Calendar** and **Clock** functions are a set of functions that retrieve information about the current locale.
+## <a name="description"></a>Beschreibung
+Die **Calendar**- und **Clock**-Funktionen sind ein Satz von Funktionen, die Informationen über das aktuelle Gebietsschema abrufen.
 
-You can use these functions to display dates and times in the language of the current user.  The single-column tables returned by **Calendar** and **Clock** functions can be used directly with the **[Items](../controls/properties-core.md)** property of Dropdown and Listbox controls.
+Sie können diese Funktionen verwenden, um Daten und Uhrzeiten in der Sprache des aktuellen Benutzers anzuzeigen.  Die von der **Calendar**- und **Clock**-Funktion zurückgegebenen einspaltigen Tabellen können direkt mit der **[Items](../controls/properties-core.md)**-Eigenschaft des Dropdown- und Listbox-Steuerelements verwendet werden.
 
-| Function | Description |
+| Funktion | Beschreibung |
 | --- | --- |
-| **Calendar.MonthsLong()** |Single-column table containing the full names of each month, starting with "January". |
-| **Calendar.MonthsShort()** |Single-column table containing the abbreviated names of each month, starting with "Jan" for January. |
-| **Calendar.WeekdaysLong()** |Single-column table containing the full names of each weekday, starting with "Sunday". |
-| **Calendar.WeekdaysShort()** |Single-column table containing the full names of each weekday, starting with "Sun" for Sunday. |
-| **Clock.AmPm()** |Single-column table containing the long uppercase "AM" and "PM" designations.  If the language uses a 24-hour clock, the table will be empty. |
-| **Clock.AmPmShort()** |Single-column table containing the short uppercase "A" and "P" designations.  If the language uses a 24-hour clock, the table will be empty. |
-| **Clock.IsClock24()** |Boolean indicating if a 24-hour clock is used in this locale. |
+| **Calendar.MonthsLong()** |Eine einspaltige Tabelle mit den vollständigen Namen eines jeden Monats, beginnend mit „January“ (Januar) |
+| **Calendar.MonthsShort()** |Eine einspaltige Tabelle mit den abgekürzten Namen eines jeden Monats, beginnend mit „Jan“ für Januar |
+| **Calendar.WeekdaysLong()** |Eine einspaltige Tabelle mit den vollständigen Namen der einzelnen Wochentage, beginnend mit „Sunday“ (Sonntag) |
+| **Calendar.WeekdaysShort()** |Eine einspaltige Tabelle mit den vollständigen Namen eines jeden Wochentags, beginnend mit „Sun“ für Sonntag |
+| **Clock.AmPm()** |Eine einspaltige Tabelle, die die langen Bezeichnung für die Großbuchstaben „AM“ und „PM“ enthält.  Wenn die Sprache ein 24-Stunden-Format verwendet, ist die Tabelle leer. |
+| **Clock.AmPmShort()** |Eine einspaltige Tabelle, die die kurzen Bezeichnungen „A“ und „P“ enthält.  Wenn die Sprache ein 24-Stunden-Format verwendet, ist die Tabelle leer. |
+| **Clock.IsClock24()** |Boolescher Wert, der angibt, wenn ein 24-Stunden-Format in diesem Gebietsschema verwendet wird |
 
-Use the **[Text](function-text.md)** function to format date and time values using this same information.  The **[Language](function-language.md)** function returns the current language and region code.
+Verwenden Sie die **[Text](function-text.md)**-Funktion zur Formatierung von Datums- und Uhrzeitwerten mit den gleichen Angaben.  Die **[Language](function-language.md)**-Funktion gibt den Code der aktuelle Sprache und Region zurück.
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **Calendar.MonthsLong**()
 
 **Calendar.MonthsShort**()
@@ -49,22 +55,22 @@ Use the **[Text](function-text.md)** function to format date and time values usi
 
 **Clock.IsClock24**()
 
-## Examples
-1. Insert a Dropdown control.
-2. Set the formula for the **[Items](../controls/properties-core.md)** property to:
+## <a name="examples"></a>Beispiele
+1. Fügen Sie ein Dropdown-Steuerelement ein.
+2. Legen Sie die Formel für die **[Items](../controls/properties-core.md)**-Eigenschaft auf Folgendes fest:
    
    * **Calendar.MonthsLong()**
-3. Users of your app can now select a month in their own language.  **MonthsLong** can be replaced with any of the single-column tables that are returned by **Calendar** to create weekday and time selectors.
+3. Benutzer Ihrer App können nun einen Monat in ihrer eigenen Sprache auswählen.  **MonthsLong** kann durch eine beliebige einspaltige von **Calendar** zurückgegebene Tabellen ersetzt werden, um eine Wochentags- und Zeitauswahl zu erstellen.
 
-In the United States, with **[Language](function-language.md)** returning "en-US", the following is returned by the **Calendar** functions:
+In den USA gibt **[Language](function-language.md)** „en-US“ zurück, und die **Calendar**-Funktion gibt Folgendes zurück:
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Calendar.MonthsLong()** |The return value contains the full name of each month, starting with "January". |[ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ] |
-| **Calendar.MonthsShort()** |The return value contains the abbreviated name of each month, starting with "January". |[ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ] |
-| **Calendar.WeekdaysLong()** |The return value contains the full name of each day, starting with "Sunday". |[ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ] |
-| **Calendar.WeekdaysShort()** |The return value contains the abbreviated name of each day, starting with "Sunday". |[ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ] |
-| **Clock.AmPm()** |This language uses a 12-hour clock. The return value contains the uppercase versions of the full AM and PM designations. |[ "AM", "PM" ] |
-| **Clock.AmPmShort()** |This language uses a 12-hour clock. The return value contains the uppercase versions of the short AM and PM designations. |[ "A", "P" ] |
-| **Clock.IsClock24()** |This language uses a 12-hour clock. |**false** |
+| **Calendar.MonthsLong()** |Der Rückgabewert enthält den vollständigen Namen eines jeden Monats, beginnend mit „January“. |[ „January“, „February“, „March“, „April“, „May“, „June“, „July“, „August“, „September“, „October“, „November“, „December“ ] |
+| **Calendar.MonthsShort()** |Der Rückgabewert enthält die abgekürzten Namen eines jeden Monats, beginnend mit „January“. |[ „Jan“, „Feb“, „Mar“, „Apr“, „May“, „Jun“, „Jul“, „Aug“, „Sep“, „Oct“, „Nov“, „Dec“ ] |
+| **Calendar.WeekdaysLong()** |Der Rückgabewert enthält den vollständigen Namen eines jeden Wochentags, beginnend mit „Sunday“. |[ „Sunday“, „Monday“, „Tuesday“, „Wednesday“, „Thursday“, „Friday“, „Saturday“ ] |
+| **Calendar.WeekdaysShort()** |Der Rückgabewert enthält die abgekürzten Namen eines jeden Wochentags, beginnend mit „Sunday“. |[ „Sun“, „Mon“, „Tue“, „Wed“, „Thu“, „Fri“, „Sat“ ] |
+| **Clock.AmPm()** |Diese Sprache verwendet ein 12-Stunden-Format.  Der Rückgabewert enthält die Großbuchstaben der vollständigen AM/PM-Bezeichnungen. |[ „AM“, „PM“ ] |
+| **Clock.AmPmShort()** |Diese Sprache verwendet ein 12-Stunden-Format.  Der Rückgabewert enthält die Großbuchstaben der kurzen AM/PM-Bezeichnungen. |[ "A", "P" ] |
+| **Clock.IsClock24()** |Diese Sprache verwendet ein 12-Stunden-Format. |**FALSE** |
 

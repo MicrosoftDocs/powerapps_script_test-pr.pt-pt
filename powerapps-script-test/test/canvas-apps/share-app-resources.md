@@ -1,6 +1,6 @@
 ---
-title: Share resources used in your canvas app | Microsoft Docs
-description: Understand how you share resources that your canvas app uses in PowerApps
+title: Freigeben von in der Canvas-Apps verwendeten Ressourcen | Microsoft-Dokumentation
+description: So geben Sie Ressourcen frei, die Ihre Canvas-App in PowerApps verwendet
 author: archnair
 manager: kvivek
 ms.service: powerapps
@@ -9,57 +9,63 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 06/28/2016
 ms.author: archanan
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: f6adc46eafda2f5bd9798c13b292a82d567e34a7
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42831334"
 ---
-# Share canvas-app resources in PowerApps
+# <a name="share-canvas-app-resources-in-powerapps"></a>Freigeben von Canvas-App-Ressourcen in PowerApps
 
-Before you [share a canvas app](share-app.md), consider the types of resources on which it relies, such as one or more of the following:
+Beachten Sie vor dem [Freigeben einer Canvas-App](share-app.md) die Typen von Ressourcen, von denen sie abhängt. Dabei kann es sich z.B. um eine oder mehrere der folgenden handeln:
 
-* entities in Common Data Service for Apps
+* Entitäten in Common Data Service für Apps
 
-    For information about giving users access to this data, see [Manage entity permissions](share-app.md#manage-entity-permissions).
+    (weitere Informationen darüber, wie Sie Benutzern Zugriff auf diese Daten gewähren, finden Sie unter [Verwalten von Entitätsberechtigungen](share-app.md#manage-entity-permissions))
     
-* a connection to a data source
-* an on-premises data gateway
-* a custom connector
-* an Excel workbook or other service
-* a flow
+* eine Verbindung mit einer Datenquelle
+* ein lokales Datengateway
+* ein benutzerdefinierter Connector
+* eine Excel-Arbeitsmappe oder einen anderen Dienst
+* einen Flow
 
-Some of these resources are shared automatically when you share the app. Other resources require you or the people with whom you share the app to take extra steps so that the app works as you expect.
+Einige dieser Ressourcen werden automatisch freigegeben, wenn Sie die App freigeben. Andere Ressourcen erfordern, dass Sie oder die Personen, für die Sie App freigeben, zusätzliche Schritte unternehmen, damit die App erwartungsgemäß ausgeführt wird.
 
-You can also share your connections, custom connectors and on-premises data gateway with your entire organization.
+Sie können auch Verbindungen, benutzerdefinierte Connectors und ein lokales Datengateway für die gesamte Organisation freigeben.
 
-## Connections
+## <a name="connections"></a>Verbindungen
 
-Some types of connections, such as SQL Server, are shared automatically, but others require users to create their own connections to the data source or sources in the app.
+Einige Typen von Verbindungen, z. B. SQL Server, werden automatisch freigegeben. Andere erfordern jedoch, dass Benutzer eigene Verbindungen mit der Datenquelle oder den Datenquellen in der App erstellen.
 
-On [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), you can determine whether a connection will be shared automatically, and you can update sharing permissions. In the left navigation bar, click or tap **Manage**, click or tap **Connections**, and then click or tap a connection. If the **Share** tab appears, the connection will be shared automatically.
+Auf [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) können Sie bestimmen, ob eine Verbindung automatisch freigegeben wird, und Sie können Freigabeberechtigungen aktualisieren. Klicken oder tippen Sie in der linken Navigationsleiste auf **Verwalten**, und klicken oder tippen Sie anschließend auf **Verbindungen**. Wenn die Registerkarte **Freigabe** angezeigt wird, wird die Verbindung automatisch freigegeben.
 
-  ![Share tab in connection details page](./media/share-app-resources/shared-connections.png)
+  ![Registerkarte „Freigeben“ auf der Seite für Verbindungsdetails](./media/share-app-resources/shared-connections.png)
 
-## On-premises data gateways
-If you create and share an app that includes data from an on-premises source, the [on-premises data gateway](gateway-management.md) itself and certain types of connections to that gateway will be shared automatically. For any connection that isn’t shared automatically, you can share it manually (as the previous section shows) or let the app prompt users to create their own connections. To show the connection or connections with which a gateway has been configured:
+## <a name="on-premises-data-gateways"></a>Lokale Datengateways
+Wenn Sie eine App erstellen und freigeben, die Daten aus einer lokalen Quelle enthält, werden das [lokale Datengateway](gateway-management.md) selbst und bestimmte Typen von Verbindungen mit diesem Gateway automatisch freigegeben. Sie können jede Verbindung, die nicht automatisch freigegeben wird, manuell freigeben (wie im vorherigen Abschnitt gezeigt) oder die Benutzer durch die App auffordern lassen, eigene Verbindungen zu erstellen. So zeigen Sie die Verbindung(en) an, mit denen ein Gateway konfiguriert wurde:
 
-1. Open [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), click or tap **Manage** in the left navigation bar, and then click or tap **Gateways**.
-2. Click or tap a gateway, and then click or tap the **Connections** tab.
+1. Öffnen Sie [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), klicken oder tippen Sie in der linken Navigationsleiste auf **Verwalten**, und klicken oder tippen Sie dann auf **Gateways**.
+2. Klicken oder tippen Sie auf ein Gateway, und klicken oder tippen Sie dann auf die Registerkarte **Verbindungen**.
 
 > [!NOTE]
-> If you share one or more connections manually, you might need to reshare them under these circumstances:
+> Wenn Sie eine oder mehrere Verbindungen manuell freigeben, müssen Sie diese ggf. unter den folgenden Umständen erneut freigeben:
 
-* You add an on-premises data gateway to an app that you’ve already shared.
-* You change the set of people or groups with whom you’ve shared an app that has an on-premises data gateway.
+* Sie fügen einer App, die Sie bereits freigegeben haben, ein lokales Datengateway hinzu.
+* Sie ändern den Satz der Personen oder Gruppen, für die Sie eine App, die über ein lokales Datengateway verfügt, freigegeben haben.
 
-## Custom connectors
-When you share an app that uses a custom connector, it is automatically shared, but users must create their own connections to it.
+## <a name="custom-connectors"></a>Benutzerdefinierte Connectors
+Wenn Sie eine App freigeben, die einen benutzerdefinierten Connector verwendet, wird sie automatisch freigegeben, die Benutzer müssen jedoch eigene Verbindungen mit der App erstellen.
 
-On [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), you can view or update permissions for a custom connector. In the left navigation bar, click or tap **Manage**, click or tap **Connections**, and then click or tap **New connection** (in the upper-right corner). Click or tap **Custom**, and then click or tap a custom connector to display details about it.
+Auf [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) können Sie Berechtigungen für einen benutzerdefinierten Connector anzeigen und aktualisieren. Klicken oder tippen Sie in der linken Navigationsleiste auf **Verwalten**, klicken oder tippen Sie auf **Verbindungen**, und klicken oder tippen Sie dann auf **Neue Verbindung** (in der rechten oberen Ecke). Klicken oder tippen Sie auf **Custom** (Benutzerdefiniert), und klicken oder tippen Sie dann auf einen benutzerdefinierten Connector, um Details zu ihr anzuzeigen.
 
-## Excel workbooks
-If a shared app uses data to which not all users have access (such as an Excel workbook in a cloud-storage account), [share the data](share-app-data.md).
+## <a name="excel-workbooks"></a>Excel-Arbeitsmappen
+Wenn eine freigegebene App Daten verwendet, auf die nicht alle Benutzer Zugriff haben (z. B. eine Excel-Arbeitsmappe in einem Cloudspeicherkonto), [geben Sie die Daten frei](share-app-data.md).
 
-## Flows
-If you share an app that includes a flow, users who run the app will be prompted to confirm or update any connections on which the flow relies. In addition, only the person who created the flow can customize its parameters. For example, you can create a flow that sends mail to an address that you specify, but other users can’t change that address.
+## <a name="flows"></a>Flows
+Wenn Sie eine App freigeben, die einen Flow enthält, werden Benutzer, die die App ausführen, aufgefordert, alle Flows zu bestätigen oder zu aktualisieren, die für den Flow erforderlich sind. Außerdem kann nur die Person, die den Flow erstellt hat, dessen Parameter anpassen. Beispielsweise können Sie einen Flow erstellen, der E-Mails an eine von Ihnen angegebene Adresse sendet, diese Adresse kann jedoch von anderen Benutzern nicht geändert werden.
 

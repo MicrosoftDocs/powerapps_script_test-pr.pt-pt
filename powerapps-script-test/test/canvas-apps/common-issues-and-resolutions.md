@@ -1,182 +1,176 @@
 ---
-title: Common issues and resolutions for PowerApps | Microsoft Docs
-description: A list of common issues and resolutions within PowerApps.
+title: Häufige Probleme und Lösungen für PowerApps | Microsoft-Dokumentation
+description: Eine Liste häufiger Probleme und Lösungen für PowerApps.
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
-ms.date: 11/09/2018
+ms.reviewer: ''
+ms.date: 08/02/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: f5701f85d28d987229aa56756b5c1817892bd5c0
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42855100"
 ---
-# Common issues and resolutions for PowerApps
+# <a name="common-issues-and-resolutions-for-powerapps"></a>Häufige Probleme und Lösungen für PowerApps
 
-This article lists some common issues that you might encounter while using PowerApps. Where applicable, workarounds are provided.
+Dieser Artikel listet einige häufige Probleme auf, die bei der Verwendung von PowerApps auftreten können. Nach Möglichkeit werden Problemumgehungen bereitgestellt.
 
-## Added after February 2018
+## <a name="added-after-february-2018"></a>Änderungen nach Februar 2018
 
-1. **Camera issue on Android mobile devices** (Jan. 1, 2019)
+1. **Mehrere Medien-Steuerelemente in PowerApps Mobile** (2. August 2018)
 
-    If the camera control stops working on an Android device, republish your app, and reopen it on the device. The camera control was updated in response to a change in the Android operating system, and your app will benefit from the update when you republish.
+    PowerApps Mobile kann auf verschiedenen Arten von Geräten ausgeführt werden. Einige dieser Geräte weisen plattformspezifische Einschränkungen auf:
 
-1. **Scrolling in flexible-height galleries** (Nov. 27, 2018)
+    - Mit Ausnahme von iPhone-Geräten können Sie Videos auf allen Plattformen in mehreren **Video**-Steuerelementen gleichzeitig abspielen.
+    - Mit Ausnahme des Webplayers können Sie auf allen Plattformen Audio mit mehreren **Microphone**-Steuerelementen gleichzeitig aufzeichnen.
 
-    If you run into a limitation when you scroll with your finger, lift it and start to scroll again.
+1. **Erneutes Veröffentlichen von Apps** (2. August 2018)
 
-1. **Drawing with mouse or touch input is not smooth in PowerApps for Windows** (Sep. 24, 2018)
+    Wenn Sie Ihre App über mehrere Monate hinweg nicht aktualisiert haben, können Sie sie erneut veröffentlichen, um sie mit der aktuellsten Version von PowerApps zu synchronisieren, wobei Leistungsverbesserungen und andere Fehlerbehebungen angewendet werden.
 
-    The pen control only has partial support for drawing using mouse or touch input in the Windows app. Strokes might be intermittent. For smooth drawing, use a pen or run the app in a browser.
+1. <a name="out-of-memory"></a>**Browser hat nicht genügend Arbeitsspeicher** (23. Juli 2018)
 
-1. **Multiple media controls in PowerApps Mobile** (Aug. 2, 2018)
+    Wenn Sie bei der Verwendung von PowerApps nicht mehr genügend Arbeitsspeicher haben, sollten Sie eine 64-Bit-Version von Chrome, Edge oder Internet Explorer herunterladen.
 
-    PowerApps Mobile runs on various types of devices, and some of them have limitations that are specific to that platform:
+1. **Starten einer Website aus einer eingebetteten App** (10. Mai 2018)
 
-    - You can play videos in multiple **Video** controls at the same time on all platforms except for iPhone devices.
-    - You can record audio with multiple **Microphone** controls at the same time on all platforms except for the web player.
+    Internet Explorer und Microsoft Edge blockieren möglicherweise den Aufruf einer URL oder Website, die sich im geschützten Modus oder in einer niedrigeren Sicherheitszone als die Website befindet, in der die App geladen wurde. Um dieses Problem zu lösen, [ändern Sie die Sicherheits- und Datenschutzeinstellungen](https://support.microsoft.com/en-us/help/17479/windows-internet-explorer-11-change-security-privacy-settings) für Ihren Browser.
 
-1. **Republishing apps** (Aug. 2, 2018)
+1. **Kombinationsfeld-Steuerelemente in Katalogen** (3. Mai 2018)
 
-    If you haven't updated your app in several months, republish it to sync with the most recent version of PowerApps, which includes performance improvements and other fixes.
+    Wenn Sie ein Steuerelement des Typs **Kombinationsfeld** innerhalb eines Katalogs verwenden, werden die ausgewählten Optionen nicht beibehalten, sobald der Benutzer durch den Katalog scrollt. Dies ist kein Problem, wenn Sie ein Steuerelement des Typs **Kombinationsfeld** in einem Katalog verwenden, der Scrollen nicht unterstützt. Eine Problemumgehung ist derzeit nicht verfügbar.
 
-1. <a name="out-of-memory"></a>**Browser running out of memory** (July 23, 2018)
+1. **Verwenden eines benutzerdefinierten Bilds als App-Symbol** (11. April 2018)
 
-    If you run out of memory while using PowerApps, please consider downloading a 64-bit version of Chrome, Microsoft Edge, or Internet Explorer.
+    In PowerApps Studio für Windows Version 3.18043 können Sie kein benutzerdefiniertes Bild zur Verwendung als App-Symbol hochladen. Wenn Sie dieses Problem umgehen wollen, verwenden Sie [PowerApps Studio für Web](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), um ein benutzerdefiniertes Bild hochzuladen. Stattdessen können Sie auch eins der Symbole verwenden, das in PowerApps Studio für Windows enthalten ist und die Hintergrundfarbe anpassen.
 
-1. **Launching a website from an embedded app** (May 10, 2018)
+1. **Kopieren und Einfügen von Anzeigen über mehrere Apps hinweg** (4. April 2018)
 
-    Internet Explorer and Microsoft Edge browsers might block the launch of a URL or website that’s in protected mode or a lower security zone than the website in which the app is loaded. To resolve this issue, [change the security and privacy settings](https://support.microsoft.com/en-us/help/17479/windows-internet-explorer-11-change-security-privacy-settings) for your browser.
+    Das Kopieren und Einfügen von Anzeigen über mehrere Apps wird derzeit nicht unterstützt. Wenn Sie dieses Problem umgehen möchten, fügen Sie eine neue Anzeige zu Ihrer Ziel-App hinzu, kopieren Sie die Steuerelemente aus der Anzeige in die Quell-App, und fügen Sie sie in die Anzeige Ihrer Ziel-App ein.
 
-1. **Combo box controls in galleries** (May 3, 2018)
+1. **Ändern des Layouts von SharePoint-Formularen** (7. März 2018)
 
-    When you use a **Combo box** control inside a gallery, its selections are not maintained when the user scrolls the gallery. This is not an issue if you use a **Combo box** control inside a gallery that doesn't scroll. A workaround is not currently available.
+    Wenn Sie in bestimmten Sprachen ein Formular in einer SharePoint-Liste anpassen und versuchen, das Layout vom Hochformat (Standard) in das Querformat zu ändern, werden in der App möglicherweise mehrere Fehler angezeigt (gelbe Dreiecke in Steuerelementen). Um diese Fehler zu beheben und das Layout mit Querformat zu erhalten, klicken Sie auf **Rückgängig**.
 
-1. **Using a custom image as an app icon** (April 11, 2018)
+## <a name="added-in-or-before-february-2018"></a>Änderungen im oder vor dem Februar 2018
 
-    In PowerApps Studio for Windows version 3.18043, you cannot upload a custom image to use as an app icon. To work around this issue, use [PowerApps Studio for web](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) to upload a custom image. Alternatively, you can use one of the icons included with PowerApps Studio for Windows and customize the background color.
+1. **Data Table-Steuerelement**
 
-1. **Copying and pasting screens across apps** (April 4, 2018)
+    Wenn Sie ein **Data Table**-Steuerelement kopieren und einfügen, für das die **Items**-Eigenschaft auf eine Formel mit einer **Filter**-Funktion festgelegt wurde, enthalten die Feldnamen in der Formel für die **Items**-Eigenschaft im neuen **Data Table**-Steuerelement das Suffix **_1**. Hierdurch werden die Feldnamen ungültig, und es werden keine Daten in der Datentabelle angezeigt. Um dieses Problem zu umgehen, überprüfen Sie vor dem Kopieren des Steuerelements, dass die **Filter**-Funktion nicht auf ein Feld in der Datenquelle verweist, dessen Name dem Namen einer Spalte im **Data Table**-Steuerelement entspricht. Wenn es der Fall ist, benennen Sie die Spalte im **Data Table**-Steuerelement um. Alternativ können Sie das Suffix **_1** aus den ungültigen Feldnamen entfernen, damit sie den Namen in der Entität entsprechen.
 
-    Copying and pasting screens across apps is not currently supported. To work around this, add a new screen to your target app, copy the controls from the screen in your source app, and then paste them into the screen of your target app.
+1. **Kamerasteuerelemente in PowerApps Studio für Windows**
 
-1. **Changing the layout of SharePoint forms** (March 7, 2018)
+    PowerApps Studio für Windows stürzt möglicherweise ab, wenn Sie ein Kamerasteuerelement hinzufügen oder eine App öffnen, die ein Kamerasteuerelement verwendet. Um dieses Problem zu vermeiden, verwenden Sie [PowerApps Studio for Web](create-app-browser.md), wenn Sie ein Kamerasteuerelement hinzufügen oder nutzen.
 
-    While customizing a SharePoint list form in certain languages, if you try to change the layout from portrait (default) to landscape, the app may show multiple errors (yellow triangles in controls). To resolve these errors and retain the landscape layout, click **Undo**.
+1. **Version 2.0.700 auf Android-Geräten**
 
-## Added in or before February 2018
+    Wenn Sie Version 2.0.700 auf einem Android-Gerät installieren und Apps nicht geöffnet werden können (oder eine App nicht mehr reagiert), deinstallieren Sie PowerApps, starten Sie das Gerät neu, und installieren Sie dann PowerApps erneut.
 
-1. **Data Table control**
+1. **„Leerer“ Katalog beim Öffnen einer App**
 
-    If you copy and paste a **Data Table** control for which the **Items** property is set to a formula that contains a **Filter** function, the formula for the **Items** property on the new **Data Table** control ends up with field names that contain a **_1** suffix. This makes the field names invalid and results in no data showing up in the data table. To work around this issue, before you copy the control, confirm that the **Filter** function doesn't reference any field in the data source that has the same name as a column in the **Data Table** control. If it does, rename the column in the **Data Table** control. Alternatively, remove the **_1** suffix from the invalid field names so they match the names in the entity.
+    Wenn Sie automatisch eine App auf der Grundlage von Daten erstellen, die App speichern und anschließend wieder öffnen, werden im durchsuchbaren Katalog möglicherweise nicht sofort Daten angezeigt. Geben Sie zum Beheben dieses Problems mindestens ein Zeichen im Suchfeld ein, und löschen Sie dann den eingegebenen Text. Im Katalog werden nun ordnungsgemäß die Daten angezeigt.
 
-1. **Camera controls in PowerApps Studio for Windows**
+1. **Aktualisieren von PowerApps unter Windows 8.1**
 
-    PowerApps Studio for Windows may crash if you add a camera control or open an app that uses a camera control. To avoid this problem, use [PowerApps Studio for web](create-app-browser.md) when adding or using a camera control.
+    Wenn Sie PowerApps auf einem Computer installieren, auf dem Windows 8 oder Windows 8.1 ausgeführt wird, lassen Sie die Windows Store-App geöffnet und aktiv, suchen Sie über den Charm „Einstellungen“ nach Updates, und installieren Sie diese.
 
-1. **Release 2.0.700 on Android devices**
+1. **Benutzerdefinierte Connectors und der Common Data Service**
 
-    If you install release 2.0.700 on an Android device and then can't open apps (or an app stops responding), uninstall PowerApps, restart the device, and then reinstall PowerApps.
+    Wenn eine mithilfe von PowerApps Build 2.0.540 oder früher erstellte App auf einer Datenbank im Common Data Service und wenigstens einem benutzerdefinierten Connector in einer anderen Umgebung basiert, müssen Sie den Connector in der gleichen Umgebung wie die Datenbank bereitstellen und die App so aktualisieren, dass sie den neuen Connector verwendet. Andernfalls teilt ein Dialogfeld Benutzern mit, dass die API nicht gefunden wurde. Weitere Informationen finden Sie in der [Übersicht zu Umgebungen](../../administrator/environments-overview.md).
 
-1. **"Empty" gallery when opening an app**
+1. **Ausführen einer App unter Windows 8.1**
 
-    If you generate an app automatically from data, save the app, and then reopen it, the browse gallery might not immediately show any data. To resolve this issue, type at least one character in the search box, and then delete the text that you typed. The gallery will then show data as expected.
+    Wenn Sie [dieses Update für Windows 8.1](https://technet.microsoft.com/library/security/ms16-118) installieren, können Sie Apps, die Sie in PowerApps Studio öffnen, nicht unter diesem Betriebssystem ausführen. Sie können Apps jedoch weiterhin ausführen, die Sie in [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) oder mithilfe von PowerApps Mobile öffnen.
 
-1. **Upgrading PowerApps on Windows 8.1**
+1. **Spaltennamen mit Leerzeichen**
 
-    If you install PowerApps on a computer that’s running Windows 8 or Windows 8.1, keep the Windows Store app open and active, use the Settings charm to check for updates, and then install them.
+    Bei Verwendung einer SharePoint-Liste oder Excel-Tabelle, in denen ein Spaltenname ein Leerzeichen enthält, wird dieses von PowerApps durch **"\_X0020\_"** ersetzt. **"Name der Spalte"** in SharePoint oder Excel wird beispielsweise in PowerApps bei Anzeige im Datenlayout oder Verwendung in einer Formel als **"Name_x0020_der_x0020_Spalte"** angezeigt.
 
-1. **Custom connectors and the Common Data Service**
+1. **Ändern eines Flows in einer freigegebenen Anwendung**
 
-    If an app created using PowerApps build 2.0.540 or earlier relies on a database in the Common Data Service and at least one custom connector in a different environment, you’ll need to deploy the connector to the same environment as the database and update the app to use the new connector. Otherwise, a dialog box will notify users that the API was not found. For more information, see the [overview of environments](../../administrator/environments-overview.md).
+    Wenn Sie einer App einen Flow hinzufügen, sie freigeben und dann einen Dienst hinzufügen oder eine Verbindung im Flow ändern, müssen Sie den Flow aus der freigegebenen App entfernen, den Flow erneut hinzufügen und die App erneut freigeben. Andernfalls empfangen Benutzer, die den Flow auslösen, einen Authentifizierungsfehler.
 
-1. **Running an app on Windows 8.1**
+1. **Verwenden einer lokalisierten Version**.
 
-    If you install [this update for Windows 8.1](https://technet.microsoft.com/library/security/ms16-118), you can't run apps that you open in PowerApps Studio on that operating system. However, you can still run apps that you open in [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) or using PowerApps Mobile.
+    Wenn Sie Version 2.0.531 unter Windows 8.1 ausführen, können Sie in einem **Texteingabe**-Steuerelement keine Eingaben vornehmen, wenn das Gerät auf eine Sprache eingestellt ist, für die ein IME-Fenster erforderlich ist.
 
-1. **Column names with spaces**
+1. **Kamerasteuerelement eines Windows Phones**
 
-    If you're using a SharePoint list or an Excel table in which a column name contains a space, PowerApps will replace it with **"\_x0020\_"**. For example, **"Column Name"** in SharePoint or Excel will appear as **"Column_x0020_Name"** in PowerApps when displayed in the data layout or used in a formula.
+    Eine Anwendung, die ein Kamerasteuerelement enthält, stürzt möglicherweise ab, wenn Sie die App auf einem Windows Phone öffnen, das Build 10.0.10586.107 ausführt. Führen Sie zur Vermeidung dieses Problems ein Upgrade auf den aktuellen Build aus (etwa, indem Sie den [Aktualisierungsratgeber](https://www.microsoft.com/store/p/upgrade-advisor/9nblggh0f5g4) ausführen).
 
-1. **Changing a flow in a shared app**
+1. **Öffnen einer App aus einer Vorlage**
 
-    If you add a flow to an app, share it, and then add a service or change a connection in the flow, you must remove the flow from the shared app, re-add the flow, and reshare the app. Otherwise, users who trigger the flow will get an authentication failure.
+    Wenn Sie das Release 2.0.500 oder ein früheres ausführen, wird eine Fehlermeldung angezeigt, wenn Sie versuchen, eine App aus einer Vorlage zu erstellen. Sie müssen ein Upgrade durchführen, um diese Funktion verwenden zu können.
 
-1. **Using a localized version**.
+    Wenn Sie das Release 2.0.510 oder ein späteres ausführen, wird möglicherweise eine Warnung angezeigt, wenn Sie versuchen, eine App aus einer Vorlage zu erstellen. Sie können die Meldung jedoch schließen und die App erstellen.
 
-    If you're running release 2.0.531 on Windows 8.1, you can't type in a **Text input** control if the device is set to a language that requires an IME window.
+1. **Scannen eines Barcodes**
 
-1. **Camera control on a Windows Phone**
+    Informationen zu Beschränkungen und bewährten Methoden beim Verwenden eines **Barcode**-Steuerelements finden Sie unter [Scan a barcode (Scannen eines Barcodes)](scan-barcode.md).
 
-    An app that contains a camera control might crash if you open the app on a Windows Phone that's running build 10.0.10586.107. To avoid this problem, upgrade to the most recent build (for example, by running the [Upgrade Advisor](https://www.microsoft.com/store/p/upgrade-advisor/9nblggh0f5g4)).
+1. **Erstellen und Bearbeiten von Apps in einem Browser**
 
-1. **Opening an app from a template**.
+    Viele (jedoch nicht alle) Vorgänge, die Sie in PowerApps Studio für Windows ausführen können, können Sie auch in PowerApps Studio für das Web ausführen. Weitere Informationen finden Sie unter [Create or edit apps in a browser (Erstellen oder Bearbeiten von Apps in einem Browser)](create-app-browser.md).
 
-    If you're running release 2.0.500 or older, an error message appears when you try to create an app from a template. You must upgrade to be able to use this feature.
+1. **Ändern eines Titelfelds in einer Entität**
 
-    If you're running release 2.0.510 or later, an warning might appear when you try to create an app from a template. However, you can close the message and create the app.
+    Wenn Sie das Titelfeld für eine Entität ändern, auf die andere Entitäten über mindestens ein Nachschlagefeld verweisen, tritt ein Fehler auf, wenn Sie versuchen, die Änderung zu speichern. Um dieses Problem zu umgehen, entfernen Sie alle Nachschlagefelder für die Entität, bei der Sie das Titelfeld ändern möchten, nehmen Sie die Änderung vor, und erstellen Sie die Nachschlagefelder erneut. Weitere Informationen zu Nachschlagefeldern finden Sie unter [Erstellen einer Beziehung zwischen Entitäten](../common-data-service/data-platform-entity-lookup.md).
 
-1. **Scanning a barcode**
+1. **Apps, die eine Verbindung mit lokalem SharePoint herstellen**
 
-    For information about limitations and best practices when you use a **Barcode** control, see [Scan a barcode](scan-barcode.md).
+    Wenn Sie eine App freigeben, die auf Verbindungen beruht, die nicht automatisch freigegeben werden (z.B. eine lokale SharePoint-Website), wird Benutzern, die die App in einem Browser öffnen, ein Dialogfeld ohne Text angezeigt, wenn Sie auf **Anmelden** klicken oder tippen. Klicken oder tippen Sie auf das „Schließen“-Symbol (X) in der rechten oberen Ecke, um das Dialogfeld zu schließen. Das Dialogfeld wird nicht angezeigt, wenn Sie die App in PowerApps Studio oder PowerApps Mobile öffnen. Weitere Informationen zu freigegebenen Verbindungen finden Sie unter [Share app resources (Freigeben von App-Ressourcen)](share-app-resources.md).
 
-1. **Creating and modifying apps in a browser**
+1. **Wenn PowerApps aus Daten eine App generiert, wird das Feld zum Sortieren und Durchsuchen nicht automatisch konfiguriert**.
 
-    You can do many, but not all, of the same things in PowerApps Studio for web as you can in PowerApps Studio for Windows. For more information, see [Create an app in a browser](create-app-browser.md).
+   Um dieses Feld zu konfigurieren, bearbeiten Sie die **[Elemente](controls/properties-core.md)**-Formel für den Katalog, wie in den Abschnitten zum Filtern und Sortieren unter [Add a gallery (Hinzufügen eines Katalogs)](add-gallery.md) beschrieben.
 
-1. **Changing a Title field in an entity**
+1. **Bei Apps, die aus Daten erstellt werden, kann nur auf die ersten 500 Datensätze einer Datenquelle zugegriffen werden**.
 
-    If you change the Title field for an entity that other entities reference through one or more lookups, an error will occur when you try to save the change. To work around this issue, remove any lookups to the entity for which you want to change the Title field, make the change, and then recreate the lookups. For more information about lookups, see [Build a relationship between entities](../common-data-service/data-platform-entity-lookup.md).
+     Im Allgemeinen arbeitet PowerApps mit Datenquellen jeder Größe, indem Vorgänge an die Datenquelle delegiert werden. Bei Vorgängen, die nicht delegiert werden können, gibt PowerApps beim Erstellen eine Warnung aus und führt den Vorgang nur für die ersten 500 Datensätze der Datenquelle aus.  Weitere Informationen zur Delegierung finden Sie im Artikel zur [Filterfunktion](functions/function-filter-lookup.md).
 
-1. **Apps that connect to on-premises SharePoint**
+1. **Excel-Daten müssen als Tabelle formatiert sein**.
 
-    If you share an app that relies on connections that aren’t automatically shared (for example, an on-premises SharePoint site), users who open the app in a browser will see a dialog box with no text when they click or tap **Sign in**. To close the dialog box, click or tap the close (X) icon in the upper-right corner. The dialog box doesn’t appear if you open the app in PowerApps Studio or PowerApps Mobile. For more information about shared connections, see [Share app resources](share-app-resources.md).
+     Weitere Informationen zu Einschränkungen bei der Verwendung von Excel als Datenquelle finden Sie unter [Cloudspeicherverbindungen](connections/cloud-storage-blob-connections.md#known-limitations).
 
-1. **When PowerApps generates an app from data, the field used for sorting and searching isn't automatically configured**.
+1. **Benutzerdefinierte SharePoint-Listen werden unterstützt, Bibliotheken jedoch nicht, bestimmte Typen von Listenspalten oder Spalten, die mehrere Werte oder Auswahlen unterstützen**.
 
-   To configure this field, edit the **[Items](controls/properties-core.md)** formula for the gallery, as the sections for filtering and sorting in [Add a gallery](add-gallery.md) describe.
+     Weitere Informationen finden Sie unter [SharePoint Online](connections/connection-sharepoint-online.md#known-issues).
 
-1. **For apps that are created from data, only the first 500 records of a data source can be accessed**.
+1. **Die gemeinsame Erstellung wird nicht unterstützt. Bitte immer nur ein Autor zur gleichen Zeit**.
 
-     In general, PowerApps works with any size data source by delegating operations to the data source. For operations that can't be delegated, PowerApps will give a warning at authoring time and operate on only the first 500 records of the data source.  See the [Filter function](functions/function-filter-lookup.md) article for more details about delegation.
+     Wenn mehr als eine Person zur gleichen Zeit die gleiche App bearbeitet, kann eine App beschädigt oder die Änderungen von Anderen überschrieben werden. Schließen Sie die App, bevor sie von einer anderen Person bearbeitet wird.
 
-1. **Excel data must be formatted as a table**.
+1. **Manchmal kann es einen Moment dauern, bis eine neu freigegebene App verwendet werden kann**.
 
-     For information about limitations when you use Excel as a data source, see [Cloud-storage connections](connections/cloud-storage-blob-connections.md#known-limitations).
+     In einigen Fällen ist eine neu freigegebene App nicht sofort verfügbar. Warten Sie einige Minuten, und sie sollte verfügbar sein.
 
-1. **SharePoint custom lists are supported but not libraries, some types of list columns, or columns that support multiple values or selections**.
+1. **Im [Formularsteuerelement](controls/control-form-detail.md), können Sie Daten nicht mithilfe einer benutzerdefinierten Karte ändern**.
 
-     For more information, see [SharePoint Online](connections/connection-sharepoint-online.md#known-issues).
+     Der bestehenden benutzerdefinierten Karte fehlt die **[Update](controls/control-card.md)**-Eigenschaft, die für das Zurückschreiben von Änderungen benötigt wird. Dieses Problem können Sie folgendermaßen umgehen:
 
-1. **Co-authoring isn't supported. One author at a time, please**.
+    * Wählen Sie das Formularsteuerelement aus, und fügen Sie eine Karte mithilfe des rechten Bereichs basierend auf dem Feld ein, das mit der Karte angezeigt werden soll.  
+    * Entsperren Sie die Karte, wie unter [Understand data cards (Grundlegendes zu Datenkarten)](working-with-cards.md#unlock-a-card) beschrieben.
+    * Entfernen Sie Steuerelemente, oder ordnen Sie diese passend neu an, so wie Sie es mit der benutzerdefinierten Karte machen würden.
 
-     You can corrupt an app or over-write others’ changes if more than one person modifies the same app at the same time. Close the app before someone else edits it.
+1. **Eine App, die auf Android 5.0, Nexus 6 mit den WebView-Versionen 48 oder 49 ausgeführt wird, kann abstürzen**.
 
-1. **It can sometimes take a moment before a newly shared app can be used**.
+     Benutzer können dieses Problem beheben, indem Sie auf eine niedrigere Version von WebView (3x) oder auf Android 6.0 aktualisieren.
 
-     In some cases, a newly shared app won't be immediately available. Wait a few moments, and it should become available.
+1. **Die Kameraverwendung kann vorübergehend deaktiviert sein, wenn der Speicherplatz gering ist**.
 
-1. **In the [Form control](controls/control-form-detail.md), you can't change data by using a custom card**.
+     Wenn der Speicherplatz Ihres mobilen Geräts gering ist, wird die Kamera vorübergehend deaktiviert, um zu verhindern, dass das Gerät abstürzt.
 
-     The stock custom card is missing the **[Update](controls/control-card.md)** property, which is required to write back changes. To work around this:
+1. **Der Office 365-Video-Connector wird nicht unterstützt**.
 
-    * Select the form control, and insert a card by using the right-hand pane based on the field that you want the card to show.  
-    * Unlock the card, as described in [Understanding data cards](working-with-cards.md#unlock-a-card).
-    * Remove or rearrange controls within the card as you see fit, just as you would with the custom card.
+1. **Der Kartenkatalog wird nicht mehr unterstützt**.
 
-1. **An app that's running on Android 5.0, Nexus 6 with Webview versions v48 or v49 may crash**.
-
-     Users can fix this problem by updating to a lower version of Webview (3x) or update to Android 6.0.
-
-1. **Camera usage may be temporarily disabled if memory is low**.
-
-     If your mobile device is low on memory, the camera is temporarily disabled to avoid crashing the device.
-
-1. **Office 365 Video connector isn't supported**.
-
-1. **Card gallery is deprecated**.
-
-     Existing apps that use this feature will continue to run for the time being, but you can't add a card gallery. Please replace card galleries with the new **[Edit form](controls/control-form-detail.md)** and **[Display form](controls/control-form-detail.md)** controls.
+     Vorhandene Apps, die diese Funktion verwenden, werden vorerst weiter ausgeführt, Sie können jedoch keinen Kartenkatalog hinzufügen. Ersetzen Sie Kartenkataloge mit den neuen Steuerelementen **[Edit form](controls/control-form-detail.md)** (Formular bearbeiten) und **[Display form](controls/control-form-detail.md)** (Formular anzeigen).

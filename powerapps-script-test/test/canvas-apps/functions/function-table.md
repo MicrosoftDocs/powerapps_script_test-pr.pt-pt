@@ -1,6 +1,6 @@
 ---
-title: Table function | Microsoft Docs
-description: Reference information, including syntax and examples, for the Table function in PowerApps
+title: Funktion „Table“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, zur Funktion „Table“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,35 +9,41 @@ ms.custom: canvas
 ms.reviewer: anneta anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: ec8f14e06852bac7e09527e49bfc363723c9ea1c
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42833249"
 ---
-# Table function in PowerApps
-Creates a temporary [table](../working-with-tables.md).
+# <a name="table-function-in-powerapps"></a>Funktion „Table“ in PowerApps
+Erstellt eine temporäre [Tabelle](../working-with-tables.md)
 
-## Description
-The **Table** function creates a table from an argument list of [records](../working-with-tables.md#records).
+## <a name="description"></a>Beschreibung
+Die **Table**-Funktion erstellt eine Tabelle aus einer Argumentliste von [Datensätzen](../working-with-tables.md#records).
 
-The table's [columns](../working-with-tables.md#columns) will be the union of all the properties from all the argument records. A *blank* value is added to any column for which a record doesn't include a value.
+Der [Spalten](../working-with-tables.md#columns) der Tabelle werden die Vereinigung aller Eigenschaften aus den Argumentdatensätzen. Jeder Spalte, für die im Datensatz kein Wert enthalten ist, wird ein *leerer* Wert hinzugefügt.
 
-A table is a value in PowerApps, just like a string or a number. You can specify a table as an argument for a function, and functions can return a table as a result. **Table** doesn't create a permanent table. Instead it returns a temporary table made of its arguments.  You can specify this temporary table as an argument for another function, visualize it in a gallery, or embed it in another table.  See [working with tables](../working-with-tables.md) for more details.
+Tabellen stellen in PowerApps einen Wert dar, genau wie Zeichenfolgen oder Zahlen. Sie können eine Tabelle als Argument für eine Funktion angeben, und Funktionen können eine Tabelle als Ergebnis zurückgeben. Die **Table**-Funktion erstellt keine dauerhaften Tabellen. Stattdessen wird eine temporäre Tabelle aus deren Argumenten zurückgegeben.  Sie können diese temporäre Tabelle als Argument für eine andere Funktion angeben, in einem Katalog darstellen oder in eine andere Tabelle einbetten.  Weitere Details erfahren Sie unter [Arbeiten mit Tabellen](../working-with-tables.md).
 
-You can also create a single-column table with the **[ value1, value2, ... ]** syntax.
+Sie können auch eine einspaltige Tabelle mit der Syntax **[Wert1, Wert2,...]**  erstellen.
 
-## Syntax
-**Table**( *Record1* [, *Record2*, ... ] )
+## <a name="syntax"></a>Syntax
+**Table**( *Datensatz1* [, *Datensatz2*, ... ] )
 
-* *Record(s)* - Required. The records to add to the table.
+* *Datensatz(-sätze)*: erforderlich. Die der Tabelle hinzuzufügenden Datensätze
 
-## Examples
-* Set the **[Items](../controls/properties-core.md)** property of a listbox to this formula:
+## <a name="examples"></a>Beispiele
+* Legen Sie die **[Items](../controls/properties-core.md)**-Eigenschaft eines Listenfelds auf diese Formel fest:
   <br>**Table({Color:"red"}, {Color:"green"}, {Color:"blue"})**
   
-    The listbox shows each color as an option.
-* Add a text gallery, and set its **[Items](../controls/properties-core.md)** property to this function:<br>
+    Das Listenfeld zeigt jede Farbe als Option an.
+* Fügen Sie einen Textkatalog hinzu, und legen Sie dessen **[Items](../controls/properties-core.md)**-Eigenschaft auf diese Funktion fest:<br>
   **Table({Item:"Violin123", Location:"France", Owner:"Fabrikam"}, {Item:"Violin456", Location:"Chile"})**
   
-    The gallery shows two records, both of which contain the name and location of an item. Only one record contains the name of the owner.
+    Der Katalog zeigt zwei Datensätze, die beide den Namen und den Speicherort eines Elements enthalten. Nur ein Datensatz enthält den Namen des Besitzers.
 

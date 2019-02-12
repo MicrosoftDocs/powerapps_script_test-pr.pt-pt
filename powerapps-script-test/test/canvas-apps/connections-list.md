@@ -1,6 +1,6 @@
 ---
-title: Connectors overview for canvas apps | Microsoft Docs
-description: Overview of all the available connections that you can use to build canvas apps
+title: Übersicht über Connectors für Canvas-Apps | Microsoft-Dokumentation
+description: Übersicht über alle verfügbaren Connectors, die Sie verwenden können, um Canvas-Apps zu erstellen
 author: lancedMicrosoft
 manager: kvivek
 ms.service: powerapps
@@ -9,51 +9,57 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 08/28/2017
 ms.author: lanced
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: f7a053aff947ffd543381956cf725a7e656d8a65
+ms.sourcegitcommit: ebe0a9c41b693a2134e9198ffc7e7a8eabee4330
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "51276370"
 ---
-# Overview of canvas-app connectors for PowerApps
-Data is at the core of most apps, including those you build in PowerApps. Data is stored in a *data source*, and you bring that data into your app by creating a *connection*. The connection uses a specific *connector* to talk to the data source. PowerApps has connectors for many popular services and on-premises data sources, including SharePoint, SQL Server, Office 365, Salesforce, and Twitter. To get started adding data to a canvas app, see [Add a data connection in PowerApps](add-data-connection.md).
+# <a name="overview-of-canvas-app-connectors-for-powerapps"></a>Übersicht über die Canvas-App-Connectors für PowerApps
+Daten bilden das Herzstück der meisten Apps, u.a. bei denen, die Sie in PowerApps erstellen. Daten werden in einer *Datenquelle* gespeichert, und Sie übergeben diese Daten an Ihre App, indem Sie eine *Verbindung* erstellen. Die Verbindung verwendet einen bestimmten *Connector* für die Kommunikation mit der Datenquelle. PowerApps verfügt über Connectors für viele gängige Dienste und lokale Datenquellen, u.a. SharePoint, SQL Server, Office 365, Salesforce und Twitter. Die ersten Schritte zum Hinzufügen von Daten zu einer Canvas-App werden unter [Hinzufügen einer Datenverbindung in PowerApps](add-data-connection.md) beschrieben.
 
-A connector may provide **tables** of data or **actions**. Some connectors provide only tables, some provide only actions, and some provide both. Also your connector may be either a standard or custom connector.
+Ein Connector kann **Tabellen** mit Daten oder **Aktionen** bereitstellen. Einige Connectors stellen nur Tabellen bereit, einige nur Aktionen, einige beides. Bei Ihrem Connector kann es sich außerdem um einen standardmäßigen oder einen benutzerdefinierten Connector handeln.
 
-## Tables
+## <a name="tables"></a>Tabellen
 
-If your connector provides tables, you add your data source and then select the table in the data source that you want to manage. PowerApps both retrieves table data into your app and updates data in your data source for you. For example, you can add a data source that contains a table named **Lessons** and then set the **Items** property of a control, such as a gallery or a form, to this value in the formula bar:
+Wenn Ihr Connector Tabellen bereitstellt, fügen Sie Ihre Datenquelle hinzu und wählen dann die Tabelle in der Datenquelle aus, die Sie verwalten möchten. PowerApps ruft die Tabellendaten in Ihre App ab und aktualisiert die Daten in Ihrer Datenquelle für Sie. Sie können z.B. eine Datenquelle hinzufügen, die eine Tabelle namens **Lessons** enthält, und dann in der Formularleiste die **Items**-Eigenschaft eines Steuerelements, etwa einen Katalog oder ein Formular, auf diesen Wert festlegen:
 
- ![Plain data source Items property](./media/connections-list/ItemPropertyPlain.png)
+ ![Items-Eigenschaft für Quelle mit einfachen Daten](./media/connections-list/ItemPropertyPlain.png)
 
-You can specify the data that your app retrieves by customing the **Items** property of the control that shows your data. Continuing the previous example, you can sort or filter the data in the **Lessons** table by using that name as an argument for the **Search** and **SortByColumn** functions. In this graphic, the formula to which the **Items** property is set specifies that the data is sorted and filtered based on the text in **TextSearchBox1**. 
+Sie können die Daten angeben, die von Ihrer App abgerufen werden, indem Sie die **Items**-Eigenschaft des Steuerelements anpassen, das Ihre Daten anzeigt. Als Fortführung des vorherigen Beispiels können Sie die Daten in der Tabelle **Lessons** sortieren oder filtern, indem Sie diesen Namen als Argument für die Funktionen **Search** und **SortByColumn** verwenden. In dieser Abbildung wird durch die Formel, auf die die **Items**-Eigenschaft festgelegt ist, angegeben, dass die Daten basierend auf dem Text in **TextSearchBox1** sortiert und gefiltert werden sollen. 
 
- ![Expanded data source Items property](./media/connections-list/ItemPropertyExpanded.png)
+ ![Items-Eigenschaft für Quelle mit erweiterten Daten](./media/connections-list/ItemPropertyExpanded.png)
 
-For more information about how to to customize your formula with tables, see these topics:
+Weitere Informationen zum Anpassen Ihrer Formel mit Tabellen finden Sie in den folgenden Themen:
 
-  [Understand data sources in PowerApps](working-with-data-sources.md)<br> 
-  [Generate an app from Excel data](get-started-create-from-data.md)<br> 
-  [Create an app from scratch](get-started-create-from-blank.md)<br>
-  [Understand tables and records in PowerApps](working-with-tables.md)
+  [Grundlegendes zu Datenquellen in PowerApps](working-with-data-sources.md)<br> 
+  [Generieren einer App aus Excel-Daten](get-started-create-from-data.md)<br> 
+  [App von Grund auf neu erstellen](get-started-create-from-blank.md)<br>
+  [Understand tables and records in PowerApps (Grundlegendes zu Tabellen und Datensätzen in PowerApps)](working-with-tables.md)
 
   > [!NOTE]
-  > To connect to data in an Excel workbook, it must be hosted in a cloud-storage service such as OneDrive. For more information, see [Connect to cloud-storage from PowerApps](connections/cloud-storage-blob-connections.md).
+  > Zum Herstellen einer Verbindung mit Daten in einer Excel-Arbeitsmappe muss die Arbeitsmappe in einem Cloudspeicherdienst wie OneDrive gehostet werden. Weitere Informationen finden Sie im Artikel zum [Verbinden mit Cloudspeicher aus PowerApps](connections/cloud-storage-blob-connections.md).
 
-## Actions
+## <a name="actions"></a>Aktionen
 
-If your connector provides actions, you must still select your data source as you did before. Instead of selecting a table as the next step, however, you manually connect a control to an action by editing the **Items** property of the control that will show your data. The formula to which you set the **Items** property specifies the action that retrieves data. For example, the app won't retrieve any data if you connect to Yammer and then set the **Items** property to the name of the data source. To populate a control with data, specify an action such as **GetMessagesInGroup(5033622).messages**.
+Wenn Ihr Connector Aktionen bereitstellt, müssen Sie trotzdem weiterhin wie oben die Datenquelle auswählen. Sie wählen allerdings als nächsten Schritt keine Tabelle aus, sondern stellen manuell eine Verbindung zwischen einem Steuerelement und einer Aktion her, indem Sie die **Items**-Eigenschaft des Steuerelements bearbeiten, das Ihre Daten anzeigen soll. Die Formel, auf die Sie die **Items**-Eigenschaft festlegen, gibt die Aktion an, die Daten abruft. Die App ruft beispielsweise keine Daten ab, wenn Sie eine Verbindung mit Yammer herstellen und dann die **Items**-Eigenschaft auf den Namen der Datenquelle festlegen. Um ein Steuerelement mit Daten aufzufüllen, geben Sie eine Aktion an, wie z.B. **GetMessagesInGroup(5033622).messages**.
 
-![Action data source Items property](./media/connections-list/ItemPropertyAction.png)
+![Items-Eigenschaft für Datenquelle für Aktionen](./media/connections-list/ItemPropertyAction.png)
 
-If you need to handle custom data updates for action connectors, build a formula that includes the **Patch** function. In the formula, identify the action and the fields that you'll bind to the action.  
+Wenn Sie benutzerdefinierte Datenupdates für Aktionsconnectors verarbeiten müssen, erstellen Sie eine Formel, die die **Patch**-Funktion enthält. Geben Sie in der Formel die Aktion und die Felder an, die Sie an die Aktion binden.  
 
-For more information about how to to customize your formula for custom updates, see these topics:
+Weitere Informationen zum Anpassen Ihrer Formel für benutzerdefinierte Updates finden Sie in den folgenden Themen:
 
 [Patch](functions/function-patch.md)<br>[Collect](functions/function-clear-collect-clearcollect.md)<br>[Update](functions/function-update-updateif.md)
 
-## Popular connectors
+## <a name="popular-connectors"></a>Gängige Connectors
 
-This table has links to more information about our most popular connectors. For a complete list of connectors, see [All connectors](https://docs.microsoft.com/connectors/).
+Diese Tabelle enthält Links zu weiteren Informationen zu den am häufigsten verwendeten Connectors. Eine vollständige Liste der Connectors finden Sie unter [Alle Connectors](#all-standard-connectors).
 
 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | --- | --- | --- | --- | --- |
@@ -61,12 +67,12 @@ This table has links to more information about our most popular connectors. For 
 | ![SharePoint](./media/connections-list/sharepoint.png) |[**SharePoint**](connections/connection-sharepoint-online.md) |&nbsp; |![Excel](./media/connections-list/excel.png) |[**Excel**](connections/connection-excel.md) |
 | ![SQL Server](./media/connections-list/sql.png) |[**SQL Server**](connections/connection-azure-sqldatabase.md) |&nbsp; |![OneDrive for Business](./media/connections-list/onedrive.png) |[**OneDrive for Business**](connections/cloud-storage-blob-connections.md) |
 | ![Dynamics 365](./media/connections-list/dynamics-365.png) |[**Dynamics 365**](connections/connection-dynamics-crmonline.md) |&nbsp; |![OneDrive](./media/connections-list/onedrive.png) |[**OneDrive**](connections/cloud-storage-blob-connections.md) |
-| ![Office 365 Users](./media/connections-list/office365.png) |[**Office 365 Users**](connections/connection-office365-users.md) |&nbsp; |![Dropbox](./media/connections-list/dropbox.png) |[**Dropbox**](connections/cloud-storage-blob-connections.md) |
+| ![Office 365-Benutzer](./media/connections-list/office365.png) |[**Office 365-Benutzer**](connections/connection-office365-users.md) |&nbsp; |![Dropbox](./media/connections-list/dropbox.png) |[**Dropbox**](connections/cloud-storage-blob-connections.md) |
 
-## Standard and custom connectors
-PowerApps provides *standard* connectors for many commonly used data sources, such as those listed above. If PowerApps has a standard connector for the type of data source that you want to use, you should use that connector. If you want to connect to other types of data sources, such as a service that you've built, see [Register and use custom connectors](../canvas-apps/register-custom-api.md).
+## <a name="standard-and-custom-connectors"></a>Standardmäßige und benutzerdefinierte Connectors
+PowerApps bietet *standardmäßige* Connectors für viele häufig genutzte Datenquellen an, wie z.B. die oben genannten. Wenn PowerApps einen Standardconnector für den von Ihnen gewünschten Datenquellentyp bietet, sollten Sie diesen Connector verwenden. Wenn Sie eine Verbindung mit anderen Arten von Datenquellen herstellen möchten, z.B. mit einem von Ihnen erstellten Dienst, finden Sie weitere Informationen unter [Registrieren und Verwenden von benutzerdefinierten Connectors](../canvas-apps/register-custom-api.md).
 
-## All standard connectors
-See the [Microsoft Connector Reference](https://docs.microsoft.com/connectors/) for a list of all the standard connectors. Premium connectors require PowerApps Plan 1 or Plan 2. For more information, see [PowerApps Plans](https://powerapps.microsoft.com/pricing/).
+## <a name="all-standard-connectors"></a>Alle Standardconnectors
+Eine vollständige Liste aller Standardconnectors finden Sie in der [Microsoft-Referenz zu Connectors](https://docs.microsoft.com/connectors/). Für Premium-Connectors ist PowerApps-Plan 1 oder 2 erforderlich. Weitere Informationen finden Sie auf der [Seite mit den PowerApps-Plänen](https://powerapps.microsoft.com/pricing/).
 
-You can ask questions about a specific connector in the [PowerApps forums](https://powerusers.microsoft.com/t5/PowerApps-Community/ct-p/PowerApps1), and you can suggest connectors to add or other improvements to make in [PowerApps Ideas](https://powerusers.microsoft.com/t5/PowerApps-Ideas/idb-p/PowerAppsIdeas).
+In den [PowerApps-Foren](https://powerusers.microsoft.com/t5/PowerApps-Community/ct-p/PowerApps1) können Sie Fragen zu einem bestimmten Connector stellen, und unter [PowerApps Ideas](https://powerusers.microsoft.com/t5/PowerApps-Ideas/idb-p/PowerAppsIdeas) können Sie Vorschläge für neue Connectors oder anderen Verbesserungen einreichen.

@@ -1,52 +1,53 @@
 ---
-title: Change screen size and orientation of a canvas app | Microsoft Docs
-description: Step-by-step instructions for changing settings such as the screen size and the orientation of a canvas app in PowerApps
-author: evchaki
+title: Ändern der Bildschirmgröße und -ausrichtung einer Canvas-App | Microsoft-Dokumentation
+description: Schrittanleitung zum Ändern von Einstellungen, z.B. von Bildschirmgröße und -ausrichtung einer Canvas-App in PowerApps
+author: lonu
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
 ms.reviewer: anneta
-ms.date: 11/07/2018
-ms.author: evchaki
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.date: 10/16/2016
+ms.author: lonu
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: ab41707c06faa11dd2e1d519b72fb35ff6b9914a
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42835581"
 ---
-# Change screen size and orientation of a canvas app in PowerApps
-Customize a canvas app by changing its screen size and orientation.
+# <a name="change-screen-size-and-orientation-of-a-canvas-app-in-powerapps"></a>Ändern der Bildschirmgröße und -ausrichtung einer Canvas-App in PowerApps
+Passen Sie eine Canvas-App an, indem Sie Bildschirmgröße und -ausrichtung ändern.
 
-## Prerequisites
-1. Create an app, or open one for editing.
+## <a name="prerequisites"></a>Voraussetzungen
+1. Erstellen Sie eine App, oder öffnen Sie eine App zum Bearbeiten.
 
-2. On the **File** menu, select **App settings**.
+2. Klicken oder tippen Sie im Menü **Datei** auf **App-Einstellungen**.
 
-## Change screen size and orientation
-1. Under **App settings**, select **Screen size + orientation**.
+## <a name="change-screen-size-and-orientation"></a>Ändern der Bildschirmgröße und -ausrichtung
+1. Klicken oder tippen Sie unter **App-Einstellungen** auf **Bildschirmgröße und -ausrichtung**.
 
-    ![Option to change the screen size and orientation of an app](./media/set-aspect-ratio-portrait-landscape/size-orientation.png)
+    ![Option zum Ändern der Bildschirmgröße und -ausrichtung einer App](./media/set-aspect-ratio-portrait-landscape/size-orientation.png)
 
-2. In the **Orientation** list, select **Portrait** or **Landscape**.
+2. Klicken oder tippen Sie in der Liste **Ausrichtung** entweder auf **Hochformat** oder **Querformat**.
 
-3. (Tablet apps only) Under **Aspect ratio**, perform either of these steps:
+3. (Gilt nur für Tablet-Apps) Klicken oder tippen Sie unter **Seitenverhältnis** auf das Seitenverhältnis, das dem Zielgerät für diese App entspricht.
 
-    - Select the ratio that matches the target device for this app.
-    - Select **Custom** to set your own size, and then specify a width between 50 - 3840 and a height between 50 - 2160.
+    ![Ändern des Seitenverhältnisses einer Tablet-App](./media/set-aspect-ratio-portrait-landscape/aspect-tablet.png)
 
-    ![Change the aspect ratio of a tablet app](./media/set-aspect-ratio-portrait-landscape/aspect-tablet.png)
+4. Geben Sie unter **Seitenverhältnis sperren** entweder **Ein** oder **Aus** an.
 
-4. Under **Lock aspect ratio**, specify either **On** or **Off**.
+    Wenn Sie das Seitenverhältnis sperren, behält die App das angegebene Seitenverhältnis für ein Smartphone bei. Wenn die App auf einer anderen Art Gerät ausgeführt wird, wird die App falsch angezeigt, und es werden möglicherweise unerwünschte Ergebnisse angezeigt. Wenn Sie das Seitenverhältnis entsperren, wird die App an das Seitenverhältnis des Geräts angepasst, auf dem sie ausgeführt wird.
 
-    If you lock the aspect ratio, the app will retain the appropriate aspect ratio for a phone. If the app is running on another kind of device, the app will display incorrectly and may show unwanted results. If you unlock the aspect ratio, the app will adjust to the aspect ratio of the device on which it's running.
+5. Geben Sie unter **Bildschirmausrichtung sperren** entweder **Ein** oder **Aus** an.
 
-5. Under **Lock orientation**, specify either **On** or **Off**.
+    Wenn Sie die Bildschirmausrichtung der App sperren, behält die App die Ausrichtung bei, die Sie angeben. Wenn die App auf einem Gerät ausgeführt wird, das eine andere Bildschirmausrichtung besitzt, wird die App falsch angezeigt, und es werden möglicherweise unerwünschte Ergebnisse angezeigt. Wenn Sie die Ausrichtung der App entsperren, wird diese der Bildschirmausrichtung des Geräts angepasst, auf der sie ausgeführt wird.
 
-    If you lock the app's orientation, the app will retain the orientation that you specify. If the app is running on a device for which the screen is in a different orientation, the app will display incorrectly and may show unwanted results. If you unlock the app's orientation, it will adjust to the screen orientation of the device on which it's running.
+6. Zum Speichern Ihrer Änderungen wählen Sie **Anwenden** aus.
 
-    You can also modify the app's orientation by enabling **Enable app embedding user experience** in **Advanced settings**. This feature top-left aligns the app when it's embedded and changes the background color of the hosting canvas to white.
-
-6. Select **Apply** to save your changes.
-
-## Next step
-On the **File** menu, select **Save** to republish your app with the new settings.
+## <a name="next-step"></a>Nächster Schritt
+Wählen Sie im Menü **Datei** die Option **Speichern** aus, um Ihre App mit den neuen Einstellungen erneut zu veröffentlichen.

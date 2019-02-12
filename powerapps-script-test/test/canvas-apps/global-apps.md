@@ -1,6 +1,6 @@
 ---
-title: Build global support into canvas apps | Microsoft Docs
-description: Use PowerApps to build apps that are used worldwide.
+title: Integrieren von globaler Unterstützung in Canvas-Apps | Microsoft-Dokumentation
+description: Verwenden Sie PowerApps, um Apps zu erstellen, die weltweit verwendet werden.
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,140 +9,146 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 7ccd505d53377617bd13cda775cce489c554bc64
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42862574"
 ---
-# Build global support into canvas apps
-PowerApps is a global product. You can build and use canvas apps in many different languages and regions.
+# <a name="build-global-support-into-canvas-apps"></a>Integrieren von globaler Unterstützung in Canvas-Apps
+PowerApps ist ein globales Produkt. Sie können Canvas-Apps in vielen verschiedenen Sprachen und Regionen erstellen und verwenden.
 
-Both while building and running apps, the text displayed by PowerApps has been translated into a variety of languages.  You will see menu items, dialog boxes, ribbon tabs, and other text in your native language.  Typing in and displaying dates and numbers is also adapted for your particular language and region.  For example, some regions of the world use "." as a decimal separator while others use ",".  
+Sowohl beim Erstellen als auch beim Ausführen von Apps wurde der von PowerApps angezeigte Text in eine Vielzahl von Sprachen übersetzt.  Menüelemente, Dialogfelder, Menübandregisterkarten und anderer Text wird in Ihrer Muttersprache angezeigt.  Die Eingabe und die Datums- und Zahlenanzeige ist ebenfalls an Ihre bestimmte Sprache und Region angepasst.  Beispielsweise wird in einigen Regionen der Welt „.“ als Dezimaltrennzeichen verwendet, während in anderen Regionen „,“ verwendet wird.  
 
-The apps you create can be globally aware as well.  Use the **[Language](functions/function-language.md)**, **[Text](functions/function-text.md)**, **[Value](functions/function-value.md)**, **[DateValue](functions/function-datevalue-timevalue.md)** and other functions to adapt what is displayed and used as input in different languages.   
+Die Apps, die Sie erstellen, können ebenfalls global kompatibel sein.  Verwenden Sie die Funktionen **[Language](functions/function-language.md)**, **[Text](functions/function-text.md)**, **[Value](functions/function-value.md)**, **[DateValue](functions/function-datevalue-timevalue.md)** sowie andere Funktionen, um anzupassen, was als Eingabe in verschiedenen Sprachen angezeigt und verwendet wird.   
 
-## Language settings
-When using the native studio or a native player, the language used is provided by the host operating system.  For Windows, this can be controlled under "All Settings" and then "Time & language" settings.  Windows also allows you to specify the characters to use for the decimal separator, overriding the language setting.  
+## <a name="language-settings"></a>Spracheinstellungen
+Wenn Sie ein natives Studio oder einen nativen Spieler verwenden, wird die verwendete Sprache vom Hostbetriebssystem bereitgestellt.  Bei Windows kann dies unter „Alle Einstellungen“ und dann unter den Einstellungen für „Zeit & Sprache“ gesteuert werden.  Windows ermöglicht Ihnen auch, die Zeichen anzugeben, die als Dezimalzeichen verwendet werden sollen, wobei die Spracheinstellungen überschrieben werden.  
 
-When using the web experiences, the language used is provided by the browser.  Most browser default to the host operating system's setting with some also providing a way to set the language manually.
+Bei Verwendung der Webbenutzeroberfläche wird die verwendete Sprache vom Browser bereitgestellt.  Die meisten Browser übernehmen standardmäßig die Einstellung des Hostbetriebssystems, wobei einige auch die Möglichkeit bieten, die Sprache manuell festzulegen.
 
-## Authoring environment
-The authoring environment adapts to the language setting of the author.  The app itself is stored in a language agnostic manner, so that authors using different languages can edit the same app.
+## <a name="authoring-environment"></a>Erstellungsumgebung
+Die Erstellungsumgebung passt sich an die Spracheinstellung des Autors an.  Die App selbst wird auf eine sprachunabhängige Weise gespeichert, sodass Autoren, die verschiedene Sprachen verwenden, die gleiche App bearbeiten können.
 
-### Names in formulas
-Most elements in formula are always in English:
+### <a name="names-in-formulas"></a>Namen in Formeln
+Die meisten Elemente in einer Formel sind immer auf Englisch:
 
-* Function names: **If**, **Navigate**, **Collect**, ...
-* Control property names: **Screen.Fill**, **Button.OnSelect**, **Textbox.Font**, ...
-* Enumeration names: **Color.Aqua**, **DataSourceInfo.MaxValue**, **FontWeight.Bold**...
-* Signal records: **Compass.Heading**, **Location. Latitude**, **App.ActiveScreen**, ...
-* Operators: **Parent**, **in**, **exactIn**, ...
+* Funktionsnamen: **If**, **Navigate**, **Collect**, ...
+* Namen von Steuerelementeigenschaften: **Screen.Fill**, **Button.OnSelect**, **Textbox.Font**, ...
+* Enumerationsnamen: **Color.Aqua**, **DataSourceInfo.MaxValue**, **FontWeight.Bold**...
+* Einzelne Datensätze: **Compass.Heading**, **Location. Latitude**, **App.ActiveScreen**, ...
+* Operatoren: **Parent**, **in**, **exactIn**, ...
 
-As the authoring experience is localized, control and other object names will appear in the native language of the author.  In Spanish, some of the control names appear as:
+Da die Erstellungsumgebung lokalisiert wird, werden Steuer- und andere Objektnamen in der Muttersprache des Autors angezeigt.  In Spanisch werden einige der Steuerelementnamen wie folgt angezeigt:
 
 ![](media/global-apps/insert-controls-es.png)
 
-When you insert one of these into your app, their name will default to English.  This is done for consistency with the control property names and the rest of the formula.  For example, **Casilla** listed above is inserted as **Checkbox1**.  
+Wenn Sie eines dieser Steuerelemente in Ihre App einfügen, wird dessen Name standardmäßig auf Englisch angezeigt.  Dies geschieht aus Gründen der Konsistenz zwischen den Namen der Steuerelementeigenschaften und dem Rest der Formel.  Beispielsweise wird das oben aufgeführte **Casilla** als **Checkbox1** eingefügt.  
 
-After a control is inserted, you can change the name to whatever you like.  While selected, the far left hand side of the "Content" ribbon displays the name of the control.  Selecting this name drops down a text box where you can edit the name:
+Nach dem Einfügen eines Steuerelements können Sie den Namen beliebig ändern.  Solange es ausgewählt ist, zeigt der ganz linke Teil des Menübands „Content“ (Inhalt) den Namen des Steuerelements an.  Wenn Sie diesen Namen auswählen, wird ein Textfeld angezeigt, in dem Sie den Namen bearbeiten können:
 
 ![](media/global-apps/control-rename.png)
 
-If you like, here you can rename the control to **Casilla1**.  The red squiggly, in this case displayed by a browser, is because the name is not a Spanish word and is of no concern.
+Wenn Sie möchten, können Sie hier das Steuerelement in **Casilla1** umbenennen.  Die rote Wellenlinie, die in diesem Fall von einem Browser angezeigt wird, ist darauf zurückzuführen, dass es sich bei dem Wort nicht um ein spanisches Wort handelt, und ist nicht zu beachten.
 
-You can use whatever names you like for:
+Sie können beliebige Namen für folgende Namen verwenden:
 
-* Control names
-* Collection names
-* Context variable names
+* Steuerelementnamen
+* Sammlungsnamen
+* Namen von Kontextvariablen
 
-### Formula separators and chaining operator
-Some [separators and operators](functions/operators.md) will shift based on the decimal separator of the author's language:
+### <a name="formula-separators-and-chaining-operator"></a>Formeltrennzeichen und Verkettungsoperator
+Einige [Trennzeichen und Operatoren](functions/operators.md) werden basierend auf dem Dezimaltrennzeichen der Sprache des Autors verschoben:
 
-| Author's language decimal separator | PowerApps decimal separator | PowerApps list separator | PowerApps chaining operator |
+| Dezimaltrennzeichen der Sprache des Autors | Dezimaltrennzeichen von PowerApps | Listentrennzeichen von PowerApps | Verkettungsoperator von PowerApps |
 | --- | --- | --- | --- |
-| **.** (dot or period) |**.** (dot or period) |**,** (comma) |**;** (semi-colon) |
-| **,** (comma) |**,** (comma) |**;** (semi-colon) |**;;** (double semi-colon) |
+| **.** (Punkt) |**.** (Punkt) |**,** (Komma) |**;** (Semikolon) |
+| **,** (Komma) |**,** (Komma) |**;** (Semikolon) |**;;** (doppeltes Semikolon) |
 
-The change in the PowerApps list separator is consistent with that happens to the Excel list separator.  It impacts:
+Die Änderung am Listentrennzeichen von PowerApps ist konsistent zu der Änderung am Listentrennzeichen von Excel.  Sie wirkt sich auf Folgendes aus:
 
-* Arguments in function calls.
-* Fields in a [record](working-with-tables.md#elements-of-a-table).
-* Records in a [Value table](working-with-tables.md#inline-syntax).
+* Argumente in Funktionsaufrufen
+* Felder in einem [Datensatz](working-with-tables.md#elements-of-a-table)
+* Datensätze in einer [Wertetabelle](working-with-tables.md#inline-syntax)
 
-For example, consider the following formula expressed in a language and region that uses "**.**" (dot) as the decimal separator, such as Japan or the United Kingdom:
+Betrachten Sie beispielsweise die folgende Formel in „en-US“:
 
-![PowerApps formula If open paren slider1 dot value greater than 12 dot 59 comma notify open paren "Valid!" comma success close paren semi-colon Navigate open paren "NextScreen" comma None close paren comma notify open paren "Invalid, try again" comma error close paren close paren](media/global-apps/operators-dot.png)
+**If( Slider1.Value > 12.59, UpdateContext( { Validation: true, MovingOn: 1 } ); Navigate( "NextScreen", "" ), UpdateContext( { Validation: false } ) )**
 
-Now view this same formula in a language and region where "**,**" (comma) is used for the decimal separator, such as France or Spain:
+In einer Sprache, in der „,“ als Dezimaltrennzeichen verwendet wird, erscheint dies in der Erstellungsumgebung wie folgt:
 
-![PowerApps formula If open paren slider1 dot value greater than 12 comma 59 semi-colon notify open paren "Valid!" semi-colon success close paren double semi-colon Navigate open paren "NextScreen" semi-colon None close paren semi-colon notify open paren "Invalid, try again" semi-colon error close paren close paren](media/global-apps/operators-comma.png)
+**If( Slider1.Value > 12,59; UpdateContext( { Validation: true; MovingOn: 1 } );; Navigate( "NextScreen", "" ); UpdateContext( { Validation: false } ) )**
 
-The highlight shows the operators that change between the two versions.  Note that the property selection operator "**.**" (dot) in **Slider1.Value** is always the same, no matter what the decimal separator is.
+Beachten Sie, dass der Eigenschaftenauswahloperator **.** in **Slider1.Value** immer gleich ist, unabhängig davon, was als Dezimaltrennzeichen verwendet wird.
 
-Internally the formula does not change, all that changes is how it is displayed and edited by the author.  Two different authors using two different languages can view and edit the same formula, with each seeing the appropriate separators and operators for their language.
+Intern wird die Formel nicht geändert; es wird nur geändert, wie diese vom Autor angezeigt und bearbeitet wird.  Zwei verschiedene Autoren, die zwei verschiedene Sprachen verwenden, können die gleiche Formel anzeigen und bearbeiten, wobei jedem die für seine Sprache entsprechenden Trennzeichen und Operatoren angezeigt werden.
 
-## Creating a global app
-The app you create can adapt to different languages, providing a great user experience for your users around the world.
+## <a name="creating-a-global-app"></a>Erstellen einer globalen App
+Die App, die Sie erstellen kann an verschiedene Sprachen angepasst werden, wodurch eine hervorragende Benutzerfreundlichkeit für Benutzer auf der ganzen Welt geboten wird.
 
-### Language function
-The **[Language](functions/function-language.md)** function returns the language tag of the current user.  For example, this function returns **"en-GB"** for users in Great Britain and **"de-DE"** for users in Germany.  
+### <a name="language-function"></a>„Language“-Funktion
+Die Funktion **[Language](functions/function-language.md)** gibt das Sprachkennzeichen für den aktuellen Benutzer zurück.  Diese Funktion gibt z.B. **"en-GB"** für Benutzer in Großbritannien und **"de-DE"** für Benutzer in Deutschland zurück.  
 
-Among other things, you can use **Language** to display translated text for your users.  Your app can include a table of translated values in your app:
+Unter anderem können Sie **Language** dazu verwenden, Ihren Benutzern übersetzten Text anzuzeigen.  Ihre App kann eine Tabelle mit übersetzten Werten in Ihre App einschließen:
 
 ![](media/global-apps/loc-table.png)
 
-And then use a formula such as the following to pull translated strings from the table:
+Anschließend kann eine Formel wie die folgende verwendet werden, um übersetzte Zeichenfolgen aus der Tabelle zu ziehen:
 
 **LookUp( Table1, TextID = "Hello" && (LanguageTag = Left( Language(), 2 ) || IsBlank( LanguageTag ))).LocalizedText**  
 
-Be aware that translated strings in other languages could be significantly longer than they are in your language.  In many cases, the labels and other elements that display the strings in your user interface will need to be wider to accommodate.
+Bedenken Sie, dass die übersetzten Zeichenfolgen in anderen Sprachen wesentlich länger sein könnten als sie in Ihrer Sprache sind.  In vielen Fällen müssen die Bezeichnungen und anderen Elemente, die die Zeichenfolgen in Ihrer Benutzerschnittstelle anzeigen, breiter sein, um sich dem anzupassen.
 
-For more information, see the documentation for the **[Language](functions/function-language.md)** function.
+Weitere Informationen finden Sie in der Dokumentation zur **[Language](functions/function-language.md)**-Funktion.
 
-### Formatting numbers, dates, and times
-Numbers, dates, and times are written in different formats in different parts of the world.  The meaning of commas, decimals, and the order of month, date, and year vary from location to location.   
+### <a name="formatting-numbers-dates-and-times"></a>Formatieren von Zahlen, Datumsangaben und Zeitangaben
+Zahlen, Datumsangaben und Zeitangaben werden in verschiedenen Teilen der Welt in verschiedenen Formaten geschrieben.  Die Bedeutung von Kommas, Dezimalstellen und die Reihenfolge von Monat, Datum und Jahr variieren von Ort zu Ort.   
 
-The **[Text](functions/function-text.md)** function formats numbers and dates using the language setting of the user.
+Die **[Text](functions/function-text.md)**-Funktion formatiert Zahlen und Datumsangaben anhand der Spracheinstellung des Benutzers.
 
-**Text** requires a format string to know how you want to format the number or date.  This format string can take one of two forms:
+**Text** erfordert, dass eine Formatzeichenfolge weiß, wie Sie die Zahl oder die Datumsangabe formatieren möchten.  Diese Zeichenfolge kann eine von zwei Formen annehmen:
 
-* **A global aware enumeration.**  For example, **Text( Now(), DateTimeFormat.LongDate )**.  This formula will format the current date in a language appropriate format.  This is the preferred way to specify the format string.
-* **A custom format string.**  For example, **Text( Now(), "[$-en-US]dddd, mmmm dd, yyyy" )** displays the same text as the enumeration when used in the language "en-US".  The advantage of the custom format string is that you can specify exactly what you want.
+* **Eine global kompatible Enumeration**.  Zum Beispiel **Text( Now(), DateTimeFormat.LongDate )**.  Mit dieser Formel wird das aktuelle Datum in einem für die Sprache geeigneten Format formatiert.  Dies stellt die bevorzugte Methode zum Angeben der Formatzeichenfolge dar.
+* **Eine benutzerdefinierte Formatzeichenfolge**.  Zum Beispiel zeigt **Text( Now(), "[$-en-US]dddd, mmmm dd, yyyy" )** den gleichen Text wie die Enumeration an, wenn sie in der Sprache „en-US“ verwendet wird.  Der Vorteil der benutzerdefinierten Formatzeichenfolge ist, dass Sie genau angeben können, was Sie möchten.
 
-The "[$-en-US]" on the front of the custom format string tells **Text** in which language to interpret the custom format string.  This is inserted for you and defaults to your authoring language.  Normally you will not need to change this.  It is useful when authors from different languages are editing the same app.
+"[$-en-US]" am Anfang der benutzerdefinierten Formatzeichenfolge gibt **Text** an, in welcher Sprache die benutzerdefinierte Formatzeichenfolge interpretiert werden soll.  Dies wird für Sie eingefügt und übernimmt standardmäßig Ihre Erstellungssprache.  Normalerweise müssen Sie dies nicht ändern.  Es ist hilfreich, wenn Autoren mit verschiedenen Sprachen die gleiche App bearbeiten.
 
-The third argument to **Text** specifies which language to use for the result of the function.  The default is the language setting of the current user.
+Das dritte Argument für **Text** gibt an, welche Sprache für das Ergebnis der Funktion verwendet werden soll.  Der Standardwert ist die Spracheinstellung des aktuellen Benutzers.
 
-For more information, see the documentation for the **[Text](functions/function-text.md)** function.      
+Weitere Informationen finden Sie in der Dokumentation zur **[Text](functions/function-text.md)**-Funktion.      
 
-### Reading numbers, dates, and times
-There are four functions for reading numbers, dates, and times provided by the user:
+### <a name="reading-numbers-dates-and-times"></a>Lesen von Zahlen, Datumsangaben und Zeitangaben
+Es gibt vier Funktionen zum Lesen von Zahlen, Datumsangaben und Uhrzeiten, die vom Benutzer bereitgestellt werden:
 
-* **[Value](functions/function-value.md)**: Converts a number in a text string to a number value.
-* **[DateValue](functions/function-datevalue-timevalue.md)**: Converts a date value in a text string to a date/time value.  Any time specified in the text string is ignored.
-* **[TimeValue](functions/function-datevalue-timevalue.md)**: Converts a time value in a text string to a date/time value.  Any date specified in the text string is ignored.
-* **[DateTimeValue](functions/function-datevalue-timevalue.md)**: Converts a date and time value in a text string to a date/time value.  
+* **[Value](functions/function-value.md)**: Konvertiert eine Zahl in einer Textzeichenfolge in einen numerischen Wert
+* **[DateValue](functions/function-datevalue-timevalue.md)**: Konvertiert einen Datumswert in einer Textzeichenfolge in einen date/time-Wert.  Jede Zeitangabe in der Textzeichenfolge wird ignoriert.
+* **[TimeValue](functions/function-datevalue-timevalue.md)**: Konvertiert einen Zeitwert in einer Textzeichenfolge in einen date/time-Wert.  Jede Datumsangabe in der Textzeichenfolge wird ignoriert.
+* **[DateTimeValue](functions/function-datevalue-timevalue.md)**: Konvertiert einen date- und time-Wert in einer Textzeichenfolge in einen date/time-Wert  
 
-If you have used Excel, all of these functions are combined in the single **Value** function.  They are broken out here since PowerApps has separate types for date/time values and numbers.
+Wenn Sie Excel verwendet haben, werden alle diese Funktionen in der einzelnen **Value**-Funktion kombiniert.  Sie werden hier besonders ausgewiesen, da PowerApps über getrennte Typen für date/time-Werte und Zahlen verfügt.
 
-All of these functions have the same arguments:
+Alle diese Funktionen haben die gleichen Argumente:
 
-* *String, required*: A string from the user. For example a string types into a **Text input** control and read from the control with the **Text** property.
-* *Language, optional*: The language in which to interpret the *String*.  By default, the language setting of the user.
+* *Zeichenfolge, erforderlich*: Eine Zeichenfolge des Benutzers. Beispielsweise gibt eine Zeichenfolge mit der **Text**-Eigenschaft Text in eine **Texteingabe**-Steuerelement ein und liest aus diesem.
+* *Sprache, optional*: Die Sprache, in der die *Zeichenfolge* interpretiert werden soll.  Dabei handelt es sich standardmäßig um die Spracheinstellung des Benutzers.
 
-For example:
+Beispiel:
 
-* **Value( "12,345.678", "en-US" )** or **Value( "12,345.678" )** when located where "en-US" is the user's language returns the number **12345.678**, ready for calculations.
-* **DateValue( "1/2/01", "es-ES" )** or **DateValue( "1/2/01" )** when located where "es-ES" is the user's language returns the date/time value **February 1, 2001 at midnight**.
-* **TimeValue( "11:43:02", "fr-FR" )** or **DateValue( "11:43:02" )** when located where "fr-FR" is the user's language returns the date/time value **January 1, 1970 at 11:43:02**.
-* **TimeDateValue( "11:43:02 1/2/01", "de-DE" )** or **DateValue( "11:43:02" )** when located where "de-DE" is the user's language returns the date/time value **February 1, 2001 at 11:43:02**.
+* **Value( "12,345.678", "en-US" )** oder **Value( "12,345.678" )**, wo die Sprache des Benutzers „en-US“ ist, gibt die Zahl **12345,678** zurück, bereit für Berechnungen.
+* **DateValue( "1/2/01", "es-ES" )** oder **DateValue( "1/2/01" )**, wo die Sprache des Benutzers „es-ES“ ist, gibt den date/time-Wert **February 1, 2001 at midnight** (01. Februar 2001, Mitternacht) zurück.
+* **TimeValue( "11:43:02", "fr-FR" )** or **DateValue( "11:43:02" )**, wo die Sprache des Benutzers „fr-FR“ ist, gibt den date/time-Wert **January 1, 1970 at 11:43:02** (01. Januar 1970, 11:43:02) zurück.
+* **TimeDateValue( "11:43:02 1/2/01", "de-DE" )** or **DateValue( "11:43:02" )**, wo die Sprache des Benutzers „de-DE“ ist, gibt den date/time-Wert **February 1, 2001 at 11:43:02** (01. Februar 2001, 11:43:02) zurück.
 
-For more information, see the documentation for the **[Value](functions/function-value.md)** and **[DateValue, TimeValue, and DateTimeValue](functions/function-datevalue-timevalue.md)**  functions and [working with dates and times](show-text-dates-times.md).
+Weitere Informationen finden Sie in der Dokumentation zu den Funktionen **[Value](functions/function-value.md)**, **[DateValue, TimeValue und DateTimeValue](functions/function-datevalue-timevalue.md)** sowie unter [Show text and format dates and times in PowerApps (Anzeigen von Text und Formatieren von Datums- und Zeitangaben in PowerApps)](show-text-dates-times.md).
 
-### Calendar and Clock information
-The **[Calendar](functions/function-clock-calendar.md)** and **[Clock](functions/function-clock-calendar.md)** functions provide calendar and clock information for the user's current language.  
+### <a name="calendar-and-clock-information"></a>Kalender- und Uhrzeitinformationen
+Die Funktionen **[Calendar](functions/function-clock-calendar.md)** und **[Clock](functions/function-clock-calendar.md)** stellen Kalender- und Uhrzeitinformationen für die aktuelle Sprache des Benutzers bereit.  
 
-Among other things, use these functions to provide a **Dropdown** control with a list of choices.  
+Verwenden Sie diese Funktionen u.a. zum Bereitstellen eines **Dropdown**-Steuerelements mit einer Liste von Auswahlmöglichkeiten.  
 
-For more information, see the documentation for the **[Calendar](functions/function-clock-calendar.md)** and **[Clock](functions/function-clock-calendar.md)**  functions.
+Weitere Informationen finden Sie in der Dokumentation zu den **[Calendar](functions/function-clock-calendar.md)**- und **[Clock](functions/function-clock-calendar.md)**-Funktionen.

@@ -1,6 +1,6 @@
 ---
-title: Select function | Microsoft Docs
-description: Reference information, including syntax, for the Select function in PowerApps
+title: Funktion „Select“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Select“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,80 +9,86 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 06/11/2018
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 74584e5855c6c72c619b4baefc2652f9ccc68997
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42850723"
 ---
-# Select function in PowerApps
-Simulates a select action on a control, causing the **OnSelect** formula to be evaluated.
+# <a name="select-function-in-powerapps"></a>Funktion „Select“ in PowerApps
+Simuliert eine Auswahlaktion für ein Steuerelement, sodass die Formel **OnSelect** ausgewertet wird.
 
-## Description
-The **Select** function simulates a select action on a control as if the user had clicked or tapped the control. As a result, the **OnSelect** formula on the target control is evaluated.
+## <a name="description"></a>Beschreibung
+Die Funktion **Select** simuliert eine Auswahlaktion für ein Steuerelement, so als ob der Benutzer auf das Steuerelement geklickt oder getippt hätte. Dadurch wird die Formel **OnSelect** für das Zielsteuerelement ausgewertet.
 
-Use **Select** to propagate a select action to a parent control. This type of propagation is the default behavior in, for example, galleries. By default, the **OnSelect** property of any control in a **[Gallery](../controls/control-gallery.md)** control is set to **Select( Parent )**. That way, you can set the value of the **OnSelect** property of the gallery control itself, and that formula will be evaluated regardless of where in the gallery a user might click or tap.
+Verwenden Sie **Select**, um eine Auswahlaktion an ein übergeordnetes Steuerelement weiterzugeben. Dieser Typ von Weitergabe ist das Standardverhalten z.B. in Galerien. Standardmäßig ist die Eigenschaft **OnSelect** eines Steuerelements in einem **[Katalogsteuerelement](../controls/control-gallery.md)** auf **Select( Parent )** festgelegt. Auf diese Weise können Sie den Wert der Eigenschaft **OnSelect** des Katalogsteuerelements selbst festlegen, und die Formel wird unabhängig davon ausgewertet, wo im Katalog ein Benutzer möglicherweise klickt oder tippt.
 
-If you want one or more controls in the gallery to perform different actions from the gallery itself, set the **OnSelect** property for those controls to something other than the default value. You can leave the default values for the **OnSelect** properties of most controls in the gallery if you want them to perform the same action as the gallery itself.
+Wenn ein oder mehrere Steuerelemente im Katalog andere Aktionen als der Katalog selbst ausführen sollen, legen Sie die Eigenschaft **OnSelect** für diese Steuerelemente auf einen anderen Wert als den Standardwert fest. Sie können die Standardwerte für die Eigenschaft **OnSelect** der meisten Steuerelemente im Katalog unverändert lassen, wenn sie die gleiche Aktion wie der Katalog selbst ausführen sollen.
 
-**Select** queues the target **OnSelect** for later processing, which may happen after the current formula has finished being evaluated. **Select** doesn't cause the target **OnSelect** to evaluate immediately, nor does **Select** wait for **OnSelect** to finish being evaluated.
+Mit **Select** wird das Ziel-**OnSelect** zur späteren Verarbeitung in die Warteschlange aufgenommen. Die Verarbeitung könnte erfolgen, nachdem die aktuelle Formel ausgewertet wurde. **Select** führt nicht dazu, dass das Ziel-**OnSelect** sofort ausgewertet wird, und **Select** wartet auch nicht den Abschluss der **OnSelect**-Auswertung ab.
 
-**Select** can't cross the boundaries of container controls, such as a gallery or a form. Controls within a container control can only be the subject of a **Select** function in formulas that are inside the same container control. You can't use **Select** across screens.
+**Select** kann nicht über die Grenzen von Containersteuerelementen wie Katalogen oder Formularen hinweg verwendet werden. Nur die Steuerelemente in einem Containersteuerelement können mit einer **Select**-Funktion in Formeln verarbeitet werden, die im gleichen Containersteuerelement enthalten sind. Sie können **Select** nicht über mehrere Bildschirme verwenden.
 
-You can use **Select** only with controls that have an **OnSelect** property.
+Sie können **Select** nur für Steuerelemente nutzen, die eine **OnSelect**-Eigenschaft aufweisen.
 
-You can use **Select** only in [behavior formulas](../working-with-formulas-in-depth.md).
+Verwenden Sie **Select** nur in [Verhaltensformeln](../working-with-formulas-in-depth.md).
 
-A control can't **Select** itself directly or indirectly through other controls.
+**Select** kann nicht direkt oder indirekt über andere Steuerelemente für ein Steuerelement selbst verwendet werden.
 
-## Syntax
-**Select**( *Control* )
+## <a name="syntax"></a>Syntax
+**Select**(*Steuerelement*)
 
-* *Control* – Required.  The control to select on behalf of the user.
+* *Steuerelement* – Erforderlich.  Das Steuerelement, das für den Benutzer ausgewählt werden soll.
 
-## Examples
+## <a name="examples"></a>Beispiele
 
-#### Basic usage
+#### <a name="basic-usage"></a>Grundlegende Nutzung
 
-1. Add a **[Button](../controls/control-button.md)** control, and rename it **Button1** if it has a different name.
+1. Fügen Sie ein **[Schaltflächen](../controls/control-button.md)**-Steuerelement hinzu, und benennen Sie es in **Button1** um, wenn es nicht bereits so heißt.
 
-1. Set the **OnSelect** property of **Button1** to this formula:
+1. Legen Sie die Eigenschaft **OnSelect** von **Button1** auf die folgende Formel fest:
 
-	**Notify( "Hello World" )**
+    **Notify( "Hello World" )**
 
-1. On the same screen, add a second **Button** control, and set its **OnSelect** property to this formula:
+1. Fügen Sie auf dem gleichen Bildschirm ein zweites **Schaltflächen**-Steuerelement hinzu, und legen Sie dessen Eigenschaft **OnSelect** auf diese Formel fest:
 
-	**Select( Button1 )**
+    **Select( Button1 )**
 
-1. While holding down the Alt key, select the second button.
+1. Halten Sie die ALT-TASTE gedrückt, und wählen Sie die zweite Schaltfläche aus.
 
-    A notification appears across the top of your app. The **OnSelect** property of **Button1** generated this notification.
+    Eine Benachrichtigung wird oben in der App angezeigt. Die Eigenschaft **OnSelect** von **Button1** hat diese Benachrichtigung generiert.
 
-	![An animation that shows the OnSelect property settings for the two buttons and the notification when the second button is clicked](media/function-select/basic-select.gif)
+    ![Eine Animation, in der die Eigenschafteneinstellungen von „OnSelect“ für die zwei Schaltflächen und die Benachrichtigung angezeigt werden, wenn auf die zweite Schaltfläche geklickt wird](media/function-select/basic-select.gif)
 
-#### Gallery control
+#### <a name="gallery-control"></a>Katalogsteuerelement
 
-1. Add a vertical **[Gallery](../controls/control-gallery.md)** control that contains other controls.
+1. Fügen Sie ein Steuerelement für einen vertikalen **[Katalog](../controls/control-gallery.md)** hinzu, der weitere Steuerelemente enthält.
 
-    ![Select a vertical gallery that contains controls](media/function-select/select-gallery.png)
+    ![Einen vertikalen Katalog auswählen, der Steuerelemente enthält](media/function-select/select-gallery.png)
 
-2. Set the **OnSelect** property of the gallery to this formula:
+2. Legen Sie die Eigenschaft **OnSelect** des Katalogs auf die folgende Formel fest:
  
-	**Notify( "Gallery Selected" )**
+    **Notify( "Gallery Selected" )**
 
-3. While holding down the Alt key, click or tap the background of the gallery or any control in the gallery.
+3. Während Sie die ALT-TASTE gedrückt halten, klicken oder tippen Sie auf den Hintergrund des Katalogs oder auf ein Steuerelement im Katalog.
 
-    All actions will show the **Gallery Selected** notification at the top of the app.
+    Bei allen Aktionen wird die Benachrichtigung **Gallery Selected** oben in der App angezeigt.
 
-	Use the gallery's **OnSelect** property to specify the default action to take when the user clicks or taps an item in the gallery.
+    Verwenden Sie die Eigenschaft **OnSelect** des Katalogs, um die Standardaktion anzugeben, die ausgeführt wird, wenn der Benutzer auf ein Element im Katalog klickt oder tippt.
 
-5. Set the **OnSelect** property of the image control to this formula:
+5. Legen Sie die Eigenschaft **OnSelect** des Bildsteuerelements auf die folgende Formel fest:
 
-	**Notify( "Image Selected", Success )**
+    **Notify( "Image Selected", Success )**
 
-6. While holding down the Alt key, click or tap the various elements of the gallery.
+6. Während Sie die ALT-TASTE gedrückt halten, klicken oder tippen Sie auf die verschiedenen Elemente des Katalogs.
 
-    When you click or tap any control in the gallery except the image, **Gallery Selected** appears as before. When you click or tap the image, **Image Selected** appears.
+    Beim Klicken oder Tippen auf alle Steuerelemente im Katalog mit Ausnahme des Bilds wird wie zuvor **Gallery Selected** angezeigt. Wenn Sie auf das Bild klicken oder tippen, wird **Image Selected** angezeigt.
  
-	Use individual controls in the gallery to take actions that differ from the gallery's default action.
+    Verwenden Sie einzelne Steuerelemente im Katalog, um Aktionen auszuführen, die sich von der Standardaktion des Katalogs unterscheiden.
 
-	![An animation that shows the default value of the OnSelect property for a gallery control, as well as a control that takes a different action](media/function-select/gallery-select.gif)
+    ![Eine Animation, die den Standardwert der Eigenschaft „OnSelect“ für ein Katalogsteuerelement sowie ein Steuerelement darstellt, das eine andere Aktion ausführt](media/function-select/gallery-select.gif)

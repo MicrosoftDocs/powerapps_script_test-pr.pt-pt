@@ -1,6 +1,6 @@
 ---
-title: If and Switch functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the If and Switch functions in PowerApps
+title: Funktionen „If“ und „Switch“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „If“- und „Switch“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,80 +9,86 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/24/2017
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 40ac3089d3563d220ddac29197b0902f4de88a25
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42836325"
 ---
-# If and Switch functions in PowerApps
-Determines whether any condition in a set is true (**If**) or the result of a formula matches any value in a set (**Switch**) and then returns a result or executes an action.
+# <a name="if-and-switch-functions-in-powerapps"></a>Die Funktionen „If“- und „Switch“ in PowerApps
+Bestimmt, ob eine beliebige Bedingung in einer Menge TRUE ist (**If**) oder ob das Ergebnis einer Formel mit einem beliebigen Wert in einer Menge übereinstimmt (**Switch**) und gibt anschließend ein Ergebnis zurück oder führt eine Aktion aus.
 
-## Description
-The **If** function tests one or more conditions until a **true** result is found. If such a result is found, a corresponding value is returned. If no such result is found, a default value is returned. In either case, the returned value might be a string to show, a formula to evaluate, or another form of result.
+## <a name="description"></a>Beschreibung
+Die **If**-Funktion testet eine oder mehrere Bedingungen, bis das Ergebnis **TRUE** gefunden wird. Wenn ein solches Ergebnis gefunden wird, erfolgt die Rückgabe eines entsprechenden Werts. Wenn kein solches Ergebnis gefunden wird, erfolgt die Rückgabe eines Standardwerts. In beiden Fällen kann der zurückgegebene Wert eine zu zeigende Zeichenfolge, eine auszuwertende Formel oder eine andere Form von Ergebnis sein.
 
-The **Switch** function evaluates a formula and determines whether the result matches any value in a sequence that you specify. If a match is found, a corresponding value is returned. If no match is found, a default value is returned. In either case, the returned value might be a string to show, a formula to evaluate, or another form of result.
+Die **Switch**-Funktion wertet eine Formel aus und bestimmt, ob das Ergebnis mit einem Wert in einer Sequenz übereinstimmt, die Sie angeben. Wenn eine Übereinstimmung gefunden wird, erfolgt die Rückgabe eines entsprechenden Werts. Wenn keine Übereinstimmung gefunden wird, erfolgt die Rückgabe eines Standardwerts. In beiden Fällen kann der zurückgegebene Wert eine zu zeigende Zeichenfolge, eine auszuwertende Formel oder eine andere Form von Ergebnis sein.
 
-**If** and **Switch** are very similar, but you should use the best function for your situation:
+**If** und **Switch** sind sehr ähnlich, doch sollten Sie die beste Funktion für die jeweilige Situation verwenden:
 
-* Use **If** to evaluate a single condition. The most common syntax for this function is **If**( *Condition*, *ThenResult*, *DefaultResult* ), which provides the common “if …  then … else …” pattern seen in other programming tools.
-* Use **If** to evaluate multiple unrelated conditions. In PowerApps (unlike Microsoft Excel), you can specify multiple conditions without having to nest **If** formulas.
-* Use **Switch** to evaluate a single condition against multiple possible matches. You can also use **If** in this case, but you'd need to repeat the formula for each possible match.
+* Verwenden Sie **If**, um eine einzelne Bedingung auszuwerten. Die gebräuchlichste Syntax für diese Funktion ist **If**( *Bedingung*, *ThenResult*, *DefaultResult* ), die das gängige Muster „if ...  then … else ...“ bereitstellt, das Sie aus anderen Programmiersprachen kennen.
+* Verwenden Sie **If**, um mehrere unabhängige Bedingungen auszuwerten. In PowerApps können Sie (im Gegensatz zu Microsoft Excel) mehrere Bedingungen angegeben, ohne **If**-Formeln schachteln zu müssen.
+* Verwenden Sie **Switch**, um eine einzelne Bedingung im Abgleich mit mehreren möglichen Übereinstimmungen auszuwerten. Sie können auch in diesem Fall **If** verwenden, doch dann müssen Sie die Formel für jede mögliche Übereinstimmung wiederholen.
 
-You can use both of these functions in [behavior formulas](../working-with-formulas-in-depth.md) to branch between two or more actions. Only one branch will trigger an action. Conditions and matches are evaluated in order, and they stop if a condition is **true** or a match is found.
+Sie können diese beiden Formeln in [Verhaltensformeln](../working-with-formulas-in-depth.md) verwenden, um eine Verzweigung zwischen zwei oder mehr Aktionen zu erstellen. Nur eine Verzweigung löst eine Aktion aus. Bedingungen und Übereinstimmungen werden in der Reihenfolge ausgewertet und angehalten, wenn eine Bedingung **TRUE** ist oder eine Übereinstimmung gefunden wird.
 
-*Blank* is returned if no conditions are **true**, no matches are found, and you don't specify a default result.
+*Blank* wird zurückgegeben, wenn keine Bedingungen **TRUE** sind, keine Übereinstimmungen gefunden werden und Sie kein Standardergebnis angeben.
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **If**( *Condition*, *ThenResult* [, *DefaultResult* ] )<br>**If**( *Condition1*, *ThenResult1* [, *Condition2*, *ThenResult2*, ... [ , *DefaultResult* ] ] )
 
-* *Condition(s)* - Required. Formula(s) to test for **true**. Such formulas commonly contain comparison [operators](operators.md) (such as **<**, **>**, and **=**) and test functions such as **[IsBlank](function-isblank-isempty.md)** and **[IsEmpty](function-isblank-isempty.md)**.
-* *ThenResult(s)* - Required. The corresponding value to return for a condition that evaluates to **true**.
-* *DefaultResult* - Optional. The value to return if no condition evaluates to **true**.  If you don't specify this argument, *blank* is returned.
+* *Condition(s)*: Erforderlich. Auf **TRUE** zu testende Formeln. Solche Formeln enthalten häufig Vergleichs-[Operatoren](operators.md) (z.B. **<** ,  **>** und **=**) sowie Testfunktionen wie **[IsBlank](function-isblank-isempty.md)** und **[IsEmpty](function-isblank-isempty.md)** .
+* *ThenResult(s*: Erforderlich. Der entsprechende Wert für eine Bedingung, die **TRUE** ergibt, soll zurückgegeben werden.
+* *DefaultResult*: Optional. Dies ist der zurückzugebende Wert, wenn keine Bedingung mit **TRUE** ausgewertet wird.  Wenn Sie dieses Argument nicht angeben, wird *blank* zurückgegeben.
 
-**Switch**( *Formula*, *Match1*, *Result1* [, *Match2*, *Result2*, ... [, *DefaultResult* ] ] )
+**Switch**( *Formel*, *Übereinstimmung1*, *Ergebnis1* [, *Übereinstimmung2*, *Ergebnis2*, ... [, *DefaultResult* ] ] )
 
-* *Formula* - Required. Formula to evaluate for matches.  This formula is evaluated only once.
-* *Match(s)* - Required. Values to compare with the result from *Formula*.  If an exact match is found, the corresponding *Result* is returned.
-* *Result(s)* - Required. The corresponding value to return when an exact match is found.
-* *DefaultResult* - Optional. If an exact match isn't found, this value is returned. If you don't specify this argument, *blank* is returned.
+* *Formula*: Erforderlich. Die für Übereinstimmungen auszuwertende Formel.  Diese Formel wird nur einmal ausgewertet.
+* *Übereinstimmung(en)*: Erforderlich. Werte für einen Vergleich mit dem Ergebnis der *Formel*.  Wird eine genaue Übereinstimmung gefunden, wird das entsprechende *Ergebnis* zurückgegeben.
+* *Ergebnis(se)*: Erforderlich. Der entsprechende Wert, der zurückgegeben wird, wenn eine genaue Übereinstimmung gefunden wird.
+* *DefaultResult*: Optional. Wenn keine genaue Übereinstimmung gefunden wird, wird dieser Wert zurückgegeben. Wenn Sie dieses Argument nicht angeben, wird *blank* zurückgegeben.
 
-## Examples
-### Values in formulas
-In the following examples, a **Slider** control (named **Slider1**) has a value of **25**.
+## <a name="examples"></a>Beispiele
+### <a name="values-in-formulas"></a>Werte in Formeln
+In den folgenden Beispielen wird ein **Schieberegler**-Steuerelement mit dem Namen **Slider1** mit dem Wert **25** verwendet.
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **If( Slider1.Value&nbsp;=&nbsp;25, "Result1" )** |The condition is **true**, and the corresponding result is returned. |"Result1" |
-| **If( Slider1.Value&nbsp;=&nbsp;25, "Result1", "Result2" )** |The condition is **true**, and the corresponding result is returned. |"Result1" |
-| **If( Slider1.Value&nbsp;>&nbsp;1000, "Result1" )** |The condition is **false**, and no *DefaultResult* was provided. |*blank* |
-| **If( Slider1.Value&nbsp;>&nbsp;1000, "Result1", "Result2" )** |The condition is **false**, a *DefaultResult* was provided, and it's returned. |"Result2" |
-| **If( Slider1.Value&nbsp;=&nbsp;25, "Result1", Slider1.Value&nbsp;>&nbsp;0, "Result2" )** |The first condition is **true**, and the corresponding result is returned. The second condition is also **true**, but it isn't evaluated because it appears later in the argument list than a condition that evaluates to **true**. |"Result1" |
-| **If( IsBlank(&nbsp;Slider1.Value&nbsp;), "Result1", IsNumeric(&nbsp;Slider1.Value&nbsp;), "Result2" )** |The first condition is **false** because the slider isn't *blank*. The second condition is **true** because the slider's value is a number, and the corresponding result is returned. |"Result2" |
-| **If( Slider1.Value&nbsp;>&nbsp;1000, "Result1", Slider1.Value&nbsp;>&nbsp;50, "Result2", "Result3")** |Both the first and second conditions are **false**, a *DefaultResult* was provided, and it's returned. |"Result3" |
-| **Switch( Slider1.Value, 25, "Result1" )** |The slider's value matches the first value to be checked, and the corresponding result is returned. |"Result1" |
-| **Switch( Slider1.Value, 20, "Result1", 25, "Result2", 30, "Result3" )** |The slider's value matches the second value to be checked, and the corresponding result is returned. |"Result2" |
-| **Switch( Slider1.Value, 20, "Result1", 10, "Result2", 0, "Result3", "DefaultResult" )** |The slider's value doesn't match any value to be checked.  A *DefaultResult* was provided, so it's returned. |"DefaultResult" |
+| **If( Slider1.Value&nbsp;=&nbsp;25, "Result1" )** |Für die Bedingung gilt **TRUE**, und das entsprechende Ergebnis wird zurückgegeben. |"Result1" |
+| **If( Slider1.Value&nbsp;=&nbsp;25, "Result1", "Result2" )** |Für die Bedingung gilt **TRUE**, und das entsprechende Ergebnis wird zurückgegeben. |"Result1" |
+| **If( Slider1.Value&nbsp;>&nbsp;1000, "Result1" )** |Die Bedingung ist **FALSE**, und es wird kein *Standardergebnis* bereitgestellt. |*blank* |
+| **If( Slider1.Value&nbsp;>&nbsp;1000, "Result1", "Result2" )** |Die Bedingung ist **FALSE**, ein *Standardergebnis* wurde bereitgestellt und wird zurückgegeben. |"Result2" |
+| **If( Slider1.Value&nbsp;=&nbsp;25, "Result1", Slider1.Value&nbsp;>&nbsp;0, "Result2" )** |Die erste Bedingung ergibt **TRUE**, und das entsprechende Ergebnis wird zurückgegeben. Die zweite Bedingung ist auch **TRUE**, aber sie wird nicht ausgewertet, weil sie später in der Argumentliste als eine Bedingung vorkommt, die mit **TRUE** auswertet wird. |"Result1" |
+| **If( IsBlank(&nbsp;Slider1.Value&nbsp;), "Result1", IsNumeric(&nbsp;Slider1.Value&nbsp;), "Result2" )** |Die erste Bedingung ergibt **FALSE**, weil der Schieberegler nicht *blank* ist. Die zweite Bedingung ergibt **TRUE**, da der Wert des Schiebereglers eine Zahl ist und das entsprechende Ergebnis zurückgegeben wird. |"Result2" |
+| **If( Slider1.Value&nbsp;>&nbsp;1000, "Result1", Slider1.Value&nbsp;>&nbsp;50, "Result2", "Result3")** |Die erste und zweite Bedingung ergeben **FALSE**, ein *Standardergebnis* wurde bereitgestellt und wird zurückgegeben. |"Result3" |
+| **Switch (Slider1.Value, 25, "Result1")** |Der Wert des Schiebereglers entspricht dem ersten Wert, der überprüft werden soll, und das entsprechende Ergebnis wird zurückgegeben. |"Result1" |
+| **Switch( Slider1.Value, 20, "Result1", 25, "Result2", 30, "Result3" )** |Der Wert des Schiebereglers entspricht dem zweiten Wert, der überprüft werden soll, und das entsprechende Ergebnis wird zurückgegeben. |"Result2" |
+| **Switch( Slider1.Value, 20, "Result1", 10, "Result2", 0, "Result3", "DefaultResult" )** |Der Wert des Schiebereglers stimmt mit keinem zu überprüfenden Wert überein.  Ein *DefaultResult* (Standardergebnis) wurde bereitgestellt, das zurückgegeben wird. |"DefaultResult" |
 
-### Branching in behavior formulas
-In these examples, a **[Text input](../controls/control-text-input.md)** control named **FirstName** has the value "John" typed into it.
+### <a name="branching-in-behavior-formulas"></a>Verzweigungen in Verhaltensformeln
+In den folgenden Beispielen enthält ein **[Texteingabe](../controls/control-text-input.md)**-Steuerelement mit dem Namen **FirstName** den Wert „John“.
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **If( ! IsBlank( FirstName.Text ), Navigate(&nbsp;Screen1, ScreenTransition.None ) )** |The condition is **true**, so the **[Navigate](function-navigate.md)** function runs. You can use the **[IsBlank](function-isblank-isempty.md)** function to test whether a required form field has been filled in.  If **FirstName** were [blank](function-isblank-isempty.md), this formula would have no effect. |**true**<br><br>The display is changed to **Screen1**. |
-| **If( IsBlank( FirstName.Text ), Navigate(&nbsp;Screen1, ScreenTransition.None ), Back() )** |Without the **!** operator, the condition is **false**, so the **[Navigate](function-navigate.md)** function doesn't run. The **[Back](function-navigate.md)** function was provided as a *DefaultResult*, so it runs. |**true**<br><br>The display goes back to the screen that was previously shown. |
-| **Switch( FirstName.Text, "Carlos", Navigate(&nbsp;Screen1, ScreenTransition.None ), "Kirstin", Navigate( Screen2, ScreenTransition.None ), "John", Navigate( Screen3, ScreenTransition.None ) )** |The value of **FirstName.Text** is compared against "Carlos", "Kirstin", and "John" in that order. A match is found with "John", so the app navigates to **Screen3**. |**true**<br><br>The display is changed to **Screen3**. |
+| **If (! IsBlank( FirstName.Text ), Navigate(&nbsp;Screen1, ScreenTransition.None ) )** |Die Bedingung ergibt **TRUE**, weshalb die  **[Navigate](function-navigate.md)**-Funktion ausgeführt wird. Sie können die **[IsBlank](function-isblank-isempty.md)**-Funktion verwenden, um zu testen, ob ein erforderliches Formularfeld ausgefüllt wurde.  Falls **FirstName** [leer](function-isblank-isempty.md) wäre, hätte diese Formel keine Auswirkung. |**TRUE**<br><br>Die Anzeige wird zu **Screen1** geändert. |
+| **If( IsBlank( FirstName.Text ), Navigate(&nbsp;Screen1, ScreenTransition.None ), Back() )** |Ohne den Operator **!** ergibt die Bedingung den Wert **FALSE**, sodass die **[Navigate](function-navigate.md)**-Funktion nicht ausgeführt wird. Der **[Back](function-navigate.md)**-Funktion wurde ein *Standardergebnis* bereitgestellt, sodass sie ausgeführt wird. |**TRUE**<br><br>Die Anzeige wird auf den Bildschirm zurückgesetzt, der zuvor angezeigt wurde. |
+| **Switch( FirstName.Text, "Carlos", Navigate(&nbsp;Screen1, ScreenTransition.None ), "Kirstin", Navigate( Screen2, ScreenTransition.None ), "John", Navigate( Screen3, ScreenTransition.None ) )** |Der Wert von **FirstName.Text** wird mit „Carlos“, „Kirstin“ und „John“ (in dieser Reihenfolge) verglichen. Eine Übereinstimmung mit „John“ wird gefunden, weshalb die App zu **Screen3** navigiert. |**TRUE**<br><br>Die Anzeige wird in **Screen3** geändert. |
 
-### Step by step
-1. Add a **[Text input](../controls/control-text-input.md)** control, and name it **Text1** if it doesn't have that name by default.
-2. In **Text1**, type **30**.
-3. Add a **Label** control, and set its **[Text](../controls/properties-core.md)** property to this formula:<br>
-   **If( Value(Text1.Text) < 20, "Order MANY more!", Value(Text1.Text) < 40, "Order more!", Text1.Text )**
+### <a name="step-by-step"></a>Schritt für Schritt
+1. Fügen Sie ein **[Texteingabe](../controls/control-text-input.md)**-Steuerelement hinzu, und nennen Sie es **Text1**, wenn es diesen Namen nicht bereits standardmäßig hat.
+2. Geben Sie in **Text1** den Wert **30** ein.
+3. Fügen Sie ein **Label**-Steuerelement (Bezeichnung) hinzu, und legen Sie dessen **[Text](../controls/properties-core.md)**-Eigenschaft auf diese Formel fest:<br>
+   **If( Value(Text1.Text) < 20, "Viel mehr bestellen!", Value(Text1.Text) < 40, "Mehr bestellen!", Text1.Text )**
    
-    The **Label** control shows **Order more!** because the value of **Text1** is more than 20 but less than 40.
-4. In **Text1**, type **15**.
+    Das **Bezeichnung**-Steuerelement zeigt **Mehr bestellen!**, da der Wert von **Text1** größer als 20, aber kleiner als 40 ist.
+4. Geben Sie in **Text1** den Wert **15** ein.
    
-    The **Label** control shows **Order MANY more!** because the value of **Text1** is less than 20.
-5. In **Text1**, type **50**.
+    Das **Bezeichnung**-Steuerelement zeigt **VIELE mehr bestellen!**, da der Wert von **Text1** kleiner als 20 ist.
+5. Geben Sie in **Text1** den Wert **50** ein.
    
-    The **Label** control shows the value that you typed because it's more than 40.
+    Das **Bezeichnung**-Steuerelement zeigt den Wert, den Sie eingegeben haben, da er größer als 40 ist.
 

@@ -1,6 +1,6 @@
 ---
-title: Find function | Microsoft Docs
-description: Reference information, including syntax and examples, for the Find function in PowerApps
+title: Funktion „Find“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Find“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,23 +9,29 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 04f257b40e778d3611203f2bdc17aad5554a4ac6
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42865952"
 ---
-# Find function in PowerApps
-Finds a string of text, if it exists, within another string.
+# <a name="find-function-in-powerapps"></a>Funktion „Find“ in PowerApps
+Sucht nach einer Textzeichenfolge in einer anderen Zeichenfolge (falls vorhanden)
 
-## Description
-The **Find** function looks for a string within another string and is case sensitive. To ignore case, first use the **[Lower](function-lower-upper-proper.md)** function on the arguments.
+## <a name="description"></a>Beschreibung
+Die **Find**-Funktion sucht innerhalb einer anderen Zeichenfolge nach einer Zeichenfolge und beachtet dabei Groß-/Kleinschreibung. Wenden Sie zuerst die **[Lower](function-lower-upper-proper.md)**-Funktion auf die Argumente an, um die Groß-und Kleinschreibung außer Acht zu lassen.
 
-**Find** returns the starting position of the string that was found.  Position 1 is the first character of the string. **Find** returns *blank* if the string in which you're searching doesn't contain the string for which you're searching.
+**Find** gibt die Anfangsposition der Zeichenfolge zurück, die gefunden wurde.  Position 1 ist das erste Zeichen der Zeichenfolge. **Find** gibt *blank* zurück, wenn die Zeichenfolge, in der Sie suchen, nicht die Zeichenfolge enthält, nach der Sie suchen.
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **Find**( *FindString*, *WithinString* [, *StartingPosition* ] )
 
-* *FindString* - Required.  The string to find.
-* *WithinString* - Required.  The string to search within.
-* *StartingPosition* - Optional.  The starting position to start searching.  Position 1 is the first character.
+* *ZuSuchendeZeichenfolge*: erforderlich.  Die zu suchende Zeichenfolge
+* *InnerhalbDerZeichenfolge*: erforderlich.  Die Zeichenfolge, in der gesucht werden soll
+* *Anfangsposition*: optional.  Die Anfangsposition der Suche.  Position 1 ist das erste Zeichen.
 

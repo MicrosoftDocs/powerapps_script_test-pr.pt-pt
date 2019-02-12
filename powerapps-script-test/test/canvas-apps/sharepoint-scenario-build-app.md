@@ -1,237 +1,243 @@
 ---
-title: Create a canvas app to manage projects | Microsoft Docs
-description: In this task, we'll build a canvas app from scratch. This app allows a user to assign a manager to projects and to update project details.
-author: emcoope-msft
+title: Erstellen einer Canvas-App zum Verwalten von Projekten | Microsoft-Dokumentation
+description: In dieser Aufgabe erstellen wir eine Canvas-App von Grund auf neu. Mithilfe dieser App kann ein Benutzer Projekten einen Manager zuweisen und Projektdetails aktualisieren.
+author: mgblythe
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 06/12/2017
-ms.author: emcoope
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: mblythe
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 6b55fe94e7d781147e3e3511769c4d72ca3d90de
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42842369"
 ---
-# Create a canvas app to manage projects
+# <a name="create-a-canvas-app-to-manage-projects"></a>Erstellen einer Canvas-App zum Verwalten von Projekten
 > [!NOTE]
-> This article is part of a tutorial series on using PowerApps, Microsoft Flow, and Power BI with SharePoint Online. Make sure you read the [series introduction](sharepoint-scenario-intro.md) to get a sense of the big picture, as well as related downloads.
+> Dieser Artikel ist Teil einer Reihe von Tutorials zur Verwendung von PowerApps, Microsoft Flow und Power BI mit SharePoint Online. Lesen Sie unbedingt die [Einführung zur Reihe](sharepoint-scenario-intro.md) durch, um sich einen allgemeinen Überblick zu verschaffen und auf die zugehörigen Downloads zuzugreifen.
 
-In this task, we'll build a canvas app from scratch. This app allows a user to assign a manager to projects and to update project details. You will see some of the same controls and formulas you saw in the first app, but you will build more of the app yourself this time. The process is more complex, but you'll learn more, so we think it's a fair trade-off.
+In dieser Aufgabe erstellen wir eine Canvas-App von Grund auf neu. Mithilfe dieser App kann ein Benutzer Projekten einen Manager zuweisen und Projektdetails aktualisieren. Sie werden feststellen, dass teilweise die gleichen Steuerelemente und Formeln wie in der ersten App verwendet werden. Dieses Mal erstellen Sie jedoch selbstständig einen größeren Teil der App. Der Prozess mag zwar komplexer sein, Sie werden jedoch mehr lernen – unserer Meinung nach ist dies ein guter Kompromiss.
 
 > [!TIP]
-> The [download package](https://aka.ms/o4ia0f) for this scenario includes a finished version of this app: project-details-app.msapp.
+> Das [Downloadpaket](https://aka.ms/o4ia0f) für dieses Szenario enthält eine vollständige Version dieser App: „project-details-app.msapp“.
 
-## Quick review of PowerApps Studio
-PowerApps Studio has three panes and a ribbon that make app creation feel like building a slide deck in PowerPoint:
+## <a name="quick-review-of-powerapps-studio"></a>Kurzübersicht über PowerApps Studio
+PowerApps Studio enthält drei Bereiche und ein Menüband, durch die das Erstellen einer App mit dem Erstellen einer Foliengruppe in PowerPoint vergleichbar ist:
 
-1. Left navigation bar, which shows a hierarchical view of all the app's screens and controls, as well as thumbnails of the screens
-2. Middle pane, which contains the app screen you are working on
-3. Right-hand pane, where you set options like layout and data sources
-4. Property drop-down list, where you select the properties that formulas apply to
-5. Formula bar, where you add formulas (like in Excel) that define app behavior
-6. Ribbon, where you add controls and customize design elements
+1. Auf der linken Navigationsleiste werden eine hierarchische Ansicht sämtlicher Bildschirme und Steuerelemente der App sowie Vorschauminiaturen der Bildschirme angezeigt.
+2. Der mittlere Bereich enthält den App-Bildschirm, in dem Sie derzeit arbeiten.
+3. Im rechten Bereich können Sie Optionen wie Layout und Datenquellen festlegen.
+4. In der Dropdownliste „Eigenschaft“ wählen Sie die Eigenschaften aus, auf die Formeln angewendet werden.
+5. Auf der Bearbeitungsleiste fügen Sie Formeln (wie in Excel) hinzu, mit denen das App-Verhalten definiert wird.
+6. Über das Menüband fügen Sie Steuerelemente hinzu und passen Designelemente an.
 
 ![PowerApps Studio](./media/sharepoint-scenario-build-app/04-00-00-powerapps-studio.png)
 
-## Step 1: Create screens
-With that review out of the way, let's start building an app.
+## <a name="step-1-create-screens"></a>Schritt 1: Erstellen von Bildschirmen
+Lassen Sie uns nun nach dem kurzen Überblick mit dem Erstellen einer App beginnen.
 
-### Create and save the app
-1. In PowerApps Studio, click or tap **New**, then under **Blank app**, click or tap **Phone Layout**.
+### <a name="create-and-save-the-app"></a>Erstellen und Speichern der App
+1. Klicken oder tippen Sie in PowerApps Studio auf **Neu**, und klicken oder tippen Sie unter **Leere App** auf **Telefonlayout**.
    
-    ![Blank app - phone layout](./media/sharepoint-scenario-build-app/04-01-01-blank-phone-app.png)
-2. Click or tap **File**, which opens to an **App settings** tab. Enter the name "Project Management app".
+    ![Leere App – Telefonlayout](./media/sharepoint-scenario-build-app/04-01-01-blank-phone-app.png)
+2. Klicken oder tippen Sie auf **Datei**. Das Dialogfeld wird mit der Registerkarte **App-Einstellungen** geöffnet. Geben Sie den Namen „Project Management app“ (Projektverwaltungs-App) ein.
    
-    ![App name](./media/sharepoint-scenario-build-app/04-01-02-app-name.png)
-3. Click or tap **Save as**, verify that the app will save to the cloud, then click **Save** in the lower right corner.
+    ![Name der App](./media/sharepoint-scenario-build-app/04-01-02-app-name.png)
+3. Klicken oder tippen Sie auf **Speichern unter**, vergewissern Sie sich, dass die App in der Cloud gespeichert wird, und klicken Sie in der rechten unteren Ecke auf **Speichern**.
    
-    ![Save to the cloud](./media/sharepoint-scenario-build-app/04-01-03-save-to-cloud.png)
+    ![Speichern in der Cloud](./media/sharepoint-scenario-build-app/04-01-03-save-to-cloud.png)
 
-4. Click or tap ![Back to app icon](./media/sharepoint-scenario-build-app/icon-back-to-app.png) to go back to the app.
+4. Klicken oder tippen Sie auf ![Symbol „Zurück zur App“](./media/sharepoint-scenario-build-app/icon-back-to-app.png) um zur App zurückzukehren.
 
-### Add four screens to the app
-In this step, we'll create four blank screens for the app. We'll use different screen layouts, depending on the screen's purpose. We'll add to these screens in later steps.
+### <a name="add-four-screens-to-the-app"></a>Hinzufügen von vier Bildschirmen zur App
+In diesem Schritt erstellen wir vier leere Bildschirme für die App. Dabei verwenden wir je nach Zweck des jeweiligen Bildschirms unterschiedliche Bildschirmlayouts. Diese werden den Bildschirmen in späteren Schritten hinzugefügt.
 
-| **Screen** | **Purpose** |
+| **Bildschirm** | **Zweck** |
 | --- | --- |
-| **SelectTask** |Opening screen; navigate to other screens |
-| **AssignManager** |Assign a manager to an approved project |
-| **ViewProjects** |View a list of projects, with summary information |
-| **UpdateDetails** |View and update the details for a project |
+| **SelectTask** |Begrüßungsbildschirm; Navigation zu anderen Bildschirmen |
+| **AssignManager** |Zuweisen eines Managers zu einem genehmigten Projekt |
+| **ViewProjects** |Anzeigen einer Liste von Projekten mit Zusammenfassungsinformationen |
+| **UpdateDetails** |Anzeigen und Aktualisieren der Details für ein Projekt |
 
-1. On the **Home** tab, click or tap **NewScreen**, then **Scrollable screen**.
+1. Klicken oder tippen Sie auf der Registerkarte **Start** auf **NewScreen** und anschließend auf **Scrollbarer Bildschirm**.
    
-    ![Scrollable screen](./media/sharepoint-scenario-build-app/04-01-03a-scrollable-screen.png)
-2. Rename the screen to **SelectTask**.
+    ![Scrollbarer Bildschirm](./media/sharepoint-scenario-build-app/04-01-03a-scrollable-screen.png)
+2. Benennen Sie den Bildschirm in **SelectTask** um.
    
-    ![Rename screen](./media/sharepoint-scenario-build-app/04-01-04-rename-screen.png)
-3. Create and rename additional screens:
+    ![Umbenennen des Bildschirms](./media/sharepoint-scenario-build-app/04-01-04-rename-screen.png)
+3. Erstellen und Umbenennen weiterer Bildschirme:
    
-   1. Click or tap **NewScreen**, then **Scrollable screen**. Rename the screen to **AssignManager**.
-   2. Click or tap **NewScreen**, then **List screen**. Rename the screen to **ViewProjects**.
-   3. Click or tap **NewScreen**, then **Form screen**. Rename the screen to **UpdateDetails**.
-4. Select the ellipsis (**. . .**) next to **Screen1**, then click or tap **Delete**.
+   1. Klicken oder tippen Sie auf **NewScreen** und anschließend auf **Scrollbarer Bildschirm**. Benennen Sie den Bildschirm in **AssignManager** um.
+   2. Klicken oder tippen Sie auf **NewScreen** und anschließend auf **Listenbildschirm**. Benennen Sie den Bildschirm in **ViewProjects** um.
+   3. Klicken oder tippen Sie auf **NewScreen** und anschließend auf **Formularbildschirm**. Benennen Sie den Bildschirm in **UpdateDetails** um.
+4. Wählen Sie die Auslassungspunkte (**. . .**) neben **Screen1** aus, und klicken oder tippen Sie auf **Löschen**.
    
-    ![Delete screen](./media/sharepoint-scenario-build-app/04-01-04a-delete-screen.png)
+    ![Bildschirm löschen](./media/sharepoint-scenario-build-app/04-01-04a-delete-screen.png)
 
-The app should now look like the following image.
+Die App sollte nun wie in der folgenden Abbildung aussehen.
 
-![All app screens](./media/sharepoint-scenario-build-app/04-01-05-all-screens.png)
+![Alle App-Bildschirme](./media/sharepoint-scenario-build-app/04-01-05-all-screens.png)
 
-## Step 2: Connect to a SharePoint list
-In this step, we'll connect to the **Product Details** SharePoint list. We only use one list in this app, but you could easily connect to both if you want to extend the app.
+## <a name="step-2-connect-to-a-sharepoint-list"></a>Schritt 2: Verbinden mit einer SharePoint-Liste
+In diesem Schritt stellen wir eine Verbindung mit der SharePoint-Liste **Product Details** (Produktdetails) her. Wir verwenden in dieser App lediglich eine Liste, Sie könnten jedoch auch problemlos eine Verbindung mit beiden herstellen, wenn Sie die App erweitern möchten.
 
-1. In the left navigation bar, click or tap the **SelectTask** screen.
-2. In the right pane, click or tap **Add data source**.
+1. Klicken oder tippen Sie in der linken Navigationsleiste auf den Bildschirm **SelectTask**.
+2. Klicken oder tippen Sie im rechten Bereich auf **Datenquelle hinzufügen**.
    
-    ![Connect to data](./media/sharepoint-scenario-build-app/04-02-01-connect.png)
-3. Click or tap **New connection**.
+    ![Herstellen einer Datenverbindung](./media/sharepoint-scenario-build-app/04-02-01-connect.png)
+3. Klicken oder tippen Sie auf **Neue Verbindung**.
    
-    ![New connection](./media/sharepoint-scenario-build-app/04-02-02-new-connection.png)
-4. Click or tap **SharePoint**.
+    ![Neue Verbindung](./media/sharepoint-scenario-build-app/04-02-02-new-connection.png)
+4. Klicken oder tippen Sie auf **SharePoint**.
    
-    ![SharePoint connection](./media/sharepoint-scenario-build-app/04-02-03-sharepoint-connection.png)
-5. Select **Connect directly (cloud services)**, then click or tap **Create**.
+    ![SharePoint-Verbindung](./media/sharepoint-scenario-build-app/04-02-03-sharepoint-connection.png)
+5. Wählen Sie **Direkte Verbindung (Clouddienste)** aus, und klicken oder tippen Sie dann auf **Erstellen**.
    
-    ![Connect directly (cloud services)](./media/sharepoint-scenario-build-app/04-02-03a-sharepoint-cloud.png)
-6. Enter a SharePoint URL, then click or tap **Go**.
+    ![Direkte Verbindung (Clouddienste)](./media/sharepoint-scenario-build-app/04-02-03a-sharepoint-cloud.png)
+6. Geben Sie eine SharePoint-URL ein, und klicken oder tippen Sie auf **Starten**.
    
-    ![SharePoint URL for connection](./media/sharepoint-scenario-build-app/04-02-04-sharepoint-url.png)
-7. Select the **Project Details** list, then click or tap **Connect**.
+    ![SharePoint-URL für Verbindung](./media/sharepoint-scenario-build-app/04-02-04-sharepoint-url.png)
+7. Wählen Sie die Liste **Project Details** (Projektdetails) aus, und klicken oder tippen Sie auf **Verbinden**.
    
-    ![Select Project Details list](./media/sharepoint-scenario-build-app/04-02-05-sharepoint-lists.png)
+    ![Auswählen der Liste „Project Details“ (Projektdetails)](./media/sharepoint-scenario-build-app/04-02-05-sharepoint-lists.png)
    
-    The **Data sources** tab in the right pane now shows the connection that you have created.
+    Auf der Registerkarte **Datenquellen** im rechten Bereich wird nun die erstellte Verbindung angezeigt.
    
-    ![Data sources tab](./media/sharepoint-scenario-build-app/04-02-06-data-sources.png)
+    ![Registerkarte „Datenquellen“](./media/sharepoint-scenario-build-app/04-02-06-data-sources.png)
 
-## Step 3: Build the SelectTask screen
-In this step, we'll provide a way to navigate to the other screens in the app - working with some of the controls, formulas, and formatting options that PowerApps provides.
+## <a name="step-3-build-the-selecttask-screen"></a>Schritt 3: Erstellen des Bildschirms „SelectTask“
+In diesem Schritt richten wir eine Möglichkeit der Navigation zu den anderen Bildschirmen in der App ein. Dabei arbeiten wir mit einigen der Steuerelemente, Formeln und Formatierungsoptionen in PowerApps.
 
-### Update the title and insert introductory text
-1. In the left navigation bar, select the **SelectTask** screen.
-2. In the middle pane, select the default **[Title]**, then in the formula bar, update the **Text** property to "Contoso Project Management".
+### <a name="update-the-title-and-insert-introductory-text"></a>Aktualisieren des Titels und Einfügen von Einführungstext
+1. Wählen in der linken Navigationsleiste den Bildschirm **SelectTask** aus.
+2. Wählen Sie im mittleren Bereich den standardmäßigen **[Title]** (Titel) aus, und aktualisieren Sie anschließend in der Bearbeitungsleiste die **Text**-Eigenschaft auf den Wert „Contoso Project Management“.
    
-    ![Text property in formula bar](./media/sharepoint-scenario-build-app/04-03-02-text-property.png)
-3. On the **Insert** tab, click or tap **Label**, then drag the label down below the top banner.
+    ![Text-Eigenschaft in der Bearbeitungsleiste](./media/sharepoint-scenario-build-app/04-03-02-text-property.png)
+3. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Bezeichnung**, und ziehen Sie die Bezeichnung unter das oberste Banner.
    
-    ![Add label](./media/sharepoint-scenario-build-app/04-03-03-text-default.png)
-4. In the formula bar, set the following properties for the label:
+    ![Bezeichnung hinzufügen](./media/sharepoint-scenario-build-app/04-03-03-text-default.png)
+4. Legen Sie in der Bearbeitungsleiste die folgenden Eigenschaften für die Bezeichnung fest:
    
-   * **Color** property = **DarkGray**
+   * **Color**-Eigenschaft = **DarkGray**
 
-   * **Size** property = **18**
+   * **Size**-Eigenschaft = **18**
 
-   * **Text** property = "**Click or tap a task to continue..."**
+   * **Text**-Eigenschaft = **"Click or tap a task to continue..."** (Klicken oder tippen Sie auf eine Aufgabe, um fortzufahren ...)
      
-     ![Update label text](./media/sharepoint-scenario-build-app/04-03-04-text-updated.png)
+     ![Aktualisieren des Bezeichnungstexts](./media/sharepoint-scenario-build-app/04-03-04-text-updated.png)
 
-### Add two navigation buttons
-1. On the **Insert** tab, click or tap **Button**, then drag the button below the label.
+### <a name="add-two-navigation-buttons"></a>Hinzufügen von zwei Navigationsschaltflächen
+1. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Schaltfläche**, und ziehen Sie die Schaltfläche unter die Bezeichnung.
    
-    ![Add button](./media/sharepoint-scenario-build-app/04-03-05-button-default.png)
-2. In the formula bar, set the following properties for the button:
+    ![Hinzufügen einer Schaltfläche](./media/sharepoint-scenario-build-app/04-03-05-button-default.png)
+2. Legen Sie in der Bearbeitungsleiste die folgenden Eigenschaften für die Schaltfläche fest:
    
-   * **OnSelect** property = **Navigate(AssignManager, Fade)**. When you run the app and click this button, you navigate to the second screen in the app, with a fade transition between the screens.
+   * **OnSelect**-Eigenschaft = **Navigate(AssignManager, Fade)**. Wenn Sie die App ausführen und auf diese Schaltfläche klicken, wechseln Sie zum zweiten Bildschirm in der App, mit einem Ausblendübergang zwischen den Bildschirmen.
 
-   * **Text** property = **"Assign Manager"**
+   * **Text**-Eigenschaft = **"Assign Manager"**
 
-3. Resize the button to accommodate the text.
+3. Ändern Sie die Größe der Schaltfläche, um sie an den Text anzupassen.
    
-    ![Update button text](./media/sharepoint-scenario-build-app/04-03-06-button-updated.png)
-4. Insert another button with the following properties:
+    ![Aktualisieren des Schaltflächentexts](./media/sharepoint-scenario-build-app/04-03-06-button-updated.png)
+4. Einfügen einer weiteren Schaltfläche mit den folgenden Eigenschaften:
    
-   * **OnSelect** property = **Navigate(ViewProjects, Fade)**.
+   * **OnSelect**-Eigenschaft = **Navigate(ViewProjects, Fade)**.
 
-   * **Text** property = **"Update Details"**
+   * **Text**-Eigenschaft = **"Update Details"**
      
-     ![Update button text](./media/sharepoint-scenario-build-app/04-03-08-buttons-final.png)
+     ![Aktualisieren des Schaltflächentexts](./media/sharepoint-scenario-build-app/04-03-08-buttons-final.png)
      
      > [!NOTE]
-     > The button is labeled **Update Details**, but we first navigate to the **ViewProjects** screen to select a project to update.
+     > Die Schaltfläche ist mit **Update Details** (Details aktualisieren) beschriftet, zunächst wechseln wir jedoch zum Bildschirm **ViewProjects**, um ein zu aktualisierendes Projekt auszuwählen.
 
-### Run the app
-The app doesn't do a lot yet, but you can run it if you like:
+### <a name="run-the-app"></a>Ausführen der App
+Noch ist der Funktionsumfang der App recht begrenzt, Sie können sie jedoch trotzdem ausführen:
 
-1. Click or tap the **SelectTask** screen (the app always starts from the selected screen in Preview mode in PowerApps Studio).
+1. Klicken oder tippen Sie auf die Anzeige **SelectTask** (die App wird immer mit der Anzeige gestartet, die im Vorschaumodus in PowerApps Studio ausgewählt ist).
 
-2. Click or tap ![Run app icon](./media/sharepoint-scenario-build-app/icon-run-arrow.png) in the upper right corner to run the app.
+2. Klicken oder tippen Sie auf ![Symbol „App ausführen“](./media/sharepoint-scenario-build-app/icon-run-arrow.png) in der rechten oberen Ecke, um die App auszuführen.
 
-3. Click or tap one of the buttons to navigate to another screen.
+3. Klicken oder tippen Sie auf eine der Schaltflächen, um zu einem anderen Bildschirm zu wechseln.
 
-4. Click or tap ![Close app preview icon](./media/sharepoint-scenario-build-app/icon-close-preview.png) in the upper right corner to close the app.
+4. Klicken oder tippen Sie auf ![Symbol „App-Vorschau schließen“](./media/sharepoint-scenario-build-app/icon-close-preview.png) in der rechten oberen Ecke, um die App zu schließen.
 
-## Step 4: Build the AssignManager screen
-In this step, we'll use a gallery to display all projects that have been approved but don't yet have a manager. We'll add other controls, so you can assign a manager.
+## <a name="step-4-build-the-assignmanager-screen"></a>Schritt 4: Erstellen des Bildschirms „AssignManager“
+In diesem Schritt zeigen wir mit einem Katalog alle Projekte an, die genehmigt wurden, denen jedoch noch kein Manager zugewiesen wurde. Wir fügen weitere Steuerelemente hinzu, sodass Sie einen Manager zuweisen können.
 
 > [!NOTE]
->  We'll build a page later in the app that allows you to edit all fields for a project (including the manager field), but we thought it would be cool to build a screen like this one as well.
+>  Wir erstellen später in der App eine Seite, auf der Sie sämtliche Felder für ein Projekt (einschließlich des Felds für den Manager) bearbeiten können, es erschien uns jedoch angebracht, auch diesen Bildschirm zu erstellen.
 
-1. Save the changes you've made so far.
+1. Speichern Sie die bisher vorgenommenen Änderungen.
 
-2. In the left navigation bar, click or tap the **AssignManager** screen.
+2. Klicken oder tippen Sie in der linken Navigationsleiste auf den Bildschirm **AssignManager**.
 
-### Update the title and insert introductory text
+### <a name="update-the-title-and-insert-introductory-text"></a>Aktualisieren des Titels und Einfügen von Einführungstext
 
-1. Change **[Title]** to **Assign Manager**.
+1. Ändern Sie den Text **[Title]** (Titel) in **Assign Manager** (Manager zuweisen).
 
-2. Add a label with the following properties:
+2. Fügen Sie eine Bezeichnung mit den folgenden Eigenschaften hinzu:
    
-   * **Color** property = **DarkGray**
+   * **Color**-Eigenschaft = **DarkGray**
 
-   * **Size** property = **18**
+   * **Size**-Eigenschaft = **18**
 
-   * **Text** property = "**Select a project, then assign a manager"**
+   * **Text**-Eigenschaft = **"Select a project, then assign a manager"** (Projekt auswählen, anschließend einen Manager zuweisen)
      
-     ![Assign manager layout](./media/sharepoint-scenario-build-app/04-04-01-layout.png)
+     ![Layout von „Assign Manager“ (Manager zuweisen)](./media/sharepoint-scenario-build-app/04-04-01-layout.png)
 
-### Add a back arrow to return to the SelectTask screen
+### <a name="add-a-back-arrow-to-return-to-the-selecttask-screen"></a>Hinzufügen eines Rückwärtspfeils, um zum Bildschirm „SelectTask“ zurückzukehren
 
-1. Click or tap the blue bar at the top of the screen.
+1. Klicken oder tippen Sie auf die blaue Leiste am oberen Bildschirmrand.
 
-2. On the **Insert** tab, click or tap **Icons**, then click or tap **Left**.
+2. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Symbole**, und klicken oder tippen Sie auf **Left** (Nach links).
    
-    ![Insert left arrow](./media/sharepoint-scenario-build-app/04-04-02-icon-left.png)
+    ![Einfügen eines Pfeils nach links](./media/sharepoint-scenario-build-app/04-04-02-icon-left.png)
 
-3. Move the arrow to the left side of the blue bar, and set the following properties:
+3. Verschieben Sie den Pfeil auf die linke Seite der blauen Leiste, und legen Sie die folgenden Eigenschaften fest:
    
-   * **Color** property = **White**
+   * **Color**-Eigenschaft = **White**
 
-   * **Height** property = **40**
+   * **Height**-Eigenschaft = **40**
 
-   * **OnSelect** property = **Navigate(SelectTask, Fade)**
+   * **OnSelect**-Eigenschaft = **Navigate(SelectTask, Fade)**
 
-   * **Width** property = **40**
+   * **Width**-Eigenschaft = **40**
      
-     ![Add back button](./media/sharepoint-scenario-build-app/04-04-03-left-arrow.png)
+     ![Hinzufügen einer Schaltfläche „Zurück“](./media/sharepoint-scenario-build-app/04-04-03-left-arrow.png)
 
-### Add and modify a gallery
+### <a name="add-and-modify-a-gallery"></a>Hinzufügen und Ändern eines Katalogs
 
-1. On the **Insert** tab, click or tap **Gallery**, then **Vertical**.
+1. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Katalog** und anschließend auf **Vertikal**.
    
-    ![Add a vertical gallery](./media/sharepoint-scenario-build-app/04-04-04-gallery.png)
+    ![Hinzufügen eines vertikalen Katalogs](./media/sharepoint-scenario-build-app/04-04-04-gallery.png)
 
-2. Select **Title, subtitle, and body** from the **Layout** menu in the right pane. 
+2. Wählen Sie im Menü **Layout** im rechten Bereich die Option **Titel, Untertitel und Text** aus. 
    
-    ![Change the gallery layout](./media/sharepoint-scenario-build-app/04-04-04a-gallery-layout.png)
+    ![Ändern des Kataloglayouts](./media/sharepoint-scenario-build-app/04-04-04a-gallery-layout.png)
    
-    The gallery now has the right layout, but it still has the default sample text. We'll fix that next.
+    Der Katalog verfügt nun über das richtige Layout, weist jedoch immer noch den standardmäßigen Beispieltext auf. Dies korrigieren wir im nächsten Schritt.
    
-    ![Gallery with default text](./media/sharepoint-scenario-build-app/04-04-05-gallery-default.png)
+    ![Katalog mit Standardtext](./media/sharepoint-scenario-build-app/04-04-05-gallery-default.png)
 
-3. Set the following properties for the gallery:
+3. Legen Sie die folgenden Eigenschaften für den Katalog fest:
    
-   * **BorderThickness** property = **1**
+   * **BorderThickness**-Eigenschaft = **1**
 
-   * **BorderStyle** property = **Dotted**
+   * **BorderStyle**-Eigenschaft = **Dotted**
 
-   * **Items** property = **Filter('Project Details', PMAssigned="Unassigned")**. Only projects with no manager assigned are included in the gallery.
+   * **Items**-Eigenschaft = **Filter('Project Details', PMAssigned="Unassigned")**. Im Katalog sind nur Projekte enthalten, denen kein Manager zugewiesen ist.
      
-     ![Gallery with text from list](./media/sharepoint-scenario-build-app/04-04-06-gallery-updated.png)
+     ![Katalog mit Text aus der Liste](./media/sharepoint-scenario-build-app/04-04-06-gallery-updated.png)
 
-4. In the right pane, update the fields to match the following list:
+4. Aktualisieren Sie im rechten Bereich die Felder entsprechend der folgenden Liste:
    
    * **ApprovedDate**
 
@@ -239,112 +245,112 @@ In this step, we'll use a gallery to display all projects that have been approve
 
    * **Title**
      
-     ![Gallery fields](./media/sharepoint-scenario-build-app/04-04-07-gallery-fields.png)
+     ![Katalogfelder](./media/sharepoint-scenario-build-app/04-04-07-gallery-fields.png)
 
-5. Resize labels in the gallery as appropriate, and remove the arrow from the first gallery item (we don't need to navigate anywhere from this gallery).
+5. Passen Sie die Größe der Bezeichnungen im Katalog entsprechend an, und entfernen Sie den Pfeil vom ersten Katalogelement (dieser Katalog wird nicht mehr verlassen).
    
-    ![Remove arrow icon](./media/sharepoint-scenario-build-app/04-04-07a-remove-arrow.png)
+    ![Entfernen des Pfeilsymbols](./media/sharepoint-scenario-build-app/04-04-07a-remove-arrow.png)
    
-    The screen should now look like the following image.
+    Der Bildschirm entspricht nun etwa dem in der folgenden Abbildung.
    
-    ![Formatted gallery](./media/sharepoint-scenario-build-app/04-04-07b-gallery-size-text.png)
+    ![Formatierter Katalog](./media/sharepoint-scenario-build-app/04-04-07b-gallery-size-text.png)
 
-### Change the color of an item if it's selected
+### <a name="change-the-color-of-an-item-if-its-selected"></a>Ändern der Farbe eines Elements, wenn dieses ausgewählt ist
 
-1. Select the gallery, then set the **TemplateFill** property to **If (ThisItem.IsSelected=true, Orange, White)**.
+1. Wählen Sie den Katalog aus, und legen Sie anschließend die **TemplateFill**-Eigenschaft auf **If (ThisItem.IsSelected=true, Orange, White)** fest.
 
-2. Select an item in the gallery. The screen should now look like the following image.
+2. Wählen Sie ein Element im Katalog aus. Der Bildschirm entspricht nun etwa dem in der folgenden Abbildung.
    
-    ![Gallery with selected item](./media/sharepoint-scenario-build-app/04-04-08-gallery-selected.png)
+    ![Katalog mit ausgewähltem Element](./media/sharepoint-scenario-build-app/04-04-08-gallery-selected.png)
 
-### Add a label, text input, and OK button to submit manager assignments
+### <a name="add-a-label-text-input-and-ok-button-to-submit-manager-assignments"></a>Hinzufügen einer Bezeichnung, einer Texteingabe und einer Schaltfläche „OK“ für das Übermitteln von Managerzuweisungen
 
-1. Click or tap outside the gallery you've been working on.
+1. Klicken Sie oder tippen Sie auf eine Stelle außerhalb des Katalogs, an dem Sie gearbeitet haben.
 
-2. On the **Insert** tab, click or tap **Label**. Drag the label below the gallery, to the left. Set the following properties for the label:
+2. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Bezeichnung**. Ziehen Sie die Bezeichnung unter den Katalog auf die linke Seite. Legen Sie die folgenden Eigenschaften für die Bezeichnung fest:
    
-   * **Size** property = **20**
+   * **Size**-Eigenschaft = **20**
 
-   * **Text** property = **"Manager:"**
+   * **Text**-Eigenschaft = **"Manager:"**
    
-   ![Add Manager label](./media/sharepoint-scenario-build-app/04-04-09-controls-text.png)
+   ![Hinzufügen der Bezeichnung „Manager“](./media/sharepoint-scenario-build-app/04-04-09-controls-text.png)
 
-3. On the **Insert** tab, click or tap **Text**, then **Text input**. Drag the text input below the gallery, in the center. Set the following properties for the drop down:
+3. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Text** und anschließend auf **Texteingabe**. Ziehen Sie die Texteingabe mittig unter den Katalog. Legen Sie die folgenden Eigenschaften für das Dropdown fest:
    
-   * **Default** property = **""**
+   * **Default**-Eigenschaft = **""**
 
-   * **Height** property = **60**
+   * **Height**-Eigenschaft = **60**
 
-   * **Size** property = **20**
+   * **Size**-Eigenschaft = **20**
 
-   * **Width** property = **250**
+   * **Width**-Eigenschaft = **250**
    
-   ![Add text input](./media/sharepoint-scenario-build-app/04-04-10-controls-text-box.png)
+   ![Hinzufügen einer Texteingabe](./media/sharepoint-scenario-build-app/04-04-10-controls-text-box.png)
 
-4. On the **Insert** tab, click or tap **Button**. Drag the button below the gallery, to the right. Set the following properties for the button:
+4. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Schaltfläche**. Ziehen Sie die Schaltfläche unter den Katalog auf die rechte Seite. Legen Sie die folgenden Eigenschaften für die Schaltfläche fest:
    
-   * **Height** property = **60**
+   * **Height**-Eigenschaft = **60**
 
-   * **OnSelect** property = **Patch('Project Details', LookUp('Project Details', ID = Gallery1.Selected.ID), {PMAssigned: TextInput1.Text})**. For more information, see [Formula deep-dive](#formula-deep-dive).
+   * **OnSelect**-Eigenschaft = **Patch('Project Details', LookUp('Project Details', ID = Gallery1.Selected.ID), {PMAssigned: TextInput1.Text})**. Weitere Informationen finden Sie unter [Detaillierte Erläuterungen zu Formeln](#formula-deep-dive).
 
-   * This formula updates the **Project Details** list, setting a value for the PMAssigned field.
+   * Mit dieser Formel wird die Liste **Project Details** (Projektdetails) aktualisiert, und es wird ein Wert für das Feld „PMAssigned“ festgelegt.
 
-   * **Size** property = **20**
+   * **Size**-Eigenschaft = **20**
 
-   * **Text** property = **"OK"**
+   * **Text**-Eigenschaft = **"OK"**
 
-   * **Width** property = **80**
+   * **Width**-Eigenschaft = **80**
    
-   ![Add OK button](./media/sharepoint-scenario-build-app/04-04-11-controls-button.png)
+   ![Hinzufügen der Schaltfläche „OK“](./media/sharepoint-scenario-build-app/04-04-11-controls-button.png)
 
-The completed screen should now look like the following image.
+Der fertige Bildschirm sollte nun etwa dem in der folgenden Abbildung entsprechen.
 
-![Finished Assign Manager screen](./media/sharepoint-scenario-build-app/04-04-12-complete.png)
+![Fertiger Bildschirm „Assign Manager“ (Manager zuweisen)](./media/sharepoint-scenario-build-app/04-04-12-complete.png)
 
-## Step 5: Build the ViewProjects screen
-In this step, we'll change properties for the gallery on the **ViewProjects** screen. This gallery displays items from the **Project Details** list. You select an item on this screen, then you edit the details on the **UpdateDetails** screen.
+## <a name="step-5-build-the-viewprojects-screen"></a>Schritt 5: Erstellen des Bildschirms „ViewProjects“
+In diesem Schritt ändern wir die Eigenschaften des Katalogs im Bildschirm **ViewProjects**. In diesem Katalog werden Elemente aus der Liste **Project Details** (Projektdetails) angezeigt. Sie wählen zunächst in diesem Bildschirm ein Element aus, dann bearbeiten Sie die Details im Bildschirm **UpdateDetails**.
 
-1. In the left navigation bar, click or tap the **ViewProjects** screen.
+1. Klicken oder tippen Sie in der linken Navigationsleiste auf den Bildschirm **ViewProjects**.
 
-2. Change **[Title]** to **"View Projects"**.
+2. Ändern Sie **[Title]** (Titel) in **„View Projects“** (Projekte anzeigen).
 
-3. In the left navigation bar, click or tap **BrowserGallery1** under **ViewProjects**.
+3. Klicken oder tippen Sie in der linken Navigationsleiste unter **ViewProjects** auf **BrowserGallery1**.
 
-4. Select **Title, subtitle, and body** from the **Layout** menu in the right pane. 
+4. Wählen Sie im Menü **Layout** im rechten Bereich die Option **Titel, Untertitel und Text** aus. 
    
-    ![Change the gallery layout](./media/sharepoint-scenario-build-app/04-04-04a-gallery-layout.png)
+    ![Ändern des Kataloglayouts](./media/sharepoint-scenario-build-app/04-04-04a-gallery-layout.png)
    
-    The gallery now has the right layout, with the default sample text.
+    Der Katalog verfügt nun über das richtige Layout, weist aber immer noch den standardmäßigen Beispieltext auf.
    
-    ![Gallery with default text](./media/sharepoint-scenario-build-app/04-04-04b-gallery-default.png)
+    ![Katalog mit Standardtext](./media/sharepoint-scenario-build-app/04-04-04b-gallery-default.png)
 
-5. Select the refresh button ![Refresh icon](./media/sharepoint-scenario-build-app/icon-refresh.png), and set its **OnSelect** property to **Refresh('Project Details')**.
+5. Wählen Sie die Aktualisierungsschaltfläche ![Aktualisierungssymbol](./media/sharepoint-scenario-build-app/icon-refresh.png) aus, und legen Sie ihre **OnSelect**-Eigenschaft auf **Refresh('Project Details')** fest.
 
-6. Select the new item button ![Add new icon](./media/sharepoint-scenario-build-app/icon-add-item.png), and set its **OnSelect** property to **NewForm(EditForm1); Navigate(UpdateDetails, ScreenTransition.None)**.
+6. Wählen Sie die Schaltfläche für neue Elemente ![Neues Element hinzufügen](./media/sharepoint-scenario-build-app/icon-add-item.png) aus, und legen Sie ihre **OnSelect**-Eigenschaft auf **NewForm(EditForm1); Navigate(UpdateDetails, ScreenTransition.None)** fest.
 
-### Add a back arrow to return to the SelectTask screen
+### <a name="add-a-back-arrow-to-return-to-the-selecttask-screen"></a>Hinzufügen eines Rückwärtspfeils, um zum Bildschirm „SelectTask“ zurückzukehren
 
-1. In the left navigation bar, click or tap the **AssignManager** screen.
+1. Klicken oder tippen Sie in der linken Navigationsleiste auf den Bildschirm **AssignManager**.
 
-2. Select the back arrow you added there, and copy it.
+2. Wählen Sie den hier hinzugefügten Rückwärtspfeil aus, und kopieren Sie ihn.
 
-3. Paste the arrow into the **ViewProjects** screen and position it to the left of the refresh button. 
+3. Fügen Sie den Pfeil im Bildschirm **ViewProjects** ein, und positionieren Sie ihn links von der Aktualisierungsschaltfläche. 
    
-    ![Back button](./media/sharepoint-scenario-build-app/04-05-04-left-arrow-v.png)
+    ![Schaltfläche „Zurück“](./media/sharepoint-scenario-build-app/04-05-04-left-arrow-v.png)
    
-    All its properties come along with it, including the **OnSelect** property of **Navigate(SelectTask, Fade)**.
+    Alle Eigenschaften werden mit übernommen, einschließlich der **OnSelect**-Eigenschaft mit dem Wert **Navigate(SelectTask, Fade)**.
 
-### Change the data source for the BrowseGallery1 gallery
+### <a name="change-the-data-source-for-the-browsegallery1-gallery"></a>Ändern der Datenquelle für den Katalog „BrowseGallery1“
 
-1. Select the **BrowseGallery1** gallery, and set the **Items** property of the gallery to **SortByColumns(Filter('Project Details', StartsWith(Title, TextSearchBox1.Text)), "Title", If(SortDescending1, Descending, Ascending))**.
+1. Wählen Sie den Katalog **BrowseGallery1** aus, und legen Sie die **Items**-Eigenschaft des Katalogs auf **SortByColumns(Filter('Project Details', StartsWith(Title, TextSearchBox1.Text)), "Title", If(SortDescending1, Descending, Ascending))** fest.
    
-    This sets the data source of the gallery to the **Project Details** list, and uses the **Title** field for search and sort.
+    Dadurch wird die Datenquelle des Katalogs auf die Liste **Project Details** (Projektdetails) festgelegt, und für Such- und Sortiervorgänge wird das Feld **Title** (Titel) verwendet.
 
-2. Select the ![Details arrow icon](./media/sharepoint-scenario-build-app/icon-details-arrow.png) in the first gallery item, and set the **OnSelect** property to **Navigate(UpdateDetails, None)**.
+2. Wählen Sie das ![Details-Pfeilsymbol](./media/sharepoint-scenario-build-app/icon-details-arrow.png) im ersten Katalogelement aus, und legen Sie die **OnSelect**-Eigenschaft auf **Navigate(UpdateDetails, None)** fest.
    
-    ![ View Projects gallery - first item selected](./media/sharepoint-scenario-build-app/04-05-05b-gallery-arrow-v.png)
+    ![ Katalog „Projekte anzeigen“ – erstes Element ausgewählt](./media/sharepoint-scenario-build-app/04-05-05b-gallery-arrow-v.png)
 
-3. In the right pane, update the fields to match the following list:
+3. Aktualisieren Sie im rechten Bereich die Felder entsprechend der folgenden Liste:
    
    * **Status**
 
@@ -352,28 +358,28 @@ In this step, we'll change properties for the gallery on the **ViewProjects** sc
 
    * **Title**
      
-     ![Gallery fields](./media/sharepoint-scenario-build-app/04-05-06-gallery-fields.png)
+     ![Katalogfelder](./media/sharepoint-scenario-build-app/04-05-06-gallery-fields.png)
      
-     The completed screen should now look like the following image.
+     Der fertige Bildschirm sollte nun etwa dem in der folgenden Abbildung entsprechen.
      
-     ![View Project screen finished](./media/sharepoint-scenario-build-app/04-05-07-viewprojects-final.png)
+     ![Fertiger Bildschirm „View Project“ (Projekte anzeigen)](./media/sharepoint-scenario-build-app/04-05-07-viewprojects-final.png)
 
-## Step 6: Build the UpdateDetails screen
-In this step, we'll connect the edit form on the **UpdateDetails** screen to our data source, and we'll make some property and field changes. On this screen, you edit details for a project that you selected on the **View Projects** screen.
+## <a name="step-6-build-the-updatedetails-screen"></a>Schritt 6: Erstellen des Bildschirms „UpdateDetails“
+In diesem Schritt verbinden wir das Bearbeitungsformular im Bildschirm **UpdateDetails** mit der Datenquelle, zudem nehmen wir einige Änderungen an Eigenschaften und Feldern vor. In diesem Bildschirm bearbeiten Sie Details für ein Projekt, das Sie im Bildschirm **View Projects** (Projekte anzeigen) ausgewählt haben.
 
-1. In the left navigation bar, click or tap the **UpdateDetails** screen.
+1. Klicken oder tippen Sie in der linken Navigationsleiste auf den Bildschirm **UpdateDetails**.
 
-2. Change **[Title]** to **"Update Details"**.
+2. Ändern Sie **[Title]** (Titel) in **„Details aktualisieren“**.
 
-3. In the left navigation bar, click or tap **EditForm1** under **UpdateDetails**.
+3. Klicken oder tippen Sie in der linken Navigationsleiste unter **UpdateDetails** auf **EditForm1**.
 
-4. Set the following properties for the form:
+4. Legen Sie die folgenden Eigenschaften für das Formular fest:
    
-   * **DataSource** property = **'Project Details'**
+   * **DataSource**-Eigenschaft = **'Project Details'**
 
-   * **Item** property = **BrowseGallery1.Selected**
+   * **Item**-Eigenschaft = **BrowseGallery1.Selected**
 
-5. With the form still selected, in the right pane click or tap the checkbox for the following fields, in the order shown:
+5. Lassen Sie das Formular ausgewählt, und klicken oder tippen Sie auf das Kontrollkästchen für die folgenden Felder. Beachten Sie dabei die angegebene Reihenfolge:
    
    * **Title**
 
@@ -389,123 +395,123 @@ In this step, we'll connect the edit form on the **UpdateDetails** screen to our
 
    * **ActualDays**
      
-     ![Edit form fields](./media/sharepoint-scenario-build-app/04-06-03-edit-fields.png)
-6. Select the cancel button ![Cancel icon](./media/sharepoint-scenario-build-app/icon-cancel.png), and set its **OnSelect** property to **ResetForm(EditForm1); Back()**.
+     ![Bearbeiten der Felder des Formulars](./media/sharepoint-scenario-build-app/04-06-03-edit-fields.png)
+6. Klicken Sie auf die Schaltfläche zum Abbrechen ![Symbol „Abbrechen“](./media/sharepoint-scenario-build-app/icon-cancel.png), und legen Sie ihre **OnSelect**-Eigenschaft auf **ResetForm(EditForm1); Back()** fest.
 
-7. Select the save button ![Checkmark save icon](./media/sharepoint-scenario-build-app/icon-check-mark.png) and check out the **OnSelect** formula - **SubmitForm(EditForm1)**. Because we're using the edit form control, we can use **Submit()**, instead of using **Patch()** like we did earlier.
+7. Wählen Sie die Schaltfläche zum Speichern ![Häkchensymbol „Speichern“](./media/sharepoint-scenario-build-app/icon-check-mark.png) aus, und probieren Sie die **OnSelect**-Formel aus – **SubmitForm(EditForm1)**. Da wir das Steuerelement zum Bearbeiten von Formularen verwenden, können wir **Submit()** und nicht wie früher **Patch()** verwenden.
 
-The completed screen should now look like the following image (if the fields are blank, make sure you select an item on the **View Projects** screen).
+Der fertige Bildschirm sollte nun wie der in der unten stehenden Abbildung aussehen (wenn die Felder leer sind, müssen Sie im Bildschirm **Projekte anzeigen** ein Element auswählen).
 
-![Update Details screen finished](./media/sharepoint-scenario-build-app/04-06-06-edit-final.png)
+![Fertiger Bildschirm „Update Details“](./media/sharepoint-scenario-build-app/04-06-06-edit-final.png)
 
-## Step 7: Run the app
-Now that the app is complete, let's run it to see how it works. We'll add a link on the SharePoint site to the app. You will be able to run the app in the browser, but you might need to share the app for other people to run it. For more information, see [Share your apps](https://powerapps.microsoft.com/guided-learning/learning-manage-share-apps).
+## <a name="step-7-run-the-app"></a>Schritt 7: Ausführen der App
+Die App ist nun fertig gestellt – führen wir sie aus, um ihre Funktionsweise zu überprüfen. Wir fügen auf der SharePoint-Website einen Link zur App hinzu. Sie können die App dann im Browser ausführen, Sie müssen die App jedoch ggf. für andere Personen freigeben, damit sie von diesen ausgeführt werden kann. Weitere Informationen finden Sie unter [Freigeben von Apps](https://powerapps.microsoft.com/guided-learning/learning-manage-share-apps).
 
-### Add a link to the app
-1. In the Office 365 app launcher, click or tap **PowerApps**.
+### <a name="add-a-link-to-the-app"></a>Hinzufügen eines Links zur App
+1. Klicken oder tippen Sie im Office 365-App-Startfeld auf **PowerApps**.
    
-    ![PowerApps in Office 365 app launcher](./media/sharepoint-scenario-build-app/04-07-02a-waffle.png)
+    ![PowerApps im App-Startfeld von Office 365](./media/sharepoint-scenario-build-app/04-07-02a-waffle.png)
 
-2. In PowerApps, click or tap the ellipsis (**. . .**) for **Project Management app**, then **Open**.
+2. Klicken oder tippen Sie in PowerApps auf die Auslassungspunkte (**. . .**) für die **Project Management app** (Projektverwaltungs-App) und anschließend auf **Öffnen**.
    
-    ![Select Project Management app](./media/sharepoint-scenario-build-app/04-07-02b-select-app.png)
+    ![Auswählen der Projektverwaltungs-App](./media/sharepoint-scenario-build-app/04-07-02b-select-app.png)
 
-3. Copy the address (URL) for the app in the browser.
+3. Kopieren Sie die Adresse (URL) für die App in den Browser.
    
-    ![Copy app URL](./media/sharepoint-scenario-build-app/04-07-02ba-copy-url.png)
+    ![Kopieren der App-URL](./media/sharepoint-scenario-build-app/04-07-02ba-copy-url.png)
 
-4. In SharePoint, click or tap **EDIT LINKS**.
+4. Klicken oder tippen Sie in SharePoint auf **VERKNÜPFUNG BEARBEITEN**.
    
-    ![Edit SharePoint site links](./media/sharepoint-scenario-build-app/04-07-02c-edit-links.png)
+    ![Bearbeiten von Links auf der SharePoint-Website](./media/sharepoint-scenario-build-app/04-07-02c-edit-links.png)
 
-5. Click or tap **(+) link**.
+5. Klicken oder tippen Sie auf **(+) Verknüpfung**.
    
-    ![Add app link to SharePoint site](./media/sharepoint-scenario-build-app/04-07-02d-add-link.png)
+    ![Hinzufügen einer App-Verknüpfung zur SharePoint-Website](./media/sharepoint-scenario-build-app/04-07-02d-add-link.png)
 
-6. Enter "Project Management app", and paste in the address for the app.
+6. Geben Sie „Projektverwaltungs-App“ ein, und fügen Sie die Adresse für die App ein.
    
-    ![Edit link properties](./media/sharepoint-scenario-build-app/04-07-02e-link-dialog.png)
+    ![Bearbeiten der Verknüpfungseigenschaften](./media/sharepoint-scenario-build-app/04-07-02e-link-dialog.png)
 
-7. Click or tap **OK**, then **Save**.
+7. Klicken oder tippen Sie auf **OK** und anschließend auf **Speichern**.
    
-    ![Save link changes](./media/sharepoint-scenario-build-app/04-07-02f-save.png)
+    ![Speichern der Änderungen an der Verknüpfung](./media/sharepoint-scenario-build-app/04-07-02f-save.png)
 
-### Assign a manager to a project
-Now that we have the app in our SharePoint site, we'll assume the role of the project approver - we'll look for any projects that don't have a manager assigned, and assign a manager to one of the projects. Then we'll assume the role of the project manager, and add some information about a project that is assigned to us.
+### <a name="assign-a-manager-to-a-project"></a>Zuweisen eines Managers zu einem Projekt
+Nun ist die App auf der SharePoint-Website vorhanden, und wir übernehmen die Rolle des Projektgenehmigers. Wir suchen nach allen Projekten, denen kein Manager zugewiesen ist, und weisen einem der Projekte einen Manager zu. Anschließend übernehmen wir die Rolle des Projektmanagers und fügen einige Informationen über ein Projekt hinzu, das uns zugewiesen wurde.
 
-1. First, let's look at the **Project Details** list in SharePoint. Two projects have a value of **Unassigned** in the **PMAssigned** column. We will see these in the app.
+1. Betrachten wir zunächst die Liste **Project Details** (Projektdetails) in SharePoint. Zwei Projekte weisen in der Spalte **PMAssigned** den Wert **Unassigned** auf. Diese sehen wir in der App.
    
-    ![Unassigned projects in SharePoint list](./media/sharepoint-scenario-build-app/04-07-01-unassigned.png)
+    ![Nicht zugewiesene Projekte in der SharePoint-Liste](./media/sharepoint-scenario-build-app/04-07-01-unassigned.png)
 
-2. Click or tap the link that you created to the app.
+2. Klicken oder tippen Sie auf den Link, den Sie für die App erstellt haben.
 
-3. On the first screen, click or tap **Assign Manager**.
+3. Klicken oder tippen Sie im ersten Bildschirm auf **Assign Manager** (Manager zuweisen).
    
-    ![App intro screen](./media/sharepoint-scenario-build-app/04-07-03-intro-screen.png)
+    ![Begrüßungsbildschirm der App](./media/sharepoint-scenario-build-app/04-07-03-intro-screen.png)
 
-4. On the **Assign Manager** screen, you see the two unassigned projects from the list. Select the **New BI software** project.
+4. Im Bildschirm **Assign Manager** (Manager zuweisen) werden die beiden nicht zugewiesenen Projekte aus der Liste angezeigt. Wählen Sie das Projekt **New BI software** (Neue BI-Software) aus.
    
-    ![Gallery with item selected](./media/sharepoint-scenario-build-app/04-07-04-selected.png)
+    ![Katalog mit ausgewähltem Element](./media/sharepoint-scenario-build-app/04-07-04-selected.png)
 
-5. In the **Manager** text input, enter "Joni Sherman", then click **OK**.
+5. Geben Sie im Textfeld **Manager** den Namen „Joni Sherman“ ein, und klicken Sie dann auf **OK**.
    
-    The change is applied to the list, and the gallery refreshes so only the remaining unassigned project is displayed.
+    Die Änderung wird auf die Liste angewendet, und der Katalog wird aktualisiert, sodass nur das noch nicht zugewiesene Projekt angezeigt wird.
    
-    ![Assign manager to project](./media/sharepoint-scenario-build-app/04-07-05-updated.png)
+    ![Manager dem Projekt zuweisen](./media/sharepoint-scenario-build-app/04-07-05-updated.png)
 
-6. Go back to the SharePoint list and refresh the page. You'll see that the project entry is now updated with the project manager name.
+6. Wechseln Sie zurück zur SharePoint-Liste, und aktualisieren Sie die Seite. Sie werden feststellen, dass der Projekteintrag mit dem Namen des Projektmanagers aktualisiert wurde.
    
-    ![Project manager assigned in SharePoint list](./media/sharepoint-scenario-build-app/04-07-07-assigned.png)
+    ![Zugewiesener Projektmanager in der SharePoint-Liste](./media/sharepoint-scenario-build-app/04-07-07-assigned.png)
 
-### Update details for the project
+### <a name="update-details-for-the-project"></a>Aktualisieren der Details für das Projekt
 
-1. Click or tap ![Back icon](./media/sharepoint-scenario-build-app/icon-back.png) to go back to the first screen, then click or tap **Update Details**.
+1. Klicken oder tippen Sie auf ![Symbol „Zurück“](./media/sharepoint-scenario-build-app/icon-back.png), um zum ersten Bildschirm zurückzukehren, und klicken oder tippen Sie dann auf **Update Details** (Details aktualisieren).
    
-   ![App intro screen](./media/sharepoint-scenario-build-app/04-07-08-intro-screen.png)
+   ![Begrüßungsbildschirm der App](./media/sharepoint-scenario-build-app/04-07-08-intro-screen.png)
 
-2. On the **View Projects** screen, enter "New" in the search box.
+2. Geben Sie im Bildschirm **View Projects** (Projekte anzeigen) im Suchfeld „Neu“ ein.
    
-   ![Search in app gallery](./media/sharepoint-scenario-build-app/04-07-09-search-new.png)
+   ![Durchsuchen des App-Katalogs](./media/sharepoint-scenario-build-app/04-07-09-search-new.png)
 
-3. Click ![Details arrow icon](./media/sharepoint-scenario-build-app/icon-details-arrow.png) for the **New BI software** item.
+3. Klicken Sie auf ![Pfeilsymbol „Details“](./media/sharepoint-scenario-build-app/icon-details-arrow.png) für das Element **New BI software** (Neue BI-Software).
    
-   ![Gallery item selected](./media/sharepoint-scenario-build-app/04-07-10-select-project.png)
+   ![Ausgewähltes Katalogelement](./media/sharepoint-scenario-build-app/04-07-10-select-project.png)
 
-4. On the **Update Details** screen, set the following values:
+4. Legen Sie im Bildschirm **Update Details** (Details aktualisieren) die folgenden Werte fest:
    
-   * The **ProjectedStartDate** field = "3/6/2017"
+   * Das Feld **ProjectedStartDate** = "3/6/2017"
 
-   * The **ProjectedEndDate** field = "3/24/2017"
+   * Das Feld **ProjectedEndDate** = "3/24/2017"
 
-   * The **ProjectedDays** field = "15"
+   * Das Feld **ProjectedDays** = "15"
    
-   ![Update item details](./media/sharepoint-scenario-build-app/04-07-11-update.png)
+   ![Aktualisieren der Elementdetails](./media/sharepoint-scenario-build-app/04-07-11-update.png)
 
-5. Click or tap ![Check mark icon](./media/sharepoint-scenario-build-app/icon-check-mark.png) to apply the change to the SharePoint list.
+5. Klicken oder tippen Sie auf ![Häkchensymbol](./media/sharepoint-scenario-build-app/icon-check-mark.png) , um die Änderung auf die SharePoint-Liste anzuwenden.
 
-6. Close the app, and go back to the list. You see that the project entry is now updated with the date and day changes.
+6. Schließen Sie die App, und kehren Sie zur Liste zurück. Sie stellen fest, dass der Projekteintrag mit den Datums- und Tagesanzahländerungen aktualisiert wurde.
    
-    ![Updated SharePoint list](./media/sharepoint-scenario-build-app/04-07-11-updated-list.png)
+    ![Aktualisierte SharePoint-Liste](./media/sharepoint-scenario-build-app/04-07-11-updated-list.png)
 
-## Formula deep-dive
-This is the second optional section on PowerApps formulas. In the first deep-dive, we looked at one of the formulas that PowerApps generates for the browse gallery in a three-screen app. In this deep-dive, we'll look at a formula that we use for the **AssignManager** screen of our second app. Here's the formula:
+## <a name="formula-deep-dive"></a>Detaillierte Erläuterung zu Formeln
+Dies ist der zweite optionale Abschnitt für PowerApps Formeln. In der ersten detaillierten Erläuterung haben wir eine der Formeln betrachtet, die von PowerApps für den durchsuchbaren Katalog in einer App mit drei Bildschirmen generiert wird. In dieser detaillierten Erläuterung betrachten wir eine Formel, die wir für den Bildschirm **AssignManager** der zweiten App verwenden. Die Formel lautet wie folgt:
 
-**Patch( 'Project Details', LookUp( 'Project Details', ID = Gallery1.Selected.ID ), {PMAssigned: TextInput1.Text} )**
+**Patch ( 'Project Details', LookUp ( 'Project Details', ID = Gallery1.Selected.ID ), {PMAssigned: TextInput1.Text} )**
 
-What does this formula do? When you select an item in the gallery and click the **OK** button, the formula updates the **Project Details** list, setting the **PMAssigned** column to the value that you specify in the text input. The formula uses functions to do its work:
+Welche Aktionen führt diese Formel aus? Wenn Sie ein Element im Katalog auswählen und auf die Schaltfläche **OK** klicken, aktualisiert die Formel die Liste **Project Details** (Projektdetails), wobei die Spalte **PMAssigned** auf den Wert festgelegt wird, der in der Texteingabe angegeben ist. Die Formel führt ihre Aufgaben mithilfe von Funktionen aus:
 
-* The [**Patch** function](functions/function-patch.md) modifies one or more records of a data source.
+* Die [**Patch**-Funktion](functions/function-patch.md) ändert einen oder mehrere Datensätze einer Datenquelle.
 
-* The [**LookUp** function](functions/function-filter-lookup.md) finds the first record in a table that satisfies a formula.
+* Die [**LookUp**-Funktion](functions/function-filter-lookup.md) sucht den ersten Datensatz in einer Tabelle, der eine Formel erfüllt.
 
-When you put the functions together in the formula, here's what happens:
+Folgendes geschieht, wenn Sie die Funktionen in der Formel kombinieren:
 
-1. When you click the **OK** button, the **Patch** function is called to update the **Project Details** list.
+1. Wenn Sie auf die Schaltfläche **OK** klicken, wird die **Patch**-Funktion aufgerufen, um die Liste **Project Details** (Projektdetails) zu aktualisieren.
 
-2. Within the **Patch** function, the **LookUp** function identifies which row of the **Project Details** list to update. It does this by comparing the ID of the selected gallery item to the ID in the list. For example, an ID of 12 means that the entry for **New BI software** should be updated.
+2. Innerhalb der **Patch**-Funktion ermittelt die **LookUp**-Funktion, welche Zeile der Liste **Project Details** (Projektdetails) aktualisiert werden muss. Dazu wird die ID des ausgewählten Katalogelements mit der ID in der Liste verglichen. Die ID 12 bedeutet beispielsweise, dass der Eintrag **New BI software** (Neue BI-Software) aktualisiert werden muss.
 
-3. Now that the **Patch** function has the right ID, it updates the **PMAssigned** field to the value in **TextInput1.Text**.
+3. Wenn die **Patch**-Funktion über die richtige ID verfügt, aktualisiert sie das Feld **PMAssigned** mit dem Wert in **TextInput1.Text**.
 
-## Next steps
-The next step in this tutorial series is to [create a Power BI report to analyze projects](sharepoint-scenario-build-report.md).
+## <a name="next-steps"></a>Nächste Schritte
+Der nächste Schritt in diesem Tutorial besteht im [Erstellen eines Power BI-Berichts zum Analysieren von Projekten](sharepoint-scenario-build-report.md).
 

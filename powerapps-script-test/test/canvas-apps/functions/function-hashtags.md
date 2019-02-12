@@ -1,6 +1,6 @@
 ---
-title: HashTags function | Microsoft Docs
-description: Reference information, including syntax and examples, for the HashTags function in PowerApps
+title: Funktion „HashTags“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „HashTags“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,44 +9,50 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 16226203262d5ecacc8fc49a88c9934dd0f673e6
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42862862"
 ---
-# HashTags function in PowerApps
-Extracts the hashtags (#strings) from a string of text.
+# <a name="hashtags-function-in-powerapps"></a>Funktion „HashTags“ in PowerApps
+Extrahiert die Hashtags (#strings) aus einer Textzeichenfolge.
 
-## Description
-The **HashTags** function scans a string for hashtags. Hashtags start with a pound character (#), which is followed by any combination of:
+## <a name="description"></a>Beschreibung
+Die **HashTags**-Funktion durchsucht eine Zeichenfolge nach Hashtags. Hashtags beginnen mit einem Hashtag (#), das von eine beliebige Kombination aus Folgendem gefolgt wird:
 
-* uppercase and lowercase letters
-* numerals
-* underscores
-* currency symbols (such as $)
+* Groß-und Kleinbuchstaben
+* Zahlen
+* Unterstriche
+* Währungszeichen (z.B. $)
 
-**HashTags** returns a one-column [table](../working-with-tables.md) that contains the hashtags in the string.  If the string contains no hashtags, the function returns a one-column table that's [empty](function-isblank-isempty.md).
+**HashTags** gibt eine einspaltige [Tabelle](../working-with-tables.md) zurück, die die Hashtags in der Zeichenfolge enthält.  Wenn die Zeichenfolge keine Hashtags enthält, gibt die Funktion eine Tabelle mit einer Spalte zurück, die [empty](function-isblank-isempty.md) ist.
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **HashTags**( *String* )
 
-* *String* - Required.  String to scan for hashtags.
+* *Zeichenfolge*: erforderlich.  Die Zeichenfolge zum Suchen der Hashtags
 
-## Examples
-### Step by step
-1. Add a **[Text input](../controls/control-text-input.md)** control, name it **Tweet**, and type this sentence into it:
+## <a name="examples"></a>Beispiele
+### <a name="step-by-step"></a>Schritt für Schritt
+1. Fügen Sie ein **[Texteingabe](../controls/control-text-input.md)**-Steuerelement hinzu, benennen Sie dieses **Tweet**, und geben Sie folgenden Satz ein:
    
-    **This #app is #AMAZING and can #coUnt123 or #123abc but not #1-23 or #$\*(#\@")**
-2. Add a vertical custom gallery, and set its **[Items](../controls/properties-core.md)** property to this function:
+    **Diese #App ist #TOLL und kann #123zählen oder #123ABC, aber Sie kann nicht #1-23 oder #$\*(#\@“)**
+2. Fügen Sie einen vertikalen benutzerdefinierten Katalog hinzu, und legen seine **[Items](../controls/properties-core.md)**-Eigenschaft auf folgende Funktion fest:
    
     **HashTags(Tweet.Text)**
-3. Add a **[Label](../controls/control-text-box.md)** control to the gallery template.
+3. Fügen Sie der Katalogvorlage ein **[Label](../controls/control-text-box.md)**-Steuerelement (Bezeichnung) hinzu.
    
-    The gallery shows these hashtags:
+    Der Katalog zeigt diese Hashtags:
    
-   * **\#app**
-   * **\#AMAZING**
-   * **\#coUnt123**
-   * **\#123abc**
+   * **\#App**
+   * **\#TOLL**
+   * **\#123ZÄHLEN**
+   * **\#123ABC**
    * **\#1**
 

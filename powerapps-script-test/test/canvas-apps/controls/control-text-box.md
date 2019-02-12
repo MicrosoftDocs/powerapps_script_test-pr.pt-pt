@@ -1,6 +1,6 @@
 ---
-title: 'Label control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the label control
+title: 'Label-Steuerelement (Bezeichnung): Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, zum Label-Steuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,181 +9,166 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: d8cb7bdfa995d2289f881b6d21074efd6cf11ac4
+ms.sourcegitcommit: 5db6e3ac3a622de313a1102417397e126c3f92f2
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45640398"
 ---
-# Label control in canvas apps
+# <a name="label-control-in-powerapps"></a>Label-Steuerelement (Bezeichnung) in PowerApps
+Ein Feld, das Daten wie Text, Zahlen, Datumsangaben oder Währung anzeigt.
 
-A box that shows data such as text, numbers, dates, or currency.
+## <a name="description"></a>Beschreibung
+Eine Bezeichnung zeigt Daten an, die Sie als Textzeichenfolgenliteral angeben, das genauso angezeigt wird, wie Sie es eingeben, oder als Formel, die zu einer Textzeichenfolge ausgewertet wird. Bezeichnungen werden häufig außerhalb anderer Steuerelemente (z.B. als Banner, das einen Bildschirm identifiziert), als Bezeichnung für die Identifizierung eines anderen Steuerelements (z.B. ein Bewertungs- oder Audiosteuerelement) oder in einer Galerie angezeigt, um einen bestimmten Typ von Information zu einem Element anzuzeigen.
 
-## Description
+## <a name="key-properties"></a>Haupteigenschaften
+**[AutoHeight](properties-core.md)**: Durch Festlegen auf TRUE kann die Größe der Bezeichnung automatisch erhöht werden, um den gesamten konfigurierten Text anzuzeigen. Durch Festlegen auf FALSE wird der Text auf die zugewiesene Größe abgeschnitten.
 
-A label shows data that you specify as a literal string of text, which appears exactly the way you type it, or as a formula that evaluates to a string of text. Labels often appear outside of any other control (such as a banner that identifies a screen), as a label that identifies another control (such as a rating or audio control), or in a gallery to show a specific type of information about an item.
+**[Color](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement.
 
-## Key properties
+**[Font](properties-text.md)** – Der Name der Schriftfamilie des angezeigten Texts.
 
-**[AutoHeight](properties-core.md)** – Set to true to allow the label to auto-grow its height to show all text configurated. Set to false to truncate the text to the height assigned.
+**[Text](properties-core.md)** – Text, der in einem Steuerelement angezeigt wird oder von einem Benutzer in ein Steuerelement eingegeben wird.
 
-**[Color](properties-color-border.md)** – The color of text in a control.
+**[DelayOutput](properties-core.md)**: Durch Festlegen auf TRUE wird eine Aktion während der Texteingabe verzögert.
 
-**[Font](properties-text.md)** – The name of the family of fonts in which text appears.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[Align](properties-text.md)** – Die Position von Text in Relation zur horizontalen Mitte des Steuerelements.
 
-**[Text](properties-core.md)** – Text that appears on a control or that the user types into a control.
+**AutoHeight**: Gibt an, ob die **[Height](properties-size-location.md)**-Eigenschaft einer Bezeichnung automatisch erhöht wird, wenn ihre **[Text](properties-core.md)**-Eigenschaft mehr Zeichen enthält, als das Steuerelement gleichzeitig anzeigen kann.
 
-**[DelayOutput](properties-core.md)** – Set to true to delay action during text input.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-## Additional properties
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[Align](properties-text.md)** – The location of text in relation to the horizontal center of its control.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**AutoHeight** – Whether a label automatically increases its **[Height](properties-size-location.md)** property if its **[Text](properties-core.md)** property contains more characters than the control can show at one time.
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[DisabledBorderColor](properties-color-border.md)**: Die Farbe des Steuerelementrahmens, wenn die **[DisplayMode](properties-core.md)**-Eigenschaft des Steuerelements auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[DisabledColor](properties-color-border.md)**: Die Farbe des Texts in einem Steuerelement, wenn seine **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[DisabledFill](properties-color-border.md)**: Die Hintergrundfarbe eines Steuerelements, wenn dessen **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[DisabledBorderColor](properties-color-border.md)** – The color of a control's border if the control's **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[FocusedBorderColor](properties-color-border.md)**: die Rahmenfarbe eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[DisabledColor](properties-color-border.md)** – The color of text in a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[FocusedBorderThickness](properties-color-border.md)**: die Rahmendicke eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[DisabledFill](properties-color-border.md)** – The background color of a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[FontWeight](properties-text.md)** – Die Schriftbreite des Texts in einem Steuerelement: **Bold** (Fett), **Semibold** (Halbfett), **Normal** oder **Lighter** (Heller).
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[FocusedBorderColor](properties-color-border.md)** – The color of a control's border when the control is focused.
+**[HoverBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über das Steuerelement hält.
 
-**[FocusedBorderThickness](properties-color-border.md)** – The thickness of a control's border when the control is focused.
+**[HoverColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[FontWeight](properties-text.md)** – The weight of the text in a control: **Bold**, **Semibold**, **Normal**, or **Lighter**.
+**[HoverFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Italic](properties-text.md)** – Legt fest, ob der Text in einem Steuerelement kursiv formatiert ist.
 
-**[HoverBorderColor](properties-color-border.md)** – The color of a control's border when the user keeps the mouse pointer on that control.
+**[LineHeight](properties-text.md)**: Der Abstand zwischen Elementen, z.B. Textzeilen oder Elementen in einer Liste.
 
-**[HoverColor](properties-color-border.md)** – The color of the text in a control when the user keeps the mouse pointer on it.
+**Live**: Gibt an, wie die Sprachausgabe Änderungen am Bezeichnungstext ankündigt.  Mögliche Werte: **Off**, **Assertive** und **Polite**. Diese Eigenschaft ist nützlich, um dynamische Änderungen an der Benutzeroberfläche der App barrierefrei anzukündigen.
 
-**[HoverFill](properties-color-border.md)** – The background color of a control when the user keeps the mouse pointer on it.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**[Italic](properties-text.md)** – Whether the text in a control is italic.
+**Overflow**: Gibt an, ob eine Bildlaufleiste in einer Bezeichnung angezeigt wird, wenn die **Wrap**-Eigenschaft auf **TRUE** festgelegt ist und der Wert der **[Text](properties-core.md)**-Eigenschaft des Steuerelements mehr Zeichen enthält, als das Steuerelement gleichzeitig anzeigen kann.
 
-**[LineHeight](properties-text.md)** – The distance between, for example, lines of text or items in a list.
+**[PaddingBottom](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem unteren Rand des Steuerelements.
 
-**[Live](properties-accessibility.md)** – How a screen reader announces changes to the value of the label's **Text** property.
+**[PaddingLeft](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem linken Rand des Steuerelements.
 
-* When set to **Off**, the screen reader doesn't announce changes.
-* When set to **Polite**, the screen reader finishes speaking before announcing any changes that occurred while the screen reader was speaking.
-* When set to **Assertive**, the screen reader interrupts itself to announce any changes that occurred while the screen reader was speaking.
+**[PaddingRight](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem rechten Rand des Steuerelements.
 
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+**[PaddingTop](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem oberen Rand des Steuerelements.
 
-**Overflow** – Whether a scrollbar appears in a label if its **Wrap** property is set to **true** and the value of the control's **[Text](properties-core.md)** property contains more characters than the control can show at one time.
+**[PressedBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PaddingBottom](properties-size-location.md)** – The distance between text in a control and the bottom edge of that control.
+**[PressedColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PaddingLeft](properties-size-location.md)** – The distance between text in a control and the left edge of that control.
+**[PressedFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PaddingRight](properties-size-location.md)** – The distance between text in a control and the right edge of that control.
+**[Size](properties-text.md)** – Der Schriftgrad des Texts, der in einem Steuerelement angezeigt wird.
 
-**[PaddingTop](properties-size-location.md)** – The distance between text in a control and the top edge of that control.
+**[Strikethrough](properties-text.md)** – Legt fest, ob der in einem Steuerelement angezeigte Text durchgestrichen ist.
 
-**[PressedBorderColor](properties-color-border.md)** – The color of a control's border when the user taps or clicks that control.
+**[TabIndex](properties-accessibility.md)**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**[PressedColor](properties-color-border.md)** – The color of text in a control when the user taps or clicks that control.
+**[Tooltip](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**[PressedFill](properties-color-border.md)** – The background color of a control when the user taps or clicks that control.
+**[Underline](properties-text.md)** – Legt fest, ob der in einem Steuerelement angezeigte Text unterstrichen ist.
 
-**Role** - The semantic role of the label text, such as Heading 1. Doesn't change the style of the label but makes the output semantically correct for interpretation by screen readers.
+**[VerticalAlign](properties-text.md)** – Die Position des Texts in einem Steuerelement in Relation zur vertikalen Mitte des Steuerelements.
 
-**[Size](properties-text.md)** – The font size of the text that appears on a control.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Strikethrough](properties-text.md)** – Whether a line appears through the text that appears on a control.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[TabIndex](properties-accessibility.md)** – Keyboard navigation order in relation to other controls.
+**Wrap**: Gibt an, ob Text, der zu lang für eine Bezeichnung ist, in die nächste Zeile umbrochen wird.
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Underline](properties-text.md)** – Whether a line appears under the text that appears on a control.
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[VerticalAlign](properties-text.md)** – The location of text on a control in relation to the vertical center of that control.
+## <a name="related-functions"></a>Verwandte Funktionen
+[**Text**( *Zahl*, "*CodesFormatieren*" )](../functions/function-text.md)
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
-
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
-
-**Wrap** – Whether text that's too long to fit in a label wraps to the next line.
-
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
-
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
-
-## Related functions
-
-[**Text**( *Number*, "*FormatCodes*" )](../functions/function-text.md)
-
-## Examples
-
-### Show a literal string
-
-* Add a label, and set its **[Text](properties-core.md)** property to **"Hello, world"** (including the double quotation marks).
+## <a name="examples"></a>Beispiele
+### <a name="show-a-literal-string"></a>Anzeigen eines Zeichenfolgenliterals
+* Fügen Sie eine Bezeichnung hinzu, und legen Sie deren **[Text](properties-core.md)**-Eigenschaft auf **"Hello, world"** fest (einschließlich der doppelten Anführungszeichen).
   
-    Don't know how to [add and configure a control](../add-configure-controls.md)?
+    Möchten Sie wissen, wie Sie ein [Steuerelement hinzufügen und konfigurieren](../add-configure-controls.md)?
 
-### Show the result of a formula
-
-* Add a label, and set its **[Text](properties-core.md)** property to a formula such as this one:<br>
+### <a name="show-the-result-of-a-formula"></a>Anzeigen des Ergebnisses einer Formel
+* Fügen Sie eine Bezeichnung hinzu, und legen Sie deren **[Text](properties-core.md)**-Eigenschaft auf eine Formel wie diese fest:<br>
   **Today()**
   
     > [!NOTE]
-  > When you specify a formula, you don't use quotation marks unless an argument of the formula is a literal string. In that case, enclose the argument, not the formula, in double quotation marks.
+  > Verwenden Sie beim Angeben einer Formel nur Anführungszeichen, wenn ein Argument der Formel ein Zeichenfolgenliteral ist. Umschließen Sie in diesem Fall das Argument und nicht die Formel mit doppelten Anführungszeichen.
   
-    Want more information about the **[Today](../functions/function-now-today-istoday.md)** function or [other functions](../formula-reference.md)?
+    Benötigen Sie weitere Informationen zur **[Today](../functions/function-now-today-istoday.md)**-Funktion oder [anderen Funktionen](../formula-reference.md)?
 
-### Show data in a gallery
+### <a name="show-data-in-a-gallery"></a>Anzeigen von Daten in einem Katalog
+In diesem Verfahren erstellen Sie eine Sammlung mit dem Namen **CityPopulations**, die Daten über die Bevölkerung verschiedener Städte in Europa enthält. Als Nächstes zeigen Sie diese Daten in einem Katalog an, der drei Bezeichnungen enthält, und geben den Datentyp an, der in jeder Bezeichnung angezeigt wird.
 
-In this procedure, you'll create a collection, called **CityPopulations**, that contains data about the population of various cities in Europe. Next, you'll show that data in a gallery that contains three labels, and you'll specify the type of data that each label will show.
-
-1. Add a button, and set its **[OnSelect](properties-core.md)** property to this formula:<br>
+1. Fügen Sie eine Schaltfläche hinzu, und legen Sie ihre Eigenschaft **[OnSelect](properties-core.md)** auf diese Formel fest:<br>
    **ClearCollect(CityPopulations, {City:"London", Country:"United Kingdom", Population:8615000}, {City:"Berlin", Country:"Germany", Population:3562000}, {City:"Madrid", Country:"Spain", Population:3165000}, {City:"Rome", Country:"Italy", Population:2874000}, {City:"Paris", Country:"France", Population:2273000}, {City:"Hamburg", Country:"Germany", Population:1760000}, {City:"Barcelona", Country:"Spain", Population:1602000}, {City:"Munich", Country:"Germany", Population:1494000}, {City:"Milan", Country:"Italy", Population:1344000})**
-2. Press F5, select the button, and then press Esc.
-3. Add a text gallery, and set its **[Items](properties-core.md)** property to **CityPopulations**.
+2. Drücken Sie F5, wählen Sie die Schaltfläche aus, und drücken Sie dann die ESC-TASTE.
+3. Fügen Sie einen Textkatalog hinzu, und legen Sie dessen **[Items](properties-core.md)**-Eigenschaft auf **CityPopulations** fest.
+   
+    Wenn der Katalog ausgewählt ist, werden im rechten Bereich Optionen für diesen Katalog angezeigt.
+4. Legen Sie im Bereich **Gallery1** die obere Liste auf **Population**, die mittlere Liste auf **City** und die untere Liste auf **Country** fest.
 
-    When the gallery is selected, the right pane shows options for that gallery.
-4. In the **Gallery1** pane, set the top list to **Population**, set the middle list to **City**, and set the bottom list to **Country**.
 
-## Accessibility guidelines
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+Ein **Bezeichnungs**-Steuerelement wird nicht ausschließlich als Bezeichnung für ein anderes Steuerelement verwendet. Es kann auch verwendet werden, um ein beliebiges Textfragment anzuzeigen.
 
-Despite its name, a **Label** control does not have to be used as a label for another control. It can be used to display any piece of text.
+Außerdem kann es als Schaltfläche oder Link verwendet werden, indem **[OnSelect](properties-core.md)**-Verhalten angegeben wird. Wenn das Steuerelement auf diese Weise verwendet wird, gelten ähnliche Aspekte im Hinblick auf die Barrierefreiheit wie bei Schaltflächen.
 
-A **Label** can be used as a button or link by specifying **[OnSelect](properties-core.md)** behavior. When used this way, there are similar accessibility considerations as with buttons.
+### <a name="color-contrast"></a>Farbkontrast
+Zwischen folgenden Eigenschaften muss es einen ausreichenden Farbkontrast geben:
+* **[Color](properties-color-border.md)** und **[Fill](properties-color-border.md)**
+* Es gelten die [Standardanforderungen für Farbkontraste](../accessible-apps-color.md), wenn das Steuerelement als Schaltfläche oder Link verwendet wird.
 
-### Color contrast
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* Die **[Text](properties-core.md)**-Eigenschaft muss vorhanden sein.
 
-There must be adequate color contrast between:
+    > [!NOTE]
+  > **Bezeichnungen** werden von der Sprachausgabe als Schaltflächen angesehen, wenn **[TabIndex](properties-accessibility.md)** gleich 0 oder größer ist.
 
-* **[Color](properties-color-border.md)** and **[Fill](properties-color-border.md)**
-* Other [standard color contrast requirements](../accessible-apps-color.md) apply (if used as a button or link)
+### <a name="low-vision-support"></a>Unterstützte Anpassungen für Menschen mit Sehbehinderungen
+* Wenn eine **Bezeichnung** als Link verwendet wird, sollte diese auch wie ein Link aussehen.
+    * Legen Sie **[Underline](properties-text.md)** (Unterstrichen) auf **TRUE** fest.
+    * **[HoverColor](properties-color-border.md)** sollte sich von **[Color](properties-color-border.md)** unterscheiden.
 
-### Screen-reader support
-
-* **[Text](properties-core.md)** must be present.
-* **[Live](properties-accessibility.md)** should be set to **Polite** or **Assertive** if a screen reader should announce changes to the value of the **Text** property.
-
-  > [!NOTE]
-  > Screen readers will treat **Label**s as buttons when **[TabIndex](properties-accessibility.md)** is zero or greater.
-
-### Low vision support
-
-* **Label** should look like a link, if it is used as a link.
-  * Set **[Underline](properties-text.md)** to **true**
-  * **[HoverColor](properties-color-border.md)** should be different from **[Color](properties-color-border.md)**
-
-### Keyboard support
-
-* **[TabIndex](properties-accessibility.md)** must be zero or greater, if the text is used as a button or link. This allows keyboard users to navigate to it.
-* Focus indicators must be clearly visible, if the text is used as a button or link. Use **[FocusedBorderColor](properties-color-border.md)** and **[FocusedBorderThickness](properties-color-border.md)** to achieve this.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* **[TabIndex](properties-accessibility.md)** muss gleich 0 (null) oder größer sein, wenn der Text als Schaltfläche oder Link verwendet wird. So können Benutzer per Tastatur dorthin navigieren.
+* Fokusindikatoren müssen übersichtlich angezeigt werden, wenn der Text als Schaltfläche oder Link verwendet wird. **[FocusedBorderColor](properties-color-border.md)** und **[FocusedBorderThickness](properties-color-border.md)** können Ihnen dabei helfen.

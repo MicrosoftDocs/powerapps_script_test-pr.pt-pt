@@ -1,370 +1,368 @@
 ---
-title: Functions, signals, and enumerations | Microsoft Docs
-description: Reference information for functions, signals, and enumerations in PowerApps.
+title: Funktionen, Signale und Enumerationen | Microsoft-Dokumentation
+description: Referenzinformationen zu Funktionen, Signalen und Enumerationen in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
 ms.topic: reference
 ms.custom: canvas
 ms.reviewer: anneta
-ms.date: 11/14/2018
+ms.date: 06/05/2018
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 752bb630c1ecd1e86f37a1a063bcc5ee192431f0
+ms.sourcegitcommit: 3aeb9381fbeb66cf08355d9a3d0f00ce2737e256
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43163635"
 ---
-# Formula reference for PowerApps
-Formulas combine many elements.  Listed below are:
+# <a name="formula-reference-for-powerapps"></a>Referenz zu Formeln für PowerApps
+Formeln kombinieren viele Elemente miteinander.  Im Folgenden sind aufgeführt:
 
-* **Functions** take parameters, perform an operation, and return a value. For example, **Sqrt(25)** returns **5**. Functions are modeled after Microsoft Excel functions.  Some functions have side effects, such as **SubmitForm**, which are appropriate only in a [behavior formula](working-with-formulas-in-depth.md) such as **Button.OnSelect**.
-* **Signals** return information about the environment. For example, **[Location](functions/signals.md)** returns the device's current GPS coordinates. Signals don't take parameters or have side effects.
-* **Enumerations** return a pre-defined constant value. For example, **[Color](functions/function-colors.md)** is an enumeration that has pre-defined values for **Color.Red**, **Color.Blue**, and so forth.  Common enumerations are included here; function-specific enumerations are described with the function.
-* **Named operators**, such as **[ThisItem](functions/operators.md#thisitem-operator)** and **[Parent](functions/operators.md#parent-operator)**, provide access to information from within a container.
+* **Funktionen** verwenden Parameter, führen einen Vorgang aus und geben einen Wert zurück. So gibt beispielsweise **Sqrt(25)** den Wert **5** zurück. Funktionen sind Microsoft Excel-Funktionen nachgebildet.  Einige Funktionen haben nachteilige Auswirkungen, wie z.B. **SubmitForm**, die sich nur für [Verhaltensformeln](working-with-formulas-in-depth.md) wie **Button.OnSelect** eignet.
+* **Signale** geben Informationen über die Umgebung zurück. Die Funktion  **[Location](functions/signals.md)** gibt beispielsweise die aktuellen GPS-Koordinaten des Geräts zurück. Signale verwenden keine Parameter und haben keine nachteiligen Auswirkungen.
+* **Enumerationen** geben einen vordefinierten Konstantenwert zurück. **[Color](functions/function-colors.md)** ist eine Enumeration, die über vordefinierte Werte für **Color.Red**, **Color.Blue**usw. verfügt.  An dieser Stelle werden nur allgemeine Enumerationen beschrieben. Funktionsspezifische Enumerationen werden mit der jeweiligen Funktion erläutert.
+* **Benannte Operatoren**, wie z.B. **[ThisItem](functions/operators.md#thisitem-operator)** und **[Parent](functions/operators.md#parent-operator)**, ermöglichen den Zugriff auf Informationen innerhalb eines Containers.
 
-Other elements include:
+Andere Elemente enthalten:
 
-* [All operators](functions/operators.md)
-* [Controls and their properties](reference-properties.md)
+* [Alle Operatoren](functions/operators.md)
+* [Steuerelemente und deren Eigenschaften](reference-properties.md)
 
-## A
-**[Abs](functions/function-numericals.md)** – Absolute value of a number.  
+## <a name="a"></a>A
+**[Abs](functions/function-numericals.md)** : absoluter Wert einer Zahl  
 
-**[Acceleration](functions/signals.md)** – Reads the acceleration sensor in your device.
+**[Acceleration](functions/signals.md)**: liest den Beschleunigungssensor in Ihrem Gerät.
 
-**[Acos](functions/function-trig.md)** – Returns the arccosine of a number, in radians.
+**[Acos](functions/function-trig.md)** : gibt den Arkuskosinus einer Zahl im Bogenmaß zurück.
 
-**[Acot](functions/function-trig.md)** – Returns the arccotangent of a number, in radians.
+**[Acot](functions/function-trig.md)**: gibt den Arkuskotangens einer Zahl im Bogenmaß zurück.
 
-**[AddColumns](functions/function-table-shaping.md)** – Returns a table with [columns](working-with-tables.md#columns) added.
+**[AddColumns](functions/function-table-shaping.md)**: gibt eine Tabelle mit hinzugefügten [Spalten](working-with-tables.md#columns) zurück.
 
-**[And](functions/function-logicals.md)** – Boolean logic AND.  Returns **true** if all arguments are **true**.  You can also use the [**&&** operator](functions/operators.md).
+**[And](functions/function-logicals.md)**: boolesche Logikfunktion AND.  Gibt **TRUE** zurück, wenn für alle Argumente **TRUE** gilt.  Sie können auch den [**&&**-Operator](functions/operators.md) verwenden.
 
-**[App](functions/signals.md)** – Returns information about the currently running app, such as which screen is currently displayed.
+**[App](functions/signals.md)**: gibt Informationen zur derzeit ausgeführten App zurück, z.B. welcher Bildschirm gerade angezeigt wird.
 
-**[Asin](functions/function-trig.md)** – Returns the arcsine of a number, in radians.
+**[Asin](functions/function-trig.md)**: gibt den Arkussinus einer Zahl im Bogenmaß zurück.
 
-**[Atan](functions/function-trig.md)** – Returns the arctangent of a number, in radians.
+**[Atan](functions/function-trig.md)**: gibt den Arkustangens einer Zahl im Bogenmaß zurück.
 
-**[Atan2](functions/function-trig.md)** – Returns the arctangent based on an (*x*,*y*) coordinate, in radians.
+**[Atan2](functions/function-trig.md)**: gibt den Arkustangens basierend auf einer (*x*,*y*)-Koordinate im Bogenmaß zurück.
 
-**[Average](functions/function-aggregates.md)** – Calculates the average of a table expression or a set of arguments.
+**[Average](functions/function-aggregates.md)**: berechnet den Durchschnitt eines Tabellenausdrucks oder eines Satzes von Argumenten.
 
-## B
-**[Back](functions/function-navigate.md)** – Displays the previous screen.  
+## <a name="b"></a>B
+**[Back](functions/function-navigate.md)**: zeigt den vorherigen Bildschirm an.  
 
-**[Blank](functions/function-isblank-isempty.md)** – Returns a *blank* value that can be used to insert a NULL value in a data source.
+**[Blank](functions/function-isblank-isempty.md)**: Gibt einen *leeren* Wert zurück, der zum Einfügen eines NULL-Werts in eine Datenquelle verwendet werden kann.
 
-## C
-**[Calendar](functions/function-clock-calendar.md)** – Retrieves information about the calendar for the current locale.
+## <a name="c"></a>C
+**[Calendar](functions/function-clock-calendar.md)**: ruft Informationen zum Kalender für das aktuelle Gebietsschema ab.
 
-**[Char](functions/function-char.md)** – Translates a character code into a string.
+**[Char](functions/function-char.md)**: übersetzt einen Zeichencode in eine Zeichenfolge.
 
-**[Choices](functions/function-choices.md)** – Returns a table of the possible values for a lookup column.
+**[Choices](functions/function-choices.md)**: Gibt eine Tabelle mit den möglichen Werten für eine Nachschlagespalte zurück
 
-**[Clear](functions/function-clear-collect-clearcollect.md)** – Deletes all data from a [collection](working-with-data-sources.md#collections).
+**[Clear](functions/function-clear-collect-clearcollect.md)**: löscht alle Daten aus einer [Sammlung](working-with-data-sources.md#collections).
 
-**[ClearCollect](functions/function-clear-collect-clearcollect.md)** – Deletes all data from a collection and then adds a set of [records](working-with-tables.md#records).
+**[ClearCollect](functions/function-clear-collect-clearcollect.md)**: löscht alle Daten aus einer Sammlung und fügt anschließend einen Satz von [Datensätzen](working-with-tables.md#records) hinzu.
 
-**[Clock](functions/function-clock-calendar.md)** – Retrieves information about the clock for the current locale.
+**[Clock](functions/function-clock-calendar.md)**: ruft Informationen über die Uhr für das aktuelle Gebietsschema ab.
 
-**[Coalesce](functions/function-isblank-isempty.md)** – Replaces *blank* values while leaving non-*blank* values unchanged.
+**[Coalesce](functions/function-isblank-isempty.md)**: ersetzt *leere* Werte, während nicht *leere* Wert nicht geändert werden.
 
-**[Collect](functions/function-clear-collect-clearcollect.md)** – Creates a collection or adds data to a data source.
+**[Collect](functions/function-clear-collect-clearcollect.md)**: erstellt eine Sammlung oder fügt Daten zu einer Datenquelle hinzu.
 
-**[Color](functions/function-colors.md)** – Sets a property to a built-in color value.
+**[Color](functions/function-colors.md)**: legt eine Eigenschaft auf einen integrierten Farbwert fest.
 
-**[ColorFade](functions/function-colors.md)** – Fades a color value.
+**[ColorFade](functions/function-colors.md)**: blendet einen Farbwert aus.
 
-**[ColorValue](functions/function-colors.md)** – Translates a CSS color name or a hex code to a color value.  
+**[ColorValue](functions/function-colors.md)** : übersetzt den Namen einer CSS-Farbe oder einen Hexadezimalcode in einen Farbwert.  
 
-**[Compass](functions/signals.md)** – Returns your compass heading.
+**[Compass](functions/signals.md)**: gibt Ihre Compass-Überschrift zurück.
 
-**[Concat](functions/function-concatenate.md)** – Concatenates strings in a data source.  
+**[Concat](functions/function-concatenate.md)**: verkettet Zeichenfolgen in einer Datenquelle.  
 
-**[Concatenate](functions/function-concatenate.md)** – Concatenates strings.
+**[Concatenate](functions/function-concatenate.md)**: verkettet Zeichenfolgen.
 
-**[Concurrent](functions/function-concurrent.md)** – Evaluates multiple formulas concurrently with one another. 
+**[Concurrent](functions/function-concurrent.md)**: Wertet mehrere Formeln gleichzeitig miteinander aus 
 
-**[Connection](functions/signals.md)** – Returns information about your network connection.
+**[Connection](functions/signals.md)**: gibt Informationen zu Ihrer Netzwerkverbindung zurück.
 
-**[Count](functions/function-table-counts.md)** – Counts table records that contain numbers.
+**[Count](functions/function-table-counts.md)**: zählt die Anzahl der Datensätze, die Zahlen enthalten.
 
-**[Cos](functions/function-trig.md)** – Returns the cosine of an angle specified in radians.
+**[Cos](functions/function-trig.md)**: gibt den Kosinus eines im Bogenmaß angegebenen Winkels zurück.
 
-**[Cot](functions/function-trig.md)** – Returns the cotangent of an angle specified in radians.
+**[Cot](functions/function-trig.md)**: gibt den Kotangens eines im Bogenmaß angegebenen Winkels zurück.
 
-**[CountA](functions/function-table-counts.md)** – Counts table records that aren't [empty](functions/function-isblank-isempty.md).
+**[CountA](functions/function-table-counts.md)**: zählt Tabellendatensätze, die nicht [leer](functions/function-isblank-isempty.md) sind.
 
-**[CountIf](functions/function-table-counts.md)** – Counts table records that satisfy a condition.  
+**[CountIf](functions/function-table-counts.md)**: zählt Tabellendatensätze, die eine Bedingung erfüllen.  
 
-**[CountRows](functions/function-table-counts.md)** – Counts table records.   
+**[CountRows](functions/function-table-counts.md)**: zählt Tabellendatensätze.   
 
-## D
-**[DataSourceInfo](functions/function-datasourceinfo.md)** – Provides information about a data source.
+## <a name="d"></a>D
+**[DataSourceInfo](functions/function-datasourceinfo.md)** : enthält Informationen zu einer Datenquelle.
 
-**[Date](functions/function-date-time.md)** – Returns a date/time value, based on **Year**, **Month**, and **Day** values.  
+**[Date](functions/function-date-time.md)**: gibt einen Datums- oder Uhrzeitwert auf der Grundlage von Werten für **Year**, **Month** und **Tag**.  
 
-**[DateAdd](functions/function-dateadd-datediff.md)** – Adds days, months, quarters, or years to a date/time value.
+**[DateAdd](functions/function-dateadd-datediff.md)** : fügt Tage, Monate, Quartale oder Jahre zu einem Datums- oder Uhrzeitwert hinzu.
 
-**[DateDiff](functions/function-dateadd-datediff.md)** – Subtracts two date values, and shows the result in days, months, quarters, or years.
+**[DateDiff](functions/function-dateadd-datediff.md)**: subtrahiert zwei Datumswerte und zeigt das Ergebnis in Tagen, Monaten, Quartalen oder Jahren an.
 
-**[DateTimeValue](functions/function-datevalue-timevalue.md)** – Converts a date and time string to a date/time value.
+**[DateTimeValue](functions/function-datevalue-timevalue.md)**: konvertiert eine Datums- und Uhrzeitzeichenfolge in einen Datums- oder Uhrzeitwert.
 
-**[DateValue](functions/function-datevalue-timevalue.md)** – Converts a date-only string to a date/time value.
+**[DateValue](functions/function-datevalue-timevalue.md)**: konvertiert eine ausschließlich datumsbezogene Zeichenfolge in einen Datums- oder Uhrzeitwert.
 
-**[Day](functions/function-datetime-parts.md)** – Retrieves the day portion of a date/time value.  
+**[Day](functions/function-datetime-parts.md)**: ruft den Tagteil eines Datums- und Uhrzeitwerts ab.  
 
-**[Defaults](functions/function-defaults.md)** – Returns the default values for a data source.
+**[Defaults](functions/function-defaults.md)**: gibt die Standardwerte für eine Datenquelle zurück.
 
-**[Degrees](functions/function-trig.md)** - Converts radians to degrees.
+**[Degrees](functions/function-trig.md)**: wandelt das Bogenmaß in Grad um.
 
-**[Disable](functions/function-enable-disable.md)** – Disables a signal, such as **[Location](functions/signals.md)** for reading the GPS.
+**[Disable](functions/function-enable-disable.md)**: deaktiviert ein Signal, z.B. **[Location](functions/signals.md)**  zum Lesen des GPS.
 
-**[Distinct](functions/function-distinct.md)** – Summarizes records of a table, removing duplicates.  
+**[Distinct](functions/function-distinct.md)**: fasst die Datensätze einer Tabelle zusammen, wobei Duplikate entfernt werden.  
 
-**[Download](functions/function-param.md)** – Downloads a file from the web to the local device.
+**[Download](functions/function-param.md)**: lädt eine Datei aus dem Web auf das lokale Gerät herunter.
 
-**[DropColumns](functions/function-table-shaping.md)** – Returns a table with one or more columns removed.
+**[DropColumns](functions/function-table-shaping.md)**: gibt eine Tabelle an, bei der eine oder mehrere Spalten entfernt wurden.
 
-## E
-**[EditForm](functions/function-form.md)** – Resets a form control for editing of an item.
+## <a name="e"></a>E
+**[EditForm](functions/function-form.md)**: setzt ein Formularsteuerelement zum Bearbeiten eines Elements zurück.
 
-**[Enable](functions/function-enable-disable.md)** – Enables a signal, such as **[Location](functions/signals.md)** for reading the GPS.
+**[Enable](functions/function-enable-disable.md)**: aktiviert ein Signal, z.B.  **[Location](functions/signals.md)**, zum Lesen des GPS.
 
-**[EndsWith](functions/function-startswith.md)** – Checks whether a text string ends with another text string.
+**[EndsWith](functions/function-startswith.md)**: Überprüft, ob eine Textzeichenfolge mit einer anderen Textzeichenfolge endet.
 
-**[Errors](functions/function-errors.md)** – Provides error information for previous changes to a data source.
+**[Errors](functions/function-errors.md)**: enthält Fehlerinformationen zu vorherigen Änderungen an einer Datenquelle.
 
-**[EncodeUrl](functions/function-encode-decode.md)** – Encodes special characters using URL encoding.
+**[EncodeUrl](functions/function-encode-decode.md)**: codiert Sonderzeichen mit URL-Codierung.
 
-**[Exit](functions/function-exit.md)** – Exits the currently running app.
+**[Exit](functions/function-exit.md)**: beendet die derzeit ausgeführte App.
 
-**[Exp](functions/function-numericals.md)** - Returns *e* raised to a power.
+**[Exp](functions/function-numericals.md)**: gibt *e* zur Potenz erhoben zurück.
 
-## F
-**[Filter](functions/function-filter-lookup.md)** – Returns a filtered table based on one or more criteria.
+## <a name="f"></a>F
+**[Filter](functions/function-filter-lookup.md)**: gibt eine gefilterte Tabelle basierend auf mindestens einem Kriterium zurück.
 
-**[Find](functions/function-find.md)** – Checks whether one string appears within another and returns the location.
+**[Find](functions/function-find.md)**: überprüft, ob eine Zeichenfolge innerhalb einer anderen angezeigt wird, und gibt den Speicherort zurück.
 
-**[First](functions/function-first-last.md)** – Returns the first record of a table.
+**[First](functions/function-first-last.md)**: gibt den ersten Datensatz einer Tabelle zurück.
 
-**[FirstN](functions/function-first-last.md)** – Returns the first set of records (N records) of a table.
+**[FirstN](functions/function-first-last.md)**: gibt die erste Gruppe von Datensätzen (N-Datensätze) einer Tabelle zurück.
 
-**[ForAll](functions/function-forall.md)** – Calculates values and performs actions for all records of a table.
+**[ForAll](functions/function-forall.md)**: berechnet Werte und führt Aktionen für alle Datensätze einer Tabelle durch.
 
-## G
-**[GroupBy](functions/function-groupby.md)** – Returns a table with records grouped together.
+## <a name="g"></a>G
+**[GroupBy](functions/function-groupby.md)**: gibt eine Tabelle mit gruppierten Datensätzen zurück.
 
-**[GUID](functions/function-guid.md)** – Converts a GUID string to a GUID value or creates a new GUID value.
+**[GUID](functions/function-guid.md)**: konvertiert eine GUID-Zeichenfolge in einen GUID-Wert oder erstellt einen neuen GUID-Wert.
 
-## H
-**[HashTags](functions/function-hashtags.md)** – Extracts the hashtags (#strings) from a string.
+## <a name="h"></a>H
+**[HashTags](functions/function-hashtags.md)**: extrahiert die Hashtags (#strings) aus einer Zeichenfolge.
 
-**[Hour](functions/function-datetime-parts.md)** – Returns the hour portion of a date/time value.
+**[Hour](functions/function-datetime-parts.md)**: gibt den Stundenteil eines Datums- oder Uhrzeitwerts zurück.
 
-## I
-**[If](functions/function-if.md)** – Returns one value if a condition is true and another value if not. 
+## <a name="i"></a>I
+**[If](functions/function-if.md)**: gibt einen bestimmten Wert zurück, wenn für eine Bedingung TRUE gilt, und ansonsten einen anderen Wert. 
 
-**[IfError](functions/function-iferror.md)** - Detects errors and provides an alternative value or takes action. 
+**[IfError](functions/function-iferror.md)**: erkennt Fehler und stellt einen Alternativwert bereit oder führt eine Aktion aus. 
 
-**[IsBlank](functions/function-isblank-isempty.md)** – Checks for a [blank](functions/function-isblank-isempty.md) value.
+**[IsBlank](functions/function-isblank-isempty.md)**: sucht nach einem Wert [blank](functions/function-isblank-isempty.md).
 
-**[IsEmpty](functions/function-isblank-isempty.md)** – Checks for an empty table.
+**[IsEmpty](functions/function-isblank-isempty.md)**: sucht nach einer leeren Tabelle.
 
-**[IsMatch](functions/function-ismatch.md)** – Checks a string against a pattern.  Regular expressions can be used.
+**[IsMatch](functions/function-ismatch.md)** : überprüft eine Zeichenfolge anhand eines Musters.  Reguläre Ausdrücke können verwendet werden.
 
-**[IsNumeric](functions/function-isnumeric.md)** – Checks for a numeric value.
+**[IsNumeric](functions/function-isnumeric.md)**: sucht nach einem numerischen Wert.
 
-**[IsToday](functions/function-now-today-istoday.md)** – Checks whether a date/time value is sometime today.
+**[IsToday](functions/function-now-today-istoday.md)**: überprüft, ob ein Datums- oder Uhrzeitwert am heutigen Tag gilt.
 
-## L
-**[Language](functions/function-language.md)** – Returns the language tag of the current user.
+## <a name="l"></a>L
+**[Language](functions/function-language.md)**: gibt den Sprach-Tag des aktuellen Benutzers zurück.
 
-**[Last](functions/function-first-last.md)** – Returns the last record of a table.
+**[Last](functions/function-first-last.md)**: gibt den letzten Datensatz einer Tabelle zurück.
 
-**[LastN](functions/function-first-last.md)** – Returns the last set of records (N records) of a table.
+**[LastN](functions/function-first-last.md)**: gibt die letzte Gruppe von Datensätzen (N-Datensätze) einer Tabelle zurück.
 
-**[Launch](functions/function-param.md)** – Launches a web address or an app.
+**[Launch](functions/function-param.md)**: startet eine Webadresse oder eine App.
 
-**[Left](functions/function-left-mid-right.md)** – Returns the left-most portion of a string.
+**[Left](functions/function-left-mid-right.md)**: gibt den äußersten linken Teil einer Zeichenfolge zurück.
 
-**[Len](functions/function-len.md)** – Returns the length of a string.
+**[Len](functions/function-len.md)**: gibt die Länge einer Zeichenfolge zurück.
 
-**[Ln](functions/function-numericals.md)** – Returns the natural log.
+**[Ln](functions/function-numericals.md)**: gibt den natürlichen Logarithmus zurück.
 
-**[LoadData](functions/function-savedata-loaddata.md)** – Loads a collection from PowerApps private storage.
+**[LoadData](functions/function-savedata-loaddata.md)**: lädt eine Sammlung dem privaten Speicher von PowerApps.
 
-**[Location](functions/signals.md)** – Returns your location as a map coordinate by using the Global Positioning System (GPS) and other information.
+**[Location](functions/signals.md)**: gibt Ihren Standort mithilfe des Globalen Positionierungssystems (GPS) und anderer Informationen als Kartenkoordinaten zurück.
 
-**[LookUp](functions/function-filter-lookup.md)** – Looks up a single record in a table based on one or more criteria.
+**[LookUp](functions/function-filter-lookup.md)**: sucht einen einzelnen Datensatz in einer Tabelle basierend auf mindestens einem Kriterium.
 
-**[Lower](functions/function-lower-upper-proper.md)** – Converts letters in a string of text to all lowercase.
+**[Lower](functions/function-lower-upper-proper.md)**: konvertiert Buchstaben in einer Textzeichenfolge in Kleinbuchstaben.
 
-## M
-**[Match](functions/function-ismatch.md)** – Extracts a substring based on a pattern.  Regular expressions can be used.
+## <a name="m"></a>M
+**[Max](functions/function-aggregates.md)**: der Höchstwert eines Tabellenausdrucks oder eines Satzes von Argumenten.
 
-**[MatchAll](functions/function-ismatch.md)** – Extracts multiple substrings based on a pattern.  Regular expressions can be used.
+**[Mid](functions/function-left-mid-right.md)**: gibt den mittleren Teil einer Zeichenfolge zurück.
 
-**[Max](functions/function-aggregates.md)** – Maximum value of a table expression or a set of arguments.
+**[Min](functions/function-aggregates.md)**: Mindestwert eines Tabellenausdrucks oder eines Satzes von Argumenten.
 
-**[Mid](functions/function-left-mid-right.md)** – Returns the middle portion of a string.
+**[Minute](functions/function-datetime-parts.md)**: ruft den Minutenteil eines Datums- oder Uhrzeitwerts ab.  
 
-**[Min](functions/function-aggregates.md)** – Minimum value of a table expression or a set of arguments.
+**[Mod](functions/function-mod.md)**: gibt den Rest zurück, der nach der Division einer zu teilenden Zahl durch einen Divisor übrig bleibt.
 
-**[Minute](functions/function-datetime-parts.md)** – Retrieves the minute portion of a date/time value.  
+**[Month](functions/function-datetime-parts.md)**: ruft den Monatsteil eines Datums- oder Uhrzeitwerts ab.
 
-**[Mod](functions/function-mod.md)** – Returns the remainder after a dividend is divided by a divisor.
+## <a name="n"></a>N
+**[Navigate](functions/function-navigate.md)**: ändert die Anzeige des Bildschirms.
 
-**[Month](functions/function-datetime-parts.md)** – Retrieves the month portion of a date/time value.
+**[NewForm](functions/function-form.md)**: setzt ein Formularsteuerelement für die Erstellung eines Elements zurück.
 
-## N
-**[Navigate](functions/function-navigate.md)** – Changes which screen is displayed.
+**[Not](functions/function-logicals.md)** : boolesche Logikfunktion NOT.  Gibt **TRUE** zurück, wenn für das Argument **FALSE** gilt, und **FALSE** wenn für das Argument **TRUE** gilt.  Sie können auch den [**!**-Operator](functions/operators.md) verwenden.
 
-**[NewForm](functions/function-form.md)** – Resets a form control for creation of an item.
+**[Notify](functions/function-showerror.md)**: Zeigt dem Benutzer eine Bannermeldung an.
 
-**[Not](functions/function-logicals.md)** – Boolean logic NOT.  Returns **true** if its argument is **false**, and returns **false** if its argument is **true**.  You can also use the [**!** operator](functions/operators.md).
+**[Now](functions/function-now-today-istoday.md)**: gibt den aktuellen Datums- oder Uhrzeitwert zurück.
 
-**[Notify](functions/function-showerror.md)** – Displays a banner message to the user.
+## <a name="o"></a>O
+**[Or](functions/function-logicals.md)** : boolesche Logikfunktion ODER.  Gibt **TRUE** zurück, wenn für eines der Argumente **TRUE** gilt.  Sie können auch den [**||**-Operator](functions/operators.md) verwenden.
 
-**[Now](functions/function-now-today-istoday.md)** – Returns the current date/time value.
+## <a name="p"></a>P
+**[Param](functions/function-param.md)**: ermöglicht den Zugriff auf Parameter, die an die App übergeben werden, wenn der Benutzer sie geöffnet hat.
 
-## O
-**[Or](functions/function-logicals.md)** – Boolean logic OR.  Returns **true** if any of its arguments are **true**.  You can also use the [**||** operator](functions/operators.md).
+**[Parent](functions/operators.md#parent-operator)**: ermöglicht den Zugriff auf die Eigenschaften eines Container-Steuerelements.
 
-## P
-**[Param](functions/function-param.md)** – Provides access to parameters passed to the app when the user opened it.
+**[Patch](functions/function-patch.md)**: ändert oder erstellt einen Datensatz in einer Datenquelle oder verbindet Datensätze außerhalb einer Datenquelle.
 
-**[Parent](functions/operators.md#parent-operator)** – Provides access to a container control's properties.
+**[Pi](functions/function-trig.md)**:gibt die Zahl &pi; zurück.
 
-**[Patch](functions/function-patch.md)** – Modifies or creates a record in a data source, or merges records outside of a data source.
+**[PlainText](functions/function-encode-decode.md)**: entfernt HTML- und XML-Tags aus einer Zeichenfolge.
 
-**[Pi](functions/function-trig.md)** – Returns the number &pi;.
+**[Power](functions/function-numericals.md)** : gibt eine zu einer Potenz erhobene Zahl zurück.  Sie können auch den [**^**-Operator](functions/operators.md) verwenden.
 
-**[PlainText](functions/function-encode-decode.md)** – Removes HTML and XML tags from a string.
+**[Proper](functions/function-lower-upper-proper.md)**: konvertiert den ersten Buchstaben jedes Worts in einer Zeichenfolge in Großbuchstaben und alle anderen in Kleinbuchstaben.
 
-**[Power](functions/function-numericals.md)** – Returns a number raised to a power.  You can also use the [**^** operator](functions/operators.md).
+## <a name="r"></a>R
+**[Radians](functions/function-trig.md)**: konvertiert Grad in Bogenmaß.
 
-**[Proper](functions/function-lower-upper-proper.md)** – Converts the first letter of each word in a string to uppercase, and converts the rest to lowercase.
+**[Rand](functions/function-rand.md)**: gibt eine pseudozufällige Zahl zurück.
 
-## R
-**[Radians](functions/function-trig.md)** - Converts degrees to radians.
+**[Refresh](functions/function-refresh.md)**: aktualisiert die Datensätze einer Datenquelle.
 
-**[Rand](functions/function-rand.md)** – Returns a pseudo-random number.
+**[Remove](functions/function-remove-removeif.md)**: entfernt einen oder mehrere bestimmte Datensätze aus einer Datenquelle.
 
-**[Refresh](functions/function-refresh.md)** – Refreshes the records of a data source.
+**[RemoveIf](functions/function-remove-removeif.md)**: entfernt Datensätze aus einer Datenquelle auf der Grundlage einer Bedingung.
 
-**[Relate](functions/function-relate-unrelate.md)** – Relates records of two entities through a one-to-many or many-to-many relationship.
+**[RenameColumns](functions/function-table-shaping.md)**: benennt Spalten einer Tabelle um.
 
-**[Remove](functions/function-remove-removeif.md)** – Removes one or more specific records from a data source.
+**[Replace](functions/function-replace-substitute.md)**: ersetzt einen Teil einer Zeichenfolge mit einer anderen Zeichenfolge und beginnt dabei mit der Anfangsposition der Zeichenfolge.
 
-**[RemoveIf](functions/function-remove-removeif.md)** – Removes records from a data source based on a condition.
+**[Reset](functions/function-reset.md)**: Setzt ein Eingabesteuerelement auf seinen Standardwert zurück, wobei alle Benutzeränderungen verworfen werden.
 
-**[RenameColumns](functions/function-table-shaping.md)** – Renames columns of a table.
+**[ResetForm](functions/function-form.md)**: setzt ein Formularsteuerelement zum Bearbeiten eines vorhandenen Elements ein.
 
-**[Replace](functions/function-replace-substitute.md)** – Replaces part of a string with another string, by starting position of the string.
+**[Revert](functions/function-revert.md)**: lädt erneut und löscht Fehler für die Datensätze einer Datenquelle.
 
-**[Reset](functions/function-reset.md)** – Resets an input control to its default value, discarding any user changes.
+**[RGBA](functions/function-colors.md)**: gibt einen Farbwert für einen Satz von roten, grünen, blauen und Alpha-Komponenten zurück.
 
-**[ResetForm](functions/function-form.md)** – Resets a form control for editing of an existing item.
+**[Right](functions/function-left-mid-right.md)** : gibt den äußersten rechten Teil einer Zeichenfolge zurück.
 
-**[Revert](functions/function-revert.md)** – Reloads and clears errors for the records of a data source.
+**[Round](functions/function-round.md)**: rundet auf nächste Zahl auf.
 
-**[RGBA](functions/function-colors.md)** – Returns a color value for a set of red, green, blue, and alpha components.
+**[RoundDown](functions/function-round.md)** : rundet auf die höchste vorherige Zahl ab.
 
-**[Right](functions/function-left-mid-right.md)** – Returns the right-most portion of a string.
+**[RoundUp](functions/function-round.md)**: rundet auf die kleinste nächste Zahl auf.
 
-**[Round](functions/function-round.md)** – Rounds to the closest number.
+## <a name="s"></a>S
+**[SaveData](functions/function-savedata-loaddata.md)**: speichert eine Sammlung im privaten Speicher von PowerApps ab.
 
-**[RoundDown](functions/function-round.md)** – Rounds down to the largest previous number.
+**[Search](functions/function-filter-lookup.md)** : sucht nach Datensätzen in einer Tabelle, die eine Zeichenfolge in einer ihrer Spalten enthält.  
 
-**[RoundUp](functions/function-round.md)** – Rounds up to the smallest next number.
+**[Second](functions/function-datetime-parts.md)**: ruft den zweiten Teil eines Datums- oder Uhrzeitwerts ab.
 
-## S
-**[SaveData](functions/function-savedata-loaddata.md)** – Saves a collection to PowerApps private storage.
+**[Select](functions/function-select.md)**: Simuliert eine Auswahlaktion für ein Steuerelement, sodass die Formel **OnSelect** ausgewertet wird
 
-**[Search](functions/function-filter-lookup.md)** – Finds records in a table that contain a string in one of their columns.  
+**[Set](functions/function-set.md)**: legt den Wert einer globalen Variablen fest.
 
-**[Second](functions/function-datetime-parts.md)** – Retrieves the second portion of a date/time value.
+**[ShowColumns](functions/function-table-shaping.md)**: gibt eine Tabelle zurück, die nur ausgewählte Spalten enthält.
 
-**[Select](functions/function-select.md)** – Simulates a select action on a control, causing the **OnSelect** formula to be evaluated.
+**[Shuffle](functions/function-shuffle.md)**: ordnet die Datensätze einer Tabelle nach dem Zufallsprinzip an.
 
-**[Set](functions/function-set.md)** – Sets the value of a global variable.
+**[Sin](functions/function-trig.md)**: gibt den Sinus eines im Bogenmaß angegebenen Winkels zurück.
 
-**[ShowColumns](functions/function-table-shaping.md)** – Returns a table with only selected columns.
+**[Sort](functions/function-sort.md)**: gibt eine anhand einer Formel sortierte Tabelle zurück.
 
-**[Shuffle](functions/function-shuffle.md)** – Randomly reorders the records of a table.
+**[SortByColumns](functions/function-sort.md)** : gibt eine anhand einer oder mehrerer Spalten sortierte Tabelle zurück.
 
-**[Sin](functions/function-trig.md)** – Returns the sine of an angle specified in radians.
+**[Split](functions/function-split.md)**: Teilt eine Textzeichenfolge in eine Tabelle von Teilzeichenfolgen auf.
 
-**[Sort](functions/function-sort.md)** – Returns a sorted table based on a formula.
+**[Sqrt](functions/function-numericals.md)**: gibt die Quadratwurzel einer Zahl zurück.
 
-**[SortByColumns](functions/function-sort.md)** – Returns a sorted table based on one or more columns.
+**[StartsWith](functions/function-startswith.md)**: überprüft, ob eine Textzeichenfolge mit einer anderen Textzeichenfolge beginnt.
 
-**[Split](functions/function-split.md)** – Splits a text string into a table of substrings.
+**[StdevP](functions/function-aggregates.md)**: gibt die Standardabweichung der Argumente zurück.  
 
-**[Sqrt](functions/function-numericals.md)** – Returns the square root of a number.
+**[Substitute](functions/function-replace-substitute.md)**: ersetzt einen Teil einer Zeichenfolge mit einer anderen Zeichenfolge, wobei nach übereinstimmenden Zeichenfolgen vorgegangen wird.
 
-**[StartsWith](functions/function-startswith.md)** – Checks if a text string begins with another text string.
+**[SubmitForm](functions/function-form.md)**: speichert das Element in einem Formularsteuerelement in der Datenquelle.
 
-**[StdevP](functions/function-aggregates.md)** – Returns the standard deviation of its arguments.  
+**[Sum](functions/function-aggregates.md)** : berechnet die Summe eines Tabellenausdrucks oder eines Satzes von Argumenten.  
 
-**[Substitute](functions/function-replace-substitute.md)** – Replaces part of a string with another string, by matching strings.
+**[Switch](functions/function-if.md)**: Führt einen Abgleich mit einer Menge von Werten durch und wertet dann eine entsprechende Formel aus.
 
-**[SubmitForm](functions/function-form.md)** – Saves the item in a form control to the data source.
+## <a name="t"></a>T
+**[Table](functions/function-table.md)**: erstellt eine temporäre Tabelle.  
 
-**[Sum](functions/function-aggregates.md)** – Calculates the sum of a table expression or a set of arguments.  
+**[Tan](functions/function-trig.md)**: gibt den Tangens eines im Bogenmaß angegebenen Winkels zurück.
 
-**[Switch](functions/function-if.md)** – Matches with a set of values and then evaluates a corresponding formula.
+**[Text](functions/function-text.md)**: formatiert eine Zahl als Zeichenfolge für die Anzeige.
 
-## T
-**[Table](functions/function-table.md)** – Creates a temporary table.  
+**[ThisItem](functions/operators.md#thisitem-operator)**: gibt in einem Katalog oder einem Formular die Daten für das aktuelle Element aus dem Container zurück.
 
-**[Tan](functions/function-trig.md)** - Returns the tangent of an angle specified in radians.
+**[Time](functions/function-date-time.md)**: gibt einen Datums- oder Uhrzeitwert auf der Grundlage von Werten für **Hour**, **Minute** und **Second** zurück.  
 
-**[Text](functions/function-text.md)** – Converts any value and formats a number or date/time value to a string of text.
+**[TimeValue](functions/function-datevalue-timevalue.md)**: konvertiert eine ausschließlich zeitbezogene Zeichenfolge in einen Datums- oder Uhrzeitwert.
 
-**[ThisItem](functions/operators.md#thisitem-operator)** – When in a gallery or form, returns the data for the current item from the container.
+**[TimeZoneOffset](functions/function-dateadd-datediff.md)** : Gibt die Differenz zwischen UTC und Ortszeit des Benutzers in Minuten zurück.
 
-**[Time](functions/function-date-time.md)** – Returns a date/time value, based on **Hour**, **Minute**, and **Second** values.  
+**[Today](functions/function-now-today-istoday.md)**: gibt den aktuellen Datums- oder Uhrzeitwert zurück.
 
-**[TimeValue](functions/function-datevalue-timevalue.md)** – Converts a time-only string to a date/time value.
+**[Trim](functions/function-trim.md)**: entfernt zusätzliche Leerzeichen am Ende oder in der Mitte einer Textzeichenfolge.
 
-**[TimeZoneOffset](functions/function-dateadd-datediff.md)** – Returns the difference between UTC and the user's local time in minutes.
+**[TrimEnds](functions/function-trim.md)**: entfernt zusätzliche Leerzeichen am Ende einer ausschließlich textbezogenen Zeichenfolge.
 
-**[Today](functions/function-now-today-istoday.md)** – Returns the current date/time value.
+## <a name="u"></a>U
+**[Ungroup](functions/function-groupby.md)**: entfernt eine Gruppierung.
 
-**[Trim](functions/function-trim.md)** – Removes extra spaces from the ends and interior of a string of text.
+**[Update](functions/function-update-updateif.md)**: ersetzt einen Datensatz in einer Datenquelle.
 
-**[TrimEnds](functions/function-trim.md)** – Removes extra spaces from the ends of a string of text only.
+**[UpdateContext](functions/function-updatecontext.md)**: Legt den Wert einer oder mehrerer [Kontextvariablen](working-with-variables.md#create-a-context-variable) des aktuellen Bildschirms fest.
 
-## U
-**[Ungroup](functions/function-groupby.md)** – Removes a grouping.
+**[UpdateIf](functions/function-update-updateif.md)** : ändert eine Gruppe von Datensätzen in einer Datenquelle auf der Grundlage einer Bedingung.
 
-**[Unrelate](functions/function-relate-unrelate.md)** – Unrelates records of two entities from a one-to-many or many-to-many relationship.
+**[Upper](functions/function-lower-upper-proper.md)**: konvertiert Buchstaben in einer Textzeichenfolge in Großbuchstaben.
 
-**[Update](functions/function-update-updateif.md)** – Replaces a record in a data source.
+**[User](functions/function-user.md)**: Gibt Informationen über den aktuellen Benutzer zurück.
 
-**[UpdateContext](functions/function-updatecontext.md)** – Sets the value of one or more [context variables](working-with-variables.md#create-a-context-variable) of the current screen.
+## <a name="v"></a>V
+**[Validate](functions/function-validate.md)**: überprüft, ob der Wert einer einzelnen Spalte oder eines vollständigen Datensatzes für eine Datenquelle gültig ist.
 
-**[UpdateIf](functions/function-update-updateif.md)** – Modifies a set of records in a data source based on a condition.
+**[Value](functions/function-value.md)**: konvertiert eine Zeichenfolge in eine Zahl.
 
-**[Upper](functions/function-lower-upper-proper.md)** – Converts letters in a string of text to all uppercase.
+**[VarP](functions/function-aggregates.md)**: gibt die Varianz der Argumente zurück.  
 
-**[User](functions/function-user.md)** – Returns information about the current user.
+**[ViewForm](functions/function-form.md)**: Setzt ein Formularsteuerelement zum Anzeigen eines vorhandenen Elements zurück.
 
-## V
-**[Validate](functions/function-validate.md)** – Checks whether the value of a single column or a complete record is valid for a data source.
+## <a name="w"></a>W
+**[Weekday](functions/function-datetime-parts.md)**: ruft den Wochentagteil eines Datums- oder Uhrzeitwerts ab.
 
-**[Value](functions/function-value.md)** – Converts a string to a number.
-
-**[VarP](functions/function-aggregates.md)** – Returns the variance of its arguments.  
-
-**[ViewForm](functions/function-form.md)** – Resets a form control for viewing of an existing item.
-
-## W
-**[Weekday](functions/function-datetime-parts.md)** – Retrieves the weekday portion of a date/time value.
-
-## Y
-**[Year](functions/function-datetime-parts.md)** – Retrieves the year portion of a date/time value.  
+## <a name="y"></a>Y
+**[Year](functions/function-datetime-parts.md)**: ruft den Jahresteil eines Datums- oder Uhrzeitwerts ab.  
 

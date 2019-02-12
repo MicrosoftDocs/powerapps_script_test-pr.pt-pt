@@ -1,6 +1,6 @@
 ---
-title: 'Pie chart control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Pie chart control
+title: 'Kreisdiagramm-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, zum Kreisdiagramm-Steuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,105 +9,111 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 8c2a48941629e98f58ea6d6ac7894e6a244b5e69
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42859248"
 ---
-# Pie chart control in PowerApps
-A control that shows relative values in comparison to each other.
+# <a name="pie-chart-control-in-powerapps"></a>Kreisdiagramm-Steuerelement in PowerApps
+Ein Steuerelement, das einen Vergleich relativer Werte anzeigt
 
-## Description
-Add a **Pie chart** control if you want to show relative data from a table that contains labels in the leftmost column and values in the second column from the left.
+## <a name="description"></a>Beschreibung
+Fügen Sie ein **Kreisdiagramm**-Steuerelement hinzu, wenn Sie relative Daten aus einer Tabelle anzeigen möchten, die in der äußersten linken Spalte Bezeichnungen und in der zweiten Spalte von links Werte enthält.
 
-This control is a grouped control containing three controls: a **[Label](control-text-box.md)** for the title, the chart graphic, and a **Legend**.
+Dieses gruppierte Steuerelement enthält drei Steuerelemente: eine **[Bezeichnung](control-text-box.md)** für den Titel, ein Diagramm und eine **Legende**.
 
-## Chart key properties
-**[Items](properties-core.md)** – The source of data that appears in a control such as a gallery, a list, or a chart.
+## <a name="chart-key-properties"></a>Kerneigenschaften des Diagramms
+**[Items](properties-core.md)**: Die Quelle der Daten, die in einem Steuerelement angezeigt werden, z.B. ein Katalog, eine Liste oder ein Diagramm.
 
-**ShowLabels** – Whether a pie chart shows the value that's associated with each of its wedges.
+**ShowLabels**: gibt an, ob ein Kreisdiagramm einen Wert darstellt, der mit jedem seiner Segmente verknüpft ist.
 
-## Additional chart properties
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+## <a name="additional-chart-properties"></a>Zusätzliche Diagrammeigenschaften
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**[Color](properties-color-border.md)** – The color of text in a control.
+**[Color](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[DisabledBorderColor](properties-color-border.md)** – The color of a control's border if the control's **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledBorderColor](properties-color-border.md)**: Die Farbe des Steuerelementrahmens, wenn die **[DisplayMode](properties-core.md)**-Eigenschaft des Steuerelements auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**Explode** – The distance between wedges in a pie chart.
+**Explode**: gibt den Abstand zwischen den Segmenten in einem Kreisdiagramm an.
 
-**[Font](properties-text.md)** – The name of the family of fonts in which text appears.
+**[Font](properties-text.md)** – Der Name der Schriftfamilie des angezeigten Texts.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[HoverBorderColor](properties-color-border.md)** – The color of a control's border when the user keeps the mouse pointer on that control.
+**[HoverBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über das Steuerelement hält.
 
-**ItemBorderColor** – The color of the border around each wedge in a pie chart.
+**ItemBorderColor**: gibt die Farbe des Rahmens um jedes Segment in einem Kreisdiagramm an.
 
-**ItemBorderThickness** – The thickness of the border around each wedge in a pie chart.
+**ItemBorderThickness**: gibt die Stärke des Rahmens um jedes Segment in einem Kreisdiagramm an.
 
-**ItemColorSet** – The color of each data point in a chart.
+**ItemColorSet**: gibt die Farbe der einzelnen Datenpunkte in einem Diagramm an.
 
-**LabelPosition** – The location of labels in a pie chart relative to its wedges.
+**LabelPosition**: gibt die Position von Bezeichnungen in einem Kreisdiagramm relativ zu seinen Segmenten an.
 
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**[PressedBorderColor](properties-color-border.md)** – The color of a control's border when the user taps or clicks that control.
+**[PressedBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[Size](properties-text.md)** – The font size of the text that appears on a control.
+**[Size](properties-text.md)** – Der Schriftgrad des Texts, der in einem Steuerelement angezeigt wird.
 
-**[TabIndex](properties-accessibility.md)** – Keyboard navigation order in relation to other controls.
+**[TabIndex](properties-accessibility.md)**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## Related functions
+## <a name="related-functions"></a>Verwandte Funktionen
 [**Max**( *DataSource*, *ColumnName* )](../functions/function-aggregates.md)
 
-## Example
-1. Add a **[Button](control-button.md)** control, and set its **[OnSelect](properties-core.md)** property to this formula:<br>
+## <a name="example"></a>Beispiel
+1. Fügen Sie ein **[Button](control-button.md)**-Steuerelement (Schaltfläche) hinzu, und legen Sie seine **[OnSelect](properties-core.md)**-Eigenschaft auf diese Formel fest:<br>
    **Collect(Revenue2015, {Product:"Europa", Revenue:27000}, {Product:"Ganymede", Revenue:26300}, {Product:"Callisto", Revenue:29200})**
    
-    Don't know how to [add and configure a control](../add-configure-controls.md)?
+    Möchten Sie wissen, wie Sie ein [Steuerelement hinzufügen und konfigurieren](../add-configure-controls.md)?
    
-    Want more information about the **[Collect](../functions/function-clear-collect-clearcollect.md)** function or [other functions](../formula-reference.md)?
-2. Press F5, click or tap the **[Button](control-button.md)** control, and then press Esc to return to the default workspace.
-3. Add a **Pie chart** control, and set its **[Items](properties-core.md)** property to **Revenue2015**.
+    Benötigen Sie weitere Informationen zur **[Collect](../functions/function-clear-collect-clearcollect.md)**-Funktion oder [anderen Funktionen](../formula-reference.md)?
+2. Drücken F5, klicken oder tippen Sie auf das Steuerelement des Typs **[Schaltfläche](control-button.md)** , und drücken Sie anschließend die ESC-Taste, um in den Standardarbeitsbereich zurückzukehren.
+3. Fügen Sie ein Steuerelements des Typs **Kreisdiagramm** hinzu, und legen Sie seine  **[Items](properties-core.md)**-Eigenschaft auf **Revenue2015** fest.
    
-    The **Pie chart** control shows revenue data for each product in relation to the other products.
+    Das **Kreisdiagramm**-Steuerelement zeigt die Umsatzdaten für jedes Produkt in Bezug auf die anderen Produkte.
 
 
-## Accessibility guidelines
-### Color contrast
-There must be adequate color contrast between:
-* each item in **ItemColorSet**
-* every item in **ItemColorSet** and the background color
-* **[Color](properties-color-border.md)** and the background color
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+Zwischen folgenden Eigenschaften muss es einen ausreichenden Farbkontrast geben:
+* jedes Element in **ItemColorSet**
+* jedes Element in **ItemColorSet** und die Hintergrundfarbe
+* **[Farbe](properties-color-border.md)** und die Hintergrundfarbe
 
-### Screen reader support
-* There must be a **[Label](control-text-box.md)** immediately before the chart graphic to serve as the title.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* Vor dem Diagramm muss eine **[Bezeichnung](control-text-box.md)** hinzugefügt werden, die als Titel dienen soll.
 
     > [!NOTE]
-  > Chart graphics and **Legend** are hidden from screen reader users. As an alternative, a tabular form of the data is presented to them. They can also cycle through buttons that select data in the chart.
+  > Diagramme und **Legenden** werden für Benutzer der Sprachausgabe ausgeblendet. Für sie werden stattdessen die Daten in Tabellenform dargestellt. Außerdem können sie zwischen Steuerelementen wechseln, die Daten aus dem Diagramm auswählen.
 
-### Low vision support
-* There must be a **Legend**.
-* Consider setting **ShowLabels** to **true**. This helps low-vision users quickly determine what each pie slice represents.
-* Consider setting **LabelPosition** to **LabelPosition.Outside**. This increases legibility of labels because of a more consistent color contrast.
+### <a name="low-vision-support"></a>Unterstützte Anpassungen für Menschen mit Sehbehinderungen
+* Es muss eine **Legende** verfügbar sein.
+* Sie sollten **ShowLabels** auf **TRUE** festlegen. Dadurch können Benutzer mit Sehbehinderungen schnell feststellen, wofür die einzelnen Abschnitte eines Kuchendiagramms stehen.
+* Sie sollten **LabelPosition** auf **LabelPosition.Outside** festlegen. Dadurch ist der Farbkontrast konsistenter und die Bezeichnungen besser lesbar.
 
-### Keyboard support
-* **[TabIndex](properties-accessibility.md)** must be zero or greater so that keyboard users can navigate to it.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* **[TabIndex](properties-accessibility.md)** muss gleich 0 (null) oder größer sein, damit Tastaturbenutzer dorthin navigieren können.
 
     > [!NOTE]
-  > When keyboard users navigate to the chart, they can cycle through buttons that select data in the chart.
+  > Wenn Benutzer über eine Tastatur zu dem Diagramm navigieren, können sie zwischen Schaltflächen wechseln, die Daten aus dem Diagramm auswählen.

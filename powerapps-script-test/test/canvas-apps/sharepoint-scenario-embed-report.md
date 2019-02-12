@@ -1,64 +1,70 @@
 ---
-title: Embed the Power BI project report in SharePoint Online | Microsoft Docs
-description: In this task, we'll embed our Power BI report in the same SharePoint Online site that hosts our two lists.
-author: NickWaggoner
+title: Einbetten des Power BI-Projektberichts in SharePoint Online | Microsoft-Dokumentation
+description: In dieser Aufgabe betten wir den Power BI-Bericht in die gleiche SharePoint Online-Website ein, auf der auch die zwei Listen gehostet werden.
+author: mgblythe
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 01/30/2018
-ms.author: niwaggon
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: mblythe
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 9d15001795cc33d163e85b358a52aba759c83021
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42865434"
 ---
-# Embed the Power BI project report in SharePoint Online
+# <a name="embed-the-power-bi-project-report-in-sharepoint-online"></a>Einbetten des Power BI-Projektberichts in SharePoint Online
 > [!NOTE]
-> This article is part of a tutorial series on using PowerApps, Microsoft Flow, and Power BI with SharePoint Online. Make sure you read the [series introduction](sharepoint-scenario-intro.md) to get a sense of the big picture, as well as related downloads.
+> Dieser Artikel ist Teil einer Reihe von Tutorials zur Verwendung von PowerApps, Microsoft Flow und Power BI mit SharePoint Online. Lesen Sie unbedingt die [Einführung zur Reihe](sharepoint-scenario-intro.md) durch, um sich einen allgemeinen Überblick zu verschaffen und auf die zugehörigen Downloads zuzugreifen.
 
-We'll now embed our Power BI report in the same SharePoint Online site that hosts our two lists. Power BI supports a variety of approaches to embedding, including directly integrating into SharePoint pages for web and mobile views.
+Jetzt betten wir den Power BI-Bericht in die gleiche SharePoint Online-Website ein, auf der auch die zwei Listen gehostet werden. Power BI unterstützt eine Vielzahl von Ansätzen für das Einbetten, einschließlich der direkten Integration in SharePoint-Seiten für Webansichten und mobile Ansichten.
 
-With this type of embedding, Power BI embeds the report as a web part, provides appropriate access for users, and lets you click through from the embedded report to the report at powerbi.com. First, we'll generate an embed link in Power BI, then use that link in a page that we create. For more information on embedding, see [Embed with report web part in SharePoint Online](https://docs.microsoft.com/power-bi/service-embed-report-spo).
+Bei dieser Art von Einbettung bettet Power BI den Bericht als Webpart ein, gewährt Benutzern den entsprechenden Zugriff und ermöglicht das Durchklicken vom eingebetteten Bericht zum Bericht auf „powerbi.com“. Zunächst generieren wir einen Einbettungslink in Power BI, und anschließend wird dieser Link auf einer erstellten Seite verwendet. Weitere Informationen zum Einbetten finden Sie unter [Einbetten mit Berichts-Webpart in SharePoint Online](https://docs.microsoft.com/power-bi/service-embed-report-spo).
 
-## Step 1: Generate an embed link
-1. Sign in to Power BI, then in the left navigation pane, click or tap the report name.
+## <a name="step-1-generate-an-embed-link"></a>Schritt 1: Generieren eines Einbettungslinks
+1. Melden Sie sich bei Power BI an, und klicken oder tippen Sie dann im linken Navigationsbereich auf den Namen des Berichts.
    
-    ![Navigate to report](./media/sharepoint-scenario-embed-report/08-01-01-reports.png)
-2. Click or tap **File**, then **Embed in SharePoint Online**.
+    ![Navigieren zum Bericht](./media/sharepoint-scenario-embed-report/08-01-01-reports.png)
+2. Klicken oder tippen Sie auf **Datei** und dann auf **In SharePoint Online einbetten**.
    
-    ![Embed in SharePoint Online](./media/sharepoint-scenario-embed-report/08-01-02-embed-spo.png)
-3. Copy the embed link from the dialog box to a file, then click or tap **Close**. We will use the link after we create a SharePoint page.
+    ![In SharePoint Online einbetten](./media/sharepoint-scenario-embed-report/08-01-02-embed-spo.png)
+3. Kopieren Sie den Einbettungslink aus dem Dialogfeld in eine Datei, und klicken oder tippen Sie dann auf **Schließen**. Wir verwenden den Link nach dem Erstellen einer SharePoint-Seite.
    
-    ![Embed link for SharePoint](./media/sharepoint-scenario-embed-report/08-01-03-embed-url.png)
+    ![Einbettungslink für SharePoint](./media/sharepoint-scenario-embed-report/08-01-03-embed-url.png)
 
-## Step 2: Embed the report
-1. Sign in to SharePoint, then click or tap **Site contents**.
+## <a name="step-2-embed-the-report"></a>Schritt 2: Einbetten des Berichts
+1. Melden Sie sich bei SharePoint an, und klicken oder tippen Sie auf **Websiteinhalte**.
    
-    ![SharePoint site contents](./media/sharepoint-scenario-embed-report/08-01-04-site-contents.png)
-2. You could just include a report on the team home page, but we'll show you how to create a separate page for it also. Click or tap **New**, then **Page**.
+    ![„Websiteinhalte“ in SharePoint](./media/sharepoint-scenario-embed-report/08-01-04-site-contents.png)
+2. Sie können einfach einen Bericht auf der Teamstartseite einschließen. Hier wird jedoch veranschaulicht, wie Sie auch eine separate Seite für den Bericht erstellen können. Klicken oder tippen Sie auf **Neu** und dann auf **Seite**.
    
-    ![New SharePoint page](./media/sharepoint-scenario-embed-report/08-01-05-new-page.png)
-3. Enter a name for the page, like "Project Analysis".
-4. Click or tap ![Plus icon](./media/sharepoint-scenario-embed-report/icon-plus.png) then **Power BI**.
+    ![Neue SharePoint-Seite](./media/sharepoint-scenario-embed-report/08-01-05-new-page.png)
+3. Geben Sie einen Namen für die Seite ein, beispielsweise „Project Analysis“.
+4. Klicken oder tippen Sie auf das ![Pluszeichen](./media/sharepoint-scenario-embed-report/icon-plus.png) und anschließend auf **Power BI**.
    
-    ![Add Power BI page part](./media/sharepoint-scenario-embed-report/08-01-06-add-page-part.png)
-5. Click or tap **Add report**.
+    ![Webpart für Power BI-Seite](./media/sharepoint-scenario-embed-report/08-01-06-add-page-part.png)
+5. Klicken oder tippen Sie auf **Bericht hinzufügen**.
    
-    ![Add report](./media/sharepoint-scenario-embed-report/08-01-07-add-report.png)
-6. In the right pane, copy the embed URL into the **Power BI report link** box. Set both **Show Filter Pane** and **Show Navigation Pane** to **On**.
+    ![Bericht hinzufügen](./media/sharepoint-scenario-embed-report/08-01-07-add-report.png)
+6. Kopieren Sie im rechten Bereich die Einbettungs-URL in das Feld **Power BI report link** (Power BI-Berichtslink). Legen Sie die Optionen **Filterbereich anzeigen** und **Navigationsbereich anzeigen** auf **Ein** fest.
    
-    ![Report settings](./media/sharepoint-scenario-embed-report/08-01-08-report-settings.png)
-7. The report is now embedded in the page. Click **Publish** to make it available to anyone who can access the underlying report.
+    ![Berichtseinstellungen](./media/sharepoint-scenario-embed-report/08-01-08-report-settings.png)
+7. Der Bericht ist nun auf der Seite eingebettet. Klicken Sie auf **Veröffentlichen**, um ihn für alle Personen zugänglich zu machen, die auf den zugrunde liegenden Bericht zugreifen können.
    
-    ![Report embedding complete](./media/sharepoint-scenario-embed-report/08-01-09-report-complete.png)
+    ![Einbetten des Berichts abgeschlossen](./media/sharepoint-scenario-embed-report/08-01-09-report-complete.png)
 
-## Step 3: Grant access to the report.
-If you are using Office 365 Groups as we recommend, make sure users who need access are members of the group workspace within the Power BI service. This ensures that users can view the contents of that group. For more information, see [Collaborate in your Power BI app workspace](https://docs.microsoft.com/power-bi/service-collaborate-power-bi-workspace).
+## <a name="step-3-grant-access-to-the-report"></a>Schritt 3: Gewähren des Zugriffs auf den Bericht.
+Bei Verwendung von Office 365-Gruppen (dies wird empfohlen) müssen Sie sicherstellen, dass Benutzer, die Zugriff benötigen, Mitglieder des Gruppenarbeitsbereichs im Power BI-Dienst sind. Dadurch ist sichergestellt, dass Benutzer den Inhalt dieser Gruppe anzeigen können. Weitere Informationen finden Sie unter [Zusammenarbeit in Ihrem Power BI-App-Arbeitsbereich](https://docs.microsoft.com/power-bi/service-collaborate-power-bi-workspace).
 
-That wraps up our work in Power BI for this scenario. You started by pulling data from our SharePoint lists into Power BI, and have now come full circle to embedding your Power BI report back into SharePoint.
+Damit sind unsere Aufgaben in Power BI für dieses Szenario abgeschlossen. Sie haben begonnen, indem Sie Daten aus unseren SharePoint-Listen in Power BI abgerufen haben, und der Kreis schließt sich nun, da Sie Ihren Power BI-Bericht wieder in SharePoint eingebettet haben.
 
-## Next steps
-The next step in this tutorial series is to [run through the workflow we created end-to-end](sharepoint-scenario-summary.md).
+## <a name="next-steps"></a>Nächste Schritte
+Der nächste Schritt in dieser Reihe von Tutorials besteht im [Durchlaufen des Workflows von Anfang bis Ende](sharepoint-scenario-summary.md).
 

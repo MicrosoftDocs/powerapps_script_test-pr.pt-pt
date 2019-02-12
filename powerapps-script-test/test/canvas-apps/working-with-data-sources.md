@@ -1,6 +1,6 @@
 ---
-title: Understand data sources for canvas apps | Microsoft Docs
-description: Reference information about working with connections and data sources for canvas apps.
+title: Grundlegendes zu Datenquellen für Canvas-Apps | Microsoft-Dokumentation
+description: Referenzinformationen zum Arbeiten mit Verbindungen und Datenquellen für Canvas-Apps.
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,130 +9,134 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 03/08/2017
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: b51b7cde36a70001ff8545c497da7c4b4d5d1fa3
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42833909"
 ---
-# Understand data sources for canvas apps in PowerApps
+# <a name="understand-data-sources-for-canvas-apps-in-powerapps"></a>Grundlegendes zu Datenquellen für Canvas-Apps in PowerApps
 
-In PowerApps, most canvas apps use external information stored in cloud services called **Data Sources**. A common example is a table in an Excel file stored in OneDrive for Business. Apps access these data sources by using **Connections**.
+Die meisten Canvas-Apps in PowerApps nutzen externe Informationen, die als **Datenquellen** bezeichnet werden und in Clouddiensten gespeichert sind. Ein gängiges Beispiel ist eine Tabelle in einer Excel-Datei, die in OneDrive for Business gespeichert ist. Apps greifen auf diese Datenquellen mithilfe von **Verbindungen** zu.
 
-This article discusses the different kinds of data sources and how to work with table data sources.
+In diesem Artikel werden die verschiedenen Arten von Datenquellen und das Arbeiten mit Datenquellen in Form von Tabellen beschrieben.
 
-It's easy to create an app that does basic reading and writing to a data source. But sometimes you want more control over how data flows in and out of your app.  This article describes how the **[Patch](functions/function-patch.md)**, **[DataSourceInfo](functions/function-datasourceinfo.md)**, **[Validate](functions/function-validate.md)**, and **[Errors](functions/function-errors.md)** functions provide more control.
+Es ist einfach, eine App zu erstellen, die grundlegende Lese- und Schreibvorgänge in Bezug auf eine Datenquelle ausführt. Es gibt aber Fälle, in denen Sie den Datenfluss in Ihre App und aus Ihrer App besser kontrollieren möchten.  In diesem Artikel wird beschrieben, wie die Funktionen **[Patch](functions/function-patch.md)**, **[DataSourceInfo](functions/function-datasourceinfo.md)**, **[Validate](functions/function-validate.md)** und **[Errors](functions/function-errors.md)** eine bessere Kontrolle ermöglichen.
 
-## Kinds of data sources
+## <a name="kinds-of-data-sources"></a>Arten von Datenquellen
 
-Data sources can be connected to a cloud service, or they can be local to an app.
+Datenquellen können mit einem Clouddienst verbunden sein oder für eine App lokal sein.
 
-### Connected data sources
+### <a name="connected-data-sources"></a>Verbundene Datenquellen
 
-The most common data sources are **tables**, which you can use to retrieve and store information. You can use **connections** to data sources to read and write data in Microsoft Excel workbooks, SharePoint lists, SQL tables, and many other formats, which can be stored in cloud services such as OneDrive for Business, DropBox, and SQL Server.
+Die geläufigsten Datenquellen sind **Tabellen**, die Sie zum Abrufen und Speichern von Informationen verwenden können. Mithilfe von **Verbindungen** mit Datenquellen können Sie Daten in Microsoft Excel-Arbeitsmappen, SharePoint-Listen, SQL-Tabellen und vielen anderen Formaten lesen und schreiben, die in Clouddiensten wie OneDrive for Business, DropBox und SQL Server gespeichert sein können.
 
-Data sources other than tables include email, calendars, Twitter, and notifications, but this article doesn't discuss these other kinds of data sources.
+Andere Datenquellen als Tabellen sind z.B. E-Mail, Kalender, Twitter und Benachrichtigungen, die jedoch in diesem Artikel nicht behandelt werden.
 
-### Local data sources
+### <a name="local-data-sources"></a>Lokale Datenquellen
 
-Using the **[Gallery](controls/control-gallery.md)**, **[Display form](controls/control-form-detail.md)**, and **[Edit form](controls/control-form-detail.md)** controls, it is easy to create an app that reads and writes data from a data source.  To get started, read the article [Understand data forms](working-with-forms.md).  
+Mithilfe der Steuerelemente **[Katalog](controls/control-gallery.md)**, **[Formular anzeigen](controls/control-form-detail.md)** und **[Formular bearbeiten](controls/control-form-detail.md)** ist es einfach, eine App zu erstellen, die Daten aus einer Datenquelle liest und schreibt.  Lesen Sie zunächst den Artikel [Understand data forms (Grundlegendes zu Datenformularen)](working-with-forms.md).  
 
-When you ask PowerApps to create an app from data, these controls are used. Behind the scenes, the app uses an internal table to store and manipulate the data that comes from the data source.
+Wenn Sie PowerApps zum Erstellen einer App aus Daten auffordern, werden diese Steuerelemente verwendet. Im Hintergrund verwendet die App eine interne Tabelle zum Speichern und Bearbeiten der Daten, die aus der Datenquelle stammen.
 
-A special kind of data source is the [Collection](working-with-data-sources.md#collections), which is local to the app and not backed by a connection to a service in the cloud, so the information can not be shared across devices for the same user or between users. Collections can be loaded and saved locally.
+Eine besondere Art von Datenquelle ist die [Sammlung](working-with-data-sources.md#collections), die für die App lokal ist und nicht über eine Verbindung mit einem Dienst in der Cloud gesichert ist, sodass die Informationen nicht auf Geräten für den gleichen oder andere Benutzer freigegeben werden können. Sammlungen können geladen und lokal gespeichert werden.
 
-### Kinds of tables
+### <a name="kinds-of-tables"></a>Arten von Tabellen
 
-Tables that are internal to a PowerApps app are fixed values, just as a number or a string is a value. Internal tables aren't stored anywhere, they just exist in your app's memory. You can't directly modify the structure and data of a table. What you can do instead is to create a new table through a formula: you use that formula to make a modified copy of the original table.
+Bei Tabellen, die für eine App in PowerApps intern sind, handelt es sich wie bei einer Zahl oder einer Zeichenfolge um feste Werte. Interne Tabellen sind nur im Arbeitsspeicher der App vorhanden und werden an keiner anderen Stelle gespeichert. Sie können die Struktur und die Daten einer Tabelle nicht direkt ändern. Sie können stattdessen eine neue Tabelle mithilfe einer Formel erstellen, indem Sie mit dieser Formel eine geänderte Kopie der ursprünglichen Tabelle erstellen.
 
-External tables are stored in a data source for later retrieval and sharing.  PowerApps provides "connections" to read and write stored data.  Within a connection, you can access multiple tables of information.  You'll select which tables to use in your app, and each will become a separate *data source*.  
+Externe Tabellen werden in einer Datenquelle für späteren Abruf und Freigabe gespeichert.  PowerApps bietet „Verbindungen“ zum Lesen und Schreiben von gespeicherten Daten.  Innerhalb einer Verbindung können Sie auf mehrere Tabellen mit Informationen zugreifen.  Sie wählen aus, welche Tabellen in der App verwendet werden sollen, und aus jeder wird eine separate *Datenquelle*.  
 
-To learn more, [Working with tables](working-with-tables.md) goes into more detail about internal tables, but it is also applicable to external tables residing in a cloud service.
+Wenn Sie mehr erfahren möchten, wird unter [Arbeiten mit Tabellen](working-with-tables.md) ausführlicher auf interne Tabellen eingegangen, aber auch auf externe Tabellen, die sich in einem Clouddienst befinden.
 
-## Working with tables
-You can use table data sources the same way that you use an internal PowerApps table.  Just like an internal table, each data source has [records](working-with-tables.md#records), [columns](working-with-tables.md#columns), and properties that you can use in formulas. In addition:
+## <a name="working-with-tables"></a>Arbeiten mit Tabellen
+Sie können Datenquellen in Form von Tabellen wie eine interne PowerApps-Tabelle verwenden.  Wie eine interne Tabelle weist auch jede Datenquelle [Datensätze](working-with-tables.md#records), [Spalten](working-with-tables.md#columns) und Eigenschaften auf, die Sie in Formeln verwenden können. Weitere Anforderungen:
 
-* The data source has the same column names and data types as the underlying table in the connection.
+* Die Datenquelle weist die gleichen Spaltennamen und Datentypen auf wie die zugrunde liegende Tabelle in der Verbindung.
   
     > [!NOTE]
-  > For SharePoint and Excel data sources that contain column names with spaces, PowerApps will replace the spaces with **"\_x0020\_"**. For example, **"Column Name"** in SharePoint or Excel will appear as **"Column_x0020_Name"** in PowerApps when displayed in the data layout or used in a formula.
-* The data source is loaded from the service automatically when the app is loaded.  You can force the data to refresh by using the **[Refresh](functions/function-refresh.md)** function.
-* As users run an app, they can create, modify, and delete records and push those changes back to the underlying table in the service.
-  * Records can be created with the **[Patch](functions/function-patch.md)** and **[Collect](functions/function-clear-collect-clearcollect.md)** functions.  
-  * Records can be modified with the **[Patch](functions/function-patch.md)**, **[Update](functions/function-update-updateif.md)**, and **[UpdateIf](functions/function-update-updateif.md)** functions.
-  * Records can be removed with the **[Remove](functions/function-remove-removeif.md)** and **[RemoveIf](functions/function-remove-removeif.md)** functions.
-  * Errors when working with a data source are available through the **[Errors](functions/function-errors.md)** function.
-* The **[DataSourceInfo](functions/function-datasourceinfo.md)**, **[Defaults](functions/function-defaults.md)**, and **[Validate](functions/function-validate.md)** functions provide information about the data source that you can use to optimize the user experience.
+  > Bei Excel- oder SharePoint-Datenquellen, die Spaltennamen mit Leerzeichen enthalten, ersetzt PowerApps die Leerzeichen durch **"\_X0020\_"**. **"Name der Spalte"** in SharePoint oder Excel wird beispielsweise in PowerApps bei Anzeige im Datenlayout oder Verwendung in einer Formel als **"Name_x0020_der_x0020_Spalte"** angezeigt.
+* Die Datenquelle wird automatisch vom Dienst geladen, wenn die App geladen wird.  Sie können erzwingen, dass die Daten aktualisiert werden, indem Sie die **[Refresh](functions/function-refresh.md)**-Funktion verwenden.
+* Wenn Benutzer eine App ausführen, können sie Datensätze erstellen, ändern und löschen und diese Änderungen mithilfe von Push an die zugrunde liegende Tabelle im Dienst zurückleiten.
+  * Datensätze können mithilfe der Funktionen **[Patch](functions/function-patch.md)** und **[Collect](functions/function-clear-collect-clearcollect.md)** erstellt werden.  
+  * Datensätze können mithilfe der Funktionen **[Patch](functions/function-patch.md)**, **[Update](functions/function-update-updateif.md)** und **[UpdateIf](functions/function-update-updateif.md)** geändert werden.
+  * Datensätze können mithilfe der Funktionen **[Remove](functions/function-remove-removeif.md)** und **[RemoveIf](functions/function-remove-removeif.md)** entfernt werden.
+  * Fehler, die bei der Arbeit mit einer Datenquelle auftreten, sind über die **[Errors](functions/function-errors.md)**-Funktion verfügbar.
+* Die Funktionen **[DataSourceInfo](functions/function-datasourceinfo.md)**, **[Defaults](functions/function-defaults.md)** und **[Validate](functions/function-validate.md)** bieten Informationen über die Datenquelle, mit denen Sie die Benutzerfreundlichkeit optimieren können.
 
-### Creating data sources
-PowerApps can't be used to create a connected data source, or modify its structure; the data source must already exist in a service somewhere. For example, to create a table in an Excel workbook stored on OneDrive, you first use Excel Online on OneDrive to create a workbook. Next you create a connection to it from your app.  
+### <a name="creating-data-sources"></a>Erstellen von Datenquellen
+PowerApps kann nicht zum Erstellen einer verbundenen Datenquelle oder zum Ändern deren Struktur verwendet werden; die Datenquelle muss bereits in einem Dienst vorhanden sein. Beispielsweise verwenden Sie zum Erstellen einer Tabelle in einer auf OneDrive gespeicherten Excel-Arbeitsmappe zunächst Excel Online auf OneDrive, um eine Arbeitsmappe zu erstellen. Als Nächstes erstellen Sie eine Verbindung zu Ihrer App.  
 
-However, collection data sources *can* be created and modified inside an app, but are only temporary.
+Datenquellen einer Sammlung *können* innerhalb einer App erstellt und geändert werden, sind jedoch nur temporär.
 
-### Display one or more records
-![](media/working-with-data-sources/reading-from-a-datasource.png)
-The diagram above shows the flow of information when an app reads the information in a data source:
+### <a name="display-one-or-more-records"></a>Anzeigen eines oder mehrerer Datensätze
+![](media/working-with-data-sources/reading-from-a-datasource.png) Das obige Diagramm veranschaulicht den Informationsfluss, wenn eine App die Informationen in einer Datenquelle liest:
 
-* The information is stored and shared through a storage service (in this case, a SharePoint list of an Office 365 site).
-* A connection makes this information available to the app.  The connection takes care of authentication of the user to access the information.
-* When the app is started or the **[Refresh](functions/function-refresh.md)** function is pressed, information is drawn from the connection into a data source in the app for local use.
-* Formulas are used to read the information and expose it in controls that the user can see. You can display the records of a data source by using a gallery on a screen and wiring the **[Items](controls/properties-core.md)** property to the data source: **Gallery.Items = DataSource**.  You wire controls within the gallery, to the gallery, using the controls' **[Default](controls/properties-core.md)** property.  
-* The data source is also a table.  So you can use **[Filter](functions/function-filter-lookup.md)**, **[Sort](functions/function-sort.md)**, **[AddColumns](functions/function-table-shaping.md)**, and other functions to refine and augment the data source before using it as a whole.  You can also use the **[Lookup](functions/function-filter-lookup.md)**, **[First](functions/function-first-last.md)**, **[Last](functions/function-first-last.md)**, and other functions to work with individual records.
+* Die Informationen werden gespeichert und über einen Speicherdienst geteilt (in diesem Fall eine SharePoint-Liste einer Office 365-Website).
+* Eine Verbindung stellt diese Informationen der App zur Verfügung.  Die Verbindung übernimmt die Authentifizierung des Benutzers, der auf die Informationen zugreift.
+* Wenn die App gestartet wird oder die **[Refresh](functions/function-refresh.md)**-Funktion gedrückt wird, werden Informationen zur lokalen Verwendung aus der Verbindung in eine Datenquelle in der App geholt.
+* Formeln werden verwendet, um die Informationen zu lesen und sie in Steuerelementen verfügbar zu machen, die der Benutzer sehen kann. Sie können die Datensätze einer Datenquelle anzeigen, indem Sie einen Katalog auf einem Formular verwenden und die **[Items](controls/properties-core.md)**-Eigenschaft mit der Datenquelle verknüpfen: **Gallery.Items = DataSource**.  Sie verknüpfen Steuerelemente innerhalb des Katalogs mit dem Katalog, indem Sie die **[Default](controls/properties-core.md)**-Eigenschaft der Steuerelemente verwenden.  
+* Die Datenquelle ist auch eine Tabelle.  Sie können also **[Filter](functions/function-filter-lookup.md)**, **[Sort](functions/function-sort.md)**, **[AddColumns](functions/function-table-shaping.md)** und andere Funktionen verwenden, um die Datenquelle zu optimieren und zu erweitern, bevor Sie sie als Ganzes verwenden.  Sie können auch **[Lookup](functions/function-filter-lookup.md)**, **[First](functions/function-first-last.md)**, **[Last](functions/function-first-last.md)** und andere Funktionen zur Arbeit mit einzelnen Datensätzen verwenden.
 
-### Modify a record
-In the preceding section, you saw how to read a data source.  Note that the arrows in the diagram above are one way.  Changes to a data source aren't pushed back through the same formulas in which the data was retrieved.  Instead, new formulas are used.  Often a different screen is used for editing a record than for browsing records, especially on a mobile device.
+### <a name="modify-a-record"></a>Ändern eines Datensatzes
+Im vorherigen Abschnitt haben Sie gesehen, wie eine Datenquelle gelesen wird.  Beachten Sie, dass die Pfeile in der Abbildung oben unidirektional sind.  Änderungen an einer Datenquelle werden nicht mithilfe von Push über die gleichen Formeln zurückgeleitet, über die die Daten abgerufen wurden.  Stattdessen werden neue Formeln verwendet.  Häufig wird zum Bearbeiten eines Datensatzes ein anderes Formular als zum Durchsuchen von Datensätzen verwendet, vor allem auf einem mobilen Gerät.
 
-Note that, to modify an existing record of a data source, the record must have originally come from the data source.  The record may have traveled through a gallery, a [context variable](working-with-variables.md#create-a-context-variable), and any number of formulas, but its origin should be traceable back to the data source.  This is important because additional information travels with the record that uniquely identifies it, ensuring that you modify the correct record.    
+Beachten Sie, dass zum Ändern eines vorhandenen Datensatzes einer Datenquelle der Datensatz ursprünglich aus der Datenquelle stammen muss.  Der Datensatz kann durch einen Katalog, eine [Kontextvariable](working-with-variables.md#create-a-context-variable) und eine beliebige Anzahl von Formeln gegangen sein, aber sein Ursprung sollte zur Datenquelle zurückverfolgt werden können.  Dies ist wichtig, da zusätzliche Informationen mit dem Datensatz übertragen werden, durch die er eindeutig identifiziert werden kann, um sicherzustellen, dass Sie den richtigen Datensatz ändern.    
 
-![](media/working-with-data-sources/writing-to-a-datasource.png)
-The diagram above shows the flow of information to update a data source:
+![](media/working-with-data-sources/writing-to-a-datasource.png) Das obige Diagramm zeigt den Informationsfluss zum Aktualisieren einer Datenquelle:
 
-* An **[Edit form](controls/control-form-detail.md)** control provides a container for input cards, which are made up of user input controls such as a text-input control or a slider.  The **[DataSource](controls/control-form-detail.md)** and **[Item](controls/control-form-detail.md)** properties are used to identify the record to edit.
-* Each input card has a **[Default](controls/properties-core.md)** property, which is usually set to the field of the form's **ThisItem** record.  The controls within the input card will then take their input values from **[Default](controls/properties-core.md)**.  Normally you do not need to modify this.
-* Each input card exposes an **[Update](controls/control-card.md)** property.  This property maps the user's input to a specific field of the record for writing back to the data source.  Normally you do not need to modify this.
-* A button or an image control on the screen enables the user to save changes to the record.  The **[OnSelect](controls/properties-core.md)** formula of the control calls the **[SubmitForm](functions/function-form.md)** function to do this work.  **[SubmitForm](functions/function-form.md)** reads all the **[Update](controls/control-card.md)** properties of the cards and uses this to write back to the data source.
-* Sometimes there will be issues.  A network connection may be down, or a validation check is made by the service that the app didn't know about.  The **Error** and **[ErrorKind](controls/control-form-detail.md)** properties of the form control makes this information available, so you can display it to the user.  
+* Ein **[Bearbeitungsformular](controls/control-form-detail.md)**-Steuerelement stellt einen Container für Eingabekarten zur Verfügung, die aus Benutzereingabesteuerelementen wie einem Texteingabefeld oder einem Schieberegler bestehen.  Die Eigenschaften **[DataSource](controls/control-form-detail.md)** und **[Item](controls/control-form-detail.md)** werden verwendet, um den zu bearbeitenden Datensatz zu identifizieren.
+* Jede Eingabekarte verfügt über eine **[Default](controls/properties-core.md)**-Eigenschaft, die in der Regel auf das Feld des **ThisItem**-Datensatzes des Formulars festgelegt wird.  Die Steuerelemente in der Eingabekarte nehmen dann ihre Eingabewerte von **[Default](controls/properties-core.md)**.  Normalerweise müssen Sie diese Option nicht ändern.
+* Jede Eingabekarte macht eine **[Update](controls/control-card.md)**-Eigenschaft verfügbar.  Diese Eigenschaft entspricht der Eingabe des Benutzers in ein bestimmtes Feld des Datensatzes für das Zurückschreiben an die Datenquelle.  Normalerweise müssen Sie diese Option nicht ändern.
+* Eine Schaltfläche oder ein Bildsteuerelement auf dem Formular ermöglichen dem Benutzer, Änderungen am Datensatz zu speichern.  Die **[OnSelect](controls/properties-core.md)**-Formel des Steuerelements ruft die **[SubmitForm](functions/function-form.md)**-Funktion für diese Aufgabe auf.  **[SubmitForm](functions/function-form.md)** liest alle **[Update](controls/control-card.md)**-Eigenschaften der Karten und verwendet diese zum Zurückschreiben an die Datenquelle.
+* In einigen Fällen werden Probleme auftreten.  Eine Netzwerkverbindung ist möglicherweise offline, oder eine Validierungsüberprüfung erfolgt durch einen Dienst, der App nicht bekannt war.  Die Eigenschaften **Error** und **[ErrorKind](controls/control-form-detail.md)** des Formularsteuerelements stellen diese Informationen zur Verfügung, damit Sie dem Benutzer angezeigt werden können.  
 
-For more fine grained control over the process, you can also use the **[Patch](functions/function-patch.md)** and **[Errors](functions/function-errors.md)** function.  The **[Edit form](controls/control-form-detail.md)** control exposes an **[Updates](controls/control-form-detail.md)** property so that you can read the values of the fields within the form.  You can also use this property to call a custom connector on a connection, completely bypassing the **Patch** and **SubmitForm** functions.
+Für eine differenziertere Kontrolle über diesen Prozess können Sie auch die Funktionen **[Patch](functions/function-patch.md)** und **[Errors](functions/function-errors.md)** verwenden.  Das **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelement stellt eine **[Updates](controls/control-form-detail.md)**-Eigenschaft zur Verfügung, damit Sie die Werte der Felder innerhalb des Formulars lesen können.  Sie können diese Eigenschaft auch verwenden, um einen benutzerdefinierten Connector für eine Verbindung aufzurufen, und die Funktionen **Patch** und **SubmitForm** vollständig umgehen.
 
-### Validation
-Before making a change to a record, the app should do what it can to make sure the change will be acceptable.  There are two reasons for this:
+### <a name="validation"></a>Validierung
+Vor einer Änderung an einem Datensatz sollte die App so gut es geht sicherstellen, dass die Änderung akzeptiert wird.  Es gibt zwei Gründe dafür:
 
-* *Immediate feedback to the user*.  The best time to fix a problem is right when it happens, when it is fresh in the user's mind.  Literally with each touch or keystroke, red text can appear that identifies an issue with their entry.
-* *Less network traffic and less user latency*.  More issues detected in the app means fewer conversations over the network to detect and resolve issues.  Each conversation takes time during which the user must wait before they can move on.
+* *Unmittelbares Feedback für den Benutzer*.  Am besten wird ein Problem behoben, wenn es gerade aufgetreten und dem Benutzer noch besonders bewusst ist.  Im Prinzip kann mit jedem Touch oder Tastaturanschlag roter Text angezeigt werden, der ein Problem mit dem Eintrag angibt.
+* *Weniger Netzwerkverkehr und geringere Wartezeit für den Benutzer*.  Je mehr Probleme in der App erkannt werden, desto weniger Konversationen über das Netzwerk sind nötig, um Fehler zu erkennen und zu beheben.  Jede Konversation nimmt Zeit in Anspruch, während der Benutzer warten muss, bevor er den Vorgang fortsetzen kann.
 
-PowerApps offers two tools for validation:
+PowerApps bietet zwei Tools zur Validierung:
 
-* The data source can provide information about what is and isn't valid.  For example, numbers can have minimum and maximum values, and one or more entries can be required.  You can access this information with the **[DataSourceInfo](functions/function-datasourceinfo.md)** function.  
-* The **[Validate](functions/function-validate.md)** function uses this same information to check the value of a single column or of an entire record.
+* Die Datenquelle kann Informationen darüber geben, was gültig ist und was nicht.  Zum Beispiel können Zahlen über Mindest- und Höchstwerte verfügen, und ein oder mehrere Einträge können erforderlich sein.  Sie können auf diese Informationen mit der **[DataSourceInfo](functions/function-datasourceinfo.md)**-Funktion zugreifen.  
+* Die **[Validate](functions/function-validate.md)**-Funktion verwendet dieselben Informationen, um den Wert einer einzelnen Spalte oder eines vollständigen Datensatzes zu überprüfen.
 
-### Error handling
-Great, you've validated your record.  Time to update that record with **[Patch](functions/function-patch.md)**!
+### <a name="error-handling"></a>Fehlerbehandlung
+Hervorragend, Sie haben den Datensatz validiert.  Nun ist es an der Zeit, diesen Datensatz mit **[Patch](functions/function-patch.md)** zu aktualisieren!
 
-But, alas, there may still be a problem.  The network is down, validation at the service failed, or the user doesn't have the right permissions, just to name a few of the possible errors your app may encounter.  It needs to respond appropriately to error situations, providing feedback to the user and a means for them to make it right.  
+Aber leider gibt es möglicherweise noch immer ein Problem.  Das Netzwerk ist ausgefallen, die Validierung am Dienst ist fehlgeschlagen, oder der Benutzer verfügt nicht über die nötigen Berechtigungen, um nur einige der möglichen Fehler zu nennen, die bei Ihrer App auftreten können.  Sie muss angemessen auf Fehlersituationen reagieren und dem Benutzer Feedback und eine Möglichkeit bieten, den Fehler zu beheben.  
 
-When errors occur with a data source, your app automatically records the error information and makes it available through the **[Errors](functions/function-errors.md)** function.  Errors are associated with the records that had the problems.  If the problem is something the user can fix, such as a validation problem, they can resubmit the record, and the errors will be cleared.
+Wenn Fehler mit einer Datenquelle auftreten, zeichnet die App die Fehlerinformationen automatisch auf und stellt sie über die **[Errors](functions/function-errors.md)**-Funktion zur Verfügung.  Fehler werden den Datensätzen zugeordnet, bei denen die Probleme aufgetreten sind.  Wenn der Benutzer ein Problem selbst beheben kann wie z.B. ein Validierungsproblem, kann er den Datensatz erneut übermitteln, und die Fehler werden gelöscht.
 
-If an error occurs when a record is created with **[Patch](functions/function-patch.md)** or **[Collect](functions/function-clear-collect-clearcollect.md)**, there is no record to associate any errors with.  In this case, *blank* will be returned by **[Patch](functions/function-patch.md)** and can be used as the record argument to **[Errors](functions/function-errors.md)**.  Creation errors are cleared with the next operation.
+Wenn ein Fehler bei der Erstellung eines Datensatzes mit **[Patch](functions/function-patch.md)** oder **[Collect](functions/function-clear-collect-clearcollect.md)** auftritt, gibt es keinen Datensatz, dem Fehler zugeordnet werden können.  In diesem Fall wird von **[Patch](functions/function-patch.md)** *leer* zurückgegeben, das als Datensatzargument für **[Errors](functions/function-errors.md)** verwendet werden kann.  Erstellungsfehler werden mit dem nächsten Vorgang gelöscht.
 
-The **[Errors](functions/function-errors.md)** function returns a table of error information.  This information can include the column information, if the error can be attributed to a particular column.  Use column-level error messages in label controls that are close to where the column is located on the edit screen.  Use record-level error messages where the **Column** in the error table is *blank*, in a location close to the **Save** button for the entire record.  
+Die **[Errors](functions/function-errors.md)**-Funktion gibt eine Tabelle mit Fehlerinformationen zurück.  Diese Informationen können die Spalteninformationen enthalten, wenn der Fehler einer bestimmten Spalte zugeordnet werden kann.  Verwenden Sie Fehlermeldungen auf Spaltenebene in Bezeichnungssteuerelementen, die sich in der Nähe der Spalte auf der Bearbeitungsansicht befinden.  Verwenden Sie Fehlermeldungen auf Datensatzebene, bei denen die **Spalte** in der Fehlertabelle *leer* ist, in der Nähe der Schaltfläche **Save** (Speichern) für den gesamten Datensatz.  
 
-### Working with large data sources
-When you are creating reports from large data sources (perhaps millions of records), you want to minimize network traffic. Let's say you want to report on all Customers having a StatusCode of "Platinum" in New York City. And that your Customers table contains millions of records.
+### <a name="working-with-large-data-sources"></a>Arbeiten mit großen Datenquellen
+Beim Erstellen von Berichten aus großen Datenquellen (z.B. Millionen von Datensätzen) möchten Sie den Netzwerkverkehr minimieren. Nehmen wir an, dass Sie über alle Kunden mit StatusCode „Platinum“ (Platin) in New York City Berichte erstellen möchten und dass die Customers-Tabelle (Kunden) Millionen von Datensätzen enthält.
 
-You do **not** want to bring those millions of Customers into your app, and then choose the ones you want. What you want is to have that choosing happen inside the cloud service where your table is stored, and only send the chosen records over the network.
+Sie möchten **nicht** diese Millionen von Kunden in Ihre App überführen, sondern die gewünschten auswählen. Sie möchten, dass diese Auswahl in Ihrem Clouddienst erfolgt, in dem die Tabelle gespeichert ist, und Sie nur die ausgewählten Datensätze über das Netzwerk senden.
 
-Many, but not all, functions that you can use to choose records can be *delegated*, which means that they are run inside the cloud service. You can learn how to do this by reading about [Delegation](delegation-overview.md).
+Viele, aber nicht alle Funktionen, die Sie zur Auswahl der Datensätze verwenden können, können *delegiert* werden, d.h. dass sie im Clouddienst ausgeführt werden. Wie Sie dies tun können, erfahren Sie unter [Delegation (Delegierung)](delegation-overview.md).
 
-## Collections
-Collections are a special kind of data source.  They're local to the app and not backed by a connection to a service in the cloud, so the information can not be shared across devices for the same user or between users.  They operate like any other data source, with a few exceptions:
+## <a name="collections"></a>Sammlungen
+Sammlungen sind eine besondere Art von Datenquelle.  Sie sind für die App lokal und werden nicht über eine Verbindung mit einem Dienst in der Cloud gesichert, sodass die Informationen nicht auf Geräten für den gleichen oder andere Benutzer freigegeben werden können.  Sie funktionieren mit wenigen Ausnahmen wie jede andere Datenquelle:
 
-* Collections can be created dynamically with the **[Collect](functions/function-clear-collect-clearcollect.md)** function.  They don't need to be established ahead of time, as connection-based data sources do.
-* The columns of a collection can be modified at any time using the **[Collect](functions/function-clear-collect-clearcollect.md)** function.
-* Collections allow duplicate records.  More than one copy of the same record can exist in a collection.  Functions such as **[Remove](functions/function-remove-removeif.md)** will operate on the first match they find, unless the **All** argument is supplied.
-* You can use the **[SaveData](functions/function-savedata-loaddata.md)** and **[LoadData](functions/function-savedata-loaddata.md)** functions to save and reload a copy of the collection.  The information is stored in a private location that other users, apps, or devices can't access.
-* You can use the **[Export](controls/control-export-import.md)** and **[Import](controls/control-export-import.md)** controls to save and reload a copy of the collection to a file that the user can interact with.  
+* Sammlungen können mit der **[Collect](functions/function-clear-collect-clearcollect.md)**-Funktion dynamisch erstellt werden.  Sie müssen im Gegensatz zu verbindungsbasierten Datenquellen nicht im Voraus erstellt werden.
+* Die Spalten einer Sammlung können jederzeit mit der **[Collect](functions/function-clear-collect-clearcollect.md)**-Funktion geändert werden.
+* Sammlungen lassen doppelte Datensätze zu.  Mehr als eine Kopie desselben Datensatzes kann in einer Sammlung vorhanden sein.  Funktionen wie **[Remove](functions/function-remove-removeif.md)** verarbeiten die erste Übereinstimmung, die sie finden, es sei denn, das **All**-Argument wird angegeben.
+* Sie können die Funktionen **[SaveData](functions/function-savedata-loaddata.md)** und **[LoadData](functions/function-savedata-loaddata.md)** zum Speichern und erneuten Laden einer Kopie der Sammlung verwenden.  Die Informationen werden an einem privaten Speicherort gespeichert, auf den andere Benutzer, Apps oder Geräte nicht zugreifen können.
+* Sie können die Steuerelemente **[Export](controls/control-export-import.md)** und **[Import](controls/control-export-import.md)** zum Speichern und erneuten Laden eine Kopie der Sammlung in eine Datei verwenden, mit der der Benutzer interagieren kann.  
 
-For more information on working with a collection as a data source, see [create and update a collection](create-update-collection.md).
+Weitere Informationen zum Arbeiten mit einer Sammlung als Datenquelle finden Sie unter [Create and update a collection (Erstellen und Aktualisieren einer Sammlung)](create-update-collection.md).
 
-Collections are commonly used to hold global state for the app.  See [working with variables](working-with-variables.md) for the options available for managing state.
+Sammlungen werden häufig verwendet, um den globalen Zustand für die App zu speichern.  Weitere Informationen zu den verfügbaren Optionen zum Verwalten des Zustands finden Sie unter [Working with variables (Arbeiten mit Variablen)](working-with-variables.md).
 

@@ -1,59 +1,65 @@
 ---
-title: Show details about the current user in a canvas app | Microsoft Docs
-description: In PowerApps, display the name and email address of the signed-in user in a canvas app
-author: gregli-msft
+title: Anzeigen von Details zum aktuellen Benutzer in einer Canvas-App | Microsoft-Dokumentation
+description: Anzeigen des Namens und der E-Mail-Adresse des angemeldeten Benutzers in einer Canvas-App in PowerApps
+author: lonu
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/16/2016
-ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: lonu
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: ef38ef00ed72eb59b459d3e9b71a6efbb6568d6b
+ms.sourcegitcommit: c1f58a16f8dcd309a1d5fc4658ca16d82c615994
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "42833971"
 ---
-# Show information about a PowerApps user in a canvas app
+# <a name="show-information-about-a-powerapps-user-in-a-canvas-app"></a>Anzeigen von Informationen zu einem PowerApps-Benutzer in einer Canvas-App
 
-In PowerApps, show the full name, the email address, and the picture that's associated with the user who's signed in to a canvas app. You can use this information, for example, to automatically fill in a form.
+Zeigen Sie den vollständigen Namen, die E-Mail-Adresse und das zugeordnete Bild des Benutzers, der bei einer Canvas-App angemeldet ist, in PowerApps an. Sie können diese Informationen verwenden, um beispielsweise ein Formular automatisch auszufüllen.
 
-For example, you can use this feature to:
+Beispielsweise können Sie dieses Feature folgendermaßen einsetzen:
 
-* Create a sign-up "sheet" for users to attend training, volunteer for events, check in at a kiosk, and more.
-* Display the full name on a Human Resources app.
-* Automatically enter an email address when contacting your helpdesk.
+* Erstellen Sie für die Benutzer ein „Anmeldeformular“ zur Teilnahme an Trainings und Events, zum Einchecken bei einem Kioskcomputer usw.
+* Zeigen Sie den vollständigen Namen in einer Personalverwaltungs-App an.
+* Fügen Sie automatisch eine E-Mail-Adresse ein, wenn Sie sich an Ihren Helpdesk wenden.
 
-Basically, you can use this anywhere users would benefit from a form or labels that are populated automatically
+Grundsätzlich können Sie diese Funktion immer dann einsetzen, wenn Benutzer davon profitieren, dass Formulare oder Bezeichnungen automatisch ausgefüllt werden.
 
 [!INCLUDE [app-customization-requirements](../../includes/app-customization-requirements.md)]
 
-## Show user details
+## <a name="show-user-details"></a>Anzeigen von Benutzerdetails
 
-1. On the **Insert** tab, click or tap **Media**, and then click or tap **Image**.
+1. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Medien** und anschließend auf **Bild**.
    
    ![][2]
-2. Set the **[Image](controls/properties-visual.md)** property to this formula:
+2. Legen Sie die Eigenschaft **[Image](controls/properties-visual.md)** auf die folgende Formel fest:
    <br>**User().Image**
    
     ![][3]
-3. On the **Insert** tab, click or tap **Text**, and then click or tap **Label**:  
+3. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Text** und anschließend auf **Bezeichnung**:  
    
     ![][4]
-4. Set the **[Text](controls/properties-core.md)** property to this formula:
+4. Legen Sie die **[Text](controls/properties-core.md)**-Eigenschaft auf diese Formel fest:
    <br>**User().FullName**
    
    ![][6]
    
-   When you do this, the label is automatically populated with your full name. Move the label so it's below the image control, similar to the following:
+   Wenn Sie dies tun, wird die Bezeichnung automatisch mit Ihrem vollständigen Namen aufgefüllt. Verschieben Sie die Bezeichnung, sodass sie sich unterhalb des Bildsteuerelements befindet, ähnlich wie hier gezeigt:
    
    ![][5]
-5. Add another label, and set its **[Text](controls/properties-core.md)** property to this formula:
+5. Fügen Sie eine Bezeichnung hinzu, und legen Sie deren Eigenschaft **[Text](controls/properties-core.md)** auf diese Funktion fest:
    <br>**User().Email**  
    
     ![][8]
    
-    When you do this, the label is automatically populated with your email address. Move the label so it's below the first label, similar to the following:  
+    Hierdurch wird die Bezeichnung automatisch mit Ihrer E-Mail-Adresse aufgefüllt. Verschieben Sie die Bezeichnung, sodass sie unterhalb der ersten Bezeichnung angezeigt wird, ähnlich wie hier dargestellt:  
    
     ![][7]
 

@@ -1,6 +1,6 @@
 ---
-title: GroupBy and Ungroup functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the GroupBy and Ungroup functions in PowerApps
+title: Funktionen „GroupBy“ und „Ungroup“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktionen „GroupBy“ und „Ungroup“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,141 +9,134 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/26/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 0ac3f0549e89153d9362d6a8a040833608d4e287
+ms.sourcegitcommit: 2300de0a0486187762f830068c872116d5b04c32
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49806200"
 ---
-# GroupBy and Ungroup functions in PowerApps
-Groups and ungroups [records](../working-with-tables.md#records) of a [table](../working-with-tables.md).
+# <a name="groupby-and-ungroup-functions-in-powerapps"></a>GroupBy- und Ungroup-Funktionen in PowerApps
+Gruppiert und hebt die Gruppierung von [Datensätzen](../working-with-tables.md#records) in einer [Tabelle](../working-with-tables.md) auf.
 
-## Description
-The **GroupBy** function returns a table with records grouped together based on the values in one or more [columns](../working-with-tables.md#columns). Records in the same group are placed into a single record, with a column added that holds a nested table of the remaining columns.   
+## <a name="description"></a>Beschreibung
+Die **GroupBy**-Funktion gibt eine Tabelle mit Datensätzen zurück, die auf der Basis der Werte in einer oder mehreren [Spalten](../working-with-tables.md#columns) gruppiert sind. Datensätze in der gleichen Gruppe werden in einem einzelnen Datensatz platziert. Dabei wird eine Spalte hinzugefügt, die eine geschachtelte Tabelle der übrigen Spalten enthält.   
 
-The **Ungroup** function reverses the **GroupBy** process. This function returns a table, breaking into separate records any records that were grouped together.
+Die **Ungroup**-Funktion kehrt den **GroupBy**-Prozess um. Diese Funktion gibt eine Tabelle zurück, die die zuvor gruppierten Datensätze in einzelne Datensätze aufteilt.
 
-You can group records by using **GroupBy**, modify the table that it returns, and then ungroup records in the modified table by using **Ungroup**. For example, you can remove a group of records by following this approach:
+Sie können Datensätze mithilfe der Funktion **GroupBy** gruppieren. Ändern Sie die Tabelle, die zurückgegeben wird, und heben Sie anschließend die Gruppierung der Datensätze in der geänderten Tabelle über die Funktion **Ungroup** wieder auf. Beispielsweise können Sie eine Gruppe von Datensätzen entfernen, indem Sie diesem Ansatz folgen:
 
-* Use the **GroupBy** function.
-* Use the **[Filter](function-filter-lookup.md)** function to remove the entire group of records.
-* Use the **Ungroup** function.  
+* Verwenden Sie die **GroupBy**-Funktion.
+* Verwenden Sie die  **[Filter](function-filter-lookup.md)**-Funktion, um die gesamte Gruppe von Datensätzen zu entfernen.
+* Verwenden Sie die **Ungroup**-Funktion.  
 
-You can also aggregate results based on a grouping:
+Sie können Ergebnisse auch aufgrund einer Gruppierung aggregieren:
 
-* Use the **GroupBy** function.
-* Use the **[AddColumns](function-table-shaping.md)** function with **[Sum](function-aggregates.md)**, **[Average](function-aggregates.md)**, and other aggregate functions to add a new column which is an aggregate of the group tables.
-* Use the **[DropColumns](function-table-shaping.md)** function to drop the group table.
+* Verwenden Sie die **GroupBy**-Funktion.
+* Verwenden Sie die **[AddColumns](function-table-shaping.md)**-Funktion mit **[Sum](function-aggregates.md)**, **[Average](function-aggregates.md)** und andere Aggregatfunktionen, um eine neue Spalte hinzufügen, die ein Aggregat der Gruppentabellen darstellt.
+* Verwenden Sie die **[DropColumns](function-table-shaping.md)**-Funktion, um die Gruppentabelle zu löschen.
 
-**Ungroup** tries to preserve the original order of the records that were fed to **GroupBy**.  This isn't always possible (for example, if the original table contains *blank* records).
+**Ungroup** versucht, die ursprüngliche Reihenfolge der Datensätze zu erhalten, die von **GroupBy** eingelesen wurden.  Dies ist nicht immer möglich (z.B. wenn die ursprüngliche Tabelle *leere* Datensätze enthält).
 
-A table is a value in PowerApps, just like a string or a number. You can specify a table as an argument for a function, and a function can return a table. **GroupBy** and **Ungroup** don't modify a table; instead they take a table as an argument and return a different table. See [working with tables](../working-with-tables.md) for more details.
+Tabellen stellen in PowerApps einen Wert dar, genau wie Zeichenfolgen oder Zahlen. Sie können eine Tabelle als Argument für eine Funktion angeben, und eine Funktion kann eine Tabelle zurückgeben. **GroupBy** und **Ungroup** führen nicht zur Änderung einer Tabelle; stattdessen verwenden sie die Tabelle als Argument und geben eine andere Tabelle zurück. Weitere Details erfahren Sie unter [Arbeiten mit Tabellen](../working-with-tables.md).
 
-## Syntax
-**GroupBy**( *Table*, *ColumnName1* [, *ColumnName2*, ... ], *GroupColumnName* )
+## <a name="syntax"></a>Syntax
+**GroupBy**( *Tabelle*, *SpaltenName1* [, *SpaltenName2*, ... ], *GruppenSpaltenName* )
 
-* *Table* - Required. Table to be grouped.
-* *ColumnName(s)* - Required.  The column names in *Table* by which to group records.  These columns become columns in the resulting table.
-* *GroupColumnName* - Required.  The column name for the storage of record data not in the *ColumnName(s)*.
+* *Tabelle* (erforderlich): Zu gruppierende Tabelle.
+* *ColumnName(s)*: erforderlich.  Die Spaltennamen der *Tabelle* für die Gruppierung der Datensätze.  Diese Spalten werden in der Ergebnistabelle zu Spalten.
+* *GruppenSpaltenName*: erforderlich.  Der Spaltenname für die Speicherung von Datensatzdaten, die nicht in *SpaltenName(n)* enthalten sind.
   
     > [!NOTE]
-  > For SharePoint and Excel data sources that contain column names with spaces, specify each space as **"\_x0020\_"**. For example, specify **"Column Name"** as **"Column_x0020_Name"**.
+  > Bei Excel- oder SharePoint-Datenquellen, die Spaltennamen mit Leerzeichen enthalten, geben Sie jedes Leerzeichen als **"\_x0020\_"** an. **"Name der Spalte"** wird z.B. als **"Name_x0020_der_x0020_Spalte"** angegeben.
 
-**Ungroup**( *Table*, *GroupColumnName* )
+**Ungroup**( *Tabelle*, *GruppenSpaltenName* )
 
-* *Table* - Required. Table to be ungrouped.
-* *GroupColumnName* - Required. The column that contains the record data setup with the **GroupBy** function.
+* *Tabelle* (erforderlich): Tabelle, deren Gruppierung aufgehoben werden soll.
+* *GruppenSpaltenName*: erforderlich. Die Spalte mit dem Datensatzdaten-Setup mit der **GroupBy**-Funktion.
   
     > [!NOTE]
-  > For SharePoint and Excel data sources that contain column names with spaces, specify each space as **"\_x0020\_"**. For example, specify **"Column Name"** as **"Column_x0020_Name"**.
+  > Bei Excel- oder SharePoint-Datenquellen, die Spaltennamen mit Leerzeichen enthalten, geben Sie jedes Leerzeichen als **"\_x0020\_"** an. **"Name der Spalte"** wird z.B. als **"Name_x0020_der_x0020_Spalte"** angegeben.
 
-## Examples
-### Create a collection
-1. Add a button, and set its **[Text](../controls/properties-core.md)** property so that the button shows **Original**.
-2. Set the **[OnSelect](../controls/properties-core.md)** property of the **Original** button to this formula:
-
-```powerapps-dot   
-ClearCollect( CityPopulations, 
-    { City: "London",    Country: "United Kingdom", Population: 8615000}, 
-    { City: "Berlin",    Country: "Germany",        Population: 3562000}, 
-    { City: "Madrid",    Country: "Spain",          Population: 3165000}, 
-    { City: "Rome",      Country: "Italy",          Population: 2874000}, 
-    { City: "Paris",     Country: "France",         Population: 2273000}, 
-    { City: "Hamburg",   Country: "Germany",        Population: 1760000}, 
-    { City: "Barcelona", Country: "Spain",          Population: 1602000}, 
-    { City: "Munich",    Country: "Germany",        Population: 1494000}, 
-    { City: "Milan",     Country: "Italy",          Population: 1344000}
-)
-```
-
-3. While holding down the Alt key, select the **Original** button.
+## <a name="examples"></a>Beispiele
+### <a name="create-a-collection"></a>Sammlung erstellen
+1. Fügen Sie eine Schaltfläche hinzu, und legen Sie Ihre **[Text](../controls/properties-core.md)**-Eigenschaft so fest, dass die Schaltfläche **Original** anzeigt.
+2. Legen Sie die Eigenschaft **[OnSelect](../controls/properties-core.md)** der Schaltfläche **Original**auf diese Formel fest:
    
-    You just created a [collection](../working-with-data-sources.md#collections), named **CityPopulations**, that contains this data:
+    **ClearCollect(CityPopulations, {City:"London", Country:"United Kingdom", Population:8615000}, {City:"Berlin", Country:"Germany", Population:3562000}, {City:"Madrid", Country:"Spain", Population:3165000}, {City:"Rome", Country:"Italy", Population:2874000}, {City:"Paris", Country:"France", Population:2273000}, {City:"Hamburg", Country:"Germany", Population:1760000}, {City:"Barcelona", Country:"Spain", Population:1602000}, {City:"Munich", Country:"Germany", Population:1494000}, {City:"Milan", Country:"Italy", Population:1344000})**
+3. Halten Sie die ALT-TASTE gedrückt, und klicken Sie auf die Schaltfläche **Ursprünglich**.
+   
+    Sie haben jetzt eine [Sammlung](../working-with-data-sources.md#collections) mit dem Namen **CityPopulations** erstellt, die die folgenden Daten enthält:
    
     ![](media/function-groupby/cities.png)
-4. To display this collection, select **Collections** on the **File** menu and then select the **CityPopulations** collection.  The first five records in the collection appear:
+4. Um diese Sammlung anzuzeigen, wählen Sie im Menü **Datei** die Option **Sammlungen** und anschließend die Sammlung **CityPopulations** aus.  Die ersten fünf Datensätze in der Sammlung werden angezeigt:
    
     ![](media/function-groupby/citypopulations-collection.png)
 
-### Group records
-1. Add another button, and set its **[Text](../controls/properties-core.md)** property to **"Group"**.
-2. Set the **[OnSelect](../controls/properties-core.md)** property of this button to this formula:
+### <a name="group-records"></a>Gruppieren von Datensätzen
+1. Fügen Sie eine andere Schaltfläche hinzu, und legen Sie deren  **[Text](../controls/properties-core.md)**-Eigenschaft auf**Group** fest.
+2. Legen Sie die Eigenschaft **[OnSelect](../controls/properties-core.md)** der Schaltfläche auf diese Formel fest:
    
     **ClearCollect( CitiesByCountry, GroupBy( CityPopulations, "Country", "Cities" ) )**
-3. While holding down the Alt key, select the **Group** button.
+3. Halten Sie die ALT-TASTE gedrückt, und klicken Sie auf die Schaltfläche **Gruppe**.
    
-    You just created a collection, named **CitiesByCountry**, in which the records of the previous collection are grouped by the **Country** column.
+    Sie haben jetzt eine Sammlung mit dem Namen **CitiesByCountry** erstellt, in der die Datensätze der vorherigen Sammlung mithilfe der Spalte **Country** gruppiert werden.
    
     ![](media/function-groupby/cities-grouped.png)
-4. To display the first five records in this collection, select **Collections** on the **File** menu.
+4. Um die ersten fünf Datensätze in dieser Sammlung anzuzeigen, wählen Sie im Menü **Datei** die Option **Sammlungen** aus.
    
     ![](media/function-groupby/citiesbycountry-collection.png)
-5. To display the populations of cities in a country, select the table icon in the **Cities** column for that country (for example, Germany):
+5. Zum Anzeigen der Einwohnerzahlen der Städte in einem Land wählen Sie das Tabellensymbol in der Spalte **Cities** für dieses Land aus (z.B. Germany):
    
     ![](media/function-groupby/population-germany.png)
 
-### Filter and ungroup records
-1. Add another button, and set its **[Text](../controls/properties-core.md)** property so that the button shows **"Filter"**.
-2. Set the **[OnSelect](../controls/properties-core.md)** property of this button to this formula:
+### <a name="filter-and-ungroup-records"></a>Filtern und Aufheben der Gruppierung von Datensätzen
+1. Fügen Sie eine andere Schaltfläche hinzu, und legen Sie deren **[Text](../controls/properties-core.md)**-Eigenschaft so fest, dass die Schaltfläche **„Filter“** anzeigt.
+2. Legen Sie die Eigenschaft **[OnSelect](../controls/properties-core.md)** der Schaltfläche auf diese Formel fest:
    
     **ClearCollect( CitiesByCountryFiltered, Filter( CitiesByCountry, "e" in Country ) )**
-3. While holding down the Alt key, select the button that you added.
+3. Halten Sie die ALT-TASTE gedrückt, und klicken Sie auf die Schaltfläche, die Sie hinzugefügt haben.
    
-    You just created a third collection, named **CitiesByCountryFiltered**, that includes only those countries that have an "e" in their names (that is, not Spain or Italy).
+    Sie haben jetzt eine dritte Sammlung mit dem Namen **CitiesByCountryFiltered** erstellt, die nur Länder mit einem „e“ im Namen enthält, d h. nicht „Spain“ oder „Italy“.
    
     ![](media/function-groupby/cities-grouped-hase.png)
-4. Add one more button, and set its **[Text](../controls/properties-core.md)** property so that the button shows **"Ungroup"**.
-5. Set the **[OnSelect](../controls/properties-core.md)** property of this button to this formula:
+4. Fügen Sie eine weitere Schaltfläche hinzu, und legen Sie deren **[Text](../controls/properties-core.md)**-Eigenschaft so fest, dass die Schaltfläche **„Ungroup “** anzeigt.
+5. Legen Sie die Eigenschaft **[OnSelect](../controls/properties-core.md)** der Schaltfläche auf diese Formel fest:
    
     **ClearCollect( CityPopulationsUngrouped, Ungroup( CitiesByCountryFiltered, "Cities" ) )**
    
-    Which results in:
+    Dies führt zu folgendem Ergebnis:
    
     ![](media/function-groupby/cities-hase.png)
 
-### Aggregate results
-Something else we can do with a grouped table is to aggregate the results.  In this example, we will sum the population of the major cities in each country.
+### <a name="aggregate-results"></a>Aggregieren von Ergebnissen
+Mit einer gruppierten Tabelle lassen sich außerdem Ergebnisse aggregieren.  In diesem Beispiel addieren wir die Einwohnerzahlen der größten Städte jedes Landes zusammen.
 
-1. Add another button, and set its **[Text](../controls/properties-core.md)** property so that the button shows **"Sum"**.
-2. Set the **[OnSelect](../controls/properties-core.md)** property of the **"Sum"** button to this formula:
+1. Fügen Sie eine andere Schaltfläche hinzu, und legen Sie deren **[Text](../controls/properties-core.md)**-Eigenschaft so fest, dass die Schaltfläche **„Sum“** anzeigt.
+2. Legen Sie die Eigenschaft **[OnSelect](../controls/properties-core.md)** der Schaltfläche **„Sum“** auf diese Formel fest:
    
     **ClearCollect( CityPopulationsSum, AddColumns( CitiesByCountry, "Sum of City Populations", Sum( Cities, Population ) ) )**
    
-    Which results in:
+    Dies führt zu folgendem Ergebnis:
    
     ![](media/function-groupby/cities-sum.png)
    
-    **[AddColumns](function-table-shaping.md)** starts with the base **CitiesByCountry** collection and adds a new column **Sum of City Populations**.  This column's values are calculated row-by-row, based on the formula **Sum( Cities, Population )**.  **AddColumns** provides the value of the **Cities** column (a table) for each row, and **[Sum](function-aggregates.md)** adds up the **Population** for each row of this sub table.
+    **[AddColumns](function-table-shaping.md)**  beginnt mit der grundlegenden Sammlung **CitiesByCountry** und fügt eine neue Spalte **Sum of City Populations** hinzu.  Die Werte dieser Spalte werden zeilenweise auf der Basis der Formel **Sum ( Cities, Population)** berechnet.  **AddColumns** stellt den Wert der Spalte **Cities** (eine Tabelle) für jede Zeile, und  **[Sum](function-aggregates.md)** addiert die Zahlen unter **Population** für jede Zeile dieser untergeordneten Tabelle.
 
-    Now that we have the sum that we want, we can use **[DropColumns](function-table-shaping.md)** to remove the sub tables.
+    Wir haben jetzt die gewünschte Summe berechnet und können **[DropColumns](function-table-shaping.md)** verwenden, um die untergeordneten Tabellen zu entfernen.
   
-3. Add another button, and set its **[Text](../controls/properties-core.md)** property so that the button shows **"SumOnly"**.
-4. Set the **[OnSelect](../controls/properties-core.md)** property of the **"SumOnly"** button to this formula:
+3. Fügen Sie eine andere Schaltfläche hinzu, und legen Sie deren **[Text](../controls/properties-core.md)**-Eigenschaft so fest, dass die Schaltfläche **"SumOnly"** anzeigt.
+4. Legen Sie die Eigenschaft **[OnSelect](../controls/properties-core.md)** der Schaltfläche **"Sum"** auf diese Formel fest:
 
     **ClearCollect( CityPopulationsSumOnly, DropColumns( CityPopulationsSum, "Cities" ) )**
    
-    Which results in:
+    Dies führt zu folgendem Ergebnis:
    
     ![](media/function-groupby/cities-sum-drop-cities.png)
    
-    Note that we didn't need to ungroup this table.
+    Beachten Sie, dass wir die Gruppierung dieser Tabelle nicht aufheben mussten.
 

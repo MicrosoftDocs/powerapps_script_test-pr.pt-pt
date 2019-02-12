@@ -1,6 +1,6 @@
 ---
-title: 'Data table control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Data table control
+title: 'Datentabellen-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, über das Datentabellen-Steuerelement
 author: jasongre
 manager: kvivek
 ms.service: powerapps
@@ -9,146 +9,152 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 06/05/2017
 ms.author: jasongre
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: fb7c2ac88c24197d014ebdc1b2b6a50e4802e0bf
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42846772"
 ---
-# Data table control in PowerApps
-Shows a set of data in a tabular format.
+# <a name="data-table-control-in-powerapps"></a>Datentabellen-Steuerelement in PowerApps
+Dient zum Anzeigen eines Satzes von Daten im Tabellenformat.
 
-## Description
-The **Data table** control shows a dataset in a format that includes column headers for each field that the control shows. As an app maker, you have full control over which fields appear and in what order. Like the **Gallery** control, the **Data table** control maintains a **Selected** property that points to the selected row. Therefore, you can link the **Data table** control to other controls.
+## <a name="description"></a>Beschreibung
+Das **Datentabellen**-Steuerelement zeigt ein Dataset in einem Format an, das Spaltenheader für jedes vom Steuerelement dargestellte Feld enthält. Als Ersteller einer App haben Sie die volle Kontrolle darüber, welche Felder in welcher Reihenfolge angezeigt werden. Wie das **Katalog**-Steuerelement weist das **Datentabellen**-Steuerelement die Eigenschaft **Selected** auf, die auf die ausgewählte Zeile zeigt. Daher kann das **Datentabelle**-Steuerelement mit anderen Steuerelementen verknüpft werden.
 
-## Capabilities
-PowerApps introduced the **Data table** control on May 5, 2017. This section provides information about capabilities that are supported and capabilities that aren't supported.
+## <a name="capabilities"></a>Funktionen
+Das **Datentabellen**-Steuerelement wurde am 5. Mai 2017 in PowerApps eingeführt. Dieser Abschnitt bietet Informationen zu unterstützten und nicht unterstützten Funktionen.
 
-### Now available
-* Data in a **Data table** control is read-only.
-* A single row is always selected in a **Data table** control.
-* Link a **Data table** control to a connected or local data source.
-* Adjust column widths in a **Data table** control while you run the app, though your changes aren't saved.
-* A set of default fields appear in a **Data table** control when you link it to a connector that has implemented this capability, such as the Common Data Service. You can then show or hide these fields and others as necessary.
-* Customize column width and heading text.
-* Show hyperlinks in a **Data table** control.
-* Copy and paste a **Data table** control.
+### <a name="now-available"></a>Jetzt verfügbar
+* Daten in einem **Datentabellen**-Steuerelement sind schreibgeschützt.
+* In einem **Datentabellen**-Steuerelement wird stets eine einzelne Zeile ausgewählt.
+* Verknüpfen Sie ein **Datentabellen**-Steuerelement mit einer verbundenen oder lokalen Datenquelle.
+* Passen Sie Spaltenbreiten in einem **Datentabellen**-Steuerelement an, während Sie die App ausführen. Allerdings werden Ihre Änderungen nicht gespeichert.
+* In einem **Datentabellen**-Steuerelement wird eine Gruppe von Standardfeldern angezeigt, wenn Sie es mit einem Connector verknüpfen, in den diese Funktion implementiert ist, wie z.B. Common Data Service. Sie können dann diese und andere Felder nach Bedarf ein- und ausblenden.
+* Anpassen von Spaltenbreite und Überschriftentext.
+* Anzeigen von Links in einem **Datentabellen**-Steuerelement.
+* Kopieren und Einfügen eines **Datentabellen**-Steuerelements.
 
-### Not yet available
-* Customize the styling of individual columns.
-* Add a **Data table** control in a form control.
-* Change the height of all rows.
-* Show images in a **Data table** control.
-* Show fields from related entities.
-* Use built-in functionality to filter and sort data by column heading.
-* Add a **Data table** control in a **Gallery** control.
-* Edit data in the **Data table** control.
-* Select multiple rows.
+### <a name="not-yet-available"></a>Noch nicht verfügbar
+* Anpassen des Formats einzelner Spalten.
+* Hinzufügen eines **Datentabellen**-Steuerelements in einem Formularsteuerelement.
+* Ändern der Höhe aller Zeilen.
+* Anzeigen von Bildern in einem **Datentabellen**-Steuerelement.
+* Anzeigen von Feldern aus verwandten Entitäten.
+* Verwenden integrierter Funktionen zum Filtern und Sortieren von Daten nach Spaltenüberschrift.
+* Hinzufügen eines **Datentabellen**-Steuerelements zu einem **Katalog**-Steuerelement.
+* Bearbeiten von Daten im **Datentabellen**-Steuerelement.
+* Auswählen mehrerer Zeilen.
 
-### Known issues
-* No data appears if you use the **FirstN** function in the **Items** property.
+### <a name="known-issues"></a>Bekannte Probleme
+* Es werden keine Daten angezeigt, wenn Sie die **FirstN**-Funktion in der **Items**-Eigenschaft verwenden.
 
-## Key properties
-* [**Items**](properties-core.md) – The source of data that appears in the **Data table** control.
-* **Selected** – The selected row in the **Data table** control.
+## <a name="key-properties"></a>Haupteigenschaften
+* [**Items**](properties-core.md): Quelle der Daten, die im **Datentabellen**-Steuerelement angezeigt werden.
+* **Selected**: die im **Datentabellen**-Steuerelement ausgewählte Zeile.
 
-## Other properties
-* [**BorderColor**](properties-color-border.md) – The color of the **Data table** control's border.
-* [**BorderStyle**](properties-color-border.md) – The style of the **Data table** control's border. The options are **Solid**, **Dashed**, **Dotted**, and **None**.
-* [**BorderThickness**](properties-color-border.md) – The thickness of the **Data table** control's border.
-* [**Color**](properties-color-border.md) – The default text color for all data rows.
-* [**Fill**](properties-color-border.md) – The default background color for all data rows.
-* [**Font**](properties-text.md) - The default font for all data rows.
-* [**FontWeight**](properties-text.md) – The default font weight for all data rows.
-* **HeadingColor** – The text color for the column headings.
-* **HeadingFill** – The background color of the column headings.
-* **HeadingFont** – The font of the column headings.
-* **HeadingFontWeight** – The font weight of the column headings.
-* **HeadingSize** – The font size of the column headings.
-* [**Height**](properties-size-location.md) – The distance between the **Data table** control's top and bottom edges.
-* [**HoverColor**](properties-color-border.md) – The text color for the row that the mouse pointer is pointing at.
-* [**HoverFill**](properties-color-border.md) – The background color of the row that the mouse pointer is pointing at.
-* **NoDataText** – The message that the user receives when there are no records to show in the **Data table** control.
-* **SelectedColor** – The color of the text in the selected row.
-* **SelectedFill** – The background color of the selected row.
-* [**Size**](properties-text.md) – The default font size for all data rows.
-* [**Visible**](properties-core.md) – A value that determines whether the **Data table** control appears or is hidden.
-* [**Width**](properties-size-location.md) – The distance between the **Data table** control's left and right edges.
-* [**X**](properties-size-location.md) – The distance between the left edge of the **Data table** control and the left edge of its parent container (or the left edge of the screen if there is no parent container).
-* [**Y**](properties-size-location.md) – The distance between the top edge of the **Data table** control and the top edge of its parent container (or the top edge of the screen if there is no parent container).
+## <a name="other-properties"></a>Weitere Eigenschaften
+* [**BorderColor**](properties-color-border.md): die Farbe des Rahmens des **Datentabellen**-Steuerelements.
+* [**BorderStyle**](properties-color-border.md): der Stil des Rahmen des **Datentabellen**-Steuerelements. Die verfügbaren Optionen sind **Solid (Gefüllt)**, **Dashed (Gestrichelt)**, **Dotted (Gepunktet)** und **None (Ohne)**.
+* [**BorderThickness**](properties-color-border.md): die Stärke des Rahmens des **Datentabellen**-Steuerelements.
+* [**Color**](properties-color-border.md): die Standardtextfarbe für alle Datenzeilen.
+* [**Fill**](properties-color-border.md): die Standardhintergrundfarbe für alle Datenzeilen.
+* [**Font**](properties-text.md): die Standardschriftart aller Datenzeilen.
+* [**FontWeight**](properties-text.md): die Standardschriftbreite für alle Datenzeilen.
+* **HeadingColor**: die Textfarbe der Spaltenüberschriften.
+* **HeadingFill**: die Hintergrundfarbe der Spaltenüberschriften.
+* **HeadingFont**: die Schriftart der Spaltenüberschriften.
+* **HeadingFontWeight**: die Schriftbreite der Spaltenüberschriften.
+* **HeadingSize**: der Schriftgrad der Spaltenüberschriften.
+* [**Height**](properties-size-location.md): der Abstand zwischen dem oberen und unteren Rand des **Datentabellen**-Steuerelements.
+* [**HoverColor** ](properties-color-border.md): die Textfarbe der Zeile, auf die der Mauszeiger zeigt.
+* [**HoverFill**](properties-color-border.md): die Hintergrundfarbe der Zeile, auf die der Mauszeiger zeigt.
+* **NoDataText**: die Meldung, die der Benutzer erhält, wenn es im **Datentabellen**-Steuerelement keine anzuzeigenden Datensätze gibt.
+* **SelectedColor**: die Farbe des Texts in der ausgewählten Zeile.
+* **SelectedFill**: die Hintergrundfarbe der ausgewählten Zeile.
+* [**Size**](properties-text.md): der Standardschriftgrad für alle Datenzeilen.
+* [**Visible**](properties-core.md): ein Wert, der bestimmt, ob das **Datentabellen**-Steuerelement angezeigt wird oder ausgeblendet ist.
+* [**Width**](properties-size-location.md): der Abstand zwischen dem linken und rechten Rand des **Datentabellen**-Steuerelements.
+* [**X**](properties-size-location.md): der Abstand zwischen dem linken Rand des **Datentabellen**-Steuerelements und dem linken Rand seines übergeordneten Containers (oder des linken Bildschirmrands, wenn es keinen übergeordneten Container gibt).
+* [**Y**](properties-size-location.md): der Abstand zwischen dem oberen Rand des **Datentabellen**-Steuerelements und dem oberen Rand seines übergeordneten Containers (oder dem oberen Bildschirmrand, wenn es keinen übergeordneten Container gibt).
 
-## Related functions
-* [**Filter(DataSource, Formula)**](../functions/function-filter-lookup.md)(*DataSource*, *Formula*)
-* [**Search(DataSource, SearchString, Column)**](../functions/function-filter-lookup.md)(*DataSource*, *SearchString*, *Column*)
+## <a name="related-functions"></a>Verwandte Funktionen
+* [**Filter(Datenquelle, Formel)**](../functions/function-filter-lookup.md)(*Datenquelle*, *Formel*)
+* [**Search(Datenquelle, Suchzeichenfolge, Spalte)**](../functions/function-filter-lookup.md)(*Datenquelle*, *Suchzeichenfolge*, *Spalte*)
 
-## Examples
-### Basic usage
-1. Create a blank tablet app.
-2. On the **Insert** tab, click or tap **Data table**.
+## <a name="examples"></a>Beispiele
+### <a name="basic-usage"></a>Grundlegende Nutzung
+1. Erstellen Sie eine leere Tablet-App.
+2. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Datentabelle**.
    
-    ![Add a Data table control to a screen](./media/control-data-table/insert-data-table.png)
+    ![Hinzufügen eines Datentabellen-Steuerelements zu einem Bildschirm](./media/control-data-table/insert-data-table.png)
    
-    A **Data table** control is added to the screen.
-3. Rename the **Data table** control **SalesOrderTable**, and resize it so that it covers the whole screen.
-4. In the right pane, click or tap the down arrow to the right of the **No data source selected** text, and then click or tap **Add a data source**.
+    Dem Bildschirm wird ein **Datentabelle**-Steuerelement hinzugefügt.
+3. Benennen Sie das neue **Datentabellen**-Steuerelement in **SalesOrderTable** um, und ändern Sie seine Größe, sodass es den gesamten Bildschirm einnimmt.
+4. Klicken oder tippen Sie im rechten Bereich auf den Abwärtspfeil neben dem Text **Keine Datenquelle ausgewählt**, und klicken oder tippen Sie dann auf **Datenquelle hinzufügen**.
    
-    ![Add a data source](./media/control-data-table/add-data-to-data-table.png)
-5. In the list of connections, click or tap the connection for your Common Data Service database.
+    ![Datenquelle hinzufügen](./media/control-data-table/add-data-to-data-table.png)
+5. Klicken oder tippen Sie in der Liste der Verbindungen auf die Verbindung für Ihre Common Data Service-Datenbank.
    
-    ![Select the connection for your data source](./media/control-data-table/choose-cds-data-table.png)
-6. In the list of entities, click or tap **Sales order**, and then click or tap **Connect**.
+    ![Auswählen der Verbindung für Ihre Datenquelle](./media/control-data-table/choose-cds-data-table.png)
+6. Klicken oder tippen Sie in der Liste der Entitäten auf **Sales order** (Verkaufsauftrag) und dann auf **Connect** (Verbinden).
    
-    ![Select the Sales order entity](./media/control-data-table/choose-so-data-table.png)
+    ![Auswählen der Entität „Sales order“ (Verkaufsauftrag)](./media/control-data-table/choose-so-data-table.png)
    
-    The **Data table** control is now attached to the **Sales order** data source. Several initial fields appear in the **Data table** control, because we're using a connector that supports that capability.
+    Das **Datentabellen**-Steuerelement ist jetzt an die Datenquelle **Sales order** angefügt. Im **Datentabellen**-Steuerelement werden mehrere anfängliche Felder angezeigt, da wir einen Connector verwenden, dieser diese Funktionalität unterstützt.
    
-    ![Data table](./media/control-data-table/pre-order-data-table.png)
-7. In the right pane, select one or more check boxes to show or hide individual fields.
+    ![Datentabelle](./media/control-data-table/pre-order-data-table.png)
+7. Aktivieren Sie im rechten Bereich ein oder mehrere Kontrollkästchen, um einzelne Felder ein- oder auszublenden.
    
-    For example, select the check box next to **CustomerPurchaseOrderReference** to hide this field.
-8. In the right pane, reorder the fields by dragging them up or down.
+    Aktivieren Sie beispielsweise das Kontrollkästchen neben **CustomerPurchaseOrderReference**, um dieses Feld auszublenden.
+8. Ordnen Sie die Felder im rechten Bereich neu an, indem Sie sie nach oben oder unten ziehen.
    
-    ![Reorder the fields as desired](./media/control-data-table/field-re-order-data-table.png)
+    ![Ordnen Sie die Felder nach Belieben neu an](./media/control-data-table/field-re-order-data-table.png)
    
-    The **SalesOrderTable** control shows the fields in the order that you specified.
+    Das **SalesOrderTable**-Steuerelement zeigt die Felder in der von Ihnen angegebenen Reihenfolge an.
    
-    ![Updated Data table](./media/control-data-table/post-order-data-table.png)
+    ![Aktualisierte Datentabelle](./media/control-data-table/post-order-data-table.png)
 
-### Restyle the header for the Data table control
-1. While the **Data table** control is selected, in the right pane, click or tap the **Advanced** tab.
-2. Click or tap the field for the **HeadingFill** property, and then change the value to **RGBA(62,96,170,1)**.
-3. Click or tap the field for the **HeadingColor** property, and then change the value to **White**.
-4. Click or tap the field for the **HeadingSize** property, and then change the value to **14**.
+### <a name="restyle-the-header-for-the-data-table-control"></a>Neuformatieren der Überschriften des „Datentabellen“-Steuerelements
+1. Klicken oder tippen Sie bei ausgewähltem **Datentabellen**-Steuerelement im rechten Bereich auf die Registerkarte **Erweitert**.
+2. Klicken oder tippen Sie auf das Feld für die Eigenschaft **HeadingFill**, und ändern Sie dann den Wert in **RGBA(62,96,170,1)**.
+3. Klicken oder tippen Sie auf das Feld für die Eigenschaft **HeadingColor**, und ändern Sie dann den Wert in **White**.
+4. Klicken oder tippen Sie auf das Feld für **HeadingSize**, und ändern Sie dann den Wert in **14**.
    
-    ![Data table](./media/control-data-table/restyled-data-table.png)
+    ![Datentabelle](./media/control-data-table/restyled-data-table.png)
 
-### Connect a Data table control to another control
-1. Add an **Edit form** control to the screen.
-2. Resize the **Data table** and **Edit form** controls so that the **Data table** control appears in the left part of the screen and the **Edit form** control appears in the right part of the screen.
+### <a name="connect-a-data-table-control-to-another-control"></a>Verbinden eines Datentabellen-Steuerelements mit einem anderen Steuerelement
+1. Fügen Sie dem Bildschirm ein **Bearbeitungsformular**-Steuerelement hinzu.
+2. Ändern Sie die Größe der Steuerelemente **Datentabelle** und **Bearbeitungsformular** so, dass das **Datentabellen**-Steuerelement links auf dem Bildschirm und das **Bearbeitungsformular**-Steuerelement rechts auf dem Bildschirm angezeigt wird.
    
-    ![Data table and Edit form on the same screen](./media/control-data-table/data-table-empty-form.png)
-3. While **Form1** is selected, in the right pane, change the number of columns to **1**.
-4. Connect **Form1** to the **Sales order** data source.
+    ![Datentabelle und Bearbeitungsformular auf dem gleichen Bildschirm](./media/control-data-table/data-table-empty-form.png)
+3. Ändern Sie bei im rechten Bereich ausgewähltem **Form1** die Anzahl der Spalten in **1**.
+4. Verbinden Sie **Form1** mit der Datenquelle **Sales Order**.
    
-    Several initial fields appear in **Form1**.
+    Mehrere anfängliche Felder werden in **Form1** angezeigt.
    
-    ![Form1 with initial fields](./media/control-data-table/data-table-disconnected-form.png)
-5. In the right pane, click or tap the **Advanced** tab.
-6. Set the **Item** property for **Form1** to **SalesOrderTable.Selected**.
+    ![Form1 mit anfänglichen Feldern](./media/control-data-table/data-table-disconnected-form.png)
+5. Klicken oder tippen Sie im rechten Bereich auf die Registerkarte **Erweitert**.
+6. Legen Sie die **Item**-Eigenschaft für **Form1** auf **SalesOrderTable.Selected** fest.
    
-    **Form1** shows information from the row that's selected in the **Data table** control.
+    **Form1** zeigt Informationen aus der Zeile an, die im **Datentabellen**-Steuerelement ausgewählt ist.
    
-    ![Edit form connected to the Data table](./media/control-data-table/connected-form-data-table.png)
+    ![Mit der Datentabelle verbundenes Bearbeitungsformular](./media/control-data-table/connected-form-data-table.png)
 
 
-## Accessibility guidelines
-### Color contrast
-There must be adequate color contrast between:
-* [**Color**](properties-color-border.md) and [**Fill**](properties-color-border.md)
-* **HeadingColor** and **HeadingFill**
-* **SelectedColor** and **SelectedFill**
-* [**HoverColor**](properties-color-border.md) and [**HoverFill**](properties-color-border.md)
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+Zwischen folgenden Eigenschaften muss es einen ausreichenden Farbkontrast geben:
+* [**Color**](properties-color-border.md) und [**Fill**](properties-color-border.md)
+* **HeadingColor** und **HeadingFill**
+* **SelectedColor** und **SelectedFill**
+* [**HoverColor**](properties-color-border.md) und [**HoverFill**](properties-color-border.md)
 
-This is in addition to the [standard color contrast requirements](../accessible-apps-color.md).
+Dies ist ein Zusatz zu den [Standardanforderungen für Farbkontraste](../accessible-apps-color.md).
 
-### Screen reader support
-* **NoDataText** must be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* Die **NoDataText**-Eigenschaft muss vorhanden sein.

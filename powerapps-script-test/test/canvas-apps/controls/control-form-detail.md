@@ -1,6 +1,6 @@
 ---
-title: 'Display form and Edit form controls: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Display form and Edit form controls
+title: '„Formular anzeigen“- und „Formular bearbeiten“-Steuerelemente: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, über die „Formular anzeigen“- und „Formular bearbeiten“-Steuerelemente
 author: aneesmsft
 manager: kvivek
 ms.service: powerapps
@@ -9,175 +9,181 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 07/06/2017
 ms.author: aneesa
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 91f84ebbec83c5734e910680f4ab3a79077164df
+ms.sourcegitcommit: ce621966a34061dda2f75232403847e21816ffa9
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/30/2018
+ms.locfileid: "47459453"
 ---
-# Edit form and Display form controls in PowerApps
-Display, edit, and create a record in a data source.
+# <a name="edit-form-and-display-form-controls-in-powerapps"></a>„Formular anzeigen“- und „Formular bearbeiten“-Steuerelemente in PowerApps
+Zeigen Sie Datensätze aus einer Datenquelle an, bearbeiten Sie diese und erstellen Sie neue.
 
-## Description
-If you add a **Display form** control, the user can display all fields of a record or only the fields that you specify. If you add an **Edit form** control, the user can edit those fields, create a record, and save those changes to a data source.
+## <a name="description"></a>Beschreibung
+Wenn Sie ein **Formular anzeigen**-Steuerelement hinzufügen, können Benutzer alle Felder eines Datensatzes oder von Ihnen vorher festgelegte Felder anzeigen. Wenn Sie ein **Formular bearbeiten**-Steuerelement hinzufügen, können Benutzer die Felder bearbeiten, einen Datensatz erstellen und Änderungen in einer Datenquelle speichern.
 
-![Example form and form view controls](./media/control-form-detail/form-detail-intro.png)
+![Beispielformular und Steuerelemente für die Anzeige von Formularen](./media/control-form-detail/form-detail-intro.png)
 
-If you add a **[Gallery](control-gallery.md)** control, you can configure it to show a table in a data source and then configure a form to show whichever record the user selects in the gallery. You can also add one or more **[Button](control-button.md)** controls that the user can select to save edits, cancel edits, and create a record. By using controls together, you can [create a complete solution](../working-with-forms.md).
+Wenn Sie ein **[Bildkatalog](control-gallery.md)**-Steuerelement hinzufügen, können Sie es so konfigurieren, dass in einer Datenquelle eine Tabelle angezeigt wird. Dann können Sie das Formular so konfigurieren, dass von Benutzern ausgewählte Datensätze in einem Bildkatalog angezeigt werden. Sie können auch eines oder mehrere **[Schaltflächen](control-button.md)**-Steuerelemente hinzufügen, mit denen Benutzer Bearbeitungen speichern oder abbrechen oder einen Datensatz erstellen können. Durch Kombination verschiedener Steuerelemente können Sie [eine vollständige Lösung erstellen](../working-with-forms.md).
 
-### Record selection
-For either type of form, you set its **DataSource** property to a table of records, and you set the form's **Item** property to show a specific record in that table. For example, you can set the **Item** property of a form to the **SelectedItem** property of a **[Gallery](control-gallery.md)** control. When the user selects a record in the gallery, the same record appears in the form, except that the form can show more fields. If the user returns to the gallery and selects a different record, the **SelectedItem** property of the gallery changes. This change updates the **Item** property of the form, which then shows the newly selected record.
+### <a name="record-selection"></a>Datensatzauswahl
+Bei beiden Formulartypen können Sie die Eigenschaft **DataSource** als Datensatztabelle und die **Item**-Eigenschaft so konfigurieren, dass ein bestimmter Datensatz in der Tabelle angezeigt wird. Beispiel: Sie können die **Item**-Eigenschaft eines Formulars als **SelectedItem**-Eigenschaft eines **[Bildkatalog](control-gallery.md)**-Steuerelements konfigurieren. Wenn der Benutzer im Bildkatalog einen Datensatz auswählt, wird er im Formular angezeigt (im Formular können mehr Felder dargestellt werden). Wenn der Benutzer zum Bildkatalog zurückkehrt und einen anderen Datensatz auswählt, ändert sich der Wert der **SelectedItem**-Eigenschaft des Bildkatalogs. Dadurch wird die **Item**-Eigenschaft des Formulars aktualisiert, wodurch der nun ausgewählte Datensatz angezeigt wird.
 
-You can also set a form's **Item** property by using a **Drop down** control, as [Show, edit, or add a record](../add-form.md) describes, or a function such as **Lookup** or **First**. For example, you can set the **Item** property to either of these formulas to show the Fabrikam entry in the **Accounts** entity in Common Data Service for Apps:
+Sie können auch die **Item**-Eigenschaft eines Formulars mithilfe eines **Dropdown**-Steuerelements wie unter [Show, edit, or add a record (Anzeigen, Bearbeiten oder Hinzufügen eines Datensatzes)](../add-form.md) beschrieben festlegen. Alternativ können Sie Funktionen wie **Lookup** oder **First** verwenden. Sie können die **Item**-Eigenschaft auf eine der folgenden Formeln festlegen, um den Eintrag „Fabrikam“ in der Entität **Accounts** in Common Data Service für Apps anzuzeigen:
 
 ```First(Accounts)```
 
 ```Lookup(Accounts, "Fabrikam" in name)```
 
-Each form control contains one or more **[Card](control-card.md)** controls. By setting the **[DataField](control-card.md)** property of a card, you [specify which field that card shows and other details](../add-form.md).
+Jedes Formular enthält eines oder mehrere **[Karten](control-card.md)**-Steuerelemente. Durch Festlegen der **[DataField](control-card.md)**-Eigenschaft einer Karte können Sie [angeben, welche Felder auf der Karte angezeigt werden (und mehr)](../add-form.md).
 
-### Create a record
-When an **Edit form** control is in **Edit** mode, the user can update the record that's specified in the form's **Item** property. If inspected, the **Mode** property returns **Edit**.
+### <a name="create-a-record"></a>Erstellen eines Datensatzes
+Wenn sich ein **Formular bearbeiten**-Steuerelement im Modus **Bearbeiten** befindet, kann der Benutzer den Datensatz aktualisieren, der in der **Item**-Eigenschaft des Formulars angegeben ist. Die **Mode**-Eigenschaft gibt in diesem Fall **Edit** zurück.
 
-When an **Edit form** control is in **New** mode, however, the **Item** property is ignored. The form doesn't show an existing record; instead, the values in each field match the default values of the data source with which you configured the form. The **[NewForm](../functions/function-form.md)** function causes a form to switch to this mode.
+Wenn sich ein **Formular bearbeiten**-Steuerelement im Modus **Neu** befindet, wird die **Item**-Eigenschaft allerdings ignoriert. Das Formular zeigt dann keinen bestehenden Datensatz an. Stattdessen entsprechen die Werte in allen Feldern den Standardwerten der Datenquelle, die zur Konfiguration des Formulars verwendet wurde. Mit der **[NewForm](../functions/function-form.md)**-Funktion wird ein Formular auf diesen Modus festgelegt.
 
-For example, you can set the **[Text](properties-core.md)** property of a button to show **New** and its **[OnSelect](properties-core.md)** property to a formula that includes the **[NewForm](../functions/function-form.md)** function. If the user selects that button, the form switches to **New** mode so that the user can create a record starting with known values.
+Beispiel: Sie können mithilfe der **[Text](properties-core.md)**-Eigenschaft einer Schaltfläche deren Anzeigetext auf **Neu** festlegen und deren **[OnSelect](properties-core.md)**-Eigenschaft mit einem Formular verknüpfen, das die **[NewForm](../functions/function-form.md)**-Funktion enthält. Wenn ein Benutzer diese Schaltfläche verwendet, wechselt das Formular in den **New**-Modus. Der Benutzer kann dann einen Datensatz mit bekannten Werten erstellen.
 
-A form switches back to **Edit** mode if either the **[ResetForm](../functions/function-form.md)** function runs or the **[SubmitForm](../functions/function-form.md)** function runs successfully.
+Ein Formular wechselt zurück in den **Edit**-Modus, wenn die **[ResetForm](../functions/function-form.md)**-Funktion ausgeführt oder die **[SubmitForm](../functions/function-form.md)**-Funktion erfolgreich ausgeführt wird.
 
-* You can set the **[Text](properties-core.md)** property of a button to show **Cancel** and its **[OnSelect](properties-core.md)** property to a formula that includes the **[ResetForm](../functions/function-form.md)** function. If the user selects that button, any changes in progress are discarded, and the values in the form, once again, match the default values of the data source.
-* You can set the **[Text](properties-core.md)** property of a button to show **Save changes** and its **[OnSelect](properties-core.md)** property to a formula that includes the **[SubmitForm](../functions/function-form.md)** function. If the user selects that button and the data source is updated, the values in the form are reset to the default values of the data source.
+* Sie können mithilfe der **[Text](properties-core.md)**-Eigenschaft einer Schaltfläche deren Anzeigetext auf **Abbrechen** festlegen und deren **[OnSelect](properties-core.md)**-Eigenschaft mit einem Formular verknüpfen, das die **[ResetForm](../functions/function-form.md)**-Funktion enthält. Wenn der Benutzer diese Schaltfläche verwendet, werden jegliche Änderungen verworfen, und die Werte im Formular werden auf die Standardwerte aus der Datenquelle zurückgesetzt.
+* Sie können mithilfe der **[Text](properties-core.md)**-Eigenschaft einer Schaltfläche deren Anzeigetext auf **Änderungen speichern** festlegen und deren **[OnSelect](properties-core.md)**-Eigenschaft mit einem Formular verknüpfen, das die **[SubmitForm](../functions/function-form.md)**-Funktion enthält. Wenn der Benutzer diese Schaltfläche verwendet, wird die Datenquelle aktualisiert, und die Werte im Formular werden auf die Standardwerte aus der Datenquelle zurückgesetzt.
 
-### Save changes
-If you create a **Save changes** button as the previous section describes, the user can create or update a record and then select that button to save those changes to the data source. You could, instead, configure an **[Image](control-image.md)** control or some other control to perform the same task, as long as you configure that control with the **[SubmitForm](../functions/function-form.md)** function. In any case, the **Error**, **ErrorKind**, **OnSuccess**, and **OnFailure** properties provide feedback on the outcome.
+### <a name="save-changes"></a>Änderungen speichern
+Wenn Sie eine **Änderungen speichern**-Schaltfläche erstellen, wie im vorigen Abschnitt beschrieben, kann der Benutzer einen Datensatz erstellen oder aktualisieren und mit der Schaltfläche dann die Änderungen in der Datenquelle speichern. Sie können alternativ ein **[Bild](control-image.md)**-Steuerelement oder ein anderes Steuerelement verwenden, um die gleiche Aufgabe auszuführen, solange die **[SubmitForm](../functions/function-form.md)**-Funktion enthalten ist. In jedem Fall enthalten die Eigenschaften **Error**, **ErrorKind**, **OnSuccess** und **OnFailure** Informationen zum Ergebnis des Vorgangs.
 
-When the **[SubmitForm](../functions/function-form.md)** function runs, it first validates the data that user wants to submit. If a required field doesn't contain a value or another value doesn't conform to some other constraint, the **ErrorKind** properties are set, and the **OnFailure** formula runs. You can configure the **Save changes** button or other control so that the user can select it only if the data is valid (that is, if the **Valid** property of the form is **true**). Note that the user must not only correct the problem but also select the **Save changes** button again (or discard the changes by selecting a **Cancel** button, as described earlier) to reset the **Error** and **ErrorKind** properties.
+Wenn die **[SubmitForm](../functions/function-form.md)**-Funktion ausgeführt wird, werden die Daten, die der Benutzer übermitteln möchte, zunächst überprüft. Wenn ein erforderliches Feld keinen Wert enthält oder ein Wert nicht den Anforderungen entspricht, wird die **ErrorKind**-Eigenschaft festgelegt und die **OnFailure**-Formel ausgeführt. Sie können die **Änderungen speichern**-Schaltfläche oder ein anderes Steuerelement so konfigurieren, dass der Benutzer sie bzw. es nur dann auswählen kann, wenn die Daten gültig sind (also die **Valid**-Eigenschaft des Formulars den Wert **true** hat). Beachten Sie, dass der Benutzer nicht nur das Problem beheben, sondern auch die **Änderungen speichern**-Schaltfläche erneut auswählen (oder, wie oben beschrieben, die Änderungen mithilfe der **Abbrechen**-Schaltfläche verwerfen) muss, damit die Eigenschaften **Error** und **ErrorKind** zurückgesetzt werden.
 
-If the data passes validation, **[SubmitForm](../functions/function-form.md)** sends it to the data source, which can take some time depending on network latency.
+Wenn die Daten die Überprüfung durchlaufen haben, übermittelt die **[SubmitForm](../functions/function-form.md)**-Funktion sie an die Datenquelle, was abhängig von der Netzwerklatenz einige Zeit dauern kann.
 
-* If the submission succeeds, the **Error** property is cleared, the **ErrorKind** property is set to **ErrorKind.None**, and the **OnSuccess** formula runs. If the user created a record (that is, if the form was previously in **New** mode), the form is switched to **Edit** mode so that the user can edit the newly created record or a different one.
-* If the submission fails, the **Error** property contains a user-friendly error message from the data source, explaining the problem. The **ErrorKind** property is set appropriately, depending on the issue, and the **OnFailure** formula runs.
+* Wenn die Übermittlung erfolgreich ist, wird der Wert der **Error**-Eigenschaft gelöscht, die **ErrorKind**-Eigenschaft wird auf **ErrorKind.None** festgelegt, und die **OnSuccess**-Formel wird ausgeführt. Wenn der Benutzer einen Datensatz erstellt hat (wenn sich das Formular also im **New**-Modus befindet), wechselt das Formular in den **Edit**-Modus, sodass der Benutzer einen neu erstellten oder einen anderen Datensatz bearbeiten kann.
+* Wenn bei der Übermittlung ein Fehler auftritt, enthält die **Error**-Eigenschaft eine benutzerfreundliche Fehlermeldung aus der Datenquelle, in der das Problem beschrieben wird. Die **ErrorKind**-Eigenschaft wird entsprechend (abhängig vom Problem) festgelegt, und die **OnFailure**-Formel wird ausgeführt.
 
-Some data sources can detect when two people try to update the same record at the same time  In this case, **ErrorKind** is set to **ErrorKind.Conflict**, and the remedy is to refresh the data source with the other user's changes and reapply the change made by this user.
+Einige Datenquellen erkennen, wenn zwei Personen den gleichen Datensatz gleichzeitig zu aktualisieren versuchen. In diesem Fall wird **ErrorKind** auf **ErrorKind.Conflict** festgelegt. Das Problem wird gelöst, indem die Datenquelle mit den Änderungen des anderen Benutzers aktualisiert wird und dann die Änderungen des ersten Benutzers erneut angewandt werden.
 
 > [!TIP]
-> If you offer a **Cancel** button on your form so that the user can abandon changes in progress, add the **[ResetForm](../functions/function-form.md)** function to the button's **[OnSelect](properties-core.md)** property even that property also contains a **[Navigate](../functions/function-navigate.md)** function to change screens. Otherwise, the form will retain the user's changes.
+> Wenn Sie eine **Abbrechen**-Schaltfläche in einem Formular verwenden, sodass Benutzer Änderungen verwerfen können, fügen Sie die **[ResetForm](../functions/function-form.md)**-Eigenschaft zur **[OnSelect](properties-core.md)**-Eigenschaft der Schaltfläche hinzu, auch wenn die Eigenschaft die **[Navigate](../functions/function-navigate.md)**-Funktion zum Wechseln zwischen Bildschirmen enthält. Andernfalls werden die Änderungen des Benutzers nicht verworfen.
 
-### Layout
-By default, cards are placed in a single column for phone apps and three columns for tablet apps. You can specify how many columns a form has and whether cards should snap to them as you configure the form. These settings aren't exposed as properties because they're used only to set the **X**, **Y**, and **Width** properties of the cards.
+### <a name="layout"></a>Layout
+Karten werden standardmäßig bei Smartphone-Apps in einer Spalte und bei Tablet-Apps in drei Spalten platziert. Sie können beim Konfigurieren des Formulars angeben, wie viele Spalten ein Formular haben soll und ob Karten an diesen ausgerichtet werden sollen. Diese Einstellungen werden nicht als Eigenschaften verfügbar gemacht, da sie nur verwendet werden, um die Eigenschaften **X**, **Y** und **Width** der Karten festzulegen.
 
-For more information, see [Understand data form layout](../working-with-form-layout.md).
+Weitere Informationen finden Sie unter [Grundlegendes zum Layout von Datenformularen](../working-with-form-layout.md).
 
-## Key properties
-**DataSource** – The data source that contains the record that the user will show, edit, or create.
+## <a name="key-properties"></a>Haupteigenschaften
+**DataSource** – Die Datenquelle mit dem Datensatz, der vom Benutzer angezeigt, bearbeitet oder erstellt wird.
 
-* If you don't set this property, the user can't show, edit, or create a record, and no additional metadata or validation is provided.
+* Wenn Sie diese Eigenschaft nicht festlegen, kann der Benutzer keine Datensätze anzeigen, bearbeiten oder erstellen, und weder weitere Metadaten noch die Überprüfung sind verfügbar.
 
-**DefaultMode** - The initial mode of the form control.  See the description of **Mode** below for the acceptable values and their meanings. 
+**DefaultMode**: Der Ausgangsmodus des Formularsteuerelements.  In der Beschreibung zu **Modus** weiter unten sind die zulässigen Werte und deren jeweilige Bedeutung angegeben. 
 
-**DisplayMode** - The mode to use for data cards and controls within the form control.  
+**DisplayMode**: Der zu verwendende Modus für Datenkarten und Steuerelemente im Formularsteuerelement.  
 
-Derived from the **Mode** property based and cannot be set independently:
+Ist abgeleitet von der zugrunde liegenden **Mode**-Eigenschaft und kann nicht unabhängig festgelegt werden:
 
-| Mode | DisplayMode | Description |
+| Modus | DisplayMode | Beschreibung |
 | --- | --- | --- |
-| **FormMode.Edit** |**DisplayMode.Edit** |Data cards and controls are editable, ready to accept changes to a record. |
-| **FormMode.New** |**DisplayMode.Edit** |Data cards and controls are editable, ready to accept a new record. |
-| **FormMode.View** |**DisplayMode.View** |Data cards and controls are not editable and optimized for viewing. |
+| **FormMode.Edit** |**DisplayMode.Edit** |Datenkarten und Steuerelemente können bearbeitet werden; Änderungen an einem Datensatz können akzeptiert werden. |
+| **FormMode.New** |**DisplayMode.Edit** |Datenkarten und Steuerelemente können bearbeitet werden; ein neuer Datensatz kann akzeptiert werden. |
+| **FormMode.View** |**DisplayMode.View** |Datenkarten und Steuerelemente sind nicht bearbeitbar und für die Anzeige optimiert. |
 
-**Error** – A user friendly error message to display for this form when the **[SubmitForm](../functions/function-form.md)** function fails.
+**Error** – Eine benutzerfreundliche Fehlermeldung, die für das Formular angezeigt wird, wenn bei der **[SubmitForm](../functions/function-form.md)**-Funktion ein Fehler auftritt.
 
-* This property applies only to the **Edit form** control.
-* This property changes only when the **[SubmitForm](../functions/function-form.md)**, **EditForm**, or **[ResetForm](../functions/function-form.md)** function runs.
-* If no error occurs, this property is *blank*, and **ErrorKind** is set to **ErrorKind.None**.
-* When possible, the error message returned will be in the user's language. Some error messages come from the data source directly and may not be in the user's language.
+* Diese Eigenschaft ist nur im **Formular bearbeiten**-Steuerelement verfügbar.
+* Die Eigenschaft ändert sich nur, wenn die Funktion **[SubmitForm](../functions/function-form.md)**, **EditForm** oder **[ResetForm](../functions/function-form.md)** ausgeführt wird.
+* Wenn kein Fehler auftritt, ist diese Eigenschaft *leer*, und **ErrorKind** wird auf **ErrorKind.None** festgelegt.
+* Wenn möglich, wird die Fehlermeldung in der Sprache des Benutzers angezeigt. Einige Fehlermeldungen stammen direkt aus der Datenquelle. Sie sind möglicherweise nicht in der Sprache des Benutzers verfasst.
 
-**ErrorKind** – If an error occurs when **SubmitForm** runs, the kind of error that occurred.
+**ErrorKind** – Gibt die Art des aufgetretenen Fehlers an, wenn beim Ausführen von **SubmitForm** ein Fehler auftritt.
 
-* Applies only to an **Edit form** control.
-* This property has the same enumeration as the **[Errors](../functions/function-errors.md)** function. An **Edit form** control can return these values:
+* Gilt nur für das **Formular bearbeiten**-Steuerelement.
+* Diese Eigenschaft verfügt über die gleiche Enumeration wie die **[Errors](../functions/function-errors.md)**-Funktion. Ein **Formular bearbeiten**-Steuerelement kann diese Werte zurückgeben:
 
-| ErrorKind | Description |
+| ErrorKind | Beschreibung |
 | --- | --- |
-| **ErrorKind.Conflict** |Another user changed the same record, resulting in a change conflict. Execute the **[Refresh](../functions/function-refresh.md)** function to reload the record, and try the change again. |
-| **ErrorKind.None** |The error is of an unknown kind. |
-| **ErrorKind.Sync** |The data source reported an error. Check the **Error** property for more information. |
-| **ErrorKind.Validation** |A general validation issue was detected. |
+| **ErrorKind.Conflict** |Ein anderer Benutzer hat den gleichen Datensatz geändert, wodurch ein Konflikt aufgetreten ist. Führen Sie die **[Refresh](../functions/function-refresh.md)**-Funktion aus, um den Datensatz erneut zu laden, und versuchen Sie noch einmal, die Änderung vorzunehmen. |
+| **ErrorKind.None** |Die Fehlerart ist nicht bekannt. |
+| **ErrorKind.Sync** |Die Datenquelle hat einen Fehler gemeldet. Überprüfen Sie die **Error**-Eigenschaft, um weitere Informationen zu erhalten. |
+| **ErrorKind.Validation** |Ein allgemeines Überprüfungsproblem wurde festgestellt. |
 
-**Item** – The record in the **DataSource** that the user will show or edit.
+**Item** – Der Datensatz in dem **DataSource**-Element, das vom Benutzer angezeigt oder bearbeitet wird.
 
-**LastSubmit** – The last successfully submitted record, including any server generated fields.
+**LastSubmit** – Der letzte erfolgreich übermittelte Datensatz, einschließlich der vom Server generierten Felder.
 
-* This property applies only to the **Edit form** control.
-* If the data source automatically generates or calculates any fields, such as an **ID** field with a unique number, the **LastSubmit** property will have this new value after **SubmitForm** successfully runs.
-* The value of this property is available in the **OnSuccess** formula.
+* Diese Eigenschaft ist nur im **Formular bearbeiten**-Steuerelement verfügbar.
+* Wenn die Datenquelle Felder automatisch generiert oder berechnet (wie das **ID**-Feld mit einer eindeutigen Zahl), wird der neue Wert der **LastSubmit**-Eigenschaft zugewiesen, wenn die **SubmitForm**-Funktion erfolgreich ausgeführt wird.
+* Der Wert dieser Eigenschaft ist in der **OnSuccess**-Formel verfügbar.
 
-**Mode** – The control is in **Edit** or **New** mode.
+**Mode** – Das Steuerelement befindet sich im Modus **Edit** oder **New**.
 
-| Mode | Description |
+| Modus | Beschreibung |
 | --- | --- |
-| **FormMode.Edit** |The user can edit a record by using the form. The values in the form's cards are pre-populated with the existing record, for the user to change. If the **[SubmitForm](../functions/function-form.md)** function runs successfully, an existing record is modified. |
-| **FormMode.New** |The user can create a record by using the form. The values in the form's controls are pre-popoulated with the defaults for a record of the data source. If the **[SubmitForm](../functions/function-form.md)** function runs successfully, an record is created. |
-| **FormMode.View** |The user can view a record by using the form. The values in the form's controls are pre-popoulated with the defaults for a record of the data source. |
+| **FormMode.Edit** |Der Benutzer kann einen Datensatz mithilfe des Formulars bearbeiten. Die Werte auf den Karten des Formulars werden mithilfe des vorhandenen Datensatzes aufgefüllt. Der Benutzer kann sie dann ändern. Wenn die **[SubmitForm](../functions/function-form.md)**-Funktion erfolgreich ausgeführt wird, wird ein vorhandener Datensatz geändert. |
+| **FormMode.New** |Der Benutzer kann einen Datensatz mithilfe des Formulars erstellen. Die Werte in den Steuerelementen des Formulars werden mithilfe der Datensatz-Standardwerte der Datenquelle aufgefüllt. Wenn die **[SubmitForm](../functions/function-form.md)**-Funktion erfolgreich ausgeführt wird, wird ein Datensatz erstellt. |
+| **FormMode.View** |Der Benutzer kann einen Datensatz mithilfe des Formulars anzeigen. Die Werte in den Steuerelementen des Formulars werden mithilfe der Datensatz-Standardwerte der Datenquelle aufgefüllt. |
 
-The form switches from **New** mode to **Edit** mode when any of these changes occurs:
+Das Formular wechselt vom **New**-Modus in den **Edit**-Modus, wenn eine dieser Änderungen auftritt:
 
-* The form is successfully submitted, and a record is created. If the gallery is set to automatically move selection to this new record, the form will be in **Edit** mode for the created record so that the user can make additional changes.
-* The **[EditForm](../functions/function-form.md)** function runs.
-* The **[ResetForm](../functions/function-form.md)** function runs. For example, the user might select a **Cancel** button that's been configured with this function.
+* Das Formular wird erfolgreich übermittelt, und ein Datensatz wird erstellt. Wenn der Katalog so konfiguriert ist, dass die Auswahl in den neuen Datensatz verschoben wird, befindet sich das Formular für den erstellten Datensatz im **Edit**-Modus, sodass der Benutzer weitere Änderungen vornehmen kann.
+* Die **[EditForm](../functions/function-form.md)**-Funktion wird ausgeführt.
+* Die **[ResetForm](../functions/function-form.md)**-Funktion wird ausgeführt. Beispiel: Der Benutzer kann eine **Abbrechen**-Schaltfläche verwenden, die mit dieser Funktion konfiguriert wurde.
 
-**OnFailure** – How an app responds when a data operation has been unsuccessful.
+**OnFailure** – Gibt an, wie eine App reagiert, wenn ein Datenvorgang nicht erfolgreich ist.
 
-* This property applies only to the **Edit form** control.
+* Diese Eigenschaft ist nur im **Formular bearbeiten**-Steuerelement verfügbar.
 
-**OnReset** – How an app responds when an **Edit form** control is reset.
+**OnReset** – Gibt an, wie eine App reagiert, wenn ein Steuerelement vom Typ **Formular bearbeiten** zurückgesetzt wird.
 
-* This property applies only to the **Edit form** control.
+* Diese Eigenschaft ist nur im **Formular bearbeiten**-Steuerelement verfügbar.
 
-**OnSuccess** – How an app responds when a data operation has been successful.
+**OnSuccess** – Gibt an, wie eine App reagiert, wenn ein Datenvorgang erfolgreich ausgeführt wurde.
 
-* This property applies only to the **Edit form** control.
+* Diese Eigenschaft ist nur im **Formular bearbeiten**-Steuerelement verfügbar.
 
-**Unsaved** – True if the **Edit form** control contains user changes that have not been saved.
+**Unsaved** – „true“, wenn das Steuerelement vom Typ **Formular bearbeiten** nicht gespeicherte Änderungen des Benutzers enthält.
 
-* This property applies only to the **Edit form** control.
-* Use this property to warn the user before they lose any unsaved changes.  To prevent the user from selecting a different record in a **[Gallery](control-gallery.md)** control before saving changes to the current record, set the gallery's **[Disabled](properties-core.md)** property to **Form.Unsaved** and, likewise, disable refresh operations.
+* Diese Eigenschaft ist nur im **Formular bearbeiten**-Steuerelement verfügbar.
+* Verwenden Sie diese Eigenschaft, um den Benutzer zu warnen, bevor alle nicht gespeicherten Änderungen verloren gehen.  Um zu verhindern, dass ein Benutzer einen anderen Datensatz in einem **[Katalog](control-gallery.md)**-Steuerelement aufruft, bevor die Änderungen am aktuellen Datensatz gespeichert wurden, können Sie die **[Disabled](properties-core.md)**-Eigenschaft des Katalogs auf **Form.Unsaved** festlegen und Aktualisierungsvorgänge deaktiveren.
 
-**Updates** – The values to write back to the data source for a record loaded in a form control.  
+**Updates** – Die Werte, die für einen Datensatz, der in ein Formular-Steuerelement geladen wurde, zurück in die Datenquelle geschrieben werden sollen.  
 
-* This property applies only to the **Edit form** control.
-* Use this property to extract the field values from the cards within the control.  You can then use these values to manually update the data source with a **[Patch](../functions/function-patch.md)** function call or another method exposed by a connection.  You do not need to use this property if you are using the **[SubmitForm](../functions/function-form.md)** function.
-* This property returns a record of values.  For example, if the form control contains card controls for **Name** and **Quantity** fields, and the values of the **[Update](control-card.md)** properties for those cards return "Widget" and 10 respectively, then the **Updates** property for the form control would return **{ Name: "Widget", Quantity: 10 }**.
+* Diese Eigenschaft ist nur im **Formular bearbeiten**-Steuerelement verfügbar.
+* Verwenden Sie diese Eigenschaft, um die Feldwerte aus den Karten im Steuerelement zu extrahieren.  Sie können diese Werte verwenden, um die Datenquelle manuell zu aktualisieren, indem Sie die **[Patch](../functions/function-patch.md)**-Funktion oder eine andere verfügbare Methode aufrufen.  Sie müssen diese Eigenschaft nicht verwenden, wenn Sie die **[SubmitForm](../functions/function-form.md)**-Funktion ausführen.
+* Diese Eigenschaft gibt einen Datensatz von Werten zurück.  Beispiel: Wenn das Formularsteuerelement Kartensteuerelemente für die Felder **Name** und **Quantity** enthält und die Werte der **[Update](control-card.md)**-Eigenschaften für diese Karten „Widget“ und „10“ zurückgeben, würde die **Updates**-Eigenschaft für das Formularsteuerelement **{ Name: "Widget", Quantity: 10 }** zurückgeben.
 
-**Valid** – Whether a **[Card](control-card.md)** or **Edit form** control contains valid entries, ready to be submitted to the data source.
+**Valid** – Gibt an, ob ein Steuerelement vom Typ **[Karte](control-card.md)** oder **Formular bearbeiten** gültige Einträge enthält, die für die Übermittlung an die Datenquelle bereit sind.
 
-* This property applies only to the **Edit form** control.
-* A **Form** control's **Valid** property aggregates the **Valid** properties of all the **[Card](control-card.md)** controls in the form. A form's **Valid** property is **true** only if the data in all cards in that form is valid; otherwise, the form's **Valid** property is **false**.
-* To enable a button to save changes only when the data in a form is valid but hasn't yet been submitted, set the button's **DisplayMode** property to this formula:
+* Diese Eigenschaft ist nur im **Formular bearbeiten**-Steuerelement verfügbar.
+* Im **Formular**-Steuerelement aggregiert die **Valid**-Eigenschaft die **Valid**-Eigenschaften aller **[Karten](control-card.md)**-Steuerelemente in dem Formular. Die **Valid**-Eigenschaft ist nur dann **true**, wenn die Daten auf allen Karten im Formular gültig sind. Ist das nicht der Fall, hat die **Valid**-Eigenschaft den Wert **false**.
+* Damit eine Schaltfläche Änderungen nur dann speichert, wenn die Daten im Formular gültig sind, aber noch nicht übermittelt wurden, geben Sie für die Schaltfläche unter **DisplayMode** folgende Formel an:
   
     **SubmitButton.DisplayMode = If(IsBlank( Form.Error ) || Form.Valid, DisplayMode.Edit, DisplayMode.Disabled)**
 
-## Additional properties
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## More information
-For a comprehensive overview of how forms work, see [Understand data forms](../working-with-forms.md).
+## <a name="more-information"></a>Weitere Informationen
+Eine umfassende Übersicht über die Funktionsweise von Formularen finden Sie unter [Grundlegendes zu Datenformularen](../working-with-forms.md).
 
-## Accessibility guidelines
-### Screen reader support
-* Consider adding a heading to the form using a **[Label](control-text-box.md)**.
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* Fügen Sie ggf. dem Formular mithilfe einer **[Bezeichnung](control-text-box.md)** einen Titel hinzu.

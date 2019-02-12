@@ -1,48 +1,48 @@
 ---
-title: SaveData and LoadData functions | Microsoft Docs
-description: Reference information, including syntax, for the SaveData and LoadData functions in PowerApps
+title: Funktionen „SaveData“ und „LoadData“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax für die Funktionen SaveData und LoadData in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
 ms.topic: reference
 ms.custom: canvas
 ms.reviewer: anneta
-ms.date: 01/31/2019
+ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 5aa9992b9371724c77bcc1d2baf439bb2d7b9dab
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42864325"
 ---
-# SaveData and LoadData functions in PowerApps
-Saves and re-loads a [collection](../working-with-data-sources.md#collections).
+# <a name="savedata-and-loaddata-functions-in-powerapps"></a>Funktionen SaveData und LoadData in PowerApps
+Speichert eine [Sammlung](../working-with-data-sources.md#collections) und lädt diese erneut.
 
-## Description
-The **SaveData** function stores a collection for later use under a name.  
+## <a name="description"></a>Beschreibung
+Die Funktion **SaveData** speichert eine Sammlung für die spätere Verwendung unter einem Namen.  
 
-The **LoadData** function re-loads a collection by name that was previously saved with **SaveData**. You can't use this function to load a collection from another source.  
+Die Funktion **LoadData** lädt eine Sammlung über den Namen, über den diese zuvor mit **SaveData** gespeichert wurde, erneut. Sie können diese Funktion nicht dazu verwenden, eine Sammlung aus einer anderen Quelle zu laden.  
 
-Use these functions to improve app-startup performance by caching data in the **[App.OnStart](../controls/control-screen.md#additional-properties)** formula on a first run and then re-loading the local cache on subsequent runs. You can also use these functions to add [simple offline capabilities](../offline-apps.md) to your app.
+**LoadData** erstellt die Sammlung nicht; die Funktion füllt nur eine vorhandene Sammlung aus. Zunächst müssen Sie die Sammlung mit den richtigen [Spalten](../working-with-tables.md#columns) erstellen, indem Sie **[Collect](function-clear-collect-clearcollect.md)** verwenden.
 
-You can't use these functions inside a browser, either when authoring the app in PowerApps Studio or when running the app in the web player. To test your app, run it in PowerApps Mobile on an iPhone or Android device.
+Speicher wird verschlüsselt und befindet sich an einem privaten Speicherort auf dem lokalen Gerät, isoliert von anderen Benutzern und anderen Apps.  
 
-These functions are limited by the amount of available app memory because they operate on an in-memory collection. Available memory can vary depending on the device and operating system, the memory that the PowerApps player uses, and the complexity of the app in terms of screens and controls. If you store more than a few megabytes of data, test your app with expected scenarios on the devices on which you expect the app to run. You should generally expect to have between 30 and 70 megabytes of available memory.  
+## <a name="syntax"></a>Syntax
+**SaveData**( *Sammlung*, *Name* )<br>**LoadData**( *Sammlung*, *Name* [, *NichtVorhandeneDateiIgnorieren* ])
 
-**LoadData** doesn't create the collection; the function only fills an existing collection. You must first create the collection with the correct [columns](../working-with-tables.md#columns) by using **[Collect](function-clear-collect-clearcollect.md)**. The loaded data will be appended to the collection; use the **[Clear](function-clear-collect-clearcollect.md)** function first if you want to start with an empty collection.
+* *Sammlung*: Erforderlich.  Die zu speichernde oder zu ladende Sammlung.
+* *Name*: Erforderlich.  Der Name des Speichers. Sie müssen den gleichen Namen verwenden und den gleichen Satz von Daten laden. Der Namespace wird nicht für andere Apps oder Benutzer freigegeben.
+* *NichtVorhandeneDateiIgnorieren*: optional. Boolescher Wert (**WAHR**/**FALSCH**), der angibt, ob die Funktion **LoadData** Fehler anzeigen oder ignorieren soll, wenn keine passende Datei gefunden werden kann. Wenn Sie **FALSCH** angeben, werden Fehler angezeigt. Wenn Sie **WAHR** angeben, werden Fehler ignoriert, was in Offlineszenarien nützlich ist. **SaveData** erstellt möglicherweise eine Datei, wenn das Gerät offline betrieben wird (also der Status von **Connection.Connected** **FALSCH** ist).
 
-Storage is encrypted and in a private location on the local device, isolated from other users and other apps.
+## <a name="examples"></a>Beispiele
 
-## Syntax
-**SaveData**( *Collection*, *Name* )<br>**LoadData**( *Collection*, *Name* [, *IgnoreNonexistentFile* ])
-
-* *Collection* - Required.  Collection to be stored or loaded.
-* *Name* - Required.  Name of the storage. You must use the same name to save and load the same set of data. The name space isn't shared with other apps or users.
-* *IgnoreNonexistentFile* - Optional. Boolean (**true**/**false**) value that indicates whether **LoadData** function should display or ignore errors when it can't locate a matching file. If you specify **false**, errors will be displayed. If you specify **true**, errors will be ignored, which is useful for offline scenarios. **SaveData** may create a file if the device is offline (that is, if the **Connection.Connected** status is **false**).
-
-## Examples
-
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **If(Connection.Connected, ClearCollect(LocalTweets, Twitter.SearchTweet("PowerApps", {maxResults: 100})),LoadData(LocalTweets, "Tweets", true))** |If the device is connected, load the LocalTweets collection from the Twitter service; otherwise, load the collection from the local file cache. |The content is rendered whether the device is online or offline. |
-| **SaveData(LocalTweets, "Tweets")** |Save the LocalTweets collection as a local file cache on the device. |Data is saved locally so that **LoadData** can load it into a collection. |
+| **If(Connection.Connected, ClearCollect(LocalTweets, Twitter.SearchTweet("PowerApps", {maxResults: 100})),LoadData(LocalTweets, "Tweets", true))** |Wenn das Gerät verbunden ist, laden Sie die LocalTweets-Sammlung vom Twitter-Dienst; laden Sie andernfalls die Sammlung aus dem lokalen Dateicache. |Der Inhalt wird wiedergegeben, gleich, ob das Gerät online oder offline ist. |
+| **SaveData(LocalTweets, "Tweets")** |Speichern Sie die LocalTweets-Sammlung als lokalen Dateicache auf dem Gerät. |Die Daten werden lokal gespeichert, sodass **LoadData** sie in eine Sammlung laden kann. |
 

@@ -1,6 +1,6 @@
 ---
-title: Accessibility properties for canvas apps | Microsoft Docs
-description: Reference information about properties such as TabIndex and Tooltip
+title: Eigenschaften von Bedienungshilfen | Microsoft-Dokumentation
+description: Enthält Referenzinformationen zu Eigenschaften, z.B. TabIndex, QuickInfo.
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,31 +9,27 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 01/26/2017
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 4d75fcd4c0605e295c1e61c5232ba747203d1647
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42854145"
 ---
-# Accessibility properties for canvas apps
+# <a name="accessibility-properties-in-powerapps"></a>Eigenschaften von Bedienungshilfen in PowerApps
+Hier geht es um die Konfiguration von Eigenschaften, die für Benutzer mit Sehschwäche als Hilfe für alternative Interaktionsmöglichkeiten mit Steuerelementen dienen.
 
-Configuration of properties that aid alternative ways of interacting with controls suitable for users with disabilities.
+### <a name="properties"></a>Eigenschaften
+**AccessibleLabel**: Bezeichnung für Sprachausgaben. Durch einen leeren Wert für Bild-, Symbol- und Formsteuerelemente werden diese für die Bildschirmsprachausgabe unsichtbar und als Dekoration behandelt.
 
-## Properties
+**TabIndex**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**AccessibleLabel** – Label for screen readers. An empty value for Image, Icon and Shape controls will make the controls invisible to the screen reader and treated as decorations.
+Mit dem Standardwert 0 wird die Standardaktivierreihenfolge basierend auf der XY-Koordinate des Steuerelements angegeben.  Wenn Sie einen höheren Wert als 0 wählen, wird die Aktivierreihenfolge für alle Steuerelemente mit den Standardwerten entsprechend verschoben.  Ein Steuerelement mit einem TabIndex-Wert von 2 hat in der Aktivierreihenfolge Vorrang vor einem Steuerelement mit dem TabIndex-Wert 3 oder höher.
 
-**Live** – How screen readers should announce changes to content. Available only in the **[Label](control-text-box.md)** control.
+Beachten Sie, dass bei Containern, z.B. Formular- und Katalog-Steuerelementen, immer erst alle Elemente des Containers durchlaufen werden, bevor die Steuerelemente außerhalb des Containers an die Reihe kommen.  Die Aktivierreihenfolge des Containers entspricht der Reihenfolge des niedrigsten TabIndex-Werts eines untergeordneten Steuerelements.
 
-* When set to **Off**, the screen reader doesn't announce changes.
-* When set to **Polite**, the screen reader finishes speaking before announcing any changes that occurred while the screen reader was speaking.
-* When set to **Assertive**, the screen reader interrupts itself to announce any changes that occurred while the screen reader was speaking.
-
-Learn how to [announce dynamic changes with live regions](../accessible-apps-live-regions.md).
-
-**TabIndex** –  Keyboard navigation order in relation to other controls.
-
-Default value of zero specifies default tab order, based on control's XY coordinate.  Setting a value higher than zero will move the control's tab order ahead of all controls with the default values.  A control with TabIndex value of 2 will precede one with TabIndex of 3 or higher when tabbed.
-
-Note that containers such as Form and Gallery controls will always tab through all elements of the container before proceeding to controls outside of the container.  The container's tab order is that of the lowest value TabIndex of a child control.
-
-Setting TabIndex to -1 will disable tab access to the control; in case of Images, Icons and Shapes, they will be made non-interactive elements.
+Durch Festlegen von TabIndex auf den Wert -1 wird der Registerkartenzugriff auf das Steuerelement deaktiviert; im Fall von Bildern, Symbolen und Formen werden diese zu nicht interaktiven Elementen.

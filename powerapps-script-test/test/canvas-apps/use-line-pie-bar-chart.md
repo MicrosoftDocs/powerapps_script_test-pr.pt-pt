@@ -1,107 +1,113 @@
 ---
-title: Create a chart in a canvas app | Microsoft Docs
-description: In PowerApps, show categories of data as line charts, pie charts, or bar charts in a canvas app
-author: fikaradz
+title: Erstellen eines Diagramms in einer Canvas-App | Microsoft-Dokumentation
+description: Anzeigen von Datenkategorien als Linien-, Kreis- oder Balkendiagramme in einer Canvas-App in PowerApps
+author: lonu
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/23/2016
-ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: lonu
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 142bb0e19fb8b9647c1808dcca10e781c4f69d4a
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42862033"
 ---
-# Show data in a line, pie, or bar chart in PowerApps
+# <a name="show-data-in-a-line-pie-or-bar-chart-in-powerapps"></a>Anzeigen von Daten in einem Linien-, Kreis- oder Balkendiagramm in PowerApps
 
-Use line charts, pie charts, and bar charts to display your data in a canvas app. When you work with charts, the data that you import should be structured based on these criteria:
+Verwenden Sie Linien-, Kreis- und Balkendiagramme, um Ihre Daten in einer Canvas-App anzuzeigen. Beim Arbeiten mit Diagrammen sollten die Daten, die Sie importieren, nach folgenden Kriterien gegliedert sein:
 
-* Each series should be in the first row.
-* Labels should be in the leftmost column.
+* Jede Reihe sollte in der ersten Zeile stehen.
+* Bezeichnungen sollten in der am weitesten links stehenden Spalte zu finden sein.
 
-For example, your data should look similar to the following:
+Ihre Daten sollten z.B. wie folgt aussehen:
 
 ![][9]
 
-You can create and use these charts within PowerApps. Let's get started.
+Sie können diese Diagramme in PowerApps erstellen und verwenden. Lassen Sie uns loslegen!
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-* [Sign up](../signup-for-powerapps.md) for PowerApps, and then [sign in](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) using the same credentials that you used to sign up.
-* Create an app from a [template](get-started-test-drive.md), from [data](get-started-create-from-data.md), or from [scratch](get-started-create-from-blank.md).
-* Learn how to [configure a control](add-configure-controls.md) in PowerApps.
-* Download [ChartData.zip](http://pwrappssamples.blob.core.windows.net/samples/ChartData.zip), which contains sample data as an XML file. Follow the steps in this topic to import it directly into your app. As an alternative, decompress the .zip file, open the XML file in Excel, and save it to a [cloud-storage account](connections/cloud-storage-blob-connections.md).
+* [Registrieren Sie sich für PowerApps](../signup-for-powerapps.md), und [melden Sie sich an](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), indem Sie dieselben Anmeldeinformationen eingeben, die Sie bei der Registrierung angegeben haben.
+* Erstellen Sie eine App aus einer [Vorlage](get-started-test-drive.md), aus [Daten](get-started-create-from-data.md) oder [von Grund auf neu](get-started-create-from-blank.md).
+* Erfahren Sie, wie Sie [ein Steuerelement](add-configure-controls.md) in PowerApps konfigurieren.
+* Laden Sie [ChartData.zip](http://pwrappssamples.blob.core.windows.net/samples/ChartData.zip) herunter, die Beispieldaten als XML-Datei enthält. Führen Sie die Schritte in diesem Thema aus, um sie direkt in Ihre App zu importieren. Dekomprimieren Sie alternativ die ZIP-Datei, öffnen Sie die XML-Datei in Excel, und speichern Sie es in ein [Cloudspeicherkonto](connections/cloud-storage-blob-connections.md).
 
-## Import the sample data
-In these steps, we import the sample data into a collection, named **ProductRevenue**.
+## <a name="import-the-sample-data"></a>Importieren der Beispieldaten
+In den folgenden Schritten importieren wir die Beispieldaten in eine Sammlung mit dem Namen **ProductRevenue**.
 
-1. On the **Insert** tab, select **Controls**, and then select **Import**:  
+1. Wählen Sie auf der Registerkarte **Insert** (Einfügen) die Option **Controls** (Steuerelemente) und anschließend **Import** (Importieren) aus.  
 
     ![][11]  
 
-2. Set the control's **[OnSelect](controls/properties-core.md)** property to the following function:  
+2. Legen Sie die Eigenschaft **[OnSelect](controls/properties-core.md)** des Steuerelements auf die folgende Funktion fest:  
 
    ```Collect(ProductRevenue, Import1.Data)```
 
-3. Press F5 to open Preview mode, and then select the **Import Data** button.
+3. Drücken Sie F5 zum Öffnen des Vorschaumodus, und wählen Sie anschließend die Schaltfläche **Daten importieren** aus.
 
-4. In the **Open** dialog box, select ChartData.zip, select **Open**, and then press Esc.
+4. Wählen Sie im Dialogfeld **Öffnen** „ChartData.zip“ und **Öffnen** aus. Drücken Sie anschließend ESC.
 
-5. On the **File** menu, select **Collections**.
+5. Wählen Sie im Menü **Datei** **Sammlungen** aus.
 
-    The ProductRevenue collection is listed with the chart data you imported:
+    Die Sammlung „ProductRevenue“ wird zusammen mit den Diagrammdaten aufgeführt, die Sie importiert haben:
 
     ![][1]  
 
    > [!NOTE]
-   > The import control is used to import Excel-like data and create the collection. The import control imports data when you are creating your app, and previewing your app. Currently, the import control does not import data when you publish your app.
+   > Das Import-Steuerelement wird zum Importieren von Excel-ähnlichen Daten und zum Erstellen der Sammlung verwendet. Das Importsteuerelement importiert Daten, wenn Sie Ihre App erstellen und eine Vorschau der App anzeigen. Das Import-Steuerelement importiert derzeit keine Daten, wenn Sie Ihre App veröffentlichen.
    >
 
-6. Press Esc to return to the default workspace.
+6. Drücken Sie die ESC-Taste, um zum Standardarbeitsbereich zurückzukehren.
 
-## Add a pie chart
-1. On the **Insert** tab, select **Charts**, and then select **Pie Chart**.
+## <a name="add-a-pie-chart"></a>Hinzufügen eines Kreisdiagramms
+1. Wählen Sie auf der Registerkarte **Einfügen** **Diagramme** und anschließend **Kreisdiagramm** aus.
 
-2. Move the pie chart under the **Import data** button.
+2. Verschieben Sie das Kreisdiagramm unter die Schaltfläche **Daten importieren**.
 
-3. In the pie-chart control, select the middle of the pie chart:   
+3. Wählen Sie im Kreisdiagramm-Steuerelement die Mitte des Kreisdiagramms aus:   
 
     ![][10]
 
-4. Set the **[Items](controls/properties-core.md)** property of the pie chart to this expression: `ProductRevenue.Revenue2014`
+4. Legen Sie die Eigenschaft **[Elemente](controls/properties-core.md)** des Kreisdiagramms auf diesen Ausdruck fest: `ProductRevenue.Revenue2014`
 
     ![][2]  
 
-    The pie chart shows the revenue data from 2014.
+    Das Kreisdiagramm zeigt die Umsatzdaten von 2014.
 
     ![][3]  
 
-## Add a bar chart to display your data
-Now, let's use this ProductRevenue collection in a bar chart:
+## <a name="add-a-bar-chart-to-display-your-data"></a>Hinzufügen eines Balkendiagramms zum Anzeigen Ihrer Daten
+Jetzt nutzen wir die Sammlung „ProductRevenue“ in einem Balkendiagramm:
 
-1. On the **Home** tab, add a screen.]
+1. Fügen Sie auf der Registerkarte **Startseite** einen Bildschirm hinzu.
 
-2. On the **Insert** tab, select **Charts**, and then select **Column Chart**.
+2. Wählen Sie auf der Registerkarte **Einfügen** **Diagramme** und anschließend **Säulendiagramm** aus.
 
-3. Select the middle of the column chart. Set the **[Items](controls/properties-core.md)** property of the column chart to ```ProductRevenue```:
+3. Wählen Sie die Mitte des Säulendiagramms aus. Legen Sie die Eigenschaft **[Elemente](controls/properties-core.md)** des Säulendiagramms auf ```ProductRevenue``` fest:
 
     ![][12]  
 
-    The column chart shows the revenue data from 2012:
+    Das Säulendiagramm zeigt die Umsatzdaten von 2012:
 
     ![][4]  
 
-4. In the column chart, select the center square:
+4. Wählen Sie im Säulendiagramm das Quadrat in der Mitte aus:
 
     ![][5]
 
-5. On the **Chart** tab, select **Number of Series**, and then enter **3** in the formula bar:
+5. Wählen Sie auf der Registerkarte **Diagramm** die **Anzahl der Reihen** aus, und geben Sie anschließend **3** in die Bearbeitungsleiste ein:
 
     ![][6]  
 
-    The column chart shows revenue data for each product over three years:
+    Das Säulendiagramm zeigt die Umsatzdaten jedes Produkts aus drei Jahren an:
 
     ![][7]  
 

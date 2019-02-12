@@ -1,6 +1,6 @@
 ---
-title: Connect to Oracle Database | Microsoft Docs
-description: Learn how to connect to Oracle Database and use it for building apps in PowerApps.
+title: Herstellen einer Verbindung mit einer Oracle-Datenbank | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie eine Verbindung mit einer Oracle-Datenbank herstellen und damit Apps in PowerApps erstellen.
 author: lancedMicrosoft
 manager: kvivek
 ms.service: powerapps
@@ -9,89 +9,95 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/14/2017
 ms.author: lanced
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: f431373b2c36a84b54a3241ad2d49af019c37419
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42858425"
 ---
-# Connect to an Oracle database from PowerApps
-List tables, and create, read, update and delete table rows in an Oracle database after you create a connection and build an app in PowerApps. The Oracle Database connection supports full delegation of filtering, sorting, and other functions but not triggers or stored procedures.
+# <a name="connect-to-an-oracle-database-from-powerapps"></a>Herstellen einer Verbindung mit einer Oracle-Datenbank aus PowerApps
+Nachdem Sie eine Verbindung mit einer Oracle-Datenbank hergestellt und eine App in PowerApps erstellt haben, können Sie Tabellen in der Oracle-Datenbank auflisten und Tabellenzeilen erstellen, lesen und aktualisieren. Die Verbindung mit der Oracle-Datenbank unterstützt die vollständige Delegierung von Filtern, Sortieren und weiteren Funktionen, jedoch keine Trigger und gespeicherten Prozeduren.
 
-## Prerequisites
-* Oracle 9 and later
-* Oracle client software 8.1.7 and later
-* Installation of an on-premises data gateway
-* Installation of the Oracle client SDK
+## <a name="prerequisites"></a>Voraussetzungen
+* Oracle 9 und höher
+* Oracle-Clientsoftware, Version 8.1.7 und höher
+* Installation eines lokalen Datengateways
+* Installation des Oracle-Client-SDK
 
-### Install an on-premises data gateway
-To install a gateway, follow the steps in [this tutorial](../gateway-management.md).
+### <a name="install-an-on-premises-data-gateway"></a>Installation eines lokalen Datengateways
+Führen Sie zum Installieren eines Gateways die Schritte in [diesem Tutorial](../gateway-management.md) aus.
 
-An on-premises data gateway acts as a bridge, providing quick and secure data transfer between on-premises data (data that isn't in the cloud) and the Power BI, Microsoft Flow, Logic Apps, and PowerApps services. You can use the same gateway with multiple services and multiple data sources. For more information, see [Understand gateways](../gateway-reference.md).
+Ein lokales Datengateway fungiert als Brücke, die die schnelle und sichere Übertragung von Daten zwischen lokalen Quellen (Daten, die nicht in der Cloud gespeichert sind) und den Diensten Power BI, Microsoft Flow, Logic Apps und PowerApps ermöglicht. Sie können dasselbe Gateway für mehrere Dienste und mehrere Datenquellen verwenden. Weitere Informationen finden Sie unter [Grundlegendes zu Gateways](../gateway-reference.md).
 
-### Install Oracle client
-On the same computer as the on-premises data gateway, install the [64-bit ODAC 12c Release 4 (12.1.0.2.4) for Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html). Otherwise, an error will appear if you try to create or use the connection, as the list of known issues describes.
+### <a name="install-oracle-client"></a>Installieren des Oracle-Clients
+Installieren Sie auf dem Computer, auf dem sich das lokale Datengateway befindet, Oracle Data Access Components (ODAC) [64-Bit-ODAC 12c-Version 4 (12.1.0.2.4) für Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html). Andernfalls wird ein Fehler angezeigt, wenn Sie versuchen, die Verbindung zu erstellen oder zu verwenden, wie in der Liste bekannter Probleme beschrieben.
 
-## Create an app from a table in an Oracle database
-1. In PowerApps Studio, click or tap **New** on the **File** menu (near the left edge).
+## <a name="create-an-app-from-a-table-in-an-oracle-database"></a>Erstellen einer App aus einer Tabelle in einer Oracle-Datenbank
+1. Klicken oder tippen Sie in PowerApps Studio im Menü **Datei** auf **Neu** (nahe dem linken Rand).
    
-   ![New option](./media/connection-oracledb/new-app.png)
-2. Under **Start with your data**, click or tap the arrow.
+   ![Neue Option](./media/connection-oracledb/new-app.png)
+2. Klicken oder tippen Sie auf den Pfeil unter **Mit eigenen Daten beginnen**.
    
-      A list of connections that you already have appears.
-3. Click or tap **New connection**.
+      Eine Liste der bereits vorhandenen Verbindungen wird angezeigt.
+3. Klicken oder tippen Sie auf **Neue Verbindung**.
    
-   ![New connection](./media/connection-oracledb/new-connection.png)
-4. In the list of connections, click or tap **Oracle Database**.
+   ![Neue Verbindung](./media/connection-oracledb/new-connection.png)
+4. Klicken oder tippen Sie in der Liste der Verbindungen auf **Oracle Database**.
    
-   ![New database](./media/connection-oracledb/oracle-db.png)
-5. Specify the name of an Oracle server, a username, and a password.
+   ![Neue Datenbank](./media/connection-oracledb/oracle-db.png)
+5. Geben Sie den Namen eines Oracle-Servers, einen Benutzernamen und ein Kennwort ein.
    
-    Specify a server in this format if an SID is required:<br>
-    *ServerName*/*SID*
+    Geben Sie einen Server im folgenden Format ein, wenn eine SID erforderlich ist:<br>
+    *Servername*/*SID*
    
-   ![Connection parameters](./media/connection-oracledb/connection-params.png)
-6. Click or tap the gateway that you want to use, or install one.
+   ![Verbindungsparameter](./media/connection-oracledb/connection-params.png)
+6. Klicken oder tippen Sie auf das Gateway, das Sie verwenden möchten, oder installieren Sie ein Gateway.
    
-    If your gateway doesn't appear after you install it, click **Refresh gateway list**.
+    Wenn Ihr Gateway nach der Installation nicht angezeigt wird, klicken Sie auf **Gatewayliste aktualisieren**.
    
-   ![New gateway](./media/connection-oracledb/choose-gateway.png)
-7. Click or tap **Create** to create the connection.
+   ![Neues Gateway](./media/connection-oracledb/choose-gateway.png)
+7. Klicken oder tippen Sie auf **Erstellen**, um die Verbindung zu erstellen.
    
-   ![New](./media/connection-oracledb/create-button.png)
-8. Click or tap the **default** dataset.
+   ![Neu](./media/connection-oracledb/create-button.png)
+8. Klicken oder tippen Sie auf das Dataset **Standard**.
    
-   ![New](./media/connection-oracledb/choose-dataset.png)
-9. In the list of tables, click or tap the table that you want to use.
+   ![Neu](./media/connection-oracledb/choose-dataset.png)
+9. Klicken oder tippen Sie in der Liste der Tabellen auf die Tabelle, die Sie verwenden möchten.
    
-   ![New](./media/connection-oracledb/choose-table.png)
-10. Click **Connect** to create the app.
+   ![Neu](./media/connection-oracledb/choose-table.png)
+10. Klicken Sie auf **Verbinden**, um die App zu erstellen.
     
-    ![New](./media/connection-oracledb/connect-button.png)
+    ![Neu](./media/connection-oracledb/connect-button.png)
 
-PowerApps creates an app that has three screens and shows data from the table that you selected:
+Es wird eine App erstellt, die drei Bildschirme enthält und in der Daten aus der von Ihnen ausgewählten Tabelle angezeigt werden:
 
-* **BrowseScreen1**, which lists all entries in the table.
-* **DetailScreen1**, which provides more info about a single entry.
-* **EditScreen1**, in which users can update an entry or create an entry.
+* **BrowseScreen1** – Dort werden alle Einträge in der Tabelle aufgelistet.
+* **DetailScreen1** – Bietet weitere Informationen über einen einzelnen Eintrag.
+* **EditScreen1** – Dort können Benutzer einen Eintrag aktualisieren oder erstellen.
 
-![New](./media/connection-oracledb/afd-app.png)
+![Neu](./media/connection-oracledb/afd-app.png)
 
-## Next steps
-* To save the app that you've just generated, press Ctrl-S.
-* To customize **BrowseScreen1** (which appears by default), see [Customize a layout](../customize-layout-sharepoint.md).
-* To customize **DetailsScreen1** or **EditScreen1**, see [Customize a form](../customize-forms-sharepoint.md).
+## <a name="next-steps"></a>Nächste Schritte
+* Zum Speichern der App, die Sie gerade erstellt haben, drücken Sie STRG+S.
+* Informationen zum Anpassen von **BrowseScreen1** (standardmäßig angezeigt) finden Sie unter [Anpassen eines Layouts](../customize-layout-sharepoint.md).
+* Informationen zum Anpassen von **DetailsScreen1** oder **EditScreen1** finden Sie unter [Anpassen von Formularen](../customize-forms-sharepoint.md).
 
-## Known issues, tips, and troubleshooting
-1. Cannot reach the Gateway.
+## <a name="known-issues-tips-and-troubleshooting"></a>Bekannte Probleme, Tipps und Problembehandlung
+1. Das Gateway ist nicht erreichbar.
    
-    This error appears if the on-premises data gateway can't connect to the cloud. To check the status of your gateway, sign in to powerapps.microsoft.com, click or tap **Gateways**, and then click or tap the gateway that you want to use.
+    Dieser Fehler wird angezeigt, wenn das lokale Datengateway keine Verbindung mit der Cloud herstellen kann. Um den Status des Gateways zu überprüfen, melden Sie sich bei „powerapps.microsoft.com“ an, klicken oder tippen Sie auf **Gateways**, und klicken oder tippen Sie auf das Gateway, das Sie verwenden möchten.
    
-    Make sure that your gateway is running and can connect to the Internet. Avoid installing the gateway on a computer that may be turned off or asleep. Also try restarting the on-premises data gateway service (PBIEgwService).
-2. System.Data.OracleClient requires Oracle client software version 8.1.7 or greater.
+    Stellen Sie sicher, dass das Gateway ausgeführt wird und eine Verbindung mit dem Internet herstellen kann. Installieren Sie das Gateway nicht auf einem Computer, der möglicherweise ausgeschaltet oder in den Energiesparmodus versetzt wird. Möglicherweise können Sie das Problem auch durch einen Neustart des lokalen Datengatewaydiensts (PBIEgwService) beheben.
+2. System.Data.OracleClient erfordert Version 8.1.7 oder höher der Oracle-Clientsoftware.
    
-    This error appears if the Oracle client SDK isn't installed on the same computer as the on-premises data gateway. To resolve this issue, [install the official provider](https://go.microsoft.com/fwlink/p/?LinkID=272376).
-3. Table '[Tablename]' does not define any key columns.
+    Dieser Fehler wird angezeigt, wenn das Oracle-Client-SDK nicht auf demselben Computer wie das lokale Datengateway installiert ist. Um das Problem zu beheben, [installieren Sie die Software vom offiziellen Anbieter](https://go.microsoft.com/fwlink/p/?LinkID=272376).
+3. Für die Tabelle „[Tabellenname]“ sind keine Schlüsselspalten definiert.
    
-    This error appears if you're connecting to a table that doesn't have a primary key, which the Oracle Database connection requires.
-4. As of this writing, stored procedures, tables with composite keys, and nested object types in tables aren't supported.
+    Dieser Fehler wird angezeigt, wenn Sie eine Verbindung mit einer Tabelle herstellen, die keinen Primärschlüssel enthält. Dieser ist für die Verbindung mit der Oracle-Datenbank erforderlich.
+4. Zum Zeitpunkt der Erstellung dieses Dokuments werden gespeicherte Prozeduren, Tabellen mit zusammengesetzten Schlüsseln und geschachtelte Objekttypen in Tabellen nicht unterstützt.
 

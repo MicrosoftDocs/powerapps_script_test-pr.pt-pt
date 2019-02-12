@@ -1,6 +1,6 @@
 ---
-title: ForAll function | Microsoft Docs
-description: Reference information, including syntax and examples, for the ForEach function in PowerApps
+title: Funktion „ForAll“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „ForAll“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,202 +9,145 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/26/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 688b1e87e5bc1d2ee3429711b9995f3b4ef61e1c
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42857106"
 ---
-# ForAll function in PowerApps
-Calculates values and performs actions for all [records](../working-with-tables.md#records) of a [table](../working-with-tables.md).
+# <a name="forall-function-in-powerapps"></a>Funktion „ForAll“ in PowerApps
+Berechnet Werte und führt Aktionen für alle [Datensätze](../working-with-tables.md#records) einer [Tabelle](../working-with-tables.md) durch.
 
-## Description
-The **ForAll** function evaluates a formula for all records of a table.  The formula can calculate a value and/or perform actions, such as modifying data or working with a connection.
+## <a name="description"></a>Beschreibung
+Die **ForAll**-Funktion wertet eine Formel für alle Datensätze einer Tabelle aus.  Die Formel kann einen Wert berechnen und/oder Aktionen wie das Ändern von Daten oder das Arbeiten mit einer Verbindung ausführen.
 
 [!INCLUDE [record-scope](../../../includes/record-scope.md)]
 
-### Return value
-The result of each formula evaluation is returned in a table, in the same order as the input table.
+### <a name="return-value"></a>Rückgabewert
+Das Ergebnis jeder Formelauswertung wird in einer Tabelle in der gleichen Reihenfolge wie in der Eingabetabelle zurückgegeben.
 
-If the result of the formula is a single value, the resulting table will be a single column table.  If the result of the formula is a record, the resulting table will contain records with the same columns as the result record.  
+Wenn das Ergebnis der Formel ein einzelner Wert ist, ist die resultierende Tabelle eine einspaltige Tabelle.  Wenn das Ergebnis der Formel ein Datensatz ist, enthält die resultierende Tabelle Datensätze mit den gleichen Spalten wie der Ergebnisdatensatz.  
 
-If the result of the formula is a *blank* value, then there will be no record in the result table for that input record.  In this case, there will be fewer records in the result table than the source table.
+Wenn das Ergebnis der Formel ein *leerer* Wert ist, gibt es für diesen Eingabedatensatz in der Ergebnistabelle keinen Datensatz.  In diesem Fall gibt es weniger Datensätze in der Ergebnistabelle als in der Quelltabelle.
 
-### Taking action
-The formula can include functions that take action, such as modifying the records of a data source with the **[Patch](function-patch.md)** and **[Collect](function-clear-collect-clearcollect.md)** functions.  The formula can also call methods on connections.  Multiple actions can be performed per record by using the [**;** operator](operators.md). You can't modify the table that is the subject of the **ForAll** function.
+### <a name="taking-action"></a>Ausführen von Aktionen
+Die Formel kann Funktionen enthalten, die Aktionen ausführen, wie z.B. die Datensätze einer Datenquelle mit den Funktionen **[Patch](function-patch.md)** und **[Collect](function-clear-collect-clearcollect.md)** ändern.  Die Formel kann auch Methoden auf Verbindungen aufrufen.  Pro Datensatz können mithilfe des [**;**-Operators](operators.md) mehrere Aktionen ausgeführt werden. Die Tabelle, die das Subjekt der **ForAll**-Funktion ist, kann nicht geändert werden.
 
-When writing your formula, keep in mind that records can be processed in any order and, when possible, in parallel.  The first record of the table may be processed after the last record.  Take care to avoid ordering dependencies.  For this reason, you can't use the **[UpdateContext](function-updatecontext.md)**, **[Clear](function-clear-collect-clearcollect.md)**, and **[ClearCollect](function-clear-collect-clearcollect.md)** functions within a **ForAll** function because they could easily be used to hold variables that would be susceptible to this effect.  You can use **[Collect](function-clear-collect-clearcollect.md)**, but the order in which records are added is undefined.
+Beim Schreiben der Formel sollten Sie bedenken, dass Datensätze in beliebiger Reihenfolge und nach Möglichkeit parallel verarbeitet werden können.  Der erste Datensatz der Tabelle kann nach dem letzten Datensatz verarbeitet werden.  Achten Sie darauf, Reihenfolgeabhängigkeiten zu vermeiden.  Aus diesem Grund können Sie die Funktionen **[UpdateContext](function-updatecontext.md)**, **[Clear](function-clear-collect-clearcollect.md)** und **[ClearCollect](function-clear-collect-clearcollect.md)** nicht innerhalb einer **ForAll**-Funktion verwenden, da sie leicht Variablen enthalten könnten, die für diese Auswirkung anfällig sind.  Sie können **[Collect](function-clear-collect-clearcollect.md)** verwenden, aber die Reihenfolge, in der die Datensätze hinzugefügt werden, ist nicht definiert.
 
-Several functions that modify data sources, including **Collect**, **Remove**, and **Update**, return the changed data source as their return value.  These return values can be large and consume significant resources if returned for every record of the **ForAll** table.  You may also find that these return values are not what you expect, because **ForAll** can operate in parallel and may separate the side effects of these functions from obtaining their result.  Fortunately, if the return value from **ForAll** is not actually used, which is often the case with data modification functions, then the return value will not be created and there are no resource or ordering concerns.  But if you are using the result of a **ForAll** and one of the functions that returns a data source, think carefully about how you structure the result and try it out first on small data sets.  
+Mehrere Funktionen zum Ändern von Datenquellen, darunter **Collect**, **Remove** und **Update**, geben die geänderte Datenquelle als Rückgabewert zurück.  Diese Rückgabewerte können groß sein und umfangreiche Ressourcen in Anspruch nehmen, wenn sie für jeden Datensatz der **ForAll**-Tabelle zurückgegeben werden.  Möglicherweise entsprechen diese Rückgabewerte auch nicht Ihren Erwartungen, da **ForAll** parallel ausgeführt werden kann, und die Nebeneffekte dieser Funktionen von deren Ergebnis trennen kann.  Wenn der Rückgabewert von **ForAll** nicht verwendet wird, was bei Funktionen für die Änderung von Daten häufig der Fall ist, wird der Rückgabewert zum Glück nicht erstellt, und es gibt keine Bedenken hinsichtlich Ressourcen oder Reihenfolge.  Aber wenn Sie das Ergebnis einer **ForAll**-Funktion und einer der Funktionen verwenden, die eine Datenquelle zurückgeben, sollten Sie sich genau überlegen, wie Sie das Ergebnis strukturieren, und es zuerst mit kleinen Datensätzen ausprobieren.  
 
-### Alternatives
-Many functions in PowerApps can process more than one value at a time through the use of a single-column table.  For example, the **Len** function can process a table of text values, returning a table of lengths, in the same manner that **ForAll** could.  This can eliminate the need to use **ForAll** in many cases, can be more efficient, and is easier to read.
+### <a name="alternatives"></a>Alternativen
+Viele Funktionen in PowerApps können gleichzeitig mehrere Werte mit einer einspaltigen Tabelle verarbeiten.  Zum Beispiel kann die **Len**-Funktion eine Tabelle mit Textwerten verarbeiten und eine Tabelle mit Längen auf die gleiche Weise zurückgeben wie **ForAll**.  Dadurch ist **ForAll** in vielen Fällen nicht mehr erforderlich, und Effizienz und Lesbarkeit können erhöht werden.
 
-Another consideration is that **ForAll** is not delegable while other functions may be, such as **Filter**.  
+Ein weiterer Aspekt ist, dass **ForAll** im Gegensatz zu anderen Funktionen wie z.B. **Filter** nicht delegiert werden kann.  
 
-### Delegation
+### <a name="delegation"></a>Delegierung
 [!INCLUDE [delegation-no-one](../../../includes/delegation-no-one.md)]
 
-## Syntax
-**ForAll**( *Table*, *Formula* )
+## <a name="syntax"></a>Syntax
+**ForAll**( *Tabelle*, *Formel* )
 
-* *Table* - Required. Table to be acted upon.
-* *Formula* - Required.  The formula to evaluate for all records of the *Table*.
+* *Tabelle* (erforderlich): Zugrunde liegende Tabelle.
+* *Formel* (erforderlich):  Die Formel zur Auswertung für alle Datensätze der *Tabelle*.
 
-## Examples
-### Calculations
-The following examples use the **Squares** [data source](../working-with-data-sources.md):
+## <a name="examples"></a>Beispiele
+### <a name="calculations"></a>Berechnungen
+In den folgenden Beispielen wird die **Squares**-[Datenquelle](../working-with-data-sources.md) verwendet:
 
 ![](media/function-forall/squares.png)
 
-To create this data source as a collection, set the **OnSelect** property of a **Button** control to this formula, open Preview mode, and then click or tap the button:
+Legen Sie die **OnSelect**-Eigenschaft eines **Button**-Steuerelements auf diese Formel fest, öffnen Sie den Vorschaumodus, und klicken oder tippen Sie anschließend auf die Schaltfläche, um diese Datenquelle als Sammlung zu erstellen:
 
-`ClearCollect( Squares, [ "1", "4", "9" ] )`
+* **ClearCollect( Squares, [ "1", "4", "9" ] )**
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **ForAll(&nbsp;Squares, Sqrt(&nbsp;Value&nbsp;)&nbsp;)**<br><br>**Sqrt(&nbsp;Squares&nbsp;)** |For all the records of the input table, calculates the square root of the **Value** column.  The **Sqrt** function can also be used with a single-column table, making it possible perform this example without using **ForAll**. |<style> img { max-width: none } </style> ![](media/function-forall/sqrt.png) |
-| **ForAll(&nbsp;Squares, Power(&nbsp;Value,&nbsp;3&nbsp;)&nbsp;)** |For all the records of the input table, raises the **Value** column to the third power.  The **Power** function does not support single-column tables. Therefore, **ForAll** must be used in this case. |<style> img { max-width: none } </style> ![](media/function-forall/power3.png) |
+| **ForAll(&nbsp;Squares, Sqrt(&nbsp;Value&nbsp;)&nbsp;)**<br><br>**Sqrt(&nbsp;Squares&nbsp;)** |Berechnet für alle Datensätze der Eingabetabelle die Quadratwurzel der **Value**-Spalte.  Die **Sqrt**-Funktion kann auch mit einer einspaltigen Tabelle verwendet werden, sodass dieses Beispiel ohne **ForAll** ausgeführt werden kann. |<style> img { max-width: none } </style> ![](media/function-forall/sqrt.png) |
+| **ForAll(&nbsp;Squares, Power(&nbsp;Value,&nbsp;3&nbsp;)&nbsp;)** |Berechnet für alle Datensätze der Eingabetabelle die dritte Potenz der **Value**-Spalte.  Die **Power**-Funktion unterstützt einspaltige Tabellen nicht. Deshalb muss in diesem Fall **ForAll** verwendet werden. |<style> img { max-width: none } </style> ![](media/function-forall/power3.png) |
 
-### Using a connection
-The following examples use the **Expressions** [data source](../working-with-data-sources.md):
+### <a name="using-a-connection"></a>Verwenden einer Verbindung
+In den folgenden Beispielen wird die **Expressions**-[Datenquelle](../working-with-data-sources.md) verwendet:
 
 ![](media/function-forall/translate.png)
 
-To create this data source as a collection, set the **OnSelect** property of a **Button** control to this formula, open Preview mode, and then click or tap the button:
+Legen Sie die **OnSelect**-Eigenschaft eines **Button**-Steuerelements auf diese Formel fest, öffnen Sie den Vorschaumodus, und klicken oder tippen Sie anschließend auf die Schaltfläche, um diese Datenquelle als Sammlung zu erstellen:
 
-`ClearCollect( Expressions, [ "Hello", "Good morning", "Thank you", "Goodbye" ] )`
+* **ClearCollect( Expressions, [ "Hello", "Good morning", "Thank you", "Goodbye" ] )**
 
-This example also uses a [Microsoft Translator](../connections/connection-microsoft-translator.md) connection.  To add this connection to your app, see the topic about how to [manage connections](../add-manage-connections.md).
+Dieses Beispiel verwendet auch eine [Microsoft Translator](../connections/connection-microsoft-translator.md)-Verbindung.  Wie Sie diese Verbindung zu Ihrer App hinzufügen, erfahren Sie im Thema [Manage your connections (Verwalten von Verbindungen)](../add-manage-connections.md).
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **ForAll( Expressions, MicrosoftTranslator.Translate( Value, "es" ) )** |For all the records in the Expressions table, translate the contents of the **Value** column into Spanish (abbreviated "es"). |<style> img { max-width: none } </style> ![](media/function-forall/translate-es.png) |
-| **ForAll( Expressions, MicrosoftTranslator.Translate( Value, "fr" ) )** |For all the records in the Expressions table, translate the contents of the **Value** column into French (abbreviated "fr"). |<style> img { max-width: none } </style> ![](media/function-forall/translate-fr.png) |
+| **ForAll( Expressions, MicrosoftTranslator.Translate( Value, "es" ) )** |Übersetzt für alle Datensätze in der Expressions-Tabelle den Inhalt der **Value**-Spalte ins Spanische (abgekürzt "es"). |<style> img { max-width: none } </style> ![](media/function-forall/translate-es.png) |
+| **ForAll( Expressions, MicrosoftTranslator.Translate( Value, "fr" ) )** |Übersetzt für alle Datensätze in der Expressions-Tabelle den Inhalt der **Value**-Spalte ins Französische (abgekürzt "fr"). |<style> img { max-width: none } </style> ![](media/function-forall/translate-fr.png) |
 
-### Copying a table
-Sometimes you need to filter, shape, sort, and manipulate data.  PowerApps provides a number of functions for doing this, such as **Filter**, **AddColumns**, and **Sort**.  PowerApps treats each table as a value, allowing it to flow through formulas and be consumed easily.      
+### <a name="copying-a-table"></a>Kopieren einer Tabelle
+In einigen Fällen müssen Sie Daten filtern, strukturieren, sortieren und bearbeiten.  PowerApps bietet dafür eine Reihe von Funktionen wie **Filter**, **AddColumns** und **Sort**.  PowerApps behandelt jede Tabelle als Wert, sodass sie Formeln passieren und auf einfache Weise genutzt werden kann.      
 
-And sometime you will want to make a copy of this result for later use.  Or you will want to move information from one data source to another.  PowerApps provides the **Collect** function to copy data.
+Zudem kann es vorkommen, dass Sie eine Kopie dieses Ergebnisses zur späteren Verwendung erstellen möchten.  Oder Sie möchten Informationen aus einer Datenquelle in eine andere verschieben.  PowerApps bietet die **Collect**-Funktion zum Kopieren von Daten.
 
-But before you make that copy, think carefully if it is really needed.  Many situations can be addressed by filtering and shaping the underlying data source on demand with a formula. Some of the downsides to making a copy include:
+Aber bevor Sie eine Kopie erstellen, sollten Sie sich genau überlegen, ob dies wirklich erforderlich ist.  Viele Situationen können durch Filtern und Strukturieren der zugrunde liegenden Datenquelle nach Bedarf mit einer Formel behoben werden. Zu den Nachteilen der Erstellung einer Kopie gehören:
 
-* Two copies of the same information means that one of them can fall out of sync.  
-* Making a copy can consume a lot of computer memory, network bandwidth, and/or time.  
-* For most data sources, copying cannot be delegated, limiting how much data can be moved.      
+* Bei zwei Kopien derselben Informationen kann eine von ihnen möglicherweise nicht mehr synchron abgerufen werden.  
+* Das Erstellen einer Kopie kann viel Arbeitsspeicher, Netzwerkbandbreite und/oder Zeit beanspruchen.  
+* Bei den meisten Datenquellen kann der Kopiervorgang nicht delegiert werden, und dadurch wird beschränkt, wie viele Daten verschoben werden können.      
 
-The following examples use the **Products** [data source](../working-with-data-sources.md):
+In den folgenden Beispielen wird die **Products**-[Datenquelle](../working-with-data-sources.md) verwendet:
 
 ![](media/function-forall/prod.png)
 
-To create this data source as a collection, set the **OnSelect** property of a **Button** control to this formula, open Preview mode, and then click or tap the button:
+Legen Sie die **OnSelect**-Eigenschaft eines **Button**-Steuerelements auf diese Formel fest, öffnen Sie den Vorschaumodus, und klicken oder tippen Sie anschließend auf die Schaltfläche, um diese Datenquelle als Sammlung zu erstellen:
 
-```powerapps-dot
-ClearCollect( Products, 
-    Table( 
-        { Product: "Widget",    'Quantity Requested': 6,  'Quantity Available': 3 }, 
-        { Product: "Gadget",    'Quantity Requested': 10, 'Quantity Available': 20 },
-        { Product: "Gizmo",     'Quantity Requested': 4,  'Quantity Available': 11 },
-        { Product: "Apparatus", 'Quantity Requested': 7,  'Quantity Available': 6 } 
-    )
-)
-```
+* **ClearCollect( Products, Table( { Product: "Widget", 'Quantity Requested': 6, 'Quantity Available': 3 }, { Product: "Gadget", 'Quantity Requested': 10, 'Quantity Available': 20 }, { Product: "Gizmo", 'Quantity Requested': 4, 'Quantity Available': 11 }, { Product: "Apparatus", 'Quantity Requested': 7, 'Quantity Available': 6 } ) )**
 
-Our goal is to work with a derivative table that includes only the items where more has been requested than is available, and for which we need to place an order:
+Unser Ziel ist es, mit einer abgeleiteten Tabelle zu arbeiten, die nur die Artikel enthält, von denen mehr angefordert wurde als verfügbar ist, und für die wir eine Bestellung aufgeben müssen:
 
 ![](media/function-forall/prod-order.png)  
 
-We can perform this task in a couple of different ways, all of which produce the same result, with various pros and cons.
+Wir können diese Aufgabe auf verschiedene Weisen ausführen, die alle mit verschiedenen Vor- und Nachteilen zum gleichen Ergebnis führen.
 
-#### Table shaping on demand
-Don't make that copy!  We can use the following formula anywhere we need:
+#### <a name="table-shaping-on-demand"></a>Tabellenstrukturierung nach Bedarf
+Erstellen Sie keine Kopie!  Wir können die folgende Formel an einer beliebigen Stelle verwenden:
 
-```powerapps-dot
-// Table shaping on demand, no need for a copy of the result
-ShowColumns( 
-    AddColumns( 
-        Filter( Products, 'Quantity Requested' > 'Quantity Available' ), 
-        "Quantity To Order", 'Quantity Requested' - 'Quantity Available' 
-    ), 
-    "Product", 
-    "Quantity To Order"
-)
-```
+* **ShowColumns( AddColumns( Filter( Products, 'Quantity Requested' > 'Quantity Available' ), "Quantity To Order", 'Quantity Requested' - 'Quantity Available' ), "Product", "Quantity To Order" )**
 
-A [record scope](../working-with-tables.md#record-scope) is created by the **Filter** and **AddColumns** functions to perform the comparison and subtraction operations, respectively, with the **'Quantity Requested'** and **'Quantity Available'** fields of each record.
+Es wird ein [Datensatzbereich](../working-with-tables.md#record-scope) von den Funktionen **Filter** und **AddColumns** erstellt, um den Vergleich bzw. die Subtraktion mit den Feldern **'Quantity Requested'** (Angeforderte Menge) und **'Quantity Available'** (Verfügbare Menge) jedes Datensatzes durchzuführen.
 
-In this example, the **Filter** function can be delegated.  This is important, as it can find all the products that meet the criteria, even if that is only a few records out of a table of millions.  At this time, **ShowColumns** and **AddColumns** cannot be delegated, so the actual number of products that needs to be ordered will be limited.  If you know the size of this result will always be relatively small, this approach is fine.
+In diesem Beispiel kann die **Filter**-Funktion delegiert werden.  Dies ist wichtig, da sie alle Produkte finden kann, die die Kriterien erfüllen, auch wenn es nur wenige Datensätze aus einer Tabelle mit Millionen von Datensätzen sind.  Zu diesem Zeitpunkt können **ShowColumns** und **AddColumns** nicht delegiert werden, sodass die tatsächliche Anzahl von Produkten, die bestellt werden müssen, beschränkt ist.  Wenn Sie wissen, dass der Umfang dieses Ergebnisses immer relativ gering sein wird, ist dieser Ansatz in Ordnung.
 
-And because we didn't make a copy, there is no additional copy of the information to manage or fall out of date.  
+Und da wir keine Kopie erstellt haben, muss keine zusätzliche Kopie der Informationen verwaltet werden und kann auch nicht veralten.  
 
-#### ForAll on demand
-Another approach is to use the **ForAll** function to replace the table-shaping functions:
+#### <a name="forall-on-demand"></a>ForAll nach Bedarf
+Ein anderer Ansatz ist die **ForAll**-Funktion, um die Funktionen zur Tabellenstrukturierung zu ersetzen:
 
-```powerapps-dot
-ForAll( Products, 
-    If( 'Quantity Requested' > 'Quantity Available', 
-        { 
-            Product: Product, 
-            'Quantity To Order': 'Quantity Requested' - 'Quantity Available' 
-        } 
-    ) 
-)
-```
+* **ForAll( Products, If( 'Quantity Requested' > 'Quantity Available', { Product: Product, 'Quantity To Order': 'Quantity Requested' - 'Quantity Available' } ) )**
 
-This formula may be simpler for some people to read and write.
+Diese Formel ist für einige Personen möglicherweise einfacher zu lesen und zu schreiben.
 
-No part of the **ForAll** is delegable.  Only the first portion of the **Products** table will be evaluated, which could be a problem if this table is very large.  Because **Filter** could be delegated in the previous example, it could work better with large data sets.
+Kein Teil der **ForAll**-Funktion kann delegiert werden.  Es wird nur der erste Teil der **Products**-Tabelle ausgewertet, was möglicherweise ein Problem darstellt, wenn diese Tabelle sehr groß ist.  Da **Filter** im vorherigen Beispiel delegiert werden konnte, konnte die Funktion besser mit großen Datensätzen arbeiten.
 
-#### Collect the result
-In some situations, a copy of data may be required.  You may need to move information from one data source to another.  In this example, orders are placed through a **NewOrder** table on a vendor's system.  For high-speed user interactions, you may want to cache a local copy of a table so that there is no server latency.
+#### <a name="collect-the-result"></a>Sammeln des Ergebnisses
+In einigen Situationen ist möglicherweise eine Kopie der Daten erforderlich.  Es kann vorkommen, dass Sie Informationen aus einer Datenquelle in eine andere verschieben müssen.  In diesem Beispiel werden alle Bestellungen über eine **NewOrder**-Tabelle auf dem System eines Anbieters aufgegeben.  Für Hochgeschwindigkeits-Benutzerinteraktionen empfiehlt es sich, eine lokale Kopie einer Tabelle zwischenzuspeichern, sodass es nicht zu Serverwartezeit kommt.
 
-We use the same table shaping as the previous two examples, but we capture the result into a collection:
+Wir verwenden die gleiche Tabellenstrukturierung wie in den beiden vorherigen Beispielen, aber wir erfassen das Ergebnis in einer Sammlung:
 
-```powerapps-dot
-ClearCollect( NewOrder, 
-    ShowColumns( 
-        AddColumns( 
-            Filter( Products, 'Quantity Requested' > 'Quantity Available' ), 
-            "Quantity To Order", 'Quantity Requested' - 'Quantity Available' 
-        ), 
-        "Product", 
-        "Quantity To Order"
-    )
-)
-```
+* **ClearCollect( NewOrder, ShowColumns( AddColumns( Filter( Products, 'Quantity Requested' > 'Quantity Available' ), "Quantity To Order", 'Quantity Requested' - 'Quantity Available' ), "Product", "Quantity To Order" ) )**
+* **ClearCollect( NewOrder, ForAll( Products, If( 'Quantity Requested' > 'Quantity Available', { Product: Product, 'Quantity To Order': 'Quantity Requested' - 'Quantity Available' } ) ) )**
 
-```powerapps-dot
-ClearCollect( NewOrder, 
-    ForAll( Products, 
-        If( 'Quantity Requested' > 'Quantity Available', 
-            { 
-                Product: Product, 
-                'Quantity To Order': 'Quantity Requested' - 'Quantity Available' 
-            } 
-        } 
-    )
-)
-```
+**ClearCollect** und **Collect** können nicht delegiert werden.  Deshalb ist die Menge der Daten, die auf diese Weise verschoben werden können, beschränkt.
 
-**ClearCollect** and **Collect** can't be delegated.  As a result the amount of data that can be moved in this manner is limited.
+#### <a name="collect-within-forall"></a>Sammeln innerhalb von ForAll
+Schließlich können wir **Collect** direkt in **ForAll** ausführen:
 
-#### Collect within ForAll
-Finally, we can perform the **Collect** directly within the **ForAll**:
+* **Clear( ProductsToOrder ); ForAll( Products, If( 'Quantity Requested' > 'Quantity Available', Collect( NewOrder, { Product: Product, 'Quantity To Order': 'Quantity Requested' - 'Quantity Available' } ) ) )**
 
-```powerapps-dot
-Clear( ProductsToOrder ); 
-ForAll( Products, 
-    If( 'Quantity Requested' > 'Quantity Available', 
-        Collect( NewOrder,  
-            { 
-                Product: Product, 
-                'Quantity To Order': 'Quantity Requested' - 'Quantity Available' 
-            } 
-        )
-    )
-)
-```
+In diesem Fall kann die **ForAll**-Funktion auch nicht delegiert werden.  Wenn die **Products**-Tabelle sehr groß ist, untersucht **ForAll** nur den ersten Satz von Datensätzen und lässt möglicherweise Produkte aus, die bestellt werden müssen.  Aber für Tabellen, die klein bleiben, ist dieser Ansatz in Ordnung.
 
-Again, the **ForAll** function can't be delegated at this time.  If our **Products** table is large, **ForAll** will look at the first set of records only and we may miss some products that need to be ordered.  But for tables that we know will remain small, this approach is fine.
-
-Note that we are not capturing the result of the **ForAll**.  The **Collect** function calls made from within it will return the **NewOrder** data source for all the records, which could add up to a lot of data if we were capturing it.  
+Beachten Sie, dass wir das Ergebnis von **ForAll** nicht erfassen.  Die **Collect**-Funktionsaufrufe, die daraus erfolgen, geben die **NewOrder**-Datenquelle für alle Datensätze zurück, was auf eine große Datenmenge hinauslaufen könnte, wenn wir es erfassen würden.  
 

@@ -1,190 +1,196 @@
 ---
-title: Embed multimedia files into a canvas app and upload | Microsoft Docs
-description: Show multimedia files in a canvas app, and upload them to a data source
-author: emcoope-msft
+title: Einbetten von Multimediadateien in einer Canvas-App und Hochladen der App | Microsoft-Dokumentation
+description: Anzeigen von Multimediadateien in einer Canvas-App und Hochladen in eine Datenquelle
+author: karthik-1
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 07/12/2017
-ms.author: emcoope
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: sharik
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 99bdf6f3a71fe9a7f5003449017c70c1f5a73d09
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42857703"
 ---
-# Using multimedia files in PowerApps
+# <a name="using-multimedia-files-in-powerapps"></a>Verwenden von Multimediadateien in PowerApps
 
-This topic shows you how to embed multimedia files in your canvas app, upload pen drawings to a data source, and show images from a data source in your canvas app. The data source used in this topic is an Excel file in OneDrive for Business.
+In diesem Artikel wird erläutert, wie Sie Multimediadateien in Ihre Canvas-App einbetten, Stiftzeichnungen in eine Datenquelle hochladen und Bilder aus einer Datenquelle in der Canvas-App anzeigen. Die in diesem Artikel verwendete Datenquelle ist eine Excel-Datei in OneDrive for Business.
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-[Sign up](../signup-for-powerapps.md) for PowerApps, and then [sign in](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) using the same credentials that you used to sign up.
+[Registrieren Sie sich für PowerApps](../signup-for-powerapps.md), und [melden Sie sich an](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), indem Sie dieselben Anmeldeinformationen eingeben, die Sie bei der Registrierung angegeben haben.
 
-## Add media from a file or the cloud
+## <a name="add-media-from-a-file-or-the-cloud"></a>Hinzufügen von Medien aus einer Datei oder aus der Cloud
 
-You can choose the kind of media file to add (for example, images, video, or audio).
+Zum Hochladen können Sie eine beliebige Art von Mediendatei auswählen (z.B. Bilder, Video oder Audio).
 
-1. On the **Content** tab, select **Media**.
+1. Wählen Sie auf der Registerkarte **Inhalt** die Option **Medien** aus.
 
-2. Under **Media**, select **Images**, **Videos**, or **Audio**, and then select **Browse**:
+2. Wählen Sie unter **Medien** **Bilder**, **Videos** oder **Audio** aus, und wählen Sie anschließend **Durchsuchen** aus:
 
-    ![Browse media][1]
+    ![Durchsuchen von Medien][1]
 
-3. Select the file that you want to add, and then select **Open**.
+3. Wählen Sie die hinzuzufügende Datei aus, und wählen Sie dann **Öffnen** aus.
 
-    The **Pictures** folder on your computer opens, and you can select an image from there or navigate to another folder.
+    Der Ordner **Bilder** auf dem Computer wird geöffnet, und Sie können dort ein Bild auswählen oder zu einem anderen Ordner navigieren.
 
-4. When you finish adding files, press Esc to return to the default workspace.
+4. Wenn Sie die gewünschten Dateien hinzugefügt haben, drücken Sie ESC, um zum Standardarbeitsbereich zurückzukehren.
 
-5. On the **Insert** tab, select **Media**, and then select **Image**, **Video**, or **Audio**:
+5. Wählen Sie auf der Registerkarte **Einfügen** **Medien** aus, und wählen Sie anschließend **Bild**, **Video** oder **Audio** aus:
 
-    ![Select media type][8]
+    ![Auswählen des Medientyps][8]
 
-6. If you added an image control, set its **[Image](controls/properties-visual.md)** property to the file that you added:  
+6. Wenn Sie ein Bild-Steuerelement hinzugefügt haben, legen Sie dessen **[Image](controls/properties-visual.md)**-Eigenschaft auf die hinzugefügte Datei fest:  
 
-    ![Set image property](./media/add-images-pictures-audio-video/imageproperty.png)
-
-    > [!NOTE]
-   > Specify the file name only, without the extension, inside single quotes.
-
-7. If you added a video or audio control, set its **Media** property to the file that you added:  
-
-    ![Set media property](./media/add-images-pictures-audio-video/mediaproperty.png)
+    ![Festlegen der Image-Eigenschaft](./media/add-images-pictures-audio-video/imageproperty.png)
 
     > [!NOTE]
-   > Play a YouTube video by setting the **Media** property of a video control to the appropriate URL, enclosed in double quotation marks.
+   > Geben Sie nur den Dateinamen ohne Erweiterung an, und schließen Sie diesen in einfache Anführungszeichen ein.
 
-## Add media from Azure Media Services
-1. From your Azure Media Services account, upload and publish your video asset from **AMS > Settings > Assets**.
+7. Wenn Sie ein Video- oder Audio-Steuerelement hinzugefügt haben, legen Sie dessen **Media**-Eigenschaft auf die hinzugefügte Datei fest:  
 
-2. After the video is published, copy its URL.
+    ![Festlegen der Media-Eigenschaft](./media/add-images-pictures-audio-video/mediaproperty.png)
 
-3. From PowerApps, add the **Video** control from **Insert > Media**.
+    > [!NOTE]
+   > Geben Sie ein YouTube-Video wieder, indem Sie die **Media**-Eigenschaft eines Videosteuerelements auf die entsprechende URL festlegen, die in doppelte Anführungszeichen eingeschlossen werden muss.
 
-4. Set the **Media** property to the URL that you copied.
+## <a name="add-media-from-azure-media-services"></a>Hinzufügen von Medien aus Azure Media Services
+1. Laden Sie in Ihrem Azure Media Services-Konto über **AMS > Einstellungen > Medienobjekte** Ihr Videomedienobjekt hoch, und veröffentlichen Sie es.
 
-    As this graphic shows, you can choose any streaming URL that Azure Media Services supports:
+2. Nachdem das Video veröffentlicht wurde, kopieren Sie seine URL.
 
-    ![Set media property](./media/add-images-pictures-audio-video/ams-with-powerapps.png)
+3. Fügen Sie in PowerApps über **Einfügen > Medien** das **Video**-Steuerelement hinzu.
 
-## Add images from the cloud to your app
-In this scenario, you save images in a cloud storage account, OneDrive for Business. You use an Excel table to contain the path to the images, and you display the images in a gallery control in your app.
+4. Legen Sie die **Media**-Eigenschaft der URL fest, die Sie kopiert haben.
 
-This scenario uses the [CreateFirstApp.zip](http://pwrappssamples.blob.core.windows.net/samples/CreateFirstApp.zip) that contains some .jpeg files.
+    Wie in dieser Abbildung gezeigt, können Sie jede Streaming-URL auswählen, die von Azure Media Services unterstützt wird:
+
+    ![Festlegen der Media-Eigenschaft](./media/add-images-pictures-audio-video/ams-with-powerapps.png)
+
+## <a name="add-images-from-the-cloud-to-your-app"></a>Hinzufügen von Bildern aus der Cloud zur App
+In diesem Szenario speichern Sie Bilder in einem Cloudspeicherkonto (OneDrive for Business). Sie verwenden eine Excel-Tabelle, in der der Pfad zu den Bildern enthalten ist, und Sie zeigen die Bilder in einem Katalog-Steuerelement in der App an.
+
+In diesem Szenario wird die Datei [CreateFirstApp.zip](http://pwrappssamples.blob.core.windows.net/samples/CreateFirstApp.zip) verwendet, die einige JPEG-Dateien enthält.
 
 > [!NOTE]
-> The path to these images in the Excel file must use forward slashes. When PowerApps saves image paths in an Excel table, the path uses backslashes. If you use image paths from such a table, change the paths in the Excel table to use forward slashes instead of backslashes. Otherwise, the images won't display.  
+> Im Pfad zu diesen Bildern in der Excel-Datei müssen Schrägstriche verwendet werden. Werden Pfade zu Bildern von PowerApps in einer Excel-Tabelle gespeichert, werden im Pfad umgekehrte Schrägstriche verwendet. Wenn Sie Pfade zu Bildern aus einer solchen Tabelle verwenden, ändern Sie die Pfade in der Excel-Tabelle so, dass anstelle der umgekehrten Schrägstriche normale Schrägstriche verwendet werden. Andernfalls werden die Bilder nicht angezeigt.  
 
-1. Download [CreateFirstApp.zip](http://pwrappssamples.blob.core.windows.net/samples/CreateFirstApp.zip), and extract the **Assets** folder to your cloud storage account.
+1. Laden Sie die Datei [CreateFirstApp.zip](http://pwrappssamples.blob.core.windows.net/samples/CreateFirstApp.zip) herunter, und extrahieren Sie den Ordner **Assets** in Ihr Cloud-Speicherkonto.
 
-2. Rename the **Assets** folder to **Assets_images**.
+2. Benennen Sie den Ordner **Assets** in **Assets_images** um.
 
-3. In an Excel spreadsheet, create a one-column table, and fill it with the following data:
+3. Erstellen Sie in einem Excel-Arbeitsblatt eine Tabelle mit einer Spalte, und füllen Sie diese mit den folgenden Daten:
 
-    ![Jackets table](./media/add-images-pictures-audio-video/jackets.png)
+    ![Tabelle „Jackets“](./media/add-images-pictures-audio-video/jackets.png)
 
-4. Name the table **Jackets**, and name the Excel file **Assets.xlsx**.
+4. Benennen Sie die Tabelle **Jackets**, und benennen Sie die Excel-Datei **Assets.xlsx**.
 
-5. In your app, add the **Jackets** table as a data source.  
+5. Fügen Sie in der App die Tabelle **Jackets** als Datenquelle hinzu.  
 
-6. Add an **Image only** control (**Insert** tab > **Gallery**), and set its **Items** property to `Jackets`:  
+6. Fügen Sie ein **Nur-Bild**-Steuerelement hinzu (**Einfügen** Registerkarte > **Katalog**), und legen Sie dessen **Items**-Eigenschaft auf `Jackets` fest:  
 
-    ![Items property](./media/add-images-pictures-audio-video/items-jackets.png)
+    ![Items-Eigenschaft](./media/add-images-pictures-audio-video/items-jackets.png)
 
-    The gallery is automatically updated with the images:  
+    Der Katalog wird automatisch mit den Bildern aktualisiert:  
 
-    ![Jacket images](./media/add-images-pictures-audio-video/images.png)
+    ![Bilder aus „Jackets“](./media/add-images-pictures-audio-video/images.png)
 
-    When you set the **Items** property, a column named **PowerAppsId** is automatically added to the Excel table.
+    Wenn Sie die **Items**-Eigenschaft festlegen, wird der Excel-Tabelle automatisch die Spalte **PowerAppsId** hinzugefügt.
 
-    In the Excel table, the image path can also be the URL to an image. An example is the [Flooring Estimates](http://pwrappssamples.blob.core.windows.net/samples/FlooringEstimates.xlsx) sample file. You can download it to your cloud storage account, add the `FlooringEstimates` table as a data source in your app, and then set the gallery control to `FlooringEstimates`. The gallery is automatically updated with the images.
+    In der Excel-Tabelle kann der Pfad zu den Bildern ebenfalls eine Bild-URL sein. Ein Beispiel ist die Beispieldatei [Flooring Estimates](http://pwrappssamples.blob.core.windows.net/samples/FlooringEstimates.xlsx). Sie können sie in Ihr Cloud-Speicherkonto herunterladen, die Tabelle `FlooringEstimates` als Datenquelle in der App hinzufügen und anschließend das Katalog-Steuerelement auf `FlooringEstimates` festlegen. Der Katalog wird automatisch mit den Bildern aktualisiert.
 
-## Upload pen drawings to the cloud
-In this scenario, you learn how to upload pen drawings to your data source, OneDrive for Business, and examine how the drawings are stored there.
+## <a name="upload-pen-drawings-to-the-cloud"></a>Hochladen von Stiftzeichnungen in die Cloud
+In diesem Szenario erfahren Sie, wie Sie Stiftzeichnungen in Ihre Datenquelle (OneDrive for Business) hochladen und wie die Zeichnungen dort gespeichert werden.
 
-1. In Excel, add **Image [image]** to cell A1.
+1. Fügen Sie in Excel Zelle A1 **Image [Bild]** hinzu.
 
-2. Create a table using the following steps:    
+2. Erstellen Sie eine Tabelle, indem Sie folgende Schritte durchführen:    
 
-   1. Select cell A1.
+   1. Wählen Sie Zelle A1 aus.
 
-   2. On the **Insert** ribbon, select **Table**.
+   2. Wählen Sie im Menüband **Einfügen** **Tabelle** aus.
 
-   3. In the dialog box, select **My table has headers**, and then select **OK**.
+   3. Aktivieren Sie im Dialogfeld das Kontrollkästchen **Meine Tabelle hat Überschriften**, und wählen Sie anschließend **OK** aus.
 
-       ![Create a table](./media/add-images-pictures-audio-video/create-table.png)
+       ![Erstellen einer Tabelle](./media/add-images-pictures-audio-video/create-table.png)
 
-       Your Excel file is now in a table format. See [Format the data as a table](https://support.office.com/article/Format-an-Excel-table-6789619F-C889-495C-99C2-2F971C0E2370) for more information about table formatting in Excel.
+       Die Excel-Datei liegt nun im Tabellenformat vor. Weitere Informationen zum Formatieren von Tabellen im Excel-Format finden Sie unter [Daten als Tabelle formatieren](https://support.office.com/article/Format-an-Excel-table-6789619F-C889-495C-99C2-2F971C0E2370).
 
-   4. Name the table **Drawings**:
+   4. Benennen Sie die Tabelle **Drawings**:
 
-       ![Rename table to Drawings](./media/add-images-pictures-audio-video/name-media-table.png)
+       ![Umbenennen der Tabelle in „Drawings“](./media/add-images-pictures-audio-video/name-media-table.png)
 
-3. Save the Excel file to OneDrive for Business as **SavePen.xlsx**.
+3. Speichern Sie die Excel-Datei in OneDrive for Business unter dem Namen **SavePen.xlsx**.
 
-4. In PowerApps, create a [blank app](get-started-create-from-blank.md).
+4. Erstellen Sie in PowerApps eine [leere App](get-started-create-from-blank.md).
 
-5. In your app, add the OneDrive for Business account as a [data source](add-data-connection.md):
+5. Fügen Sie in der App das OneDrive for Business-Konto als [Datenquelle](add-data-connection.md) hinzu:
 
-   1. Click or tap the **View** tab, and then click or tap **Data sources**.
+   1. Klicken oder tippen Sie auf die Registerkarte **Ansicht**, und klicken oder tippen Sie anschließend auf **Datenquellen**.
 
        ![](./media/add-images-pictures-audio-video/choose-data-sources.png)
 
-   2. Click or tap **Add data source**, and then click or tap **OneDrive for Business**.
+   2. Klicken oder tippen Sie auf **Datenquelle hinzufügen**, und tippen oder klicken Sie auf **OneDrive for Business**.
 
        ![](./media/add-images-pictures-audio-video/select-source.png)
 
-   3. Click or tap **SavePen.xlsx**.
+   3. Klicken oder tippen Sie auf **SavePen.xlsx**.
 
-   4. Select the **Drawings** table, and then click or tap **Connect**.
+   4. Wählen Sie die Tabelle **Drawings** aus, und klicken oder tippen Sie auf **Verbinden**.
 
-       ![Connect](./media/add-images-pictures-audio-video/savepen.png)  
+       ![Verbinden](./media/add-images-pictures-audio-video/savepen.png)  
 
-       Now, the Drawings table is listed as a data source.
+       Nun wird die Tabelle „Drawings“ als Datenquelle aufgelistet.
 
-6. On the **Insert** tab, select **Text**, and then select **Pen input**.
+6. Wählen Sie auf der Registerkarte **Einfügen** die Option **Text** aus, und wählen Sie anschließend **Stifteingabe** aus.
 
-7. Rename the new control **MyPen**:  
+7. Benennen Sie das neue Steuerelement **MyPen**:  
 
-    ![Rename](./media/add-images-pictures-audio-video/rename-mypen.png)
+    ![Umbenennen](./media/add-images-pictures-audio-video/rename-mypen.png)
 
-8. On the **Insert** tab, add a **Button** control, and set its **OnSelect** property to this formula:
+8. Fügen Sie auf der Registerkarte **Einfügen** ein **Schaltflächen**-Steuerelement hinzu, und legen Sie dessen **OnSelect**-Eigenschaft auf diese Formel fest:
 
     **Patch(Drawings, Defaults(Drawings), {Image:MyPen.Image})**
 
-9. Add an **Image gallery** control (**Insert** tab > **Gallery**), and set its **Items** property to `Drawings`. The **Image** property of the gallery control is automatically set to `ThisItem.Image`.
+9. Fügen Sie ein **Bildkatalog**-Steuerelement hinzu (Registerkarte **Einfügen** > **Katalog**), und legen Sie dessen **Items**-Eigenschaft auf `Drawings` fest. Die **Image**-Eigenschaft des Katalog-Steuerelements wird automatisch auf `ThisItem.Image` festgelegt.
 
-    Arrange the controls so that your screen resembles the following:  
+    Ordnen Sie die Steuerelemente so an, dass Ihr Bildschirm dem Folgenden ähnelt:  
 
-    ![Sample screen](./media/add-images-pictures-audio-video/screen.png)
+    ![Beispielbildschirm](./media/add-images-pictures-audio-video/screen.png)
 
-10. Press F5, or select Preview ( ![Preview button](./media/add-images-pictures-audio-video/preview.png) ).
+10. Drücken Sie F5, oder wählen Sie die Vorschau ( ![Vorschauschaltfläche](./media/add-images-pictures-audio-video/preview.png) ).
 
-11. Draw something in MyPen, and then select the button.
+11. Zeichnen Sie ein Element im MyPen, und wählen Sie dann die Schaltfläche aus.
 
-    The first image in the gallery control displays what you drew.
+    Das erste Bild im Katalog-Steuerelement enthält Ihre soeben erstellte Zeichnung.
 
-12. Add something else to your drawing, and select the button.
+12. Bearbeiten Sie die Zeichnung weiter, und wählen Sie die Schaltfläche aus.
 
-    The second image in the gallery control displays what you drew.
+    Das zweite Bild im Katalog-Steuerelement enthält die soeben erstellte Zeichnung.
 
-13. Close the preview window by pressing Esc.
+13. Schließen Sie das Vorschaufenster, indem Sie ESC drücken.
 
-    In your cloud storage account, a **SavePen_images** folder has been automatically created. This folder contains your saved images with IDs for their file names. To show the folder, you may need to  refresh the browser window by, for example, pressing F5.
+    In Ihrem Cloud-Speicherkonto wurde automatisch der Ordner **SavePen_images** erstellt. Dieser Ordner enthält die gespeicherten Bilder sowie die IDs für deren Dateinamen. Zum Anzeigen des Ordners müssen Sie u.U. das Browserfenster aktualisieren, indem Sie beispielsweise F5 drücken.
 
-    In **SavePen.xlsx**, the **Image** column specifies the path to the new images.
+    In der Datei **SavePen.xlsx** wird in der Spalte **Image** der Pfad zu den neuen Bildern angegeben.
 
-### Known limitations
-For information about how to share Excel data within your organization, [review these limitations](connections/cloud-storage-blob-connections.md#known-limitations).
+### <a name="known-limitations"></a>Bekannte Einschränkungen
+Weitere Informationen zum Freigeben von Excel-Daten in Ihrer Organisation erhalten Sie in diesen [Ausführungen zu Einschränkungen](connections/cloud-storage-blob-connections.md#known-limitations).
 
-## For more information
-Be sure to test your app on different platforms, including in [a browser window](https://home.dynamics.com/) and on a phone.
+## <a name="for-more-information"></a>Weitere Informationen
+Testen Sie Ihre App unbedingt auf verschiedenen Plattformen, u.a. in einem [Browserfenster](https://home.dynamics.com/) und auf einem Smartphone.
 
-For information about more advanced scenarios that involve uploading multimedia directly to a different data source, see [image capture pro tips](https://powerapps.microsoft.com/blog/image-capture-pro-tips/) and [custom connectors for image upload](https://powerapps.microsoft.com/blog/custom-api-for-image-upload/).
+Informationen zu komplexeren Szenarien, bei denen Multimediadaten direkt in eine andere Datenquelle hochgeladen werden, finden Sie unter [Profi-Tipps für die Bilderfassung](https://powerapps.microsoft.com/blog/image-capture-pro-tips/) und [Benutzerdefinierte Connectors für das Hochladen von Bildern](https://powerapps.microsoft.com/blog/custom-api-for-image-upload/).
 
-Another way to upload files to a data source is to use the [Patch](functions/function-patch.md) function.
+Eine weitere Möglichkeit zum Hochladen von Dateien in eine Datenquelle besteht darin, die [Patch](functions/function-patch.md)-Funktion zu verwenden.
 
 [1]: ./media/add-images-pictures-audio-video/add-image-video-audio-file.png
 [3]: ./media/add-images-pictures-audio-video/add-intro-sound.png

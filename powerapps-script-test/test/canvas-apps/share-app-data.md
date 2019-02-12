@@ -1,6 +1,6 @@
 ---
-title: Share Excel files used by an app | Microsoft Docs
-description: Share Excel files in Dropbox, OneDrive, and Google Drive. Users can edit and can view files and folders.
+title: Freigeben von Excel-Dateien, die von einer App verwendet werden | Microsoft-Dokumentation
+description: Geben Sie Excel-Dateien in Dropbox, OneDrive und Google Drive frei. Benutzer können Dateien und Ordner bearbeiten und anzeigen.
 author: jamesol-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,63 +9,69 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/16/2016
 ms.author: jamesol
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 65a828d33add99bbee086f24c3a4892abfaae048
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42853227"
 ---
-# Share Excel data used by your app
-You can share Excel data with your app users in a [cloud account](connections/cloud-storage-blob-connections.md), such as OneDrive.
+# <a name="share-excel-data-used-by-your-app"></a>Freigeben von Excel-Daten, die von Ihrer App verwendet werden
+Sie können Excel-Daten in einem [Cloudkonto](connections/cloud-storage-blob-connections.md) wie z.B. OneDrive für Ihre App-Benutzer freigeben.
 
-For example, you might create an app that shows the names and phone numbers of the technical-support group at your company. The information is stored in an Excel spreadsheet, which you put in a folder in Dropbox. You then share the folder with your app users so that they can see the names and phone numbers.
+Beispielsweise können Sie eine App erstellen, die die Namen und Telefonnummern der Gruppe für den technischen Support in Ihrem Unternehmen anzeigt. Die Informationen werden in einem Excel-Arbeitsblatt gespeichert, das Sie in einem Ordner in Dropbox platzieren. Anschließend können Sie den Ordner für Ihre App-Benutzer freigeben, sodass sie die Namen und Telefonnummern anzeigen können.
 
-You must share the data so that users can run and even modify your app. Users who aren't given the sharing permissions won't see the data in the Excel file.
+Sie müssen die Daten freigeben, damit Benutzer Ihre App ausführen und sogar ändern können. Benutzer ohne Freigabeberechtigungen können die Daten in der Excel-Datei nicht anzeigen.
 
-This topic shows you how to share data in an Excel spreadsheet using Dropbox, OneDrive, and Google Drive. To create an app that displays data from an Excel file, see [Create an app from a set of data](get-started-create-from-data.md).
+In diesem Thema wird gezeigt, wie Sie Daten in einem Excel-Arbeitsblatt unter Verwendung von Dropbox, OneDrive und Google Drive freigeben. Informationen zum Erstellen einer App, die Daten aus einer Excel-Datei anzeigt, finden Sie unter [Erstellen einer App aus einem Satz an Daten](get-started-create-from-data.md).
 
-## Share data in Dropbox
-1. Sign in to Dropbox using the same account that you used to create a connection from PowerApps to Dropbox.
-2. Select the folder that contains the Excel file, and then select **Share**:  
+## <a name="share-data-in-dropbox"></a>Freigeben von Daten in Dropbox
+1. Melden Sie sich unter Verwendung desselben Kontos bei Dropbox an, mit dem Sie eine Verbindung zwischen PowerApps und Dropbox hergestellt haben.
+2. Wählen Sie den Ordner aus, der die Excel-Datei enthält, und wählen dann **Freigeben** aus:  
    
-    ![Share command](./media/share-app-data/dropbox-share.png)
-3. In the dialog box, enter the email addresses with which your app users sign in to Dropbox.  
+    ![Befehl zum Freigeben](./media/share-app-data/dropbox-share.png)
+3. Geben Sie im Dialogfeld die E-Mail-Adressen ein, mit denen sich Ihre App-Benutzer bei Dropbox anmelden.  
    
-    ![Share on Dropbox](./media/share-app-data/dropbox-perms.png)
-4. If your app users will add, modify, or delete data in your app,  select **Can edit**. Otherwise, select **Can view**.
-5. Select **Share**.
+    ![Freigabe in Dropbox](./media/share-app-data/dropbox-perms.png)
+4. Wenn Ihre App-Benutzer Daten in Ihrer App hinzufügen, ändern oder löschen dürfen, wählen Sie **Kann bearbeiten** aus. Wählen Sie andernfalls **Kann anzeigen** aus.
+5. Wählen Sie **Freigeben** aus.
 
-For more information, see [Sharing folders on Dropbox](https://www.dropbox.com/en/help/19).
+Weitere Informationen finden Sie unter [Freigeben von Ordnern in Dropbox](https://www.dropbox.com/en/help/19).
 
-## Share data in OneDrive
-1. Sign in to OneDrive using the same account that you used when you created a connection from PowerApps to OneDrive.
-2. Select the folder that contains the file, and then select **Share**:  
+## <a name="share-data-in-onedrive"></a>Freigeben von Daten in OneDrive
+1. Melden Sie sich unter Verwendung desselben Kontos bei OneDrive an, mit dem Sie eine Verbindung zwischen PowerApps und OneDrive hergestellt haben.
+2. Wählen Sie den Ordner aus, der die Datei enthält, und wählen dann **Freigeben** aus:  
    
-    ![Share command](./media/share-app-data/onedrive-share.png)
+    ![Befehl zum Freigeben](./media/share-app-data/onedrive-share.png)
    
     > [!NOTE]
-   > In OneDrive for Business, share the file itself, not the folder that contains the file.
-3. In the dialog box, select **Email**.
+   > Geben Sie in OneDrive for Business die Datei selbst und nicht den Ordner frei, der die Datei enthält.
+3. Wählen Sie im Dialogfeld **E-Mail** aus.
    
-    ![Share by email](./media/share-app-data/onedrive-email.png)
-4. Specify the email addresses with which your app users sign in to OneDrive, and then select **Share**.  
+    ![Freigabe per E-Mail](./media/share-app-data/onedrive-email.png)
+4. Geben Sie die E-Mail-Adressen an, mit denen Ihre App-Benutzer sich bei OneDrive anmelden, und wählen Sie dann **Freigeben** aus.  
    
-    ![Specify a user](./media/share-app-data/onedrive-perms.png)
+    ![Angeben eines Benutzers](./media/share-app-data/onedrive-perms.png)
 
-For more information, see [Share OneDrive files and folders](https://support.office.com/article/Share-OneDrive-files-and-folders-and-change-permissions-9fcc2f7d-de0c-4cec-93b0-a82024800c07).
+Weitere Informationen finden Sie unter [Freigeben von OneDrive-Dateien und -Ordnern](https://support.office.com/article/Share-OneDrive-files-and-folders-and-change-permissions-9fcc2f7d-de0c-4cec-93b0-a82024800c07).
 
-## Share data in Google Drive
-1. Sign in to Google Drive using the same account with which you created a connection from PowerApps to Google Drive.
-2. Right-click the folder that stores your Excel file, and then select **Share**.  
+## <a name="share-data-in-google-drive"></a>Freigeben von Daten in Google Drive
+1. Melden Sie sich unter Verwendung desselben Kontos bei Google Drive an, mit dem Sie eine Verbindung zwischen PowerApps und Google Drive hergestellt haben.
+2. Klicken Sie mit der rechten Maustaste auf den Ordner, der Ihre Excel-Datei enthält, und wählen Sie **Freigeben** aus.  
    
-    ![Share command](./media/share-app-data/googledrive-share.png)
-3. In the dialog box, enter the email addresses with which your app users sign in to Google Drive:  
+    ![Befehl zum Freigeben](./media/share-app-data/googledrive-share.png)
+3. Geben Sie im Dialogfeld die E-Mail-Adressen ein, mit denen sich Ihre App-Benutzer bei Google Drive anmelden:  
    
-    ![Specify a user](./media/share-app-data/googledrive-perms.png)
-4. If your app users will add, modify, or delete data in your app, then select **Can edit** in the list of permissions. Otherwise, select **Can view**.
-5. Select **Done**.
+    ![Angeben eines Benutzers](./media/share-app-data/googledrive-perms.png)
+4. Wenn Ihre App-Benutzer Daten in Ihrer App hinzufügen, ändern oder löschen dürfen, wählen Sie **Kann bearbeiten** in der Liste der Berechtigungen aus. Wählen Sie andernfalls **Kann anzeigen** aus.
+5. Wählen Sie **Fertig** aus.
 
-For more information, see [Share Google Drive files and folders](https://support.google.com/drive/answer/2494822).
+Weitere Informationen finden Sie unter [Freigeben von Google Drive-Dateien und -Ordnern](https://support.google.com/drive/answer/2494822).
 
-### Known limitations
-For information about how to share Excel data within your organization, [review these limitations](connections/cloud-storage-blob-connections.md#known-limitations).
+### <a name="known-limitations"></a>Bekannte Einschränkungen
+Weitere Informationen zum Freigeben von Excel-Daten in Ihrer Organisation erhalten Sie in diesen [Ausführungen zu Einschränkungen](connections/cloud-storage-blob-connections.md#known-limitations).
 

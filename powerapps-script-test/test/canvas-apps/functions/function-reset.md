@@ -1,6 +1,6 @@
 ---
-title: Reset function | Microsoft Docs
-description: Reference information, including syntax and an example, for the Reset function in PowerApps
+title: Funktion „Reset“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Reset“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,35 +9,41 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 07/06/2017
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 9c032c237018fbd564dd1143f20951dfb42d9795
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42832877"
 ---
-# Reset function in PowerApps
-Resets a control to its default value, discarding any user changes.  
+# <a name="reset-function-in-powerapps"></a>Funktion „Reset“ in PowerApps
+Setzt ein Eingabesteuerelement auf seinen Standardwert zurück, wobei alle Benutzeränderungen verworfen werden.  
 
-## Description
-The **Reset** function resets a control to its **Default** property value.  Any user changes are discarded.
+## <a name="description"></a>Beschreibung
+Durch die Funktion **Reset** wird ein Steuerelement auf seinen **Default**-Eigenschaftswert zurückgesetzt.  Alle Benutzeränderungen werden verworfen.
 
-You cannot reset controls that are within a [**Gallery**](../controls/control-gallery.md) or [**Edit form**](../controls/control-form-detail.md) control from outside those controls.  You can reset controls from formulas on controls within the same gallery or form.  You can also reset all the controls within a form with the [**ResetForm**](function-form.md) function. 
+Steuerelemente, die sich innerhalb eines [**Katalog**](../controls/control-gallery.md)-Steuerelements oder [**Bearbeitungsformular**](../controls/control-form-detail.md)-Steuerelements befinden, können außerhalb dieser Steuerelemente nicht zurückgesetzt werden.  Sie können Steuerelemente aus Formeln für Steuerelemente innerhalb desselben Katalogs oder Formulars zurücksetzen.  Sie können auch alle Steuerelemente innerhalb eines Formulars mit der Funktion [**ResetForm**](function-form.md) zurücksetzen. 
 
-Using the **Reset** function is an alternative to toggling the **Reset** property of input controls and is generally preferred.  The **Reset** property may be a better choice if many controls need to be reset together from multiple formulas.  Toggling the **Reset** property can be done from a [**Button**](../controls/control-button.md) control with the formula **Reset = Button.Pressed** or from a variable with **Reset = MyVar** and toggling **MyVar** with the formula **Button.OnSelect = Set( MyVar, true ); Set( MyVar, false )**.    
+Die Verwendung der Funktion **Reset** stellt eine Alternative zum Umschalten der **Reset**-Eigenschaft von Eingabesteuerelementen dar und ist generell zu bevorzugen.  Die **Reset**-Eigenschaft ist eine bessere Wahl, wenn viele Steuerelemente gemeinsam aus mehreren Formeln zurückgesetzt werden müssen.  Das Umschalten der **Reset**-Eigenschaft kann aus einem [**Schaltflächen**](../controls/control-button.md)-Steuerelement mit der Formel **Reset = Button.Pressed** oder aus einer Variablen mit **Reset = MyVar** sowie durch Umschalten von **MyVar** mit der Formel **Button.OnSelect = Set( MyVar, true ); Set( MyVar, false )** erfolgen.    
 
-Input controls are also reset when their **Default** property changes.
+Eingabesteuerelemente werden ebenfalls zurückgesetzt, wenn ihre **Default**-Eigenschaft geändert wird.
 
-**Reset** has no return value, and you can use it only in [behavior formulas](../working-with-formulas-in-depth.md).
+**Reset** weist keinen Rückgabewert auf; Sie können diese Funktion nur innerhalb einer [Verhaltensformel](../working-with-formulas-in-depth.md) verwenden.
 
-## Syntax
-**Reset**( *Control* )
+## <a name="syntax"></a>Syntax
+**Reset**( *Steuerelement* )
 
-* *Control* – Required. The control to reset.
+* *Steuerelement* – Erforderlich. Das zurückzusetzende Steuerelement.
 
-## Example
-1. Insert a **Text input** control on a screen.  By default, it's name will be **TextInput1** and its **Default** property will be set to **"Text input"**.
-2. Type a new value in the text box.  
-3. Insert a **Button** control on the screen.
-4. Set the button's **OnSelect** property to **Reset( TextInput1 )**.
-5. Select the button.  This can be done even when authoring by selecting toward the ends of the control.
-6. The contents of the text box will return to the value of the **Default** property.
+## <a name="example"></a>Beispiel
+1. Fügen Sie ein **Texteingabe**-Steuerelement in einem Bildschirm ein.  In der Standardeinstellung lautet sein Name **TextInput1**, und die zugehörige **Default**-Eigenschaft wird auf **„Texteingabe“** festgelegt.
+2. Geben Sie im Textfeld einen neuen Wert ein.  
+3. Fügen Sie ein **Schaltflächen**-Steuerelement im Bildschirm ein.
+4. Legen Sie die **OnSelect**-Eigenschaft der Schaltfläche auf **Reset( TextInput1 )** fest.
+5. Wählen Sie die Schaltfläche aus.  Dies kann sogar während des Erstellens durch Auswahl am Ende des Steuerelements erfolgen.
+6. Der Inhalt des Textfelds wird als Wert der **Default**-Eigenschaft zurückgegeben.
 

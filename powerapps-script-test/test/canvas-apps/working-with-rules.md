@@ -1,101 +1,106 @@
 ---
-title: Create a rule | Microsoft Docs
-description: Step-by-step instructions for building app logic by creating rules
-author: gregli-msft
+title: Erstellen einer Regel | Microsoft-Dokumentation
+description: Eine schrittweise Anleitung zum Entwerfen von App-Logik durch Erstellen von Regeln
+author: karthik-1
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/10/2017
-ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: sharik
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 32643de711321e7c604ef9e3ffc82c2502234a1f
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42860391"
 ---
-# Create a rule in PowerApps
-Create rules to automatically modify an app based on criteria that you specify. For example, show list items in red, yellow, or green based on their status, or show an approval button only for certain users (such as managers).
+# <a name="create-a-rule-in-powerapps"></a>Erstellen einer Regel in PowerApps
+Erstellen Sie Regeln, damit eine App automatisch auf Grundlage der von Ihnen angegebenen Kriterien geändert wird. Beispielsweise können Listenelemente je nach ihrem Status in Rot, Gelb oder Grün angezeigt werden, oder eine Genehmigungsschaltfläche kann nur für bestimmte Benutzer (z.B. Manager) angezeigt werden.
 
-You can add rules to a variety of controls. In this topic, you'll add a rule to change the text color of a **Label** control if the value of a **Slider** control is greater than 70.
+Sie können vielen verschiedenen Steuerelementen Regeln hinzufügen. In diesem Thema fügen Sie eine Regel hinzu, um die Textfarbe eines **Label**-Steuerelements (Bezeichnung) zu ändern, wenn der Wert eines **Slider**-Steuerelements (Schieberegler) größer als 70 ist.
 
-## Add a rule
-1. Select a control (or add a control and leave it selected).
+## <a name="add-a-rule"></a>Regel hinzufügen
+1. Wählen Sie ein Steuerelement aus (oder fügen Sie ein Steuerelement hinzu, und lassen sie es ausgewählt).
 
-    For this topic, [add a label and a slider](add-configure-controls.md), set the label's **Text** property to **Slider1.Value**, and then select the slider.
+    In diesem Thema [fügen Sie ein Label- und ein Slider-Steuerelement hinzu](add-configure-controls.md), legen die **Text**-Eigenschaft des Label-Steuerelements auf **Slider1.Value** fest, und wählen dann das Slider-Steuerelement aus.
 
-1. In the right-hand panel, click or tap **Rules**, and then click or tap **New rule**.
+1. Klicken oder tippen Sie im rechten Bereich auf **Regeln**, und klicken oder tippen Sie dann auf **Neue Regel**.
 
-    ![Create new rule](./media/working-with-rules/new-rule.png)
+    ![Neue Regel erstellen](./media/working-with-rules/new-rule.png)
 
-    If you select a control for which one or more rules has already been defined, you can edit any of them if you click or tap it.  
+    Wenn Sie ein Steuerelement auswählen, für das bereits eine oder mehrere Regeln definiert wurden, können Sie diese bearbeiten, indem Sie darauf klicken oder tippen.  
 
-## Add a condition
-A condition is an expression that evaluates to true or false, such as whether a value is greater than 70. You can write the expression based on a template or start from scratch, and you can customize the expression based on guidance in the UI (Intellisense).
+## <a name="add-a-condition"></a>Bedingung hinzufügen
+Eine Bedingung ist ein Ausdruck, der als „true“ oder „false“ ausgewertet wird, z.B. die Bedingung, dass ein Wert größer als 70 ist. Sie können den Ausdruck anhand einer Vorlage oder vollständig neu schreiben, und Sie können den Ausdruck gemäß der Anleitung auf der Benutzeroberfläche (IntelliSense) anpassen.
 
-1. Click or tap **Add a condition**, and then click a template or **Custom condition**.
+1. Klicken oder tippen Sie auf **Bedingung hinzufügen**, und klicken Sie dann auf eine Vorlage oder auf **Benutzerdefinierte Bedingung**.
 
-    For this topic, click or tap **Greater than**.
+    In diesem Thema klicken oder tippen Sie auf **Größer als**.
 
-    ![Add condition](./media/working-with-rules/rule-conditions.png)
+    ![Bedingung hinzufügen](./media/working-with-rules/rule-conditions.png)
 
-1. Update the expression to define when the rule applies.
+1. Aktualisieren Sie den Ausdruck, um zu definieren, wann die Regel angewendet wird.
 
-    For this topic, change 0 to 70 to get this expression:
-    <br>**Slider1.Value > 70**
+    Ändern Sie im Rahmen dieses Themas 0 in 70, sodass Sie über folgenden Ausdruck verfügen:  <br>**Slider1.Value > 70**
 
-## Add an action
-Actions define what happens when the rule is applied. PowerApps can create actions automatically based on changes you make to controls.
+## <a name="add-an-action"></a>Aktion hinzufügen
+Aktionen definieren, was geschieht, wenn die Regel angewendet wird. In PowerApps können Aktionen automatisch basierend auf den Änderungen erstellt werden, die Sie an Steuerelementen vornehmen.
 
-1. Click or tap **Define actions**.
+1. Klicken oder tippen Sie auf **Aktionen definieren**.
 
-    ![Define actions](./media/working-with-rules/rule-define-actions.png)
+    ![Aktionen definieren](./media/working-with-rules/rule-define-actions.png)
 
-1. In the confirmation dialog box, click or tap **Let's go** so that PowerApps will capture your next change or changes as one or more actions.
+1. Klicken oder tippen Sie im Bestätigungsdialogfeld auf **Los geht's**, damit PowerApps Ihre nächste(n) Änderung(en) als eine oder mehrere Aktionen aufzeichnet.
 
-1. Configure one or more controls to match your expectations when the condition is true.
+1. Konfigurieren Sie ein oder mehrere Steuerelemente entsprechend Ihren Erwartungen für den Fall, dass die Bedingung zutrifft.
 
-    For this topic, change the color of the label.
+    In diesem Thema ändern Sie die Farbe der Bezeichnung.
 
-    ![Capture properties](./media/working-with-rules/rule-capture-properties.png)
+    ![Eigenschaften erfassen](./media/working-with-rules/rule-capture-properties.png)
 
-1. (optional) Review your changes by clicking or tapping **Show actions**.
+1. (Optional) Überprüfen Sie die Änderungen, indem Sie auf **Aktionen anzeigen** tippen oder klicken.
 
-    ![Review actions](./media/working-with-rules/rule-review-actions.png)
+    ![Aktionen überprüfen](./media/working-with-rules/rule-review-actions.png)
 
-1. When you finish adding actions, click or tap **Done**.
+1. Wenn Sie alle Aktionen hinzugefügt haben, klicken oder tippen Sie auf **Fertig**.
 
-1. Review the condition and actions for the rule.
+1. Überprüfen Sie die Bedingung und die Aktionen für die Regel.
 
-    ![Review rule](./media/working-with-rules/rule-review.png)
+    ![Regel überprüfen](./media/working-with-rules/rule-review.png)
 
-## Rename the rule
+## <a name="rename-the-rule"></a>Umbenennen der Regel
 
-1. Hover over **Rule1** and click or tap the edit button.
+1. Zeigen Sie auf **Regel1**, und klicken oder tippen Sie auf die Schaltfläche „Bearbeiten“.
 
-    ![Hover over rule name](./media/working-with-rules/hover-over-rules_name.png)
+    ![Zeigen Sie auf den Regelnamen.](./media/working-with-rules/hover-over-rules_name.png)
 
-1. Enter a new name for the rule.
+1. Geben Sie einen neuen Namen für die Regel ein.
 
-    ![Rename rule](./media/working-with-rules/rename-rule.png)
+    ![Regel umbenennen](./media/working-with-rules/rename-rule.png)
 
-1. Click or tap **Done** to dismiss the editor.
+1. Klicken oder tippen Sie auf **Fertig**, um den Editor zu schließen.
 
-## Test the rule
-1. Preview the app by pressing F5 (or by clicking the play button near the upper-right corner).
+## <a name="test-the-rule"></a>Testen der Regel
+1. Drücken Sie F5 (oder klicken Sie rechts oben auf die Wiedergabeschaltfläche), um die App im Vorschaumodus anzuzeigen.
 
-    ![Open preview](./media/working-with-rules/open-preview.png)
+    ![Vorschau öffnen](./media/working-with-rules/open-preview.png)
 
-1. Make the condition that you specified true, and then confirm that the actions work as you expect.
+1. Sorgen Sie dafür, dass die von Ihnen angegebene Bedingung zutrifft, und vergewissern Sie sich dann, dass die Aktionen wie erwartet ausgeführt werden.
 
-    For this topic, set the slider to a value that's greater than 70, and confirm that the label text changes color.
+    In diesem Thema schieben Sie den Schieberegler auf einen Wert, der größer als 70 ist. Vergewissern Sie sich dann, dass sich die Farbe des Bezeichnungstexts ändert.
 
-## See all rules
-By default, the **Rules** tab shows only the rules for the selected control and all child controls that are used in a rule condition or action. To show all rules in the app, clear the **Show rules for this control only** check box.
+## <a name="see-all-rules"></a>Alle Regeln anzeigen
+In der Standardeinstellung werden auf der Registerkarte **Regeln** nur die Regeln für das ausgewählte Steuerelement und die untergeordneten Steuerelemente angezeigt, die in einer Regelbedingung oder -aktion verwendet werden. Um alle Regeln in der App anzuzeigen, deaktivieren Sie das Kontrollkästchen **Nur Regeln für dieses Steuerelement anzeigen**.
 
-![Remove filter](./media/working-with-rules/rules-filter.png)
+![Filter entfernen](./media/working-with-rules/rules-filter.png)
 
-## Known limitations
-As of this writing:
+## <a name="known-limitations"></a>Bekannte Einschränkungen
+Zum Zeitpunkt der Erstellung dieses Dokuments:
 
-* You can't specify the **ThisItem** property of a form or a gallery as part of a condition.
+* Sie können die **ThisItem**-Eigenschaft eines Formulars oder Katalogs nicht als Teil einer Bedingung angeben.

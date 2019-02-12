@@ -1,108 +1,114 @@
 ---
-title: Show, edit, or add a record from a table in a canvas app | Microsoft Docs
-description: Use a canvas-app form to show, edit, or add a record from a table in your data source.
-author: emcoope-msft
+title: Anzeigen, Bearbeiten und Hinzufügen eines Datensatzes aus einer Tabelle in eine Canvas-App | Microsoft-Dokumentation
+description: Mithilfe eines Canvas-App-Formulars können Sie einen Datensatz aus einer Tabelle in der Datenquelle anzeigen, bearbeiten oder hinzufügen.
+author: karthik-1
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/06/2017
-ms.author: emcoope
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: sharik
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 853f54448b3cf29ebd108299ca69cc96ce51be19
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42854811"
 ---
-# Show, edit, or add a record from a table in PowerApps
+# <a name="show-edit-or-add-a-record-from-a-table-in-powerapps"></a>Datensatz aus einer Tabelle in PowerApps anzeigen, bearbeiten oder hinzufügen
 
-To show all fields in a record, add and configure a **[Display form](controls/control-form-detail.md)** control in a canvas app. To edit any field in a record (or to add a record) and save your changes back to a data source, add and configure an **[Edit form](controls/control-form-detail.md)** control in a canvas app.
+Wenn alle Felder in einem Datensatz angezeigt werden sollen, müssen Sie ein **[Formular anzeigen](controls/control-form-detail.md)**-Steuerelement in eine Canvas-App hinzufügen und es konfigurieren. Wenn Sie ein Feld in einem Datensatz bearbeiten (bzw. einen Datensatz hinzufügen) und die Änderungen in einer Datenquelle speichern möchten, fügen Sie ein **[Formular bearbeiten](controls/control-form-detail.md)**-Steuerelement zu einer Canvas-App hinzu, und konfigurieren Sie dieses.
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-* Learn how to [add and configure a control](add-configure-controls.md) in PowerApps.
-* Download [this Excel file](https://az787822.vo.msecnd.net/documentation/get-started-from-data/FlooringEstimates.xlsx), which contains sample data for this tutorial.
-* Upload the Excel file to a [cloud-storage account](connections/cloud-storage-blob-connections.md), such as OneDrive for Business.
-* In a new or existing app, [add a connection](add-data-connection.md) to the **FlooringEstimates** table in the Excel file.
-* If you're using an existing app, [add a screen](add-screen-context-variables.md) to it.
+* Erfahren Sie, wie Sie in PowerApps [ein Steuerelement hinzufügen und konfigurieren](add-configure-controls.md).
+* Laden Sie [diese Excel-Datei](https://az787822.vo.msecnd.net/documentation/get-started-from-data/FlooringEstimates.xlsx) mit Beispieldaten für dieses Lernprogramm herunter.
+* Laden Sie die Excel-Datei in ein [Cloudspeicherkonto](connections/cloud-storage-blob-connections.md) hoch, z.B. in OneDrive for Business.
+* [Fügen Sie eine Verbindung](add-data-connection.md) in einer neuen oder vorhandenen App zur **FlooringEstimates**-Tabelle in der Excel-Datei hinzu.
+* Bei Verwendung einer vorhandenen App müssen Sie dieser [einen Bildschirm hinzufügen](add-screen-context-variables.md).
 
-## Add a form, and show data
-1. Add a **[Drop down](controls/control-drop-down.md)** control, name it **ChooseProduct**, and set its **[Items](controls/properties-core.md)** property to this value:
+## <a name="add-a-form-and-show-data"></a>Hinzufügen eines Formulars und Anzeigen von Daten
+1. Fügen Sie ein **[Dropdown](controls/control-drop-down.md)**-Steuerelement hinzu, weisen Sie ihm den Namen **ChooseProduct** hinzu, und legen Sie seine **[Items](controls/properties-core.md)**-Eigenschaft auf diesen Wert fest:
 
     **FlooringEstimates.Name**
 
     > [!NOTE]
-   > If you're not sure how to add a control, rename it, or set a property, see [Add and configure controls](add-configure-controls.md).
+   > Weitere Informationen zum Hinzufügen und Umbenennen eines Steuerelements sowie zum Festlegen einer Eigenschaft finden Sie unter [Hinzufügen und Konfigurieren eines Steuerelements](add-configure-controls.md).
 
-    The list shows names of flooring products from the data source.
+    In der Liste werden Namen von Bodenbelägen aus der Datenquelle aufgeführt.
 
-2. Add an **Edit form** control, move it below **ChooseProduct**, and then resize the form to cover most of the screen.
+2. Fügen Sie ein **Formular bearbeiten**-Steuerelement hinzu, verschieben Sie es unter **ChooseProduct**, und ändern Sie dann die Größe des Formulars, sodass es den größten Teil des Bildschirms einnimmt.
 
-    ![Add a form](./media/add-form/add-a-form.png)
+    ![Ein Formular hinzufügen](./media/add-form/add-a-form.png)
 
     > [!NOTE]
-   > This topic describes the **Edit form** control, but similar principles apply to the **Display form** control.
+   > In diesem Artikel wird das **Formular bearbeiten**-Steuerelement beschrieben, gleiche Prinzipien gelten jedoch auch für das **Formular anzeigen**-Steuerelement.
 
-3. Set the **[DataSource](controls/control-form-detail.md)** property of the form to **FlooringEstimates** and the **[Item](controls/control-form-detail.md)** property of the form to this formula:
+3. Legen Sie die **[DataSource](controls/control-form-detail.md)**-Eigenschaft des Formulars auf **FlooringEstimates** und die **[Item](controls/control-form-detail.md)**-Eigenschaft des Formulars auf diese Formel fest:
 
    **First(Filter(FlooringEstimates, Name=ChooseProduct.Selected.Value))**
 
-   This formula specifies that, after you finish configuring the form, it will show the record that the user selects in **ChooseProduct**.
+   Mit dieser Formel wird angegeben, dass im Formular nach abgeschlossener Konfiguration der Datensatz angezeigt wird, den der Benutzer in **ChooseProduct** auswählt.
 
-4. In the **Data** pane, click or tap the checkbox for each field to show it.
+4. Klicken oder tippen Sie im Bereich **Daten** auf das Kontrollkästchen jedes Felds, um es anzuzeigen.
 
     > [!NOTE]
-   > If the **Data** pane is closed, open it by selecting the form in the left-hand pane and then clicking or tapping **Data** in the right-hand pane.
+   > Wenn der Bereich **Daten** geschlossen ist, öffnen Sie ihn, indem Sie links das Formular auswählen und anschließend rechts auf **Daten** klicken oder tippen.
 
-    ![Show fields on form](./media/add-form/checkbox.png)
+    ![Anzeigen der Felder im Formular](./media/add-form/checkbox.png)
 
-5. In the **Data** pane, drag the **Name** entry to the top of the list.
+5. Ziehen Sie im Bereich **Daten** den Eintrag **Name** in der Liste an die oberste Stelle.
 
-    ![Move a card](./media/add-form/drag-field.png)
+    ![Karte verschieben](./media/add-form/drag-field.png)
 
-    The **Edit form** control reflects your change.
+    Das **Formular bearbeiten**-Steuerelement spiegelt die vorgenommene Änderung wider.
 
-    ![Name at top](./media/add-form/move-card-form.png)
+    ![„Name“ an oberster Position](./media/add-form/move-card-form.png)
 
-## Set the card type for a field
-1. With the form selected, click or tap the card selector for **Price** in the **Data** pane.
+## <a name="set-the-card-type-for-a-field"></a>Festlegen des Kartentyps für ein Feld
+1. Klicken oder tippen Sie bei ausgewähltem Formular auf die Kartenauswahl für **Price** im Bereich **Daten**.
 
-    ![Select card selector](./media/add-form/price-card2.png)
+    ![Kartenauswahl](./media/add-form/price-card2.png)
 
-2. Scroll down, and then click or tap the **View text** option to make the field read-only.
+2. Scrollen Sie nach unten, und klicken oder tippen Sie auf die Option **Text anzeigen**, um das Feld als schreibgeschützt festzulegen.
 
-    ![View text](./media/add-form/view-text.png)
+    ![Text anzeigen](./media/add-form/view-text.png)
 
-    The form reflects your change.
+    Das Formular spiegelt die vorgenommene Änderung wider.
 
-    ![Read-only number](./media/add-form/read-only.png)  
+    ![Schreibgeschützte Zahl](./media/add-form/read-only.png)  
 
-## (Edit form only) Save changes
-1. In the left-hand pane, select the form, and then click or tap the ellipsis (...).
+## <a name="edit-form-only-save-changes"></a>(Nur „Formular bearbeiten“) Speichern der Änderungen
+1. Wählen Sie im linken Bereich das Formular aus, und klicken oder tippen Sie auf die Auslassungspunkte (...).
 
-   ![Select the form](./media/add-form/select-form.png)
+   ![Formular auswählen](./media/add-form/select-form.png)
 
-2. Click or tap **Rename**, and then rename the form **EditForm**.
+2. Klicken oder tippen Sie auf **Umbenennen**, und benennen Sie das Formular in **EditForm** um.
 
-3. Add a **[Button](controls/control-button.md)** control, and set its **[Text](controls/properties-core.md)** property to **Save**.
+3. Fügen Sie ein **[Button](controls/control-button.md)**-Steuerelement hinzu, und legen Sie seine **[Text](controls/properties-core.md)**-Eigenschaft auf **Save** fest.
 
-    ![Add a save button](./media/add-form/save-button.png)  
+    ![Hinzufügen einer Schaltfläche „Save“](./media/add-form/save-button.png)  
 
-4. Set the **[OnSelect](controls/properties-core.md)** property of the **Save** button to this formula:
+4. Legen Sie die **[OnSelect](controls/properties-core.md)**-Eigenschaft der Schaltfläche **Save** auf diese Formel fest:
 
    **SubmitForm(EditForm)**
 
-5. Open Preview mode by selecting the play button near the upper-right corner (or by pressing F5).
+5. Öffnen Sie den Vorschaumodus, indem Sie auf die Wiedergabeschaltfläche in der oberen rechten Ecke klicken oder tippen (oder indem Sie F5 drücken).
 
-    ![Open Preview mode](./media/add-form/open-preview.png)
+    ![Öffnen des Vorschaumodus](./media/add-form/open-preview.png)
 
-6. Change the name of a product, and then click or tap the **Save** button that you created.
+6. Ändern Sie den Namen eines Produkts, und klicken oder tippen Sie anschließend auf die soeben erstellte Schaltfläche **Save**.
 
-    The **[SubmitForm](functions/function-form.md)** function saves your changes to the data source with which you configured the form.
+    Die **[SubmitForm](functions/function-form.md)**-Funktion speichert die Änderungen an der Datenquelle, mit der das Formular konfiguriert wurde.
 
-7. (optional) Select the close icon to close Preview (or press Esc).
+7. (optional) Wählen Sie das Schließen-Symbol aus, um die Vorschau zu schließen (Sie können auch ESC drücken).
 
-    ![Close Preview](./media/add-form/close-preview.png)
+    ![Schließen der Vorschau](./media/add-form/close-preview.png)
 
-## Next steps
-Learn more about working with [forms](working-with-forms.md) and [formulas](working-with-formulas.md).
+## <a name="next-steps"></a>Nächste Schritte
+Erfahren Sie mehr über das Arbeiten mit [Formularen](working-with-forms.md) und [Formeln](working-with-formulas.md).

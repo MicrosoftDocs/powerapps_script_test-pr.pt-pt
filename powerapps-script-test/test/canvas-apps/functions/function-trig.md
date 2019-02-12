@@ -1,6 +1,6 @@
 ---
-title: Acos, Acot, Asin, Atan, Atan2, Cos, Cot, Degrees, Pi, Radians, Sin, and Tan functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the Abs and Sqrt functions in PowerApps
+title: Funktionen „Acos“, „Acot“, „Asin“, „Atan“, „Atan2“, „Cos“, „Cot“, „Degrees“, „Pi“, „Radians“, „Sin“ und „Tan“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „Abs“ und „Sqrt“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,116 +9,122 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 09/13/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 6eab89f436bc00ae0c447494607b5c1bb0cec875
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42833111"
 ---
-# Acos, Acot, Asin, Atan, Atan2, Cos, Cot, Degrees, Pi, Radians, Sin, and Tan functions in PowerApps
-Calculates trigonometric values.
+# <a name="acos-acot-asin-atan-atan2-cos-cot-degrees-pi-radians-sin-and-tan-functions-in-powerapps"></a>Funktionen „Acos“, „Acot“, „Asin“, „Atan“, „Atan2“, „Cos“, „Cot“, „Degrees“, „Pi“, „Radians“, „Sin“ und „Tan“ in PowerApps
+Berechnen trigonometrische Werte
 
-## Description
-### Primary functions
-The **Cos** function returns the cosine of its argument, an angle specified in radians.
+## <a name="description"></a>Beschreibung
+### <a name="primary-functions"></a>Primäre Funktionen
+Die **Cos**-Funktion gibt den Kosinus des Arguments, einen Winkel im Bogenmaß, zurück.
 
-The **Cot** function returns the cotangent of its argument, an angle specified in radians.
+Die **Cot**-Funktion gibt den Kotangens des Arguments, einen Winkel im Bogenmaß, zurück.
 
-The **Sin** function returns the sine of its argument, an angle specified in radians.
+Die **Sin**-Funktion gibt den Sinus des Arguments, einen Winkel im Bogenmaß, zurück.
 
-The **Tan** function returns the tangent of its argument, an angle specified in radians.
+Die **Tan**-Funktion gibt den Tangens des Arguments, einen Winkel im Bogenmaß, zurück.
 
-### Inverse functions
-The **Acos** function returns the arccosine, or inverse cosine, of its argument. The arccosine is the angle whose cosine is the argument.  The returned angle is given in radians in the range 0 (zero) to &pi;.
+### <a name="inverse-functions"></a>Umkehrfunktionen
+Die **Acos**-Funktion gibt den Arkuskosinus oder umgekehrten Kosinus des Arguments zurück. Der Arkuskosinus ist der Winkel, dessen Kosinus das Argument ist.  Der zurückgegebene Winkel wird im Bogenmaß im Bereich von 0 (null) bis &pi; angegeben.
 
-The **Acot** function returns the principal value of the arccotangent, or inverse cotangent, of its argument.  The returned angle is given in radians in the range 0 (zero) to &pi;.
+Die **Acot**-Funktion gibt den Hauptwert des Arkuskotangens oder des umgekehrten Kotangens des Arguments zurück.  Der zurückgegebene Winkel wird im Bogenmaß im Bereich von 0 (null) bis &pi; angegeben.
 
-The **Asin** function returns the arcsine, or inverse sine, of its argument. The arcsine is the angle whose sine is the argument.  The returned angle is given in radians in the range -&pi;/2 to &pi;/2.
+Die **Asin**-Funktion gibt den Arkussinus oder umgekehrten Kosinus des Arguments zurück. Der Arkussinus ist der Winkel, dessen Sinus das Argument ist.  Der zurückgegebene Winkel wird im Bogenmaß im Bereich von -&pi;/2 bis &pi;/2 angegeben.
 
-The **Atan** function returns the arctangent, or inverse tangent, of its argument. The arctangent is the angle whose tangent is the argument. The returned angle is given in radians in the range -&pi;/2 to &pi;/2.
+Die **Atan**-Funktion gibt den Arkustangens oder umgekehrten Tangens des Arguments zurück. Der Arkustangens ist der Winkel, dessen Tangens das Argument ist. Der zurückgegebene Winkel wird im Bogenmaß im Bereich von -&pi;/2 bis &pi;/2 angegeben.
 
-The **Atan2** function returns the arctangent, or inverse tangent, of the specified *x* and *y* coordinates as arguments. The arctangent is the angle from the *x*-axis to a line that contains the origin (0, 0) and a point with coordinates (*x*, *y*). The angle is given in radians between -&pi; and &pi;, excluding -&pi;.  A positive result represents a counterclockwise angle from the *x*-axis; a negative result represents a clockwise angle.  **Atan2(&nbsp;*a*,&nbsp;*b*&nbsp;)** equals **Atan(&nbsp;*b*/*a*&nbsp;)**, except that ***a*** can equal 0 (zero) with the **Atan2** function.
+Die **Atan2**-Funktion gibt den Arkustangens oder umgekehrten Tangens der angegebenen *x*- und *y*-Koordinaten als Argumente zurück. Der Arkustangens ist der Winkel zwischen der *X*-Achse und einer Linie, die den Ursprung (0, 0) und Koordinaten (*x*, *y*) umfasst. Der Winkel wird im Bogenmaß im Bereich von -&pi; bis &pi;, ausgenommen -&pi; angegeben.  Ein positives Ergebnis entspricht einem Winkel gegen den Uhrzeigersinn von der *X*-Achse aus; ein negatives Ergebnis entspricht einem Winkel im Uhrzeigersinn.  **Atan2(&nbsp;*a*,&nbsp;*b*&nbsp;)** ist gleich **Atan(&nbsp;*b*/*a*&nbsp;)**, außer dass ***a*** mit der **Atan2**-Funktion gleich 0 (null) sein kann.
 
-### Helper functions
-The **Degrees** function converts radians to degrees.  &pi; radians equals 180 degrees.
+### <a name="helper-functions"></a>Hilfsfunktionen
+Die **Degrees**-Funktion wandelt Bogenmaße in Grad um.  Das Bogenmaß &pi; ist gleich 180 Grad.
 
-The **Pi** function returns the transcendental number &pi;, which begins 3.141592...
+Die **Pi**-Funktion gibt die transzendente Zahl &pi; zurück, die mit 3.141592... beginnt.
 
-The **Radians** function converts degrees to radians.  
+Die **Radians**-Funktion wandelt Grad in Bogenmaß um.  
 
-### Notes
-If you pass a single number to these functions, the return value is a single result.  If you pass a single-column [table](../working-with-tables.md) that contains numbers, the return value is a single-column table of results, one result for each record in the argument's table. If you have a multi-column table, you can shape it into a single-column table, as [working with tables](../working-with-tables.md) describes.  
+### <a name="notes"></a>Hinweise
+Wenn Sie diesen Funktionen eine einzelne Zahl übergeben, ist der Rückgabewert ein einzelnes Ergebnis.  Wenn Sie eine einspaltige [Tabelle](../working-with-tables.md) übergeben, die Zahlen enthält, ist der Rückgabewert eine einspaltige Tabelle mit Ergebnissen, ein Ergebnis für jeden Datensatz in der Argumenttabelle. Mehrspaltige Tabellen können in einspaltige Tabellen umgeformt werden, wie unter [Arbeiten mit Tabellen](../working-with-tables.md) beschrieben.  
 
-If an argument would result in an undefined value, the result is *blank*.  This can happen, for example, when using inverse functions with arguments that are out of range.
+Wenn ein Argument zu einem nicht definierten Wert führen würde, ist das Ergebnis *blank* (leer).  Dies kann beispielsweise auftreten, wenn Umkehrfunktionen mit Argumenten verwendet werden, die sich außerhalb des gültigen Bereichs befinden.
 
-## Syntax
-### Primary Functions
-**Cos**( *Radians* )<br>**Cot**( *Radians* )<br>**Sin**( *Radians* )<br>**Tan**( *Radians* )
+## <a name="syntax"></a>Syntax
+### <a name="primary-functions"></a>Primäre Funktionen
+**Cos**( *Bogenmaß* )<br>**Cot**( *Bogenmaß* )<br>**Sin**( *Bogenmaß* )<br>**Tan**( *Bogenmaß* )
 
-* *Radians* - Required. Angle to operate on.
+* *Bogenmaß*: Erforderlich. Der zu verarbeitende Winkel.
 
-**Cos**( *SingleColumnTable* )<br>**Cot**( *SingleColumnTable* )<br>**Sin**( *SingleColumnTable* )<br>**Tan**( *SingleColumnTable* )
+**Cos**( *EinspaltigeTabelle* )<br>**Cot**( *EinspaltigeTabelle* )<br>**Sin**( *EinspaltigeTabelle* )<br>**Tan**( *EinspaltigeTabelle* )
 
-* *SingleColumnTable* - Required. A single-column table of angles to operate on.
+* *EinspaltigeTabelle*: erforderlich. Eine einspaltige Tabelle mit Winkeln, die verarbeitet werden sollen.
 
-### Inverse Functions
-**Acos**( *Number* )<br>**Acot**( *Number* )<br>**Asin**( *Number* )<br>**Atan**( *Number* )
+### <a name="inverse-functions"></a>Umkehrfunktionen
+**Acos**( *Zahl* )<br>**Acot**( *Zahl* )<br>**Asin**( *Zahl* )<br>**Atan**( *Zahl* )
 
-* *Number* - Required. Number to operate on.
+* *Number*: erforderlich. Zahl, die verarbeitet wird.
 
-**Acos**( *SingleColumnTable* )<br>**Acot**( *SingleColumnTable* )<br>**Asin**( *SingleColumnTable* )<br>**Atan**( *SingleColumnTable* )
+**Acos**( *EinspaltigeTabelle* )<br>**Acot**( *EinspaltigeTabelle* )<br>**Asin**( *EinspaltigeTabelle* )<br>**Atan**( *EinspaltigeTabelle* )
 
-* *SingleColumnTable* - Required. A single-column table of numbers to operate on.
+* *EinspaltigeTabelle*: erforderlich. Eine einspaltige Tabelle mit Zahlen, die verarbeitet werden.
 
 **Atan2**( *X*, *Y* )
 
-* *X* - Required.  *X*-axis coordinate.
-* *Y* - Required.  *Y*-axis coordinate.
+* *X*: Erforderlich.  *X*-Achsenkoordinate.
+* *Y*: Erforderlich.  *Y*-Achsenkoordinate.
 
-### Helper Functions
-**Degrees**( *Radians* )
+### <a name="helper-functions"></a>Hilfsfunktionen
+**Degrees**( *Bogenmaß* )
 
-* *Radians* - Required.  Angle in radians to convert to degrees.
+* *Bogenmaß*: Erforderlich.  Winkel im Bogenmaß, der in Grad konvertiert werden soll.
 
 **Pi**()
 
-**Radians**( *Degrees* )
+**Radians**( *Grad* )
 
-* *Degrees* - Required.  Angle in degrees to convert to radians.
+* *Degrees*: Erforderlich.  Der Winkel in Grad, der in Bogenmaß konvertiert werden soll.
 
-## Examples
-### Single number
+## <a name="examples"></a>Beispiele
+### <a name="single-number"></a>Einzelne Zahl
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Cos(&nbsp;1.047197&nbsp;)** |Returns the cosine of 1.047197 radians or 60 degrees. |0.5 |
-| **Cot(&nbsp;Pi()/4&nbsp;)** |Returns the cotangent of 0.785398... radians or 45 degrees. |1 |
-| **Sin(&nbsp;Pi()/2&nbsp;)** |Returns the sine of 1.570796... radians or 90 degrees. |1 |
-| **Tan(&nbsp;Radians(60)&nbsp;)** |Returns the tangent of 1.047197... radians or 60 degrees. |1.732050... |
-| **Acos(&nbsp;0.5&nbsp;)** |Returns the arccosine of 0.5, in radians. |1.047197... |
-| **Acot(&nbsp;1&nbsp;)** |Returns the arccotangent of 1, in radians. |0.785398... |
-| **Asin(&nbsp;1&nbsp;)** |Returns the arcsine of 1, in radians. |1.570796... |
-| **Atan(&nbsp;1.732050&nbsp;)** |Returns the arctangent of 1.732050, in radians. |1.047197... |
-| **Atan2(&nbsp;5,&nbsp;3&nbsp;)** |Returns the arctangent of the angle from the *x*-axis of the line that contains the origin (0,0) and the coordinate (5,3), which is approximately 31 degrees. |0.540419... |
-| **Atan2(&nbsp;4,&nbsp;4&nbsp;)** |Returns the arctangent of the angle from the *x*-axis of the line that contains the origin (0,0) and the coordinate (4,4), which is exactly &pi;/4 radians or 45 degrees. |0.785398... |
-| **Degrees(&nbsp;1.047197&nbsp;)** |Returns the equivalent number of degrees for 1.047197 radians. |60 |
-| **Pi()** |Returns the transcendental number &pi;. |3.141592... |
-| **Radians(&nbsp;15&nbsp;)** |Returns the equivalent number of radians for 15 degrees. |0.261799... |
+| **Cos(&nbsp;1.047197&nbsp;)** |Gibt den Kosinus des Bogenmaßes 1,047197 oder von 60 Grad zurück. |0.5 |
+| **Cot(&nbsp;Pi()/4&nbsp;)** |Gibt den Kotangens des Bogenmaßes 0,785398... oder von 45 Grad zurück. |1 |
+| **Sin(&nbsp;Pi()/2&nbsp;)** |Gibt den Sinus des Bogenmaßes 1,570796... oder von 90 Grad zurück. |1 |
+| **Tan(&nbsp;Radians(60)&nbsp;)** |Gibt den Tangens des Bogenmaßes 1,047197... oder von 60 Grad zurück. |1.732050... |
+| **Acos(&nbsp;0.5&nbsp;)** |Gibt den Arkuskosinus von 0,5 im Bogenmaß zurück. |1.047197... |
+| **Acot(&nbsp;1&nbsp;)** |Gibt den Arkuskotangens von 1 im Bogenmaß zurück. |0.785398... |
+| **Asin(&nbsp;1&nbsp;)** |Gibt den Arkussinus von 1 im Bogenmaß zurück. |1.570796... |
+| **Atan(&nbsp;1.732050&nbsp;)** |Gibt den Arkustangens von 1.732050 im Bogenmaß zurück. |1.047197... |
+| **Atan2(&nbsp;5,&nbsp;3&nbsp;)** |Gibt den Arkustangens des Winkels zwischen der *X*-Achse und der Linie zurück, die den Ursprung (0,0) und die Koordinate (5,3) umfasst. Dieser Winkel beträgt etwa 31 Grad. |0.540419... |
+| **Atan2(&nbsp;4,&nbsp;4&nbsp;)** |Gibt den Arkustangens des Winkels zwischen der *X*-Achse und der Linie zurück, die den Ursprung (0,0) und die Koordinate (4,4) umfasst. Dieser Winkel beträgt genau das Bogenmaß &pi;/4 oder 45 Grad. |0.785398... |
+| **Degrees(&nbsp;1.047197&nbsp;)** |Gibt die entsprechende Gradzahl des Bogenmaßes 1,047197 zurück. |60 |
+| **Pi()** |Gibt die transzendente Zahl &pi; zurück. |3.141592... |
+| **Radians(&nbsp;15&nbsp;)** |Gibt die entsprechende Bogenmaßzahl für 15 Grad zurück. |0.261799... |
 
-### Single-column table
-The examples in this section use a [data source](../working-with-data-sources.md) that's named **ValueTable** and that contains the following data.  The last record in the table is &pi;/2 radians or 90 degrees.
+### <a name="single-column-table"></a>Einspaltige Tabelle
+Die Beispiele in diesem Abschnitt verwenden eine [Datenquelle](../working-with-data-sources.md), die als **ValueTable** bezeichnet wird und die folgenden Daten enthält.  Der letzte Datensatz in der Tabelle ist das Bogenmaß &pi;/2 oder 90 Grad.
 
 ![](media/function-trig/values.png)
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Cos(&nbsp;ValueTable&nbsp;)** |Returns the cosine of each number in the table. |<style> img { max-width: none } </style> ![](media/function-trig/values-cos.png) |
-| **Cot(&nbsp;ValueTable&nbsp;)** |Returns the cotangent of each number in the table. |<style> img { max-width: none } </style> ![](media/function-trig/values-cot.png) |
-| **Sin(&nbsp;ValueTable&nbsp;)** |Returns the sine of each number in the table. |<style> img { max-width: none } </style> ![](media/function-trig/values-sin.png) |
-| **Tan(&nbsp;ValueTable&nbsp;)** |Returns the tangent of each number in the table. |<style> img { max-width: none } </style> ![](media/function-trig/values-tan.png) |
-| **Acos(&nbsp;ValueTable&nbsp;)** |Returns the arccosine of each number in the table. |<style> img { max-width: none } </style> ![](media/function-trig/values-acos.png) |
-| **Acot(&nbsp;ValueTable&nbsp;)** |Returns the arccotangent of each number in the table. |<style> img { max-width: none } </style> ![](media/function-trig/values-acot.png) |
-| **Asin(&nbsp;ValueTable&nbsp;)** |Returns the arcsine of each number in the table. |<style> img { max-width: none } </style> ![](media/function-trig/values-asin.png) |
-| **Atan(&nbsp;ValueTable&nbsp;)** |Returns the arctangent of each number in the table. |<style> img { max-width: none } </style> ![](media/function-trig/values-atan.png) |
-| **Degrees(&nbsp;ValueTable&nbsp;)** |Returns the equivalent number of degrees for each number in the table, assumed to be angles in radians. |<style> img { max-width: none } </style> ![](media/function-trig/values-degrees.png) |
-| **Radians(&nbsp;ValueTable&nbsp;)** |Returns the equivalent number of radians for each number in the table, assumed to be angles in degrees. |<style> img { max-width: none } </style> ![](media/function-trig/values-radians.png) |
+| **Cos(&nbsp;ValueTable&nbsp;)** |Gibt den Kosinus der einzelnen Zahlen in der Tabelle zurück. |<style> img { max-width: none } </style> ![](media/function-trig/values-cos.png) |
+| **Cot(&nbsp;ValueTable&nbsp;)** |Gibt den Kotangens der einzelnen Zahlen in der Tabelle zurück. |<style> img { max-width: none } </style> ![](media/function-trig/values-cot.png) |
+| **Sin(&nbsp;ValueTable&nbsp;)** |Gibt den Sinus der einzelnen Zahlen in der Tabelle zurück. |<style> img { max-width: none } </style> ![](media/function-trig/values-sin.png) |
+| **Tan(&nbsp;ValueTable&nbsp;)** |Gibt den Tangens der einzelnen Zahlen in der Tabelle zurück. |<style> img { max-width: none } </style> ![](media/function-trig/values-tan.png) |
+| **Acos(&nbsp;ValueTable&nbsp;)** |Gibt den Arkuskosinus der einzelnen Zahlen in der Tabelle zurück. |<style> img { max-width: none } </style> ![](media/function-trig/values-acos.png) |
+| **Acot(&nbsp;ValueTable&nbsp;)** |Gibt den Arkuskotangens der einzelnen Zahlen in der Tabelle zurück. |<style> img { max-width: none } </style> ![](media/function-trig/values-acot.png) |
+| **Asin(&nbsp;ValueTable&nbsp;)** |Gibt den Arkussinus der einzelnen Zahlen in der Tabelle zurück. |<style> img { max-width: none } </style> ![](media/function-trig/values-asin.png) |
+| **Atan(&nbsp;ValueTable&nbsp;)** |Gibt den Arkustangens der einzelnen Zahlen in der Tabelle zurück. |<style> img { max-width: none } </style> ![](media/function-trig/values-atan.png) |
+| **Degrees(&nbsp;ValueTable&nbsp;)** |Gibt die entsprechende Gradzahl für die einzelnen Zahlen in der Tabelle zurück, von denen angenommen wird, dass es sich dabei um Bogenmaße handelt. |<style> img { max-width: none } </style> ![](media/function-trig/values-degrees.png) |
+| **Radians(&nbsp;ValueTable&nbsp;)** |Gibt die entsprechende Bogenmaßzahl für die einzelnen Zahlen in der Tabelle zurück, von denen angenommen wird, dass es sich dabei um Winkel im Gradmaß handelt. |<style> img { max-width: none } </style> ![](media/function-trig/values-radians.png) |
 

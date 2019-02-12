@@ -1,77 +1,83 @@
 ---
-title: Create a connection from a canvas app to SharePoint | Microsoft Docs
-description: In PowerApps, create a connection to SharePoint, for use in generating a canvas app automatically or building one from scratch.
+title: Erstellen einer Verbindung von einer Canvas-App mit SharePoint | Microsoft-Dokumentation
+description: Stellen Sie in PowerApps eine Verbindung mit SharePoint her, die Sie verwenden, wenn Sie eine Canvas-App automatisch generieren oder von Grund auf neu erstellen.
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 09/03/2016
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 170115f07da57878c553a1776fc26a9cd27a8258
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42844153"
 ---
-# Create a connection to SharePoint from PowerApps
-Create a connection to either SharePoint Online or on-premises SharePoint so that you can generate a canvas app automatically or build one from scratch.
+# <a name="create-a-connection-to-sharepoint-from-powerapps"></a>Herstellen einer Verbindung mit SharePoint aus PowerApps
+Erstellen Sie eine Verbindung mit SharePoint Online oder lokalem SharePoint, sodass Sie eine Canvas-App automatisch generieren oder von Grund auf neu erstellen können.
 
-If you're unfamiliar with PowerApps, see [Introduction to PowerApps](getting-started.md).
+Wenn Sie mit PowerApps nicht vertraut sind, finden Sie Grundlagen unter [Einführung in PowerApps](getting-started.md).
 
-As of this writing, PowerApps supports custom lists but not libraries. In addition, you can show data in some types of columns, such as **Choice** and **Picture**, but you can't update that data. For more information, see [Known issues](connections/connection-sharepoint-online.md#known-issues).
+Zum Zeitpunkt dieses Artikels unterstützt PowerApps benutzerdefinierte Listen, jedoch keine Bibliotheken. Darüber hinaus können Sie Daten in verschiedenen Arten von Spalten anzeigen, z.B. **Auswahl** und **Bild**, aber Sie können diese Daten nicht aktualisieren. Weitere Informationen finden Sie unter [Known issues (Bekannte Probleme)](connections/connection-sharepoint-online.md#known-issues).
 
-## Specify a SharePoint connection
-1. If you haven't already signed up, [sign up for PowerApps](../signup-for-powerapps.md).
+## <a name="specify-a-sharepoint-connection"></a>Angeben einer SharePoint-Verbindung
+1. Wenn Sie noch nicht angemeldet sind, [melden Sie sich bei PowerApps an](../signup-for-powerapps.md).
 
-2. Sign in to [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) using the same credentials that you used to sign up.
+2. Melden Sie sich unter [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) mit denselben Anmeldeinformationen an, die Sie bei der Registrierung verwendet haben.
 
-3. In the left navigation bar, click or tap **Manage**, and then click or tap **Connections**.
+3. Klicken oder tippen Sie in der linken Navigationsleiste auf **Verwalten**, und klicken oder tippen Sie anschließend auf **Verbindungen**.
 
-    ![New option on the File menu](./media/connect-to-sharepoint/manage-connections.png)
+    ![Option „New“ im Menü „File“](./media/connect-to-sharepoint/manage-connections.png)
 
-4. Near the upper-right corner, click or tap **New connection**.
+4. Klicken oder tippen Sie in der Nähe der oberen rechten Ecke auf **Neue Verbindung**.
 
-    ![New connection button](./media/connect-to-sharepoint/new-connection.png)
+    ![Schaltfläche „Neue Verbindung“](./media/connect-to-sharepoint/new-connection.png)
 
-5. In the list of connections, click or tap **SharePoint**.
+5. Klicken oder tippen Sie In der Liste der Verbindungen auf **SharePoint**.
 
-    ![Add SharePoint connection](./media/connect-to-sharepoint/add-sp-portal.png)
+    ![Hinzufügen einer SharePoint-Verbindung](./media/connect-to-sharepoint/add-sp-portal.png)
 
-6. Follow the steps in either of these procedures, which appear later in this topic:
+6. Führen Sie die Schritte einer der folgenden Vorgehensweisen durch, die weiter unten in diesem Thema angezeigt werden:
 
-   * [Connect to a SharePoint Online site](connect-to-sharepoint.md#connect-to-a-sharepoint-online-site).
-   * [Connect to an on-premises SharePoint site](connect-to-sharepoint.md#connect-to-an-on-premises-sharepoint-site).
+   * [Verbinden mit einer SharePoint Online-Website](connect-to-sharepoint.md#connect-to-a-sharepoint-online-site)
+   * [Verbinden mit einer lokalen SharePoint-Website](connect-to-sharepoint.md#connect-to-an-on-premises-sharepoint-site)
 
-## Connect to a SharePoint Online site
-1. Click or tap **Connect directly (cloud services)**, and then click or tap **Add connection**.
+## <a name="connect-to-a-sharepoint-online-site"></a>Verbinden mit einer SharePoint Online-Website
+1. Klicken oder tippen Sie auf **Direkt verbinden (Clouddienste)**, und klicken oder tippen Sie anschließend auf **Verbindung hinzufügen**.
 
-    ![Choose SharePoint Online](./media/connect-to-sharepoint/choose-online.png)
+    ![Auswählen von SharePoint Online](./media/connect-to-sharepoint/choose-online.png)
 
-2. Go to [Next steps](connect-to-sharepoint.md#next-steps) at the end of  this topic.
+2. Wechseln Sie zu [Nächste Schritte](connect-to-sharepoint.md#next-steps) am Ende dieses Themas.
 
-## Connect to an on-premises SharePoint site
-1. Click or tap **Connect using on-premises data gateway**.
+## <a name="connect-to-an-on-premises-sharepoint-site"></a>Verbinden mit einer lokalen SharePoint-Website
+1. Klicken oder tippen Sie auf **Verbindung mit einem lokalen Datengateway herstellen**.
 
-    ![Choose SharePoint on-premises](./media/connect-to-sharepoint/choose-onprem.png)
+    ![Auswählen von lokalem SharePoint](./media/connect-to-sharepoint/choose-onprem.png)
 
     > [!NOTE]
-   > Gateways and on-premises connections can only be created and used in the user's [default environment](working-with-environments.md).
+   > Gateways und lokale Verbindungen können nur in der [Standardumgebung](working-with-environments.md) des Benutzers erstellt und verwendet werden.
 
-2. Specify your user name and your password.
+2. Geben Sie Ihren Benutzernamen und Ihr Kennwort an.
 
-    If your credentials include a domain name, specify it as *Domain\Alias*.
+    Wenn Ihre Anmeldeinformationen einen Domänennamen enthalten, geben Sie sie folgendermaßen an: *Domäne\Alias*.
 
-    ![Specify your credentials](./media/connect-to-sharepoint/specify-credentials.png)
+    ![Angeben Ihrer Anmeldeinformationen](./media/connect-to-sharepoint/specify-credentials.png)
 
-3. If you don't have an on-premises data gateway installed, [install one](gateway-reference.md), and then click or tap the icon to refresh the list of gateways.
+3. Wenn Sie kein lokales Datengateway installiert haben, [installieren Sie eines](gateway-reference.md), und klicken oder tippen Sie anschließend auf das Symbol zum Aktualisieren der Liste der Gateways.
 
-    ![Install a gateway](./media/connect-to-sharepoint/install-gateway.png)
+    ![Gateway installieren](./media/connect-to-sharepoint/install-gateway.png)
 
-4. Under **Choose a gateway**, click or tap the gateway that you want to use, and then click or tap **Add connection**.
+4. Klicken oder tippen Sie unter **Gateway auswählen** auf das Gateway, das Sie verwenden möchten, und klicken oder tippen Sie auf **Verbindung hinzufügen**.
 
-    ![Choose a gateway](./media/connect-to-sharepoint/choose-gateway.png)
+    ![Gateway auswählen](./media/connect-to-sharepoint/choose-gateway.png)
 
-## Next steps
-* [Generate an app automatically](app-from-sharepoint.md) based on a list that you specify. The app will have three screens by default: one each for browsing records, displaying details about a single record, and creating or updating a record.
-* [Build an app from scratch](get-started-create-from-blank.md). This topic was written for Excel, but the same principles apply to SharePoint.
+## <a name="next-steps"></a>Nächste Schritte
+* [Generieren Sie eine App automatisch](app-from-sharepoint.md), basierend auf einer Liste, die Sie angeben. Die App verfügt standardmäßig über drei Bildschirme: jeweils einen zum Durchsuchen von Datensätzen, zum Anzeigen von Details zu einem einzelnen Datensatz und zum Erstellen oder Aktualisieren eines Datensatzes.
+* [Neuerstellen einer App von Grund auf](get-started-create-from-blank.md). Dieses Thema wurde für Excel geschrieben, die gleichen Prinzipien gelten jedoch auch für SharePoint.

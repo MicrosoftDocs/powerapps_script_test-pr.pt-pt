@@ -1,6 +1,6 @@
 ---
-title: Text properties | Microsoft Docs
-description: Reference material for properties such as Text, Tooltip, and HintText
+title: Texteigenschaften | Microsoft-Dokumentation
+description: Enthält Referenzmaterial zu Eigenschaften wie „Text“, „Tooltip“ und „HintText“.
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,49 +9,55 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 2b88e765fcc56a2d76ede30a44fcfbaae70aaea3
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42861787"
 ---
-# Text properties in PowerApps
-Configure the text that appears on a control, in a tooltip, as a hint when the user types data, and specify other text-related characteristics.
+# <a name="text-properties-in-powerapps"></a>Texteigenschaften in PowerApps
+Konfigurieren Sie den für ein Steuerelement angezeigten Text in einer QuickInfo oder als Hinweis für Benutzer bei der Dateneingabe, und geben Sie andere textbezogene Merkmale an.
 
-## Text appearance
-**Font** – The name of the family of fonts in which text appears.
+## <a name="text-appearance"></a>Textdarstellung
+**Font**: Der Name der Schriftfamilie des angezeigten Texts.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Drop down](control-drop-down.md)**, **[Export](control-export-import.md)**, **[HTML text](control-html-text.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[Pie chart](control-pie-chart.md)**, **[Radio](control-radio.md)**, **[Text input](control-text-input.md)**, and **[Timer](control-timer.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Dropdown](control-drop-down.md)**, **[Export](control-export-import.md)**, **[HTML-Text](control-html-text.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[Kreisdiagramm](control-pie-chart.md)**, **[Optionsfeld](control-radio.md)**, **[Texteingabe](control-text-input.md)** und **[Timer](control-timer.md)**.
 
-**FontWeight** – The weight of the text in a control: **Bold**, **Semibold**, **Normal**, or **Lighter**.
+**FontWeight**: Die Schriftbreite des Texts in einem Steuerelement: **Bold** (Fett), **Semibold** (Halbfett), **Normal** oder **Lighter** (Heller).
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Date Picker](control-date-picker.md)**, **[Drop down](control-drop-down.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[List Box](control-list-box.md)**, **[Radio](control-radio.md)**, **[Text input](control-text-input.md)**, and **[Timer](control-timer.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Dropdown](control-drop-down.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Listenfeld](control-list-box.md)**, **[Optionsfeld](control-radio.md)**, **[Texteingabe](control-text-input.md)** und **[Timer](control-timer.md)**.
 
-**Italic** – Whether the text in a control is italic.
+**Italic**: Legt fest, ob der Text in einem Steuerelement kursiv formatiert ist.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Date Picker](control-date-picker.md)**, **[Drop down](control-drop-down.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[List Box](control-list-box.md)**, **[Radio](control-radio.md)**, **[Text input](control-text-input.md)**, and **[Timer](control-timer.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Dropdown](control-drop-down.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Listenfeld](control-list-box.md)**, **[Optionsfeld](control-radio.md)**, **[Texteingabe](control-text-input.md)** und **[Timer](control-timer.md)**.
 
-**Size** – The font size of the text that appears on a control.
+**Size**: Der Schriftgrad des Texts, der in einem Steuerelement angezeigt wird.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Drop down](control-drop-down.md)**, **[Export](control-export-import.md)**, **[HTML text](control-html-text.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[Pen input](control-pen-input.md)**, **[Pie chart](control-pie-chart.md)**, **[Radio](control-radio.md)**, **[Text input](control-text-input.md)**, and **[Timer](control-timer.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Dropdown](control-drop-down.md)**, **[Export](control-export-import.md)**, **[HTML-Text](control-html-text.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[Stifteingabe](control-pen-input.md)**, **[Kreisdiagramm](control-pie-chart.md)**, **[Optionsfeld](control-radio.md)**, **[Texteingabe](control-text-input.md)** und **[Timer](control-timer.md)**.
 
-**Strikethrough** – Whether a line appears through the text that appears on a control.
+**Strikethrough**: Legt fest, ob der in einem Steuerelement angezeigte Text durchgestrichen ist.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Drop down](control-drop-down.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[List Box](control-list-box.md)**, **[Radio](control-radio.md)**, **[Text input](control-text-input.md)**, and **[Timer](control-timer.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Dropdown](control-drop-down.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Listenfeld](control-list-box.md)**, **[Optionsfeld](control-radio.md)**, **[Texteingabe](control-text-input.md)** und **[Timer](control-timer.md)**.
 
-**Underline** – Whether a line appears under the text that appears on a control.
+**Underline**: Legt fest, ob der in einem Steuerelement angezeigte Text unterstrichen ist.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Drop down](control-drop-down.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[List Box](control-list-box.md)**, **[Radio](control-radio.md)**, **[Text input](control-text-input.md)**, and **[Timer](control-timer.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Dropdown](control-drop-down.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Listenfeld](control-list-box.md)**, **[Optionsfeld](control-radio.md)**, **[Texteingabe](control-text-input.md)** und **[Timer](control-timer.md)**.
 
-## Text placement
-**Align** – The location of text in relation to the horizontal center of its control.
+## <a name="text-placement"></a>Textanordnung
+**Align**: Die Position von Text in Relation zur horizontalen Mitte des Steuerelements.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Button](control-button.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[Radio](control-radio.md)**, **[Text input](control-text-input.md)**, and **[Timer](control-timer.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Schaltfläche](control-button.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Optionsfeld](control-radio.md)**, **[Texteingabe ](control-text-input.md)** und **[Timer](control-timer.md)**.
 
-**LineHeight** – The distance between, for example, lines of text or items in a list.
+**LineHeight**: Der Abstand zwischen Elementen, z.B. Textzeilen oder Elementen in einer Liste.
 
-* Applies to **[List Box](control-list-box.md)**, **[Label](control-text-box.md)**, **[Radio](control-radio.md)**, and **[Text input](control-text-input.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Listenfeld](control-list-box.md)**, **[Bezeichnung](control-text-box.md)**, **[Optionsfeld](control-radio.md)**, und **[Texteingabe](control-text-input.md)**.
 
-**VerticalAlign** – The location of text on a control in relation to the vertical center of that control.
+**VerticalAlign**: Die Position des Texts in einem Steuerelement in Relation zur vertikalen Mitte des Steuerelements.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Export](control-export-import.md)**, **[Import](control-export-import.md)**, and **[Label](control-text-box.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Export](control-export-import.md)**, **[Import ](control-export-import.md)** und **[Bezeichnung](control-text-box.md)**.
 

@@ -1,160 +1,166 @@
 ---
-title: Tutorial - Customize a gallery in a generated app | Microsoft Docs
-description: In this tutorial, you customize the data that appears in the gallery and other elements of an app that was generated automatically in PowerApps.
+title: Tutorial – Anpassen eines Katalogs in einer generierten App | Microsoft-Dokumentation
+description: In diesem Tutorial passen Sie die Daten an, die in der Galerie und anderen Elementen einer App angezeigt werden, die in PowerApps automatisch generiert wurde.
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: tutorial
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 05/06/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 6e77ddfcc572a776e80ab90d3907aaa7b67f01ea
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42864770"
 ---
-# Tutorial: Customize a gallery in PowerApps
+# <a name="tutorial-customize-a-gallery-in-powerapps"></a>Tutorial: Anpassen eines Katalogs in PowerApps
 
-In this tutorial, you'll customize a list of records, called a gallery, and make other changes in an app that was generated automatically in Microsoft PowerApps. Users can manage data in the app even if you don't make these changes, but the app will be easier to use if you customize it for your organization's needs.
+Im Rahmen dieses Tutorials passen Sie eine Liste von Datensätzen an, die Katalog genannt wird, und nehmen andere Änderungen in einer App vor, die in Microsoft PowerApps automatisch generiert wurde. Benutzer können auch dann Daten in der App verwalten, wenn Sie diese Änderungen nicht vornehmen, jedoch ist die App einfacher zu verwenden, wenn Sie sie den Anforderungen Ihres Unternehmens anpassen.
 
-For example, the gallery for this tutorial matches this graphic by default. The email address is featured more prominently than other types of data, and users can sort and filter the gallery based on text in that address:
+Zum Beispiel entspricht der Katalog für dieses Tutorial standardmäßig der folgenden Abbildung. Die E-Mail-Adresse wird deutlicher dargestellt als andere Arten von Daten, und Benutzer können den Katalog basierend auf dem Text in dieser Adresse sortieren oder filtern:
 
-![Default gallery](./media/customize-layout-sharepoint/gallery-before.png)
+![Standardkatalog](./media/customize-layout-sharepoint/gallery-before.png)
 
-However, your users might be more interested in the account name more than the email address, so you'll reconfigure the gallery to highlight, sort, and filter based on the key data for your organization. In addition, you'll change the title of the default screen to differentiate it from the other screens in the app.
+Wenn Ihre Benutzer allerdings mehr Interesse am Kontonamen als an der E-Mail-Adresse haben, konfigurieren Sie den Katalog neu, sodass basierend auf den Schlüsseldaten hervorgehoben, sortiert und gefiltert wird. Darüber hinaus ändern Sie den Titel des Standardbildschirms, um ihn von den anderen Bildschirmen der App zu unterscheiden.
 
-![Final gallery](./media/customize-layout-sharepoint/gallery-after.png)
+![Endgültiger Katalog](./media/customize-layout-sharepoint/gallery-after.png)
 
-You'll also add a scroll bar so that users who don't have touch screens or mouse wheels can browse the entire gallery.
+Außerdem fügen Sie eine Scrollleiste hinzu, damit Benutzer, die weder Touchscreens noch Mausräder verwenden, den gesamten Katalog durchsuchen können.
 
 > [!div class="checklist"]
-> * Change the layout of the gallery
-> * Change the type of data that appears in the gallery
-> * Change the columns by which users can sort and search the data
-> * Change the screen title
-> * Show a scroll bar
+> * Ändern des Kataloglayouts
+> * Ändern des im Katalog angezeigten Datentyps
+> * Ändern der Spalten, nach denen Benutzer die Daten sortieren und durchsuchen können
+> * Ändern des Bildschirmtitels
+> * Anzeigen einer Scrollleiste
 
-This tutorial starts with an app that was generated from a specific data source. However, the same concepts apply to any app that you generate in PowerApps, whether from a SharePoint list, an Excel table, or some other data source.
+Dieses Tutorial beginnt mit einer App, die von einer bestimmten Datenquelle aus generiert wurde. Dieselben Konzepte gelten jedoch für jede App, die Sie in PowerApps erstellen, unabhängig davon, ob sie aus einer SharePoint-Liste, einer Excel-Tabelle oder einer anderen Datenquelle stammen.
 
-If you're not signed up for PowerApps, [sign up for free](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) before you start.
+Wenn Sie noch nicht bei PowerApps registriert sind, [registrieren Sie sich zuerst kostenlos](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-[Generate an app](data-platform-create-app.md) from the **Accounts** entity of Common Data Service (CDS) for Apps.
+[Generieren Sie eine App](data-platform-create-app.md) aus der Entität **Konten** des Common Data Service (CDS) für Apps.
 
-## Open the generated app
+## <a name="open-the-generated-app"></a>Öffnen einer generierten App
 
-1. Sign in to [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), and then select **Apps** near the left edge.
+1. Melden Sie sich bei [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an, und wählen Sie dann am linken Bildschirmrand **Apps** aus.
 
-    [![PowerApps home page](./media/customize-layout-sharepoint/sign-in.png)](./media/customize-layout-sharepoint/sign-in.png#lightbox)
+    [![PowerApps-Startseite](./media/customize-layout-sharepoint/sign-in.png)](./media/customize-layout-sharepoint/sign-in.png#lightbox)
 
-1. Find the app that you generated, select the ellipsis icon (**...**) for it, and then select **Edit**.
+1. Suchen Sie die App, die Sie generiert haben, und wählen Sie das Auslassungssymbol (**...** ) für sie und dann **Bearbeiten** aus.
 
-    ![Open app for editing](./media/customize-layout-sharepoint/open-app.png)
+    ![App zur Bearbeitung öffnen](./media/customize-layout-sharepoint/open-app.png)
 
-1. If the **Welcome to PowerApps Studio** dialog box appears, select **Skip**.
+1. Falls das Dialogfeld **Willkommen bei PowerApps Studio** angezeigt wird, klicken Sie auf **Überspringen**.
 
-## Change the layout
+## <a name="change-the-layout"></a>Ändern des Layouts
 
-1. In the left navigation pane, select **BrowseGallery1**.
+1. Klicken Sie im linken Navigationsbereich auf **BrowseGallery1**.
 
-    When the gallery is selected, a selection box with handles surrounds it.
+    Wenn der Katalog ausgewählt ist, umgibt ihn ein Auswahlfeld mit Ziehpunkten.
 
-    ![Select gallery](media/customize-layout-sharepoint/select-gallery-1.png)
+    ![Katalog auswählen](media/customize-layout-sharepoint/select-gallery-1.png)
 
-1. Near the right edge, select **Accounts** to open the **Data** pane.
+1. Wählen Sie in der Nähe des rechten Rands **Konten** aus, um den Bereich **Daten** zu öffnen.
 
-    ![Open the **Data** pane](./media/customize-layout-sharepoint/open-data-pane.png)
+    ![Öffnen Sie den Bereich **Daten**](./media/customize-layout-sharepoint/open-data-pane.png)
 
-1. In the **Data** pane, open the list of options under **Layout**.
+1. Öffnen Sie im Bereich **Daten** die Liste der Optionen unter **Layout**.
 
-    ![Show layout options](./media/customize-layout-sharepoint/show-layouts.png)
+    ![Layoutoptionen anzeigen](./media/customize-layout-sharepoint/show-layouts.png)
 
-1. In the list of options, select the option that shows only a title.
+1. Wählen Sie in der Liste der Optionen die Option aus, die nur einen Titel anzeigt.
 
-    ![Select title-only layout](./media/customize-layout-sharepoint/choose-layout.png)
+    ![Layout auswählen, das nur von Titeln ausgeht](./media/customize-layout-sharepoint/choose-layout.png)
 
-1. In the **Data** pane, open the list of options for the title.
+1. Öffnen Sie im Bereich **Daten** die Liste der Optionen für den Titel.
 
-    The name of this control will end in a numeral, such as **Title1**, but the numeral might differ based on other actions you might have taken.
+    Der Name dieses Steuerelements endet in einer Zahl, z.B. **Titel1**, die Zahl unterscheidet sich jedoch basierend auf anderen Aktionen, die Sie möglicherweise ausgeführt haben.
 
-    ![Open list of options for title label](./media/customize-layout-sharepoint/show-title-options.png)
+    ![Öffnen der Liste von Optionen für die Titelbezeichnung](./media/customize-layout-sharepoint/show-title-options.png)
 
-1. In the list of options, select **Account name (name)**, and then close the **Data** pane.
+1. Wählen Sie in der Liste der Optionen **Kontoname (Name)** aus, und schließen Sie dann den Bereich **Daten**.
 
-    The gallery shows the name of each account.
+    Der Katalog zeigt den Namen jedes Kontos an.
 
-    ![Final gallery](./media/customize-layout-sharepoint/final-gallery.png)
+    ![Endgültiger Katalog](./media/customize-layout-sharepoint/final-gallery.png)
 
-## Change sort and search columns
+## <a name="change-sort-and-search-columns"></a>Sortier- und Suchspalten ändern
 
-1. Select the gallery as the previous section describes.
+1. Wählen Sie den Katalog wie im vorherigen Abschnitt beschrieben aus.
 
-    ![Select gallery](./media/customize-layout-sharepoint/select-gallery-title.png)
+    ![Katalog auswählen](./media/customize-layout-sharepoint/select-gallery-title.png)
 
-1. Near the upper-left corner, confirm that the property list shows **Items**.
+1. Stellen Sie sicher, dass die Eigenschaftenliste in der Nähe der oberen linken Ecke **Items** anzeigt.
 
-    ![Items property](./media/customize-layout-sharepoint/items-property.png)
+    ![Items-Eigenschaft](./media/customize-layout-sharepoint/items-property.png)
 
-    The value of this property appears in the formula bar. You set this property to specify not only the data source for the gallery but also the columns by which users can sort and search the data.
+    Der Wert dieser Eigenschaft wird in der Bearbeitungsleiste angezeigt. Sie legen diese Eigenschaft nicht nur fest, um die Datenquelle für den Katalog anzugeben, sondern auch die Spalten, nach denen Benutzer die Daten sortieren und durchsuchen können.
 
-1. Copy this formula, and then paste it in the formula bar.
+1. Kopieren Sie diese Formel, und fügen Sie sie in die Bearbeitungsleiste ein.
 
     ```SortByColumns(Search(Accounts, TextSearchBox1.Text, "name"), "name", If(SortDescending1, Descending, Ascending))```
 
-    By using this formula, you ensure that:
+    Mit Verwendung dieser Formel stellen Sie Folgendes sicher:
 
-    * If a user types one or more characters in the search bar, the gallery shows only those account names that contain the text that the user typed.
-    * If a user selects the sort icon, the gallery is sorted alphabetically by account name in either ascending or descending order, depending on how many times the user selects the icon.
+    * Wenn ein Benutzer ein oder mehrere Zeichen in die Suchleiste eingibt, zeigt der Katalog nur Kontonamen an, die den vom Benutzer eingegebenen Text enthalten.
+    * Wenn ein Benutzer das Sortiersymbol auswählt, wird der Katalog alphabetisch anhand des Kontonamens in aufsteigender oder absteigender Reihenfolge sortiert, je nachdem, wie oft der Benutzer das Symbol auswählt.
 
-     For more information about these and other functions, see the [formula reference](formula-reference.md).
+     Weitere Informationen zu diesen und anderen Funktionen finden Sie unter [formula reference (Formelreferenz)](formula-reference.md).
 
-### Test sorting and searching
+### <a name="test-sorting-and-searching"></a>Testen von Sortieren und Suchen
 
-1. Open Preview mode by pressing F5 (or by selecting the play button near the upper-right corner).
+1. Öffnen Sie den Vorschaumodus durch Drücken von F5 (oder Auswahl der Wiedergabeschaltfläche in der oberen rechten Ecke).
 
-    ![Open Preview mode](./media/customize-layout-sharepoint/open-preview.png)
+    ![Öffnen des Vorschaumodus](./media/customize-layout-sharepoint/open-preview.png)
 
-1. Near the upper-right corner of the browse screen, select the sort icon one or more times to change the alphabetical sort order between ascending and descending.
+1. Wählen Sie in der oberen rechten Ecke des Bildschirms zum Durchsuchen mindestens einmal die Schaltfläche „Sortieren“ aus, um die Einträge alphabetisch in aufsteigender oder absteigender Reihenfolge zu sortieren.
 
-    ![Test the sort icon](./media/customize-layout-sharepoint/sort-button.png)
+    ![Die Schaltfläche „Sortieren“ testen](./media/customize-layout-sharepoint/sort-button.png)
 
-1. In the search box, type **k** to show only those account names that contain the letter that you typed.
+1. Geben Sie im Suchfeld **k** ein, um nur die Kontonamen anzuzeigen, die den Buchstaben enthalten, den Sie eingegeben haben.
 
-    ![Test the search bar](./media/customize-layout-sharepoint/test-filter.png)
+    ![Testen der Suchleiste](./media/customize-layout-sharepoint/test-filter.png)
 
-1. Remove all text from the search bar, and then close Preview mode by pressing Esc (or by selecting the close icon near the upper-right corner).
+1. Löschen Sie den gesamten Text aus der Suchleiste. Schließen Sie anschließend den Vorschaumodus durch Drücken der ESC-TASTE (oder durch Auswahl des Schließsymbols in der oberen rechten Ecke).
 
-## Change the screen title
+## <a name="change-the-screen-title"></a>Ändern des Bildschirmtitels
 
-1. Select the title of the screen by clicking or tapping it.
+1. Wählen Sie den Bildschirmtitel aus, indem Sie darauf klicken oder tippen.
 
-    ![Select screen title](./media/customize-layout-sharepoint/select-title.png)
+    ![Auswählen des Bildschirmtitels](./media/customize-layout-sharepoint/select-title.png)
 
-1. Ensure that the property list shows **Text** and then, in the formula bar, replace **Accounts** with **Browse** (retaining the double quotation marks).
+1. Stellen Sie sicher, dass die Eigenschaftenliste **Text** anzeigt, und ersetzen Sie anschließend in der Bearbeitungsleiste (unter Beibehalten der Anführungszeichen) **Konten** durch **Durchsuchen**.
 
-    ![Update screen title](./media/customize-layout-sharepoint/change-screen-title.png)
+    ![Aktualisieren des Bildschirmtitels](./media/customize-layout-sharepoint/change-screen-title.png)
 
-    The screen reflects your change.
+    Der Bildschirm spiegelt die vorgenommene Änderung wider.
 
-    ![New screen title](./media/customize-layout-sharepoint/new-screen-title.png)
+    ![Neuer Bildschirmtitel](./media/customize-layout-sharepoint/new-screen-title.png)
 
-## Show a scrollbar
+## <a name="show-a-scrollbar"></a>Anzeigen einer Scrollleiste
 
-If your users might have neither touch screens nor mouse wheels, configure the gallery to show a scrollbar when the user hovers over it with the mouse. That way, users can show all accounts even if the screen can't show them all at once.
+Wenn die Geräte Ihrer Benutzer weder über Touchscreens noch Mausräder verfügen, konfigurieren Sie den Katalog so, dass eine Scrollleiste angezeigt wird, wenn der Benutzer mit der Maus darauf zeigt. So können Benutzer sogar alle Konten abrufen, wenn auf dem Bildschirm nicht alle Konten gleichzeitig angezeigt werden können.
 
-1. Select the gallery as the first procedure describes.
+1. Wählen Sie wie obenstehend beschrieben den Katalog aus.
 
-    ![Select gallery](./media/customize-layout-sharepoint/select-gallery-sorted.png)
+    ![Katalog auswählen](./media/customize-layout-sharepoint/select-gallery-sorted.png)
 
-1. On the **Gallery** tab, select **Show scrollbar**, and confirm that the value of that property has changed to **true**.
+1. Wählen Sie auf der Registerkarte **Katalog** die Option **Scrollleiste anzeigen** aus, und überprüfen Sie, ob der Wert der Eigenschaft sich in **TRUE** geändert hat.
 
-    ![Show scrollbar](./media/customize-layout-sharepoint/show-scrollbar.png)
+    ![Scrollleiste anzeigen](./media/customize-layout-sharepoint/show-scrollbar.png)
 
-## Next steps
+## <a name="next-steps"></a>Nächste Schritte
 
-In this tutorial, you've customized the gallery and made other changes to the default screen for browsing records in a generated app. You can also customize the default screens for displaying details and creating or updating accounts. As the browse screen contains a gallery, the other two screens in the app contain forms. You can change, for example, which types of data the forms show and in which order.
+In diesem Tutorial haben Sie den Katalog angepasst und andere Änderungen am Standardbildschirm zum Durchsuchen von Datensätzen in einer generierten App vorgenommen. Sie können außerdem die Standardanzeigen anpassen, damit Details angezeigt sowie Konten erstellt und aktualisiert werden können. Während der Bildschirm zum Durchsuchen einen Katalog enthält, enthalten die anderen beiden Bildschirme in der App Formulare. Sie können z.B. ändern, welche Datentypen die Formulare in welcher Reihenfolge anzeigen.
 
 > [!div class="nextstepaction"]
-> [Customize forms](customize-forms-sharepoint.md)
+> [Customize forms (Formulare anpassen)](customize-forms-sharepoint.md)

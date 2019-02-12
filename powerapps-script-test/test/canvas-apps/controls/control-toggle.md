@@ -1,6 +1,6 @@
 ---
-title: 'Toggle control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the toggle control
+title: 'Umschalten-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, über das Umschalten-Steuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,134 +9,140 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 6ab5ddf93351547afb752e838ab4929c7138df87
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42849223"
 ---
-# Toggle control in PowerApps
-A control that the user can turn on or off by moving its handle.
+# <a name="toggle-control-in-powerapps"></a>Umschalten-Steuerelement in PowerApps
+Ein Steuerelement, das die Benutzer durch Verschieben des Handles aktivieren oder deaktivieren können.
 
-## Description
-A toggle is designed for recent GUIs but behaves the same way as a check box.
+## <a name="description"></a>Beschreibung
+Umschalten wurde für aktuelle GUIs entwickelt, verhält sich jedoch genauso wie ein Kontrollkästchen.
 
-## Key properties
-**[Default](properties-core.md)** – The initial value of a control before it is changed by the user.
+## <a name="key-properties"></a>Haupteigenschaften
+**[Default](properties-core.md)** – Der Anfangswert eines Steuerelements, bevor es vom Benutzer geändert wird.
 
-**[Value](properties-core.md)** – The value of an input control.
+**[Value](properties-core.md)**: Gibt den Wert des Eingabesteuerelements an.
 
-## Additional properties
-**[AccessibleLabel](properties-accessibility.md)** – Label for screen readers.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[AccessibleLabel](properties-accessibility.md)**: Bezeichnung für Sprachausgaben
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[DisabledBorderColor](properties-color-border.md)** – The color of a control's border if the control's **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledBorderColor](properties-color-border.md)**: Die Farbe des Steuerelementrahmens, wenn die **[DisplayMode](properties-core.md)**-Eigenschaft des Steuerelements auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**FalseFill** – The toggle fill color when the toggle is off.
+**FalseFill**: Die Füllfarbe der Umschaltfläche, wenn sie deaktiviert ist.
 
-**FalseHoverFill** – The toggle hover fill color when toggle is off.
+**FalseHoverFill**: Die Hoverfüllfarbe der Umschaltfläche, wenn sie deaktiviert ist.
 
-**FalseText** – The text shown when the toggle is off.
+**FalseText**: Der Text, der angezeigt wird, wenn die Umschaltfläche deaktiviert ist.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[FocusedBorderColor](properties-color-border.md)** – The color of a control's border when the control is focused.
+**[FocusedBorderColor](properties-color-border.md)**: die Rahmenfarbe eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[FocusedBorderThickness](properties-color-border.md)** – The thickness of a control's border when the control is focused.
+**[FocusedBorderThickness](properties-color-border.md)**: die Rahmendicke eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**HandleFill** – The fill color of the toggle handle.
+**HandleFill**: die Füllfarbe des Handles „Schalter“.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[HoverBorderColor](properties-color-border.md)** – The color of a control's border when the user keeps the mouse pointer on that control.
+**[HoverBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über das Steuerelement hält.
 
-**[OnChange](properties-core.md)** – How the app responds when the user changes the value of a control (for example, by adjusting a slider).
+**[OnChange](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer den Wert eines Steuerelements ändert (z.B. per Schieberegler).
 
-**OnCheck** – How an app responds when the value of a checkbox or a toggle changes to **true**.
+**OnCheck**: Wie eine App reagiert, wenn sich der Wert eines Kontrollkästchens oder von Umschalten auf **TRUE** ändert.
 
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**OnUncheck** – How an app responds when the value of a checkbox or a toggle changes to **false**.
+**OnUncheck**: Wie eine App reagiert, wenn sich der Wert eines Kontrollkästchens oder von Umschalten auf **FALSE** ändert.
 
-**[PressedBorderColor](properties-color-border.md)** – The color of a control's border when the user taps or clicks that control.
+**[PressedBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**RailFill** – The background color of the rectangle in a toggle control when its value is **false** or the color of the line to the right of the handle in a slider control.
+**RailFill**: Die Farbe des Hintergrunds des Rechtecks im Umschalten-Steuerelement, wenn sein Wert **FALSE** ist, oder die Farbe der Linie auf der rechten Seite des Handles in einem Schieberegler-Steuerelement.
 
-**RailHoverFill** – When you hover on a toggle control or a slider, the background color of the rectangle in a toggle control when its value is **false** or the color of the line to the right of the handle in a slider control.
+**RailHoverFill**: Wenn Sie auf das Umschalten-Steuerelement oder den Schieberegler zeigen: Die Farbe des Hintergrunds des Rechtecks im Umschalten-Steuerelement, wenn sein Wert **false** ist, oder die Farbe der Linie auf der rechten Seite des Handles in einem Schieberegler-Steuerelement.
 
-**[Reset](properties-core.md)** – Whether a control reverts to its default value.
+**[Reset](properties-core.md)** – Legt fest, ob ein Steuerelement auf seinen Standardwert zurückgesetzt wird.
 
-**ShowLabel** – Whether a text label is shown beside the toggle control.
+**ShowLabel**: Gibt an, ob neben dem Umschalt-Steuerelement eine Textbezeichnung angezeigt werden soll.
 
-**[TabIndex](properties-accessibility.md)** – Keyboard navigation order in relation to other controls.
+**[TabIndex](properties-accessibility.md)**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**TextPosition** – Whether the label is to the left or the right of the toggle control.
+**TextPosition**: Gibt an, ob sich die Bezeichnung links oder rechts neben dem Umschalt-Steuerelement befindet.
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[Tooltip](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**TrueFill** – Toggle fill color when the toggle is on.
+**TrueFill**: Die Füllfarbe der Umschaltfläche, wenn sie aktiviert ist.
 
-**TrueHoverFill** – Toggle hover fill color when the toggle is on.
+**TrueHoverFill**: Die Hoverfüllfarbe der Umschaltfläche, wenn sie aktiviert ist.
 
-**TrueText** – Text shown when the toggle is on.
+**TrueText**: Der Text, der angezeigt wird, wenn die Umschaltfläche aktiviert ist.
 
-**ValueFill** – The background color of the rectangle in a toggle control when its value is **true** or the color of the line to the left of the handle in a slider control.
+**ValueFill**: Die Farbe des Hintergrunds des Rechtecks im Umschalten-Steuerelement, wenn sein Wert **true** ist, oder die Farbe der Linie auf der linken Seite des Handles in einem Schieberegler-Steuerelement.
 
-**ValueHoverFill** – When you keep the mouse pointer on a toggle control or a slider, the background color of the rectangle in a toggle control when its value is **true** or the color of the line to the left of the handle in a slider control.
+**ValueHoverFill**: Wenn Sie mit dem Mauszeiger auf das Umschalten-Steuerelement oder den Schieberegler zeigen: Die Farbe des Hintergrunds des Rechtecks im Umschalten-Steuerelement, wenn sein Wert **TRUE** ist, oder die Farbe der Linie auf der linken Seite des Handles in einem Schieberegler-Steuerelement.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## Related functions
+## <a name="related-functions"></a>Verwandte Funktionen
 [**If**( *Condition*, *Result* )](../functions/function-if.md)
 
-## Example
-1. Add a toggle, and name it **MemberDiscount**.
+## <a name="example"></a>Beispiel
+1. Fügen Sie Umschalten hinzu, und nennen Sie es **MemberDiscount**.
 
-    Don't know how to [add, name, and configure a control](../add-configure-controls.md)?
-2. Add a label, and set its **[Text](properties-core.md)** property to this formula:
-   <br>**If(MemberDiscount.Value = true, "Price: $75", "Price: $100")**
+    Möchten Sie wissen, wie Sie [ein Steuerelement hinzufügen, benennen und konfigurieren](../add-configure-controls.md)?
+2. Fügen Sie eine Bezeichnung hinzu, und legen Sie deren Eigenschaft **[Text](properties-core.md)** auf diese Funktion fest:
+   <br>**If(MemberDiscount.Value = true, "Preis: $75", "Preis: $100")**
 
-    Want more information about the **[If](../functions/function-if.md)** function or [other functions](../formula-reference.md)?
-3. Press F5, and change the value of **MemberDiscount**.
+    Benötigen Sie weitere Informationen zur **[If](../functions/function-if.md)**-Funktion oder [anderen Funktionen](../formula-reference.md)?
+3. Drücken Sie F5, und ändern Sie den Wert der **MemberDiscount**.
 
-    The label shows a different price, depending on whether **MemberDiscount** is on or off.
-4. To return to the default workspace, press Esc.
+    Die Bezeichnung zeigt einen anderen Preis, je nachdem, ob **MemberDiscount** aktiviert oder deaktiviert ist.
+4. Drücken Sie ESC, um zum Standardarbeitsbereich zurückzukehren.
 
 
-## Accessibility guidelines
-### Color contrast
-There must be adequate color contrast between:
-* **HandleFill** and **FalseFill**
-* **HandleFill** and **FalseHoverFill**
-* **HandleFill** and **TrueFill**
-* **HandleFill** and **TrueHoverFill**
-* **FalseFill** and color outside the control
-* **FalseHoverFill** and color outside the control
-* **TrueFill** and color outside the control
-* **TrueHoverFill** and color outside the control
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+Zwischen den folgenden Eigenschaften muss es einen ausreichenden Farbkontrast geben:
+* **HandleFill** und **FalseFill**
+* **HandleFill** und **FalseHoverFill**
+* **HandleFill** und **TrueFill**
+* **HandleFill** und **TrueHoverFill**
+* **FalseFill** und die Farbe außerhalb des Steuerelements
+* **FalseHoverFill** und die Farbe außerhalb des Steuerelements
+* **TrueFill** und die Farbe außerhalb des Steuerelements
+* **TrueHoverFill** und Farbe außerhalb des Steuerelements
 
-This is in addition to the [standard color contrast requirements](../accessible-apps-color.md).
+Dies ist ein Zusatz zu den [Standardanforderungen für Farbkontraste](../accessible-apps-color.md).
 
-### Screen reader support
-* **[AccessibleLabel](properties-accessibility.md)** must be present.
-* **FalseText** must be present.
-* **TrueText** must be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **[AccessibleLabel](properties-accessibility.md)** muss vorhanden sein.
+* Die **FalseText**-Eigenschaft muss vorhanden sein.
+* Die **TrueText**-Eigenschaft muss vorhanden sein.
 
-### Low vision support
-* Consider setting **ShowLabel** to **true** so that users can quickly determine the toggle value.
+### <a name="low-vision-support"></a>Unterstützte Anpassungen für Menschen mit Sehbehinderungen
+* Sie sollten **ShowLabel** auf **TRUE** festlegen, damit Benutzer den Wert des Schalters schnell festlegen können.
 
-### Keyboard support
-* **[TabIndex](properties-accessibility.md)** must be zero or greater so that keyboard users can navigate to it.
-* Focus indicators must be clearly visible. Use **[FocusedBorderColor](properties-color-border.md)** and **[FocusedBorderThickness](properties-color-border.md)** to achieve this.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* **[TabIndex](properties-accessibility.md)** muss gleich 0 (null) oder größer sein, damit Tastaturbenutzer dorthin navigieren können.
+* Fokusindikatoren müssen deutlich sichtbar sein. **[FocusedBorderColor](properties-color-border.md)** und **[FocusedBorderThickness](properties-color-border.md)** können Ihnen dabei helfen.

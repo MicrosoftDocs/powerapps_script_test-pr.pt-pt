@@ -1,6 +1,6 @@
 ---
-title: Rand function | Microsoft Docs
-description: Reference information, including syntax, for the Rand function in PowerApps
+title: Funktion „Rand“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Rand“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,69 +9,75 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 06/09/2018
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: abb64d57e53f292dc42cb44ef2b1c9f35bbad944
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42850220"
 ---
-# Rand function in PowerApps
-Returns a pseudo-random number.
+# <a name="rand-function-in-powerapps"></a>Funktion „Rand“ in PowerApps
+Gibt eine pseudozufällige Zahl zurück.
 
-## Description
-The **Rand** function returns a pseudo-random number that's greater than or equal to 0 and less than 1.
+## <a name="description"></a>Beschreibung
+Die Funktion **Rand** gibt eine Pseudo-Zufallszahl zurück, die größer als oder gleich 0 (null) und kleiner als 1 ist.
 
-## Volatile Functions
-**Rand** is a volatile function.  Each time the function is evaluated it returns a different value.  
+## <a name="volatile-functions"></a>Veränderliche Funktionen
+**Rand** ist eine veränderliche Funktion.  Immer wenn die Funktion ausgewertet wird, wird ein anderer Wert zurückgegeben.  
 
-When used in a data flow formula, a volatile function will only return a different value if the formula in which it appears is reevaluated.  If nothing else changes in the formula then it will have the same value throughout the execution of your app.
+Wird eine veränderliche Funktion in einer Datenflussformel verwendet, gibt sie nur dann einen anderen Wert zurück, wenn die Formel, in der sie vorkommt, erneut ausgewertet wird.  Wenn nichts in der Formel geändert wird, bleibt der Wert während der Ausführung der App derselbe.
 
-For example, a label control with **Label1.Text = Rand()** will not change while your app is active.  Only closing and reopening the app will result in a new value.
+Ein Bezeichnungssteuerelement mit **Label1.Text = Rand()** ändert sich nicht, solange die App aktiv ist.  Neue Werte werden nur beim Schließen und erneuten Öffnen der App generiert.
 
-The function will be reevaluated if it is part of a formula in which something else has changed.  For example, if we change our example to involve a slider control with **Label1.Text = Slider1.Value + Rand()** then a new random number is generated each time the Slider control's value changes and the label's text property is reevaluated.  See below for this example.
+Die Funktion wird neu ausgewertet, wenn sie Teil einer Formel ist, in der sich etwas anderes geändert hat.  Wenn in das Beispiel z.B. ein Schieberegler-Steuerelement mit **Label1.Text = Slider1.Value + Rand()** aufgenommen wird, wird jedes Mal, wenn sich der Wert des Schieberegler-Steuerelements ändert und der Eigenschaftentext der Bezeichnung neu ausgewertet wird, eine neue Zufallszahl generiert.  Das Beispiel finden Sie weiter unten.
 
-When used in a [behavior formula](../working-with-formulas-in-depth.md), **Rand** will be evaluated each time the behavior formula is evaluated.  See below for an example.
+Bei der Verwendung in einer [Verhaltensformel](../working-with-formulas-in-depth.md) wird **Rand** immer zusammen mit der Verhaltensformel ausgewertet.  Ein Beispiel finden Sie weiter unten.
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **Rand**()
 
-## Examples
+## <a name="examples"></a>Beispiele
 
-#### Display a different random number as user input changes
-1. Add a **[Slider](../controls/control-slider.md)** control, and rename it **Slider1** if it has a different name.
+#### <a name="display-a-different-random-number-as-user-input-changes"></a>Anzeigen einer anderen Zufallszahl, da sich die Benutzereingabe geändert hat
+1. Fügen Sie ein **[Schieberegler](../controls/control-slider.md)**-Steuerelement hinzu, und benennen Sie es in **Slider1** um, wenn es nicht bereits so heißt.
 
-1. Add a **[Label](../controls/control-text-box.md)** control, and set its **Text** property to this formula:
+1. Fügen Sie ein **[Bezeichnungssteuerelement](../controls/control-text-box.md)** hinzu, und legen Sie dessen **Text**-Eigenschaft auf diese Formel fest:
 
     **Slider1.Value + Rand()**
 
-    The label shows **50** (the default value for the slider) plus a random decimal:
+    Die Bezeichnung zeigt **50** (Standardwert des Schiebereglers) plus eine zufällige Dezimalzahl an:
 
-    ![A screen displaying a label control with 50.741](media/function-rand/rand-slider-1.png)
+    ![Bildschirm, der ein Bezeichnungssteuerelement mit dem Wert „50,741“ anzeigt](media/function-rand/rand-slider-1.png)
 
-1. While holding down the Alt key, change the value of the slider.
+1. Ändern Sie den Wert des Schiebereglers, während Sie die ALT-TASTE gedrückt halten.
 
-    Every time you change the value of the slider, the decimal portion of the label shows a different random number:
+    Jedes Mal, wenn Sie den Wert des Schiebereglers ändern, wird in den Nachkommastellen der Bezeichnung eine andere Zufallszahl angezeigt:
 
-    ![Four screens displaying a label control with four different random decimal values for each of four different slider settings 70.899, 84.667, 90.134, 99.690](media/function-rand/rand-slider-results.png)
+    ![Vier Bildschirme, die eine Bezeichnung mit vier verschiedenen zufälligen Dezimalwerten für jede der vier Schiebereglereinstellungen anzeigen: 70,899, 84,667, 90,134 und 99,690](media/function-rand/rand-slider-results.png)
 
-#### Create a table of random numbers
-1. Add a **[Button](../controls/control-button.md)** control, and set its **[OnSelect](../controls/properties-core.md)** property to this formula:
+#### <a name="create-a-table-of-random-numbers"></a>Erstellen einer Tabelle mit Zufallszahlen
+1. Fügen Sie ein **[Button](../controls/control-button.md)**-Steuerelement (Schaltfläche) hinzu, und legen Sie seine **[OnSelect](../controls/properties-core.md)**-Eigenschaft auf diese Formel fest:
 
     **ClearCollect( RandomNumbers, ForAll( [ 1, 2, 3, 4, 5 ], Rand() ))**
 
-    This formula creates a single-column table that's used to iterate five times, resulting in five random numbers.
+    Diese Formel erstellt eine Tabelle mit einer Spalte, mit der eine fünfmalige Iteration ausgeführt wird. Das Ergebnis sind fünf Zufallszahlen.
 
-1. Add a **[Data table](../controls/control-data-table.md)**, set its **Items** property to **RandomNumbers**, and show the **Value** field.
+1. Fügen Sie eine **[Datentabelle](../controls/control-data-table.md)** hinzu, legen Sie deren Eigenschaft **Elemente** auf **RandomNumbers** fest, und zeigen Sie das Feld **Wert** an.
 
-    ![A screen showing a data table with five different decimal values 0.857, 0.105, 0.979, 0.167, 0.814](media/function-rand/set-show-data.png)
+    ![Anzeige mit einer Tabelle mit fünf verschiedenen Dezimalwerten: 0,857, 0,105, 0,979, 0,167 und 0,814](media/function-rand/set-show-data.png)
 
-1. While holding down the Alt key, select the button by clicking or tapping it.
+1. Klicken oder tippen Sie auf die Schaltfläche, während Sie die ALT-TASTE gedrückt halten.
 
-    The data table shows five random decimal numbers:
+    Die Datentabelle zeigt fünf zufällige Dezimalzahlen an:
 
-    ![A screen showing a data table with five different decimal values 0.857, 0.105, 0.979, 0.167, 0.814](media/function-rand/rand-collection-1.png)
+    ![Anzeige mit einer Tabelle mit fünf verschiedenen Dezimalwerten: 0,857, 0,105, 0,979, 0,167 und 0,814](media/function-rand/rand-collection-1.png)
 
-1. Select the button again to show a different list of random numbers:
+1. Klicken Sie noch einmal auf die Schaltfläche, um eine andere Liste von Zufallszahlen anzuzeigen:
 
-    ![The same screen showing a data table with a new set of five different decimal values 0.414, 0.128, 0.860, 0.303, 0.568](media/function-rand/rand-collection-2.png)
+    ![Die gleiche Anzeige mit einer Tabelle mit fünf neuen Dezimalwerten: 0,414, 0,128, 0,860, 0,303 und 0,568](media/function-rand/rand-collection-2.png)
 
-To generate a single random number instead of a table, use **Set( RandomNumber, Rand() )**.
+Um eine einzelne Zufallszahl statt einer Tabelle zu generieren, verwenden Sie **Set( RandomNumber, Rand() )**.

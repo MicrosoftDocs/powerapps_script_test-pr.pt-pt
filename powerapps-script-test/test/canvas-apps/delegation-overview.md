@@ -1,6 +1,6 @@
 ---
-title: Understand delegation in a canvas app | Microsoft Docs
-description: Use delegation to process large data sets efficiently in a canvas app.
+title: Grundlagen der Delegierung in einer Canvas-App | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie mithilfe von Delegierung große Datasets effizient in einer Canvas-App verarbeiten.
 author: lancedMicrosoft
 manager: kvivek
 ms.service: powerapps
@@ -9,80 +9,86 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 07/05/2018
 ms.author: lanced
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 0ac78340f344ce42fd68d18940b1aaca41412a96
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42829749"
 ---
-# Understand delegation in a canvas app
-PowerApps includes a powerful set of functions for filtering, sorting, and shaping tables of data in a canvas app: **[Filter](functions/function-filter-lookup.md)**, **[Sort](functions/function-sort.md)**, and **[AddColumns](functions/function-table-shaping.md)** functions to name just a few. With these functions, you can provide your users with focused access to the information they need. For those with a database background, using these functions is the equivalent of writing a database query.
+# <a name="understand-delegation-in-a-canvas-app"></a>Grundlagen der Delegierung in einer Canvas-App
+PowerApps enthält zahlreiche leistungsstarke Funktionen zum Filtern, Sortieren und Strukturieren von Tabellen mit Daten in einer Canvas-App, z.B. **[Filter](functions/function-filter-lookup.md)**, **[Sort](functions/function-sort.md)** und **[AddColumns](functions/function-table-shaping.md)**. Mit diesen Funktionen können Sie für Ihre Benutzer den genauen Zugriff auf die benötigten Informationen bereitstellen. Für Leser mit Datenbankkenntnissen: Die Verwendung dieser Funktionen entspricht dem Schreiben einer Datenbankabfrage.
 
-The key to building efficient apps is to minimize the amount of data that must be brought to your device. Perhaps you need only a handful of records from a sea of million, or a single aggregate value can represent thousands of records. Or perhaps only the first set of records can be retrieved, and the rest brought in as the user gestures that they want more. Being focused can dramatically reduce the processing power, memory, and network bandwidth that your app needs, resulting in snappier response times for your users, even on phones connected via a cellular network. 
+Der Schlüssel zur Erstellung von effizienten Apps besteht darin, die Datenmenge gering zu halten, die auf Ihr Gerät übertragen werden muss. Unter Umständen benötigen Sie aus Millionen von Datensätzen nur eine Handvoll von Datensätzen, oder ein einzelner Aggregatwert kann für Tausende von Datensätzen stehen. Vielleicht ist es auch möglich, nur den ersten Satz mit Datensätzen abzurufen, und den Rest erst dann bereitzustellen, wenn er vom Benutzer angefordert wird. Wenn zielgerichtet vorgegangen wird, können die Verarbeitungsleistung, der Arbeitsspeicher und die Netzwerkbandbreite, die für die App erforderlich sind, deutlich gesenkt werden. Dies führt zu kürzeren Reaktionszeiten für Ihre Benutzer – sogar auf Smartphones, die über ein Mobilfunknetz verbunden sind. 
 
-*Delegation* is where the expressiveness of PowerApps formulas meets the need to minimize data moving over the network. In short, PowerApps will delegate the processing of data to the data source, rather than moving the data to the app for processing locally.
+Mit der *Delegierung* wird erreicht, dass die Ausdrucksstärke von PowerApps-Formeln genutzt werden kann und gleichzeitig möglichst wenig Daten über das Netzwerk übertragen werden müssen. Dies bedeutet, dass PowerApps die Verarbeitung von Daten an die Datenquelle delegieren, anstatt die Daten zur lokalen Verarbeitung in die App zu verschieben.
 
-Where this becomes complicated, and the reason this article exists, is because not everything that can be expressed in a PowerApps formula can be delegated to every data source. The PowerApps language mimics Excel's formula language, designed with complete and instant access to a full workbook in memory, with a wide variety of numerical and text manipulation functions. As a result, the PowerApps language is far richer than most data sources can support, including powerful database engines such as SQL Server.
+Die Schwierigkeit hierbei ist, dass nicht alle Vorgänge, die in einer PowerApps-Formel ausgedrückt werden können, an jede Datenquelle delegiert werden können. Dies ist der Grund für diesen Artikel. Die PowerApps-Sprache ist an die Formelsprache von Excel angelehnt und verfügt über umfassenden und sofortigen Zugriff auf eine vollständige Arbeitsmappe im Arbeitsspeicher, die viele verschiedene numerische Funktionen und Funktionen für die Textbearbeitung enthält. Daher ist die PowerApps-Sprache relativ komplex und kann von den meisten Datenquellen nicht unterstützt werden, darunter auch leistungsstarke Datenbank-Engines wie SQL Server.
 
-**Working with large data sets requires using data sources and formulas that can be delegated.**  It's the only way to keep your app performing well and ensure users can access all the information they need. Take heed of delegation warnings that identify places where delegation isn't possible. If you're working with small data sets (fewer than 500 records), you can use any data source and formula because the app can process data locally if the formula can't be delegated. 
+**Zum Verwenden von großen Datasets ist die Nutzung von Datenquellen und Formeln erforderlich, für die eine Delegierung möglich ist.**  Nur auf diese Weise erzielen Sie für Ihre App eine gute Leistung und können sicherstellen, dass die Benutzer auf alle benötigten Informationen zugreifen können. Achten Sie auf Delegierungswarnungen, die anzeigen, an welcher Stelle keine Delegierung möglich ist. Wenn Sie mit kleinen Datasets arbeiten (weniger als 500 Datensätze), können Sie eine beliebige Datenquelle und Formel verwenden, weil die App Daten lokal verarbeiten kann, falls das Delegieren der Formel nicht möglich ist. 
 
 > [!NOTE]
-> Delegation warnings were previously flagged in PowerApps as "blue dot" suggestions, but delegation suggestions have since been re-classified as warnings. If the data in your data source exceeds 500 records and a function can't be delegated, PowerApps might not be able to retrieve all of the data, and your app may have wrong results. Delegation warnings help you manage your app so that it has correct results.
+> Delegierungswarnungen wurden zwar in der Vergangenheit in PowerApps als Vorschläge mit einem blauen Punkt markiert, aber Delegierungsempfehlungen werden mittlerweile als Warnungen neu klassifiziert. Wenn die Daten in Ihrer Datenquelle mehr als 500 Datensätze umfassen und eine Funktion nicht delegiert werden kann, kann PowerApps möglicherweise nicht alle Daten abrufen, und Ihre App erhält ggf. falsche Ergebnisse. Mithilfe von Delegierungswarnungen können Sie Ihre App so verwalten, dass die Ergebnisse richtig sind.
 
-## Delegable data sources
-See the [delegation list](delegation-list.md) for the full list of which data sources support delegation and to what extent.
+## <a name="delegable-data-sources"></a>Delegierbare Datenquellen
+In der vollständigen Liste unter [Delegierbare Datenquellen](delegation-list.md) ist angegeben, für welche Datenquellen die Delegierung unterstützt wird (und in welchem Umfang).
 
-We are continuing to add delegation support to existing data sources, as well as add more data sources.
+Wir fügen vorhandenen Datenquellen ständig die Unterstützung der Delegierung hinzu und erweitern außerdem die Liste der Datenquellen.
 
-Imported Excel workbooks (using the "Add static data to your app" data source), collections, and tables stored in context variables don't require delegation. All of this data is already in memory, and the full PowerApps language can be applied.
+Für importierte Excel-Arbeitsmappen (mit der Datenquelle „Der App statische Daten hinzufügen“), Sammlungen und Tabellen, die in Kontextvariablen gespeichert sind, ist keine Delegierung erforderlich. All diese Daten befinden sich bereits im Arbeitsspeicher, und die gesamte PowerApps-Sprache kann angewendet werden.
 
-## Delegable functions
-The next step is to use only those formulas that can be delegated. Included here are the formula elements that could be delegated. However, every data source is different, and not all of them support all of these elements. Check for delegation warnings in your particular formula.
+## <a name="delegable-functions"></a>Delegierbare Funktionen
+Der nächste Schritt besteht darin, nur diejenigen Formeln zu verwenden, die delegiert werden können. Hier sind die Formelelemente angegeben, die delegiert werden können. Allerdings ist jede Datenquelle anders, und nicht alle unterstützen alle Elemente. Überprüfen Sie Ihre Formel auf Delegierungswarnungen.
 
-These lists will change over time. We're working to support more functions and operators with delegation.
+Diese Listen werden sich im Laufe der Zeit ändern. Wir arbeiten daran, die Delegierung für weitere Funktionen und Operatoren zu unterstützen.
 
-### Filter functions
-**[Filter](functions/function-filter-lookup.md)**, **[Search](functions/function-filter-lookup.md)**, and **[LookUp](functions/function-filter-lookup.md)** can be delegated.  
+### <a name="filter-functions"></a>Filterfunktionen
+Die Funktionen **[Filter](functions/function-filter-lookup.md)**, **[Search](functions/function-filter-lookup.md)** und **[LookUp](functions/function-filter-lookup.md)** können delegiert werden.  
 
-Within the **Filter** and **LookUp** functions, you can use these with columns of the table to select the appropriate records:
+In den Funktionen **Filter** und **LookUp** können Sie für Spalten der Tabelle Folgendes verwenden, um die entsprechenden Datensätze auszuwählen:
 
-* **[And](functions/function-logicals.md)** (including **[&&](functions/operators.md)**), **[Or](functions/function-logicals.md)** (including **[||](functions/operators.md)**), **[Not](functions/function-logicals.md)** (including **[!](functions/operators.md)**)
+* **[And](functions/function-logicals.md)** (einschließlich **[&&](functions/operators.md)**), **[Or](functions/function-logicals.md)** (einschließlich **[||](functions/operators.md)**), **[Not](functions/function-logicals.md)** (einschließlich **[!](functions/operators.md)**)
 * **[In](functions/operators.md)**
 * **[=](functions/operators.md)**, **[<>](functions/operators.md)**, **[>=](functions/operators.md)**, **[<=](functions/operators.md)**, **[>](functions/operators.md)**, **[<](functions/operators.md)**
 * **[+](functions/operators.md)**, **[-](functions/operators.md)**
 * **[TrimEnds](functions/function-trim.md)**
 * **[IsBlank](functions/function-isblank-isempty.md)**
 * **[StartsWith](functions/function-startswith.md)**
-* Constant values that are the same across all records, such as control properties and [global and context variables](working-with-variables.md).
+* Konstante Werte, die in allen Datensätzen gleich sind, z.B. Steuerelementeigenschaften sowie [globale und Kontextvariablen](working-with-variables.md).
 
-You can also use portions of your formula that evaluate to a constant value for all records. For example, **Left( Language(), 2 )** doesn't depend on any columns of the record and, therefore, returns the same value for all records. It's effectively a constant. Use of context variables, collections, and signals may not be constant and, therefore, will prevent **Filter** and **LookUp** from being delegated.  
+Sie können auch Teile Ihrer Formel verwenden, die zu einem konstanten Wert für alle Datensätze ausgewertet werden. Beispielsweise ist **Left( Language(), 2 )** nicht von Spalten des Datensatzes abhängig und gibt daher für alle Datensätze den gleichen Wert zurück. Es ist also praktisch eine Konstante. Die Verwendung von Kontextvariablen, Sammlungen und Signalen ist ggf. nicht konstant und verhindert daher, dass die Funktionen **Filter** und **LookUp** delegiert werden können.  
 
-The previous list doesn't include these notable items:
+In der obigen Liste werden die folgenden wichtigen Elemente nicht aufgeführt:
 
 * **[If](functions/function-if.md)**
 * **[*](functions/operators.md)**, **[/](functions/operators.md)**, **[Mod](functions/function-mod.md)**
-* **[Concatenate](functions/function-concatenate.md)** (including **[&](functions/operators.md)**)
+* **[Concatenate](functions/function-concatenate.md)** (einschließlich **[&](functions/operators.md)**)
 * **[ExactIn](functions/operators.md)**
-* String manipulation functions: **[Lower](functions/function-lower-upper-proper.md)**, **[Upper](functions/function-lower-upper-proper.md)**, **[Left](functions/function-left-mid-right.md)**, **[Mid](functions/function-left-mid-right.md)**, **[Len](functions/function-left-mid-right.md)**, ...
-* Signals: **[Location](functions/signals.md)**, **[Acceleration](functions/signals.md)**, **[Compass](functions/signals.md)**, ...
-* Volatiles: **[Now](functions/function-now-today-istoday.md)**, **[Today](functions/function-now-today-istoday.md)**, **[Rand](functions/function-rand.md)**, ...
-* [Collections](working-with-variables.md)
+* Funktionen für die Zeichenfolgenbearbeitung: **[Lower](functions/function-lower-upper-proper.md)**, **[Upper](functions/function-lower-upper-proper.md)**, **[Left](functions/function-left-mid-right.md)**, **[Mid](functions/function-left-mid-right.md)**, **[Len](functions/function-left-mid-right.md)**, ...
+* Signale: **[Location](functions/signals.md)**, **[Acceleration](functions/signals.md)**, **[Compass](functions/signals.md)**, ...
+* „Volatiles“: **[Now](functions/function-now-today-istoday.md)**, **[Today](functions/function-now-today-istoday.md)**, **[Rand](functions/function-rand.md)**, ...
+* [Sammlungen](working-with-variables.md)
 
-### Sorting functions
-**[Sort](functions/function-sort.md)** and **[SortByColumns](functions/function-sort.md)** can be delegated.
+### <a name="sorting-functions"></a>Sortierfunktionen
+**[Sort](functions/function-sort.md)** und **[SortByColumns](functions/function-sort.md)** können delegiert werden.
 
-In **Sort**, the formula can only be the name of a single column and can't include other operators or functions.
+Bei **Sort** kann die Formel nur der Name einer einzelnen Spalte sein und keine anderen Operatoren und Funktionen enthalten.
 
-### Aggregate functions
-**[Sum](functions/function-aggregates.md)**, **[Average](functions/function-aggregates.md)**, **[Min](functions/function-aggregates.md)**, and **[Max](functions/function-aggregates.md)** can be delegated. Only a limited number of data sources support this delegation at this time; check the [delegation list](delegation-list.md) for details.
+### <a name="aggregate-functions"></a>Aggregatfunktionen
+**[Sum](functions/function-aggregates.md)**, **[Average](functions/function-aggregates.md)**, **[Min](functions/function-aggregates.md)** und **[Max](functions/function-aggregates.md)** können delegiert werden. Diese Delegierung wird derzeit nur von einer begrenzten Anzahl von Datenquellen unterstützt. Weitere Informationen finden Sie in der [Delegierungsliste](delegation-list.md).
 
-Counting functions such as **[CountRows](functions/function-table-counts.md)**, **[CountA](functions/function-table-counts.md)**, and **[Count](functions/function-table-counts.md)** can't be delegated.
+Zählfunktionen wie **[CountRows](functions/function-table-counts.md)**, **[CountA](functions/function-table-counts.md)** und **[Count](functions/function-table-counts.md)** können nicht delegiert werden.
 
-Other aggregate functions such as **[StdevP](functions/function-aggregates.md)** and **[VarP](functions/function-aggregates.md)** can't be delegated.
+Andere Aggregatfunktionen wie **[StdevP](functions/function-aggregates.md)** und **[VarP](functions/function-aggregates.md)** können nicht delegiert werden.
 
-## Non-delegable functions
-All other functions don't support delegation, including these notable functions:
+## <a name="non-delegable-functions"></a>Nicht delegierbare Funktionen
+Für alle anderen Funktionen einschließlich der Folgenden wird die Delegierung nicht unterstützt:
 
-* Table shaping: **[AddColumns](functions/function-table-shaping.md)**, **[DropColumns](functions/function-table-shaping.md)**, **[ShowColumns](functions/function-table-shaping.md)**, ...
+* Tabellenstrukturierung: **[AddColumns](functions/function-table-shaping.md)**, **[DropColumns](functions/function-table-shaping.md)**, **[ShowColumns](functions/function-table-shaping.md)**, ...
 * **[First](functions/function-first-last.md)**, **[FirstN](functions/function-first-last.md)**, **[Last](functions/function-first-last.md)**, **[LastN](functions/function-first-last.md)**
 * **[Choices](functions/function-choices.md)**
 * **[Concat](functions/function-concatenate.md)**
@@ -90,62 +96,62 @@ All other functions don't support delegation, including these notable functions:
 * **[CountIf](functions/function-table-counts.md)**, **[RemoveIf](functions/function-remove-removeif.md)**, **[UpdateIf](functions/function-update-updateif.md)**
 * **[GroupBy](functions/function-groupby.md)**, **[Ungroup](functions/function-groupby.md)**
 
-A common pattern is to use **AddColumns** and **LookUp** to merge information from one table into another, commonly referred to as a Join in database parlance.  For example:
+Ein häufiges Muster ist die Verwendung von **AddColumns** und **LookUp** zum Zusammenführen von Informationen aus einer Tabelle in eine andere. In der Datenbanksprache wird dies meist als „Join“ (Verknüpfung“) bezeichnet.  Beispiel:
 
 **AddColumns( Products, "Supplier Name", LookUp( Suppliers, Suppliers.ID = Product.SupplierID ).Name )**
 
-Even though **Products** and **Suppliers** may be delegable data sources and **LookUp** is a delegable function, the **AddColumns** function isn't delegable.  The result of the entire formula will be limited to the first portion of the **Products** data source.  
+Bei **Products** und **Suppliers** kann es sich zwar ggf. um delegierbare Datenquellen handeln, und **LookUp** ist eine delegierbare Funktion, aber die Funktion **AddColumns** ist nicht delegierbar.  Das Ergebnis der gesamten Formel ist auf den ersten Teil der Datenquelle **Products** beschränkt.  
 
-Because the **LookUp** function and its data source are delegable, a match for **Suppliers** can be found anywhere in the data source, even if it's large. A potential downside is that **LookUp** will make separate calls to the data source for each of those first records in **Products**, causing a lot of chatter on the network. If **Suppliers** is small enough and doesn't change often, you could cache the data source in your app with a **Collect** call when the app starts (using [**OnVisible**](controls/control-screen.md) on the opening screen) and do the **LookUp** to it instead.  
+Da die **LookUp**-Funktion und die dazugehörige Datenquelle delegierbar sind, kann eine Übereinstimmung für **Suppliers** auch dann überall in der Datenquelle gefunden werden, wenn diese groß ist. Ein potenzieller Nachteil ist, dass **LookUp** für jeden dieser ersten Datensätze in **Products** separate Aufrufe der Datenquelle durchführt, wodurch im Netzwerk viel Datenverkehr anfällt. Wenn **Suppliers** klein genug ist und sich nicht häufig ändert, können Sie die Datenquelle stattdessen in Ihrer App mit einem **Collect**-Aufruf zwischenspeichern, sobald die App gestartet wird (per [**OnVisible**](controls/control-screen.md) auf dem Startbildschirm), und einen **LookUp**-Vorgang dafür durchführen.  
 
-## Non-delegable limits
-Formulas that can't be delegated will be processed locally. This allows for the full breadth of the PowerApps formula language to be used. But at a price: all the data must be brought to the device first, which could involve retrieving a large amount of data over the network. That can take time, giving the impression that your app is slow or possibly crashed.
+## <a name="non-delegable-limits"></a>Grenzwerte für Fälle, in denen keine Delegierung möglich ist
+Formeln, die nicht delegiert werden können, werden lokal verarbeitet. Auf diese Weise kann die gesamte Bandbreite der PowerApps-Formelsprache genutzt werden. Dies hat aber einen Preis: Alle Daten müssen zuerst auf das Gerät übertragen werden, sodass unter Umständen eine größere Datenmenge über das Netzwerk abgerufen werden muss. Dies kann eine Weile dauern, sodass der Eindruck entsteht, dass Ihre App langsam ist oder hängt.
 
-To avoid this, PowerApps imposes a limit on the amount of data that can be processed locally: 500 records by default.  We chose this number so that you would still have complete access to small data sets and you would be able to refine your use of large data sets by seeing partial results.
+Um dies zu vermeiden, gilt für PowerApps ein Standardgrenzwert von 500 Datensätzen für die Datenmenge, die lokal verarbeitet werden kann.  Wir haben diesen Wert gewählt, damit Sie über vollständigen Zugriff auf kleine Datasets verfügen und die Nutzung Ihrer großen Datasets optimieren können, indem Teilergebnisse angezeigt werden.
 
-Obviously care must be taken when using this facility because it can confuse users. For example, consider a **Filter** function with a selection formula that can't be delegated, over a data source that contains a million records. Because the filtering is done locally, only the first 500 records are scanned. If the desired record is record 501 or 500,001, it isn't considered or returned by **Filter**.
+Bei der Nutzung dieser Option sollten Sie aber mit Bedacht vorgehen, da sie für Benutzer verwirrend sein kann. Angenommen, Sie verwenden die Funktion **Filter** mit einer Auswahlformel, die nicht delegiert werden kann, für eine Datenquelle mit einer Millionen Datensätzen. Da der Filtervorgang auf lokaler Ebene durchgeführt wird, werden nur die ersten 500 Datensätze überprüft. Wenn der gewünschte Datensatz der 501. oder 500.001. Datensatz ist, wird er nicht berücksichtigt und nicht von der Funktion **Filter** zurückgegeben.
 
-Aggregate functions can also cause confusion. Take **Average** over a column of that same million-record data source. **Average** can't yet be delegated, so only the first 500 records are averaged. If you're not careful, a partial answer could be misconstrued as a complete answer by a user of your app.
+Aggregatfunktion können auch zu Verwirrung führen. Angenommen, Sie verwenden **Average** für eine Spalte der Datenquelle mit einer Million Datensätzen. Da **Average** noch nicht delegiert werden kann, kann nur für die ersten 500 Datensätze der Mittelwert gebildet werden. Wenn Sie hierbei nicht mit Bedacht vorgehen, könnte eine Teilantwort von einem Benutzer Ihrer App als vollständige Antwort verstanden werden.
 
-## Changing the limit
-500 is the default number of records, but you can change this number for an entire app:
+## <a name="changing-the-limit"></a>Ändern des Grenzwerts
+Die Standardzahl für Datensätze lautet 500. Sie können diese Zahl aber für die gesamte App ändern:
 
-1. On the **File** tab, select **App settings**.
-2. Under **Experimental features**, change the **Data row limit for non-delegable queries** setting from 1 to 2000.
+1. Klicken Sie auf der Registerkarte **Datei** auf **App-Einstellungen**.
+2. Ändern Sie unter **Experimentelle Features** die Einstellung **Grenzwert für Datenzeilen für nicht delegierbare Abfragen** von 1 auf 2000.
 
-In some cases, you'll know that 2,000 (or 1,000 or 1,500) will satisfy the needs of your scenario. With care, you can increase this number to fit your scenario. As you increase this number, your app's performance may degrade, especially for wide tables with lots of columns. Still, the best answer is to delegate as much as you can.
+In einigen Fällen ist Ihnen möglicherweise bekannt, dass für die Anforderungen Ihres Szenarios ein Grenzwert von 2.000 (oder auch 1.000 oder 1.500) erforderlich ist. Diese Zahl können Sie vorsichtig erhöhen und Ihrem Szenario anpassen. Wenn Sie diese Zahl erhöhen, kann das die Leistung Ihrer App negativ beeinflussen, insbesondere bei Tabellen mit vielen Spalten. Die beste Lösung dafür ist, wenn Sie so viel wie möglich delegieren.
 
-To ensure that your app can scale to large data sets, reduce this setting down to 1. Anything that can't be delegated returns a single record, which should be easy to detect when testing your app. This can help avoid surprises when trying to take a proof-of-concept app to production.
+Wenn Sie sicherstellen möchten, dass Ihre Apps auf große Datasets skaliert werden kann, müssen Sie für diese Einstellung den Wert auf 1 reduzieren. Für nicht delegierbare Elemente wird dann genau ein Datensatz zurückgegeben, der beim Testen der App leicht auffindbar sein sollte. Dadurch können unerwartete Ergebnisse vermieden werden, wenn eine Proof of Concept-App in eine Produktionsumgebung überführt werden soll.
 
-## Delegation warnings
-To make it easier to know what is and isn't being delegated, PowerApps provides warning (yellow triangle) when you create a formula that contains something that can't be delegated.
+## <a name="delegation-warnings"></a>Delegierungswarnungen
+Um einfacher unterscheiden zu können, welche Elemente delegiert werden, zeigt PowerApps Warnungen in Form von gelben Dreiecken an, wenn Sie eine Formel erstellen, die nicht delegiert werden kann.
 
-Delegation warnings appear only on formulas that operate on delegable data sources. If you don't see a warning and you believe your formula isn't being properly delegated, check the type of data source against the list of [delegable data sources](delegation-overview.md#delegable-data-sources) earlier in this topic.
+Delegierungswarnungen werden nur für Formeln angezeigt, die für delegierbare Datenquellen verwendet werden. Wenn keine Warnung angezeigt wird und Sie der Meinung sind, dass Ihre Formal nicht richtig delegiert wird, können Sie den Typ der Datenquelle anhand der obigen Liste mit den [delegierbaren Datenquellen](delegation-overview.md#delegable-data-sources) überprüfen.
 
-## Examples
-For this example, you'll automatically generate a three-screen app based on a SQL Server table named **[dbo].[Fruit]**. For information about how to generate the app, you can apply similar principles in the [topic about Common Data Service for Apps](data-platform-create-app.md) to SQL Server.
+## <a name="examples"></a>Beispiele
+Für dieses Beispiel generieren Sie automatisch eine App mit drei Anzeigen, die auf einer SQL Server-Tabelle mit dem Namen **[dbo].[Fruit]** basieren. Informationen zum Generieren der App finden Sie in dem Artikel zu [Common Data Service für Apps](data-platform-create-app.md). Die darin aufgeführten Prinzipien können auch auf SQL Server angewendet werden.
 
-![Three-screen app](./media/delegation-overview/products-afd.png)
+![App mit drei Bildschirmen](./media/delegation-overview/products-afd.png)
 
-The gallery's **Items** property is set to a formula that contains **SortByColumns** and **Search** functions, both of which can be delegated.
+Die Katalogeigenschaft **Items** ist auf eine Formel festgelegt, die die Funktionen **SortByColumns** und **Search** enthält. Beide Funktionen können delegiert werden.
 
-In the search box, type **"Apple"**.
+Geben Sie in das Suchfeld **Apple** ein.
 
-Marching dots appear momentarily near the top of the screen as the app communicates with SQL Server to process the search request. All records that meet the search criteria appear, even if the data source contains millions of records.
+Dann werden im oberen Bereich des Bildschirms vorübergehend Punkte angezeigt, während die App mit SQL Server kommuniziert, um die Suchanforderung zu verarbeiten. Es werden alle Datensätze angezeigt, die den Suchkriterien entsprechen, auch wenn die Datenquelle Millionen von Datensätzen enthält.
 
-![Search text-input control](./media/delegation-overview/products-apple.png)
+![Suchtext-Eingabesteuerelement](./media/delegation-overview/products-apple.png)
 
-The search results include **"Apples"**, **"Crab apples"**, and **"Pineapple"** because the **Search** function looks everywhere in a text column. If you wanted to find only records that contain the search team at the start of the fruit's name, you can use another delegable function, **Filter**, with a more complicated search term. (For simplicity, remove the **SortByColumns** call.)
+Die Suchergebnisse umfassen die Begriffe **Apples**, **Crab apples** und **Pineapple**, weil die Funktion **Search** eine Textspalte vollständig durchsucht. Wenn Sie nur Datensätze suchen wollten, die den Suchbegriff am Anfang des Obstnamens umfassen, können Sie die delegierbare Funktion **Filter** mit einem komplizierteren Suchbegriff verwenden. (Entfernen Sie der Einfachheit halber den Aufruf **SortByColumns**.)
 
-![Remove SortByColumns call](./media/delegation-overview/products-apple-delegationwarning.png)
+![SortByColumns-Aufruf entfernen](./media/delegation-overview/products-apple-delegationwarning.png)
 
-The new results include **"Apples"** but not **"Crab apples"** or **"Pineapple"**.  However, a yellow triangle appears next to the gallery (and in the screen thumbnail if the left navigation bar shows thumbnails), and a blue, wavy line appears under a portion of the formula. Each of these elements indicate a warning. If you hover over the yellow triangle next to the gallery, this message appears:
+Die neuen Ergebnisse umfassen dann den Begriff **Apples**, aber nicht die Begriffe **Crab apples** oder **Pineapple**.  Dann wird allerdings neben dem Katalog (und in der Miniaturansicht des Bildschirms auf der Navigationsleiste im linken Bereich, die Miniaturansichten anzeigt) ein gelbes Dreieck und unter einem Teil der Formel eine blaue Wellenlinie angezeigt. Diese Elemente stellen alle jeweils eine Warnung dar. Wenn Sie auf das gelbe Dreieck neben dem Katalog zeigen, wird die folgende Meldung angezeigt:
 
-![Hover over delegation warning](./media/delegation-overview/products-apple-yellowwarning.png)
+![Auf Delegierungswarnung zeigen](./media/delegation-overview/products-apple-yellowwarning.png)
 
-SQL Server is a delegable data source, and **Filter** is a delegable function, However, **Mid** and **Len** can't be delegated to any data source.
+SQL Server ist eine delegierbare Datenquelle und **Filter** eine delegierbare Funktion. Allerdings können **Mid** und **Len** nicht an jede beliebige Datenquelle delegiert werden.
 
-But it worked, didn't it? Well, kind of. And that is why this is a warning and not a red, wavy squiggle.
+Aber es hat funktioniert, oder? Na ja, fast. Das ist der Grund dafür, dass es sich um eine Warnung und nicht um eine rote Wellenlinie handelt.
 
-- If the table contains fewer than 500 records, the formula worked perfectly. All records were brought to the device, and **Filter** was applied locally.
-- If the table contains more than 500 records, the formula won't return record 501 or higher, even if it matches the criteria.
+- Wenn die Tabelle weniger als 500 Datensätze enthält, hat die Formel einwandfrei funktioniert. Alle Datensätze wurden auf das Gerät übertragen, und die Funktion **Filter** wurde lokal angewendet.
+- Wenn die Tabelle mehr als 500 Datensätze enthält, gibt die Formel den 501. Datensatz sowie alle weiteren Datensätze nicht mehr zurück, auch wenn die Kriterien erfüllt sind.

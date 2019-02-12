@@ -1,6 +1,6 @@
 ---
-title: Show items of different heights in a gallery | Microsoft Docs
-description: Add and configure a flexible height gallery to automatically fit the amount of content in each item of the gallery
+title: Anzeigen von Elementen unterschiedlicher Höhe in einem Katalog | Microsoft-Dokumentation
+description: Sie können einen Katalog mit flexibler Höhe hinzufügen und konfigurieren, damit er automatisch an die Größe des Inhalts in jedem Element des Katalogs angepasst wird.
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,93 +9,99 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 04/01/2017
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: b724bff09e02a3f69166b3c3357833804c8172b6
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42834840"
 ---
-# Show items of different heights in a PowerApps gallery
-If different items in your data set contain different amounts of data in the same field, you can completely show items that contain more data without adding empty space after items that contain less data. Add and configure a **Flexible height** gallery control so that you can:
+# <a name="show-items-of-different-heights-in-a-powerapps-gallery"></a>Anzeigen von Elementen unterschiedlicher Höhe in einem PowerApps-Katalog
+Wenn verschiedene Elemente in einem Dataset unterschiedliche Mengen von Daten in demselben Feld enthalten, können Sie Elemente, die mehr Daten enthalten, vollständig anzeigen, ohne nach Elementen, die weniger Daten enthalten, einen leeren Bereich hinzuzufügen. Fügen Sie einen Katalog mit **flexibler Höhe** hinzu, und konfigurieren Sie ihn. Dies bietet Ihnen folgende Möglichkeiten:
 
-* Configure **Label** controls to expand or shrink based on their contents.
-* Position each control so that it automatically appears just under the control above it.
+* Konfigurieren von **Label**-Steuerelementen (Bezeichnung), um eine Anpassung an die Größe des Inhalts zu ermöglichen.
+* Positionieren der einzelnen Steuerelemente, sodass sie automatisch untereinander angezeigt werden.
 
-In this tutorial, you show data about flooring products in a **Flexible height** gallery control. The image of each product appears 5 pixels below the overview, whether the overview contains five lines of text or two lines.
+In diesem Tutorial zeigen Sie Daten zu Bodenbelägen in einem Katalogsteuerelement vom Typ **Flexible Höhe** an. Das Bild jedes Produkts wird 5 Pixel unterhalb der Übersicht angezeigt, unabhängig davon, ob die Übersicht fünf Textzeilen oder zwei Textzeilen enthält.
 
-![Final app](./media/gallery-dynamic-sizing/dynamic-app.png)
+![Fertiggestellte App](./media/gallery-dynamic-sizing/dynamic-app.png)
 
-**Suggested reading**
+**Empfohlene Lektüre**
 
-If you've never added controls to a gallery, follow the steps in [Show a list of items](add-gallery.md) before you proceed in this topic.
+Wenn Sie noch niemals einem Katalog Steuerelemente hinzugefügt haben, führen Sie die Schritte in [Anzeigen einer Liste mit Elementen](add-gallery.md) aus, bevor Sie mit diesem Thema fortfahren.
 
-## Add data to a blank app
-1. Download [this Excel file](https://az787822.vo.msecnd.net/documentation/get-started-from-data/FlooringEstimates.xlsx), which contains names, overviews, and links to images of flooring products.
+## <a name="add-data-to-a-blank-app"></a>Hinzufügen von Daten zu einer leeren App
+1. Laden Sie [diese Excel-Datei](https://az787822.vo.msecnd.net/documentation/get-started-from-data/FlooringEstimates.xlsx) herunter, die Namen, Übersichten und Links zu Bildern von Bodenbelägen enthält.
 
-    ![Flooring products](./media/gallery-dynamic-sizing/flooring-products.png)
+    ![Bodenbeläge](./media/gallery-dynamic-sizing/flooring-products.png)
 
-2. Upload the Excel file to a cloud-storage account such as OneDrive, Dropbox, or Google Drive.
+2. Laden Sie die Excel-Datei in ein Cloudspeicherkonto hoch, z.B. in OneDrive, Dropbox oder Google Drive.
 
-3. In PowerApps Studio, click or tap **New** on the **File** menu.
+3. Klicken oder tippen Sie in PowerApps Studio im Menü **Datei** auf **Neu**.
 
-4. On the **Blank app** tile, click or tap **Phone layout**.
+4. Klicken oder tippen Sie in der Kachel **Leere App** auf **Telefonlayout**.
 
-    ![New option on the File menu](./media/gallery-dynamic-sizing/blank-app.png)
+    ![Option „New“ im Menü „File“](./media/gallery-dynamic-sizing/blank-app.png)
 
-5. Add a connection to the **FlooringEstimates** table in the Excel file.
+5. Fügen Sie eine Verbindung mit der **FlooringEstimates**-Tabelle in der Excel-Datei hinzu.
 
-    For more information, see [Add a connection](add-data-connection.md).
+    Weitere Informationen finden Sie unter [Hinzufügen einer Datenverbindung](add-data-connection.md).
 
-## Add data to a gallery
-1. On the **Insert** tab, click or tap **Gallery**, and then click or tap **Flexible height**.
+## <a name="add-data-to-a-gallery"></a>Hinzufügen von Daten zu einem Katalog
+1. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Katalog**, und klicken oder tippen Sie dann auf **Flexible Höhe**.
 
-    ![Add gallery](./media/gallery-dynamic-sizing/add-flexible.png)
-2. Resize the gallery to take up the entire screen.
+    ![Hinzufügen des Katalogs](./media/gallery-dynamic-sizing/add-flexible.png)
+2. Ändern Sie die Größe des Katalogs, sodass er den gesamten Bildschirm ausfüllt.
 
-3. Set the gallery's **[Items](controls/properties-core.md)** property to **FlooringEstimates**.
+3. Legen Sie die **[Items](controls/properties-core.md)**-Eigenschaft des Katalogs auf **FlooringEstimates** fest.
 
-## Show the product names
-1. In the upper-left corner of the gallery, click or tap the pencil icon to select the gallery template.
+## <a name="show-the-product-names"></a>Anzeigen der Produktnamen
+1. Klicken oder tippen Sie in der oberen linken Ecke des Katalogs auf das Stiftsymbol, um die Katalogvorlage auszuwählen.
 
-    ![Pencil icon](./media/gallery-dynamic-sizing/edit-template.png)
+    ![Stiftsymbol](./media/gallery-dynamic-sizing/edit-template.png)
 
-2. With the gallery template selected, add a **[Label](controls/control-text-box.md)** control to it.
+2. Fügen Sie der ausgewählten Katalogvorlage ein **[Label](controls/control-text-box.md)** -Steuerelement hinzu.
 
-3. Set the **Text** property of the **Label** control to this expression:<br>
+3. Legen Sie die **Text**-Eigenschaft des **Label**-Steuerelements auf den folgenden Ausdruck fest:<br>
    **ThisItem.Name**
 
-    ![Add label](./media/gallery-dynamic-sizing/add-text-box.png)
+    ![Bezeichnung hinzufügen](./media/gallery-dynamic-sizing/add-text-box.png)
 
-## Show the product overviews
-1. With the gallery template selected, add another **Label** control, and move it below the first **Label** control.  
+## <a name="show-the-product-overviews"></a>Anzeigen der Produktübersichten
+1. Fügen Sie der ausgewählten Katalogvorlage ein weiteres **Label**-Steuerelement hinzu, und verschieben Sie es unter das erste **Label**-Steuerelement.  
 
-2. Set the **Text** property of the second **Label** control to this expression:<br> **ThisItem.Overview**
+2. Legen Sie die **Text**-Eigenschaft des zweiten **Label**-Steuerelements auf den folgenden Ausdruck fest:<br> **ThisItem.Overview**
 
-3. With the second **Label** control selected, click or tap the name-tag icon on the **Content** tab, and rename the control to **OverviewText**.
+3. Wählen Sie das zweite **Label**-Steuerelement aus, klicken oder tippen Sie auf das Namensschildsymbol auf der Registerkarte **Inhalt**, und benennen Sie das Steuerelement in **OverviewText** um.
 
-    ![Rename label](./media/gallery-dynamic-sizing/rename-text-box.png)
+    ![Umbenennen der Bezeichnung](./media/gallery-dynamic-sizing/rename-text-box.png)
 
-4. Set the **AutoHeight** property of the **OverviewText** box to **true**.
+4. Legen Sie die **AutoHeight**-Eigenschaft des **OverviewText**-Felds auf **true** fest.
 
-    This step ensures that the box will grow or shrink to fit its contents.
+    Dadurch wird sichergestellt, dass die Größe des Felds an seinen Inhalt angepasst wird.
 
-      ![Text auto height](./media/gallery-dynamic-sizing/autoheight-text.png)
+      ![Automatische Texthöhe](./media/gallery-dynamic-sizing/autoheight-text.png)
 
-## Show the product images
-1. Resize the template so that it's twice as tall as it was.
+## <a name="show-the-product-images"></a>Anzeigen der Produktbilder
+1. Verdoppeln Sie die Größe der Vorlage.
 
-    You can add controls to the template more easily as you build the app, and this change won't affect how the app looks when it runs.
+    Sie können der Vorlage beim Erstellen der App leichter Steuerelemente hinzufügen, und diese Änderung hat keine Auswirkung auf das Aussehen der App während ihrer Ausführung.
 
-2. With the gallery template selected, add an **[Image](controls/control-image.md)** control, and move it below the **OverviewText** box.
+2. Fügen Sie der ausgewählten Katalogvorlage ein **[Bild](controls/control-image.md)**-Steuerelement hinzu, und verschieben Sie es unter das Feld **OverviewText**.
 
-3. Ensure that the **Image** property of the **Image** control is set to this expression:<br>
+3. Stellen Sie sicher, dass die **Image**-Eigenschaft des **Bild**-Steuerelements auf den folgenden Ausdruck festgelegt ist:<br>
     **ThisItem.Image**
 
-4. Set the **[Y](controls/properties-core.md)** property of the **Image** control based on the position and the size of the **OverviewText** box, as in this expression:
+4. Legen Sie die **[Y](controls/properties-core.md)**-Eigenschaft des **Bild**-Steuerelements entsprechend der Position und Größe des Felds **OverviewText** fest, wie in dem folgenden Ausdruck:
    <br>**OverviewText.Y + OverviewText.Height + 5**
 
-    ![Final app](./media/gallery-dynamic-sizing/final-app.png)
+    ![Fertiggestellte App](./media/gallery-dynamic-sizing/final-app.png)
 
-Apply the same concept if you want to add more controls: set each control's **Y** property based on the **Y** and **Height** properties of the control above it.
+Wenden Sie das gleiche Konzept an, wenn Sie weitere Steuerelemente hinzufügen möchten: Legen Sie die **Y**-Eigenschaft jedes Steuerelements auf Grundlage der **Y**-Eigenschaft und **Height**-Eigenschaft des über ihm angeordneten Steuerelements fest.
 
-## Next steps
-Learn more about how to work with a [gallery](working-with-forms.md) control and [formulas](working-with-formulas.md).
+## <a name="next-steps"></a>Nächste Schritte
+Weitere Informationen zum Arbeiten mit einem [Katalog](working-with-forms.md)-Steuerelement und [Formeln](working-with-formulas.md).

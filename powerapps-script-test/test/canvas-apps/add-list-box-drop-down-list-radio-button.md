@@ -1,6 +1,6 @@
 ---
-title: Add a list box, a drop-down list, or radio buttons to a canvas app | Microsoft Docs
-description: In PowerApps, create or configure multiselect options in a canvas app
+title: Hinzufügen von Listenfeldern, Dropdownlisten oder Optionsfeldern zu einer Canvas-App | Microsoft-Dokumentation
+description: Erstellen oder Konfigurieren von Mehrfachauswahloptionen in einer Canvas-App in PowerApps
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,81 +9,87 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/24/2018
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 293c850c5af980a480a56cb9fb3b8c7866950580
+ms.sourcegitcommit: c1f58a16f8dcd309a1d5fc4658ca16d82c615994
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "49991744"
 ---
-# Add a list box, a drop-down list, or radio buttons to a canvas app
+# <a name="add-a-list-box-a-drop-down-list-or-radio-buttons-to-a-canvas-app"></a>Hinzufügen eines Listenfelds, einer Dropdownliste oder eines Optionsfelds zu einer Canvas-App
 
-Show a single column of data (for example, from a multi-column table) in a canvas app so that users can select one or more items in a list.
+Zeigen Sie eine einzelne Spalte mit Daten (z.B. aus einer Tabelle mit mehreren Spalten) in einer Canvas-App an, damit Benutzer ein oder mehrere Elemente in einer Liste auswählen können.
 
-- Add a list box to allow users to select more than one option.
-- Add a drop-down list to take up less space on a screen.
-- Add a set of radio buttons for a particular design effect.
+- Fügen Sie ein Listenfeld hinzu, um Benutzern die Auswahl von mehreren Optionen zu ermöglichen.
+- Fügen Sie eine Dropdownliste hinzu, um den beanspruchten Platz auf einem Bildschirm zu reduzieren.
+- Fügen Sie eine Gruppe von Optionsfeldern für einen bestimmten Designeffekt hinzu.
 
-This topic focuses on lists boxes and radio buttons, but the same principles apply to drop-down lists.
+Dieses Thema bezieht sich zwar auf Listenfelder und Optionsfelder, die Prinzipien gelten jedoch auch für Dropdownlisten.
 
 [!INCLUDE [app-customization-requirements](../../includes/app-customization-requirements.md)]
 
-## Create a simple list
+## <a name="create-a-simple-list"></a>Erstellen einer einfachen Liste
 
-1. Add a **List box** control named **MyListBox**, and set its **Items** property to this expression:
+1. Fügen Sie ein Steuerelement vom Typ **Listenfeld** mit der Bezeichnung **MyListBox** hinzu, und legen Sie seine **Items**-Eigenschaft auf folgenden Ausdruck fest:
 
     ```["circle","triangle","rectangle"]```  <br/>
 
-    Your designer looks similar to the following:
+    Der Designer sieht nun etwa wie folgt aus:
 
     ![][4]
 
-4. On the **Insert** tab, select **Icons**, select the circle, and move it under **MyListBox**:
+4. Wählen Sie auf der Registerkarte **Einfügen** die Option **Symbole** aus, wählen Sie den Kreis aus, und verschieben Sie ihn unter **MyListBox**:
 
     ![][5]  
 
-5. Add a triangle and a rectangle, and then arrange the shapes in a row under **MyListBox**:
+5. Fügen Sie ein Dreieck und ein Rechteck hinzu, und ordnen Sie die Formen unter **MyListBox** in einer Reihe an:
 
     ![][6]  
 
-6. Set the **[Visible](controls/properties-core.md)** property of the following shapes to the following functions:  
+6. Legen Sie die **[Visible](controls/properties-core.md)**-Eigenschaft der folgenden Formen auf die genannten Funktionen fest:  
 
-   | Shape | Set Visible function to |
+   | Form | Wert für Visible-Funktion |
    | --- | --- |
    | circle |```If("circle" in MyListBox.SelectedItems.Value, true)``` |
    | triangle |```If("triangle" in MyListBox.SelectedItems.Value, true)``` |
    | rectangle |```If("rectangle" in MyListBox.SelectedItems.Value, true)``` |
 
-7. While holding down the Alt key, select one or more shapes in **MyListBox**.
+7. Wählen Sie bei gedrückter ALT-Taste eine oder mehrere Formen unter **MyListBox** aus.
 
-    Only the shape or shapes that you select appear.
+    Nur die ausgewählte Form bzw. die ausgewählten Formen werden angezeigt.
 
-In these steps, you used an expression to create a list of items. You can apply this to other elements within your business. For example, you can use a **Drop down** control to display product images, product descriptions, and so on.
+In diesen Schritten haben Sie mithilfe eines Ausdrucks eine Liste von Elementen erstellt. Sie können diese Vorgehensweise auf andere Elemente im Unternehmen anwenden. Sie können mit einem Steuerelement vom Typ **Dropdownliste** beispielsweise Produktabbildungen, Produktbeschreibungen usw. anzeigen.
 
-## Add radio buttons
-1. On the **Home** tab, select **New Screen**, and then select **Blank**.
+## <a name="add-radio-buttons"></a>Hinzufügen von Optionsfeldern
+1. Klicken Sie erst auf der Registerkarte **Start** auf **Neuer Bildschirm** und anschließend auf **Leer**.
 
-2. On the **Insert** tab, select **Controls**, and then select **Radio**.
+2. Wählen Sie auf der Registerkarte **Einfügen** die Option **Steuerelemente** und anschließend **Radio** aus.
 
     ![][10]  
 
-3. Rename the **Radio** control to **Choices**, and set its **[Items](controls/properties-core.md)** property to this formula:  
+3. Benennen Sie das **Radio**-Steuerelement in **Choices** um, und legen Sie seine **[Items](controls/properties-core.md)**-Eigenschaft auf die folgende Formel fest:  
    ```["red","green","blue"]```  <br/>
 
     ![][12]  
 
-    If needed, resize the control to show all the options.
+    Ändern Sie ggf. die Größe des Steuerelements, um alle Optionen anzuzeigen.
 
-4. On the **Insert** tab, select **Icons**, and then select the circle.
+4. Wählen Sie auf der Registerkarte **Einfügen** die Option **Symbole** aus, und wählen Sie anschließend den Kreis aus.
 
-5. Set the **[Fill](controls/properties-color-border.md)** property of the circle to the following function:  
+5. Legen Sie die **[Fill](controls/properties-color-border.md)**-Eigenschaft des Kreises auf die folgende Funktion fest:  
    ```If(Choices.Selected.Value = "red", Red, Choices.Selected.Value = "green", Green, Choices.Selected.Value = "blue", Blue)```  
 
-    In this formula, the circle changes its color depending on which radio button you choose.
+    In dieser Formel ändert der Kreis je nach ausgewähltem Optionsfeld seine Farbe.
 
-6. Move the circle under the **Radio** control, as in this example:
+6. Verschieben Sie den Kreis wie im folgenden Beispiel veranschaulicht unter das **Radio**-Steuerelement:
 
     ![][14]  
 
-7. While holding down the Alt key, select a different radio button to change the color of the circle.
+7. Wählen Sie bei gedrückter ALT-Taste ein anderes Optionsfeld aus, um die Farbe des Kreises ändern.
 
 [1]: ./media/add-list-box-drop-down-list-radio-button/preview.png
 [2]: ./media/add-list-box-drop-down-list-radio-button/listbox.png

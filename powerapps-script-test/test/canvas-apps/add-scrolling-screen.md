@@ -1,6 +1,6 @@
 ---
-title: Add a scrolling screen to a canvas app | Microsoft Docs
-description: In PowerApps, create a screen that users can scroll to show more types of content than the screen can show at a time in a canvas app.
+title: Hinzufügen eines Scrollbildschirms zu einer Canvas-App | Microsoft-Dokumentation
+description: Erstellen Sie in PowerApps einen Bildschirm, durch den Benutzer scrollen können, um mehr Inhaltstypen anzuzeigen als auf einem Bildschirm in einer Canvas-App angezeigt werden können.
 author: emcoope-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,74 +9,80 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: emcoope
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 7094c42c8b070095d08d33a276785cce36933407
+ms.sourcegitcommit: 6851486b8a44d76b6d87837952b7a7f38a8752b6
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53570280"
 ---
-# Add a scrolling screen to a canvas app in PowerApps
+# <a name="add-a-scrolling-screen-to-a-canvas-app-in-powerapps"></a>Hinzufügen eines Scrollbildschirms zu einer Canvas-App in PowerApps
 
-In a canvas app, create a screen that users can scroll to show different items. For example, create a phone app that shows data in several charts, which users can display if they scroll.
+Erstellen Sie in einer Canvas-App einen Bildschirm, durch den Benutzer scrollen können, um andere Elemente anzuzeigen. Erstellen Sie z.B. eine Smartphone-App, die Daten in mehreren Diagrammen anzeigt, die Benutzer durch Scrollen anzeigen können.
 
-When you add multiple controls in a section, the controls maintain their relative positions within that section, regardless if it's a phone app or a tablet app. Note that the screen size and orientation may determine how the sections are arranged.  
+Wenn Sie in einem Abschnitt mehrere Steuerelemente hinzufügen, bleibt die relative Position der Steuerelemente im Abschnitt erhalten, wobei es keine Rolle spielt, ob es sich um eine Smartphone-App oder eine Tablet-App handelt. Beachten Sie, dass sich Bildschirmgröße und -ausrichtung auf die Anordnung der Abschnitte auswirken können.  
 
 [!INCLUDE [app-customization-requirements](../../includes/app-customization-requirements.md)]
 
-## Create a scrolling screen
+## <a name="create-a-scrolling-screen"></a>Erstellen eines Scrollbildschirms
 
-1. On the **Home** tab, click or tap **New screen**:
+1. Klicken oder tippen Sie auf der Registerkarte **Start** auf **Neuer Bildschirm**:
 
-    ![Option to add a screen to an app][1]
+    ![Option zum Hinzufügen eines Bildschirms zu einer App][1]
 
-2. On the **Home** tab, click or tap **Layouts**, and then click or tap the option to add an infinite scrolling canvas:  
+2. Klicken oder tippen Sie auf der Registerkarte **Start** auf **Layouts**, und klicken oder tippen Sie anschließend auf die Option zum Erstellen eines unendlichen Scrolling-Zeichenbereichs:  
    
-    ![Option to add an infinite scrolling canvas][2]
+    ![Option zum Hinzufügen eines unendlichen Scrolling-Zeichenbereichs][2]
    
-    The canvas is added:  
+    Dem Zeichenbereich wird Folgendes hinzugefügt:  
    
-    ![A screen with an infinite scrolling canvas, as it appears by default][3]
+    ![Ein Bildschirm mit einem unendlichen Scrolling-Zeichenbereich in seiner Standarddarstellung][3]
 
-## Add elements
-Now, let's add some controls to the canvas to see how the scrolling screen works.
+## <a name="add-elements"></a>Hinzufügen von Elementen
+Fügen wir dem Zeichenbereich nun einige Steuerelemente hinzu, um die Funktionsweise des Scrollbildschirms zu veranschaulichen.
 
-1. In the canvas you added, click or tap **Add an item from the Insert tab**.
+1. Klicken oder tippen Sie im hinzugefügten Zeichenbereich auf **Ein Element von der Registerkarte „Einfügen“ hinzufügen**.
    
     ![][4]
-2. On the **Insert** tab, click or tap **Charts**, and then click or tap **Column Chart**.
+2. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Diagramme**, und klicken oder tippen Sie anschließend auf **Säulendiagramm**.
    
-    ![The option to add a column chart][5]
+    ![Option zum Hinzufügen eines Säulendiagramms][5]
    
-    A column chart appears in the first card on the screen:  
+    Ein Säulendiagramm wird in der ersten Karte auf dem Bildschirm angezeigt:  
    
-    ![Default column chart][7]
-3. On the **Insert** tab, click or tap **Text**, and then click or tap **Pen input**:  
+    ![Standardmäßiges Säulendiagramm][7]
+3. Klicken oder tippen Sie auf der Registerkarte **Einfügen** auf **Text**, und klicken oder tippen Sie anschließend auf **Stifteingabe**:  
    
-    ![Option to add a pen control][8]
-4. Move the pen control below the chart, and resize the pen control to cover the bottom of the card:  
+    ![Option zum Hinzufügen eines Stift-Steuerelements][8]
+4. Verschieben Sie das Stift-Steuerelement unter das Diagramm, und ändern Sie die Größe des Steuerelements so, dass es den unteren Rand der Karte bedeckt:  
    
-    ![Move and resize the pen control][9]
+    ![Stift-Steuerelement verschieben und dessen Größe ändern][9]
 
-## Add a section
-Now, let's add another card with another control.
+## <a name="add-a-section"></a>Hinzufügen eines Abschnitts
+Nun fügen wir eine weitere Karte mit einem weiteren Steuerelement hinzu.
 
-1. Near the bottom of the screen, click or tap **Add section**:  
+1. Klicken oder tippen Sie am unteren Rand des Bildschirms auf **Abschnitt hinzufügen**:  
    
-    ![Option to add a section][10]
+    ![Option zum Hinzufügen eines Abschnitts][10]
    
-    A new card is added to the screen:  
+    Dem Bildschirm wird eine neue Karte hinzugefügt:  
    
-    ![A new card below the default section][11]
-2. With the card still selected, go to the **Insert** tab, click or tap **Charts**, and then click or tap **Line chart**.
+    ![Neue Karte unter dem Standardabschnitt][11]
+2. Wechseln Sie bei ausgewählter Karte zur Registerkarte **Einfügen**, klicken oder tippen Sie auf **Diagramme**, und klicken oder tippen Sie anschließend auf **Liniendiagramm**.
    
-    The new chart is too big to appear on the screen with the other controls:  
+    Das neue Diagramm ist zu groß, um gemeinsam mit den anderen Steuerelementen auf dem Bildschirm angezeigt zu werden:  
    
-    ![A line chart added to the bottom of the new card][12]
-3. Open Preview mode by pressing F5 (or by clicking or tapping the play icon near the upper-right corner).
+    ![Am unteren Rand der neuen Karte hinzugefügtes Liniendiagramm][12]
+3. Öffnen Sie den Vorschaumodus durch Drücken von F5 (oder durch Klicken oder Tippen des Wiedergabe-Symbols in der Nähe der oberen rechten Ecke).
    
-    ![Open Preview mode](./media/add-scrolling-screen/open-preview.png)
-4. Scroll down to display the new line chart.  
+    ![Öffnen des Vorschaumodus](./media/add-scrolling-screen/open-preview.png)
+4. Scrollen Sie nach unten, um das neue Liniendiagramm anzuzeigen.  
    
-    ![Preview shows the line chart][13]
+    ![Vorschau des Liniendiagramms][13]
 
 [1]: ./media/add-scrolling-screen/add-screen.png
 [2]: ./media/add-scrolling-screen/add-canvas.png

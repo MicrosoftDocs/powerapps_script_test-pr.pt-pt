@@ -1,6 +1,6 @@
 ---
-title: Collect, Clear, and ClearCollect functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the Collect, Clear, and ClearCollect functions in PowerApps
+title: Funktionen „Collect“, „Clear“ und „ClearCollect“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispiele, für die Collect-, Clear- und ClearCollect-Funktionen in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,79 +9,100 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/01/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 8a7c52962c23df5f2efcf76c04aeba528e94217c
+ms.sourcegitcommit: 464ee88a958dda11c5de5603c608deab6c9cdcab
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578740"
 ---
-# Collect, Clear, and ClearCollect functions in PowerApps
+# <a name="collect-clear-and-clearcollect-functions-in-powerapps"></a>Collect-, Clear- und ClearCollect-Funktionen in PowerApps
+Erstellt und löscht [Sammlungen](../working-with-data-sources.md#collections) und fügt [Datensätze](../working-with-tables.md#records) zu einer beliebigen [Datenquelle](../working-with-data-sources.md) hinzu.
 
-Creates and clears [collections](../working-with-data-sources.md#collections) and adds [records](../working-with-tables.md#records) to any [data source](../working-with-data-sources.md).
+## <a name="description"></a>Beschreibung
+### <a name="collect"></a>Collect
+Die **Collect**-Funktion fügt Datensätze zu einer Datenquelle hinzu. Die hinzuzufügenden Elemente können sein:
 
-## Description
+* Ein einzelner Wert: Der Wert befindet sich im **[Wert](function-value.md)**-Feld eines neuen Datensatzes.  Alle anderen Eigenschaften bleiben [leer](function-isblank-isempty.md).
+* Ein Datensatz: Jede benannte Eigenschaft wird in der entsprechenden Eigenschaft des neuen Datensatzes eingefügt.  Alle anderen Eigenschaften bleiben leer.
+* Ein [Tabelle](../working-with-tables.md): Jeder Datensatz der Tabelle wird als ein separater Datensatz der Datenquelle hinzugefügt, wie oben beschrieben. Die Tabelle wird nicht als geschachtelte Tabelle zu einen Datensatz hinzugefügt. Umschließen Sie zu diesem Zweck zuerst die Tabelle in einem Datensatz.
 
-### Collect
+Bei Verwendung mit einer Sammlung werden bei Bedarf zusätzliche [Spalten](../working-with-tables.md#columns) erstellt. Die Spalten für andere Datenquellen werden von der Datenquelle vordefiniert, und neue Spalten können nicht hinzugefügt werden.  
 
-The **Collect** function adds records to a data source. The items to be added can be:
+Wenn die Datenquelle nicht bereits vorhanden ist, wird eine Sammlung erstellt.
 
-- A single value: The value is placed in the **[Value](function-value.md)** field of a new record.  All other properties are left [blank](function-isblank-isempty.md).
-- A record: Each named property is placed in the corresponding property of a new record.  All other properties are left blank.
-- A [table](../working-with-tables.md): Each record of the table is added as a separate record of the data source as described above. The table is not added as a nested table to a record. To accomplish this, wrap the table in a record first.
+Sammlungen werden manchmal verwendet, um globale Variablen zu halten oder eine temporäre Kopie einer Datenquelle zu erstellen. PowerApps basiert auf Formeln, die automatisch neu berechnet werden, während der Benutzer mit einer App interagiert. Sammlungen haben diesen Vorteil nicht und ihre Verwendung kann das Erstellen und Verstehen Ihrer App erschweren. Lesen Sie vor dem Verwenden einer Sammlung auf diese Weise [Working with Variables (Mit Variablen arbeiten)](../working-with-variables.md).
 
-When used with a collection, additional [columns](../working-with-tables.md#columns) will be created as needed. The columns for other data sources are fixed by the data source and new columns cannot be added.  
+Sie können auch die **[Patch](function-patch.md)**-Funktion für die Erstellung von Datensätzen in einer Datenquelle verwenden.
 
-If the data source doesn't already exist, a collection is created.
+**Collect** gibt die geänderte Datenquelle als Tabelle zurück.  **Collect** kann nur in einer [behavior formula (Verhaltensformel)](../working-with-formulas-in-depth.md) verwendet werden.
 
-Collections are sometimes used to hold global variables or make a temporary copy of a data source. PowerApps are based on formulas that automatically recalculate as the user interacts with an app. Collections do not enjoy this benefit and their use can make your app harder to create and understand. Before using a collection in this manner, review [working with variables](../working-with-variables.md).
+### <a name="clear"></a>Clear
+Die **Clear**-Funktion löscht alle Datensätze einer Sammlung.  Die Spalten der Sammlung bleiben erhalten.
 
-You can also use the **[Patch](function-patch.md)** function to create records in a data source.
+Beachten Sie, dass **Clear** nur bei Sammlungen und nicht bei anderen Datenquellen angewendet wird.  Für diesen Zweck können Sie **[RemoveIf](function-remove-removeif.md)( *DataSource*, TRUE)** verwenden.  Seien Sie vorsichtig, da dies alle Datensätze aus dem Speicher der Datenquelle entfernt und Auswirkungen auf andere Benutzer haben kann.
 
-**Collect** returns the modified data source as a table.  **Collect** can only be used in a [behavior formula](../working-with-formulas-in-depth.md).
+Sie können die **[Remove](function-remove-removeif.md)**-Funktion verwenden, um Datensätze gezielt zu entfernen.
 
-### Clear
+**Clear** hat keinen Rückgabewert.  Es kann nur in einer Verhaltensformel verwendet werden.
 
-The **Clear** function deletes all the records of a collection.  The columns of the collection will remain.
+### <a name="clearcollect"></a>ClearCollect
+Die **ClearCollect**-Funktion löscht alle Datensätze aus einer Sammlung und fügt anschließend ein anderes Set von Datensätzen zur selben Sammlung hinzu.  Mit einer einzelnen Funktion bietet **ClearCollect** die Kombination von **Clear** und anschließend **Collect**.
 
-Note that **Clear** only operates on collections and not other data sources.  You can use **[RemoveIf](function-remove-removeif.md)( *DataSource*, true )** for this purpose.  Use caution as this will remove all records from the data source's storage and can affect other users.
+**ClearCollect** gibt die geänderte Sammlung als Tabelle zurück.  **ClearCollect** kann nur in einer Verhaltensformel verwendet werden.
 
-You can use the **[Remove](function-remove-removeif.md)** function to selectively remove records.
+## <a name="syntax"></a>Syntax
+**Collect**( *Datenquelle*, *Element*, ... )
 
-**Clear** has no return value.  It can only be used in a behavior formula.
+* *Datenquelle*: Erforderlich. Die Datenquelle, in die Sie Daten hinzufügen möchten.  Wenn nicht bereits vorhanden, wird eine neue Sammlung erstellt.
+* *Element(e)*: Erforderlich.  Eine oder mehrere Datensätze oder Tabellen, die der Datenquelle hinzugefügt werden sollen.  
 
-### ClearCollect
+**Clear**( *Auflistung* )
 
-The **ClearCollect** function deletes all the records from a collection and then adds a different set of records to the same collection.  With a single function, **ClearCollect** offers the combination of **Clear** and then **Collect**.
+* *Auflistung*: Erforderlich. Die Sammlung, die Sie löschen möchten.
 
-**ClearCollect** returns the modified collection as a table.  **ClearCollect** can only be used in a behavior formula.
+**ClearCollect**( *Auflistung*, *Element*, ... )
 
-## Syntax
+* *Auflistung*: Erforderlich. Die Sammlung, die Sie löschen und zu der Sie dann Daten hinzufügen möchten.
+* *Element(e)*: Erforderlich.  Eine oder mehrere Datensätze oder Tabellen, die der Datenquelle hinzugefügt werden sollen.  
 
-**Collect**( *DataSource*, *Item*, ... )
+## <a name="examples"></a>Beispiele
+### <a name="clearing-and-adding-records-to-a-data-source"></a>Löschen und Hinzufügen von Datensätzen zu einer Datenquelle
+In diesen Beispielen löschen und fügen Sie Daten zu einer Sammlung mit dem Namen **IceCream** hinzu.  Die Datenquelle beginnt mit dem folgenden Inhalt:
 
-* *DataSource* – Required. The data source that you want to add data to.  If it does not already exist, a new collection is created.
-* *Item(s)* - Required.  One or more records or tables to add to the data source.  
+![](media/function-clear-collect-clearcollect/icecream.png)
 
-**Clear**( *Collection* )
-
-* *Collection* – Required. The collection that you want to clear.
-
-**ClearCollect**( *Collection*, *Item*, ... )
-
-* *Collection* – Required. The collection that you want to clear and then add data to.
-* *Item(s)* - Required.  One or more records or tables to add to the data source.  
-
-## Examples
-
-### Clearing and adding records to a data source
-
-In these examples, you'll erase and add to a collection that's named **IceCream**. The data source begins with these contents:
-
-![Sample data source](media/function-clear-collect-clearcollect/icecream.png)
-
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **ClearCollect( IceCream, {&nbsp;Flavor:&nbsp;"Strawberry",&nbsp;Quantity:&nbsp;300&nbsp;} )** |Clears all data from the **IceCream** collection and then adds a record that includes a quantity of strawberry ice cream. |<style> img { max-width: none } </style> ![Table with one record](media/function-clear-collect-clearcollect/icecream-clearcollect.png)<br><br>The **IceCream** data source has also been modified. |
-| **Collect( IceCream, {&nbsp;Flavor:&nbsp;"Pistachio",&nbsp;Quantity:&nbsp;40&nbsp;}, {&nbsp;Flavor:&nbsp;"Orange",&nbsp;Quantity:&nbsp;200&nbsp;}  )** |Adds two records to the **IceCream** collection that includes a quantity of pistachio and Orange ice cream. |![Table with two records](media/function-clear-collect-clearcollect/icecream-collect.png)<br><br>The **IceCream** data source has also been modified. |
-| **Clear( IceCream )** |Removes all records from the **IceCream** collection. |![Empty table](media/function-clear-collect-clearcollect/icecream-clear.png)<br><br>The **IceCream** data source has also been modified. |
+| **ClearCollect( IceCream, {&nbsp;Flavor:&nbsp;"Strawberry",&nbsp;Quantity:&nbsp;300&nbsp;} )** |Löscht alle Daten aus der Sammlung **IceCream**, und fügt anschließend einen Datensatz hinzu, der eine Menge von Erdbeereis enthält. |<style> img { max-width: none } </style> ![](media/function-clear-collect-clearcollect/icecream-clearcollect.png)<br><br>Die Datenquelle **IceCream** wurde auch geändert. |
+| **Collect( IceCream, {&nbsp;Flavor:&nbsp;"Pistachio",&nbsp;Quantity:&nbsp;40&nbsp;}, {&nbsp;Flavor:&nbsp;"Orange",&nbsp;Quantity:&nbsp;200&nbsp;}  )** |Fügt zwei Datensätze zur Sammlung **IceCream** hinzu, die eine Menge von Pistazien- und Orangeneis enthält. |![](media/function-clear-collect-clearcollect/icecream-collect.png)<br><br>Die Datenquelle **IceCream** wurde auch geändert. |
+| **Clear( IceCream )** |Entfernt alle Datensätze aus der Sammlung **IceCream**. |![](media/function-clear-collect-clearcollect/icecream-clear.png)<br><br>Die Datenquelle **IceCream** wurde auch geändert. |
 
-For step-by-step examples of how to create a collection, see [Create and update a collection](../create-update-collection.md).
+### <a name="collect-a-static-list"></a>Sammeln einer statischen Liste
+
+1. Fügen Sie eine Schaltfläche hinzu, und legen Sie ihre Eigenschaft **[OnSelect](../controls/properties-core.md)** auf diese Funktion fest:<br>**Collect(Products, &quot;Europa&quot;, &quot;Ganymede&quot;, &quot;Callisto&quot;)**
+   
+    Diese Funktion erstellt eine Sammlung mit dem Namen **Products**, die eine Zeile für jeden der drei Produktnamen enthält.
+    
+1. Halten Sie die ALT-TASTE gedrückt, und wählen Sie die Schaltfläche aus.
+
+1. (Optional) Klicken Sie im **Dateimenü** auf **Sammlungen**, um die erstellte Sammlung als Vorschau anzuzeigen.
+
+### <a name="put-a-sharepoint-list-into-a-collection"></a>Einfügen einer SharePoint-Liste in eine Sammlung
+
+1. [Herstellen einer Verbindung mit einer SharePoint-Liste](../connect-to-sharepoint.md) 
+
+1. Fügen Sie eine Schaltfläche hinzu, und legen Sie die folgende Funktion für die **[OnSelect](../controls/properties-core.md)**-Eigenschaft fest, ersetzen Sie hierbei *ListName* durch den Namen der SharePoint-Liste:<br>
+**Collect**(**MySPCollection**, *ListName*)
+
+    Diese Funktion erstellt eine Sammlung namens **MySPCollection**, die die gleichen Daten wie Ihre SharePoint-Liste enthält.
+    
+1. Halten Sie die ALT-TASTE gedrückt, und wählen Sie die Schaltfläche aus.
+
+1. (Optional) Klicken Sie im **Dateimenü** auf **Sammlungen**, um die erstellte Sammlung als Vorschau anzuzeigen.
+
+Weitere Informationen zum Anzeigen von Daten aus einer SharePoint-Liste (z.B. Datumsangaben, Optionen und Personen) in einem Katalog finden Sie unter [Anzeigen von Daten in einem Katalog](../connections/connection-sharepoint-online.md#show-data-in-a-gallery). Informationen zum Anzeigen von Daten in einem Formular (mit Dropdownlisten, Datumsauswahl und Personenauswahl) finden Sie im Artikel zu den [Steuerelementen „Formular anzeigen“ und „Formular bearbeiten“](../controls/control-form-detail.md).

@@ -1,6 +1,6 @@
 ---
-title: Choices function | Microsoft Docs
-description: Reference information, including syntax, for the Choices function in PowerApps
+title: Die Funktion „Choices“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Choices“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,90 +9,96 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 06/15/2018
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 531a614493ef739acd7be71f396dfc2f7e1ada1c
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42832794"
 ---
-# Choices function in PowerApps
-Returns a table of the possible values for a lookup column.
+# <a name="choices-function-in-powerapps"></a>Funktion „Choices“ in PowerApps
+Gibt eine Tabelle mit den möglichen Werten für eine Suchspalte zurück.
 
-## Description
-The **Choices** function returns a table of the possible values for a lookup column.  
+## <a name="description"></a>Beschreibung
+Die Funktion **Choices** gibt eine Tabelle mit den möglichen Werten für eine Suchspalte zurück.  
 
-Use the **Choices** function to provide a list of choices for your user to select from. This function is commonly used with the [**Combo box**](../controls/control-combo-box.md) control in edit forms.
+Verwenden Sie die Funktion **Choices**, um eine Liste mit Auswahlmöglichkeiten für den Benutzer zu erstellen. Diese Funktion wird in der Regel zusammen mit dem [**Kombinationsfeld**](../controls/control-combo-box.md)-Steuerelement in Bearbeitungsformularen verwendet.
 
-For a lookup, the table that **Choices** returns matches the foreign table that's associated with the lookup. By using **Choices**, you eliminate the need to add the foreign table as an additional data source. **Choices** returns all columns of the foreign table.
+Bei Suchvorgängen stimmt die Tabelle, die die Funktion **Choices** zurückgibt mit der Fremdtabelle überein, die dem Suchvorgang zugeordnet ist. Wenn Sie die Funktion **Choices** verwenden, ist es nicht mehr notwendig die Fremdtabelle als zusätzliche Datenquelle hinzuzufügen. Die Funktion **Choices** gibt alle Spalten der Fremdtabelle zurück.
 
-Because **Choices** returns a table, you can use [**Filter**](function-filter-lookup.md), [**Sort**](function-sort.md), [**AddColumns**](function-table-shaping.md), and all the other table-manipulation functions to filter, sort, and shape the table. 
+Da die Funktion **Choices** eine Tabelle zurückgibt, können Sie die Funktionen [**Filter**](function-filter-lookup.md), [**Sort**](function-sort.md) und [**AddColumns**](function-table-shaping.md) sowie alle weiteren Funktionen verwenden, die zur Bearbeitung einer Tabelle beitragen und die Tabelle filtern, sortieren und formen. 
 
-At this time, you can't [delegate](../delegation-overview.md) **Choices**. If this limitation poses a problem in your app, add the foreign entity as a data source, and use it directly. 
+Derzeit kann die Funktion **Choices** nicht [delegiert](../delegation-overview.md) werden. Wenn diese Einschränkung ein Problem für Ihre App hervorruft, fügen Sie die Fremdentität als Datenquelle hinzu, und verwenden Sie diese. 
 
-**Choices** doesn't require column names to be strings and enclosed in double quotes, unlike the [**ShowColumns**](function-table-shaping.md), [**Search**](function-filter-lookup.md), and other table functions. Provide the formula as if you were referencing the column directly.
+Für die Funktion **Choices** ist es nicht wie bei den Funktionen [**ShowColumns**](function-table-shaping.md) und [**Search**](function-filter-lookup.md) sowie anderen Tabellenfunktionen erforderlich, dass Spaltennamen Zeichenfolgen darstellen und in doppelten Anführungszeichen stehen. Geben Sie die Formel so an, als würden Sie direkt auf die Spalte verweisen.
 
-Column references must be direct to the data source. For example, if the data source is **Accounts** and the lookup is **SLA**, the column reference would be **Accounts.SLA**. The reference can't pass through a function, a variable, or a control. Furthering this example, if **Accounts** is fed to a **Gallery** control, use the formula **Gallery.Selected.SLA** to reference the SLA for the selected account. However, this reference has passed through a control, so it can't be passed to the **Columns** function - you must still use **Accounts.SLA**.
+Spaltenverweise müssen direkt auf die Datenquelle verweisen. Wenn beispielsweise **Accounts** die Datenquelle ist und nach **SLA** gesucht wird, lautet der Spaltenverweis **Accounts.SLA**. Der Verweis kann eine Funktion, eine Variable oder ein Steuerelement durchlaufen. Wenn aber **Accounts** an das Steuerelement **Gallery** übergeben wird, verwenden Sie die Formel **Gallery.Selected.SLA**, um auf die SLA für das ausgewählte Konto zu verweisen. Dieser Verweis hat dann ein Steuerelement durchlaufen und kann daher nicht an die Funktion **Columns** übergeben werden. Daher müssen Sie weiterhin **Accounts.SLA** verwenden.
 
-At this time, you can use lookup columns only with SharePoint and Common Data Service for Apps.
+Derzeit können Sie Suchspalten nur mit SharePoint und Common Data Service für Apps verwenden.
 
-## Syntax
-**Choices**( *column-reference* )
+## <a name="syntax"></a>Syntax
+**Choices**( *Spalte-Verweis* )
 
-* *column-reference* – Required.  A lookup column of a data source. Don't enclose the column name in double quotes. The reference must be directly to the column of the data source and not pass through a function or a control.
+* *Spalte-Verweis* – Erforderlich.  Eine Suchspalte einer Datenquelle Setzen Sie den Spaltennamen nicht in doppelte Anführungszeichen. Der Verweis muss direkt auf die Spalte der Datenquelle hergestellt werden und darf weder eine Funktion noch ein Steuerelement durchlaufen.
 
-## Examples
+## <a name="examples"></a>Beispiele
 
-#### Choices for a lookup
+#### <a name="choices-for-a-lookup"></a>Die Funktion „Choices“ für eine Suche
 
-1. [Create a database](../../../administrator/create-database.md) in Common Data Service for Apps, and select the **Include sample apps and data** box.
+1. [Erstellen Sie eine Datenbank](../../../administrator/create-database.md) in Common Data Service für Apps, und klicken Sie auf das Feld **Beispiel-Apps und -Daten einschließen**.
 
-    Many entities, such as **Accounts**, are created.
+    Es werden einige Entitäten wie z.B. **Accounts** erstellt.
 
-    **Note**: Entity names are singular on web.powerapps.com and plural in PowerApps Studio.
+    **Hinweis:** Entitätennamen werden auf web.powerapps.com im Singular und in PowerApps Studio im Plural aufgeführt.
 
-	![A partial list of the fields from the Account entity in Commmon Data Service for Apps, highlighting that "Primary Contact" is a lookup field](media/function-choices/entity-account.png)
+    ![Ausschnitt aus einer Liste der Felder aus der Entität „Account“ in Common Data Service für Apps, in dem hervorgehoben wird, dass „Primärer Kontakt“ ein Suchfeld ist](media/function-choices/entity-account.png)
 
-	The **Accounts** entity has a **Primary Contact** column, which is a lookup to the **Contacts** entity.  
+    Die Entität **Accounts** weist eine Spalte für den **Primären Kontakt** auf, die eine Suchspalte für die Entität **Contacts** darstellt.  
 
-	![A partial list of the fields from the Contact entity in the Commmon Data Service](media/function-choices/entity-contact.png)
+    ![Ausschnitt aus der Liste mit den Feldern aus der Entität „Contact“ in Common Data Service](media/function-choices/entity-contact.png)
 
-	For each account, a contact is designated as the primary contact, or the primary contact is *blank*.
+    Für jedes Konto wird entweder ein Kontakt als primärer Kontakt festgelegt oder die Spalte bleibt *leer*.
 
-2. [Generate an app](../data-platform-create-app.md) from the **Accounts** entity.
+2. [Generieren Sie eine App](../data-platform-create-app.md) aus der Entität **Accounts**.
 
-3. In the list of screens and controls near the left edge, scroll down until **EditScreen1** appears, and then select **EditForm1** just under it.
+3. Scrollen Sie in der Liste mit den Anzeigen und Steuerelementen in der linken Ecke nach unten, bis **EditScreen1** angezeigt wird, und klicken Sie dann darunter auf **EditForm1**.
 
-	![In the left navigation bar, select EditForm1 on EditScreen1](media/function-choices/select-editform.png)
+    ![Auf der linken Navigationsleiste unter „EditScreen1“ auf „EditForm1“ klicken](media/function-choices/select-editform.png)
 
-4. On the **Properties** tab of the right pane, select **Accounts**.
+4. Klicken Sie auf der Registerkarte **Eigenschaften** im Bereich auf der rechten Seite auf **Accounts**.
 
-	![Select Accounts to open the Data pane](media/function-choices/open-data-pane.png)
+    ![Auf „Accounts“ klicken, um den Bereich „Daten“ zu öffnen](media/function-choices/open-data-pane.png)
 
-5. In the **Data** pane, scroll down to the list of fields.
+5. Scrollen Sie im Bereich **Daten** nach unten zu der Liste mit den Feldern.
 
-	![Select Accounts to open the Data pane](media/function-choices/field-list.png)
+    ![Auf „Accounts“ klicken, um den Bereich „Daten“ zu öffnen](media/function-choices/field-list.png)
 
-6. Find the **Primary Contact** check box, and then select it if it's cleared.
+6. Suchen Sie das Kontrollkästchen **Primärer Kontakt**, und aktivieren Sie dieses, falls noch nicht geschehen.
 
-7. (optional) Drag the **Primary Contact** field from the bottom to the top of the list of fields.
+7. (Optional) Ziehen Sie das Feld **Primärer Kontakt** aus dem unteren Bereich der Liste in den oberen Bereich.
 
-8. In the card for **Primary Contact**, select the **Combo box** control.
+8. Klicken Sie auf der Karte für den **Primären Kontakt** auf das **Kombinationsfeld**-Steuerelement.
 
-    The **Items** property of that control is set to one of two formulas based on the state of the **Use column display names** check box in advanced settings.
+    Die Eigenschaft **Items** dieses Steuerelements wird basierend auf dem Status des Kontrollkästchens **Anzeigenamen für Spalten verwenden** auf eine der beiden Formeln festgelegt.
 
-   - If the check box is selected, the property is set to this formula:<br>**Choices( Accounts.'Primary Contact' )**
-   - If the check box is cleared, the property is set to this formula:<br>**Choices( Accounts.primarycontactid )**
+   - Wenn das Kontrollkästchen aktiviert ist, wird die Eigenschaft auf die folgende Formel festgelegt:<br>**Choices( Accounts.'Primary Contact' )**
+   - Wenn das Kontrollkästchen nicht aktiviert ist, wird die Eigenschaft auf die folgende Formel festgelegt:<br>**Choices( Accounts.primarycontactid )**
 
-     ![A canvas screen with a form control. The **Combo box** control within the **Primary Contact** card is selected, and the Items property with the formula Choices( Accounts.'Primary Contact' ) appears](media/function-choices/accounts-primary-contact.png)
+     ![Eine Canvas-Anzeige mit einem Formularsteuerelement Das Steuerelement **Kombinationsfeld** auf der Karte **Primärer Kontakt** ist ausgewählt und die Eigenschaft „Items“ wird mit der Formel „Choices( Accounts.'Primary Contact' )“ angezeigt](media/function-choices/accounts-primary-contact.png)
 
-9. On the **Home** tab, select **New screen**, and then select **Blank**.
+9. Klicken Sie erst auf der Registerkarte **Start** auf die Option **Neuer Bildschirm** und anschließend auf **Blank**.
 
-10. On the **Insert** tab, select **Data table**.
+10. Klicken Sie auf der Registerkarte **Einfügen** auf die Option **Datentabelle**.
 
-11. Set the **Items** property of the **Data table** control to one of these formulas:
+11. Legen Sie die **Items**-Eigenschaft des Steuerelements **Datentabelle** auf eine der folgenden Formeln fest:
 
-     - If the **Use column display names** check box in advanced settings is selected, use this formula:<br>**Choices( Accounts.'Primary Contact' )**
-     - Otherwise, use this formula:<br>**Choices( Accounts.primarycontactid )**
+     - Wenn unter den erweiterten Einstellungen das Kontrollkästchen **Anzeigenamen für Spalten verwenden** aktiviert ist, verwenden Sie die folgende Formel:<br>**Choices( Accounts.'Primary Contact' )**
+     - Verwenden Sie andernfalls die folgende Formel:<br>**Choices( Accounts.primarycontactid )**
 
-12. Open the **Data** pane, and then select the check boxes for **firstname**, **lastname**, or any other field that you want to show.
+12. Öffnen Sie den Bereich **Daten**, und aktivieren Sie die Kontrollkästchen für **Vorname** und **Nachname** oder für ein anderes Feld, das Sie gerne anzeigen lassen möchten.
 
-     ![A canvas screen with a data table control. The Items property is set to the formula Choices( Accounts.'Primary Contact' ), and the table shows the firstname and lastname columns for the first set of records from the Contacts entity](media/function-choices/full-accounts-pc.png)
+     ![Eine Canvas-Anzeige mit einem Datentabellensteuerelement Die Eigenschaft „Items“ ist auf die Formel „Choices( Accounts.'Primary Contact' )“ festgelegt, und in der Tabelle werden die Spalten „Vorname“ und „Nachname“ für den ersten Datensatz aus der Entität „Contacts“ angezeigt](media/function-choices/full-accounts-pc.png)

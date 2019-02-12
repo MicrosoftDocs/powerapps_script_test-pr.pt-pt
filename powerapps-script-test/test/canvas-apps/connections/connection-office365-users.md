@@ -1,6 +1,6 @@
 ---
-title: Overview of the Office 365 Users connection | Microsoft Docs
-description: See how to connect to Office 365 Users, step through some examples, and see all the functions
+title: Übersicht über die Verbindung mit Office 365-Benutzer| Microsoft-Dokumentation
+description: Anleitung zum Herstellen einer Verbindung mit Office 365-Benutzer, einige Beispiele für die erforderlichen Schritte und Auflistung aller Funktionen
 author: lancedMicrosoft
 manager: kvivek
 ms.service: powerapps
@@ -9,34 +9,40 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 06/07/2016
 ms.author: lanced
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 507bac0b57cdc1e348bd384d5544d7b664a3e0f5
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42851262"
 ---
-# Connect to Office 365 Users connection from PowerApps
-![Office 365 Users](./media/connection-office365-users/office365icon.png)
+# <a name="connect-to-office-365-users-connection-from-powerapps"></a>Herstellen einer Verbindung mit Office 365-Benutzer aus PowerApps
+![Office 365-Benutzer](./media/connection-office365-users/office365icon.png)
 
-Office 365 Users lets you access user profiles in your organization using your Office 365 account. You can perform various actions such as get your profile, a user's profile, a user's manager or direct reports.
+Office 365-Benutzer bietet Ihnen Zugriff auf Benutzerprofile in Ihrer Organisation mithilfe Ihres Office 365-Kontos. Sie können verschiedene Aktionen ausführen, z. B. Ihr Profil, das Profil eines Benutzers, den Vorgesetzten oder die direkten Mitarbeiter eines Benutzers abrufen.
 
-You can display this information in a label on your app. You can display one function, multiple functions, or even combine different functions. For example, you can create an expression that combines the User Name and Phone Number, and then display this information in your app.
+Sie können diese Informationen in einer Bezeichnung in Ihrer App anzeigen. Sie können eine Funktion oder mehrere Funktionen anzeigen und sogar verschiedene Funktionen kombinieren. Beispielsweise können Sie einen Ausdruck erstellen, der den Benutzernamen und die Telefonnummer kombiniert, und dann diese Information in der App anzeigen.
 
-This topic shows you how to add Office 365 Users as a connection, add Office 365 Users as a data source to your app, and use table data in a gallery control.
+In diesem Thema wird gezeigt, wie Sie Office 365-Benutzer als Verbindung hinzufügen, Office 365-Benutzer Ihrer App als Datenquelle hinzufügen und wie Sie Tabellendaten in einem Katalogsteuerelement verwenden.
 
 [!INCLUDE [connection-requirements](../../../includes/connection-requirements.md)]
 
-## Add a connection
-1. [Add a data connection](../add-data-connection.md) and select **Office 365 Users**:  
+## <a name="add-a-connection"></a>Eine Verbindung hinzufügen
+1. [Fügen Sie eine Datenverbindung hinzu](../add-data-connection.md), und wählen Sie **Office 365-Benutzer** aus:  
 
-    ![Connect to Office 365](./media/connection-office365-users/add-office.png)
-2. Select **Connect**, and if prompted to sign in, enter your work account.
+    ![Herstellen einer Verbindung mit Office 365](./media/connection-office365-users/add-office.png)
+2. Wählen Sie **Verbinden** aus, und wenn Sie aufgefordert werden, sich anzumelden, geben Sie Ihr Geschäftskonto ein.
 
-The Office 365 Users connection has been created and added to your app. Now, it's ready to be used.
+Die Verbindung mit Office 365-Benutzer wurde erstellt und Ihrer App hinzugefügt. Sie kann jetzt verwendet werden.
 
-## Use the connection in your app
-### Show information about the current user
-1. On the **Insert** menu, select **Label**
-2. In the function bar, set its **[Text](../controls/properties-core.md)** property to any of the following formulas:
+## <a name="use-the-connection-in-your-app"></a>Verwenden der Verbindung in der App
+### <a name="show-information-about-the-current-user"></a>Informationen über den aktuellen Benutzer anzeigen
+1. Wählen Sie im Menü **Insert** (Einfügen) die Option **Label** (Bezeichnung) aus
+2. Legen Sie in der Funktionsleiste die **[Text](../controls/properties-core.md)**-Eigenschaft auf eine der folgenden Formeln fest:
 
     `Office365Users.MyProfile().Department`  
     `Office365Users.MyProfile().DisplayName`  
@@ -50,16 +56,16 @@ The Office 365 Users connection has been created and added to your app. Now, it'
     `Office365Users.MyProfile().UserPrincipalName`  
     `Office365Users.MyProfile().AccountEnabled`  
 
-The label shows the information that you entered about the current user.
+In der Bezeichnung werden die Informationen über den aktuellen Benutzer angezeigt, die Sie eingegeben haben.
 
-### Show information about another user
-1. On the **Insert** menu, select **Text**, and then select **Text input**. Rename it **InfoAbout**:  
+### <a name="show-information-about-another-user"></a>Anzeigen von Informationen zu einem anderen Benutzer
+1. Klicken Sie im Menü **Insert** (Einfügen) auf **Text**, und wählen Sie dann **Texteingabe** (Texteingabe) aus. Benennen Sie das Steuerelement in **InfoAbout** um:  
 
-    ![Rename control](./media/connection-office365-users/renameinfoabout.png)
-2. In **InfoAbout**, type or paste an email address of a user in your organization. For example, type in *yourName*@*yourCompany.com*.
-3. Add a **Label** (**Insert** menu), and set its **[Text](../controls/properties-core.md)** property to any of the following formulas:
+    ![Umbenennen des Steuerelements](./media/connection-office365-users/renameinfoabout.png)
+2. Geben Sie in **InfoAbout** eine E-Mail-Adresse eines Benutzers in Ihrer Organisation ein, oder fügen Sie sie ein. Geben Sie z. B. *IhrName*@*IhrUnternehmen.com* ein.
+3. Fügen Sie ein **Label** (Bezeichnung) hinzu (Menü **Einfügen**), und legen Sie seine **[Text](../controls/properties-core.md)**-Eigenschaft auf eine der folgenden Formeln fest:
 
-   * To show information about another user:  
+   * So zeigen Sie Informationen zu einem anderen Benutzer an:  
 
        `Office365Users.UserProfile(InfoAbout.Text).Department`  
        `Office365Users.UserProfile(InfoAbout.Text).DisplayName`  
@@ -72,7 +78,7 @@ The label shows the information that you entered about the current user.
        `Office365Users.UserProfile(InfoAbout.Text).TelephoneNumber`  
        `Office365Users.UserProfile(InfoAbout.Text).UserPrincipalName`  
        `Office365Users.UserProfile(InfoAbout.Text).AccountEnabled`  
-   * To show information about another user's manager:  
+   * So zeigen Sie Informationen zum Vorgesetzten eines anderen Benutzers an:  
 
        `Office365Users.Manager(InfoAbout.Text).Department`  
        `Office365Users.Manager(InfoAbout.Text).DisplayName`  
@@ -86,178 +92,178 @@ The label shows the information that you entered about the current user.
        `Office365Users.Manager(InfoAbout.Text).UserPrincipalName`  
        `Office365Users.Manager(InfoAbout.Text).AccountEnabled`  
 
-The label shows the information that you entered about the user you specified or that user's manager.
+In der Bezeichnung werden die Informationen angezeigt, die Sie über den von Ihnen angegebenen Benutzer oder den Vorgesetzten dieses Benutzers eingegeben haben.
 
 > [!NOTE]
-> If you're developing an app based on an entity in the Common Data Service, you can specify a user based on ID instead of email address.
+> Wenn Sie eine App basierend auf einer Entität im Common Data Service entwickeln, können Sie einen Benutzer anhand der ID statt anhand der E-Mail-Adresse angeben.
 
-For example, you can [create an app automatically](../data-platform-create-app.md), add a screen that contains a **Label** control, and set the control's **Text** property to this formula:
+Beispielsweise können Sie [eine App automatisch erstellen](../data-platform-create-app.md), einen Bildschirm hinzufügen, der ein **Label**-Steuerelement (Bezeichnung) enthält, und die **Text**-Eigenschaft des Steuerelements auf diese Formel festlegen:
 <br>**Office365Users.UserProfile(BrowseGallery1.Selected.CreatedByUser).DisplayName**
 
-If you create a contact and select that contact in the browse screen of the app, the **Label** control will show your display name.
+Wenn Sie einen Kontakt erstellen und in der App diesen Kontakt im Bildschirm zum Durchsuchen auswählen, wird im **Label**-Steuerelement (Bezeichnung) der Anzeigename angezeigt.
 
-### Show the direct reports of another user
-1. Add a **Text input** control (**Insert** menu > **Text**), and rename it **InfoAbout**.
-2. In **InfoAbout**, enter the email address of a user in your organization. For example, enter *yourManagersName*@*yourCompany.com*
-3. Add a **With text** gallery (**Insert** menu > **Gallery**), and set its **[Items](../controls/properties-core.md)** property to the following formula:
+### <a name="show-the-direct-reports-of-another-user"></a>Anzeigen der direkt unterstellten Mitarbeiter eines anderen Benutzers
+1. Fügen Sie ein Texteingabe-Steuerelement hinzu (Menü **Insert** (Einfügen) > **Text** > **Text input**  (Texteingabe)), und benennen Sie es in **InfoAbout** um.
+2. Geben Sie in **InfoAbout** die E-Mail-Adresse eines Benutzers in Ihrer Organisation ein. Geben Sie z. B. *NameIhresVorgesetzten*@*IhrUnternehmen.com* ein.
+3. Fügen Sie einen Katalog **mit Text** hinzu (Menü **Insert** (Einfügen) > **Gallery** (Katalog)), und legen Sie dessen **[Items](../controls/properties-core.md)**-Eigenschaft auf die folgende Formel fest:
 
     `Office365Users.DirectReports(InfoAbout.Text)`
 
-    The gallery shows information about the direct reports of the user you entered.
+    Im Katalog werden Informationen zu den direkt unterstellten Mitarbeitern des von Ihnen eingegebenen Benutzers angezeigt.
 
-    With the gallery selected, the right-hand pane shows options for that gallery.
-4. In the second list, select **JobTitle**. In the third list, select **DisplayName**. The gallery is updated to show these values.  
+    Wenn der Katalog ausgewählt ist, werden im rechten Bereich Optionen für diesen Katalog angezeigt.
+4. Wählen Sie in der zweiten Liste **JobTitle** aus. Wählen Sie in der dritten Liste **DisplayName** aus. Der Katalog wird mit diesen Werten aktualisiert.  
 
 > [!NOTE]
-> The first box is actually an image control. If you don't have an image, you can delete the image control, and add a label in its place. [Add and configure controls](../add-configure-controls.md) is a good resource.
+> Das erste Feld ist eigentlich eine Bildsteuerung. Wenn Sie über kein Bild verfügen, können Sie die Bildsteuerung löschen und stattdessen eine Bezeichnung hinzufügen. Unter [Hinzufügen und Konfigurieren von Steuerelementen](../add-configure-controls.md) finden Sie viele hilfreiche Informationen.
 
-### Search for users
-1. Add a **Text input** control (**Insert** menu > **Text**), and rename it **SearchTerm**. Enter a name to search. For example, enter your first name.
-2. Add a **With text** gallery (**Insert** menu > **Gallery**), and set its **[Items](../controls/properties-core.md)** property to the following formula:
+### <a name="search-for-users"></a>Nach Benutzern suchen
+1. Fügen Sie ein Texteingabe-Steuerelement hinzu (Menü **Insert** (Einfügen) > **Text** > **Text input** (Texteingabe)), und benennen Sie es in **SearchTerm** um. Geben Sie einen zu suchenden Namen ein. Geben Sie beispielsweise Ihren Vornamen ein.
+2. Fügen Sie einen Katalog **mit Text** hinzu (Menü **Insert** (Einfügen) > **Gallery** (Katalog)), und legen Sie dessen **[Items](../controls/properties-core.md)**-Eigenschaft auf die folgende Formel fest:
 
     `Office365Users.SearchUser({searchTerm: SearchTerm.Text})`
 
-    The gallery shows users whose name contains the search text you entered.
+    Im Katalog werden Benutzer angezeigt, deren Name den von Ihnen eingegebenen Suchtext enthält.
 
-    With the gallery selected, the right-hand pane shows options for that gallery.
-3. In the second list, select **Mail**. In the third list, select **DisplayName**.
+    Wenn der Katalog ausgewählt ist, werden im rechten Bereich Optionen für diesen Katalog angezeigt.
+3. Wählen Sie in der zweiten Liste **Mail** aus. Wählen Sie in der dritten Liste **DisplayName** aus.
 
-    The second and third labels in the gallery are updated.
+    Die zweite und dritte Bezeichnung im Katalog werden aktualisiert.
 
-## View the available functions
-This connection includes the following functions:
+## <a name="view-the-available-functions"></a>Anzeigen der verfügbaren Funktionen
+Diese Verbindung umfasst die folgenden Funktionen:
 
-| Function Name | Description |
+| Funktionsname | Beschreibung |
 | --- | --- |
-| [MyProfile](connection-office365-users.md#myprofile) |Retrieves the profile for the current user |
-| [UserProfile](connection-office365-users.md#userprofile) |Retrieves a specific user profile |
-| [Manager](connection-office365-users.md#manager) |Retrieves user profile for the manager of the specified user |
-| [DirectReports](connection-office365-users.md#directreports) |Returns the direct reports for the specified user |
-| [SearchUser](connection-office365-users.md#searchuser) |Retrieves search results of user profiles |
+| [MyProfile](connection-office365-users.md#myprofile) |Ruft das Profil für den aktuellen Benutzer ab. |
+| [UserProfile](connection-office365-users.md#userprofile) |Ruft ein bestimmtes Benutzerprofil ab. |
+| [Manager](connection-office365-users.md#manager) |Ruft das Benutzerprofil für den Vorgesetzten des angegebenen Benutzers ab. |
+| [DirectReports](connection-office365-users.md#directreports) |Gibt die direkt unterstellten Mitarbeiter für den angegebenen Benutzer zurück. |
+| [SearchUser](connection-office365-users.md#searchuser) |Ruft die Suchergebnisse von Benutzerprofilen ab. |
 
-### MyProfile
-Get my profile: Retrieves the profile for the current user.
+### <a name="myprofile"></a>MyProfile
+Mein Profil abrufen: Ruft das Profil für den aktuellen Benutzer ab.
 
-#### Input properties
-None.
+#### <a name="input-properties"></a>Eingabeeigenschaften
+Keine
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Type | Description |
+| Eigenschaftsname | Typ | Beschreibung |
 | --- | --- | --- |
-| Department |string |Department of the user. |
-| DisplayName |string |Display name of user. |
-| GivenName |string |Given name of user. |
-| Id |string |User id |
-| JobTitle |string |Job Title of the user. |
-| Mail |string |Email id of user. |
-| MailNickname |string |Nickname of user. |
-| Surname |string |Surname of user. |
-| TelephoneNumber |string |Telephone number of user. |
-| UserPrincipalName |string |User Principal Name. |
-| AccountEnabled |boolean |Account enabled flag. |
+| Department |Zeichenfolge |Die Abteilung des Benutzers |
+| DisplayName |Zeichenfolge |Der Anzeigename des Benutzers |
+| GivenName |Zeichenfolge |Der Vorname des Benutzers |
+| Id |Zeichenfolge |Die Benutzer-ID |
+| JobTitle |Zeichenfolge |Die Position des Benutzers |
+| Mail |Zeichenfolge |Die E-Mail-ID des Benutzers |
+| MailNickname |Zeichenfolge |Der Spitzname des Benutzers |
+| Surname |Zeichenfolge |Der Nachname des Benutzers |
+| TelephoneNumber |Zeichenfolge |Die Telefonnummer des Benutzers |
+| UserPrincipalName |Zeichenfolge |Der Benutzerprinzipalname |
+| AccountEnabled |Boolesch |Flag für aktiviertes Konto |
 
-### UserProfile
-Get user profile: Retrieves a specific user profile.
+### <a name="userprofile"></a>UserProfile
+Benutzerprofil abrufen: Ruft ein bestimmtes Benutzerprofil ab.
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| Id |string |yes |User principal name or email id |
+| Id |Zeichenfolge |ja |Der Prinzipalname oder die E-Mail-ID des Benutzers |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Type | Description |
+| Eigenschaftsname | Typ | Beschreibung |
 | --- | --- | --- |
-| Department |string |Department of the user. |
-| DisplayName |string |Display name of user. |
-| GivenName |string |Given name of user. |
-| Id |string |User id |
-| JobTitle |string |Job Title of the user. |
-| Mail |string |Email id of user. |
-| MailNickname |string |Nickname of user. |
-| Surname |string |Surname of user. |
-| TelephoneNumber |string |Telephone number of user. |
-| UserPrincipalName |string |User Principal Name. |
-| AccountEnabled |boolean |Account enabled flag. |
+| Department |Zeichenfolge |Die Abteilung des Benutzers |
+| DisplayName |Zeichenfolge |Der Anzeigename des Benutzers |
+| GivenName |Zeichenfolge |Der Vorname des Benutzers |
+| Id |Zeichenfolge |Die Benutzer-ID |
+| JobTitle |Zeichenfolge |Die Position des Benutzers |
+| Mail |Zeichenfolge |Die E-Mail-ID des Benutzers |
+| MailNickname |Zeichenfolge |Der Spitzname des Benutzers |
+| Surname |Zeichenfolge |Der Nachname des Benutzers |
+| TelephoneNumber |Zeichenfolge |Die Telefonnummer des Benutzers |
+| UserPrincipalName |Zeichenfolge |Der Benutzerprinzipalname |
+| AccountEnabled |Boolesch |Flag für aktiviertes Konto |
 
-### Manager
-Get manager: Retrieves user profile for the manager of the specified user
+### <a name="manager"></a>Manager
+Vorgesetzten abrufen: Ruft das Benutzerprofil für den Vorgesetzten des angegebenen Benutzers ab.
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| Id |string |yes |User principal name or email id |
+| Id |Zeichenfolge |ja |Der Prinzipalname oder die E-Mail-ID des Benutzers |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Type | Description |
+| Eigenschaftsname | Typ | Beschreibung |
 | --- | --- | --- |
-| Department |string |Department of the user. |
-| DisplayName |string |Display name of user. |
-| GivenName |string |Given name of user. |
-| Id |string |User id |
-| JobTitle |string |Job Title of the user. |
-| Mail |string |Email id of user. |
-| MailNickname |string |Nickname of user. |
-| Surname |string |Surname of user. |
-| TelephoneNumber |string |Telephone number of user. |
-| UserPrincipalName |string |User Principal Name. |
-| AccountEnabled |boolean |Account enabled flag. |
+| Department |Zeichenfolge |Die Abteilung des Benutzers |
+| DisplayName |Zeichenfolge |Der Anzeigename des Benutzers |
+| GivenName |Zeichenfolge |Der Vorname des Benutzers |
+| Id |Zeichenfolge |Die Benutzer-ID |
+| JobTitle |Zeichenfolge |Die Position des Benutzers |
+| Mail |Zeichenfolge |Die E-Mail-ID des Benutzers |
+| MailNickname |Zeichenfolge |Der Spitzname des Benutzers |
+| Surname |Zeichenfolge |Der Nachname des Benutzers |
+| TelephoneNumber |Zeichenfolge |Die Telefonnummer des Benutzers |
+| UserPrincipalName |Zeichenfolge |Der Benutzerprinzipalname |
+| AccountEnabled |Boolesch |Flag für aktiviertes Konto |
 
-### DirectReports
-Get direct reports: Get direct reports
+### <a name="directreports"></a>DirectReports
+Get direct reports (Direkt unterstellte Mitarbeiter abrufen): Ruft die direkt unterstellten Mitarbeiter ab.
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| Id |string |yes |User principal name or email id |
+| Id |Zeichenfolge |ja |Der Prinzipalname oder die E-Mail-ID des Benutzers |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Type | Description |
+| Eigenschaftsname | Typ | Beschreibung |
 | --- | --- | --- |
-| Department |string |Department of the user. |
-| DisplayName |string |Display name of user. |
-| GivenName |string |Given name of user. |
-| Id |string |User id |
-| JobTitle |string |Job Title of the user. |
-| Mail |string |Email id of user. |
-| MailNickname |string |Nickname of user. |
-| Surname |string |Surname of user. |
-| TelephoneNumber |string |Telephone number of user. |
-| UserPrincipalName |string |User Principal Name. |
-| AccountEnabled |boolean |Account enabled flag. |
+| Department |Zeichenfolge |Die Abteilung des Benutzers |
+| DisplayName |Zeichenfolge |Der Anzeigename des Benutzers |
+| GivenName |Zeichenfolge |Der Vorname des Benutzers |
+| Id |Zeichenfolge |Die Benutzer-ID |
+| JobTitle |Zeichenfolge |Die Position des Benutzers |
+| Mail |Zeichenfolge |Die E-Mail-ID des Benutzers |
+| MailNickname |Zeichenfolge |Der Spitzname des Benutzers |
+| Surname |Zeichenfolge |Der Nachname des Benutzers |
+| TelephoneNumber |Zeichenfolge |Die Telefonnummer des Benutzers |
+| UserPrincipalName |Zeichenfolge |Der Benutzerprinzipalname |
+| AccountEnabled |Boolesch |Flag für aktiviertes Konto |
 
-### SearchUser
-Search for users: Retrieves search results of user profiles
+### <a name="searchuser"></a>SearchUser
+Search for users (Benutzer suchen): Ruft die Suchergebnisse von Benutzerprofilen ab.
 
-#### Input properties
+#### <a name="input-properties"></a>Eingabeeigenschaften
 
-| Name | Data Type | Required | Description |
+| Name | Datentyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| searchTerm |string |no |Search string. Applies to: display name, given name, surname, mail, mail nickname, and user principal name |
+| searchTerm |Zeichenfolge |Nein |Suchzeichenfolge Gilt für: Anzeigename, Vorname, Nachname, E-Mail-ID, E-Mail Spitzname und Benutzerprinzipalname |
 
-#### Output properties
+#### <a name="output-properties"></a>Ausgabeeigenschaften
 
-| Property Name | Type | Description |
+| Eigenschaftsname | Typ | Beschreibung |
 | --- | --- | --- |
-| Department |string |Department of the user. |
-| DisplayName |string |Display name of user. |
-| GivenName |string |Given name of user. |
-| Id |string |User id |
-| JobTitle |string |Job Title of the user. |
-| Mail |string |Email id of user. |
-| MailNickname |string |Nickname of user. |
-| Surname |string |Surname of user. |
-| TelephoneNumber |string |Telephone number of user. |
-| UserPrincipalName |string |User Principal Name. |
-| AccountEnabled |boolean |Account enabled flag. |
+| Department |Zeichenfolge |Die Abteilung des Benutzers |
+| DisplayName |Zeichenfolge |Der Anzeigename des Benutzers |
+| GivenName |Zeichenfolge |Der Vorname des Benutzers |
+| Id |Zeichenfolge |Die Benutzer-ID |
+| JobTitle |Zeichenfolge |Die Position des Benutzers |
+| Mail |Zeichenfolge |Die E-Mail-ID des Benutzers |
+| MailNickname |Zeichenfolge |Der Spitzname des Benutzers |
+| Surname |Zeichenfolge |Der Nachname des Benutzers |
+| TelephoneNumber |Zeichenfolge |Die Telefonnummer des Benutzers |
+| UserPrincipalName |Zeichenfolge |Der Benutzerprinzipalname |
+| AccountEnabled |Boolesch |Flag für aktiviertes Konto |
 
-## Helpful links
-* See all the [available connections](../connections-list.md).
-* Learn how to [add connections](../add-manage-connections.md) to your apps.
+## <a name="helpful-links"></a>Nützliche Links
+* Alle [verfügbaren Verbindungen](../connections-list.md).
+* Erfahren Sie, wie Sie Ihren Apps [Verbindungen hinzufügen](../add-manage-connections.md).
 

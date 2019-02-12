@@ -1,6 +1,6 @@
 ---
-title: Left, Mid, and Right functions| Microsoft Docs
-description: Reference information, including syntax and examples, for the Left, Mid, and Right functions in PowerApps
+title: Funktionen „Left“, „Mid“ und „Right“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „Left“, „Mid“ und „Right“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,65 +9,70 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: dea20bf885afa8e687329aff4babff00b4f3263b
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42864954"
 ---
-# Left, Mid, and Right functions in PowerApps
-Extracts the left, middle, or right portion of a string of text.
+# <a name="left-mid-and-right-functions-in-powerapps"></a>Die Funktionen „Left“, „Mid“ und „Right“ in PowerApps
+Extrahiert die linken, mittleren oder rechten Teil einer Textzeichenfolge
 
-## Description
-The **Left**, **Mid**, and **Right** functions return a portion of a string.
+## <a name="description"></a>Beschreibung
+Die Funktionen **Left**, **Mid** und **Right** geben einen Teil einer Zeichenfolge zurück.
 
-* **Left** returns the beginning characters of a string.
-* **Mid** returns the middle characters of a string.
-* **Right** returns the ending characters of a string.
+* **Left** gibt die ersten Zeichen einer Zeichenfolge zurück.
+* **Mid** gibt die mittleren Zeichen einer Zeichenfolge zurück.
+* **Right** gibt die letzten Zeichen einer Zeichenfolge zurück.
 
-If you specify a single string as an argument, the function returns the portion that you requested of the string. If you specify a single-column [table](../working-with-tables.md) that contains strings, the function returns a single-column table of the portions that you requested of those strings. If you specify a multi-column table, you can shape it into a single-column table, as [working with tables](../working-with-tables.md) describes.
+Wenn Sie eine einzelne Zeichenfolge als Argument angeben, gibt die Funktion den Teil der Zeichenfolge zurück, den Sie angefordert haben. Wenn Sie eine einspaltige [Tabelle](../working-with-tables.md) mit einer Zeichenfolge angeben, gibt die Funktion eine einspaltige Tabelle aus den Teilen der Zeichenfolge zurück, die Sie angefordert haben. Mehrspaltige Tabellen können, wenn angegeben, in einspaltige Tabellen umgeformt werden, wie unter [Arbeiten mit Tabellen](../working-with-tables.md) beschrieben.
 
-If the starting position is negative or beyond the end of the string, **Mid** returns *blank*.  You can check the length of a string by using the **[Len](function-len.md)** function. If you request more characters than the string contains, the function returns as many characters as possible.
+Ist die Anfangsposition negativ oder hinter dem Ende des Strings, gibt die **Mid**-Funktion eine *leere* Zeichenfolge zurück.  Mithilfe der **[Len](function-len.md)**-Funktion kann die Länge einer Zeichenfolge überprüft werden. Wenn mehr Zeichen angefordert werden als die Zeichenfolge enthält, gibt die Funktion so viele Zeichen wie möglich zurück.
 
-## Syntax
-**Left**( *String*, *NumberOfCharacters* )<br>**Mid**( *String*, *StartingPosition*, *NumberOfCharacters* )<br>**Right**( *String*, *NumberOfCharacters* )
+## <a name="syntax"></a>Syntax
+**Left**( *Zeichenfolge*, *AnzahlDerZeichen* )<br>**Mid**( *Zeichenfolge*, *Anfangsposition*, *AnzahlDerZeichen* )<br>**Right**( *Zeichenfolge*, *AnzahlDerZeichen* )
 
-* *String* - Required. The string to from which to extract the result.
-* *StartingPosition* - Required (**Mid** only).  The starting position.  The first character of the string is position 1.
-* *NumberOfCharacters* - Required (**Left** and **Right** only).  The number of characters to return.  If omitted for the **Mid** function, the function returns the portion from the starting position until the end of the string.
+* *Zeichenfolge*: erforderlich. Die Zeichenfolge, aus der das Ergebnis extrahiert werden soll
+* *Anfangsposition*: erforderlich (nur bei **Mid**).  Die Anfangsposition.  Das erste Zeichen von der Zeichenfolge befindet sich an Position 1.
+* *AnzahlDerZeichen*: erforderlich.  Die Anzahl der zu zurückzugebenden Zeichen
 
-**Left**( *SingleColumnTable*, *NumberOfCharacters* )<br>**Mid**( *SingleColumnTable*, *StartingPosition*, *NumberOfCharacters* )<br>**Right**( *SingleColumnTable*, *NumberOfCharacters* )
+**Left**( *einspaltigeTabelle*, *AnzahlDerZeichen* )<br>**Mid**( *einspaltigeTabelle*, *Anfangsposition*, *AnzahlDerZeichen* )<br>**Right**( *einspaltigeTabelle*, *AnzahlDerZeichen* )
 
-* *SingleColumnTable* - Required. A single-column table of strings from which to extract the results.
-* *StartingPosition* - Required (**Mid** only).  The starting position.  The first character of the string is position 1.
-* *NumberOfCharacters* - Required (**Left** and **Right** only).  The number of characters to return.  If omitted for the **Mid** function, the function returns the portion from the starting position until the end of the string.
+* *EinspaltigeTabelle*: erforderlich. Eine einspaltige Tabelle aus Zeichenfolgen, aus denen die Ergebnisse extrahiert werden sollen
+* *Anfangsposition*: erforderlich (nur bei **Mid**).  Die Anfangsposition.  Das erste Zeichen von der Zeichenfolge befindet sich an Position 1.
+* *AnzahlDerZeichen*: erforderlich.  Die Anzahl der zu zurückzugebenden Zeichen
 
-## Examples
-### Single string
-The examples in this section use a text-input control as their [data source](../working-with-data-sources.md). The control is named **Author** and contains the string "E. E. Cummings".
+## <a name="examples"></a>Beispiele
+### <a name="single-string"></a>Einzelne Zeichenfolge
+In den Beispielen in diesem Abschnitt wird ein Texteingabe-Steuerelement als [Datenquelle](../working-with-data-sources.md) verwendet. Das Steuerelement hat den Namen **Autor** und enthält die Zeichenfolge „E. E. Cummings“.
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Left( Author.Text, 5 )** |Extracts up to five characters from the start of the string. |"E. E." |
-| **Mid( Author.Text, 7, 4 )** |Extracts up to four characters, starting with the seventh character, from the string. |"Cumm" |
-| **Mid( Author.Text, 7 )** |Extracts all characters, starting with the seventh character, from the string. |"Cummings" |
-| **Right( Author.Text, 5 )** |Extracts up to five characters from the end of the string. |"mings" |
+| **Left( Author.Text, 5 )** |Extrahiert bis zu fünf Zeichen vom Anfang der Zeichenfolge |„E. E.“ |
+| **Mid( Author.Text, 7, 4 )** |Extrahiert ab dem siebten Zeichen bis zu vier Zeichen aus der Zeichenfolge |„Cumm“ |
+| **Right( Author.Text, 5 )** |Extrahiert bis zu fünf Zeichen aus dem Ende der Zeichenfolge |„mings“ |
 
-### Single-column table
-Each example in this section extracts strings from the **Address** [column](../working-with-tables.md#columns) of this data source, named **People**, and returns a single-column table that contains the results:
+### <a name="single-column-table"></a>Einspaltige Tabelle
+In jedem Beispiel in diesem Abschnitt werden Zeichenfolgen aus der **Adress**[spalte](../working-with-tables.md#columns) dieser Datenquelle namens **People** (Personen) extrahiert, und es wird eine einspaltige Tabelle mit den Ergebnissen zurückgegeben:
 
 ![](media/function-left-mid-right/people-table.png)
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Left( ShowColumns(&nbsp;People,&nbsp;"Address"&nbsp;), 8 )** |Extracts the first eight characters of each string. |<style> img { max-width: none } </style> ![](media/function-left-mid-right/people-table-left.png) |
-| **Mid( ShowColumns(&nbsp;People,&nbsp;"Address"&nbsp;), 5, 7 )** |Extracts the middle seven characters of each string, starting with the fifth character. |![](media/function-left-mid-right/people-table-mid.png) |
-| **Right( ShowColumns(&nbsp;People,&nbsp;"Address"&nbsp;), 7 )** |Extracts the last seven characters of each string. |![](media/function-left-mid-right/people-table-right.png) |
+| **Left( ShowColumns(&nbsp;People,&nbsp;"Address"&nbsp;), 8 )** |Extrahiert die ersten acht Zeichen einer Zeichenfolge |<style> img { max-width: none } </style> ![](media/function-left-mid-right/people-table-left.png) |
+| **Mid( ShowColumns(&nbsp;People,&nbsp;"Address"&nbsp;), 5, 7 )** |Extrahiert ab dem fünften Zeichen die mittleren sieben Zeichen einer Zeichenfolge |![](media/function-left-mid-right/people-table-mid.png) |
+| **Right( ShowColumns(&nbsp;People,&nbsp;"Address"&nbsp;), 7 )** |Extrahiert die letzten sieben Zeichen einer Zeichenfolge |![](media/function-left-mid-right/people-table-right.png) |
 
-### Step-by-step example
-1. Import or create a [collection](../working-with-data-sources.md#collections) named **Inventory**, and show it in a gallery, as the first procedure in [Show images and text in a gallery](../show-images-text-gallery-sort-filter.md) describes.
-2. Set the **[Text](../controls/properties-core.md)** property of the lower label in the gallery to this function:
+### <a name="step-by-step-example"></a>Schritt-für-Schritt-Beispiel
+1. Importieren oder erstellen Sie eine [Sammlung](../working-with-data-sources.md#collections) namens **Inventory** (Inventar), und zeigen Sie sie in einem Katalog an. Dies wird im ersten Verfahren unter [Anzeigen von Bildern und Text in einem Katalog](../show-images-text-gallery-sort-filter.md) beschrieben.
+2. Legen Sie die **[Text](../controls/properties-core.md)**-Eigenschaft der unteren Beschriftung im Katalog auf diese Funktion fest:
    
     **Right(ThisItem.ProductName, 3)**
    
-    The label shows the last three characters of each product name.
+    Die Bezeichnung zeigt die letzten drei Zeichen eines jeden Produktnamens an.
 

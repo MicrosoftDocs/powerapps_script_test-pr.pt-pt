@@ -1,6 +1,6 @@
 ---
-title: Set function | Microsoft Docs
-description: Reference information, including syntax and examples, for the Set function in PowerApps
+title: Funktion „Set“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Set-Funktion in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,54 +9,60 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 06/29/2017
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 96b8b8276b385a49bd29be150b9a41ba08ba67ba
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42862816"
 ---
-# Set function in PowerApps
-Sets the value of a global variable.
+# <a name="set-function-in-powerapps"></a>Set-Funktion in PowerApps
+Legt den Wert einer globalen Variablen fest.
 
-## Overview
-Use the **Set** function to set the value of a global variable, which temporarily holds a piece of information, such as the number of times the user has selected a button or the result of a data operation.  
+## <a name="overview"></a>Übersicht
+Verwenden Sie die **Set**-Funktion zum Festlegen des Werts einer globalen Variablen, die vorübergehend eine Information enthält, z.B. wie oft ein Benutzer auf eine Schaltfläche geklickt hat oder das Ergebnis eines Datenvorgangs.  
 
-Global variables are available throughout your app on all screens. These are the simplest kind of variables and fill the needs of most situations. There are also context variables which are scoped to a single screen and collections that allow row level modifications to tables. For more information about these other options, review [Understand variables](../working-with-variables.md).
+Globale Variablen sind in Ihrer App auf allen Bildschirmen verfügbar.  Sie stellen den einfachsten Typ von Variablen dar und erfüllen die Anforderungen in den meisten Situationen.  Es gibt auch Kontextvariablen, deren Gültigkeitsbereich auf einen einzigen Bildschirm beschränkt ist, sowie Sammlungen, die Änderungen von Tabellen auf Zeilenebene ermöglichen.  Weitere Informationen zu diesen anderen Optionen finden Sie unter [Grundlegendes zu Variablen in PowerApps](../working-with-variables.md).
 
-PowerApps are based on formulas that automatically recalculate as the user interacts with an app. Any formulas that depend on a variable will automatically update when it changes. However, the variable won't be automatically updated if the value of the formula used in the **Set** function changes. This requires the app maker to manually update the variable, which can be error prone and harder for others to understand. Before you use a variable, review [Understand variables](../working-with-variables.md).
+PowerApps basiert auf Formeln, die automatisch neu berechnet werden, während der Benutzer mit einer App interagiert.  Globale Variablen bieten diesen Vorteil nicht und können das Erstellen und Verstehen Ihrer App erschweren.  Konsultieren Sie vor der Verwendung einer Variablen den Artikel [Grundlegendes zu Variablen in PowerApps](../working-with-variables.md).
 
-## Description
-Global variables are implicitly created by using the **Set** function. No explicit declaration is required. If you remove all the **Set** functions for a global variable, that global variable will cease to exist. To clear a variable, set its value to the result of the [**Blank** function](function-isblank-isempty.md).
+## <a name="description"></a>Beschreibung
+Globale Variablen werden mithilfe der **Set**-Funktion implizit erstellt.  Eine explizite Deklaration ist nicht erforderlich.  Wenn Sie alle **Set**-Funktionen für eine globale Variable entfernen, hört die globale Variable auf zu existieren.  Legen Sie zum Leeren einer Variablen ihren Wert auf das Ergebnis der [**Blank**-Funktion](function-isblank-isempty.md) fest.
 
-You can see your variables' values, definitions, and uses with the Variables view under the **File** menu in PowerApps Studio.
+Sie können die Werte, Definitionen und Verwendungen Ihrer Variablen in der Ansicht „Variablen“ unter dem Menü „Datei“ in der Erstellungsumgebung anzeigen.
 
-As the examples later in this topic show, global variables can hold several kinds of information, including these:
+Wie in den Beispielen weiter unten in diesem Thema gezeigt, können globale Variablen verschiedene Arten von Informationen enthalten, u.a. folgende:
 
-* a single value
-* a record
-* a table
-* an object reference
-* any result from a formula
+* einen einzelnen Wert
+* einen Datensatz
+* eine Tabelle
+* einen Objektverweis
+* jedes Ergebnis einer Formel
 
-A global variable holds its value until the app is closed.  Once closed, the global variable's value will be lost and must be recreated when the app is loaded again.
+Eine globale Variable verfügt über ihren Wert, bis die App geschlossen wird.  Sobald die App geschlossen wird, geht der Wert der globalen Variablen verloren; er muss neu erstellt werden, wenn die App wieder geladen wird.
 
-Global variables cannot use the same name as an existing collection or control.  It can use the same name as a context variable.  To disambiguate between the two, use the [disambiguation operator](operators.md#disambiguation-operator).
+Globale Variablen können nicht denselben Namen wie eine vorhandene Sammlung oder ein vorhandenes Steuerelement aufweisen.  Sie kann jedoch denselben Namen wie eine Kontextvariable besitzen.  Verwenden Sie den [Operator zur Mehrdeutigkeitsvermeidung](operators.md#disambiguation-operator), um zu zwischen beiden zu unterscheiden.
 
-**Set** has no return value, and you can use it only within a [behavior formula](../working-with-formulas-in-depth.md).
+**Set** weist keinen Rückgabewert auf; Sie können die Funktion nur innerhalb einer [Verhaltensformel](../working-with-formulas-in-depth.md) verwenden.
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **Set**( *VariableName*, *Value* )
 
-* *VariableName* - Required.  The name of a global variable to create or update.
-* *Value* - Required.  The value to assign to the context variable.
+* *VariableName*: Erforderlich.  Der Name der zu erstellenden oder zu aktualisierenden globalen Variablen.
+* *Value*: Erforderlich.  Der der Kontextvariablen zuzuweisende Wert
 
-## Examples
+## <a name="examples"></a>Beispiele
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Set(&nbsp;Counter,&nbsp;1&nbsp;)** |Creates or modifies the global variable **Counter**, setting its value to **1**. |**Counter** has the value **1**. You can reference that variable by using the name **Counter** in a formula on any screen. |
-| **Set(&nbsp;Counter,&nbsp;2&nbsp;)** |Sets the value of the **Counter** global variable from the previous example to **2**. |**Counter** has the value **2**. |
-| **Set(&nbsp;Counter,&nbsp;Counter + 1&nbsp;)** |Increments the value of the **Counter** global variable from the previous example to **3**. |**Counter** has the value **3**. |
-| **Set(&nbsp;Name,&nbsp;"Lily" )** |Creates or modifies the global variable **Name** setting its value to **Lily**. |**Name** has the value **Lily**. |
-| **Set(&nbsp;Person,&nbsp;{&nbsp;Name:&nbsp;"Milton", Address:&nbsp;"1&nbsp;Main&nbsp;St"&nbsp;} )** |Creates or modifies the global variable **Person**, setting its value to a record. The record contains two columns, named **Name** and **Address**. The value of the **Name** column is **Milton**, and the value of the **Address** column is **1 Main St**. |**Person** has the value of record **{&nbsp;Name:&nbsp;"Milton", Address:&nbsp;"1&nbsp;Main&nbsp;St"&nbsp;}**.<br><br>Reference this record as a whole with the name **Person**, or reference an individual column of this record with **Person.Name** or **Person.Address**. |
-| **Set(&nbsp;Person, Patch(&nbsp;Person,&nbsp;{Address:&nbsp;"2&nbsp;Main&nbsp;St"&nbsp;}&nbsp;)&nbsp;)** |Works with the **[Patch](function-patch.md)** function to update the **Person** global variable by setting the value of the **Address** column to **2 Main St**. |**Person** now has the value of record **{&nbsp;Name:&nbsp;"Milton", Address:&nbsp;"2&nbsp;Main&nbsp;St"&nbsp;}**. |
+| **Set(&nbsp;Counter,&nbsp;1&nbsp;)** |Erstellt oder ändert die globale Variable **Counter** und legt deren Wert auf **1** fest. |**Counter** hat den Wert **1**. Mit dem Namen **Counter** können Sie in einer Formel in einem beliebigen Bildschirm auf diese Variable verweisen. |
+| **Set(&nbsp;Counter,&nbsp;2&nbsp;)** |Legt den Wert für die globale Variable **Counter** aus dem vorherigen Beispiel auf **2** fest. |**Counter** hat den Wert **2**. |
+| **Set(&nbsp;Counter,&nbsp;Counter + 1&nbsp;)** |Erhöht den Wert für die globale Variable **Counter** aus dem vorherigen Beispiel auf **3**. |**Counter** hat den Wert **3**. |
+| **Set(&nbsp;Name,&nbsp;"Lily" )** |Erstellt oder ändert die globale Variable **Name** und legt deren Wert auf **Lily** fest. |**Name** weist den Wert **Lily** auf. |
+| **Set(&nbsp;Person,&nbsp;{&nbsp;Name:&nbsp;"Milton", Address:&nbsp;"1&nbsp;Main&nbsp;St"&nbsp;} )** |Erstellt oder ändert die globale Variable **Person** und legt deren Wert auf einen Datensatz fest. Der Datensatz enthält zwei Spalten mit den Namen **Name** und **Address**. Der Wert der **Name**-Spalte ist **Milton**, und der Wert der **Address**-Spalte ist **1 Main St**. |**Person** hat den Wert des Datensatzes **{&nbsp;Name:&nbsp;"Milton", Address:&nbsp;"1&nbsp;Main&nbsp;St"&nbsp;}**.<br><br>Verweisen Sie mit dem Namen **Person** auf den kompletten Datensatz, oder verweisen Sie auf eine einzelne Spalte dieses Datensatzes mit **Person.Name** oder **Person.Address**. |
+| **Set(&nbsp;Person, Patch(&nbsp;Person,&nbsp;{Address:&nbsp;"2&nbsp;Main&nbsp;St"&nbsp;}&nbsp;)&nbsp;)** |Arbeitet mit der **[Patch](function-patch.md)**-Funktion zusammen, um die globale Variable **Person** durch Festlegen des Werts der Spalte **Address** auf **2 Main St** zu aktualisieren. |**Person** hat nun den Wert des Datensatzes **{&nbsp;Name:&nbsp;"Milton", Address:&nbsp;"2&nbsp;Main&nbsp;St"&nbsp;}**. |
 

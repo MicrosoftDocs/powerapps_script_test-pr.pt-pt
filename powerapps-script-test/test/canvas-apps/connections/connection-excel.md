@@ -1,6 +1,6 @@
 ---
-title: Overview of the Excel connection | Microsoft Docs
-description: Display and update data in Excel by storing the workbook in a cloud-storage account and then connecting to the data from your app.
+title: Übersicht über die Excel-Verbindung | Microsoft-Dokumentation
+description: Zeigen Sie Daten in Excel an, und aktualisieren Sie Daten in Excel, indem Sie die Arbeitsmappe in einem Cloudspeicherkonto speichern und anschließend aus Ihrer App eine Verbindung mit den Daten herstellen.
 author: lancedMicrosoft
 manager: kvivek
 ms.service: powerapps
@@ -9,28 +9,34 @@ ms.custom: canvas
 ms.date: 10/02/2016
 ms.author: lanced
 ms.reviewer: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: d70756e275ff129265661211f4dc6d95e6cefa96
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42830104"
 ---
-# Connect to Excel from PowerApps
+# <a name="connect-to-excel-from-powerapps"></a>Herstellen einer Verbindung mit Excel aus PowerApps
 ![Excel](./media/connection-excel/excelicon.png)
 
-Excel is *kind of* a connection. To display Excel data in your app:
+Excel stellt eine *Art von Verbindung* dar. So zeigen Sie Excel-Daten in Ihrer App an
 
-1. [Format the Excel data as a table](https://support.office.com/article/Create-an-Excel-table-in-a-worksheet-E81AA349-B006-4F8A-9806-5AF9DF0AC664).
-2. Store the Excel file in a cloud-storage account, such as Box, Dropbox, Google Drive, OneDrive, and OneDrive for Business.
-3. [Connect to the cloud-storage account](../add-manage-connections.md), and then add the Excel table as a data source.
-4. Display this information in your app by [generating an app automatically](../get-started-create-from-data.md) or by adding and configuring, for example, a **Gallery** control.
+1. [Formatieren Sie die Excel-Daten als Tabelle](https://support.office.com/article/Create-an-Excel-table-in-a-worksheet-E81AA349-B006-4F8A-9806-5AF9DF0AC664).
+2. Speichern Sie die Excel-Datei in einem Cloudspeicherkonto, z.B. Box, Dropbox, Google Drive, OneDrive und OneDrive for Business.
+3. [Stellen Sie eine Verbindung mit dem Cloudspeicherkonto her](../add-manage-connections.md), und fügen Sie anschließend die Excel-Tabelle als Datenquelle hinzu.
+4. Zeigen Sie diese Informationen in der App an, indem Sie [automatisch eine App generieren](../get-started-create-from-data.md) oder indem Sie beispielsweise ein **Katalog**-Steuerelement hinzufügen und konfigurieren.
 
 > [!NOTE]
-> When you connect to your Excel table from PowerApps, it will create a column called **\_PowerAppsId_**, with a unique ID for each row of your Excel table.
+> Wenn Sie in PowerApps eine Verbindung mit Ihrer Excel-Tabelle hergestellt haben, wird für jede Zeile der Excel-Tabelle eine Spalte mit dem Namen **\_PowerAppsId_** mit einer eindeutigen ID erstellt.
 
-[Overview of the cloud-storage connection](cloud-storage-blob-connections.md) shows you how to add the connection, add an Excel table as a data source, and use the Excel data in your app.
+In [Übersicht über die Cloudspeicherverbindung](cloud-storage-blob-connections.md) wird veranschaulicht, wie Sie die Verbindung hinzufügen, eine Excel-Tabelle als Datenquelle hinzufügen und die Excel-Daten in der App verwenden.
 
-For information about how to connect to other types of data, see the [list of connections for PowerApps](../connections-list.md).
+Weitere Informationen zum Herstellen von Verbindungen mit anderen Datentypen finden Sie in der [Liste der Verbindungen für PowerApps](../connections-list.md).
 
-### Known limitations
-For information about how to share Excel data within your organization, [review these limitations](cloud-storage-blob-connections.md#sharing-excel-tables).
+### <a name="known-limitations"></a>Bekannte Einschränkungen
+Weitere Informationen zum Freigeben von Excel-Daten in Ihrer Organisation erhalten Sie in diesen [Ausführungen zu Einschränkungen](cloud-storage-blob-connections.md#sharing-excel-tables).
 

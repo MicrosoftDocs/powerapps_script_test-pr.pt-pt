@@ -1,6 +1,6 @@
 ---
-title: 'Audio and Video controls: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Audio and Video controls
+title: 'Audio- und Video-Steuerelemente: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, über Audio- und Video-Steuerelemente
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,134 +9,140 @@ ms.custom: canvas
 ms.date: 10/25/2016
 ms.author: fikaradz
 ms.reviewer: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 7ac87e794341fe79a6e4f949893b64462c384f83
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42843795"
 ---
-# Audio and Video controls in PowerApps
-A control that plays an audio file, a video file, or a video on YouTube.
+# <a name="audio-and-video-controls-in-powerapps"></a>Audio- und Video-Steuerelemente in PowerApps
+Ein Steuerelement, das eine Audiodatei, eine Videodatei oder Videos auf YouTube abspielt.
 
-## Description
-An **Audio** control plays a sound clip from a file, a recording from a **[Microphone](control-microphone.md)** control, or the audio track from a video file.
+## <a name="description"></a>Beschreibung
+In einem **Audio**-Steuerelement kann ein Audioclip aus einer Datei, eine Aufzeichnung aus einem **[Mikrofon](control-microphone.md)**-Steuerelement oder die Audiospur aus einer Videodatei abgespielt werden.
 
-A **Video** control plays a video clip from a file or from YouTube or Azure Media Services.  Closed captions can optionally be shown when specified.
+Ein **Video**-Steuerelement spielt ein Video aus einer Datei, von YouTube oder Azure Media Services ab.  Auf Wunsch können auch Untertitel angezeigt werden.
 
-## Key properties
-**Loop** – Whether an audio or video clip automatically starts over as soon as it finishes playing.
+## <a name="key-properties"></a>Haupteigenschaften
+**Loop** – Gibt an, ob ein Audio- oder Videoclip am Ende der Wiedergabe automatisch neu gestartet wird.
 
-**Media** – An identifier for the clip that an audio or video control plays.
+**Media**: Ein Bezeichner für den Clip, der von einem Audio- oder Video-Steuerelement wiedergegeben wird.
 
-**ShowControls** – Whether an audio or video player shows, for example, a play button and a volume slider, and a pen control shows, for example, icons for drawing, erasing, and clearing.
+**ShowControls** – Gibt an, ob ein Audio- oder Videoplayer, z.B. eine Schaltfläche für Wiedergabe und ein Lautstärkeregler, und ein Stift-Steuerelement angezeigt wird, z.B. Symbole zum Zeichnen oder Löschen.
 
-## Additional properties
-**[AccessibleLabel](properties-accessibility.md)** – Label for screen readers. Should be the title of the video or audio clip.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[AccessibleLabel](properties-accessibility.md)**: Bezeichnung für Sprachausgaben Sollte dem Titel des Videos oder der Audiodatei entsprechen.
 
-**AutoPause** – Whether an audio or video clip automatically pauses if the user navigates to a different screen.
+**AutoPause**: Gibt an, ob ein Audio- oder Videoclip automatisch angehalten wird, wenn der Benutzer zu einem anderen Bildschirm navigiert.
 
-**AutoStart** – Whether an audio or video control automatically starts to play a clip when the user navigates to the screen that contains that control.
+**AutoStart** – Gibt an, ob ein Steuerelement Audio oder Video automatisch einen Clip wiedergibt, wenn der Benutzer zu dem Bildschirm navigiert, der das Steuerelement enthält.
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**ClosedCaptionsUrl** – Video control only.  URL of closed captions file in WebVTT format.  Both video and captions URLs must be HTTPS. Server hosting both video and captions file needs to be CORS enabled.
+**ClosedCaptionsUrl** – Steuerelement nur für Videos.  URL der Datei mit den Untertiteln für Hörgeschädigte im WebVTT-Format.  Video- und Untertitel-URL müssen HTTPS-URLs sein. Auf dem Server, auf dem die Video- und Untertiteldateien gehostet werden, muss CORS aktiviert sein.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[FocusedBorderColor](properties-color-border.md)** – The color of a control's border when the control is focused.
+**[FocusedBorderColor](properties-color-border.md)**: die Rahmenfarbe eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[FocusedBorderThickness](properties-color-border.md)** – The thickness of a control's border when the control is focused.
+**[FocusedBorderThickness](properties-color-border.md)**: die Rahmendicke eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[Image](properties-visual.md)** – The name of the image that appears in an image, audio, or microphone control.
+**[Image](properties-visual.md)** – Der Name des Bilds, das in einem Bild-, Audio- oder Mikrofon-Steuerelement angezeigt wird.
 
-**[ImagePosition](properties-visual.md)** – The position (**Fill**, **Fit**, **Stretch**, **Tile**, or **Center**) of an image in a screen or a control if it isn't the same size as the image.
+**[ImagePosition](properties-visual.md)** – Die Position (**Fill**, **Fit**, **Stretch**, **Tile** oder **Center**) eines Bilds auf einem Bildschirm oder in einem Steuerelement, wenn die Größe nicht mit der Bildgröße identisch ist.
 
-**OnEnd** – How an app responds when an audio or video clip finishes playing.
+**OnEnd** – Gibt an, wie eine App reagiert, wenn die Wiedergabe eines Audio- oder Videoclips beendet ist.
 
-**OnPause** – How an app responds when the user pauses the clip that an audio or video control is playing.
+**OnPause** – Gibt an, wie eine App reagiert, wenn der Benutzer den Clip anhält, der von einem Audio- oder Video-Steuerelement wiedergegeben wird.
 
-**OnStart** – How the app responds when the user starts to record with a microphone control.
+**OnStart** – Gibt an, wie die App reagiert, wenn der Benutzer die Aufnahme per Mikrofon-Steuerelement startet.
 
-**Paused** – *True* if a media playback control is currently paused, *false* otherwise.
+**Paused** – Ist *true*, wenn ein Steuerelement zum Wiedergeben von Medien angehalten wurde, andernfalls *false*.
 
-**[Reset](properties-core.md)** – Whether a control reverts to its default value.
+**[Reset](properties-core.md)** – Legt fest, ob ein Steuerelement auf seinen Standardwert zurückgesetzt wird.
 
-**Start** – Whether an audio or video clip plays.
+**Start** – Gibt an, ob ein Audio- oder Videoclip wiedergegeben wird.
 
-**StartTime** – The time after the start of an audio or video clip when the clip starts to play.
+**StartTime** – Der Zeitpunkt nach dem Start eines Audio- oder Videoclips, zu dem die Wiedergabe des Clips beginnt.
 
-**Time** – A media control's current position.
+**Time** – Die aktuelle Position eines Mediensteuerelements.
 
-**[TabIndex](properties-accessibility.md)** – Keyboard navigation order in relation to other controls.
+**[TabIndex](properties-accessibility.md)**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[Tooltip](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## Related functions
+## <a name="related-functions"></a>Verwandte Funktionen
 [**First**( *TableName* )](../functions/function-first-last.md)
 
-## Examples
-### Play an audio or video file
-1. On the **File** menu, click or tap **Media**, click or tap **Videos** or **Audio**, and then click or tap **Browse**.
-2. Browse to the file you want to use, click or tap it, and then click or tap **Open**.
-3. Press Esc to return to the default workspace, add an **Audio** or **Video** control, and set its **Media** property to the file that you added.
+## <a name="examples"></a>Beispiele
+### <a name="play-an-audio-or-video-file"></a>Wiedergeben einer Audio- oder Videodatei
+1. Klicken oder tippen Sie im Menü **Datei** auf **Medien**, klicken oder tippen Sie auf **Videos** oder **Audio**, und klicken oder tippen Sie dann auf **Durchsuchen**.
+2. Navigieren Sie zu der Datei, die Sie verwenden möchten, klicken oder tippen Sie darauf und dann auf **Öffnen**.
+3. Drücken Sie ESC, um zum Standardarbeitsbereich zurückzukehren, fügen Sie ein **Audio**- oder **Video**-Steuerelement hinzu, und legen Sie die **Media**-Eigenschaft auf die hinzugefügte Datei fest.
 
-    Don't know how to [add and configure a control](../add-configure-controls.md)?
-4. Press F5, and then play the clip by clicking or tapping the play button of the control that you added.
+    Möchten Sie wissen, wie Sie ein [Steuerelement hinzufügen und konfigurieren](../add-configure-controls.md)?
+4. Drücken Sie F5, und spielen Sie den Clip durch Klicken oder Tippen auf die Wiedergabeschaltfläche des Steuerelements ab, das Sie hinzugefügt haben.
 
     > [!TIP]
-   > The play button of the **Video** control appears when you hover over the control.
-5. Press Esc to return to the default workspace.
+   > Die Wiedergabeschaltfläche für das **Video**-Steuerelement wird angezeigt, wenn Sie auf das Steuerelement zeigen.
+5. Drücken Sie die ESC-Taste, um zum Standardarbeitsbereich zurückzukehren.
 
-### Play a YouTube video
-1. Add a **Video** control, and set its **Media** property to the URL of the YouTube video, enclosed in double quotation marks.
-2. Press F5, and then play the clip by clicking or tapping the play button of the **Video** control.
-3. Press Esc to return to the default workspace.
+### <a name="play-a-youtube-video"></a>Abspielen eines YouTube-Videos
+1. Fügen Sie ein **Video**-Steuerelement hinzu, und legen Sie die **Media**-Eigenschaft auf die URL (in doppelten Anführungszeichen) eines YouTube-Videos fest.
+2. Drücken Sie F5, und spielen Sie den Clip durch Klicken oder Tippen auf die Wiedergabeschaltfläche des **Video**-Steuerelements ab.
+3. Drücken Sie die ESC-Taste, um zum Standardarbeitsbereich zurückzukehren.
 
-### Play a video from Azure Media Services
-1. After the videos are published on AMS, copy the manifest URL. Start the streaming endpoint of your service, if not already.
-1. Add a **Video** control, and set its **Media** property to the URL of the AMS video, enclosed in double quotation marks.
-2. Press F5, and then play the clip by clicking or tapping the play button of the **Video** control.
-3. Press Esc to return to the default workspace.
+### <a name="play-a-video-from-azure-media-services"></a>Abspielen eines Videos aus Azure Media Services
+1. Nachdem die Videos auf AMS veröffentlicht wurden, kopieren Sie die URL der Manifestdatei. Starten Sie den Streamingendpunkt Ihres Diensts, falls noch nicht geschehen.
+1. Fügen Sie ein **Video**-Steuerelement hinzu, und legen Sie die **Media**-Eigenschaft auf die URL (in doppelten Anführungszeichen) eines AMS-Videos fest.
+2. Drücken Sie F5, und spielen Sie den Clip durch Klicken oder Tippen auf die Wiedergabeschaltfläche des **Video**-Steuerelements ab.
+3. Drücken Sie die ESC-Taste, um zum Standardarbeitsbereich zurückzukehren.
 
 
-## Accessibility guidelines
-### Audio and video alternatives
-* **ShowControls** must be true so that users can listen or watch multimedia at their own pace. This also allows users to toggle closed captions and full-screen mode on video players.
-* Closed captions must be provided for videos.
-  *  For YouTube videos, use authoring tools provided by YouTube to add captions.
-  *  For other videos, create captions in WebVTT format, upload them, and set **ClosedCaptionsUrl** to the url location. There are several limitations. Server(s) hosting video and captions needs to be CORS-enabled and serve them using HTTPS protocol. Captioning does not work on Internet Explorer.
-* Consider providing an audio or video transcript using one of these methods:
-  1. Put the text in a **[Label](control-text-box.md)** and position it adjacent to the multimedia player. Optionally, create a **[Button](control-button.md)** to toggle the display of the text.
-  2. Put the text in a different screen. Create a **[Button](control-button.md)** that navigates to the screen and position the button adjacent to the multimedia player.
-  3. If the description is short, it can be put it in the **[AccessibleLabel](properties-accessibility.md)**.
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="audio-and-video-alternatives"></a>Alternativen zu Audio- und Videodateien
+* **ShowControls** muss auf TRUE festgelegt sein, sodass Benutzer Multimediadateien in ihrem eigenen Tempo hören oder ansehen können. Damit können Benutzer auch Untertitel und den Vollbildmodus in Videoplayern aktivieren bzw. deaktivieren.
+* Untertitel müssen für alle Videos bereitgestellt werden.
+  *  Für YouTube-Videos können Sie dazu von YouTube bereitgestellte Tools verwenden.
+  *  Für andere Videos können Sie Untertitel im WebVTT Format erstellen und hochladen und **ClosedCaptionsUrl** auf den URL-Speicherort festlegen. Es gibt jedoch einige Einschränkungen. Die Server, die die Videos und Untertitel hosten, müssen CORS-fähig sein und diese über das HTTPS-Protokoll übertragen. Untertitel funktionieren außerdem nicht in Internet Explorer.
+* Sie können auch ein Audio- oder Videotranskript mithilfe einer der folgenden Methoden bereitstellen:
+  1. Platzieren Sie den Text in einer **[Bezeichnung](control-text-box.md)**, und positionieren Sie ihn neben dem Multimedia-Player. Erstellen Sie optional eine **[Schaltfläche](control-button.md)**, um die Textanzeige umzuschalten.
+  2. Platzieren Sie den Text in einem anderen Bildschirm. Erstellen Sie eine **[Schaltfläche](control-button.md)**, die auf diesen Bildschirm weiterleitet, und positionieren Sie die Schaltfläche neben dem Multimedia-Player.
+  3. Wenn die Beschreibung kurz ist, kann sie in **[AccessibleLabel](properties-accessibility.md)** eingegeben werden.
 
-### Color contrast
-There must be adequate color contrast between:
-* **[FocusedBorderColor](properties-color-border.md)** and the outside color
-* **[Image](properties-visual.md)** and the multimedia player controls (if applicable)
-* **[Fill](properties-color-border.md)** and the multimedia player controls (if the fill is visible)
+### <a name="color-contrast"></a>Farbkontrast
+Zwischen folgenden Eigenschaften muss es einen ausreichenden Farbkontrast geben:
+* **[FocusedBorderColor](properties-color-border.md)** und die äußere Farbe
+* **[Bild](properties-visual.md)** und dem Multimedia-Player-Steuerelement (falls zutreffend)
+* **[Fill](properties-color-border.md)** (Füllfarbe) und dem Multimedia-Player-Steuerelement (falls zutreffend)
 
-Provide closed captions and/or transcript if the video content has color contrast issues.
+Stellen Sie Untertitel und/oder Transkripte bereit, wenn der Videoinhalt Probleme mit dem Farbkontrast aufweist.
 
-### Screen reader support
-* **[AccessibleLabel](properties-accessibility.md)** must be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **[AccessibleLabel](properties-accessibility.md)** muss vorhanden sein.
 
-### Keyboard support
-* **[TabIndex](properties-accessibility.md)** must be zero or greater so that keyboard users can navigate to it.
-* Focus indicators must be clearly visible. Use **[FocusedBorderColor](properties-color-border.md)** and **[FocusedBorderThickness](properties-color-border.md)** to achieve this.
-* **AutoStart** should be false because it can be difficult for keyboard users to stop playback quickly.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* **[TabIndex](properties-accessibility.md)** muss gleich 0 (null) oder größer sein, damit Tastaturbenutzer dorthin navigieren können.
+* Fokusindikatoren müssen deutlich sichtbar sein. Mithilfe von **[FocusedBorderColor](properties-color-border.md)** und **[FocusedBorderThickness](properties-color-border.md)** können Sie dies archivieren.
+* **AutoStart** sollte FALSE sein, da es für Tastaturbenutzer schwierig sein kann, die Wiedergabe schnell zu beenden.

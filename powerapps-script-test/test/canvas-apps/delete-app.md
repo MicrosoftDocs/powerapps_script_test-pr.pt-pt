@@ -1,50 +1,56 @@
 ---
-title: Delete a canvas app | Microsoft Docs
-description: How to delete an existing canvas app in PowerApps
-author: linhtranms
+title: Löschen einer Canvas-App | Microsoft-Dokumentation
+description: Löschen einer vorhandenen Canvas-App in PowerApps
+author: jamesol-msft
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/16/2016
-ms.author: litran
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: jamesol
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 5fd2551ff0fac40acf54c77d6750ab983ee5819e
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42834754"
 ---
-# Delete a canvas app from PowerApps
-This article shows you how to delete a canvas app from your PowerApps account and from the accounts of anybody with whom the app was shared.
+# <a name="delete-a-canvas-app-from-powerapps"></a>Löschen einer Canvas-App aus PowerApps
+In diesem Artikel wird gezeigt, wie Sie eine Canvas-App aus Ihrem PowerApps-Konto und aus Konten von anderen Benutzern löschen, für die die App freigegeben wurde.
 
-## Delete an app from your account
-1. Open [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), and then click or tap **Apps** in the left navigation bar.
+## <a name="delete-an-app-from-your-account"></a>Löschen einer App aus Ihrem Konto
+1. Öffnen Sie [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), und klicken oder tippen Sie in der linken Navigationsleiste auf **Apps**.
    
     ![](./media/delete-app/file-apps.png)
-2. (optional) Near the upper-left corner, filter the list of apps to show only those apps that you own or only those apps to which you contribute.
+2. (optional) Filtern Sie in der oberen linken Ecke die Liste der Apps, um nur die Apps anzuzeigen, die Sie besitzen oder zu denen Sie beitragen.
    
     ![](./media/delete-app/filter-list.png)
    
     > [!NOTE]
-   > If the app that you want to delete doesn't appear, make sure that you're in the right environment.
-3. Near the right edge, click or tap the info icon for the app that you want to delete.
+   > Wenn die App, die Sie löschen möchten, nicht angezeigt wird, sollten Sie sicherstellen, dass Sie sich in der richtigen Umgebung befinden.
+3. Klicken oder tippen Sie am rechten Rand auf das Info-Symbol der App, die Sie löschen möchten.
    
     ![](./media/delete-app/app-options.png)
-4. Near the upper-right corner, click or tap the trash-can icon to delete the app.
+4. Klicken oder tippen Sie in der oberen rechten Ecke auf das Papierkorb-Symbol, um die App zu löschen.
    
     ![](./media/delete-app/delete-icon.png)
    
     > [!NOTE]
-   > You must have the **Contributor** permission for an app before you can delete it.
-5. In the dialog box that appears, click or tap **Delete from cloud**.  
+   > Sie benötigen die Berechtigung **Mitwirkender**, um eine App löschen zu können.
+5. Klicken oder tippen Sie im erscheinenden Dialogfeld auf **Aus der Cloud löschen**.  
    
     > [!IMPORTANT]
-   > This action will permanently delete this app not only from your account but also from the accounts of all users with whom this app was shared.
+   > Durch diese Aktion wird diese App nicht nur dauerhaft aus Ihrem Konto gelöscht, sondern auch aus den Konten aller Benutzer, mit denen diese App geteilt wurde.
    
     ![](./media/delete-app/delete-button.png)
 
-## More resources
-[Share an app](share-app.md)  
-[Change app name and tile](set-name-tile.md)  
-[Restore an app to a previous version](restore-an-app.md)  
+## <a name="more-resources"></a>Weitere Ressourcen
+[Eine App freigeben](share-app.md)  
+[App-Name und -Kachel ändern](set-name-tile.md)  
+[Wiederherstellen der vorherigen Version einer App](restore-an-app.md)  
 

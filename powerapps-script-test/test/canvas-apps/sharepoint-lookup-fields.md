@@ -1,135 +1,141 @@
 ---
-title: Create a relationship between SharePoint lists via a lookup field in a canvas app | Microsoft Docs
-description: In PowerApps, create a relationship between SharePoint lists by using a lookup field in a canvas app.
-author: gregli-msft
+title: Erstellen einer Beziehung zwischen SharePoint-Listen mithilfe eines Nachschlagefelds in einer Canvas-App | Microsoft-Dokumentation
+description: Erstellen Sie in PowerApps mithilfe eines Nachschlagefelds eine Beziehung zwischen SharePoint-Listen in einer Canvas-App.
+author: skjerland
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 01/20/2017
-ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: sharik
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 88717f9ef894b4082b5881ea8c1f1209ce121e49
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42864854"
 ---
-# How to link SharePoint lists using a lookup field in PowerApps
+# <a name="how-to-link-sharepoint-lists-using-a-lookup-field-in-powerapps"></a>Verknüpfen von SharePoint-Listen mithilfe von Nachschlagefeldern in PowerApps
 
-This tutorial shows how you can connect two SharePoint lists with a lookup field in a canvas app.
+In diesem Tutorial erfahren Sie, wie Sie zwei SharePoint-Listen mithilfe eines Nachschlagefelds in einer Canvas-App verknüpfen.
 
-## Overview
+## <a name="overview"></a>Übersicht
 
-SharePoint provides two types of lookup fields:
+SharePoint bietet zwei Arten von Nachschlagefeldern:
 
-* **Lookup**: links to another list: for example an *Orders* list may have a lookup field that links to customers in a *Customer* list;
-* **Choice**: clicking or tapping the field displays a small menu of items that you choose from.
+* **Nachschlagen**: Verknüpfung mit einer anderen Liste, z.B. kann eine Liste *Bestellungen* über ein Nachschlagefeld verfügen, das mit den Kunden in einer Liste der *Kunden* verknüpft ist.
+* **Auswahl**: Durch Klicken oder Tippen auf dieses Feld wird ein kleines Menü mit Elementen angezeigt, aus denen Sie auswählen können.
 
-In this tutorial, you build an app that uses these kinds of lookup fields.
+In diesem Tutorial erstellen Sie eine App, die diese Arten von Nachschlagefeldern verwendet.
 
-### Why use a lookup field
+### <a name="why-use-a-lookup-field"></a>Gründe für die Verwendung eines Nachschlagefelds
 
-Data in an enterprise is large and complex. Data in one SharePoint list often relates to data in another list. Lookup fields are the primary way such business data comes together.
+Die Daten in einem Unternehmen sind umfangreich und komplex. Die Daten in einer SharePoint-Liste beziehen sich häufig auf Daten in einer anderen Liste. Nachschlagefelder sind die primäre Methode, um solche Geschäftsdaten zusammenzuführen.
 
-For example, you might have an **Orders** list which has a lookup field that links to a **Customers** list, to show which customer placed the order. The lookup field in the **Orders** list lets you get other data from the **Customers** list as well. You might also use a lookup field to connect the **Orders** list to a **Product** list, and bring in information you need about the product ordered, such as product pictures, specifications, manufacturer details, etc.
+Beispiel: Sie verfügen über eine Liste **Bestellungen**, die ein Nachschlagefeld aufweist, das mit der Liste **Kunden** verknüpft ist. So kann angezeigt werden, welche Kunden die jeweilige Bestellung getätigt haben. Das Nachschlagefeld in der Liste **Bestellungen** ermöglicht es Ihnen, auch Daten aus der Liste **Kunden** abzurufen. Sie könnten außerdem ein Nachschlagefeld verwenden, um die Liste **Bestellungen** mit einer Liste **Produkte** zu verknüpfen und so Informationen zu den bestellten Produkten bereitzustellen, z.B. Produktabbildungen, Spezifikationen, Herstellerdetails usw.
 
-### What are Choice fields used for?
-**Choice** fields are used for very short lists, but instead of actually creating a separate list, you include the list values in a small menu, which appears when you click or tap on the **Choice** field, and you select one of the values.
+### <a name="what-are-choice-fields-used-for"></a>Wozu werden Auswahlfelder verwendet?
+**Auswahlfelder** werden für sehr kurze Listen verwendet. Anstelle jedoch eine separate Liste zu erstellen, schließen Sie die Listenwerte in ein kleines Menü ein, das angezeigt wird, wenn Sie auf das **Auswahlfeld** tippen oder klicken. Anschließend können Sie einen der Werte auswählen.
 
-Examples include data like Customer Status Code, Product Availability, State Codes; basically any fixed list that is relatively short. This data could in fact be implemented as separate lists, and then you would use a **Lookup** field to link to them, but it is usually easier and quicker to implement them as **Choice** fields.
+Beispielsweise können Daten wie Kundenstatuscodes, Produktverfügbarkeit oder Statuscodes für Auswahlfelder verwendet werden – also grundsätzlich jede feste Liste, die relativ kurz ist. Diese Daten könnten natürlich auch als separate Listen implementiert und dann über ein **Nachschlagefeld** verknüpft werden, aber es ist in der Regel einfacher und schneller, sie als **Auswahlfelder** zu implementieren.
 
-## Create the lists in SharePoint
-In this tutorial, you link two SharePoint custom lists together, **Assets** and **RepairShop**. The **Assets** list is used to track hardware equipment in a team. Since hardware gets broken from time to time, we use the **RepairShop** list to track the local shops which can fix it.
+## <a name="create-the-lists-in-sharepoint"></a>Erstellen der Listen in SharePoint
+In diesem Tutorial verknüpfen Sie zwei benutzerdefinierte SharePoint-Listen: **Assets** und **RepairShop**. Die Liste **Assets** wird verwendet, um Hardwarekomponenten in einem Team nachzuverfolgen. Da es bei Hardwarekomponenten gelegentlich zu einem Defekt kommen kann, werden mit der Liste **RepairShop** die lokalen Werkstätten nachverfolgt, die eine Reparatur durchführen können.
 
-### The lookup fields used in this example
-The **RepairShop** list uses the *ContactEmail* field to identify the shop. This list is defined first so that each row in the **Assets** list has something to point to.
+### <a name="the-lookup-fields-used-in-this-example"></a>In diesem Beispiel verwendete Nachschlagefelder
+In der Liste **RepairShop** wird das Feld *ContactEmail* verwendet, um die Werkstatt zu identifizieren. Diese Liste wird zuerst definiert, sodass jede Zeile in der Liste **Assets** auf ein Element verweisen kann.
 
-The **Assets** list has two lookup fields:
+Die Liste **Assets** umfasst zwei Nachschlagefelder:
 
-* one called *RepairShop*, of type **Lookup**, which uses email addresses to point to entries in the **RepairShop** list;
-* one called *AssetType*, of type **Choice**, which lists the kinds of hardware that this asset might be.
+* Das Feld *RepairShop* ist vom Typ **Nachschlagen** und verwendet E-Mail-Adressen, um auf Einträge in der Liste **RepairShop** zu verweisen.
+* Das Feld *AssetType* ist vom Typ **Auswahl** und listet die möglichen Hardwaretypen für die Assets auf.
 
-You most likely would define additional fields, depending on the information you need to track.
+Je nachdem, welche Informationen Sie nachverfolgen möchten, würden Sie wahrscheinlich weitere Felder definieren.
 
-### Define the RepairShop list and add data
-You do this first, so that when you add data to the **Assets** list, **RepairShop** entries are available for you to choose from the *Assets.RepairShop* lookup field.
+### <a name="define-the-repairshop-list-and-add-data"></a>Definieren der RepairShop-Liste und Hinzufügen von Daten
+Dieser Schritt erfolgt zuerst, damit beim Hinzufügen von Daten zur Liste **Assets** schon Einträge in **RepairShop** verfügbar sind, die aus dem Nachschlagefeld *Assets.RepairShop* ausgewählt werden können.
 
-1. On your SharePoint site, create a new **RepairShop** list.
+1. Erstellen Sie auf Ihrer SharePoint-Website eine neue Liste **RepairShop**.
 
     ![](./media/sharepoint-lookup-fields/new-list.png)
 
-2. Add a *ContactEmail* field of type **Single line of text**.
+2. Fügen Sie ein Feld *ContactEmail* vom Typ **Eine Textzeile** hinzu.
 
     ![](./media/sharepoint-lookup-fields/add-email-field.png)
 
-3. Add any other fields you need.
+3. Fügen Sie nach Bedarf weitere Felder hinzu.
 
-4. Click or tap **+ New** to enter sample data into the list, at least 3 rows with different *ContactEmail* values. When an asset needs to be repaired, you choose one of these.
+4. Klicken oder tippen Sie auf **+ Neu**, um Beispieldaten in die Liste einzugeben. Fügen Sie mindestens 3 Zeilen mit unterschiedlichen *ContactEmail*-Werten ein. Wenn ein Asset repariert werden muss, wählen Sie eine der Adressen aus.
 
     ![](./media/sharepoint-lookup-fields/add-repair-shops.png)
 
-### Define the Assets list
-1. On your SharePoint site, create a new **Assets** list.
+### <a name="define-the-assets-list"></a>Definieren der Assetliste
+1. Erstellen Sie auf Ihrer SharePoint-Website eine neue Liste **Assets**.
 
-2. Click or tap the plus sign and choose **More**.
+2. Klicken oder tippen Sie auf das Pluszeichen, und wählen Sie **Weitere** aus.
 
     ![](./media/sharepoint-lookup-fields/choose-more-type.png)
 
-3. Add an *AssetType* field of type **Choice**, and in the **Type each choice on a separate line** text box, fill in the values you want to appear in the choice menu. Then click or tap **OK**.
+3. Fügen Sie ein Feld *AssetType* vom Typ **Auswahl** hinzu, und geben Sie im Textfeld **Geben Sie jede Auswahl in einer neuen Zeile ein** die Werte ein, die im Auswahlmenü angezeigt werden sollen. Klicken oder tippen Sie dann auf **OK**.
 
     ![](./media/sharepoint-lookup-fields/define-choice-column.png)
 
-4. Start to add another field, just like in step 2: click or tap the plus sign and choose **More**.
+4. Beginnen Sie damit, ein weiteres Feld hinzufügen, und gehen Sie dazu wie in Schritt 2 vor: Klicken oder tippen Sie auf das Pluszeichen, und wählen Sie **Weitere** aus.
 
-5. Add a *RepairShop* field of type **Lookup**, choose **RepairShop** from the **Get information from** text box, and choose *ContactEmail* from the **In this column** text box. Then click or tap **OK**.
+5. Fügen Sie ein Feld *RepairShop* vom Typ **Nachschlagen** hinzu, wählen Sie für das Textfeld **Informationen kommen aus** das Feld **RepairShop** aus, und wählen Sie im Textfeld *In dieser Spalte* die Option **ContactEmail** aus. Klicken oder tippen Sie dann auf **OK**.
 
     ![](./media/sharepoint-lookup-fields/setup-lookup-column.png)
 
-6. Add any additional fields you want.
+6. Fügen Sie nach Wunsch weitere Felder hinzu.
 
-## Create an app from the Assets list
-You use this app to add data to the **Assets** list.
+## <a name="create-an-app-from-the-assets-list"></a>Erstellen einer Apps aus der Assetliste
+Sie verwenden diese App, um Daten zur Liste **Assets** hinzuzufügen.
 
-1. [Sign in to PowerApps Studio](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc). If you are new to PowerApps, [sign up for free](https://powerapps.microsoft.com) using your organizational email address.
+1. [In PowerApps Studio anmelden](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) Wenn Sie in PowerApps einsteigen möchten, [können Sie sich kostenlos mit Ihrer Unternehmens-E-Mail-Adresse registrieren](https://powerapps.microsoft.com).
 
-2. In the **File** menu (along the left edge), click or tap **New**, and then click or tap **SharePoint**.
+2. Klicken oder tippen Sie im Menü **Datei** auf der linken Seite auf **Neu**, und klicken oder tippen Sie dann auf **SharePoint**.
 
     ![](./media/sharepoint-lookup-fields/create-app.png)
 
-1. Choose your SharePoint site from the **Recent sites** list or enter your site's url directly into the text box. Click or tap **GO**.
+1. Wählen Sie in der Liste **Zuletzt geöffnete Websites** Ihre SharePoint-Website aus, oder geben Sie die Website-URL direkt in das Textfeld ein. Klicken oder tippen Sie auf **LOS**.
 
     ![](./media/sharepoint-lookup-fields/choose-sharepoint-site.png)
 
-1. Choose the main list from your SharePoint site, in this example, **Assets**. Click or tap the **Connect** button in the lower-right corner.
+1. Wählen Sie die Hauptliste aus Ihrer SharePoint-Website aus, in diesem Beispiel **Assets**. Klicken oder tippen Sie rechts unten auf die Schaltfläche **Verbinden**.
 
     ![](./media/sharepoint-lookup-fields/choose-main-list.png)
 
 
-## Add data to the Assets list
-Now you can run the app and see how the view details screen looks for the lookup fields.
+## <a name="add-data-to-the-assets-list"></a>Hinzufügen von Daten zur Assetliste
+Sie können die App jetzt ausführen und sich ansehen, wie der Bildschirm zur Detailanzeige für die Nachschlagefelder aussieht.
 
-1. Press F5 or select Preview ( ![](./media/sharepoint-lookup-fields/preview.png) ).
+1. Drücken Sie F5, oder wählen Sie die Vorschau (![](./media/sharepoint-lookup-fields/preview.png)) aus.
 
-2. Click or tap the **+** symbol in the upper right corner to add an entry.
+2. Klicken oder tippen Sie oben rechts auf das Symbol **+**, um einen Eintrag hinzuzufügen.
 
-3. Enter a **Title** for this asset.
+3. Geben Sie einen **Titel** für das Asset ein.
 
-4. Click or tap the **AssetType** dropdown arrow. The values displayed are those you entered when you created this field. Choose one of the entries.
+4. Klicken oder tippen Sie auf den Pfeil der Dropdownliste **AssetType**. Die angezeigten Werte sind diejenigen, die Sie beim Erstellen dieses Felds eingegeben haben. Wählen Sie einen der Einträge.
 
     ![](./media/sharepoint-lookup-fields/fill-asset-type-3.png)
 
-5. Click or tap the **RepairShop** dropdown arrow. Choose one of the entries.
+5. Klicken oder tippen Sie auf den Pfeil der Dropdownliste **RepairShop**. Wählen Sie einen der Einträge.
 
     ![](./media/sharepoint-lookup-fields/fill-repair-shop-3.png)
 
-6. In the upper-right corner, click or tap the check mark to save the new entry.
+6. Klicken oder tippen Sie oben rechts auf das Häkchen, um den neuen Eintrag zu speichern.
 
-7. (optional) Repeat this procedure to add as many items to the list as you want.
+7. (Optional) Wiederholen Sie diesen Vorgang, um der Liste weitere Elemente hinzuzufügen.
 
-8. Press Esc to return to the default workspace.
+8. Drücken Sie die ESC-Taste, um zum Standardarbeitsbereich zurückzukehren.
 
-## For more information
-* [Introducing support for lookups and a new sample app](https://powerapps.microsoft.com/blog/support-for-lookups/)
-* [Performance, Refresh button, ForAll, and multiple field lookups](https://powerapps.microsoft.com/blog/performance-refresh-forall-multiple-field-lookups-531/)
-* [Generate an app by using a Common Data Service database](data-platform-create-app.md)
-* [Create an app from scratch using a Common Data Service database](data-platform-create-app-scratch.md)
+## <a name="for-more-information"></a>Weitere Informationen
+* [Neue Unterstützung für Suchvorgänge und eine neue Beispiel-App](https://powerapps.microsoft.com/blog/support-for-lookups/)
+* [Leistung, Schaltfläche zum Aktualisieren, ForAll und Suchvorgänge in mehreren Feldern](https://powerapps.microsoft.com/blog/performance-refresh-forall-multiple-field-lookups-531/)
+* [Generieren einer App mithilfe einer Common Data Service-Datenbank](data-platform-create-app.md)
+* [Neuerstellen einer App mithilfe einer Common Data Service-Datenbank](data-platform-create-app-scratch.md)

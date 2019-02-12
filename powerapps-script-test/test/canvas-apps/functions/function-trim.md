@@ -1,6 +1,6 @@
 ---
-title: Trim and TrimEnds functions | Microsoft Docs
-description: Reference information, including syntax and an example, for the Trim and TrimEnds functions in PowerApps
+title: Funktionen „Trim“ und „TrimEnds“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispiele für die Trim- und TrimEnds-Funktionen in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,51 +9,57 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 09/09/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 5997df0d6e2a6a2d6732d10cefa146f4ba6e33dc
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42852486"
 ---
-# Trim and TrimEnds functions in PowerApps
-Removes extra spaces from a string of text.
+# <a name="trim-and-trimends-functions-in-powerapps"></a>Trim- und TrimEnds-Funktionen in PowerApps
+Entfernt zusätzliche Leerzeichen aus einer Textzeichenfolge.
 
-## Description
-The **Trim** function removes all spaces from a string of text except for single spaces between words.  
+## <a name="description"></a>Beschreibung
+Die **Trim**-Funktion entfernt alle Leerzeichen aus einer Textzeichenfolge mit Ausnahme einzelner Leerzeichen zwischen Wörtern.  
 
-The **TrimEnds** function removes all spaces from the start and end of a string of text but leaves spaces between words intact.
+Die **TrimEnds**-Funktion entfernt alle Leerzeichen am Anfang und Ende einer Textzeichenfolge, aber Leerzeichen zwischen Wörtern bleiben intakt.
 
-If you specify a single string of text, the return value for either function is the string with any extra spaces removed. If you specify a single-column [table](../working-with-tables.md) that contains strings, the return value is a single-column table of trimmed strings. If you have a multi-column table, you can shape it into a single-column table, as [working with tables](../working-with-tables.md) describes.
+Wenn Sie eine einzelne Textzeichenfolge angeben, ist der Rückgabewert für eine Funktion die Zeichenfolge, bei der jedes zusätzliche Leerzeichen entfernt wurde. Wenn Sie eine einspaltige [Tabelle](../working-with-tables.md) angeben, die Zeichenfolgen enthält, ist der Rückgabewert eine einspaltige Tabelle mit zugeschnittenen Zeichenfolgen. Mehrspaltige Tabellen können in einspaltige Tabellen umgeformt werden, wie unter [Arbeiten mit Tabellen](../working-with-tables.md) beschrieben.
 
-By trimming spaces between words, **Trim** is consistent with the function of the same name in Microsoft Excel. However, **TrimEnds** is consistent with programming tools that trim spaces only from the start and end of each string.
+Durch das Entfernen der Leerzeichen zwischen Wörtern ist **Trim** konsistent mit der Funktion mit dem gleichen Namen in Microsoft Excel. Allerdings ist **TrimEnds** konsistent mit der Programmierung von Tools, die Leerzeichen nur am Anfang und Ende einer Zeichenfolge entfernt.
 
-## Syntax
-**Trim**( *String* )<br>**TrimEnds**( *String* )
+## <a name="syntax"></a>Syntax
+**Trim**( *Zeichenfolge* )<br>**TrimEnds**( *Zeichenfolge* )
 
-* *String* - Required. The string of text to remove spaces from.
+* *Zeichenfolge*: erforderlich. Die Textzeichenfolge, bei der Leerzeichen entfernt werden sollen.
 
-**Trim**( *SingleColumnTable* )<br>**TrimEnds**( *SingleColumnTable* )
+**Trim**( *EinspaltigeTabelle* )<br>**TrimEnds**( *EinspaltigeTabelle* )
 
-* *SingleColumnTable* - Required. A single-column table of strings to remove spaces from.
+* *EinspaltigeTabelle*: erforderlich. Eine einspaltige Tabelle mit Zeichenfolgen, in der Leerzeichen entfernt werden sollen.
 
-## Example
+## <a name="example"></a>Beispiel
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Trim(&nbsp;"&nbsp;&nbsp;&nbsp;Hello&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;World&nbsp;&nbsp;&nbsp;"&nbsp;)** |Removes all spaces from the start and end of a string and extra spaces from within the string. |"Hello World" |
-| **TrimEnds(&nbsp;"&nbsp;&nbsp;&nbsp;Hello&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;World&nbsp;&nbsp;&nbsp;"&nbsp;)** |Removes all spaces from the start and end of a string. |"Hello&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;World" |
+| **Trim(&nbsp;"&nbsp;&nbsp;&nbsp;Hello&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;World&nbsp;&nbsp;&nbsp;"&nbsp;)** |Entfernt alle Leerzeichen am Anfang und Ende einer Zeichenfolge und zusätzliche Leerzeichen innerhalb der Zeichenfolge. |„Hello World“ |
+| **TrimEnds(&nbsp;"&nbsp;&nbsp;&nbsp;Hello&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;World&nbsp;&nbsp;&nbsp;"&nbsp;)** |Entfernt alle Leerzeichen am Anfang und Ende einer Zeichenfolge. |„Hello&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;World“ |
 
-The following examples use a single-column collection, named **Spaces**, that contains these strings:
+Die folgenden Beispiele verwenden eine einspaltige-Sammlung mit dem Namen **Spaces**, die diese Zeichenfolgen enthält:
 
 ![](media/function-trim/input-strings.png)
 
-To create this collection, set the **OnSelect** property of a **[Button](../controls/control-button.md)** control to this formula, open Preview mode, and then click or tap the button:
+Legen Sie die Eigenschaft **OnSelect** eines Steuerelements **[Schaltfläche](../controls/control-button.md)** auf diese Formel fest, öffnen Sie den Vorschaumodus, und klicken oder tippen Sie anschließend auf die Schaltfläche, um eine Sammlung zu erstellen:
 <br>**ClearCollect( Spaces, [ "&nbsp;&nbsp;&nbsp;Jane&nbsp;&nbsp;&nbsp;Doe&nbsp;&nbsp;&nbsp;", "&nbsp;&nbsp;&nbsp;&nbsp;Jack&nbsp;&nbsp;&nbsp;and&nbsp;&nbsp;&nbsp;Jill", "Already&nbsp;trimmed", "&nbsp;&nbsp;&nbsp;Venus,&nbsp;&nbsp;&nbsp;Earth,&nbsp;&nbsp;&nbsp;Mars&nbsp;&nbsp;", "Oil&nbsp;and&nbsp;Water&nbsp;&nbsp;&nbsp;" ] )**
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Trim(&nbsp;Spaces&nbsp;)** |Trims all spaces from the start and end of each string and extra spaces from within each string in the **Spaces** collection. |<style> img { max-width: none } </style> ![](media/function-trim/output-trim.png) |
-| **TrimEnds(&nbsp;Spaces&nbsp;)** |Trims all spaces from the start and end of each string in the **Spaces** collection. |<style> img { max-width: none } </style> ![](media/function-trim/output-trimends.png) |
+| **Trim(&nbsp;Spaces&nbsp;)** |Entfernt alle Leerzeichen am Anfang und Ende jeder Zeichenfolge und zusätzliche Leerzeichen innerhalb der Zeichenfolgen in der Sammlung **Spaces**. |<style> img { max-width: none } </style> ![](media/function-trim/output-trim.png) |
+| **TrimEnds(&nbsp;Spaces&nbsp;)** |Entfernt alle Leerzeichen am Anfang und Ende einer Zeichenfolge in der Sammlung **Spaces**. |<style> img { max-width: none } </style> ![](media/function-trim/output-trimends.png) |
 
 > [!NOTE]
-> Extra spaces don't appear if you display a collection by clicking or tapping **Collections** on the **File** menu. To verify string length, use the **[Len](function-len.md)** function.
+> Zusätzliche Leerzeichen werden nicht angezeigt, wenn Sie eine Sammlung anzeigen, indem Sie im Menü **File** auf **Sammlungen** klicken oder tippen. Verwenden Sie die **[Len](function-len.md)**-Funktion, um die Länge der Zeichenfolge zu überprüfen.
 

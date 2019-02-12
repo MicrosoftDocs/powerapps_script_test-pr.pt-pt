@@ -1,196 +1,202 @@
 ---
-title: Create a Power BI report to analyze projects | Microsoft Docs
-description: In this task, we'll create a Power BI report based on two SharePoint lists.
-author: fikaradz
+title: Erstellen eines Power BI-Berichts zum Analysieren von Projekten | Microsoft-Dokumentation
+description: In dieser Aufgabe erstellen Sie einen Power BI-Bericht, der auf zwei SharePoint-Listen basiert.
+author: mgblythe
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 01/10/2018
-ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: mblythe
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: adda4a7adae9961b77f01320e92527b53ac61e7f
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42828775"
 ---
-# Create a Power BI report to analyze projects
+# <a name="create-a-power-bi-report-to-analyze-projects"></a>Erstellen eines Power BI-Berichts zum Analysieren von Projekten
 > [!NOTE]
-> This article is part of a tutorial series on using PowerApps, Microsoft Flow, and Power BI with SharePoint Online. Make sure you read the [series introduction](sharepoint-scenario-intro.md) to get a sense of the big picture, as well as related downloads.
+> Dieser Artikel ist Teil einer Reihe von Tutorials zur Verwendung von PowerApps, Microsoft Flow und Power BI mit SharePoint Online. Lesen Sie unbedingt die [Einführung zur Reihe](sharepoint-scenario-intro.md) durch, um sich einen allgemeinen Überblick zu verschaffen und auf die zugehörigen Downloads zuzugreifen.
 
-In this task, we'll create a Power BI report based on the two SharePoint lists. We'll bring the list data into Power BI Desktop and clean it up a little, do some basic data modeling, and create a set of visuals that tell us something about the data.
+In dieser Aufgabe Sie einen Power BI-Bericht, der auf den beiden SharePoint-Listen basiert. Wir übernehmen die Listendaten in Power BI Desktop und bereinigen sie ein wenig, führen eine grundlegende Datenmodellierung aus und erstellen eine Reihe von Visuals, die Aufschlüsse über die Daten geben.
 
 > [!TIP]
-> The [download package](https://aka.ms/o4ia0f) for this scenario includes a finished version of this report: project-analysis.pbix.
+> Das [Downloadpaket](https://aka.ms/o4ia0f) für dieses Szenario enthält eine vollständige Version dieses Berichts: „project-analysis.pbix“.
 
-## Quick review of Power BI Desktop
-Before we dive into report creation, let's review Power BI Desktop. This is a powerful tool, with a lot of features, so we will focus on an overview of the areas that you will use in this task. There are three main work areas or *views* in Power BI Desktop: **Report** view, **Data** view, and **Relationships** view. Power BI Desktop also includes **Query Editor**, which opens in a separate window.
+## <a name="quick-review-of-power-bi-desktop"></a>Kurzübersicht über Power BI Desktop
+Bevor wir uns mit dem Erstellen von Berichten befassen, gehen wir kurz auf Power BI Desktop ein. Dies ist ein leistungsstarkes Tool mit einer Vielzahl von Funktionen, daher bieten wir einen schwerpunktmäßigen Überblick über die Bereiche, die wir in dieser Aufgabe verwenden werden. In Power BI Desktop gibt es drei Hauptarbeitsbereiche oder *Sichten*: die Sicht **Bericht**, die Sicht **Daten** und die Sicht **Beziehungen**. Power BI Desktop bietet außerdem einen **Abfrage-Editor**, der in einem separaten Fenster geöffnet wird.
 
-The following screen shows the three view icons along the left of Power BI Desktop: **Report**, **Data**, and **Relationships**, from top to bottom. The yellow bar along the left indicates the current view; in this case, **Report** view is displayed. Change views by selecting any of those three icons.
+In der folgenden Abbildung werden die Symbole für die drei Sichten entlang der linken Seite von Power BI Desktop gezeigt: **Bericht**, **Daten** und **Beziehungen** (von oben nach unten). Der gelbe Balken links zeigt die aktuelle Sicht an. In diesem Fall wird die Sicht **Bericht** angezeigt. Sie können zwischen den Sichten wechseln, indem Sie auf eines der drei Symbole klicken bzw. tippen.
 
-![Power BI Desktop views](./media/sharepoint-scenario-build-report/05-00-00-tabs.png)
+![Sichten in Power BI Desktop](./media/sharepoint-scenario-build-report/05-00-00-tabs.png)
 
-The **Report** view has five main areas:
+Die Sicht **Bericht** umfasst fünf Hauptbereiche:
 
-1. The ribbon, which displays common tasks associated with reports and visualizations.
-2. The **Report** view, or canvas, where visualizations are created and arranged.
-3. The **Pages** tab area along the bottom, which lets you select or add a report page.
-4. The **Visualizations** pane, where you change visualizations, customize colors or axes, apply filters, drag fields, and more.
-5. The **Fields** pane, where query elements and filters can be dragged onto the **Report** view, or dragged to the **Filters** area of the **Visualizations** pane.
+1. Das Menüband, in dem häufige Aufgaben in Zusammenhang mit Berichten und Visualisierungen angezeigt werden.
+2. Die Sicht bzw. den Zeichenbereich **Bericht**. Hier werden Visualisierungen erstellt und angeordnet.
+3. Den Registerkartenbereich **Seiten** am unteren Rand, in dem Sie eine Berichtsseite auswählen oder hinzufügen können.
+4. Den Bereich **Visualisierungen**, in dem Sie Visualisierungen ändern, Farben oder Achsen anpassen, Filter anwenden, Felder ziehen und andere Vorgänge ausführen können.
+5. Den Bereich **Felder**, in dem Abfrageelemente und Filter auf die Sicht **Bericht** oder in den Abschnitt **Filter** des Bereichs **Visualisierungen** gezogen werden können.
 
-![Power BI Desktop tabs, views, and panes](./media/sharepoint-scenario-build-report/05-00-01-report.png)
+![Registerkarten, Sichten und Bereiche in Power BI Desktop](./media/sharepoint-scenario-build-report/05-00-01-report.png)
 
-The **Data** view has three main areas:
+Die Sicht **Daten** weist drei Hauptbereiche auf:
 
-1. The ribbon, which has the **Modeling** tab selected below. On this tab, you create calculated tables and columns, and make other changes to the data model.
-2. The center pane, which shows data for the selected table.
-3. The **Fields** pane, where you control how fields are displayed in your reports.
+1. Das Menüband, in dem unten die Registerkarte **Modellierung** ausgewählt ist. Auf dieser Registerkarte erstellen Sie berechnete Tabellen und Spalten, und Sie nehmen andere Änderungen am Datenmodell vor.
+2. Den mittleren Bereich, in dem Daten für die ausgewählte Tabelle angezeigt werden.
+3. Den Bereich **Felder**, in dem Sie die Anzeige von Feldern in den Berichten konfigurieren.
 
-![Power BI Desktop data view](./media/sharepoint-scenario-build-report/05-00-02-data.png)
+![Sicht „Daten“ in Power BI Desktop](./media/sharepoint-scenario-build-report/05-00-02-data.png)
 
-We don't use the **Relationships** view in this task, but you can check it out later after we bring the list data into Power BI Desktop.
+In dieser Aufgabe wird die Registerkarte **Beziehungen** nicht verwendet, Sie können sich jedoch später damit vertraut machen, nachdem wir die Listendaten in Power BI Desktop übertragen haben.
 
-In **Query Editor**, you build queries and transform data, then load that refined data model into Power BI Desktop. **Query Editor** has four main areas:
+Im **Abfrage-Editor** erstellen Sie Abfragen, und Sie transformieren Daten. Anschließend laden Sie das verfeinerte Datenmodell in Power BI Desktop. Der **Abfrage-Editor** besteht aus vier Hauptbereichen:
 
-1. The ribbon, which has many options for shaping and transforming the data that you bring in.
-2. The left pane, where queries are listed and available for selection, viewing, and shaping.
-3. The center pane, where data from the selected query is displayed and available for shaping.
-4. The **Query Settings** window, which lists the query's properties and data transform steps that have been applied.
+1. Das Menüband, das viele Optionen zum Strukturieren und Transformieren der übernommenen Daten enthält.
+2. Der linke Bereich, in dem die aufgelisteten Abfragen ausgewählt, angezeigt und strukturiert werden können.
+3. Der mittlere Bereich, in dem Daten aus der ausgewählten Abfrage angezeigt und strukturiert werden können.
+4. Das Fenster **Abfrageeinstellungen**, in dem die Eigenschaften und die angewendeten Schritte zur Datentransformation aufgelistet werden.
 
-![Power BI Desktop Query Editor](./media/sharepoint-scenario-build-report/05-00-03-query.png)
+![Abfrage-Editor von Power BI Desktop](./media/sharepoint-scenario-build-report/05-00-03-query.png)
 
-## Step 1: Get data into Power BI Desktop
-In this step, we'll first connect to the two lists. Then we'll clean up the data by removing columns we don't need for our data analysis. We'll also change the data types on some of the remaining columns so that calculations work properly. For more information on getting and cleaning data in Power BI Desktop, see the [Getting Data](https://powerbi.microsoft.com/guided-learning/powerbi-learning-1-1-overview-of-power-bi-desktop) section in our Guided Learning course.
+## <a name="step-1-get-data-into-power-bi-desktop"></a>Schritt 1: Übernehmen von Daten in Power BI Desktop
+In diesem Schritt wird zunächst eine Verbindung mit den zwei Listen hergestellt. Anschließend müssen die Daten bereinigt werden, indem nicht für die Datenanalyse benötigte Spalten entfernt werden. Zudem ändern wir die Datentypen für einige der verbleibenden Spalten, damit die Berechnungen ordnungsgemäß ausgeführt werden können. Weitere Informationen zum Übernehmen und Bereinigen von Daten in Power BI Desktop finden Sie im Abschnitt zum [Abrufen von Daten](https://powerbi.microsoft.com/guided-learning/powerbi-learning-1-1-overview-of-power-bi-desktop) in unserem Kurs für geführtes Lernen.
 
-### Connect to SharePoint lists
-1. In Power BI Desktop, on the **Home** tab, click or tap **Get Data**, then **More…**
+### <a name="connect-to-sharepoint-lists"></a>Herstellen einer Verbindung mit SharePoint-Listen
+1. Klicken oder tippen Sie in Power BI Desktop auf der Registerkarte **Start** auf **Daten abrufen** und anschließend auf **More…** (Mehr).
    
-    ![Get data](./media/sharepoint-scenario-build-report/05-01-01-get-data.png)
-2. In the **Get Data** dialog box, click or tap **SharePoint Online List**, then **Connect**.
+    ![Daten abrufen](./media/sharepoint-scenario-build-report/05-01-01-get-data.png)
+2. Klicken oder tippen Sie im Dialogfeld **Daten abrufen** auf **SharePoint Online-Liste** und auf **Verbinden**.
    
-    ![Connect to SharePoint list](./media/sharepoint-scenario-build-report/05-01-02-sharepoint-list.png)
-3. Enter the URL for your SharePoint site, then click or tap **OK**.
+    ![Verbinden mit SharePoint-Listen](./media/sharepoint-scenario-build-report/05-01-02-sharepoint-list.png)
+3. Geben Sie die URL für Ihre SharePoint-Website ein, und klicken oder tippen Sie auf **OK**.
    
-    ![SharePoint list URL](./media/sharepoint-scenario-build-report/05-01-03-sharepoint-url.png)
-4. If you get the following dialog box, make sure you're signed in with the right credentials, then click or tap **Connect**.
+    ![URL für SharePoint-Liste](./media/sharepoint-scenario-build-report/05-01-03-sharepoint-url.png)
+4. Wenn das folgende Dialogfeld angezeigt wird, vergewissern Sie sich, dass Sie mit den richtigen Anmeldeinformationen angemeldet sind, und klicken oder tippen Sie auf **Verbinden**.
    
-    ![SharePoint list credentials](./media/sharepoint-scenario-build-report/05-01-04-credentials.png)
-5. Select **Project Details** and **Project Requests**, then click or tap **Edit**.
+    ![Anmeldeinformationen für SharePoint-Liste](./media/sharepoint-scenario-build-report/05-01-04-credentials.png)
+5. Wählen Sie **Project Details** (Projektdetails) und **Project Requests** (Projektanforderungen) aus, und klicken oder tippen Sie auf **Bearbeiten**.
    
-    ![Select SharePoint lists](./media/sharepoint-scenario-build-report/05-01-05-list-navigator.png)
+    ![Auswählen von SharePoint-Listen](./media/sharepoint-scenario-build-report/05-01-05-list-navigator.png)
    
-    The lists are now displayed as tables in Query Editor.
+    Die Listen werden nun im Abfrage-Editor als Tabellen angezeigt.
    
-    ![Tables in Query Editor](./media/sharepoint-scenario-build-report/05-01-06-query-editor.png)
+    ![Tabellen im Abfrage-Editor](./media/sharepoint-scenario-build-report/05-01-06-query-editor.png)
 
-### Remove unnecessary columns from the tables
-1. In the left navigation pane, click or tap **Project Details**.
-2. In the middle pane, select the **FileSystemObjectType** column, then click or tap **Remove Columns**.
+### <a name="remove-unnecessary-columns-from-the-tables"></a>Entfernen nicht benötigter Spalten aus den Tabellen
+1. Klicken oder tippen Sie im linken Navigationsbereich auf **Project Details** (Projektdetails).
+2. Wählen Sie im mittleren Bereich die Spalte **FileSystemObjectType** aus, und klicken oder tippen Sie auf **Spalten entfernen**.
    
-    ![Remove columns](./media/sharepoint-scenario-build-report/05-01-07-remove-column.png)
-3. Remove the two columns after the **Id** column: **ServerRedirectedEmbedURL** and **ContentTypeId**. 
+    ![Spalten entfernen](./media/sharepoint-scenario-build-report/05-01-07-remove-column.png)
+3. Entfernen Sie die zwei Spalten nach der Spalte **ID**: **ServerRedirectedEmbedURL** und **ContentTypeId**. 
    > [!TIP]
-   > Use the Shift key to select both columns, then click or tap **Remove Columns**.
-4. Remove all columns to the right of the **PMAssigned** column (a total of 22 columns). The table should match the following image:
+   > Mithilfe der Umschalttaste können Sie beide Spalten auswählen. Klicken oder tippen Sie anschließend auf **Spalten entfernen**.
+4. Entfernen Sie alle Spalten rechts von der Spalte **PMAssigned** (insgesamt 22 Spalten). Die Tabelle sollte wie die in der folgenden Abbildung aussehen:
    
-    ![Project Details table in Query Editor](./media/sharepoint-scenario-build-report/05-01-08-table-details.png)
-5. Repeat the process you just went through, now for **Project Requests**: remove **FileSystemObjectType**, **ServerRedirectedEmbedURL**, **ContentTypeId**, and all columns to the right of the **Approved** column (a total of 22 columns). The table should match the following image:
+    ![Tabelle „Project Details“ (Projektdetails) im Abfrage-Editor](./media/sharepoint-scenario-build-report/05-01-08-table-details.png)
+5. Wiederholen Sie den gerade ausgeführten Vorgang für **Project Requests**: Entfernen Sie **FileSystemObjectType**, **ServerRedirectedEmbedURL**, **ContentTypeId** und alle Spalten rechts von der Spalte **Approved** (insgesamt 22 Spalten). Die Tabelle sollte wie die in der folgenden Abbildung aussehen:
    
-    ![ Project Requests table in Query Editor](./media/sharepoint-scenario-build-report/05-01-09-table-requests.png)
+    ![ Tabelle „Project Requests“ (Projektanforderungen) im Abfrage-Editor](./media/sharepoint-scenario-build-report/05-01-09-table-requests.png)
 
-### Change the data type on Project Details columns
-1. Select the **ProjectedDays** column, click or tap **Data Type: Any**, then **Whole Number**.
+### <a name="change-the-data-type-on-project-details-columns"></a>Ändern des Datentyps für Spalten von „Project Details“ (Projektdetails)
+1. Wählen Sie die Spalte **ProjectedDays** aus, klicken oder tippen Sie auf **Datentyp: Beliebig** und dann auf **Ganze Zahl**.
    
-    ![Change data type to whole number](./media/sharepoint-scenario-build-report/05-01-10-datatype-number.png)
-2. Repeat the previous step for the **ActualDays** column.
-3. Select the **ApprovedDate** column, click or tap **Data Type: Any**, then **Date**.
+    ![Ändern des Datentyps in „Ganze Zahl“](./media/sharepoint-scenario-build-report/05-01-10-datatype-number.png)
+2. Wiederholen Sie den vorherigen Schritt für die Spalte **ActualDays**.
+3. Wählen Sie die Spalte **ApprovedDate** aus, klicken oder tippen Sie auf **Datentyp: Beliebig** und anschließend auf **Datum**.
    
-    ![ Change data type to date](./media/sharepoint-scenario-build-report/05-01-11-datatype-date.png)
+    ![ Ändern des Datentyps in „Datum“](./media/sharepoint-scenario-build-report/05-01-11-datatype-date.png)
 
-4. Repeat the previous step for the **ProjectedStartDate** and **ProjectedEndDate** columns.
+4. Wiederholen Sie den vorherigen Schritt für die Spalten **ProjectedStartDate** und **ProjectedEndDate**.
 
-### Change the data type on Project Requests columns
+### <a name="change-the-data-type-on-project-requests-columns"></a>Ändern des Datentyps für Spalten von „Project Requests“ (Projektanforderungen)
 
-1. Select the **EstimatedDays** column, click or tap **Data Type: Any**, then **Whole Number**.
+1. Wählen Sie die Spalte **EstimatedDays** aus, klicken oder tippen Sie auf **Datentyp: Beliebig** und anschließend auf **Ganze Zahl**.
 
-2. Select the **RequestDate** column, click or tap **Data Type: Any**, then **Date**.
+2. Wählen Sie die Spalte **RequestDate** aus, klicken oder tippen Sie auf **Datentyp: Beliebig** und anschließend auf **Datum**.
 
-### Apply and save changes
+### <a name="apply-and-save-changes"></a>Anwenden und Speichern der Änderungen
 
-1. On the **Home** tab, click **Close and Apply** to close Query Editor and go back to the main Power BI Desktop window.
+1. Klicken Sie auf der Registerkarte **Start** auf **Schließen und übernehmen**, um den Abfrage-Editor zu schließen und zum Hauptfenster von Power BI Desktop zurückzukehren.
    
-    ![Close and apply changes](./media/sharepoint-scenario-build-report/05-01-12-close-apply.png)
+    ![Schließen und Anwenden der Änderungen](./media/sharepoint-scenario-build-report/05-01-12-close-apply.png)
 
-2. Click or tap **File**, then **Save**, and save with the name project-analysis.pbix.
+2. Klicken oder tippen Sie auf **Datei** und anschließend auf **Speichern**, und speichern Sie die Datei unter dem Namen „project-analysis.pbix“.
 
-## Step 2: Improve the data model
-Now that we have the data from our SharePoint lists pulled into Power BI Desktop, we'll move on to data modeling. Data modeling can be a time-consuming process, but we'll briefly show you some interesting things you can do to get more out of the list data in Power BI Desktop:
+## <a name="step-2-improve-the-data-model"></a>Schritt 2: Verbessern des Datenmodells
+Nach dem Abrufen der Daten aus den SharePoint-Listen in Power BI Desktop fahren wir mit der Datenmodellierung fort. Die Datenmodellierung kann ein zeitaufwendiger Prozess sein. Wir veranschaulichen jedoch kurz einige interessante Aktionen, die Sie ausführen können, um mehr aus den Listendaten in Power BI Desktop zu holen:
 
-* Change how the two tables are related to each other
-* Add a date table so we can make calculations based on weekdays
-* Add calculated columns to calculate timespans between project milestones
-* Add measures to calculate variance in projected versus actual days for a project
+* Ändern der Beziehung zwischen den beiden Tabellen
+* Hinzufügen einer Datumstabelle, sodass Berechnungen auf der Grundlage von Werktagen ausgeführt werden können
+* Hinzufügen von berechneten Spalten zum Berechnen von Zeitspannen zwischen Projektmeilensteinen
+* Hinzufügen von Measures zum Berechnen der Differenz zwischen der geplanten und der tatsächlichen Anzahl von Tagen für ein Projekt
 
-After these steps are complete, we can build visualizations that take advantage of the improvements to our model. For more information on modeling data in Power BI Desktop, see the [Modeling](https://powerbi.microsoft.com/guided-learning/powerbi-learning-2-1-intro-modeling-data) section in our Guided Learning course.
+Nach der Ausführung dieser Schritte können Visualisierungen erstellt werden, die von den Verbesserungen unseres Modells profitieren. Weitere Informationen zum Modellieren von Daten in Power BI Desktop finden Sie im Abschnitt [Modellierung](https://powerbi.microsoft.com/guided-learning/powerbi-learning-2-1-intro-modeling-data) in unserem Kurs für geführtes Lernen.
 
-### Change table relationships
-When Power BI Desktop brought the lists in, it created a relationship between them based on the **Id** column in both tables. The relationship should actually be between the **Id** column in the **Project Requests** table, and the **RequestId** column in the **Project Details** table. Let's fix that:
+### <a name="change-table-relationships"></a>Ändern von Tabellenbeziehungen
+Bei der Übernahme der Listen in Power BI Desktop wurde eine Beziehung zwischen ihnen erstellt, die auf der Spalte **ID** in beiden Tabellen basiert. Die Beziehung muss tatsächlich zwischen der Spalte **ID** in der Tabelle **Project Requests** (Projektanforderungen) und der Spalte **RequestId** in der Tabelle **Project Details** (Projektdetails) bestehen. Lassen Sie uns dieses Problem beheben:
 
-1. Click or tap the **Data view** icon.
+1. Klicken oder tippen Sie auf das Symbol für die Sicht **Daten**.
    
-    ![Data view](./media/sharepoint-scenario-build-report/05-02-01-data-view.png)
+    ![Datensicht](./media/sharepoint-scenario-build-report/05-02-01-data-view.png)
 
-2. On the **Modeling** tab, click or tap **Manage Relationships**. We'll stay on this tab in the **Data** view for all the data modeling steps.
+2. Klicken oder tippen Sie auf der Registerkarte **Modellierung** auf **Beziehungen verwalten**. Bei allen Schritten zur Datenmodellierung bleiben wir auf dieser Registerkarte in der Sicht **Daten**.
    
-    ![Manage Relationships](./media/sharepoint-scenario-build-report/05-02-02-manage-relationships.png)
+    ![Beziehungen verwalten](./media/sharepoint-scenario-build-report/05-02-02-manage-relationships.png)
 
-3. Make sure the existing relationship is selected, click or tap **Delete**, then **Delete** again to confirm.
+3. Vergewissern Sie sich, dass die vorhandene Beziehung ausgewählt ist, klicken oder tippen Sie auf **Löschen** und anschließend zum Bestätigen noch einmal auf **Löschen**.
    
-    ![Delete Relationship](./media/sharepoint-scenario-build-report/05-02-03-delete-relationship.png)
+    ![Löschen der Beziehung](./media/sharepoint-scenario-build-report/05-02-03-delete-relationship.png)
 
-4. Click **New** to create a different relationship.
+4. Klicken Sie auf **Neu**, um eine andere Beziehung zu erstellen.
 
-5. In the **Create Relationship** dialog box:
+5. Im Dialogfeld **Beziehung erstellen**:
    
-   1. For the first table, select **Project Requests**, and the **Id** column.
+   1. Wählen Sie für die erste Tabelle **Project Requests** (Projektanforderungen) und die Spalte **Id** aus.
    
-   2. For the second table, select **Project Details**, and the **RequestId** column.
+   2. Wählen Sie für die zweite Tabelle **Project Details** (Projektdetails) und die Spalte **RequestId** aus.
    
-   3. The screen should look like the following image. When you're ready, click or tap **OK**, then **Close**.
+   3. Der Bildschirm entspricht nun etwa dem in der folgenden Abbildung. Wenn Sie bereit sind, klicken oder tippen Sie auf **OK** und dann auf **Schließen**.
       
-       ![Create Relationship](./media/sharepoint-scenario-build-report/05-02-04-create-relationship.png)
+       ![Beziehung erstellen](./media/sharepoint-scenario-build-report/05-02-04-create-relationship.png)
 
-### Add a date table to make date-based calculations easier
-1. Click or tap **New Table**.
+### <a name="add-a-date-table-to-make-date-based-calculations-easier"></a>Hinzufügen einer Datumstabelle, um datumsbasierte Berechnungen zu erleichtern
+1. Klicken oder tippen Sie auf **Neue Tabelle**.
    
-    ![New Table](./media/sharepoint-scenario-build-report/05-02-05-modeling-table.png)
-2. Enter this formula into the formula bar: **Dates = CALENDARAUTO()**.
+    ![Neue Tabelle](./media/sharepoint-scenario-build-report/05-02-05-modeling-table.png)
+2. Geben Sie in der Bearbeitungsleiste diese Formel ein: **Dates = CALENDARAUTO()**.
    
-    ![Formula bar with Dates = CALENDARAUTO()](./media/sharepoint-scenario-build-report/05-02-06-formula-bar.png)
+    ![Bearbeitungsleiste mit „Dates = CALENDARAUTO()“](./media/sharepoint-scenario-build-report/05-02-06-formula-bar.png)
    
-    This formula creates a table called **Dates** with a single date column. The table covers all dates from your other table, and it updates automatically if additional dates are added (i.e. if data is refreshed).
+    Durch diese Formel wird die Tabelle **Dates** mit einer einzigen Datumsspalte erstellt. Die Tabelle umfasst alle Datumsangaben aus Ihren anderen Tabellen und wird automatisch aktualisiert, wenn weitere Datumsangaben hinzugefügt werden (d.h., wenn die Daten aktualisiert werden).
    
-    This formula and the other ones in this section use Data Analysis Expressions (DAX), a formula language for Power BI and other technologies. For more information, see [DAX basics in Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
-3. Press Enter to create the **Dates** table.
+    Bei dieser und den anderen Formeln in diesem Abschnitt wird DAX (Data Analysis Expressions) verwendet, eine Formelsprache für Power BI und andere Technologien. Weitere Informationen finden Sie unter [DAX-Grundlagen in Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
+3. Drücken Sie die EINGABETASTE, um die Tabelle **Dates** zu erstellen.
    
-    ![Dates table](./media/sharepoint-scenario-build-report/05-02-07-date-table.png)
+    ![Tabelle „Dates“](./media/sharepoint-scenario-build-report/05-02-07-date-table.png)
 
-### Add a calculated column to the Dates table
-1. While still on the date table, click or tap **New Column**.
+### <a name="add-a-calculated-column-to-the-dates-table"></a>Hinzufügen einer berechneten Spalte zur Tabelle „Dates“
+1. Klicken oder tippen Sie in der Tabelle mit Datumsangaben auf **Neue Spalte**.
    
-    ![New Column](./media/sharepoint-scenario-build-report/05-02-00-modeling-column.png)
-2. Enter this formula into the formula bar: **IsWeekDay = SWITCH(WEEKDAY(Dates[Date]), 1,0,7,0,1)**.
+    ![Neue Spalte](./media/sharepoint-scenario-build-report/05-02-00-modeling-column.png)
+2. Geben Sie in der Bearbeitungsleiste die folgende Formel ein: **IsWeekDay = SWITCH(WEEKDAY(Dates[Date]), 1,0,7,0,1)**.
    
-    This formula determines whether a date in the **Date** column is a weekday. If the date is a weekday, the **IsWeekDay** column gets a value of 1; otherwise it gets a value of 0.
-3. Press Enter to add the **IsWeekDay** column to the **Dates** table.
+    Durch diese Formel wird bestimmt, ob es sich bei einem Datum in der Spalte **Date** um einen Werktag handelt. Wenn es sich bei dem Datum um einen Werktag handelt, erhält die Spalte **IsWeekDay** den Wert 1, andernfalls wird der Spalte der Wert 0 zugewiesen.
+3. Drücken Sie die EINGABETASTE, um der Tabelle **Dates** die Spalte **IsWeekDay** hinzuzufügen.
    
-    ![Add IsWeekDay column](./media/sharepoint-scenario-build-report/05-02-08-column-isweekday.png)
+    ![Hinzufügen der Spalte „IsWeekDay“](./media/sharepoint-scenario-build-report/05-02-08-column-isweekday.png)
 
-### Add a calculated column to the Project Details table
-1. In the right pane, click or tap the **Project Details** table, then **New Column**.
+### <a name="add-a-calculated-column-to-the-project-details-table"></a>Hinzufügen einer berechneten Spalte zur Tabelle „Project Details“ (Projektdetails)
+1. Klicken oder tippen Sie im rechten Bereich auf die Tabelle **Project Details** (Projektdetails) und anschließend auf **Neue Spalte**.
    
-    ![New Column](./media/sharepoint-scenario-build-report/05-02-00-modeling-column.png)
-2. Enter this formula into the formula bar:
+    ![Neue Spalte](./media/sharepoint-scenario-build-report/05-02-00-modeling-column.png)
+2. Geben Sie in der Bearbeitungsleiste diese Formel ein:
    
     ```
     ApprovedStartDiff = CALCULATE(SUM(Dates[IsWeekday]),
@@ -206,16 +212,16 @@ When Power BI Desktop brought the lists in, it created a relationship between th
     )
     ```
    
-    This formula calculates the difference in days between when a project was approved and when it is projected to start. It uses the **IsWeekday** column from the **Dates** table, so it counts only weekdays.
-3. Press Enter to add the **ApprovedStartDiff** column to the **Project Details** table.
+    Durch diese Formel wird die Differenz (in Tagen) zwischen der Genehmigung eines Projekts und dem geplanten Start des Projekts berechnet. Die Spalte **IsWeekday** aus der Tabelle **Dates** wird verwendet, daher werden nur Werktage gezählt.
+3. Drücken Sie die EINGABETASTE, um der Tabelle **Project Details** (Projektdetails) die Spalte **ApprovedStartDiff** hinzuzufügen.
    
-    ![Add ApprovedStartDiff column](./media/sharepoint-scenario-build-report/05-02-09-column-approvedstartdiff.png)
+    ![Hinzufügen der Spalte „ApprovedStartDiff“](./media/sharepoint-scenario-build-report/05-02-09-column-approvedstartdiff.png)
 
-### Add a calculated column to the Project Requests table
-1. In the right pane, click or tap the **Project Requests** table, then **New Column**.
+### <a name="add-a-calculated-column-to-the-project-requests-table"></a>Hinzufügen einer berechneten Spalte zur Tabelle „Project Requests“ (Projektanforderungen)
+1. Klicken oder tippen Sie im rechten Bereich auf die Tabelle **Project Requests** (Projektanforderungen) und anschließend auf **Neue Spalte**.
    
-    ![New Column](./media/sharepoint-scenario-build-report/05-02-00-modeling-column.png)
-2. Enter this formula into the formula bar:
+    ![Neue Spalte](./media/sharepoint-scenario-build-report/05-02-00-modeling-column.png)
+2. Geben Sie in der Bearbeitungsleiste diese Formel ein:
    
     ```
     RequestDateAge = CALCULATE(SUM(Dates[IsWeekday]),
@@ -231,16 +237,16 @@ When Power BI Desktop brought the lists in, it created a relationship between th
     )
     ```
    
-    This formula calculates the difference in days between when a project was requested and today's date (NOW()). Again, the formula counts only weekdays. This column is used to look for the project that has been pending the longest.
-3. Press Enter to add the **RequestDateAge** column to the **Project Requests** table.
+    Durch diese Formel wird die Differenz (in Tagen) zwischen der Anforderung eines Projekts und dem heutigen Datum (NOW()) berechnet. Durch die Formel werden wiederum nur Werktage gezählt. Anhand dieser Spalte wird nach dem Projekt gesucht, das am längsten aussteht.
+3. Drücken Sie die EINGABETASTE, um der Tabelle **Project Requests** (Projektanforderungen) die Spalte **RequestDateAge** hinzuzufügen.
    
-    ![Add RequestDateAge column](./media/sharepoint-scenario-build-report/05-02-10-column-requestdateage.png)
+    ![Hinzufügen der Spalte „RequestDateAge“](./media/sharepoint-scenario-build-report/05-02-10-column-requestdateage.png)
 
-### Add a measure to the Project Details table
-1. In the right pane, click or tap the **Project Details** table, then **New Measure**.
+### <a name="add-a-measure-to-the-project-details-table"></a>Hinzufügen eines Measure zur Tabelle „Project Details“
+1. Klicken oder tippen Sie im rechten Bereich auf die Tabelle **Project Details** und anschließend auf **Neues Measure**.
    
-    ![New Measure](./media/sharepoint-scenario-build-report/05-02-00-modeling-measure.png)
-2. Enter this formula into the formula bar:
+    ![Neues Measure](./media/sharepoint-scenario-build-report/05-02-00-modeling-measure.png)
+2. Geben Sie in der Bearbeitungsleiste diese Formel ein:
    
     ```
     VarProjectedActual = DIVIDE(
@@ -252,16 +258,16 @@ When Power BI Desktop brought the lists in, it created a relationship between th
     )
     ```
    
-    This formula calculates the variance between actual and projected days for a project. We add this as a measure, rather than a calculated column, so it returns the correct results regardless of how the data is filtered or aggregated in a report.
-3. Press Enter to add the **VarProjectedActual** measure to the **Project Details** table.
+    Durch diese Formel wird die Differenz zwischen tatsächlicher und veranschlagter Anzahl von Tagen für ein Projekt berechnet. Hier wird ein Measure und keine berechnete Spalte hinzugefügt, sodass die richtigen Ergebnisse unabhängig davon zurückgegeben werden, ob die Daten in einem Bericht gefiltert oder aggregiert sind.
+3. Drücken Sie die EINGABETASTE, um der Tabelle **Project Details** (Projektdetails) das Measure **VarProjectedActual** hinzuzufügen.
    
-    ![Add VarProjectedActual measure](./media/sharepoint-scenario-build-report/05-02-11-measure-varprojectedactual.png)
+    ![Hinzufügen des Measure „VarProjectedActual“](./media/sharepoint-scenario-build-report/05-02-11-measure-varprojectedactual.png)
 
-### Add a measure to the Project Requests table
-1. In the right pane, click or tap the **Project Requests** table, then **New Measure**.
+### <a name="add-a-measure-to-the-project-requests-table"></a>Hinzufügen eines Measure zur Tabelle „Project Requests“ (Projektanforderungen)
+1. Klicken oder tippen Sie im rechten Bereich auf die Tabelle **Project Requests** (Projektanforderungen) und anschließend auf **Neues Measure**.
    
-    ![New Measure](./media/sharepoint-scenario-build-report/05-02-00-modeling-measure.png)
-2. Enter this formula into the formula bar:
+    ![Neues Measure](./media/sharepoint-scenario-build-report/05-02-00-modeling-measure.png)
+2. Geben Sie in der Bearbeitungsleiste diese Formel ein:
    
     ```
     MaxDaysPending = MAXX(
@@ -273,127 +279,127 @@ When Power BI Desktop brought the lists in, it created a relationship between th
     )
     ```
    
-    This formula finds the project that has been pending the longest, based on the calculated column we defined earlier.
-3. Press Enter to add the **MaxDaysPending** measure to the **Project Requests** table.
+    Anhand dieser Formel wird nach dem am längsten ausstehenden Projekt gesucht, basierend auf der zuvor definierten berechneten Spalte.
+3. Drücken Sie die EINGABETASTE, um der Tabelle **Project Requests** (Projektanforderungen) das Measure **MaxDaysPending** hinzuzufügen.
    
-    ![Add MaxDaysPending measure](./media/sharepoint-scenario-build-report/05-02-12-measure-maxdayspending.png)
+    ![Hinzufügen des Measure „MaxDaysPending“](./media/sharepoint-scenario-build-report/05-02-12-measure-maxdayspending.png)
 
-## Step 3: Create report visualizations
-Now we're at the step that many people think of when they think of data analysis: creating visualizations so we can find patterns in our data. In this step, we'll create four visualizations:
+## <a name="step-3-create-report-visualizations"></a>Schritt 3: Erstellen von Berichtsvisualisierungen
+Nun kommen wir zu dem Schritt, der vielen bei der Datenanalyse zuerst in den Sinn kommt: das Erstellen von Visualisierungen, sodass Muster in den Daten aufgefunden werden können. In diesem Schritt erstellen wir vier Visualisierungen:
 
-* A column chart that shows projected days versus actual days on projects
-* A column chart that shows the variance for each project
-* A card that shows the project that has been pending the longest
-* A table that shows the time between project approval and projected start date
+* Ein Säulendiagramm, in dem die geplanten Tage den tatsächlichen Tagen eines Projekts gegenübergestellt werden
+* Ein Säulendiagramm, in dem die Differenz für die einzelnen Projekte veranschaulicht wird
+* Eine Karte, auf der das am längsten ausstehende Projekt angezeigt wird
+* Eine Tabelle mit der Zeitspanne zwischen der Genehmigung des Projekts und dem geplanten Startdatum
 
-After we've created these report visualizations in Power BI Desktop, we'll publish the data and reports to the Power BI service, so we can create and share dashboards. For more information on creating reports in Power BI Desktop, see the [Visualizations](https://powerbi.microsoft.com/guided-learning/powerbi-learning-3-1-intro-visualizations) section in our Guided Learning course.
+Nachdem wir diese Berichtsvisualisierungen Power BI Desktop erstellt haben, veröffentlichen wir die Daten und Berichte im Power BI-Dienst, sodass wir Dashboards erstellen und freigeben können. Weitere Informationen zum Erstellen von Berichten in Power BI Desktop finden Sie im Abschnitt [Visualisierungen](https://powerbi.microsoft.com/guided-learning/powerbi-learning-3-1-intro-visualizations) in unserem Kurs für geführtes Lernen.
 
-### Create a bar chart to show projected versus actual
-1. Click or tap the **Report** view icon. We'll stay in this view for the rest of our time in Power BI Desktop.
+### <a name="create-a-bar-chart-to-show-projected-versus-actual"></a>Erstellen eines Balkendiagramms zum Darstellen der geplanten und tatsächlichen Tage
+1. Klicken oder tippen Sie auf das Symbol für die Sicht **Bericht**. Für die restliche Zeit in Power BI Desktop bleiben wir in dieser Sicht.
    
-    ![Report view](./media/sharepoint-scenario-build-report/05-03-01-report-view.png)
-2. In the **Visualizations** pane on the right, click or tap **Clustered column chart**.
+    ![Sicht „Bericht“](./media/sharepoint-scenario-build-report/05-03-01-report-view.png)
+2. Klicken oder tippen Sie im Bereich **Visualisierungen** auf der rechten Seite auf **Säulendiagramm (gruppiert)**.
    
-    ![Visualizations - clustered column chart](./media/sharepoint-scenario-build-report/05-03-00-visuals-column.png)
-3. Drag **PMAssigned** and **Title** from **Project Details** in the **Fields** pane to **Axis** in the **Visualizations** pane.
+    ![Visualisierungen – Säulendiagramm (gruppiert)](./media/sharepoint-scenario-build-report/05-03-00-visuals-column.png)
+3. Ziehen Sie **PMAssigned** und **Title** aus **Project Details** im Bereich **Felder** in **Achse** im Bereich **Visualisierungen**.
    
-    ![Axis in the Visualizations pane](./media/sharepoint-scenario-build-report/05-03-00-axis.png)
-4. Drag **ActualDays** and **ProjectedDays** from **Project Details** in the **Fields** pane to **Value** in the **Visualizations** pane.
+    ![„Achse“ im Bereich „Visualisierungen“](./media/sharepoint-scenario-build-report/05-03-00-axis.png)
+4. Ziehen Sie **ActualDays** und **ProjectedDays** aus **Project Details** im Bereich **Felder** in **Wert** im Bereich **Visualisierungen**.
    
-    ![Value in the Visualizations pane](./media/sharepoint-scenario-build-report/05-03-03-value-projected.png)
-5. The visualization should now look like the following image.
+    ![„Wert“ im Bereich „Visualisierungen“](./media/sharepoint-scenario-build-report/05-03-03-value-projected.png)
+5. Die Visualisierung sollte nun wie in der folgenden Abbildung aussehen.
    
-    ![ProjectedDays and ActualDays by PMAssigned](./media/sharepoint-scenario-build-report/05-03-04-chart-projected.png)
-6. Drag **Status** from **Project Details** in the **Fields** pane to the **Filters** area of the **Visualizations** pane, then select the **Completed** check box.
+    ![ProjectedDays und ActualDays nach PMAssigned](./media/sharepoint-scenario-build-report/05-03-04-chart-projected.png)
+6. Ziehen Sie **Status** aus **Project Details** (Projektdetails) im Bereich **Felder** in den Abschnitt **Filter** im Bereich **Visualisierungen**, und aktivieren Sie anschließend das Kontrollkästchen **Abgeschlossen**.
    
-   ![Filter by Status column](./media/sharepoint-scenario-build-report/05-03-05-filters-projected.png)
+   ![Filtern nach Spalte „Status“](./media/sharepoint-scenario-build-report/05-03-05-filters-projected.png)
    
-   The chart is now filtered to show only completed projects, which makes sense because we are comparing projected days to actual days.
-7. Click the arrows in the upper left corner of the chart to move up and down the hierarchy of project managers and projects. In the following image, you see what the drill down into projects looks like.
+   Das Diagramm wird nun so gefiltert, dass nur abgeschlossene Projekte angezeigt werden. Dies ist sinnvoll, da geplante Tage mit den tatsächlichen Tagen verglichen werden.
+7. Klicken Sie auf die Pfeile in der linken oberen Ecke des Diagramms, um die Hierarchie der Projektmanager und Projekte nach oben und unten zu verschieben. In der folgenden Abbildung wird der Drilldown in Projekte veranschaulicht.
    
-   ![Drill into column chart](./media/sharepoint-scenario-build-report/05-03-06-chart-projected-drill.png)
+   ![Drilldown in Säulendiagramm](./media/sharepoint-scenario-build-report/05-03-06-chart-projected-drill.png)
 
-### Create a bar chart to show variance from projected
-1. Click or tap on the canvas outside the visualization you just created.
-2. In the **Visualizations** pane on the right, click or tap **Clustered column chart**.
+### <a name="create-a-bar-chart-to-show-variance-from-projected"></a>Erstellen eines Balkendiagramms zum Darstellen der Differenz von den geplanten Tagen
+1. Klicken oder tippen Sie auf den Zeichenbereich außerhalb der soeben erstellten Visualisierung.
+2. Klicken oder tippen Sie im Bereich **Visualisierungen** auf der rechten Seite auf **Säulendiagramm (gruppiert)**.
    
-    ![Visualizations - clustered column chart](./media/sharepoint-scenario-build-report/05-03-00-visuals-column.png)
-3. Drag **PMAssigned** and **Title** from **Project Details** in the **Fields** pane to **Axis** in the **Visualizations** pane.
+    ![Visualisierungen – Säulendiagramm (gruppiert)](./media/sharepoint-scenario-build-report/05-03-00-visuals-column.png)
+3. Ziehen Sie **PMAssigned** und **Title** aus **Project Details** im Bereich **Felder** in **Achse** im Bereich **Visualisierungen**.
    
-    ![Axis in the Visualizations pane](./media/sharepoint-scenario-build-report/05-03-00-axis.png)
-4. Drag **VarProjectedActual** from **Project Details** in the **Fields** pane to **Value** in the **Visualizations** pane.
+    ![„Achse“ im Bereich „Visualisierungen“](./media/sharepoint-scenario-build-report/05-03-00-axis.png)
+4. Ziehen Sie **VarProjectedActual** aus **Project Details** (Projektdetails) im Bereich **Felder** in **Wert** im Bereich **Visualisierungen**.
    
-    ![Value in the Visualizations pane](./media/sharepoint-scenario-build-report/05-03-07a-value-variance.png)
-5. Drag **Status** from **Project Details** in the **Fields** pane to the **Filters** area of the **Visualizations** pane, then select the **Completed** check box.
+    ![„Wert“ im Bereich „Visualisierungen“](./media/sharepoint-scenario-build-report/05-03-07a-value-variance.png)
+5. Ziehen Sie **Status** aus **Project Details** (Projektdetails) im Bereich **Felder** in den Abschnitt **Filter** im Bereich **Visualisierungen**, und aktivieren Sie anschließend das Kontrollkästchen **Abgeschlossen**.
    
-    ![Filter by Status column](./media/sharepoint-scenario-build-report/05-03-07b-filters-variance.png)
+    ![Filtern nach Spalte „Status“](./media/sharepoint-scenario-build-report/05-03-07b-filters-variance.png)
    
-    The visualization should now look like the following image.
+    Die Visualisierung sollte nun wie in der folgenden Abbildung aussehen.
    
-    ![VarProjectedActual by PMAssigned](./media/sharepoint-scenario-build-report/05-03-08-chart-variance.png)
+    ![VarProjectedActual nach PMAssigned](./media/sharepoint-scenario-build-report/05-03-08-chart-variance.png)
    
-    You can see from this chart how much more variability there is for projects that were run by Irvin Sayers versus Joni Sherman. Drill in to see the variability by project, and whether the days projected was more or less than the actual days.
+    Anhand dieses Diagramms wird ersichtlich, wie viel größer die Variabilität der Projekte von Irvin Sayers als die der Projekte von Joni Sherman ist. Führen Sie einen Drilldown aus, um die Variabilität nach Projekten zu untersuchen und festzustellen, ob die geplante Anzahl von Tagen größer oder kleiner als die tatsächliche Anzahl von Tagen war.
    
-    ![VarProjectedActual by Title](./media/sharepoint-scenario-build-report/05-03-09-chart-variance-drill.png)
-6. Before we create more visualizations, move and resize the ones you already created, so they fit side-by-side.
+    ![VarProjectedActual nach Title](./media/sharepoint-scenario-build-report/05-03-09-chart-variance-drill.png)
+6. Bevor wir weitere Visualisierungen erstellen, verschieben Sie die bereits erstellten Visualisierungen, und ändern Sie deren Größe, sodass sie nebeneinander angezeigt werden können.
    
-    ![Fit charts side by side](./media/sharepoint-scenario-build-report/05-03-10-two-charts.png)
+    ![Anpassen von Diagrammen für die Anzeige nebeneinander](./media/sharepoint-scenario-build-report/05-03-10-two-charts.png)
 
-### Create a card that shows the longest pending project
-1. Click or tap on the canvas outside the visualization you just created.
-2. In the **Visualizations** pane on the right, click or tap **Card**.
+### <a name="create-a-card-that-shows-the-longest-pending-project"></a>Erstellen einer Karte, auf der das am längsten ausstehende Projekt angezeigt wird
+1. Klicken oder tippen Sie auf den Zeichenbereich außerhalb der soeben erstellten Visualisierung.
+2. Klicken oder tippen Sie im Bereich **Visualisierungen** auf der rechten Seite auf **Karte**.
    
-    ![Visualizations - card](./media/sharepoint-scenario-build-report/05-03-11-visuals-card.png)
-3. Drag **MaxDaysPending** from **Project Requests** in the **Fields** pane to **Fields** in the **Visualizations** pane.
+    ![Visualisierungen – Karte](./media/sharepoint-scenario-build-report/05-03-11-visuals-card.png)
+3. Ziehen Sie **MaxDaysPending** aus **Project Requests** (Projektanforderungen) im Bereich **Felder** in **Felder** im Bereich **Visualisierungen**.
    
-    ![Fields in the Visualizations pane](./media/sharepoint-scenario-build-report/05-03-12-value-max.png)
-4. Click or tap **Format** (paint roller), then set **Border** to **On**.
+    ![„Felder“ im Bereich „Visualisierungen“](./media/sharepoint-scenario-build-report/05-03-12-value-max.png)
+4. Klicken oder tippen Sie auf **Format übertragen** (Malerrolle), und legen Sie **Rand** auf **Ein** fest.
    
-    ![Format painter - Border](./media/sharepoint-scenario-build-report/05-03-13a-format.png)
-5. Set **Title** to **On**, then add the title "Max days pending approval".
+    ![Format übertragen – Rand](./media/sharepoint-scenario-build-report/05-03-13a-format.png)
+5. Legen Sie **Title** (Titel) auf **Ein** fest, und fügen Sie anschließend den Titel „Max days pending approval“ (Max. Anzahl Tage ausstehende Genehmigung) hinzu.
    
-    ![Add a title](./media/sharepoint-scenario-build-report/05-03-13b-title.png)
+    ![Hinzufügen eines Titels](./media/sharepoint-scenario-build-report/05-03-13b-title.png)
    
-    The visualization should now look like the following image.
+    Die Visualisierung sollte nun wie in der folgenden Abbildung aussehen.
    
-    ![ Max days pending approval](./media/sharepoint-scenario-build-report/05-03-14-chart-max.png)
+    ![ „Max days pending approval“ (Max. Anzahl Tage ausstehende Genehmigung)](./media/sharepoint-scenario-build-report/05-03-14-chart-max.png)
    
-    After we publish this report, we'll use this tile to trigger an alert if the maximum value for a pending project reaches a certain threshold.
+    Nachdem wir diesen Bericht veröffentlicht haben, lösen wir mit dieser Kachel eine Warnung aus, wenn der Maximalwert für ein ausstehendes Projekt einen bestimmten Schwellenwert erreicht.
 
-### Create a table that shows the time between project approval and projected start date
-1. Click or tap on the canvas outside the visualization you just created.
-2. In the **Visualizations** pane on the right, click or tap **Table**.
+### <a name="create-a-table-that-shows-the-time-between-project-approval-and-projected-start-date"></a>Erstellen einer Tabelle mit der Zeitspanne zwischen der Genehmigung des Projekts und dem geplanten Startdatum
+1. Klicken oder tippen Sie auf den Zeichenbereich außerhalb der soeben erstellten Visualisierung.
+2. Klicken oder tippen Sie im Bereich **Visualisierungen** auf der rechten Seite auf **Tabelle**.
    
-    ![Visualizations - table](./media/sharepoint-scenario-build-report/05-03-15-visuals-table.png)
-3. Drag **PMAssigned**, **Title**, and **ApprovedStartDiff** from **Project Details** in the **Fields** pane to **Values** in the **Visualizations** pane.
+    ![Visualisierungen – Tabelle](./media/sharepoint-scenario-build-report/05-03-15-visuals-table.png)
+3. Ziehen Sie **PMAssigned**, **Title** und **ApprovedStartDiff** aus **Project Details** (Projektdetails) im Bereich **Felder** in **Werte** im Bereich **Visualisierungen**.
    
-    ![Values in the Visualizations pane](./media/sharepoint-scenario-build-report/05-03-16-value-diff.png)
-4. Drag **ProjectedStartDate** from **Project Details** in the **Fields** pane to the **Filters** area of the **Visualizations** pane, then select all dates except for **(Blank)**.
+    ![„Werte“ im Bereich „Visualisierungen“](./media/sharepoint-scenario-build-report/05-03-16-value-diff.png)
+4. Ziehen Sie **ProjectedStartDate** aus **Project Details** (Projektdetails) im Bereich **Felder** in den Abschnitt **Filter** des Bereichs **Visualisierungen**, und wählen Sie anschließend alle Datumsangaben außer **(Leer)** aus.
    
-    ![Filter by ProjectedStartDate](./media/sharepoint-scenario-build-report/05-03-17-filters-diff.png)
-5. Resize the columns of the table so you can see all the data, and sort by **ApprovedStartDiff**, descending. The visualization should now look like the following image.
+    ![Filtern nach ProjectedStartDate](./media/sharepoint-scenario-build-report/05-03-17-filters-diff.png)
+5. Ändern Sie die Größe der Spalten der Tabelle, damit alle Daten angezeigt werden, und sortieren Sie absteigend nach **ApprovedStartDiff**. Die Visualisierung sollte nun wie in der folgenden Abbildung aussehen.
    
-    ![Table with ApprovedStartDiff values](./media/sharepoint-scenario-build-report/05-03-18-chart-diff.png)
-6. In the **Values** area, click or tap the down arrow for **ApprovedStartDiff**, then click or tap **Average**. Now we can see the average duration between project approval and projected start date.
+    ![Tabelle mit Werten für ApprovedStartDiff](./media/sharepoint-scenario-build-report/05-03-18-chart-diff.png)
+6. Klicken oder tippen Sie im Bereich **Werte** auf den Pfeil nach unten für **ApprovedStartDiff**, und klicken oder tippen Sie anschließend auf **Durchschnitt**. Jetzt wird die durchschnittliche Zeitspanne von der Genehmigung des Projekts bis zum geplanten Startdatum angezeigt.
    
-    ![Calculate average](./media/sharepoint-scenario-build-report/05-03-20a-average-menu.png)
-7. Click or tap the down arrow for **ApprovedStartDiff** again, click or tap **Conditional formatting**, then click or tap **Background color scales**.
+    ![Berechnen des Durchschnitts](./media/sharepoint-scenario-build-report/05-03-20a-average-menu.png)
+7. Klicken oder tippen Sie erneut auf den Pfeil nach unten für **ApprovedStartDiff**, und klicken oder tippen Sie anschließend auf **Bedingte Formatierung** und dann auf **Skalen für die Hintergrundfarbe**.
    
-   ![Conditional formatting](./media/sharepoint-scenario-build-report/05-03-20b-conditional-menu.png)
-8. Set colors for the **Minimum** and **Maximum** fields as shown below, then click or tap **OK**.
+   ![Bedingte Formatierung](./media/sharepoint-scenario-build-report/05-03-20b-conditional-menu.png)
+8. Legen Sie die Farben in den Feldern **Minimum** und **Maximum** fest, wie unten dargestellt, und klicken oder tippen Sie dann auf **OK**.
    
-   ![Conditional formatting options](./media/sharepoint-scenario-build-report/05-03-21-conditional-dialog.png)
+   ![Optionen für „Bedingte Formatierung“](./media/sharepoint-scenario-build-report/05-03-21-conditional-dialog.png)
    
-   The visualization should now look like the following image.
+   Die Visualisierung sollte nun wie in der folgenden Abbildung aussehen.
    
-   ![Completed conditional formatting](./media/sharepoint-scenario-build-report/05-03-22-chart-diff-completed.png)
+   ![Abgeschlossene bedingte Formatierung](./media/sharepoint-scenario-build-report/05-03-22-chart-diff-completed.png)
    
-   As you can see, projects that Irvin Sayers runs tend to start a lot later after approval. There could be factors other than the assigned manager, but this would be worth looking into.
+   Sie stellen fest, dass von Irvin Sayers geleitete Projekte tendenziell viel später nach der Genehmigung beginnen. Möglicherweise gibt es andere Faktoren als den zugewiesenen Projektmanager, es erscheint jedoch sinnvoll, diesen Faktor eingehender zu untersuchen.
 
-That brings us to the end of the report section, and you should now have a complete report based on data imported from SharePoint and cleaned up and modeled in Power BI Desktop. If everything went according to plan, your report should look like the following image.
+Damit kommen wir zum Ende des Berichtsabschnitts. Sie verfügen nun über einen kompletten Bericht, der auf den aus SharePoint importierten Daten basiert und Power BI Desktop bereinigt und modelliert wurde. Wenn alles plangemäß verlaufen ist, sieht ihr Bericht wie der in der folgenden Abbildung aus.
 
-![Completed report](./media/sharepoint-scenario-build-report/05-03-23-report-completed.png)
+![Abgeschlossener Bericht](./media/sharepoint-scenario-build-report/05-03-23-report-completed.png)
 
-## Next steps
-The next step in this tutorial series is to [publish the Power BI project report and create a dashboard](sharepoint-scenario-publish-report.md).
+## <a name="next-steps"></a>Nächste Schritte
+Der nächste Schritt in dieser Reihe von Tutorials besteht im [Veröffentlichen des Power BI-Projektberichts und Erstellen eines Dashboards](sharepoint-scenario-publish-report.md).
 

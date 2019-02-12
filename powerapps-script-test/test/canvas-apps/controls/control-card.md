@@ -1,6 +1,6 @@
 ---
-title: 'Card control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Card control
+title: 'Karten-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, über das Karten-Steuerelement
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,96 +9,102 @@ ms.component: canvas
 ms.date: 10/25/2016
 ms.author: gregli
 ms.reviewer: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: cc4338e37b7ecde2e2e2e9ad5c5ac6e96d116b58
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42849843"
 ---
-# Card control in PowerApps
-Provides the display and editing experience for a single field of a **[Display form](control-form-detail.md)** or **[Edit form](control-form-detail.md)** control.
+# <a name="card-control-in-powerapps"></a>Karten-Steuerelement in PowerApps
+Ermöglicht die Anzeige und Bearbeitung eines einzelnen Felds in einem **[Formular anzeigen](control-form-detail.md)**- oder **[Formular bearbeiten](control-form-detail.md)**-Steuerelement.
 
-## Description
-**[Display form](control-form-detail.md)** and **[Edit form](control-form-detail.md)** controls act as containers for displaying and viewing entire records. Each container can hold a set of **Card** controls that display individual fields or provide a way to update those fields. Each card has a **DataField** property that specifies which field of the record it works on.  
+## <a name="description"></a>Beschreibung
+**[Formular anzeigen](control-form-detail.md)**- und **[Formular bearbeiten](control-form-detail.md)**-Steuerelemente werden als Container für die Anzeige und Bearbeitung vollständiger Datensätze verwendet. Jeder Container kann eine Reihe von **Karten**-Steuerelementen enthalten, in denen einzelne Felder angezeigt oder mit denen diese Felder aktualisiert werden können. Jede Karte besitzt eine **DataField**-Eigenschaft, die angibt, mit welchem Feld des Datensatzes es verknüpft ist.  
 
-Predefined cards are defined for different data types and user experiences.  For example, there may be a card to edit a number field with a **[Text input](control-text-input.md)** control, which is great for use with the keyboard. Another card might support editing a number by using a **[Slider](control-slider.md)** control instead. With the form control selected, you can, in the right-hand pane, easily select a card based on a field.
+Vordefinierte Karten lassen sich für unterschiedliche Datentypen und Funktionen definieren.  Zum Beispiel können Sie eine Karte zum Bearbeiten eines Zahlenfelds mit einem **[Texteingabe](control-text-input.md)**-Steuerelement verwenden, die optimal für Tastatureingaben geeignet ist. Eine andere Karte unterstützt stattdessen etwa das Bearbeiten einer Zahl mit einem **[Schieberegler](control-slider.md)**-Steuerelement. Wenn Sie das Formular-Steuerelement auswählen, können Sie im rechten Bereich ganz einfach eine für ein bestimmtes Feld geeignete Karte auswählen.
 
-Cards themselves contain controls. The controls of a card make up the experience for displaying and editing a single field. For example, a number card may consist of a **[Label](control-text-box.md)** control to provide the display name of the field and a **[Text input](control-text-input.md)** control to provide an editor for the value of the field. The card may also have a **[Label](control-text-box.md)** control that shows any validation errors that occur and a **[Label](control-text-box.md)** control for the common asterisk to indicate that a field is required.
+Karten enthalten wiederum Steuerelemente. Die Steuerelemente einer Karte bilden die Benutzeroberfläche zum Anzeigen und Bearbeiten eines einzelnen Felds. So kann eine Zahlenkarte beispielsweise aus einem **[Label](control-text-box.md)**-Steuerelement (Bezeichnung) zum Anzeigen des Feldnamens und einem **[Texteingabe](control-text-input.md)**-Steuerelement als Editor für den Wert des Felds bestehen. Außerdem könnte auf der Karte ein **[Label](control-text-box.md)**-Steuerelement (Bezeichnung) vorhanden sein, in dem ggf. Überprüfungsfehler angezeigt werden, sowie ein **[Label](control-text-box.md)**-Steuerelement für das Sternchen, mit dem Pflichtfelder üblicherweise gekennzeichnet sind.
 
-You can customize the controls of a predefined card by resizing it, moving it, hiding it, adding controls to it, and making other changes. You can also start with an entirely blank card, a "custom card", to which you add controls from scratch.
+Sie können die Steuerelemente einer vordefinierten Karte anpassen, indem Sie die Größe oder Position ändern, sie ausblenden, weitere Steuerelemente hinzufügen oder sonstige Änderungen vornehmen. Sie können auch eine benutzerdefinierte Karte verwenden, d.h. eine völlig leere Karte, die Sie von Grund auf neu erstellen, indem Sie Steuerelemente hinzufügen.
 
-Predefined cards are *locked* by default. In a locked card, you can modify only certain properties of the card or the controls within the card, and you can't delete a locked card. You can show the card lock and unlock it on the **View** tab of the **Advanced** view. If a property is locked and can't be modified, it appears with a lock icon next to its name. Unlocking a card is an advanced activity and should be done with care, because automatic formula generation will no longer occur for the card, and you can't relock a card.
+Vordefinierte Karten sind in der Standardeinstellung *gesperrt*. Bei einer gesperrten Karte können Sie nur bestimmte Eigenschaften der Karte oder der Steuerelemente auf der Karte ändern. Gesperrte Karten können nicht gelöscht werden. Auf der Registerkarte **Anzeigen** der **erweiterten Ansicht** können Sie die Kartensperre einblenden und aufheben. Wenn eine Eigenschaft gesperrt ist und nicht geändert werden kann, wird neben ihrem Namen ein Schlosssymbol angezeigt. Das Entsperren einer Karte ist eher etwas für Fortgeschrittene und sollte Sorgfalt ausgeführt werden, da für die Karte keine automatische Formelgenerierung mehr erfolgt und die Karte nicht wieder gesperrt werden kann.
 
-Within the form's container, the **ThisItem** record is available and contains all the fields of the record.  For example, the card's **[Default](properties-core.md)** property is often set to **ThisItem**.*FieldName*.
+Im Container des Formulars ist der Datensatz **ThisItem** verfügbar, der alle Felder des Datensatzes enthält.  Beispielsweise ist die **[Default](properties-core.md)**-Eigenschaft der Karte oft auf **ThisItem**.*FieldName* festgelegt.
 
-You can use the **Parent** reference to configure a control to reference the properties of a card.  For example, a control should use **Parent.Default** to read the initial state of the field from the data source. By using **Parent** instead of directly accessing the information that you want, the card is better encapsulated, and you can change it to a different field without breaking internal formulas.
+Mit dem **Parent**-Verweis können Sie ein Steuerelement so konfigurieren, dass es auf die Eigenschaften einer Karte verweist.  Beispielsweise sollte ein Steuerelement den Ausgangszustand des Felds mit **Parent.Default** aus der Datenquelle lesen. Indem Sie **Parent** verwenden, statt direkt auf die gewünschten Informationen zuzugreifen, ist die Karte besser gekapselt und kann in ein anderes Feld umgewandelt werden, ohne Fehler bei den internen Formeln zu verursachen.
 
-See [Understand data cards](../working-with-cards.md) for examples of how to customize, unlock, and create cards.
+Beispiele zum Anpassen, Entsperren und Erstellen von Karten finden Sie unter [Grundlegendes zu Datenkarten](../working-with-cards.md).
 
-## Key properties
-**DataField** – The name of the field within a record that this card displays and edits.
+## <a name="key-properties"></a>Haupteigenschaften
+**DataField** – Der Name des Felds in einem Datensatz, der auf dieser Karte angezeigt wird und bearbeitet werden kann.
 
-* Specify the name as a single static string that's enclosed in double quotation marks (for example, **"Name"**), not a formula.
-* Unbind a card by setting its **DataField** property *blank*. The **Valid** and **Update** properties are ignored for unbound cards.
+* Geben Sie den Namen als eine einzelne statische Zeichenfolge an, die in doppelte Anführungszeichen eingeschlossen ist (z.B. **"Name"**), und nicht als Formel.
+* Wenn Sie die **DataField**-Eigenschaft *leer* lassen, wird die Bindung der Karte aufgehoben. Bei nicht gebundenen Karten werden die **Valid**-Eigenschaft und die **Update**-Eigenschaft ignoriert.
 
-**[Default](properties-core.md)** – The initial value of a control before it is changed by the user.
+**[Default](properties-core.md)** – Der Anfangswert eines Steuerelements, bevor es vom Benutzer geändert wird.
 
-* For each control in a card, set this property to **Parent.Default** to refer to the default value of the field according to the data source. For example, set a slider's **[Default](properties-core.md)** property to **Parent.Default** to ensure that the user starts with a generic value for that slider.
+* Legen Sie diese Eigenschaft bei allen Steuerelementen einer Karte auf **Parent.Default** fest, um auf den Standardwert des Felds aus der Datenquelle zu verweisen. Legen Sie beispielsweise die **[Default](properties-core.md)**-Eigenschaft eines Schiebereglers auf **Parent.Default** fest, um sicherzustellen, dass dem Benutzer zunächst der Basiswert dieses Schiebereglers angezeigt wird.
 
-**DisplayMode** – Values can be **Edit, View,** or **Disabled**. Configures whether the control inside the card allows user input (**Edit**), only displays data (**View**) or is disabled (**Disabled**).  
+**DisplayMode**: Mögliche Werte sind **Edit, View** und **Disabled** (Bearbeiten, Anzeigen und Deaktiviert). Legt fest, ob das Steuerelement in der Karte Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).  
 
-* Allows a single card to be used in both edit and view forms, by configuring this property, which is tied to the Form's behavior by default.
-* In **View** mode, child controls such as **[Text input](control-text-input.md)**, **[Drop down](control-drop-down.md)**, **[Date Picker](control-date-picker.md)** will only display the text value and will not render any interactive elements or decorations.
+* Ermöglicht die Verwendung einer einzelnen Karte in Bearbeitungs- und Anzeigeformularen; hierfür wird diese Eigenschaft konfiguriert, die standardmäßig an das Verhalten des Formulars gebunden ist.
+* Im Modus **View** (Anzeigen) zeigen untergeordnete Steuerelemente wie **[Texteingabe](control-text-input.md)**, **[Dropdown](control-drop-down.md)** und **[Datumsauswahl](control-date-picker.md)** lediglich den Textwert an, und es werden keine interaktiven Elemente oder Dekorationen gerendert.
 
-**DisplayName** – The user friendly name for a field in a data source.
+**DisplayName** – Der benutzerfreundliche Name für ein Feld in einer Datenquelle.
 
-* The **[DataSourceInfo](../functions/function-datasourceinfo.md)** function provides this metadata from the data source.
-* Controls within the card should use **Parent.DisplayName** to refer to the name of the field.
+* Die **[DataSourceInfo](../functions/function-datasourceinfo.md)**-Funktion ruft diese Metadaten aus der Datenquelle ab.
+* Steuerelemente auf der Karte sollten mit **Parent.DisplayName** auf den Namen des Felds verweisen.
 
-**Error** – The user friendly error message to display for this field when validation fails.
+**Error** – Die benutzerfreundliche Fehlermeldung, die bei einem Überprüfungsfehler für dieses Feld angezeigt werden soll.
 
-* This property is set when **SubmitForm** is called.  
-* The message describes validation problems based on the data source's metadata and checking the card's **Required** property.
+* Diese Eigenschaft wird bei einem Aufruf von **SubmitForm** festgelegt.  
+* In der Meldung werden Probleme bei der Überprüfung auf Grundlage der Metadaten der Datenquelle und der **Required**-Eigenschaft erläutert.
 
-**Required** – Whether a card, editing the field of a data source, must contain a value.
+**Required** – Gibt an, ob eine Karte zum Bearbeiten des Felds einer Datenquelle einen Wert enthalten muss.
 
-* The **[DataSourceInfo](../functions/function-datasourceinfo.md)** function provides the required metadata from the data source.
-* Controls within the card should use **Parent.Required** to determine whether that card's field is required.
+* Die **[DataSourceInfo](../functions/function-datasourceinfo.md)**-Funktion ruft die erforderlichen Metadaten aus der Datenquelle ab.
+* Steuerelemente auf der Karte sollten **Parent.Required** verwenden, um zu ermitteln, ob das Feld der Karte erforderlich ist.
 
-**Update** – The value to write back to the data source for a field.
+**Update** – Der Wert, der für ein Feld in die Datenquelle geschrieben werden soll.
 
-* Use this property's formula to pull the values from the edit controls of the card in order to write back to the data source. For example, set a card's **Update** property to **Slider.Value** to update the data source with a value from the slider in that card.
+* Mit der Formel dieser Eigenschaft können Sie die Werte aus den Bearbeitungssteuerelementen der Karte abrufen, um sie wieder in die Datenquelle zu schreiben. Legen Sie beispielsweise die **Update**-Eigenschaft einer Karte auf **Slider.Value** fest, um die Datenquelle mit dem Wert des Schiebereglers auf dieser Karte zu aktualisieren.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[WidthFit](properties-size-location.md)** – Whether a control automatically grows horizontally to fill any empty space in a container control such as an **[Edit form](control-form-detail.md)** control. If multiple cards have this property set to **true**, the space is divided between them. For more information, see [Understand data form layout](../working-with-form-layout.md).
+**[WidthFit](properties-size-location.md)** – Gibt an, ob ein Steuerelement automatisch horizontal vergrößert wird, um leeren Raum in einem Containersteuerelement wie z. B. einem **[Formularbearbeitung](control-form-detail.md)**-Steuerelement auszufüllen. Wenn bei mehreren Karten diese Eigenschaft auf **TRUE** festgelegt ist, teilen sie sich den Raum. Weitere Informationen finden Sie unter [Grundlegendes zum Layout von Datenformularen](../working-with-form-layout.md).
 
-## Additional properties
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**Valid** – Whether a **Card** or **[Edit form](control-form-detail.md)** control contains valid entries, ready to be submitted to the data source.
+**Valid** – Gibt an, ob das **Karten**- oder **[Formular bearbeiten](control-form-detail.md)**-Steuerelement gültige Einträge enthält, die an die Datenquelle gesendet werden können.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container). For a **[Card](control-card.md)** control in a container that has multiple columns, this property determines the column in which the card appears.
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist). Für ein **[Karten](control-card.md)**-Steuerelement in einem Container mit mehreren Spalten bestimmt diese Eigenschaft die Spalte, in der die Karte angezeigt wird.
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container). For a **[Card](control-card.md)** control in a container that has multiple rows, this property determines the row in which the card appears.
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist). Für ein **[Karten](control-card.md)**-Steuerelement in einem Container mit mehreren Zeilen bestimmt diese Eigenschaft die Zeile, in der die Karte angezeigt wird.
 
-## Examples
-See [Understand data cards](../working-with-cards.md) and [Understand data form layout](../working-with-form-layout.md) for examples.
+## <a name="examples"></a>Beispiele
+Beispiele finden Sie unter [Grundlegendes zu Datenkarten](../working-with-cards.md) und [Grundlegendes zum Layout von Datenformularen](../working-with-form-layout.md).
 
 
-## Accessibility guidelines
-### Color contrast
-There must be adequate color contrast between:
-* **[Fill](properties-color-border.md)** and any child controls. For example, if a card contains a **[Label](control-text-box.md)** and the label has transparent fill, then the card's **[Fill](properties-color-border.md)** effectively becomes the background color for the label. Thus, there should be adequate contrast between the card's **[Fill](properties-color-border.md)** and the label's **[Color](properties-color-border.md)**.
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+Zwischen den folgenden Eigenschaften muss es einen ausreichenden Farbkontrast geben:
+* **[Fill](properties-color-border.md)**-Steuerelement und beliebige untergeordnete Steuerelemente. Wenn beispielsweise eine Karte eine **[Bezeichnung](control-text-box.md)** enthält und die **[Füllung](properties-color-border.md)** der Karte durchsichtig ist, wird diese Füllung als Hintergrundfarbe für die Bezeichnung verwendet. Dadurch sollte ein angemessenes Maß an Kontrast zwischen der **[Füllung](properties-color-border.md)** der Karte und der **[Farbe](properties-color-border.md)** der Bezeichnung entstehen.
 
-### Screen reader support
-* **DisplayName** must be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **DisplayName** muss vorhanden sein.

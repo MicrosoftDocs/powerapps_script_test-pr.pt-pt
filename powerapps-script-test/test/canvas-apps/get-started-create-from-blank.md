@@ -1,28 +1,34 @@
 ---
-title: Create an canvas app from scratch based on Excel data | Microsoft Docs
-description: In this tutorial, you'll create a two-screen canvas app so that users can create, edit, and delete records in an Excel file.
+title: Erstellen einer Canvas-App anhand von Excel-Daten | Microsoft-Dokumentation
+description: In diesem Tutorial erstellen Sie eine Canvas-App mit zwei Bildschirmen, damit Benutzer Datensätze erstellen, bearbeiten und löschen können.
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 04/23/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 8c398bb7a916c98aa769e39477fe889a74fce32c
+ms.sourcegitcommit: c1f58a16f8dcd309a1d5fc4658ca16d82c615994
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/23/2018
+ms.locfileid: "51333994"
 ---
-# Create an canvas app from scratch based on Excel data
+# <a name="create-an-canvas-app-from-scratch-based-on-excel-data"></a>Erstellen einer Canvas-App anhand von Excel-Daten
 
-Create your own canvas app from scratch based on Excel data, formatted as a table, and then add data from other sources if you want. By following this tutorial, you'll create an app that contains two screens. On one screen, users can browse through a set of records. On the other screen, users can create a record, update one or more fields in a record, or delete an entire record. This approach takes more time than [generating an app automatically](get-started-create-from-data.md) does, but experienced app makers can use it to build the best app for their needs.
+Erstellen Sie Ihre eigene Canvas-App auf Grundlage von Excel-Daten im Tabellenformat, und fügen Sie auf Wunsch Daten aus anderen Quellen hinzu. Mithilfe dieses Tutorials können Sie eine App erstellen, die zwei Bildschirme enthält. Auf einem Bildschirm können Benutzer eine Reihe von Datensätzen durchsuchen. Auf dem anderen Bildschirm können Benutzer einen Datensatz erstellen, ein oder mehrere Felder in einem Datensatz aktualisieren oder einen vollständigen Datensatz löschen. Dieser Ansatz ist zeitaufwändiger als das [automatische Generieren einer App](get-started-create-from-data.md), aber erfahrene App-Entwickler können damit die beste App für ihre Anforderungen erstellen.
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-To follow the steps in this tutorial exactly, first create an Excel file using this sample data.
+Damit Sie die Schritte in diesem Tutorial genau ausführen können, erstellen Sie zunächst eine Excel-Datei mit diesen Beispieldaten.
 
-1. Copy this data, and then paste it into an Excel file.
+1. Kopieren Sie diese Daten, und fügen Sie sie in eine Excel-Datei ein.
 
     | StartDay | StartTime | Volunteer | Backup |
     | --- | --- | --- | --- |
@@ -33,215 +39,211 @@ To follow the steps in this tutorial exactly, first create an Excel file using t
     | Sunday |10am-noon |Singh |Morgan |
     | Sunday |10am-noon |Batye |Nguyen |
 
-2. Format that data as a table, named **Schedule**, so that PowerApps can parse the information.
+2. Formatieren Sie diese Daten als Tabelle mit dem Namen **Schedule**, sodass die Informationen von PowerApps analysiert werden können.
 
-    For more information, see [Format a table in Excel](how-to-excel-tips.md).
+    Weitere Informationen finden Sie unter [Formatieren einer Tabelle in Excel](how-to-excel-tips.md).
 
-3. Save the file under the name **eventsignup.xls**, close it, and then upload it to a [cloud-storage account](connections/cloud-storage-blob-connections.md), such as OneDrive.
+3. Speichern Sie die Datei unter dem Namen **eventsignup.xls**, schließen Sie sie, und laden Sie sie dann in ein [Cloudspeicherkonto](connections/cloud-storage-blob-connections.md) wie z.B. OneDrive hoch.
 
 > [!IMPORTANT]
-> You can use your own Excel file and review this tutorial for general concepts only. However, the data in the Excel file must be formatted as a table. For more information, see [Format a table in Excel](how-to-excel-tips.md).
+> Sie können Ihre eigene Excel-Datei verwenden und dieses Tutorial nur für allgemeine Konzepte durchsehen. Die Daten in der Excel-Datei müssen jedoch als Tabelle formatiert sein. Weitere Informationen finden Sie unter [Formatieren einer Tabelle in Excel](how-to-excel-tips.md).
 
-## Open a blank app
-1. Sign in to [PowerApps](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
+## <a name="open-a-blank-app"></a>Öffnen einer leeren App
+1. Melden Sie sich bei [PowerApps](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an.
 
-	You can design an app from scratch for phones or for other devices (such as tablets). This topic focuses on designing an app for phones.
+    Sie können eine App von Grund auf neu für Telefone oder andere Geräte (z.B. Tablets) entwerfen. Dieses Thema konzentriert sich auf den Entwurf einer App für Telefone.
 
-1. Under **Make your own app**, hover over the **Start from blank** tile for canvas apps, select the phone icon, and then select **Make this app**.
+1. Zeigen Sie unter **Eigene App erstellen** auf die Kachel **Mit leerer App starten** für Canvas-Apps, wählen Sie das Telefonsymbol und anschließend **Diese App erstellen** aus.
 
-	![Blank-app tile](./media/get-started-create-from-blank/start-from-blank.png)
+    ![Kachel für leere App](./media/get-started-create-from-blank/start-from-blank.png)
 
-    PowerApps Studio creates a blank app for phones.
+    PowerApps Studio erstellt eine leere App für Telefone.
 
-1. If the **Welcome to PowerApps Studio** dialog box opens, select **Skip**.
+1. Falls das Dialogfeld **Willkommen bei PowerApps Studio** geöffnet wird, wählen Sie **Überspringen** aus.
 
-## Connect to data
-1. In the middle of the screen, select **connect to data**.
+## <a name="connect-to-data"></a>Herstellen einer Datenverbindung
+1. Wählen Sie in der Mitte des Bildschirms **Mit Daten verbinden** aus.
 
-1. In the **Data** pane, select the connection for your cloud-storage account if it appears. Otherwise, follow these steps to add a connection:
+1. Wählen Sie im Bereich **Daten** die Verbindung für Ihr Cloudspeicherkonto aus, wenn es angezeigt wird. Gehen Sie andernfalls folgendermaßen vor, um eine Verbindung hinzuzufügen:
 
-    1. Select **New connection**, select the tile for your cloud-storage account, and then select **Create**.
-    2. If prompted, provide your credentials for that account.
+    1. Wählen Sie **neue Verbindung**, die Kachel für Ihr Cloudspeicherkonto und dann **Erstellen** aus.
+    2. Wenn Sie dazu aufgefordert werden, geben Sie Ihre Anmeldeinformationen für dieses Konto ein.
 
-1. Under **Choose an Excel file**, type or paste the first letters of **eventsignup** to filter the list, and then select the file that you uploaded.
+1. Um die Liste zu filtern, geben bzw. fügen Sie unter **Excel-Datei auswählen** die ersten Buchstaben von **eventsignup** ein, und wählen Sie dann die Datei aus, die Sie hochgeladen haben.
 
-1. Under **Choose a table**, select the checkbox for **Schedule**, and then select **Connect**.
+1. Aktivieren Sie unter **Eine Tabelle auswählen** das Kontrollkästchen für **Schedule**, und wählen Sie dann **Verbinden** aus.
 
-## Create the view screen
+## <a name="create-the-view-screen"></a>Erstellen des Anzeigebildschirms
 
-1. On the **Home** tab, select the down-arrow next to **New screen** to open a list of screen types, and then select **List screen**.
+1. Wählen Sie auf der Registerkarte **Home** den Pfeil nach unten neben **Neuer Bildschirm** aus, um eine Liste der Bildschirmtypen zu öffnen, und wählen Sie dann **Listenbildschirm** aus.
 
-    ![Add a list screen](./media/get-started-create-from-blank/add-list-screen.png)
+    ![Hinzufügen einer Listenanzeige](./media/get-started-create-from-blank/add-list-screen.png)
 
-    A screen is added with several default controls, such as a search box and a **[Gallery](controls/control-gallery.md)** control. The gallery covers the entire screen under the search box.
+    Es wird ein Bildschirm mit mehreren Standardsteuerelementen hinzugefügt, wie etwa einem Suchfeld und einem **[Katalog](controls/control-gallery.md)**-Steuerelement. Der Katalog deckt den gesamten Bildschirm unter dem Suchfeld ab.
 
-2. Select the gallery by clicking or tapping near its center.
+2. Wählen Sie den Katalog durch Klicken oder Tippen in der Nähe seiner Mitte aus.
 
-    A selection box with handles surrounds the gallery.
+    Ein Auswahlrahmen mit Ziehpunkten umgibt den Katalog.
 
-    ![Add a list screen](./media/get-started-create-from-blank/select-gallery.png)
+    ![Hinzufügen einer Listenanzeige](./media/get-started-create-from-blank/select-gallery.png)
 
-3. In the right-hand pane, select **CustomGallerySample** to open the **Data** pane.
+3. Wählen Sie im rechten Bereich **CustomGallerySample** aus, um den Bereich **Daten** zu öffnen.
 
-    ![Open Data pane](./media/get-started-create-from-blank/custom-gallery-sample.png)
+    ![Bereich „Daten“ öffnen](./media/get-started-create-from-blank/custom-gallery-sample.png)
 
-4. Under **Data source**, select the down arrow to open the list of data sources for the app, and then select **Schedule**.
+4. Wählen Sie unter **Datenquelle** den Pfeil nach unten aus, um die Liste der Datenquellen für die App zu öffnen, und wählen Sie dann **Schedule** aus.
 
-    ![Select a data source](./media/get-started-create-from-blank/select-schedule.png)
+    ![Datenquelle auswählen](./media/get-started-create-from-blank/select-schedule.png)
 
-5. Under **Layout**, select the down arrow to open the list of layouts, and then select **Title, subtitle, and body**.
+5. Wählen Sie unter **Layout** den Pfeil nach unten aus, um die Liste der Layouts zu öffnen, und wählen Sie dann **Titel, Untertitel und Text** aus.
 
-    ![Select layout](./media/get-started-create-from-blank/select-layout.png)
+    ![Auswählen des Layouts](./media/get-started-create-from-blank/select-layout.png)
 
-6. Under **Title2**, change the column shown from **Backup** to **Volunteer**.
+6. Ändern Sie unter **Title2** die angezeigte Spalte von **Backup** in **Volunteer**.
 
-     ![Change column in label](./media/get-started-create-from-blank/change-title2.png)
+     ![Spalte in Bezeichnung ändern](./media/get-started-create-from-blank/change-title2.png)
 
-7. Close the **Data** pane by selecting the close icon in the upper-right corner.
+7. Schließen Sie den Bereich **Daten**, indem Sie in der oberen rechten Ecke das Symbol zum Schließen auswählen.
 
-    The gallery shows the name of each volunteer and the day and time of that volunteer's shift.
+    Der Katalog zeigt den Namen jedes Freiwilligen sowie Tag und Uhrzeit seiner Schicht an.
 
-    ![The Schedule data in the gallery unsorted](./media/get-started-create-from-blank/show-data-unsorted.png)
+    ![Die unsortierten „Schedule“-Daten im Katalog](./media/get-started-create-from-blank/show-data-unsorted.png)
 
-8. Select the gallery, and confirm that the property list shows **[Items](controls/properties-core.md)**.
+8. Wählen Sie den Katalog aus, und vergewissern Sie sich, dass die Eigenschaftenliste **[Items](controls/properties-core.md)** anzeigt.
 
-    As the formula bar shows, the value of that property is **Schedule**.
+    Wie in die Bearbeitungsleiste gezeigt, hat diese Eigenschaft den Wert **Schedule**.
 
-    ![The Schedule data in the gallery unsorted](./media/get-started-create-from-blank/set-property.png)
+    ![Die unsortierten „Schedule“-Daten im Katalog](./media/get-started-create-from-blank/set-property.png)
 
-9. Change the value of the **Items** property by copying this formula and pasting it into the formula bar:
+9. Ändern Sie den Wert der Eigenschaft **Items**, indem Sie diese Formel kopieren und in die Bearbeitungsleiste einfügen:
 
     **SortByColumns(Search(Schedule, TextSearchBox1.Text, "Volunteer"), "Volunteer", If(SortDescending1, SortOrder.Descending, SortOrder.Ascending))**
 
-    The gallery shows data in alphabetical order by volunteer name.
+    Der Katalog zeigt Daten in alphabetischer Reihenfolge nach den Namen der Freiwilligen an.
 
-    ![The Schedule data in the gallery sorted](./media/get-started-create-from-blank/show-data-sorted.png)
+    ![Die sortierten „Schedule“-Daten im Katalog](./media/get-started-create-from-blank/show-data-sorted.png)
 
-    Users can sort and filter the gallery by volunteer name based on the **SortByColumns** and **Search** functions in that formula.
+    Benutzer können den Katalog nach den Namen der Freiwilligen basierend auf den Funktionen **SortByColumns** und **Search** in dieser Formel sortieren und filtern.
 
-   - If a user types at least one letter in the search box, the gallery shows only those records for which the **Volunteer** field contains the text that the user typed.
-   - If a user selects the sort button, the gallery shows the records in ascending or descending order (depending on how many times the user selects the button) based on the **Volunteer** field.
+   - Wenn ein Benutzer mindestens einen Buchstaben in das Suchfeld eingibt, zeigt der Katalog nur die Datensätze an, bei denen das Feld **Volunteer** den Text enthält, den der Benutzer eingibt.
+   - Wenn ein Benutzer die Sortierschaltfläche auswählt, zeigt der Katalog die Datensätze in aufsteigender oder absteigender Reihenfolge (je nachdem, wie häufig der Benutzer die Schaltfläche auswählt) basierend auf dem Feld **Volunteer** an.
 
-     For more information about these and other functions, see the [formula reference](formula-reference.md).
+     Weitere Informationen zu diesen und anderen Funktionen finden Sie unter [formula reference (Formelreferenz)](formula-reference.md).
 
-10. Type an **i** in the search box, select the sort button by clicking or tapping it, and then select it one more time (or an odd number of additional times).
+10. Geben Sie ein **i** in das Suchfeld ein, wählen Sie die Sortierschaltfläche durch Klicken oder Tippen aus, und wählen Sie sie noch einmal aus (oder eine ungerade Anzahl weiterer Male).
 
-     The gallery shows these results.
+     Der Katalog zeigt diese Ergebnisse an.
 
-     ![Sort and filter the gallery](./media/get-started-create-from-blank/sort-filter.png)
+     ![Sortieren und Filtern der Galerie](./media/get-started-create-from-blank/sort-filter.png)
 
-11. Clear all text from the search box.
+11. Löschen Sie den gesamten Text im Suchfeld.
 
-12. At the top of the screen, select the **[Label](controls/control-text-box.md)** control, and then replace **[Title]** with **View records**.
+12. Wählen Sie am oberen Rand des Bildschirms das Steuerelement **[Bezeichnung](controls/control-text-box.md)** aus, und ersetzen Sie dann **[Titel]** durch **Datensätze anzeigen**.
 
-     ![Change title bar](./media/get-started-create-from-blank/change-title-bar.png)
+     ![Ändern der Titelleiste](./media/get-started-create-from-blank/change-title-bar.png)
 
-## Create the change screen
-1. On the **Home** tab, select the down arrow next to **New screen**, and then select **Form screen**.
+## <a name="create-the-change-screen"></a>Erstellen des Änderungsbildschirms
+1. Wählen Sie auf der Registerkarte **Home** den Pfeil nach unten neben **Neuer Bildschirm** und dann **Formularbildschirm** aus.
 
-     ![Add form screen](./media/get-started-create-from-blank/add-form-screen.png)
+     ![Formularbildschirm hinzufügen](./media/get-started-create-from-blank/add-form-screen.png)
 
-1. In the screen that you just added, select **Connect to data** to open the **Data** pane, and then set the data source to **Schedule**.
+1. Wählen Sie im Bildschirm, den Sie gerade hinzugefügt haben, **Mit Daten verbinden** aus, um den Bereich **Daten** zu öffnen, und legen Sie als Datenquelle **Schedule** fest.
 
-1. Under **Fields**, select all the checkboxes to show all the fields in the form.
+1. Aktivieren Sie unter **Felder** alle Kontrollkästchen, um alle Felder im Formular anzuzeigen.
 
-     ![Show fields](./media/get-started-create-from-blank/show-fields.png)
+     ![Felder anzeigen](./media/get-started-create-from-blank/show-fields.png)
 
-1. Drag the **Volunteer** field up so it appears at the top of the list of fields.
+1. Ziehen Sie das Feld **Volunteer** nach oben, sodass es am oberen Rand der Liste der Felder angezeigt wird.
 
-     ![Reorder fields](./media/get-started-create-from-blank/reorder-fields.png)
+     ![Felder neu anordnen](./media/get-started-create-from-blank/reorder-fields.png)
 
-1. Select the form, and set its **Item** property to this expression by typing or pasting it in the formula bar:<br>**BrowseGallery1.Selected**
+1. Wählen Sie das Formular aus, und legen Sie für seine Eigenschaft **Item** diesen Ausdruck fest, indem Sie ihn in die Bearbeitungsleiste eingeben oder einfügen:<br>**BrowseGallery1.Selected**
 
-1. At the top of the screen, select the **[Label](controls/control-text-box.md)** control, and then replace **[Title]** with **Change records**.
+1. Wählen Sie am oberen Rand des Bildschirms das Steuerelement **[Bezeichnung](controls/control-text-box.md)** aus, und ersetzen Sie dann **[Titel]** durch **Datensätze ändern**.
 
-    ![Change title bar](./media/get-started-create-from-blank/change-title-bar2.png)
+    ![Ändern der Titelleiste](./media/get-started-create-from-blank/change-title-bar2.png)
 
-## Delete and rename screens
-1. In the left navigation bar, select the ellipsis (...) for **Screen1**, and then select **Delete**.
+## <a name="delete-and-rename-screens"></a>Löschen und Umbenennen von Bildschirmen
+1. Wählen Sie in der linken Navigationsleiste die Auslassungspunkte (...) für **Screen1** und dann **Löschen** aus.
 
-    ![Delete screen](./media/get-started-create-from-blank/delete-screen.png)
+    ![Bildschirm löschen](./media/get-started-create-from-blank/delete-screen.png)
 
-1. Select the ellipsis (...) for **Screen2**, select **Rename**, and then type or paste **ViewScreen**.
+1. Wählen Sie die Auslassungspunkte (...) für **Screen2** aus, wählen Sie **Umbenennen** aus, und geben bzw. fügen Sie dann **ViewScreen** ein.
 
-1. Select the ellipsis (...) for **Screen3**, select **Rename**, and then type or paste **ChangeScreen**.
+1. Wählen Sie die Auslassungspunkte (...) für **Screen3** aus, wählen Sie **Umbenennen** aus, und geben bzw. fügen Sie dann **ChangeScreen** ein.
 
-## Configure icons on the view screen
-1. Near the top of the **ViewScreen**, select the circular-arrow icon.
+## <a name="configure-icons-on-the-view-screen"></a>Konfigurieren von Symbolen auf dem Anzeigebildschirm
+1. Wählen Sie am oberen Rand des **ViewScreen** das Gebogener-Pfeil-Symbol aus.
 
-    ![Add record](./media/get-started-create-from-blank/refresh-icon.png)
+    ![Hinzufügen eines Datensatzes](./media/get-started-create-from-blank/refresh-icon.png)
 
-1. Set the **OnSelect** property for that icon to this formula:<br>**Refresh(Schedule)**
+1. Legen Sie die Eigenschaft **OnSelect** für dieses Symbol auf die folgende Formel fest:<br>**Refresh(Schedule)**
 
-    When the user selects this icon, the data from **Schedule** is refreshed from the Excel file.
+    Wenn der Benutzer dieses Symbol auswählt, werden die Daten von **Schedule** auf Basis der Excel-Datei aktualisiert.
 
-    For more information about this and other functions, see the [formula reference](formula-reference.md).
+    Weitere Informationen zu diesen und anderen Funktionen finden Sie in der [Referenz zu Formeln für PowerApps](formula-reference.md).
 
-1. In the upper-right corner of the **ViewScreen**, select the plus icon.
+1. Wählen Sie in der oberen rechten Ecke des **ViewScreen** das Plussymbol aus.
 
-    ![Add record](./media/get-started-create-from-blank/add-record.png)
+    ![Hinzufügen eines Datensatzes](./media/get-started-create-from-blank/add-record.png)
 
-1. Set the **OnSelect** property for that icon to this formula:<br>**NewForm(EditForm1);Navigate(ChangeScreen,ScreenTransition.None)**
+1. Legen Sie die Eigenschaft **OnSelect** für dieses Symbol auf die folgende Formel fest:<br>**NewForm(EditForm1);Navigate(ChangeScreen,ScreenTransition.None)**
 
-    When the user selects this icon, **ChangeScreen** appears with each field empty, so that the user can create a record more easily.
+    Wenn der Benutzer dieses Symbol auswählt, wird der **ChangeScreen** angezeigt, wobei jedes Feld leer ist, damit der Benutzer einen Datensatz einfacher erstellen kann.
 
-1. Select the right-pointing arrow for the first record in the gallery.
+1. Wählen Sie für den ersten Datensatz im Katalog den nach rechts weisenden Pfeil aus.
 
-    ![Select arrow](./media/get-started-create-from-blank/select-arrow.png)
+    ![Pfeil auswählen](./media/get-started-create-from-blank/select-arrow.png)
 
-1. Set the **OnSelect** property for the arrow to this formula:<br>**EditForm(EditForm1); Navigate(ChangeScreen, ScreenTransition.None)**
+1. Legen Sie die Eigenschaft **OnSelect** für den Pfeil auf die folgende Formel fest:<br>**EditForm(EditForm1); Navigate(ChangeScreen, ScreenTransition.None)**
 
-    When the user selects this icon, **ChangeScreen** appears with each field showing the data for the selected record, so that the user can edit or delete the record more easily.
+    Wenn der Benutzer dieses Symbol auswählt, wird in **ChangeScreen** jedes Feld mit den Daten für den ausgewählten Datensatz angezeigt, sodass der Benutzer den Datensatz leichter bearbeiten oder löschen kann.
 
-## Configure icons on the change screen
-1. On **ChangeScreen**, select the "x" icon in the upper-left corner.
+## <a name="configure-icons-on-the-change-screen"></a>Konfigurieren von Symbolen auf dem Änderungsbildschirm
+1. Wählen Sie auf **ChangeScreen** das „X“-Symbol in der oberen linken Ecke aus.
 
-    ![Cancel icon](./media/get-started-create-from-blank/cancel-icon.png)
+    ![Symbol „Abbrechen“](./media/get-started-create-from-blank/cancel-icon.png)
 
-1. Set the **OnSelect** property for that icon to this formula:<br>**ResetForm(EditForm1);Navigate(ViewScreen, ScreenTransition.None)**
+1. Legen Sie die Eigenschaft **OnSelect** für dieses Symbol auf die folgende Formel fest:<br>**ResetForm(EditForm1);Navigate(ViewScreen, ScreenTransition.None)**
 
-    When the user selects this icon, any changes that the user made in this screen are discarded, and the view screen opens.
+    Wenn der Benutzer dieses Symbol auswählt, werden alle Änderungen verworfen, die er in diesem Bildschirm vorgenommen hat, und der Anzeigebildschirm wird geöffnet.
 
-1. In the upper-right corner, select the checkmark icon.
+1. Wählen Sie in der oberen rechten Ecke das Häkchensymbol aus.
 
-    ![Checkmark icon](./media/get-started-create-from-blank/checkmark-icon.png)
+    ![Häkchensymbol](./media/get-started-create-from-blank/checkmark-icon.png)
 
-1. Set the **OnSelect** property for the checkmark to this formula:<br>**SubmitForm(EditForm1); Navigate(ViewScreen, ScreenTransition.None)**
+1. Legen Sie die Eigenschaft **OnSelect** für das Häkchen auf die folgende Formel fest:<br>**SubmitForm(EditForm1); Navigate(ViewScreen, ScreenTransition.None)**
 
-    When the user selects this icon, any changes that the user made is this screen are saved, and the view screen opens.
+    Wenn der Benutzer dieses Symbol auswählt, werden alle Änderungen gespeichert, die er in diesem Bildschirm vorgenommen hat, und der Anzeigebildschirm wird geöffnet.
 
-1. On the **Insert** tab, select **Icons**, and then select the **Trash** icon.
+1. Wählen Sie auf der Registerkarte **Einfügen** die Option **Symbole** und dann das **Papierkorbsymbol** aus.
 
-1. Set the new icon's **Color** property to **White**, and move the new icon so it appears next to the checkmark icon.
+1. Legen Sie für die Eigenschaft **Farbe** des neuen Symbols **Weiß** fest, und verschieben Sie das neue Symbol, sodass es neben dem Häkchensymbol angezeigt wird.
 
-    ![Trash icon](./media/get-started-create-from-blank/trash-icon.png)
+    ![Papierkorbsymbol](./media/get-started-create-from-blank/trash-icon.png)
 
-1. Set the **Visible** property for the trash icon to this formula:<br>**EditForm1.Mode = FormMode.Edit**
+1. Legen Sie die Eigenschaft **OnSelect** für das Papierkorbsymbol auf die folgende Formel fest:<br>**Remove(Schedule, BrowseGallery1.Selected); Navigate(ViewScreen, ScreenTransition.None)**
 
-    This icon will appear only when the form is in **Edit** mode, not in **New** mode.
+    Wenn der Benutzer dieses Symbol auswählt, wird der ausgewählte Datensatz aus der Datenquelle gelöscht, und der Anzeigebildschirm wird geöffnet.
 
-1. Set the **OnSelect** property for the trash icon to this formula:<br>**Remove(Schedule, BrowseGallery1.Selected); Navigate(ViewScreen, ScreenTransition.None)**
+## <a name="test-the-app"></a>Testen der App
+1. Wählen Sie den **ViewScreen** aus, und rufen Sie die Vorschau durch Drücken von F5 auf (oder durch Auswählen des **Vorschausymbols** in der Nähe der oberen rechten Ecke).
 
-    When the user selects this icon, the selected record is deleted from the data source, and the view screen opens.
+    ![Öffnen des Vorschaumodus](./media/get-started-create-from-blank/open-preview.png)
 
-## Test the app
-1. Select the **ViewScreen**, and then open Preview by pressing F5 (or selecting the **Preview** icon near the upper-right corner).
+1. Fügen Sie einen Datensatz hinzu.
 
-    ![Open Preview mode](./media/get-started-create-from-blank/open-preview.png)
+1. Aktualisieren Sie den hinzugefügten Datensatz, und speichern Sie die Änderungen.
 
-1. Add a record.
+1. Aktualisieren Sie den hinzugefügten Datensatz, und widerrufen Sie die Änderungen.
 
-1. Update the record that you added, and then save the changes.
+1. Löschen Sie den hinzugefügten Datensatz.
 
-1. Update the record that you added, and then cancel the changes.
+1. Schließen Sie den Vorschaumodus durch Drücken von ESC (oder durch Auswählen des Schließsymbols in der Nähe der oberen rechten Ecke).
 
-1. Delete the record that you added.
+## <a name="next-steps"></a>Nächste Schritte
 
-1. Close Preview mode by pressing Esc (or by selecting the close icon in the upper-right corner).
-
-## Next steps
-
-- Press Ctrl-S to save your app in the cloud so that you can run it from other devices.
-- [Share the app](share-app.md) so that other people can run it.
-- Learn more about [functions](working-with-formulas.md) such as **Patch**, which you can use to manage data without creating a standard form.
-- [Link this app to a solution](add-app-solution.md) so that you can, for example, deploy it to a different environment or publish it on AppSource.
+- Drücken Sie STRG+S, um Ihre App in der Cloud zu speichern, sodass Sie sie auf anderen Geräten ausführen können.
+- Sie können die [App freigeben](share-app.md), damit sie von anderen Personen ausgeführt werden kann.
+- Erfahren Sie mehr über [Funktionen](working-with-formulas.md) wie **Patch**, mit denen Sie Daten verwalten können, ohne ein Standardformular zu erstellen.
+- [Verknüpfen Sie diese App mit einer Projektmappe](add-app-solution.md), damit Sie diese beispielsweise in einer anderen Umgebung bereitstellen oder sie auf AppSource veröffentlichen können.

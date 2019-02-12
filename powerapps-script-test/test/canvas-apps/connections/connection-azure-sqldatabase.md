@@ -1,6 +1,6 @@
 ---
-title: Overview of the SQL Server connection | Microsoft Docs
-description: Step-by-step instructions for how to connect to Azure SQL or an on-premises SQL Server database
+title: Übersicht über die SQL Server-Verbindung | Microsoft-Dokumentation
+description: Schrittweise Anleitung zum Herstellen einer Verbindung mit Azure SQL oder einer lokalen SQL Server-Datenbank
 author: lancedMicrosoft
 manager: kvivek
 ms.service: powerapps
@@ -9,105 +9,111 @@ ms.custom: canvas
 ms.date: 07/12/2016
 ms.author: lanced
 ms.reviewer: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: f001e3da66605db1eb96d74078a3f8b1fdf518f2
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42823844"
 ---
-# Connect to SQL Server from PowerApps
-![SQL Server icon](./media/connection-azure-sqldatabase/sqlicon.png)
+# <a name="connect-to-sql-server-from-powerapps"></a>Herstellen einer Verbindung mit SQL Server aus PowerApps
+![SQL Server-Symbol](./media/connection-azure-sqldatabase/sqlicon.png)
 
-Connect to SQL Server, in either Azure or an on-premises database, so that you can display information from it in PowerApps.
+Stellen Sie entweder in Azure oder in einer lokalen Datenbank eine Verbindung mit SQL Server her, sodass Sie darin enthaltene Informationen in PowerApps anzeigen können.
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-* [Sign up](../../signup-for-powerapps.md) for PowerApps, and then [sign in](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) by providing the same credentials that you used to sign up.
-* Gather the following information for a database that contains at least one table with a primary key:
+* [Registrieren Sie sich](../../signup-for-powerapps.md) für PowerApps, und [melden Sie sich an](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), indem Sie dieselben Anmeldeinformationen bereitstellen, die Sie bei der Registrierung angegeben haben.
+* Sammeln Sie die folgenden Informationen für eine Datenbank, die mindestens eine Tabelle mit einem Primärschlüssel enthält:
   
-  * the name of the database
-  * the name of the server on which the database is hosted
-  * a valid user name and password to connect to the database
-  * the type of authentication needed to connect to the database
+  * den Namen der Datenbank
+  * den Namen des Servers, auf dem die Datenbank gehostet wird
+  * einen gültigen Benutzernamen und ein Kennwort zum Herstellen der Verbindung mit der Datenbank
+  * den Typ der Authentifizierung, die beim Herstellen der Verbindung mit der Datenbank erforderlich ist
     
-    If you don't have this information, ask the administrator of the database that you want to use.
-* For an on-premises database, identify a [data gateway](../gateway-management.md) that was shared with you (or create one).
+    Wenn Ihnen diese Informationen nicht bekannt sind, erkundigen Sie sich beim Administrator der Datenbank, die Sie verwenden möchten.
+* Geben Sie für eine lokale Datenbank ein [Datengateway](../gateway-management.md) an, das für Sie freigegeben ist (oder erstellen Sie eines).
   
     > [!NOTE]
-  > Gateways and on-premises connections can only be created and used in the user's [default environment](../working-with-environments.md).
+  > Gateways und lokale Verbindungen können nur in der [Standardumgebung](../working-with-environments.md) des Benutzers erstellt und verwendet werden.
 
-## Generate an app automatically
-1. In PowerApps Studio, click or tap **New** on the **File** menu (along the left edge).
+## <a name="generate-an-app-automatically"></a>Eine App automatisch generieren
+1. Klicken oder tippen Sie in PowerApps Studio im Menü **Datei** auf die Option **Neu** (am linken Rand).
    
-    ![New option on the File menu](./media/connection-azure-sqldatabase/file-new.png)
-2. Under **Start with your data**, click or tap the right arrow at the end of the row of connectors.
-3. If you already have a connection to the database that you want to use, click or tap it, and then skip to step 7 in this procedure.
-4. Click or tap **New connection**, and then click or tap **SQL Server**.
+    ![Option „New“ im Menü „File“](./media/connection-azure-sqldatabase/file-new.png)
+2. Klicken oder tippen Sie unter **Mit eigenen Daten beginnen** auf den Rechtspfeil am Ende der Zeile mit Connectors.
+3. Wenn Sie bereits über eine Verbindung mit der gewünschten Datenbank verfügen, klicken oder tippen Sie darauf, und fahren Sie dann mit Schritt 7 in diesem Verfahren fort.
+4. Klicken oder tippen Sie auf **Neue Verbindung**, und klicken oder tippen Sie dann auf **SQL Server**.
    
-    ![Add SQL Server connection](./media/connection-azure-sqldatabase/add-sql-connection.png)
-5. Perform either of these steps:
+    ![Hinzufügen einer SQL Server-Verbindung](./media/connection-azure-sqldatabase/add-sql-connection.png)
+5. Führen Sie einen der folgenden Schritte aus:
    
-   * Specify **Connect directly (cloud services)**, and then type or paste the server name, the database name, the user name, and the password for the database that you want to use.
+   * Geben Sie **Direkte Verbindung (Clouddienste)** an, und geben bzw. fügen Sie den Servernamen, den Datenbanknamen, den Benutzernamen sowie das Kennwort für die zu verwendende Datenbank ein.
      
-       ![Connect to a database in Azure](./media/connection-azure-sqldatabase/connect-azure.png)
-   * Specify **Connect using on-premises data gateway**, type or paste the server name, the database name, the user name, and the password for the database that you want to use, and specify the authentication type and the gateway.
+       ![Herstellen einer Verbindung mit einer Datenbank in Azure](./media/connection-azure-sqldatabase/connect-azure.png)
+   * Geben Sie **Verbindung mithilfe eines lokalen Datengateways** an, geben bzw. fügen Sie den Servernamen, den Datenbanknamen, den Benutzernamen und das Kennwort für die zu verwendende Datenbank ein, und geben Sie den Authentifizierungstyp und das Gateway an.
      
-       ![Connect to an on-premises database](./media/connection-azure-sqldatabase/connect-onprem.png)
+       ![Herstellen einer Verbindung mit einer lokalen Datenbank](./media/connection-azure-sqldatabase/connect-onprem.png)
      
        > [!NOTE]
-     > If you don't have a gateway, [install one](../gateway-reference.md), and then click or tap **Refresh gateway list**.
-6. Click or tap **Connect**.
-7. Click or tap an option under **Choose a dataset**, click or tap an option under **Choose a table**, and then click or tap **Connect**.
+     > Wenn Sie über kein Gateway verfügen, [installieren Sie ein Gateway](../gateway-reference.md), und klicken oder tippen Sie anschließend auf **Gatewayliste aktualisieren**.
+6. Klicken oder tippen Sie auf **Verbinden**.
+7. Klicken oder tippen Sie auf eine Option unter **Dataset auswählen**, klicken oder tippen Sie auf eine Option unter **Tabelle auswählen**, und klicken oder tippen Sie dann auf **Verbinden**.
    
-    PowerApps creates an app that shows data on three screens. Heuristics suggest what kind of data to show, but you might need to customize the UI to suit your needs.
-8. Customize the app by using techniques that are similar to those that [Create an app from Excel](../get-started-create-from-data.md) describes, starting with changing the app layout.
+    In PowerApps wird eine App erstellt, in der Daten auf drei Bildschirmen angezeigt werden. Von einer Heuristik wird vorgeschlagen, welche Art von Daten angezeigt werden sollte, möglicherweise müssen Sie jedoch die Benutzeroberfläche entsprechend den jeweiligen Anforderungen anpassen.
+8. Passen Sie die App unter Verwendung von Techniken wie den in [Erstellen einer App aus Excel-Daten](../get-started-create-from-data.md) beschriebenen an; beginnen Sie dabei mit dem Ändern des App-Layouts.
 
-## Build an app from scratch
-1. Sign in to [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) with the same account that you used to sign up for PowerApps.
-2. In the left navigation bar, click or tap **Connections**:  
+## <a name="build-an-app-from-scratch"></a>Eine App von Grund auf neu erstellen
+1. Melden Sie sich bei [powerapps.com](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) mit dem Konto an, das sie auch beim Registrieren für PowerApps verwendet haben.
+2. Klicken oder tippen Sie in der linken Navigationsleiste auf **Verbindungen**:  
    
-    ![Manage connections](./media/connection-azure-sqldatabase/manage-connections.png)
-3. In the upper-right corner, click or tap **New connection**, and then click or tap **SQL Server**.
-4. Perform either of these steps:
+    ![Verwalten von Verbindungen](./media/connection-azure-sqldatabase/manage-connections.png)
+3. Klicken oder tippen Sie in der oberen rechten Ecke auf **Neue Verbindung**, und klicken oder tippen Sie anschließend auf **SQL Server**.
+4. Führen Sie einen der folgenden Schritte aus:
    
-   * Specify **Connect directly (cloud services)**, and then type or paste the server name, the database name, the user name, and the password for the database that you want to use.
+   * Geben Sie **Direkte Verbindung (Clouddienste)** an, und geben bzw. fügen Sie den Servernamen, den Datenbanknamen, den Benutzernamen sowie das Kennwort für die zu verwendende Datenbank ein.
      
-       ![Connect to a database in Azure](./media/connection-azure-sqldatabase/connect-azure-portal.png)
-   * Specify **Connect using on-premises data gateway**, type or paste the server name, the database name, the user name, and the password for the database that you want to use, and specify the authentication type and the gateway.
+       ![Herstellen einer Verbindung mit einer Datenbank in Azure](./media/connection-azure-sqldatabase/connect-azure-portal.png)
+   * Geben Sie **Verbindung mithilfe eines lokalen Datengateways** an, geben bzw. fügen Sie den Servernamen, den Datenbanknamen, den Benutzernamen und das Kennwort für die zu verwendende Datenbank ein, und geben Sie den Authentifizierungstyp und das Gateway an.
      
-       ![Connect to a database in Azure](./media/connection-azure-sqldatabase/connect-onprem-portal.png)
+       ![Herstellen einer Verbindung mit einer Datenbank in Azure](./media/connection-azure-sqldatabase/connect-onprem-portal.png)
      
        > [!NOTE]
-     > If you don't have a gateway, [install one](../gateway-reference.md), and then click or tap the clockwise icon to refresh the list.
-5. Click or tap **Create** to create the connection.
-6. Create an app by using techniques that are similar to those that [Create an app from scratch](../get-started-create-from-blank.md) describes.
+     > Wenn Sie über kein Gateway verfügen, [installieren Sie ein Gateway](../gateway-reference.md), und klicken oder tippen Sie auf das Symbol mit dem im Uhrzeigersinn drehenden Pfeil, um die Liste zu aktualisieren.
+5. Klicken oder tippen Sie auf **Erstellen**, um die Verbindung zu erstellen.
+6. Erstellen Sie eine App mithilfe von Techniken wie den in [App von Grund auf neu erstellen](../get-started-create-from-blank.md) beschriebenen.
 
-## Update an existing app
-1. In PowerApps Studio, open the app that you want to update.
-2. Click or tap **Data sources** on the **View** tab of the ribbon.
-3. In the right-hand pane, click or tap **Add a data source**.
+## <a name="update-an-existing-app"></a>Aktualisieren einer vorhandenen App
+1. Öffnen Sie in PowerApps Studio die App, die Sie aktualisieren möchten.
+2. Klicken oder tippen Sie im Menüband auf der Registerkarte **Ansicht** auf **Datenquellen**.
+3. Klicken oder tippen Sie im rechten Bereich auf **Datenquelle hinzufügen**.
    
-    ![Add data source](./media/connection-azure-sqldatabase/add-data-source.png)
-4. Click or tap **New connection**, click or tap **SQL Server**, and then click or tap **Connect**.
-5. Perform either of these steps:
+    ![Datenquelle hinzufügen](./media/connection-azure-sqldatabase/add-data-source.png)
+4. Klicken oder tippen Sie auf **Neue Verbindung** und auf **SQL Server**, und klicken oder tippen Sie anschließend auf **Verbinden**.
+5. Führen Sie einen der folgenden Schritte aus:
    
-   * Specify **Connect directly (cloud services)**, and then type or paste the server name, the database name, the user name, and the password for the database that you want to use.
+   * Geben Sie **Direkte Verbindung (Clouddienste)** an, und geben bzw. fügen Sie den Servernamen, den Datenbanknamen, den Benutzernamen sowie das Kennwort für die zu verwendende Datenbank ein.
      
-       ![Connect to a database in Azure](./media/connection-azure-sqldatabase/connect-azure-fromblank.png)
-   * Specify **Connect using on-premises data gateway**, type or paste the server name, the database name, the user name, and the password for the database that you want to use, and specify the authentication type and the gateway.
+       ![Herstellen einer Verbindung mit einer Datenbank in Azure](./media/connection-azure-sqldatabase/connect-azure-fromblank.png)
+   * Geben Sie **Verbindung mithilfe eines lokalen Datengateways** an, geben bzw. fügen Sie den Servernamen, den Datenbanknamen, den Benutzernamen und das Kennwort für die zu verwendende Datenbank ein, und geben Sie den Authentifizierungstyp und das Gateway an.
      
-       ![Connect to a database in Azure](./media/connection-azure-sqldatabase/connect-onprem-fromblank.png)
+       ![Herstellen einer Verbindung mit einer Datenbank in Azure](./media/connection-azure-sqldatabase/connect-onprem-fromblank.png)
      
        > [!NOTE]
-     > If you don't have a gateway, [install one](../gateway-reference.md), and then click or tap the circular icon to refresh the list.
-6. Click or tap **Connect**.
-7. Under **Choose a dataset**, click or tap an option.
-8. Under **Choose a table**, select one or more checkboxes, and then click or tap **Connect**.
+     > Wenn Sie über kein Gateway verfügen, [installieren Sie ein Gateway](../gateway-reference.md), und klicken oder tippen Sie anschließend auf das Symbol mit dem kreisförmigen Pfeil, um die Liste zu aktualisieren.
+6. Klicken oder tippen Sie auf **Verbinden**.
+7. Klicken oder tippen Sie unter **Dataset auswählen** auf eine Option.
+8. Aktivieren Sie unter **Tabelle auswählen** ein oder mehrere Kontrollkästchen, und klicken oder tippen Sie auf **Verbinden**.
 
-## Next steps
-* Learn how to [show data from a data source](../add-gallery.md).
-* Learn how to [view details and create or update records](../add-form.md).
-* See other types of [data sources](../connections-list.md) to which you can connect.  
-* [Understand tables and records](../working-with-tables.md) with tabular data sources.
+## <a name="next-steps"></a>Nächste Schritte
+* Erfahren Sie, wie Sie [Daten aus einer Datenquelle anzeigen](../add-gallery.md).
+* Erfahren Sie, wie Sie [Details anzeigen und Datensätze erstellen oder aktualisieren](../add-form.md).
+* Hier erhalten Sie Informationen zu anderen Arten von [Datenquellen](../connections-list.md), mit denen Sie eine Verbindung herstellen können.  
+* Informieren Sie sich in [Grundlegendes zu Tabellen und Datensätzen](../working-with-tables.md) über tabellarische Datenquellen.
 
 <!--NotAvailableYet
 ## View the available functions ##

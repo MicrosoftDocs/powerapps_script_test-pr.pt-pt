@@ -1,6 +1,6 @@
 ---
-title: Revert function | Microsoft Docs
-description: Reference information, including syntax and an example, for the Revert function in PowerApps
+title: Funktion „Revert“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Revert“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,53 +9,59 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/21/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: a1a9a02917ed5202e24ce0228b8b581e2f45b8b9
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42831559"
 ---
-# Revert function in PowerApps
-Refreshes and clears errors for the [records](../working-with-tables.md#records) of a [data source](../working-with-data-sources.md).
+# <a name="revert-function-in-powerapps"></a>Funktion „Revert“ in PowerApps
+Aktualisiert und behebt Fehler für die [Datensätze](../working-with-tables.md#records) einer [Datenquelle](../working-with-data-sources.md)
 
-## Description
-The **Revert** function refreshes an entire data source or a single record in that data source. You'll see changes that other users made.
+## <a name="description"></a>Beschreibung
+Die **Revert**-Funktion aktualisiert eine gesamte Datenquelle oder einen einzelnen Datensatz in der Datenquelle. Sie können die Änderungen anzeigen, die andere Benutzer vorgenommen haben.
 
-For the records reverted, **Revert** also clears any errors from the [table](../working-with-tables.md) that the **[Errors](function-errors.md)** function returned.
+Bei den wiederhergestellten Datensätzen behebt **Revert** auf alle Fehler der [Tabelle](../working-with-tables.md), die von der **[Errors](function-errors.md)**-Funktion zurückgegeben werden.
 
-If the **[Errors](function-errors.md)** function reports a conflict after a **[Patch](function-patch.md)** or other data operation, **Revert** the record to start with the conflicting version and reapply the change.
+Wenn die **[Errors](function-errors.md)**-Funktion einen Konflikt nach einem **[Patch](function-patch.md)**- oder einem anderen Datenvorgang meldet, führen Sie die **Revert**-Funktion auf den Datensatz aus, um mit der in Konflikt stehenden Version zu beginnen und die Änderung erneut vorzunehmen.
 
-**Revert** has no return value. You can use it only in a [behavior formula](../working-with-formulas-in-depth.md).
+**Revert** hat keinen Rückgabewert. Sie können diese Funktion nur in einer [Verhaltensformel](../working-with-formulas-in-depth.md) verwenden.
 
-## Syntax
-**Revert**( *DataSource* [, *Record* ] )
+## <a name="syntax"></a>Syntax
+**Revert**( *Datenquelle* [, *Datensatz* ] )
 
-* *DataSource* – Required. The data source that you want to revert.
-* *Record* - Optional.  The record that you want to revert.  If you don't specify a record, the entire data source is reverted.
+* *Datenquelle*: Erforderlich. Die Datenquelle, die Sie wiederherstellen möchten.
+* *Datensatz*: Optional.  Der Datensatz, den Sie wiederherstellen möchten.  Wenn Sie keinen Datensatz angeben, wird die gesamte Datenquelle wiederhergestellt.
 
-## Example
-In this example, you'll revert the data source named **IceCream**, which starts with the data in this table:
+## <a name="example"></a>Beispiel
+In diesem Beispiel stellen Sie die Datenquelle namens **IceCream** (Eiscreme) wieder her, die mit den Daten in dieser Tabelle beginnt:
 
 ![](media/function-revert/icecream.png)
 
-A user on another device changes the **Quantity** property of the **Strawberry** record to **400**.  At about the same time, you change the same property of the same record to **500**, not knowing about the other change.
+Ein Benutzer auf einem anderen Gerät ändert die **Quantity**-Eigenschaft des Datensatzes **Strawberry** (Erdbeere) auf **400**.  Etwa zur gleichen Zeit ändern Sie die gleiche Eigenschaft des gleichen Datensatzes auf **500**, wobei Sie keine Kenntnis von der anderen Änderung haben.
 
-You use the **[Patch](function-patch.md)** function to update the record:<br>
+Sie verwenden die **[Patch](function-patch.md)**-Funktion, um den Datensatz zu aktualisieren:<br>
 **Patch( IceCream, First( Filter( IceCream, Flavor = "Strawberry" ) ), { Quantity: 500 } )**
 
-You check the **[Errors](function-errors.md)** table and find an error:
+Sie überprüfen die **[Errors](function-errors.md)**-Tabelle und finden einen Fehler:
 
-| Record | [Column](../working-with-tables.md#columns) | Message | Error |
+| Datensatz | [Spalte](../working-with-tables.md#columns) | Nachricht | Fehler |
 | --- | --- | --- | --- |
-| **{ ID: 1, Flavor: "Strawberry", Quantity: 300 }** |*blank* |**"The record you are trying to modify has been modified by another user.  Please revert the record and try again."** |**ErrorKind.Conflict** |
+| **{ ID: 1, Flavor: "Strawberry", Quantity: 300 }** |*blank* |**"The record you are trying to modify has been modified by another user.  Please revert the record and try again." (Der Datensatz, den Sie versuchen zu ändern, wurde von einem anderen Benutzer geändert. Bitte stellen Sie den Datensatz wieder her, und versuchen Sie es erneut.)** |**ErrorKind.Conflict** |
 
-Based on the **Error** column, you have a **Reload** button for which the **[OnSelect](../controls/properties-core.md)** property to set to this formula:<br>
+Basierend auf der Spalte **Error** (Fehler) haben Sie eine Schaltfläche **Reload** (Erneut laden), für die die **[OnSelect](../controls/properties-core.md)**-Eigenschaft auf diese Formel festgelegt wird:<br>
 **Revert( IceCream, First( Filter( IceCream, Flavor = "Strawberry" ) ) )**
 
-After you select the **Reload** button, the **[Errors](function-errors.md)** table is [empty](function-isblank-isempty.md), and the new value for **Strawberry** has been loaded:
+Nachdem Sie die **Reload**-Schaltfläche ausgewählt haben, ist die **[Errors](function-errors.md)**-Tabelle [leer](function-isblank-isempty.md), und der neue Wert für **Strawberry** wurde geladen:
 
 ![](media/function-revert/icecream-after.png)
 
-You reapply your change on top of the previous change, and your change succeed because the conflict has been resolved.
+Sie wenden Ihre Änderung erneut auf die vorherige Änderung an, und Ihre Änderung wird erfolgreich vorgenommen, da der Konflikt gelöst wurde.
 
 ![](media/function-revert/icecream-success.png)
 

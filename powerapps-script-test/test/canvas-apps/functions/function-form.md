@@ -1,6 +1,6 @@
 ---
-title: EditForm, NewForm, SubmitForm, ResetForm, And ViewForm functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the EditForm, NewForm, SubmitForm, ResetForm, and ViewForm functions in PowerApps
+title: Funktionen „EditForm“, „NewForm“, „SubmitForm“, „ResetForm“ und „ViewForm“ | Microsoft-Dokumentation
+description: Referenzinformationen mit Syntax und Beispielen für die Funktionen „EditForm“, „NewForm“, „SubmitForm“, „ResetForm“ und „ViewForm“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,107 +9,113 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 07/06/2017
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 55df8d30509720478c1594406865986ddc9a95c4
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42865806"
 ---
-# EditForm, NewForm, SubmitForm, ResetForm, and ViewForm functions in PowerApps
-View, edit, or create an item, save the contents, and reset the controls in an **[Edit form](../controls/control-form-detail.md)** control.
+# <a name="editform-newform-submitform-resetform-and-viewform-functions-in-powerapps"></a>Funktionen „EditForm“, „NewForm“, „SubmitForm“, „ResetForm“ und „ViewForm“ in PowerApps
+Zeigen Sie ein Element an, bearbeiten oder erstellen Sie ein Element, speichern Sie den Inhalt und setzen Sie die Steuerelemente in einem **[Bearbeitungsformular](../controls/control-form-detail.md)**-Steuerelement zurück.
 
-## Overview
-These functions change the state of the **Edit form** control.  The form control can be in one of these modes:
+## <a name="overview"></a>Übersicht
+Diese Funktionen ändern den Status des **Bearbeitungsformular**-Steuerelements.  Das Formularsteuerelement kann sich in einem dieser Modi befinden:
 
-| Mode | Description |
+| Modus | Beschreibung |
 | --- | --- |
-| **FormMode.Edit** |The form is populated with an existing record and the user can modify the values of the fields.  Once complete, the user can save the changes to the record. |
-| **FormMode.New** |The form is populates with default values and the user can modify the values of the fields.  Once complete, the user can add the record to the data source. |
-| **FormMode.View** |The form is populated with an existing record but the user cannot modify the values of the fields. |
+| **FormMode.Edit** |Das Formular wird mit einem vorhandenen Datensatz gefüllt, und der Benutzer kann die Werte der Felder ändern.  Sobald der Vorgang abgeschlossen ist, kann der Benutzer die am Datensatz vorgenommenen Änderungen speichern. |
+| **FormMode.New** |Das Formular wird mit Standardwerten gefüllt, und der Benutzer kann die Werte der Felder ändern.  Anschließend kann der Benutzer den Datensatz der Datenquelle hinzufügen. |
+| **FormMode.View** |Das Formular wird mit einem vorhandenen Datensatz gefüllt, der Benutzer kann die Werte der Felder jedoch nicht ändern. |
 
-## Description
-These functions are often invoked from the **[OnSelect](../controls/properties-core.md)** formula of a **[Button](../controls/control-button.md)** or **[Image](../controls/control-image.md)** control so that the user can save edits, abandon edits, or create a record. You can [use controls and these functions together](../working-with-forms.md) to create a complete solution.
+## <a name="description"></a>Beschreibung
+Diese Funktionen werden häufig von der **[OnSelect](../controls/properties-core.md)**-Formel eines **[Button](../controls/control-button.md)**- oder **[Image](../controls/control-image.md)**-Steuerelements aufgerufen, sodass der Benutzer Änderungen speichern oder verwerfen oder einen Eintrag erstellen kann. Sie können [Steuerelemente und diese Funktionen zusammen verwenden](../working-with-forms.md), um eine vollständige Lösung zu erstellen.
 
-These functions return no values.
+Diese Funktionen geben keine Werte zurück.
 
-### SubmitForm
-Use the **SubmitForm** function in the **[OnSelect](../controls/properties-core.md)** property of a Button control to save any changes in a Form control to the data source.
+### <a name="submitform"></a>SubmitForm
+Verwenden Sie die **SubmitForm**-Funktion in der **[OnSelect](../controls/properties-core.md)**-Eigenschaft eines Button-Steuerelements, um Änderungen in einem Formularsteuerelement in die Datenquelle zu speichern.
 
-Before submitting any changes, this function checks for validation issues with any field that's marked as required or that has one or more constraints on its value. This behavior matches that of the **[Validate](function-validate.md)** function.
+Vor dem Übermitteln von Änderungen überprüft diese Funktion jedes Feld, das als erforderlich markiert ist oder eine oder mehrere Einschränkungen für den Wert hat, auf Validierungsprobleme. Dieses Verhalten entspricht dem der **[Validate](function-validate.md)**-Funktion.
 
-**SubmitForm** also checks the **[Valid](../controls/control-form-detail.md)** property of the Form, which is an aggregation of all the **[Valid](../controls/control-card.md)** properties of the **[Card](../controls/control-card.md)** controls that the Form control contains. If a problem occurs, the data isn't submitted, and the **[Error](../controls/control-form-detail.md)** and **[ErrorKind](../controls/control-form-detail.md)** properties of the Form control are set accordingly.
+**SubmitForm** überprüft auch die **[Valid](../controls/control-form-detail.md)**-Eigenschaft des Formulars, die eine Aggregation aller **[Valid](../controls/control-card.md)**-Eigenschaften der **[Card](../controls/control-card.md)**-Steuerelemente ist, die das Formularsteuerelement enthält. Wenn ein Problem auftritt, werden die Daten nicht übermittelt, und die Eigenschaften **[Error](../controls/control-form-detail.md)** und **[ErrorKind](../controls/control-form-detail.md)** des Formularsteuerelements werden entsprechend festgelegt.
 
-If validation passes, **SubmitForm** submits the change to the data source.
+Wenn die Validierung erfolgreich war, übermittelt **SubmitForm** die Änderung an die Datenquelle.
 
-* If successful, the Form's **[OnSuccess](../controls/control-form-detail.md)** behavior runs, and the **[Error](../controls/control-form-detail.md)** and **[ErrorKind](../controls/control-form-detail.md)** properties are cleared.  If the form was in **FormMode.New** mode, it is returned to **FormMode.Edit** mode.
-* If unsuccessful, the Form's **[OnFailure](../controls/control-form-detail.md)** behavior runs, and the **[Error](../controls/control-form-detail.md)** and **[ErrorKind](../controls/control-form-detail.md)** properties are set accordingly.  The mode of the form is unchanged.  
+* Bei erfolgreicher Ausführung wird das **[OnSuccess](../controls/control-form-detail.md)**-Verhalten des Formulars ausgeführt, und die Eigenschaften **[Error](../controls/control-form-detail.md)** und **[ErrorKind](../controls/control-form-detail.md)** werden gelöscht.  Wenn das Formular im **FormMode.New**-Modus war, wird es zurück in den **FormMode.Edit**-Modus gesetzt.
+* Bei erfolgloser Ausführung wird das **[OnFailure](../controls/control-form-detail.md)**-Verhalten des Formulars ausgeführt, und die Eigenschaften **[Error](../controls/control-form-detail.md)** und **[ErrorKind](../controls/control-form-detail.md)** werden entsprechend festgelegt.  Der Modus des Formulars bleibt unverändert.  
 
-### EditForm
-The **EditForm** function changes the Form control's mode to **FormMode.Edit**. In this mode, the contents of the Form control's **[Item](../controls/control-form-detail.md)** property are used to populate the form.  If the **SubmitForm** function runs when the form is in this mode, a record is changed, not created.  **FormMode.Edit** is the default for the Form control.
+### <a name="editform"></a>EditForm
+Die **EditForm**-Funktion ändert den Modus des Formularsteuerelements in **FormMode.Edit**. In diesem Modus wird der Inhalt der **[Item](../controls/control-form-detail.md)**-Eigenschaft des Formularsteuerelements verwendet, um das Formular zu füllen.  Wenn die **SubmitForm**-Funktion ausgeführt wird, während sich das Formular in diesem Modus befindet, wird ein Datensatz geändert, nicht erstellt.  **FormMode.Edit** ist der Standardmodus für das Formularsteuerelement.
 
-### NewForm
-The **NewForm** function changes the Form control's mode to **FormMode.New**. In this mode, the contents of the Form control's **[Item](../controls/control-form-detail.md)** property are ignored, and the default values of the Form's **[DataSource](../controls/control-form-detail.md)** property populate the form. If the **SubmitForm** function runs when the form is in this mode, a record is created, not changed.
+### <a name="newform"></a>NewForm
+Die **NewForm**-Funktion ändert den Modus des Formularsteuerelements in **FormMode.New**. In diesem Modus wird der Inhalt der **[Item](../controls/control-form-detail.md)**-Eigenschaft des Formularsteuerelements ignoriert, und das Formular wird mit den Standardwerten der **[DataSource](../controls/control-form-detail.md)**-Eigenschaft des Formulars aufgefüllt. Wenn die **SubmitForm**-Funktion ausgeführt wird, während sich das Formular in diesem Modus befindet, wird ein Datensatz erstellt, nicht geändert.
 
-### ResetForm
-The **ResetForm** function resets the contents of a form to their initial values, before the user made any changes. If the form is in **FormMode.New** mode, the form is reset to **FormMode.Edit** mode. The **[OnReset](../controls/control-form-detail.md)** behavior of the form control also runs.  You can also reset individual controls with the **[Reset](function-reset.md)** function but only from within the form.
+### <a name="resetform"></a>ResetForm
+Die **ResetForm**-Funktion setzt den Inhalt eines Formulars auf die ursprünglichen Werte zurück, bevor vom Benutzer Änderungen vorgenommen wurden. Wenn sich das Formular im **FormMode.New**-Modus befindet, wird das Formular in den **FormMode.Edit**-Modus zurückgesetzt. Das **[OnReset](../controls/control-form-detail.md)**-Verhalten der Formularsteuerelemente wird ebenfalls ausgeführt.  Sie können einzelne Steuerelemente auch mit der **[Reset](function-reset.md)**-Funktion zurücksetzen, jedoch lediglich innerhalb des Formulars.
 
-### ViewForm
-The **ViewForm** function changes the Form control's mode to **FormMode.View**. In this mode, the contents of the Form control's **[Item](../controls/control-form-detail.md)** property are used to populate the form.  The **SubmitForm** and **ResetForm** functions have no effect when in this mode.
+### <a name="viewform"></a>ViewForm
+Die **ViewForm**-Funktion ändert den Modus des Formularsteuerelements in **FormMode.View**. In diesem Modus wird der Inhalt der **[Item](../controls/control-form-detail.md)**-Eigenschaft des Formularsteuerelements verwendet, um das Formular zu füllen.  Die **SubmitForm**-Funktion und die **RestForm**-Funktion haben in diesem Modus keine Auswirkungen.
 
-### DisplayMode Poperty
-The current mode can be read through the **Mode** property.  The mode also determines the value of the **DisplayMode** property which can be used by data cards and controls within the form control.  Often, the data card's **DisplayMode** property will be set to **Parent.DisplayMode** (refernceing the form) as will the control's **DisplayMode** property (referncing the data card): 
+### <a name="displaymode-poperty"></a>DisplayMode-Eigenschaft
+Der aktuelle Modus kann über die **Mode**-Eigenschaft gelesen werden.  Der Modus bestimmt zudem den Wert der **DisplayMode**-Eigenschaft, der von Datenkarten und Steuerelementen innerhalb des Formularsteuerelements verwendet werden kann.  Häufig wird die **DisplayMode**-Eigenschaft der Datenkarte auf **Parent.DisplayMode** festgelegt (womit auf das Formular verwiesen wird); dasselbe gilt für die **DisplayMode**-Eigenschaft des Steuerelements (womit auf die Datenkarte verwiesen wird): 
 
-| Mode | DisplayMode | Description |
+| Modus | DisplayMode | Beschreibung |
 | --- | --- | --- |
-| **FormMode.Edit** |**DisplayMode.Edit** |Data cards and controls are editable, ready to accept changes to a record. |
-| **FormMode.New** |**DisplayMode.Edit** |Data cards and controls are editable, ready to accept a new record. |
-| **FormMode.View** |**DisplayMode.View** |Data cards and controls are not editable and optimized for viewing. |
+| **FormMode.Edit** |**DisplayMode.Edit** |Datenkarten und Steuerelemente können bearbeitet werden; Änderungen an einem Datensatz können akzeptiert werden. |
+| **FormMode.New** |**DisplayMode.Edit** |Datenkarten und Steuerelemente können bearbeitet werden; ein neuer Datensatz kann akzeptiert werden. |
+| **FormMode.View** |**DisplayMode.View** |Datenkarten und Steuerelemente sind nicht bearbeitbar und für die Anzeige optimiert. |
 
-## Syntax
-**SubmitForm**( *FormName* )
+## <a name="syntax"></a>Syntax
+**SubmitForm**( *FormularName* )
 
-* *FormName* - Required. Form control to submit to the data source.
+* *FormularName*: Erforderlich. Formularsteuerelement zum Übermitteln an die Datenquelle.
 
-**EditForm**( *FormName* )
+**EditForm**( *FormularName* )
 
-* *FormName* - Required.  Form control to switch to **FormMode.Edit** mode.
+* *FormularName*: Erforderlich.  Formularsteuerelement zum Wechseln in den **FormMode.Edit**-Modus.
 
-**NewForm**( *FormName* )
+**NewForm**( *FormularName* )
 
-* *FormName* - Required. Form control to switch to **FormMode.New** mode.
+* *FormularName*: Erforderlich. Formularsteuerelement zum Wechseln in den **FormMode.New**-Modus.
 
-**ResetForm**( *FormName* )
+**ResetForm**( *FormularName* )
 
-* *FormName* - Required. Form control to reset to initial values. Also switches the form from **FormMode.New** mode to **FormMode.Edit** mode.
+* *FormularName*: Erforderlich. Formularsteuerelement zum Zurücksetzen auf die ursprünglichen Werte. Ändert zudem den Modus des Formulars von **FormMode.New** in **FormMode.Edit**.
 
-**ViewForm**( *FormName* )
+**ViewForm**( *Formularname* )
 
-* *FormName* - Required.  Form control to switch to **FormMode.View** mode.
+* *FormularName*: Erforderlich.  Formularsteuerelement zum Wechseln in den **FormMode.View**-Modus.
 
-## Examples
-See [Understand data forms](../working-with-forms.md) for complete examples.
+## <a name="examples"></a>Beispiele
+Ausführliche Beispiele finden Sie unter [Understand data forms (Grundlegendes zu Datenformularen)](../working-with-forms.md).
 
-1. Add a Button control, set its **[Text](../controls/properties-core.md)** property to show **Save**, and set its **[OnSelect](../controls/properties-core.md)** property to this formula:
+1. Fügen Sie ein Button-Steuerelement hinzu, legen Sie dessen **[Text](../controls/properties-core.md)**-Eigenschaft auf **Save** (Speichern) und dessen **[OnSelect](../controls/properties-core.md)**-Eigenschaft auf diese Formel fest:
    
     **SubmitForm( EditForm )**
-2. Set the **[OnFailure](../controls/control-form-detail.md)** property of a Form control to blank and its **[OnSuccess](../controls/control-form-detail.md)** property to this formula:
+2. Legen Sie die **[OnFailure](../controls/control-form-detail.md)**-Eigenschaft eines Formularsteuerelements auf leer und die **[OnSuccess](../controls/control-form-detail.md)**-Eigenschaft auf diese Formel fest:
    
     **Back()**
-3. Name a **[Label](../controls/control-text-box.md)** control **ErrorText**, and set its **[Text](../controls/properties-core.md)** property to this formula:
+3. Nennen Sie ein **[Label](../controls/control-text-box.md)**-Steuerelement **ErrorText**, und legen Sie dessen **[Text](../controls/properties-core.md)**-Eigenschaft auf diese Formel fest:
    
     **EditForm.Error**
    
-    When the user selects the **Save** button, any changes in the Form control are submitted to the underlying data source.
+    Wenn der Benutzer die Schaltfläche **Save** (Speichern) auswählt, werden alle am Formularsteuerelement vorgenommenen Änderungen an die zugrunde liegende Datenquelle übermittelt.
    
-   * If the submission succeeds, any changes are saved or, if the Form control is in **New** mode, a record is created. **ErrorText** is *blank* and the previous screen reappears.
-   * If the submission fails, **ErrorText** shows a user-friendly error message, and the current screen remains visible so that the user can correct the problem and try again.
-4. Add a Button control, set its **[Text](../controls/properties-core.md)** property to show **Cancel**, and set its **[OnSelect](../controls/properties-core.md)** property to this formula:
+   * Wenn die Übermittlung erfolgreich ist, werden alle Änderungen gespeichert. Wenn sich das Formularsteuerelement im **New**-Modus (Neu) befindet, wird stattdessen ein Datensatz erstellt. **ErrorText** ist *leer* und die vorherige Ansicht wird erneut angezeigt.
+   * Wenn die Übermittlung fehlschlägt, zeigt **ErrorText** eine benutzerfreundliche Fehlermeldung an, und die aktuelle Ansicht bleibt sichtbar, sodass der Benutzer das Problem beheben und den Vorgang wiederholen kann.
+4. Fügen Sie ein Button-Steuerelement hinzu, legen Sie dessen **[Text](../controls/properties-core.md)**-Eigenschaft auf **Cancel** (Abbrechen) und dessen **[OnSelect](../controls/properties-core.md)**-Eigenschaft auf diese Formel fest:
    
     **ResetForm( EditForm ); Back()**
    
-    When the user selects the **Cancel** button, the values in the Form control are reset to what they were before the user started to edit it, the previous screen reappears, and the Form control is returned to **Edit** mode if it was in **New** mode.
-5. Add a Button control, set its **[Text](../controls/properties-core.md)** property to show **New**, and set its **[OnSelect](../controls/properties-core.md)** property to this formula:
+    Wenn der Benutzer die Schaltfläche **Cancel** (Abbrechen) auswählt, werden die Werte im Formularsteuerelement in den Zustand vor der Bearbeitung durch den Benutzer zurückgesetzt, die vorherige Ansicht wird erneut angezeigt, und das Formularsteuerelement wird in den **Edit**-Modus (Bearbeiten) zurückgesetzt, wenn es sich im **New**-Modus (Neu) befand.
+5. Fügen Sie ein Button-Steuerelement hinzu, legen Sie dessen **[Text](../controls/properties-core.md)**-Eigenschaft auf **New** (Neu) und dessen **[OnSelect](../controls/properties-core.md)**-Eigenschaft auf diese Formel fest:
    
     **NewForm( EditForm ); Navigate( EditScreen, None )**
    
-    When the user selects the **New** button, the Form control switches to **New** mode, the default values for the Form control's data source populate that control, and the screen that contains the Form control appears. When the **SubmitForm** function runs, a record is created instead of updated.
+    Wenn der Benutzer die Schaltfläche **New** (Neu) auswählt, wechselt das Formularsteuerelement in den **New**-Modus (Neu), das Steuerelement wird mit den Standardwerten für die Datenquelle des Formularsteuerelements aufgefüllt, und das Formular mit dem Formularsteuerelement wird angezeigt. Wenn die **SubmitForm**-Funktion ausgeführt wird, wird ein Datensatz erstellt anstatt aktualisiert.
 

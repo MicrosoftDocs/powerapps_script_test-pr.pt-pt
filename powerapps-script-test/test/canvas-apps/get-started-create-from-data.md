@@ -1,109 +1,83 @@
 ---
-title: Generate a canvas app from Excel | Microsoft Docs
-description: Use PowerApps to automatically generate a canvas app using an Excel file stored in a cloud-storage account
+title: Generieren einer Canvas-App aus Excel | Microsoft-Dokumentation
+description: Verwenden von PowerApps zum automatischen Generieren einer Canvas-App mithilfe einer Excel-Datei, die in einem Cloudspeicherkonto gespeichert ist
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
-ms.date: 01/14/2019
+ms.reviewer: ''
+ms.date: 03/18/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 3d29387c907808f90225f1ff67257d289de2b0a9
+ms.sourcegitcommit: 2300de0a0486187762f830068c872116d5b04c32
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49806131"
 ---
-# Generate a canvas app from Excel in PowerApps
+# <a name="generate-a-canvas-app-from-excel-in-powerapps"></a>Generieren einer Canvas-App aus Excel in PowerApps
 
-In this topic, you'll automatically generate your first canvas app in PowerApps using data from an Excel table. You'll select an Excel file, generate an app, and then run the app that you generate. Every generated app includes screens to browse records, show record details, and create or update records. By generating an app, you can quickly get a working app using Excel data, and then you can customize the app to better suit your needs. 
+In diesem Artikel generieren Sie Ihre erste Canvas-App automatisch in PowerApps, indem Sie Daten aus einer Excel-Tabelle verwenden. Sie wählen eine Excel-Datei aus, generieren eine App und führen die generierte App dann aus. Jede generierte App enthält Bildschirme zum Durchsuchen von Datensätzen, Anzeigen von Details der Datensätze sowie zum Erstellen oder Aktualisieren von Datensätzen. Indem Sie eine App generieren, können Sie mithilfe von Excel-Daten schnell eine funktionierende App erstellen. Diese können Sie anschließend an Ihre Anforderungen anpassen. 
 
-The Excel file must be in a cloud-storage account, such as OneDrive, Google Drive, or Dropbox. This topic uses OneDrive for Business.
+Die Excel-Datei muss sich in einem Cloudspeicherkonto (z.B. OneDrive, Google Drive oder Dropbox) befinden. In diesem Artikel wird „OneDrive for Business“ verwendet.
 
-If you don't have a license for PowerApps, you can [sign up for free](../signup-for-powerapps.md).
+Wenn Sie nicht eine Lizenz für PowerApps verfügen, können Sie sich [kostenlos registrieren](../signup-for-powerapps.md).
 
-## Prerequisites
+## <a name="prerequisites"></a>Voraussetzungen
 
-To follow this topic exactly, download the [Flooring Estimates](https://az787822.vo.msecnd.net/documentation/get-started-from-data/FlooringEstimates.xlsx) file in Excel, and save it in your [cloud storage account](connections/cloud-storage-blob-connections.md).
+Laden Sie die Datei [Flooring Estimates](https://az787822.vo.msecnd.net/documentation/get-started-from-data/FlooringEstimates.xlsx) in Excel herunter, und speichern Sie diese in Ihrem [Cloudspeicherkonto](connections/cloud-storage-blob-connections.md), um diesem Artikel genau zu folgen.
 
 > [!IMPORTANT]
-> You can use your own Excel file, but the data must be formatted as a table. For more information, see [Format a table](how-to-excel-tips.md). 
+> Sie können eine eigene Excel-Datei verwenden, dafür müssen die Daten jedoch als Tabelle formatiert sein. Weitere Informationen finden Sie unter [Format a table (Formatieren einer Tabelle)](how-to-excel-tips.md). 
 
-## Generate the app
+## <a name="generate-the-app"></a>Generieren der App
 
-1. Sign in to [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
+1. Melden Sie sich bei [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an.
 
-1. Under **Make your own app**, hover over **Start from data**, and then select **Make this app**.
+1. Zeigen Sie unter **Eigene App erstellen** auf **Mit Daten beginnen**, und wählen Sie dann **Diese App erstellen** aus.
 
-    ![Option to create an app](./media/get-started-create-from-data/start-from-data.png)
+    ![Option zum Erstellen einer App](./media/get-started-create-from-data/start-from-data.png)
 
-1. Under **Start with your data**, click or tap **Phone layout** on the tile for your cloud-storage account.
+1. Klicken oder tippen Sie auf der Kachel für Ihr Cloudspeicherkonto unter **Von Ihren Daten ausgehen** auf **Smartphonelayout**.
 
-    ![Option to create an app](./media/get-started-create-from-data/odfb-tile.png)
+    ![Option zum Erstellen einer App](./media/get-started-create-from-data/odfb-tile.png)
 
-1. If prompted, click or tap **Connect**, and provide your credentials for that account.
+1. Wenn Sie dazu aufgefordert werden, klicken Sie auf **Verbinden**, und geben Sie Ihre Anmeldeinformationen für dieses Konto ein.
 
-1. Under **Choose an Excel file**, browse to **FlooringEstimates.xlsx**, and then click or tap it. 
+1. Navigieren Sie unter **Choose an Excel file** zu **FlooringEstimates.xlsx**, und klicken oder tippen Sie darauf. 
 
-1. Under **Choose a table**, click or tap **FlooringEstimates**, and then click or tap **Connect**.
+1. Klicken oder tippen Sie unter **Choose a table** auf **FlooringEstimates**, und klicken oder tippen Sie anschließend auf **Connect**.
 
-    ![Option to create an app](./media/get-started-create-from-data/choose-table.png)
+    ![Option zum Erstellen einer App](./media/get-started-create-from-data/choose-table.png)
 
-## Run the app
+## <a name="run-the-app"></a>Ausführen der App
 
-1. Open Preview by pressing F5 (or by clicking or tapping the play icon near the upper-right corner).
+1. Öffnen Sie den Vorschaumodus durch Drücken von F5 (oder durch Klicken oder Tippen auf das Wiedergabe-Symbol in der Nähe der oberen rechten Ecke).
 
-    ![Open Preview](./media/get-started-create-from-data/open-preview.png)
+    ![Vorschau öffnen](./media/get-started-create-from-data/open-preview.png)
 
-1. Toggle the sort order by clicking or tapping the sort icon near the upper-right corner.
+1. Ändern Sie die Sortierreihenfolge, indem Sie auf das Sortieren-Symbol in der oberen rechten Ecke klicken oder tippen.
 
-    ![Sort icon](./media/get-started-create-from-data/sort-icon.png)
+    ![Sortieren-Symbol](./media/get-started-create-from-data/sort-icon.png)
 
-1. Filter the list by typing or pasting one or more characters in the search box.
+1. Filtern Sie die Liste, indem Sie Zeichen in das Suchfeld eingeben und einfügen.
 
-    For example, type or paste **Honey** to show the only record for which that string appears in the product's name, category, or overview.
+1. Klicken oder tippen Sie auf das Plussymbol, um einen Datensatz hinzuzufügen, fügen Sie beliebige Daten hinzu, und klicken oder tippen Sie dann auf das Häkchen, um die Änderungen zu speichern.
 
-    ![Filter example](./media/get-started-create-from-data/filter-example.png)
+1. Klicken oder tippen Sie auf den Pfeil „Weiter“ des hinzugefügten Datensatzes. Klicken oder tippen Sie dann auf das Stiftsymbol, um den Datensatz zu bearbeiten. Aktualisieren Sie mindestens ein Feld, und klicken oder tippen Sie auf das Häkchen, um die Änderungen zu speichern.
 
-1. Add a record:
+1. Klicken oder tippen Sie auf den Pfeil „Weiter“ des hinzugefügten Datensatzes. Klicken oder tippen Sie dann auf das Stiftsymbol, um den Datensatz zu bearbeiten. Aktualisieren Sie mindestens ein Feld, und klicken oder tippen Sie auf das Symbol „Abbrechen“, um die Änderungen zu verwerfen.
 
-    1. Select the plus icon.
+1. Klicken oder tippen Sie auf den Pfeil „Weiter“ des hinzugefügten Datensatzes, und klicken oder tippen Sie dann auf das Papierkorbsymbol, um diesen Datensatz zu löschen.
 
-        ![Plus icon](./media/get-started-create-from-data/plus-icon.png)
+## <a name="next-steps"></a>Nächste Schritte
 
-    1. Add whatever data you want, and then select the checkmark icon to save your changes.
-
-        ![Save icon](./media/get-started-create-from-data/save-icon.png)
-
-1. Edit a record:
-
-    1. Select the arrow for the record that you want to edit.
-
-        ![Next arrow](./media/get-started-create-from-data/next-arrow.png)
-
-    1. Select the pencil icon.
-
-        ![Pencil icon](./media/get-started-create-from-data/pencil-icon.png)
-
-    1. Update one or more fields, and then select the checkmark icon to save your changes.
-
-        ![Save icon](./media/get-started-create-from-data/save-icon.png)
-
-        As an alternative, select the cancel icon to discard your changes.
-
-1. Delete a record:
-
-    1. Select the next arrow for the record that you want to delete.
-
-        ![Next arrow](./media/get-started-create-from-data/next-arrow.png)
-
-    1. Select the trash icon.
-
-        ![Trash icon](./media/get-started-create-from-data/trash-icon.png)
-
-## Next steps
-
-Customize the default browse screen to better suit your needs. For example, you can sort and filter the list by product name only, not category or overview.
+Passen Sie den Standardbildschirm zum Durchsuchen an Ihre Anforderungen an. Sie können beispielsweise die Liste nach Produktname statt nach Kategorie sortieren und filtern.
 
 > [!div class="nextstepaction"]
-> [Customize a default browse screen](customize-layout-sharepoint.md).
+> [Anpassen des Standardbildschirms zum Durchsuchen](customize-layout-sharepoint.md)

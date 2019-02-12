@@ -1,6 +1,6 @@
 ---
-title: Patch function | Microsoft Docs
-description: Reference information, including syntax and examples, for the Patch function in PowerApps
+title: Funktion „Patch“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Patch“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,96 +9,102 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/21/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 64641b0cc0822a955de2b1c9e53692dac9dfcf31
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42865484"
 ---
-# Patch function in PowerApps
-Modifies or creates one or more [records](../working-with-tables.md#records) in a [data source](../working-with-data-sources.md), or merges records outside of a data source.
+# <a name="patch-function-in-powerapps"></a>Funktion „Patch“ in PowerApps
+Ändert oder erstellt einen oder mehrere [Datensätze](../working-with-tables.md#records) in einer [Datenquelle](../working-with-data-sources.md) oder verbindet Datensätze außerhalb einer Datenquelle.
 
-Use the **Patch** function to modify records in complex situations, such as when you perform updates that require no user interaction or use forms that span multiple screens.
+Verwenden Sie die Funktion **Patch**, um Datensätze in komplexen Situationen zu ändern, etwa beim Ausführen von Updates, die keinen Benutzereingriff erfordern oder Formulare verwenden, die sich über mehrere Bildschirme erstrecken.
 
-In less complex situations, you can use the **Edit form** control to update records in a data source more easily. When you add an **Edit form** control, you provide users with a form to fill in and then save the changes to a data source. For more information, see [Understand data forms](../working-with-forms.md).
+In weniger komplexen Situationen können Sie das Steuerelement **Bearbeitungsformular** verwenden, um die Datensätze in einer Datenquelle auf einfachere Weise zu aktualisieren. Wenn Sie ein **Bearbeitungsformular**-Steuerelement hinzufügen, geben Sie Benutzern ein Formular an die Hand, das sie ausfüllen und dessen Änderungen sie dann in einer Datenquelle speichern können. Weitere Informationen finden Sie unter [Grundlegendes zu Datenformularen](../working-with-forms.md).
 
-## Overview
-Use the **Patch** function to modify one or more records of a data source.  The values of specific [fields](../working-with-tables.md#elements-of-a-table) are modified without affecting other properties. For example, this formula changes the phone number for a customer named Contoso:
+## <a name="overview"></a>Übersicht
+Verwenden Sie die **Patch**-Funktion, um einen oder mehrere Datensätze für die Datenquelle zu ändern.  Die Werte bestimmter [Felder](../working-with-tables.md#elements-of-a-table) lassen sich ohne Auswirkungen auf andere Eigenschaften ändern. Beispielsweise ändert diese Formel die Telefonnummer für einen Kunden mit dem Namen Contoso:
 
-`Patch( Customers, First( Filter( Customers, Name = "Contoso" ) ), { Phone: “1-212-555-1234” } )`
+**Patch( Customers, First( Filter( Customers, Name = "Contoso" ) ), { Phone: “1-212-555-1234” } )**
 
-Use **Patch** with the **[Defaults](function-defaults.md)** function to create records. Use this behavior to build a [single screen](../working-with-data-sources.md) for both creating and editing records. For example, this formula creates a record for a customer named Contoso:
+Verwenden Sie die Funktion **Patch** mit der **[Default](function-defaults.md)**-Funktion, um Einträge zu erstellen. Verwenden Sie dieses Verhalten zum Erstellen eines [kombinierten Bildschirms](../working-with-data-sources.md) für die Erstellung und Bearbeitung von Datensätzen. Beispielsweise erstellt diese Formel einen Datensatz für einen Kunden mit dem Namen Contoso:
 
-`Patch( Customers, Defaults( Customer ), { Name: “Contoso” } )`
+**Patch( Customers, Defaults( Customer ), { Name: “Contoso” } )**
 
-Even if you're not working with a data source, you can use **Patch** to merge two or more records. For example, this formula merges two records into one that identifies both the phone number and the location for Contoso:
+Auch wenn Sie nicht mit einer Datenquelle arbeiten, können Sie die **Patch**-Funktion zum Zusammenführen von zwei oder mehr Datensätzen nutzen. Diese Formel führt beispielsweise zwei Datensätze zu einem zusammen, der sowohl die Telefonnummer als auch den Standort von Contoso angibt:
 
-`Patch( { Name: "Contoso", Phone: “1-212-555-1234” }, { Name: "Contoso", Location: “Midtown”  } )`
+**Patch( { Name: "Contoso", Phone: “1-212-555-1234” }, { Name: "Contoso", Location: “Midtown”  } )**
 
-## Description
-### Modify or create a record in a data source
-To use this function with a data source, specify the data source, and then specify a base record:
+## <a name="description"></a>Beschreibung
+### <a name="modify-or-create-a-record-in-a-data-source"></a>Ändern oder Erstellen eines Datensatzes in einer Datenquelle
+Um diese Funktion mit einer Datenquelle zu verwenden, geben Sie zunächst die Datenquelle an und anschließend einen Basisdatensatz:
 
-* To modify a record, the base record needs to have come from a data source.  The base record may have come through a gallery's **[Items](../controls/properties-core.md)** property, been placed in a [context variable](../working-with-variables.md#create-a-context-variable), or come through some other path. But you should be able to trace the base record back to the data source.  This is important as the record will include additional information to help find the record again for modification.  
-* To create a record, use the **[Defaults](function-defaults.md)** function to create a base record with default values.  
+* Um einen Datensatz zu ändern, muss der Basisdatensatz aus einer Datenquelle stammen.  Der Basisdatensatz kann aus der **[Items](../controls/properties-core.md)**-Eigenschaft eines Katalogs stammen, in einer [Kontextvariablen](../working-with-variables.md#create-a-context-variable) platziert worden sein oder anderer Herkunft sein. Sie sollten den Basisdatensatz jedoch an die Datenquelle zurückverfolgen können.  Dies ist wichtig, da der Datensatz zusätzliche Informationen enthält, anhand derer Sie ihn wiederfinden können, um ihn zu ändern.  
+* Zum Erstellen eines Datensatzes verwenden Sie die **[Defaults](function-defaults.md)**-Funktion und erstellen einen Basisdatensatz mit Standardwerten.  
 
-Then specify one or more change records, each of which contains new property values that override property values in the base record. Change records are processed in order from the beginning of the argument list to the end, with later property values overriding earlier ones.
+Geben Sie anschließend einen oder mehrere Änderungsdatensätze mit jeweils neuen Eigenschaftswerten an, die die Eigenschaftswerte im Basisdatensatz überschreiben. Änderungsdatensätze werden nacheinander vom Anfang bis zum Ende der Argumenteliste verarbeitet, wobei spätere Eigenschaftswerte frühere Versionen überschreiben.
 
-The return value of **Patch** is the record that you modified or created.  If you created a record, the return value may include properties that the data source generated automatically.
+Der Rückgabewert der **Patch**-Funktion ist der Datensatz, den Sie erstellt oder geändert haben.  Wenn Sie einen Datensatz erstellt haben, kann der Rückgabewert Eigenschaften enthalten, die die Datenquelle automatisch generiert hat.
 
-When you update a data source, one or more issues may arise. Use the **[Errors](function-errors.md)** function to identify and examine issues, as [Working with Data Sources](../working-with-data-sources.md) describes.
+Wenn Sie eine Datenquelle aktualisieren, können Probleme auftreten. Verwenden Sie die  **[Errors](function-errors.md)**-Funktion,um Schwierigkeiten zu identifizieren und zu untersuchen, wie unter [Working with Data Sources (Arbeiten mit Datenquellen)](../working-with-data-sources.md) beschrieben.
 
-Related functions include the **[Update](function-update-updateif.md)** function, which you can use to replace an entire record, and the **[Collect](function-clear-collect-clearcollect.md)** function, which you can use to create a record.  You can use the **[UpdateIf](function-update-updateif.md)** function to modify specific properties of multiple records based on a condition.
+Zu den verwandten Funktionen gehören die **[Update](function-update-updateif.md)** -Funktion, die Sie verwenden können, um einen vollständiger Datensatz zu ersetzen, und die **[Collect](function-clear-collect-clearcollect.md)**-Funktion, die Sie zum Erstellen eines Datensatz nutzen können.  Mithilfe der **[UpdateIf](function-update-updateif.md)**-Funktion können Sie bestimmte Eigenschaften von mehreren Datensätzen auf der Grundlage einer Bedingung ändern.
 
-### Modify or create a set of records in a data source
-**Patch** can also be used to create or modify multiple records with a single call.
+### <a name="modify-or-create-a-set-of-records-in-a-data-source"></a>Ändern oder Erstellen einer Gruppe von Datensätzen in einer Datenquelle
+**Patch** kann außerdem zum Erstellen oder Ändern mehrerer Datensätze mit einem einzigen Aufruf verwendet werden.
 
-Instead of passing a single base record, a table of base records can be provided in the second argument.  Change records are provided in a table as well, corresponding one-for-one with the base records.  The number of records in each change table must be the same as the number of records in the base table.
+Anstelle der Übergabe eines einzelnen Basisdatensatzes kann eine Tabelle mit Basisdatensätze im zweiten Argument angegeben werden.  Änderungsdatensätze werden ebenfalls in einer Tabelle bereitgestellt, wobei jedem Änderungsdatensatz direkt ein Datenbank-Datensatz entspricht.  Die Anzahl der Datensätze in jeder Änderungstabelle muss mit der Anzahl der Datensätze in der Basistabelle identisch sein.
 
-When using **Patch** in this manner, the return value is also a table with each record corresponding one-for-one with the base and change records.
+Wenn Sie die Funktion **Patch** in dieser Weise verwenden, ist der Rückgabewert ebenfalls eine Tabelle, in der jedem Basisdatensatz jeweils direkt ein Änderungsdatensatz entspricht.
 
-### Merge records outside of a data source
-Specify two or more records that you want to merge. Records are processed in order from the beginning of the argument list to the end, with later property values overriding earlier ones.
+### <a name="merge-records-outside-of-a-data-source"></a>Zusammenführen von Datensätzen außerhalb einer Datenquelle
+Geben Sie zwei oder mehr Datensätze an, die Sie zusammenführen möchten. Datensätze werden nacheinander vom Anfang bis zum Ende der Argumenteliste verarbeitet, wobei spätere Eigenschaftswerte frühere Versionen überschreiben.
 
-**Patch** returns the merged record and doesn't modify its arguments or records in any data sources.
+**Patch** gibt den zusammengeführten Datensatz zurück. Dessen Argumente oder Datensätze werden in keiner Datenquellen geändert.
 
-## Syntax
-#### Modify or create a record in a data source
+## <a name="syntax"></a>Syntax
+#### <a name="modify-or-create-a-record-in-a-data-source"></a>Ändern oder Erstellen eines Datensatzes in einer Datenquelle
 **Patch**( *DataSource*, *BaseRecord*, *ChangeRecord1* [, *ChangeRecord2*, … ])
 
-* *DataSource* – Required. The data source that contains the record that you want to modify or will contain the record that you want to create.
-* *BaseRecord* – Required. The record to modify or create.  If the record came from a data source, the record is found and modified. If the result of **[Defaults](function-defaults.md)** is used, a record is created.
-* *ChangeRecord(s)* – Required.  One or more records that contain properties to modify in the *BaseRecord*.  Change records are processed in order from the beginning of the argument list to the end, with later property values overriding earlier ones.
+* *Datenquelle*: Erforderlich. Die Datenquelle, die den zu ändernden Datensatz enthält oder für die Sie einen Datensatz erstellen möchten.
+* *BaseRecord*: erforderlich. Der zu ändernde oder zu erstellende Datensatz.  Wenn der Datensatz aus einer Datenquelle stammt, wird der Datensatz gefunden und geändert. Wenn das Ergebnis der  **[Defaults](function-defaults.md)**-Funktion verwendet wird, wird ein Datensatz erstellt.
+* *ChangeRecord(s)*: erforderlich.  Mindestens ein Datensatz, der Eigenschaften enthält, die für jeden Datensatz im *BaseRecord* geändert werden sollen.  Änderungsdatensätze werden nacheinander vom Anfang bis zum Ende der Argumenteliste verarbeitet, wobei spätere Eigenschaftswerte frühere Versionen überschreiben.
 
-#### Modify or create a set of records in a data source
-**Patch**( *DataSource*, *BaseRecordsTable*, *ChageRecordTable1* [, *ChangeRecordTable2*, … ] )
+#### <a name="modify-or-create-a-set-of-records-in-a-data-source"></a>Ändern oder Erstellen einer Gruppe von Datensätzen in einer Datenquelle
+**Patch**( *DataSource*, *BaseRecordsTable*, *ChageRecordTable1*, [, *ChangeRecordTable2*, … ] )
 
-* *DataSource* – Required. The data source that contains the records that you want to modify or will contain the records that you want to create.
-* *BaseRecordTable* – Required. A table of records to modify or create.  If the record came from a data source, the record is found and modified. If the result of **[Defaults](function-defaults.md)** is used, a record is created.
-* *ChangeRecordTable(s)* – Required.  One or more tables of records that contain properties to modify for each record of the *BaseRecordTable*.  Change records are processed in order from the beginning of the argument list to the end, with later property values overriding earlier ones.
+* *Datenquelle*: Erforderlich. Die Datenquelle mit den zu ändernden Datensätzen oder für die Sie Datensätze erstellen möchten.
+* *BaseRecordTable*: erforderlich. Eine Tabelle mit zu ändernden oder zu erstellenden Datensätzen.  Wenn der Datensatz aus einer Datenquelle stammt, wird der Datensatz gefunden und geändert. Wenn das Ergebnis der  **[Defaults](function-defaults.md)**-Funktion verwendet wird, wird ein Datensatz erstellt.
+* *ChangeRecordTable(s)*: erforderlich.  Mindestens eine Tabelle von Datensätzen mit Eigenschaften, die für jeden Datensatz von *BaseRecordTable* geändert werden sollen.  Änderungsdatensätze werden nacheinander vom Anfang bis zum Ende der Argumenteliste verarbeitet, wobei spätere Eigenschaftswerte frühere Versionen überschreiben.
 
-#### Merge records
+#### <a name="merge-records"></a>Zusammenführen von Datensätzen
 **Patch**( *Record1*, *Record2* [, …] )
 
-* *Record(s)* - Required.  At least two records that you want to merge. Records are processed in order from the beginning of the argument list to the end, with later property values overriding earlier ones.
+* *Datensatz(-sätze)*: erforderlich.  Mindestens zwei Datensätze, die Sie zusammenführen möchten. Datensätze werden nacheinander vom Anfang bis zum Ende der Argumenteliste verarbeitet, wobei spätere Eigenschaftswerte frühere Versionen überschreiben.
 
-## Examples
-#### Modify or create a record (in a data source)
-In these examples, you'll modify or create a record in a data source, named **IceCream**, that contains the data in this [table](../working-with-tables.md) and automatically generates the values in the **ID** [column](../working-with-tables.md#columns):
+## <a name="examples"></a>Beispiele
+#### <a name="modify-or-create-a-record-in-a-data-source"></a>Ändern oder Erstellen eines Datensatzes (in einer Datenquelle)
+In diesen Beispielen ändern oder erstellen Sie einen Datensatz in einer Datenquelle mit dem Namen **IceCream**, die Daten in dieser [Tabelle](../working-with-tables.md) enthält und automatisch die Werte in der **ID-**[Spalte](../working-with-tables.md#columns) generiert:
 
 ![](media/function-patch/icecream.png)
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Patch(&nbsp;IceCream,<br>First( Filter( IceCream, Flavor = "Chocolate" ) ), {&nbsp;Quantity:&nbsp;400&nbsp;} )** |Modifies a record in the **IceCream** data source:<ul><li> The **ID** column of the record to modify contains the value of **1**. (The **Chocolate** record has that ID.)</li><li>The value in the **Quantity** column changes to **400**. |{&nbsp;ID:&nbsp;1, Flavor:&nbsp;"Chocolate", Quantity:&nbsp;400 }<br><br>The **Chocolate** entry in the **IceCream** data source has been modified. |
-| **Patch( IceCream, Defaults(&nbsp;IceCream ), {&nbsp;Flavor:&nbsp;“Strawberry”&nbsp;}&nbsp;)** |Creates a record in the **IceCream** data source:<ul><li>The **ID** column contains the value **3**, which the data source generates automatically.</li><li>The **Quantity** column contains **0**, which is the default value for that column in the **IceCream** data source, as the **[Defaults](function-defaults.md)** function specifies.<li>The **Flavor** column contains the value of **Strawberry**.</li> |{ ID:&nbsp;3, Flavor:&nbsp;“Strawberry”, Quantity:&nbsp;0&nbsp;}<br><br>The **Strawberry** entry in the **IceCream** data source has been created. |
+| **Patch(&nbsp;IceCream,<br>First( Filter( IceCream, Flavor = "Chocolate" ) ), {&nbsp;Quantity:&nbsp;400&nbsp;} )** |Ändert einen Datensatz in der **IceCream**-Datenquelle:<ul><li> Die **ID**-Spalte des zu ändernden Datensatzes enthält den Wert **1**. (Der **Chocolate**-Datensatz weist diese ID auf.)</li><li>Der Wert in der **Quantity**-Spalte ändert sich zu **400**. |{&nbsp;ID:&nbsp;1, Flavor:&nbsp;"Chocolate", Quantity:&nbsp;400 }<br><br>Der Eintrag **Chocolate** in der **IceCream**-Datenquelle wurde geändert. |
+| **Patch( IceCream, Defaults(&nbsp;IceCream ), {&nbsp;Flavor:&nbsp;“Strawberry”&nbsp;}&nbsp;)** |Erstellt einen Datensatz in der **IceCream**-Datenquelle:<ul><li>Die **ID**-Spalte enthält den Wert **3**, den die Datenquelle automatisch generiert.</li><li>Die Spalte **Quantity** enthält **0**, was dem Standardwert für diese Spalte in der **IceCream**-Datenquelle entspricht,wie von der **[Defaults](function-defaults.md)**-Funktion angegeben.<li>Die Spalte **Flavor** enthält den Wert **Strawberry**.</li> |{ ID:&nbsp;3, Flavor:&nbsp;“Strawberry”, Quantity:&nbsp;0&nbsp;}<br><br>Der Eintrag **Strawberry** in der **IceCream**-Datenquelle wurde erstellt. |
 
-After the previous formulas have been evaluated, the data source ends with these values:
+Nachdem die oben genannten Formeln ausgewertet wurden, endet die Datenquelle mit den folgenden Werten:
 
 ![](media/function-patch/icecream-after.png)
 
-#### Merge records (outside of a data source)
+#### <a name="merge-records-outside-of-a-data-source"></a>Zusammenführen von Datensätzen (außerhalb einer Datenquelle)
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Patch(&nbsp;{&nbsp;Name:&nbsp;"James",&nbsp;Score:&nbsp;90&nbsp;}, {&nbsp;Name:&nbsp;"Jim",&nbsp;Passed:&nbsp;true&nbsp;} )** |Merges two records outside of a data source:<br><ul><li>The values in the **Name** column of each record don't match. The result contains the value (**Jim**) in the record that's closer to the end of the argument list instead of the value (**James**) in the record that's closer to the start.</li><li>The first record contains a column (**Score**) that doesn't exist in the second record. The result contains that column with its value (**90**).</li><li>The second record contains a column (**Passed**) that doesn't exist in the first record. The result contains that column with its value (**true**). |{&nbsp;Name:&nbsp;"Jim", Score:&nbsp;90, Passed:&nbsp;true&nbsp;} |
+| **Patch(&nbsp;{&nbsp;Name:&nbsp;"James",&nbsp;Score:&nbsp;90&nbsp;}, {&nbsp;Name:&nbsp;"Jim",&nbsp;Passed:&nbsp;true&nbsp;} )** |Verbindet zwei Datensätze außerhalb einer Datenquelle:<br><ul><li>Die Werte in der Spalte **Name** jedes Datensatzes stimmen nicht überein. Das Ergebnis enthält den Wert (**Jim**) im Datensatz, der dem Ende der Argumentliste näher ist, anstelle des Werts (**James**) im Datensatz, der näher am Anfang ist.</li><li>Der erste Datensatz enthält eine Spalte (**Score**), die im zweiten Datensatz nicht vorhanden ist. Das Ergebnis enthält diese Spalte mit dem Wert (**90**).</li><li>Der zweite Datensatz enthält eine Spalte (**Passed**), die im ersten Datensatz nicht vorhanden ist. Das Ergebnis enthält diese Spalte mit dem Wert (**TRUE**). |{&nbsp;Name:&nbsp;"Jim", Score:&nbsp;90, Passed:&nbsp;true&nbsp;} |
 

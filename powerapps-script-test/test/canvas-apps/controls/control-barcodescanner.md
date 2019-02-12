@@ -1,6 +1,6 @@
 ---
-title: 'Web barcode-scanner control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the barcode-scanner control
+title: 'Barcodescanner-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, über das Barcodescanner-Steuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -10,81 +10,75 @@ ms.date: 10/25/2016
 ms.author: fikaradz
 ms.reviewer: anneta
 search.audienceType:
-  - maker
+- maker
 search.app:
-  - PowerApps
+- PowerApps
+ms.openlocfilehash: 853558273521491467fa7474688ce9c984ac5db6
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42862466"
 ---
-# Web barcode-scanner control (experimental) in PowerApps
+# <a name="barcode-scanner-control-experimental-in-powerapps"></a>Barcodescanner-Steuerelement in PowerApps (experimentell)
+Ein experimentelles Steuerelement, mit dem der Benutzer mithilfe des Barcodescanners auf seinem Gerät Fotos aufnehmen kann.
 
-The legacy barcode-scanning control, which is obsolete but might be useful for scanning codes in a web browser.
+## <a name="description"></a>Beschreibung
+Wenn Sie dieses Steuerelement hinzufügen, kann der Benutzer eine Datenquelle mit einem oder mehreren Fotos vom aktuellen Ort, an dem die App ausgeführt wird, aktualisieren.
 
-## Description
+## <a name="key-properties"></a>Haupteigenschaften
+**barcode scanner** – Auf einem Gerät mit mehreren Barcodescannern die numerische ID des von der App verwendeten Barcodescanners.
 
-The control shows the camera feed in the app so that users can scan barcodes on all devices. The control is obsolete due to poor performance, and the mobile **[Barcode scanner](control-new-barcode-scanner.md)** control replaces this control.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[AccessibleLabel](properties-accessibility.md)**: Bezeichnung für Sprachausgaben
 
-## Key properties
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**barcode scanner** – On a device that has more than one barcode scanner, the numeric ID of the barcode scanner that the app uses.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-## Additional properties
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**[AccessibleLabel](properties-accessibility.md)** – Label for screen readers.
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**ShowLiveBarcodeDetection**: legt fest, ob visuelle Anhaltpunkte dargestellt werden, um den Status der Barcodeerkennung zu ermitteln. Gelbe Rechtecke stellen die Bereiche dar, die untersucht werden. Eine grüne Linie, die durch das Rechteck geht, zeigt an, dass die Barcodeerkennung erfolgreich war.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**Stream** – Das automatisch entsprechend der **StreamRate**-Eigenschaft aktualisierte Bild.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**StreamRate** – Gibt an, wie oft das Bild in der **Stream**-Eigenschaft aktualisiert wird (in Millisekunden).  Dieser Wert kann zwischen 100 (einer Zehntelsekunde) und 3.600.000 (eine Stunde) liegen.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**Text**: Barcodewert, der vom Scanner zuletzt erkannt wurde.
 
-**ShowLiveBarcodeDetection** – Whether visual cues are shown to indicate the status of barcode detection. Yellow rectangles represent areas that are being examined. A green line across a rectangle indicates successful barcode identification.
+**[Tooltip](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**Stream** – Automatically updated image based on the **StreamRate** property.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**StreamRate** – How often to update the image on the **Stream** property, in milliseconds.  This value can range from 100 (1/10th of a second) to 3,600,000 (1 hour).
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**Text** – Value of barcode that was last identified by the scanner.
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
-
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
-
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
-
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
-
-## Related functions
-
+## <a name="related-functions"></a>Verwandte Funktionen
 [**Patch**( *DataSource*, *BaseRecord*, *ChangeRecord* )](../functions/function-patch.md)
 
-## Example
+## <a name="example"></a>Beispiel
+### <a name="add-photos-to-an-image-gallery-control"></a>Hinzufügen von Fotos zu einem Bildkatalog-Steuerelement
+1. Fügen Sie ein **Barcodescanner**-Steuerelement hinzu, und benennen Sie es **Mybarcode scanner**.
 
-### Add photos to an Image gallery control
+    Möchten Sie wissen, wie Sie [ein Steuerelement hinzufügen, benennen und konfigurieren](../add-configure-controls.md)?
+2. Fügen Sie ein **Bezeichnungs**-Steuerelement hinzu, und legen Sie dessen Ausgabe auf den **Text** des Barcodes fest.  
+3. Scannen Sie einen Barcode des in der BarcodeType-Eigenschaft festgelegten Typs.
+4. In der Bezeichnung wird der gescannte Barcode angezeigt.
 
-1. Add a **barcode scanner** control, name it **Mybarcode scanner**
 
-    Don't know how to [add, name, and configure a control](../add-configure-controls.md)?
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="video-alternatives"></a>Videoalternativen
+* Sie sollten eine **[Bezeichnung](control-text-box.md)** hinzufügen, deren **[Text](properties-core.md)** auf den **Text** des Barcodescanners festgelegt ist. Da der Barcodescanner nicht den ermittelten Barcodewert anzeigt, kann jeder Benutzer den Scanner verwenden und nicht nur Benutzer mit Sehbehinderung.
 
-1. Add a **Label** control, and set its output to the barcode scanner's **Text** property.
-
-1. Scan a barcode of the type set under **BarcodeType** property.
-
-    The label displays the scanned barcode.
-
-## Accessibility guidelines
-
-### Video alternatives
-
-* Consider adding a **[Label](control-text-box.md)** with its **[Text](properties-core.md)** set to the barcode scanner's **Text**. Since the barcode scanner does not display the identified barcode value, doing the above makes the scanner accessible to everyone, not just those with visual disabilities.
-
-### Screen reader support
-
-* **[AccessibleLabel](properties-accessibility.md)** must be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **[AccessibleLabel](properties-accessibility.md)** muss vorhanden sein.
 
     > [!NOTE]
-  > Screen readers will announce when a new barcode has been found. The value won't be announced. As long as the barcode is in view, screen readers will remind the user every five seconds that the same barcode is still being identified.
+  > Die Sprachausgabe meldet, wenn ein neuer Barcode gefunden wurde. Der Wert wird jedoch nicht genannt. Solange der Barcode angezeigt wird, erinnert die Sprachausgabe alle 5 Sekunden daran, dass immer noch derselbe Barcode ermittelt wird.

@@ -1,6 +1,6 @@
 ---
-title: Defaults function | Microsoft Docs
-description: Reference information, including syntax and examples, for the Defaults function in PowerApps
+title: Funktion „Defaults“ | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Defaults“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,31 +9,37 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/01/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 83021ff0d18eb5d7322ef40eaa2bc0839b56f452
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42834989"
 ---
-# Defaults function in PowerApps
-Returns the default values for a [data source](../working-with-data-sources.md).  
+# <a name="defaults-function-in-powerapps"></a>Funktion „Defaults“ in PowerApps
+Gibt die Standardwerte für eine [Datenquelle](../working-with-data-sources.md) zurück.  
 
-## Description
-Use the **Defaults** function to pre-populate a data entry form, making it easier to fill.
+## <a name="description"></a>Beschreibung
+Verwenden Sie die **Defaults**-Funktion, um ein Dateneingabeformular schon voraufzufüllen, sodass es einfacher zu füllen ist.
 
-This function returns a [record](../working-with-tables.md#records) that contains the default values for the data source.  If a [column](../working-with-tables.md#columns) within the data source doesn't have a default value, that property won't be present.
+Diese Funktion gibt einen [Datensatz](../working-with-tables.md#records) zurück, der die Standardwerte für die Datenquelle enthält.  Wenn eine [Spalte](../working-with-tables.md#columns) innerhalb der Datenquelle nicht über einen Standardwert verfügt, ist diese Eigenschaft nicht vorhanden.
 
-Data sources vary in how much default information they provide, including not providing any at all.  When you work with a [collection](../working-with-data-sources.md#collections) or another data source that doesn't support default values, the **Defaults** function will return an [empty](function-isblank-isempty.md) record.
+Datenquellen stellen unterschiedlich viele Standardinformationen zur Verfügung, manchmal sogar gar keine.  Beim Arbeiten mit einer [Sammlung](../working-with-data-sources.md#collections) oder einer anderen Datenquelle, die keine Standardwerte unterstützt, gibt die **Defaults**-Funktion einen [leeren](function-isblank-isempty.md) Datensatz zurück (empty).
 
-You can combine the **Defaults** function with the **[Patch](function-patch.md)** function to [create a record](../working-with-data-sources.md).
+Sie können die **Defaults**-Funktion mit der **[Patch](function-patch.md)**-Funktion kombinieren, um [einen Datensatz zu erstellen](../working-with-data-sources.md).
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **Defaults**( *DataSource* )
 
-* *DataSource* – Required. The data source for which you want default values.
+* *Datenquelle*: Erforderlich. Die Datenquelle, für die Sie Standardwerte haben möchten
 
-## Examples
+## <a name="examples"></a>Beispiele
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Defaults(&nbsp;Scores&nbsp;)** |Returns the default values for the **Scores** data source. |**{ Score: 0 }** |
+| **Defaults(&nbsp;Scores&nbsp;)** |Gibt die Standardwerte für die **Scores**-Datenquelle zurück. |**{ Score: 0 }** |
 

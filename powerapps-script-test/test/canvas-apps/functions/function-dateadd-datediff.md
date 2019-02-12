@@ -1,6 +1,6 @@
 ---
-title: DateAdd, DateDiff, and TimeZoneOffset functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the DateAdd, DateDiff, and TimeZoneOffset functions in PowerApps
+title: Funktionen „DateAdd“, „DateDiff“ und „TimeZoneOffset“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „DateAdd“, „DateDiff“ und „TimeZoneOffset“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,83 +9,89 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 05/23/2017
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: b70026e84eb7dfee67583abe26665bf78a566b76
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42865252"
 ---
-# DateAdd, DateDiff, and TimeZoneOffset functions in PowerApps
-Adds to or finds the difference in date/time values and converts between local time and UTC.
+# <a name="dateadd-datediff-and-timezoneoffset-functions-in-powerapps"></a>Die Funktionen „DateAdd“, „DateDiff“ und „TimeZoneOffset“ in PowerApps
+Dienen zum Hinzufügen zu oder Auffinden des Unterschiedes bei Datum-/Uhrzeit-Werten und Konvertieren zwischen Ortszeit und UTC.
 
-## Description
-The **DateAdd** function adds a number of units to a date/time value. The result is a new date/time value. You can also subtract a number of units from a date/time value by specifying a negative value.
+## <a name="description"></a>Beschreibung
+Die **DateAdd**-Funktion fügt einem Datum/Uhrzeit-Wert eine Anzahl von Einheiten hinzu. Das Ergebnis ist ein neuer Datum/Uhrzeit-Wert. Sie können auch eine Anzahl von Einheiten von einem Datum/Uhrzeit-Wert subtrahieren, indem Sie einen negativen Wert angeben.
 
-The **DateDiff** function returns the difference between two date/time values. The result is a number of units.
+Die **DateDiff**-Funktion gibt die Differenz zwischen zwei Datum/Uhrzeit-Werten zurück. Das Ergebnis ist eine Anzahl von Einheiten.
 
-For both functions, units can be **Milliseconds**, **Seconds**, **Minutes**, **Hours**, **Days**, **Months**, **Quarters**, or **Years**.  By default, both functions use **Days** as units.
+Mögliche Einheiten für beide Funktionen sind **Millisekunden**, **Sekunden**, **Minuten**, **Stunden**, **Tage**, **Monate**, **Quartale** oder **Jahre**.  Beide Funktionen verwenden standardmäßig **Tage** als Einheiten.
 
-The **TimeZoneOffset** function returns the number of minutes between the user's local time and UTC (Coordinated Universal Time).   
+Die **TimeZoneOffset**-Funktion gibt die Anzahl der Minuten zwischen Ortszeit des Benutzers und UTC (Coordinated Universal Time) zurück.   
 
-You can use **DateAdd** with the **TimeZoneOffset** to convert between the user's local time and UTC (Coordinated Universal Time).  Adding **TimeZoneOffset** will convert a local time to UTC, and subtracting it (adding the negative) will convert from UTC to local time.
+Sie können **DateAdd** mit **TimeZoneOffset** zum Konvertieren zwischen der Ortszeit des Benutzers und UTC (Coordinated Universal Time) verwenden.  Durch Hinzufügen von **TimeZoneOffset** wird eine Ortszeit in UTC konvertiert, und durch Subtrahieren (Hinzufügen eines negativen Werts) wird UTC in die Ortszeit konvertiert.
 
-Also see [working with dates and times](../show-text-dates-times.md) for more information.
+Weitere Informationen finden Sie unter [Working with dates and times (Arbeiten mit Datums- und Uhrzeitangaben)](../show-text-dates-times.md).
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **DateAdd**( *DateTime*, *Addition* [, *Units* ] )
 
-* *DateTime* - Required. Date/time value to operate on.
-* *Addition* - Required. Number, in *Units*, to add to the *DateTime*.
-* *Units* - Optional. The type of *Units* to add: **Milliseconds**, **Seconds**, **Minutes**, **Hours**, **Days**, **Months**, **Quarters**, or **Years**.  If not specified, **Days** are used.
+* *DatumUhrzeit*: erforderlich. Der zu verarbeitende Datum/Uhrzeit-Wert
+* *Addition*: erforderlich. Die *DateTime* hinzuzufügende Anzahl in *Einheiten*.
+* *Einheiten*: optional. Mögliche Typen von *Einheiten* sind **Millisekunden**, **Sekunden**, **Minuten**, **Stunden**, **Tage**, **Monate**, **Quartale** oder **Jahre**.  Wenn nicht angegeben, werden **Tage** verwendet.
 
 **DateDiff**( *StartDateTime*, *EndDateTime* [, *Units* ] )
 
-* *StartDateTime* - Required. Starting date/time value.
-* *EndDateTime* - Required. Ending date/time value.
-* *Units* - Optional. The type of *Units* to add: **Milliseconds**, **Seconds**, **Minutes**, **Hours**, **Days**, **Months**, **Quarters**, or **Years**.  If not specified, **Days** are used.
+* *AnfangDatumUhrzeit*: erforderlich. Der Anfangs-Datum/Uhrzeit-Wert
+* *EndeDatumUhrzeit*: erforderlich. Der End-Datum/Uhrzeit-Wert
+* *Einheiten*: optional. Mögliche Typen von *Einheiten* sind **Millisekunden**, **Sekunden**, **Minuten**, **Stunden**, **Tage**, **Monate**, **Quartale** oder **Jahre**.  Wenn nicht angegeben, werden **Tage** verwendet.
 
 **TimeZoneOffset**( [ *DateTime* ] )
 
-* *DateTime* - Optional.  Date/time value for which to return the offset.  By default, the current date/time is used.
+* *DateTime*: Optional.  Datum/Uhrzeit-Wert, für den der Offset zurückgegeben werden soll.  Standardmäßig wird der aktuelle Datum/Uhrzeit-Wert verwendet.
 
-## Examples
-In all of these examples, assume that the current date and time is **July 15, 2013, 1:02 PM**.
+## <a name="examples"></a>Beispiele
+Bei allen diesen Beispielen wird davon ausgegangen, dass der Datum/Uhrzeit-Wert der **15. Juli 2013, 13:02 Uhr** ist.
 
-### Simple DateAdd
+### <a name="simple-dateadd"></a>Einfache DateAdd-Funktion
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Text( DateAdd( Now(), 3 ),<br>"dd-mm-yyyy hh:mm" )** |Adds three days (default units) to the current date and time. |"18-07-2013 13:02" |
-| **Text( DateAdd( Now(), 4, Hours ),<br>"dd-mm-yyyy hh:mm" )** |Add four hours to the current date and time. |"15-07-2013 17:02" |
-| **Text( DateAdd( Today(), 1, Months ),<br>"dd-mm-yyyy hh:mm" )** |Adds one month to the current date, without time as **Today** doesn't return a time component. |"15-08-2013 00:00" |
-| **Text( DateAdd( Now(), &#8209;30, Minutes ),<br>"dd-mm-yyyy hh:mm" )** |Subtracts 30 minutes from the current date and time. |"15-07-2013 12:32" |
+| **Text( DateAdd( Now(), 3 ),<br>"dd-mm-yyyy hh:mm" )** |Dem aktuellen Datum/Uhrzeit-Wert werden drei Tage (Standardeinheiten) hinzugefügt. |"18-07-2013 13:02" |
+| **Text( DateAdd( Now(), 4, Stunden ),<br>"dd-mm-yyyy hh:mm" )** |Dem aktuellen Datum/Uhrzeit-Wert werden vier Stunden hinzugefügt. |"15-07-2013 17:02" |
+| **Text( DateAdd( Today(), 1, Monate ),<br>"dd-mm-yyyy hh:mm" )** |Fügt dem aktuellen Datum einen Monat hinzu. Ohne Uhrzeit als **Today** wird keine Zeitangabe zurückgegeben. |"15-08-2013 00:00" |
+| **Text( DateAdd( Now(), &#8209;30, Minuten ),<br>"dd-mm-yyyy hh:mm" )** |Subtrahiert 30 Minuten vom dem aktuellen Datum/Uhrzeit-Wert. |"15-07-2013 12:32" |
 
-### Simple DateDiff
+### <a name="simple-datediff"></a>Einfache DateDiff-Funktion
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **DateDiff( Now(), DateValue("1/1/2014") )** |Returns the difference between the two units in the default units of **Days** |170 |
-| **DateDiff( Now(), DateValue("1/1/2014"), Months )** |Returns the difference between the two values in **Months** |6 |
-| **DateDiff( Now(), Today(), Minutes )** |Returns the difference between the current date/time and the current date only (no time) in minutes.  Since the **Now** is later than **Today** the result will be negative. |-782 |
+| **DateDiff( Now(), DateValue("1/1/2014") )** |Gibt die Differenz zwischen den zwei Einheiten in der Standardeinheit **Tage** zurück. |170 |
+| **DateDiff( Now(), DateValue("1/1/2014"), Monate )** |Gibt die Differenz zwischen den beiden Werten in **Monaten** zurück. |6 |
+| **DateDiff( Now(), Today(), Minuten )** |Gibt die Differenz zwischen dem aktuellen Datum/Uhrzeit-Wert und dem aktuellen Datum nur in Minuten (ohne Uhrzeit) zurück.  Da **Now** (jetzt) später als **Today** (heute) ist, ist das Ergebnis negativ. |-782 |
 
-### Converting to UTC
-To convert to UTC (Coordinated Universal Time), add the **TimeZoneOffset** for the given time.  
+### <a name="converting-to-utc"></a>Konvertieren in UTC
+Fügen Sie zum Konvertieren in UTC (Coordinated Universal Time) **TimeZoneOffset** der angegebenen Uhrzeit hinzu.  
 
-For example, imagine the current date and time is **July 15, 2013, 1:02 PM** in Pacific Daylight Time (PDT, UTC-7).  To determine the current time in UTC, use:
+Angenommen, der aktuelle Datum/Uhrzeit-Wert ist der **15. Juli 2013, 13:02 Uhr** in Pacific Daylight Time (PDT, UTC-7).  Verwenden Sie zum Bestimmen der aktuellen Uhrzeit in UTC Folgendes:
 
-* **DateAdd( Now(), TimeZoneOffset(), Minutes )**
+* **DateAdd( Now(), TimeZoneOffset(), Minuten )**
 
-**TimeZoneOffset** defaults to the current time, so you don't need to pass it an argument.
+**TimeZoneOffset** ist standardmäßig auf die aktuelle Uhrzeit festgelegt, sodass Sie kein Argument dafür übergeben müssen.
 
-To see the result, use the **Text** function with the format *dd-mm-yyyy hh:mm*, which will return **15-07-2013 20:02**.
+Um das Ergebnis anzuzeigen, verwenden Sie die **Text**-Funktion im Format *dd-mm-yyyy hh:mm*, die **15-07-2013 20:02** zurückgibt.
 
-### Converting from UTC
-To convert from UTC, subtract the **TimeZoneOffset** (by adding the negative) for the given time.
+### <a name="converting-from-utc"></a>Konvertieren aus UTC
+Zum Konvertieren aus UTC subtrahieren Sie **TimeZoneOffset** (durch Hinzufügen eines negativen Werts) von der angegebenen Uhrzeit.
 
-For example, imagine the UTC date and time **July 15, 2013, 8:02 PM** is stored in a variable named **StartTime**. To adjust the time for the user's time zone, use:
+Angenommen, das UTC-Datum und die Uhrzeit **15. Juli 2013, 20:02 Uhr** werden in einer Variablen namens **StartTime** gespeichert. Verwenden Sie zum Anpassen der Zeit für die Zeitzone des Benutzers Folgendes:
 
-* **DateAdd( StartTime, -TimeZoneOffset( StartTime ), Minutes )**
+* **DateAdd( StartTime, -TimeZoneOffset( StartTime ), Minuten )**
 
-Note the negative sign before **TimeZoneOffset** to subtract the offset rather than add it.
+Beachten Sie das negative Vorzeichen vor **TimeZoneOffset**, damit der Offset subtrahiert und nicht addiert wird.
 
-To see the result, use the **Text** function with the format *dd-mm-yyyy hh:mm*, which will result in **15-07-2013 13:02** if you're in Pacific Daylight Time.
+Um das Ergebnis anzuzeigen, verwenden Sie die **Text**-Funktion im Format *dd-mm-yyyy hh:mm*, die **15-07-2013 13:02** in der PDT-Zeit zurückgibt.
 

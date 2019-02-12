@@ -1,6 +1,6 @@
 ---
-title: Download, Launch, and Param functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the Download, Launch, and Param functions in PowerApps
+title: Funktionen „Download“, „Launch“ und „Param“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispiele, für die Download-, Launch- und Param-Funktionen in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,33 +9,39 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 11/07/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 6c465a8cd23511c0cffbbfab9b70dd436be06d37
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42860015"
 ---
-# Download, Launch, and Param functions in PowerApps
-Downloads or launches a webpage or an app with parameters.  
+# <a name="download-launch-and-param-functions-in-powerapps"></a>Download-, Launch- und Param-Funktionen in PowerApps
+Lädt eine Webseite herunter oder startet eine Webseite oder eine App mit Parametern.  
 
-## Description
-The **Download** function downloads a file from the web to the local device.  The user is prompted for a location to save the file.  **Download** returns the location where the file was stored locally as a string.  
+## <a name="description"></a>Beschreibung
+Die **Download**-Funktion lädt eine Datei aus dem Web auf das lokale Gerät herunter.  Der Benutzer wird aufgefordert, einen Speicherort zum Speichern der Datei anzugeben.  **Download** gibt den Speicherort zurück, wo die Datei lokal als Zeichenfolge gespeichert wurde.  
 
-The **Launch** function launches a webpage or an app.  Optionally, this function can pass parameters to the app.  
+Die **Launch**-Funktion startet eine Webseite oder eine App.  Diese Funktion kann optional Parameter an die App übergeben.  
 
-The **Param** function retrieves a parameter passed to the app when it was launched.  If the named parameter wasn't passed, **Param** returns *blank*.
+Die **Param**-Funktion ruft einen an die App übergebenen Parameter ab, wenn sie gestartet wurde.  Wenn der benannte Parameter nicht übergeben wurde, gibt **Param** *leer* zurück.
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **Download**( *Address* )
 
-* *Address* - Required.  The address of a web resource to download.
+* *Address*: Erforderlich.  Die Adresse einer Webressource, die heruntergeladen werden soll.
 
 **Launch**( *Address* [, *ParameterName1*, *ParameterValue1*, ... ] )
 
-* *Address* - Required.  The address of a webpage or the ID of an app to launch.
-* *ParameterName(s)* - Optional.  Parameter name.
-* *ParameterValue(s)* - Optional.  Corresponding parameter values to pass to the app or the webpage.
+* *Address*: Erforderlich.  Die Adresse einer Webseite oder die ID einer App, die gestartet werden soll.
+* *ParameterName(s)*: Optional.  Parametername
+* *ParameterValue(s)*: Optional.  Entsprechende Parameterwerte, die an die App oder Webseite übergeben werden sollen.
 
 **Param**( *ParameterName* )
 
-* *ParameterName* - Required.  The name of the parameter passed to the app.
+* *ParameterName*: Erforderlich.  Der Name des Parameters, der an die App übergeben wurde.
 

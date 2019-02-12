@@ -1,6 +1,6 @@
 ---
-title: 'Button control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Button control
+title: 'Schaltflächen-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, über das Schaltflächen-Steuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,185 +9,191 @@ ms.custom: canvas
 ms.date: 10/25/2016
 ms.author: fikaradz
 ms.reviewer: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: d4cde32e52240e04a3499444d2c1325d0105a945
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42855425"
 ---
-# Button control in PowerApps
-A control that the user can click or tap to interact with the app.
+# <a name="button-control-in-powerapps"></a>Schaltflächen-Steuerelement in PowerApps
+Ein Steuerelement, mit dem Benutzer durch Klicken oder Tippen mit der App interagieren können.
 
-## Description
-Configure the **[OnSelect](properties-core.md)** property of a **Button** control to run one or more formulas when the user clicks or taps the control.
+## <a name="description"></a>Beschreibung
+Konfigurieren Sie die **[OnSelect](properties-core.md)**-Eigenschaft eines **Schaltflächen**-Steuerelements, um eine oder mehrere Formeln auszuführen, wenn der Benutzer auf das Steuerelement klickt oder tippt.
 
-## Key properties
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+## <a name="key-properties"></a>Haupteigenschaften
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**[Text](properties-core.md)** – Text that appears on a control or that the user types into a control.
+**[Text](properties-core.md)** – Text, der in einem Steuerelement angezeigt wird oder von einem Benutzer in ein Steuerelement eingegeben wird.
 
-## Additional properties
-**[Align](properties-text.md)** – The location of text in relation to the horizontal center of its control.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[Align](properties-text.md)** – Die Position von Text in Relation zur horizontalen Mitte des Steuerelements.
 
-**AutoDisableOnSelect** – Automatically disables the control while the **OnSelect** behavior is running.
+**AutoDisableOnSelect** – Deaktiviert das Steuerelement automatisch, solange das **OnSelect**-Verhalten erfolgt.
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**[Color](properties-color-border.md)** – The color of text in a control.
+**[Color](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[DisabledBorderColor](properties-color-border.md)** – The color of a control's border if the control's **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledBorderColor](properties-color-border.md)**: Die Farbe des Steuerelementrahmens, wenn die **[DisplayMode](properties-core.md)**-Eigenschaft des Steuerelements auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledColor](properties-color-border.md)** – The color of text in a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledColor](properties-color-border.md)**: Die Farbe des Texts in einem Steuerelement, wenn seine **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledFill](properties-color-border.md)** – The background color of a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledFill](properties-color-border.md)**: Die Hintergrundfarbe eines Steuerelements, wenn dessen **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[FocusedBorderColor](properties-color-border.md)** – The color of a control's border when the control is focused.
+**[FocusedBorderColor](properties-color-border.md)**: die Rahmenfarbe eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[FocusedBorderThickness](properties-color-border.md)** – The thickness of a control's border when the control is focused.
+**[FocusedBorderThickness](properties-color-border.md)**: die Rahmendicke eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**[Font](properties-text.md)** – The name of the family of fonts in which text appears.
+**[Font](properties-text.md)** – Der Name der Schriftfamilie des angezeigten Texts.
 
-**[FontWeight](properties-text.md)** – The weight of the text in a control: **Bold**, **Semibold**, **Normal**, or **Lighter**.
+**[FontWeight](properties-text.md)** – Die Schriftbreite des Texts in einem Steuerelement: **Bold** (Fett), **Semibold** (Halbfett), **Normal** oder **Lighter** (Heller).
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[HoverBorderColor](properties-color-border.md)** – The color of a control's border when the user keeps the mouse pointer on that control.
+**[HoverBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über das Steuerelement hält.
 
-**[HoverColor](properties-color-border.md)** – The color of the text in a control when the user keeps the mouse pointer on it.
+**[HoverColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[HoverFill](properties-color-border.md)** – The background color of a control when the user keeps the mouse pointer on it.
+**[HoverFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[Italic](properties-text.md)** – Whether the text in a control is italic.
+**[Italic](properties-text.md)** – Legt fest, ob der Text in einem Steuerelement kursiv formatiert ist.
 
-**[PaddingBottom](properties-size-location.md)** – The distance between text in a control and the bottom edge of that control.
+**[PaddingBottom](properties-size-location.md)** – Der Abstand zwischen dem Text in einem Steuerelement und dem unteren Rand des Steuerelements.
 
-**[PaddingLeft](properties-size-location.md)** – The distance between text in a control and the left edge of that control.
+**[PaddingLeft](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem linken Rand des Steuerelements.
 
-**[PaddingRight](properties-size-location.md)** – The distance between text in a control and the right edge of that control.
+**[PaddingRight](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem rechten Rand des Steuerelements.
 
-**[PaddingTop](properties-size-location.md)** – The distance between text in a control and the top edge of that control.
+**[PaddingTop](properties-size-location.md)** – Der Abstand zwischen dem Text in einem Steuerelement und dem oberen Rand des Steuerelements.
 
-**Pressed** – *True* while a control is being pressed, *false* otherwise.
+**Pressed** – *True*, wenn das Steuerelement gedrückt ist, andernfalls *false*.
 
-**[PressedBorderColor](properties-color-border.md)** – The color of a control's border when the user taps or clicks that control.
+**[PressedBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PressedColor](properties-color-border.md)** – The color of text in a control when the user taps or clicks that control.
+**[PressedColor](properties-color-border.md)** – Die Farbe des Texts in einem Steuerelement, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PressedFill](properties-color-border.md)** – The background color of a control when the user taps or clicks that control.
+**[PressedFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[RadiusBottomLeft](properties-size-location.md)** – The degree to which the bottom-left corner of a control is rounded.
+**[RadiusBottomLeft](properties-size-location.md)** – Der Grad der Rundung der linken unteren Ecke eines Steuerelements.
 
-**[RadiusBottomRight](properties-size-location.md)** – The degree to which the bottom-right corner of a control is rounded.
+**[RadiusBottomRight](properties-size-location.md)** – Der Grad der Rundung der rechten unteren Ecke eines Steuerelements.
 
-**[RadiusTopLeft](properties-size-location.md)** – The degree to which the top-left corner of a control is rounded.
+**[RadiusTopLeft](properties-size-location.md)** – Der Grad der Rundung der linken oberen Ecke eines Steuerelements.
 
-**[RadiusTopRight](properties-size-location.md)** – The degree to which the top-right corner of a control is rounded.
+**[RadiusTopRight](properties-size-location.md)** – Der Grad der Rundung der rechten oberen Ecke eines Steuerelements.
 
-**[Size](properties-text.md)** – The font size of the text that appears on a control.
+**[Size](properties-text.md)** – Der Schriftgrad des Texts, der in einem Steuerelement angezeigt wird.
 
-**[Strikethrough](properties-text.md)** – Whether a line appears through the text that appears on a control.
+**[Strikethrough](properties-text.md)** – Legt fest, ob der in einem Steuerelement angezeigte Text durchgestrichen ist.
 
-**[TabIndex](properties-accessibility.md)** – Keyboard navigation order in relation to other controls.
+**[TabIndex](properties-accessibility.md)**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[Tooltip](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**[Underline](properties-text.md)** – Whether a line appears under the text that appears on a control.
+**[Underline](properties-text.md)** – Legt fest, ob der in einem Steuerelement angezeigte Text unterstrichen ist.
 
-**[VerticalAlign](properties-text.md)** – The location of text on a control in relation to the vertical center of that control.
+**[VerticalAlign](properties-text.md)** – Die Position des Texts in einem Steuerelement in Relation zur vertikalen Mitte des Steuerelements.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## Related functions
+## <a name="related-functions"></a>Verwandte Funktionen
 **[Navigate( *ScreenName*, *ScreenTransitionValue* )](../functions/function-navigate.md)**
 
-## Examples
-### Add a basic formula to a button
-1. Add a **[Text input](control-text-input.md)** control, and name it **Source**.
+## <a name="examples"></a>Beispiele
+### <a name="add-a-basic-formula-to-a-button"></a>Hinzufügen einer einfachen Formel zu einer Schaltfläche
+1. Fügen Sie ein **[Texteingabe](control-text-input.md)**-Steuerelement hinzu, und benennen Sie es **Source**.
    
-    Don't know how to [add, name, and configure a control](../add-configure-controls.md)?
-2. Add a **Button** control, set its **[Text](properties-core.md)** property to "Add", and set its **[OnSelect](properties-core.md)** property to this formula:<br>
+    Möchten Sie wissen, wie Sie [ein Steuerelement hinzufügen, benennen und konfigurieren](../add-configure-controls.md)?
+2. Fügen Sie ein **Schaltflächen**-Steuerelement hinzu, legen Sie dessen **[Text](properties-core.md)**-Eigenschaft auf „Hinzufügen“ und dessen **[OnSelect](properties-core.md)**-Eigenschaft auf diese Formel fest:<br>
    **UpdateContext({Total:Total + Value(Source.Text)})**
    
-    Want more information about the **[UpdateContext](../functions/function-updatecontext.md)** function or [other functions](../formula-reference.md)?
-3. Add a **[Label](control-text-box.md)** control, set its **[Text](properties-core.md)** property to **Total**, and then press **F5**.
-4. Clear the default text from **Source**, type a number in it, and then click or tap **Add**.
+    Benötigen Sie weitere Informationen zur **[UpdateContext](../functions/function-updatecontext.md)**-Funktion oder zu [anderen Funktionen](../formula-reference.md)?
+3. Fügen Sie ein **[Bezeichnung](control-text-box.md)**-Steuerelement hinzu, legen Sie dessen **[Text](properties-core.md)**-Eigenschaft auf **Summe** fest, und drücken Sie dann **F5**.
+4. Löschen Sie den Standardtext aus **Quelle**, geben Sie eine Zahl ein, und klicken oder tippen Sie dann auf **Hinzufügen**.
    
-    The **[Label](control-text-box.md)** control shows the number that you typed.
-5. Clear the number from **Source**, type another number in it, and then click or tap **Add**.
+    Im **[Label](control-text-box.md)**-Steuerelement (Bezeichnung) wird die von Ihnen eingegebene Zahl angezeigt.
+5. Löschen Sie die Zahl aus **Quelle**, geben Sie eine andere Zahl ein, und klicken oder tippen Sie dann auf **Hinzufügen**.
    
-    The **[Label](control-text-box.md)** control shows the sum of the two numbers that you typed.
-6. (optional) Repeat the previous step one or more times.
-7. To return to the default workspace, press Esc (or click or tap the close icon in the upper-right corner).
+    Im **[Bezeichnung](control-text-box.md)**-Steuerelement wird die Summe der von Ihnen eingegebenen beiden Zahlen angezeigt.
+6. (Optional) Wiederholen Sie den vorherigen Schritt einmal oder mehrmals.
+7. Um zum Standardarbeitsbereich zurückzukehren, drücken Sie die ESC-TASTE (oder klicken oder tippen rechts oben auf das Symbol X).
 
-### Configure a button with multiple formulas
-Add a formula that clears the **Text input** control between entries.
+### <a name="configure-a-button-with-multiple-formulas"></a>Konfigurieren einer Schaltfläche mit mehreren Formeln
+Fügen Sie eine Formel hinzu, die das **Texteingabe**-Steuerelement zwischen Einträgen löscht.
 
-1. Set the **[HintText](control-text-input.md)** property of **Source** to "Enter a number".
-2. Set the **[OnSelect](properties-core.md)** property of **Add** to this formula:
+1. Legen Sie die **[HintText](control-text-input.md)**-Eigenschaft von **Quelle** auf „Eine Zahl eingeben“ fest.
+2. Legen Sie die **[OnSelect](properties-core.md)**-Eigenschaft von **Hinzufügen** auf die folgende Formel fest:
    
     **UpdateContext({Total:Total + Value(Source.Text)});<br>UpdateContext({ClearInput: ""})**
    
     > [!NOTE]
-   > Separate multiple formulas with a semi-colon “**;**”.
-3. Set the **[Default](properties-core.md)** property of **Source** to **ClearInput**.
-4. Press **F5**, and then test the app by adding several numbers together.
+   > Trennen Sie mehrere Formeln durch ein Semikolon „**;**“.
+3. Legen Sie die **[Default](properties-core.md)**-Eigenschaft von **Quelle** auf **ClearInput** fest.
+4. Drücken Sie **F5**, und testen Sie dann die App, indem Sie mehrere Werte addieren.
 
-### Add another button to reset the total
-Add a second button to clear the total between calculations.
+### <a name="add-another-button-to-reset-the-total"></a>Hinzufügen einer weiteren Schaltfläche zum Zurücksetzen der Summe
+Fügen Sie eine zweite Schaltfläche hinzu, um die Summe zwischen Berechnungen zu löschen.
 
-1. Add another **Button** control, set its **[Text](properties-core.md)** property to "Clear", and set its **[OnSelect](properties-core.md)** property to this formula:
+1. Fügen Sie ein weiteres **Schaltflächen**-Steuerelement hinzu, legen Sie dessen **[Text](properties-core.md)**-Eigenschaft auf „Löschen“ und dessen **[OnSelect](properties-core.md)**-Eigenschaft auf diese Formel fest:
    
     **UpdateContext({Total:0})**
-2. Press **F5**, add several numbers together, and then click or tap **Clear** to reset the total.
+2. Drücken Sie **F5**, addieren Sie mehrere Zahlen, und klicken oder tippen Sie dann auf **Löschen**, um die Summe zurückzusetzen.
 
-### Change a button's appearance
-#### Change a button's shape
-By default, PowerApps creates a rectangular **Button** control with rounded corners. You can make basic modifications to the shape of a **Button** control by setting its **[Height](properties-size-location.md)**, **[Width](properties-size-location.md)**, and **[Radius](properties-size-location.md)** properties.
+### <a name="change-a-buttons-appearance"></a>Ändern der Darstellung einer Schaltfläche
+#### <a name="change-a-buttons-shape"></a>Ändern der Form einer Schaltfläche
+PowerApps erstellt standardmäßig ein rechteckiges **Schaltflächen**-Steuerelement mit abgerundeten Ecken. Sie können einfache Änderungen an der Form eines **Schaltflächen**-Steuerelements vornehmen, indem Sie dessen Eigenschaften **[Height](properties-size-location.md)**, **[Width](properties-size-location.md)** und **[Radius](properties-size-location.md)** festlegen.
 
 > [!NOTE]
-> [Icons and Shapes](control-shapes-icons.md) provide a wide variety of designs and can perform some of the same basic functions that **Button** controls do. However, **[Icons and Shapes](control-shapes-icons.md)** don’t have a **[Text](properties-core.md)** property.
+> [Symbole und Formen](control-shapes-icons.md) bieten eine Vielzahl von Designs und können einige derselben Grundfunktionen wie **Schaltflächen**-Steuerelemente ausführen. Allerdings haben **[Symbole und Formen](control-shapes-icons.md)** keine **[Text](properties-core.md)**-Eigenschaft.
 
-1. Add a **Button** control, and set its **[Height](properties-size-location.md)** and **[Width](properties-size-location.md)** properties to **300** to make a large square button.
-2. Modify the **[RadiusTopLeft](properties-size-location.md)**, **[RadiusTopRight](properties-size-location.md)**, **[RadiusBottomLeft](properties-size-location.md)**, and **[RadiusBottomRight](properties-size-location.md)** properties to adjust the amount of curvature on each corner. Here are some examples of different shapes, each one starting from a 300 x 300 square button:
+1. Fügen Sie ein **Schaltflächen**-Steuerelement hinzu, und legen Sie die Eigenschaften **[Height](properties-size-location.md)** und **[Width](properties-size-location.md)** auf **300** fest, um eine große quadratische Schaltfläche zu erstellen.
+2. Ändern Sie die Eigenschaften **[RadiusTopLeft](properties-size-location.md)**, **[RadiusTopRight](properties-size-location.md)**, **[RadiusBottomLeft](properties-size-location.md)** und **[RadiusBottomRight](properties-size-location.md)**, um den Grad der Krümmung jeder Ecke anzupassen. Es folgen einige Beispiele verschiedener Formen, die alle von einer quadratischen Schaltfläche mit den Maßen 300 x 300 ausgehen:
    
-   * Set all four **[Radius](properties-size-location.md)** values to **150** to create a circle.
-   * Set the values for **[RadiusTopLeft](properties-size-location.md)** and **[RadiusBottomRight](properties-size-location.md)** to **300** to create a leaf-shaped **Button**.
-   * Set the values for **[RadiusTopLeft](properties-size-location.md)** and **[RadiusTopRight](properties-size-location.md)** to **300**, and the values for **[RadiusBottomLeft](properties-size-location.md)** and **[RadiusBottomRight](properties-size-location.md)** to **100** to create a tab-shaped button.
+   * Legen Sie alle vier **[Radius](properties-size-location.md)**-Werte auf**150** fest, um einen Kreis zu erstellen.
+   * Legen Sie die Werte für **[RadiusTopLeft](properties-size-location.md)** und **[RadiusBottomRight](properties-size-location.md)** auf **300** fest, um eine blattförmige **Schaltfläche** zu erstellen.
+   * Legen Sie die Werte für **[RadiusTopLeft](properties-size-location.md)** und **[RadiusTopRight](properties-size-location.md)** auf **300** und die Werte für **[RadiusBottomLeft](properties-size-location.md)** und **[RadiusBottomRight](properties-size-location.md)** auf **100** fest, um eine schlaufenförmige Schaltfläche zu erstellen.
 
-#### Change a button's color when you hover over it
-By default, the fill color of a **Button** control will dim by 20% when you hover over it with a mouse. You can adjust this behavior by changing the **[HoverFill](properties-color-border.md)** property, which uses the **[ColorFade](../functions/function-colors.md)** function. If you set the **[ColorFade](../functions/function-colors.md)** formula to a positive percentage, the color becomes lighter when you hover over the button, while a negative percentage makes the color darker.
+#### <a name="change-a-buttons-color-when-you-hover-over-it"></a>Ändern der Farbe einer Schaltfläche, wenn darauf gezeigt wird
+Standardmäßig wird die Füllfarbe eines **Schaltflächen**-Steuerelements um 20 % abgeblendet, wenn Sie mit der Maus darauf zeigen. Sie können dieses Verhalten anpassen, indem Sie die **[HoverFill](properties-color-border.md)**-Eigenschaft ändern, die die **[ColorFade](../functions/function-colors.md)**-Funktion nutzt. Wenn Sie die **[ColorFade](../functions/function-colors.md)**-Formel auf einen positiven Prozentsatz festlegen, wird die Schaltfläche heller, sobald Sie darauf zeigen, während sie bei einem negativen Prozentsatz dunkler wird.
 
-* Change the **[ColorFade](../functions/function-colors.md)** percentage in the **[HoverFill](properties-color-border.md)** property of one of the buttons that you created, and observe the effects.
+* Ändern Sie den **[ColorFade](../functions/function-colors.md)**-Prozentsatz der **[HoverFill](properties-color-border.md)**-Eigenschaft einer der Schaltflächen, die Sie erstellt haben, und beobachten Sie die Auswirkungen.
 
-You can also specify the color of a **Button** control by setting its **[HoverFill](properties-color-border.md)** property to a formula that contains the **[ColorValue](../functions/function-colors.md)** function instead of the **[ColorFade](../functions/function-colors.md)** function, as in **ColorValue("Red")**.
+Sie können die Farbe eines **Schaltflächen**-Steuerelements auch durch Festlegen seiner **[HoverFill](properties-color-border.md)**-Eigenschaft auf eine Formel angeben, die die **[ColorValue](../functions/function-colors.md)**-Funktion anstelle der **[ColorFade](../functions/function-colors.md)**-Funktion enthält, wie z. B. in **ColorValue("Red")**.
 
 > [!NOTE]
-> The color value can be any CSS color definition, either a name or a hex value.
+> Der Farbwert kann eine beliebige CSS-Farbdefinition sein: entweder ein Name oder ein hexadezimaler Wert.
 
-* Replace the **[ColorFade](../functions/function-colors.md)** function with a **[ColorValue](../functions/function-colors.md)** function in one of the buttons that you created, and observe the effects.
+* Ersetzen Sie auf einer der Schaltflächen, die Sie erstellt haben, die **[ColorFade](../functions/function-colors.md)**-Funktion durch eine **[ColorValue](../functions/function-colors.md)**-Funktion, und beobachten die Auswirkungen.
 
 
-## Accessibility guidelines
-### Color contrast
-* [Standard color contrast requirements](../accessible-apps-color.md) apply.
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+* Es gelten die [Standardanforderungen für Farbkontraste](../accessible-apps-color.md).
 
-### Screen reader support
-* **[Text](properties-core.md)** must be present.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* Die **[Text](properties-core.md)**-Eigenschaft muss vorhanden sein.
 
-### Keyboard support
-* **[TabIndex](properties-accessibility.md)** must be zero or greater so that keyboard users can navigate to it.
-* Focus indicators must be clearly visible. Use **[FocusedBorderColor](properties-color-border.md)** and **[FocusedBorderThickness](properties-color-border.md)** to achieve this.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* **[TabIndex](properties-accessibility.md)** muss gleich 0 (null) oder größer sein, damit Tastaturbenutzer dorthin navigieren können.
+* Fokusindikatoren müssen deutlich sichtbar sein. **[FocusedBorderColor](properties-color-border.md)** und **[FocusedBorderThickness](properties-color-border.md)** können Ihnen dabei helfen.
  

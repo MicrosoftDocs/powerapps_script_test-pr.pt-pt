@@ -1,6 +1,6 @@
 ---
-title: Size and location properties | Microsoft Docs
-description: Reference material for properties such as Height and Width
+title: Größen- und Positionseigenschaften | Microsoft-Dokumentation
+description: Enthält Referenzmaterial für Eigenschaften, z.B. „Height“ und „Width“.
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,76 +9,82 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 040e9e540591e9a8c593dd273bedeabcffb23c90
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42842645"
 ---
-# Size and location properties in PowerApps
-## Overview
-Configure how big a control (or an element of a control) is and where it is in relation to the screen it's on.
+# <a name="size-and-location-properties-in-powerapps"></a>Größen- und Positionseigenschaften in PowerApps
+## <a name="overview"></a>Übersicht
+Konfigurieren Sie, wie groß ein Steuerelement (oder ein einzelnes Element eines Steuerelements) ist und wo es auf dem Bildschirm angeordnet ist.
 
-## Position
-**X** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container). For a **[Card](control-card.md)** control in a container that has multiple columns, this property determines the column in which the card appears.
+## <a name="position"></a>Position
+**X** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist). Für ein **[Karten](control-card.md)**-Steuerelement in einem Container mit mehreren Spalten bestimmt diese Eigenschaft die Spalte, in der die Karte angezeigt wird.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Button](control-button.md)**, **[Camera](control-camera.md)**, **[Card](control-card.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Display form](control-form-detail.md)**, **[Drop down](control-drop-down.md)**, **[Edit form](control-form-detail.md)**, **[Export](control-export-import.md)**, **[Gallery](control-gallery.md)**, **[HTML text](control-html-text.md)**, **[Icon](control-shapes-icons.md)**, **[Image](control-image.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[Microphone](control-microphone.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Pen input](control-pen-input.md)**, **[Pie chart](control-pie-chart.md)**, **[Radio](control-radio.md)**, **[Rating](control-rating.md)**, **[Shape](control-shapes-icons.md)**, **[Slider](control-slider.md)**, **[Text input](control-text-input.md)**, **[Timer](control-timer.md)**, **[Toggle](control-toggle.md)**, and **[Video](control-audio-video.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Schaltfläche](control-button.md)**, **[Kamera](control-camera.md)**, **[Karte](control-card.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Formular anzeigen](control-form-detail.md)**, **[Dropdown](control-drop-down.md)**, **[Formular bearbeiten](control-form-detail.md)**, **[Export](control-export-import.md)**, **[Katalog](control-gallery.md)**, **[HTML-Text](control-html-text.md)**, **[Symbol](control-shapes-icons.md)**, **[Bild](control-image.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[Mikrofon](control-microphone.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Stifteingabe](control-pen-input.md)**, **[Kreisdiagramm](control-pie-chart.md)**, **[Optionsfeld](control-radio.md)**, **[Bewertung](control-rating.md)**, **[Form](control-shapes-icons.md)**, **[Schieberegler](control-slider.md)**, **[Texteingabe](control-text-input.md)**, **[Timer](control-timer.md)**, **[Umschalten](control-toggle.md)** und **[Video](control-audio-video.md)**.
 
-**Y** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container). For a **[Card](control-card.md)** control in a container that has multiple rows, this property determines the row in which the card appears.
+**Y** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist). Für ein **[Karten](control-card.md)**-Steuerelement in einem Container mit mehreren Zeilen bestimmt diese Eigenschaft die Zeile, in der die Karte angezeigt wird.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Button](control-button.md)**, **[Camera](control-camera.md)**, **[Card](control-card.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Display form](control-form-detail.md)**, **[Drop down](control-drop-down.md)**, **[Edit form](control-form-detail.md)**, **[Export](control-export-import.md)**, **[Gallery](control-gallery.md)**, **[HTML text](control-html-text.md)**, **[Icon](control-shapes-icons.md)**, **[Image](control-image.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[Microphone](control-microphone.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Pen input](control-pen-input.md)**, **[Pie chart](control-pie-chart.md)**, **[Radio](control-radio.md)**, **[Rating](control-rating.md)**, **[Shape](control-shapes-icons.md)**, **[Slider](control-slider.md)**, **[Text input](control-text-input.md)**, **[Timer](control-timer.md)**, **[Toggle](control-toggle.md)**, and **[Video](control-audio-video.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Schaltfläche](control-button.md)**, **[Kamera](control-camera.md)**, **[Karte](control-card.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Formular anzeigen](control-form-detail.md)**, **[Dropdown](control-drop-down.md)**, **[Formular bearbeiten](control-form-detail.md)**, **[Export](control-export-import.md)**, **[Katalog](control-gallery.md)**, **[HTML-Text](control-html-text.md)**, **[Symbol](control-shapes-icons.md)**, **[Bild](control-image.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[Mikrofon](control-microphone.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Stifteingabe](control-pen-input.md)**, **[Kreisdiagramm](control-pie-chart.md)**, **[Optionsfeld](control-radio.md)**, **[Bewertung](control-rating.md)**, **[Form](control-shapes-icons.md)**, **[Schieberegler](control-slider.md)**, **[Texteingabe](control-text-input.md)**, **[Timer](control-timer.md)**, **[Umschalten](control-toggle.md)** und **[Video](control-audio-video.md)**.
 
-## Size
-**Height** – The distance between a control's top and bottom edges.
+## <a name="size"></a>Größe
+**Height**: Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Button](control-button.md)**, **[Camera](control-camera.md)**, **[Card](control-card.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Display form](control-form-detail.md)**, **[Drop down](control-drop-down.md)**, **[Edit form](control-form-detail.md)**, **[Export](control-export-import.md)**, **[Gallery](control-gallery.md)**, **[HTML text](control-html-text.md)**, **[Icon](control-shapes-icons.md)**, **[Image](control-image.md)**, **[Import](control-export-import.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[Microphone](control-microphone.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Pen input](control-pen-input.md)**, **[Pie chart](control-pie-chart.md)**, **[Radio](control-radio.md)**, **[Rating](control-rating.md)**, **[Shape](control-shapes-icons.md)**, **[Slider](control-slider.md)**, **[Text input](control-text-input.md)**, **[Timer](control-timer.md)**, **[Toggle](control-toggle.md)**, and **[Video](control-audio-video.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Schaltfläche](control-button.md)**, **[Kamera](control-camera.md)**, **[Karte](control-card.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Formular anzeigen](control-form-detail.md)**, **[Dropdown](control-drop-down.md)**, **[Formular bearbeiten](control-form-detail.md)**, **[Export](control-export-import.md)**, **[Katalog](control-gallery.md)**, **[HTML-Text](control-html-text.md)**, **[Symbol](control-shapes-icons.md)**, **[Bild](control-image.md)**, **[Import](control-export-import.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[Mikrofon](control-microphone.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Stifteingabe](control-pen-input.md)**, **[Kreisdiagramm](control-pie-chart.md)**, **[Optionsfeld](control-radio.md)**, **[Bewertung](control-rating.md)**, **[Form](control-shapes-icons.md)**, **[Schieberegler](control-slider.md)**, **[Texteingabe](control-text-input.md)**, **[Timer](control-timer.md)**, **[Umschalten](control-toggle.md)** und **[Video](control-audio-video.md)**.
 
-**AutoHeight** – Whether a label automatically increases its height if its **[Text](properties-core.md)** property contains more characters than the control can show.  
+**AutoHeight**: Gibt an, ob eine Bezeichnung automatisch erhöht wird, wenn ihre **[Text](properties-core.md)**-Eigenschaft mehr Zeichen enthält, als das Steuerelement anzeigen kann.  
 
-* Applies to **[Label](control-text-box.md)**
+* Gilt für **[Label](control-text-box.md)** (Bezeichnung)
 
-**Width** – The distance between a control's left and right edges.
+**Width**: Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Button](control-button.md)**, **[Camera](control-camera.md)**, **[Card](control-card.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Display form](control-form-detail.md)**, **[Drop down](control-drop-down.md)**, **[Edit form](control-form-detail.md)**, **[Export](control-export-import.md)**, **[Gallery](control-gallery.md)**, **[HTML text](control-html-text.md)**, **[Icon](control-shapes-icons.md)**, **[Image](control-image.md)**, **[Label](control-text-box.md)**, **[Import](control-export-import.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[Microphone](control-microphone.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Pen input](control-pen-input.md)**, **[Pie chart](control-pie-chart.md)**, **[Radio](control-radio.md)**, **[Rating](control-rating.md)**, **[Shape](control-shapes-icons.md)**, **[Slider](control-slider.md)**, **[Text input](control-text-input.md)**, **[Timer](control-timer.md)**, **[Toggle](control-toggle.md)**, and **[Video](control-audio-video.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Audio](control-audio-video.md)**, **[Schaltfläche](control-button.md)**, **[Kamera](control-camera.md)**, **[Karte](control-card.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Formular anzeigen](control-form-detail.md)**, **[Dropdown](control-drop-down.md)**, **[Formular bearbeiten](control-form-detail.md)**, **[Export](control-export-import.md)**, **[Katalog](control-gallery.md)**, **[HTML-Text](control-html-text.md)**, **[Symbol](control-shapes-icons.md)**, **[Bild](control-image.md)**, **[Bezeichnung](control-text-box.md)**, **[Import](control-export-import.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[Mikrofon](control-microphone.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Stifteingabe](control-pen-input.md)**, **[Kreisdiagramm](control-pie-chart.md)**, **[Optionsfeld](control-radio.md)**, **[Bewertung](control-rating.md)**, **[Form](control-shapes-icons.md)**, **[Schieberegler](control-slider.md)**, **[Texteingabe](control-text-input.md)**, **[Timer](control-timer.md)**, **[Umschalten](control-toggle.md)** und **[Video](control-audio-video.md)**.
 
-**WidthFit** – Whether a control automatically grows horizontally to fill any empty space of a container control such as an **[Edit form](control-form-detail.md)** control. If multiple cards have this property set to **true**, the space is divided between them. For more information, see [Understand data form layout](../working-with-form-layout.md).
+**WidthFit** – Gibt an, ob ein Steuerelement automatisch horizontal vergrößert wird, um leeren Raum in einem Containersteuerelement wie z.B. einem **[Formularbearbeitung](control-form-detail.md)**-Steuerelement auszufüllen. Wenn bei mehreren Karten diese Eigenschaft auf **TRUE** festgelegt ist, teilen sie sich den Raum. Weitere Informationen finden Sie unter [Grundlegendes zum Layout von Datenformularen](../working-with-form-layout.md).
 
-* Applies to **[Card](control-card.md)**
+* Gilt für **[Karte](control-card.md)**
 
-## Padding
-**Padding** – The distance between the text on an import or export button and the edges of that button.
+## <a name="padding"></a>Abstand
+**Padding**: Der Abstand zwischen dem Text auf einer Import- oder Exportschaltfläche und den Rändern der Schaltfläche.
 
-* Applies to **[Add picture](control-add-picture.md)**, **[Export](control-export-import.md)**, and **[Import](control-export-import.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Bild hinzufügen](control-add-picture.md)**, **[Export](control-export-import.md)** und **[Import](control-export-import.md)**.
 
-**PaddingBottom** – The distance between text in a control and the bottom edge of that control.
+**PaddingBottom**: Der Abstand zwischen dem Text eines Steuerelements und dem unteren Rand des Steuerelements.
 
-* Applies to **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Drop down](control-drop-down.md)**, **[HTML text](control-html-text.md)**, **[Image](control-image.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Radio](control-radio.md)**, and **[Text input](control-text-input.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Dropdown](control-drop-down.md)**, **[HTML-Text](control-html-text.md)**, **[Bild](control-image.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Optionsfeld](control-radio.md)** und **[Texteingabe](control-text-input.md)**.
 
-**PaddingLeft** – The distance between text in a control and the left edge of that control.
+**PaddingLeft**: Der Abstand zwischen dem Text eines Steuerelements und dem linken Rand des Steuerelements.
 
-* Applies to **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Drop down](control-drop-down.md)**, **[HTML text](control-html-text.md)**, **[Image](control-image.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Radio](control-radio.md)**, and **[Text input](control-text-input.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Dropdown](control-drop-down.md)**, **[HTML-Text](control-html-text.md)**, **[Bild](control-image.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Optionsfeld](control-radio.md)** und **[Texteingabe](control-text-input.md)**.
 
-**PaddingRight** – The distance between text in a control and the right edge of that control.
+**PaddingRight**: Der Abstand zwischen dem Text eines Steuerelements und dem rechten Rand des Steuerelements.
 
-* Applies to **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Drop down](control-drop-down.md)**, **[HTML text](control-html-text.md)**, **[Image](control-image.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Radio](control-radio.md)**, and **[Text input](control-text-input.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Dropdown](control-drop-down.md)**, **[HTML-Text](control-html-text.md)**, **[Bild](control-image.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Optionsfeld](control-radio.md)** und **[Texteingabe](control-text-input.md)**.
 
-**PaddingTop** – The distance between text in a control and the top edge of that control.
+**PaddingTop**: Der Abstand zwischen dem Text eines Steuerelements und dem oberen Rand des Steuerelements.
 
-* Applies to **[Button](control-button.md)**, **[Check box](control-check-box.md)**, **[Column chart](control-column-line-chart.md)**, **[Date Picker](control-date-picker.md)**, **[Drop down](control-drop-down.md)**, **[HTML text](control-html-text.md)**, **[Image](control-image.md)**, **[Label](control-text-box.md)**, **[Line chart](control-column-line-chart.md)**, **[List Box](control-list-box.md)**, **[PDF viewer](control-pdf-viewer.md)**, **[Radio](control-radio.md)**, and **[Text input](control-text-input.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Schaltfläche](control-button.md)**, **[Kontrollkästchen](control-check-box.md)**, **[Säulendiagramm](control-column-line-chart.md)**, **[Datumsauswahl](control-date-picker.md)**, **[Dropdown](control-drop-down.md)**, **[HTML-Text](control-html-text.md)**, **[Bild](control-image.md)**, **[Bezeichnung](control-text-box.md)**, **[Liniendiagramm](control-column-line-chart.md)**, **[Listenfeld](control-list-box.md)**, **[PDF-Viewer](control-pdf-viewer.md)**, **[Optionsfeld](control-radio.md)** und **[Texteingabe](control-text-input.md)**.
 
-## Radius
-**RadiusBottomLeft** – The degree to which the bottom-left corner of a control is rounded.
+## <a name="radius"></a>Radius
+**RadiusBottomLeft**: Der Grad der Rundung der linken unteren Ecke eines Steuerelements.
 
-* Applies to **[Button](control-button.md)**, **[Export](control-export-import.md)**, **[Image](control-image.md)**, **[Import](control-export-import.md)**, and **[Text input](control-text-input.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Schaltfläche](control-button.md)**, **[Export](control-export-import.md)**, **[Bild](control-image.md)**, **[Import](control-export-import.md)** und **[Texteingabe](control-text-input.md)**.
 
-**RadiusBottomRight** – The degree to which the bottom-right corner of a control is rounded.
+**RadiusBottomRight**: Der Grad der Rundung der rechten unteren Ecke eines Steuerelements.
 
-* Applies to **[Button](control-button.md)**, **[Export](control-export-import.md)**, **[Image](control-image.md)**, **[Import](control-export-import.md)**, and **[Text input](control-text-input.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Schaltfläche](control-button.md)**, **[Export](control-export-import.md)**, **[Bild](control-image.md)**, **[Import](control-export-import.md)** und **[Texteingabe](control-text-input.md)**.
 
-**RadiusTopLeft** – The degree to which the top-left corner of a control is rounded.
+**RadiusTopLeft**: Der Grad der Rundung der linken oberen Ecke eines Steuerelements.
 
-* Applies to **[Button](control-button.md)**, **[Export](control-export-import.md)**, **[Image](control-image.md)**, **[Import](control-export-import.md)**, and **[Text input](control-text-input.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Schaltfläche](control-button.md)**, **[Export](control-export-import.md)**, **[Bild](control-image.md)**, **[Import](control-export-import.md)** und **[Texteingabe](control-text-input.md)**.
 
-**RadiusTopRight** – The degree to which the top-right corner of a control is rounded.
+**RadiusTopRight**: Der Grad der Rundung der rechten oberen Ecke eines Steuerelements.
 
-* Applies to **[Button](control-button.md)**, **[Export](control-export-import.md)**, **[Image](control-image.md)**, **[Import](control-export-import.md)**, and **[Text input](control-text-input.md)** controls.
+* Gilt für Steuerelemente des folgenden Typs: **[Schaltfläche](control-button.md)**, **[Export](control-export-import.md)**, **[Bild](control-image.md)**, **[Import](control-export-import.md)** und **[Texteingabe](control-text-input.md)**.
 

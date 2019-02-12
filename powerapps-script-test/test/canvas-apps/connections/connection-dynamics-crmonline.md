@@ -1,6 +1,6 @@
 ---
-title: Overview of the Dynamics 365 connection | Microsoft Docs
-description: Create an app for managing data in Dynamics 365
+title: Übersicht über die Dynamics 365-Verbindung | Microsoft-Dokumentation
+description: Erstellen einer App zum Verwalten von Daten in Dynamics 365
 author: Mattp123
 manager: kvivek
 ms.service: powerapps
@@ -8,93 +8,99 @@ ms.topic: reference
 ms.custom: canvas
 ms.date: 07/12/2017
 ms.author: matp
-ms.reviewer: 
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.reviewer: ''
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 3c061d43a766bfdcd0a560c5959756f79751a7f2
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42849141"
 ---
-# Connect to Dynamics 365 from PowerApps
-PowerApps lets you quickly generate, customize, share, and run mobile apps with little or no code. By using the Dynamics 365 connector, you can create useful mobile apps to share with your organization in just a few minutes.
+# <a name="connect-to-dynamics-365-from-powerapps"></a>Herstellen einer Verbindung mit Dynamics 365 aus PowerApps
+In PowerApps können Sie schnell und mit nur wenig oder überhaupt keinem Code mobile Apps generieren, anpassen, freigeben und ausführen. Mithilfe des Dynamics 365-Connectors können Sie nützliche mobile Apps erstellen, die Sie in nur wenigen Minuten für Ihre Organisation freigeben können.
 
-By following the steps in this topic, you'll create an app in which users can browse, add, delete, and make updates to contacts in Dynamics 365. Users can run the app [in a browser](../../../user/run-app-browser.md) or [on a mobile device](../../../user/run-app-client.md) such as a phone.
+Durch Ausführen der in diesem Artikel beschriebenen Schritte erstellen Sie eine App, in der Benutzer Kontakte in Dynamics 365 durchsuchen, hinzufügen, löschen und aktualisieren können. Benutzer können die App [in einem Browser](../../../user/run-app-browser.md) oder [auf einem mobilen Gerät](../../../user/run-app-client.md) wie einem Smartphone ausführen.
 
-## Prerequisite
-To follow this tutorial, you need a Microsoft Office 365 account that includes a Dynamics 365 subscription.
+## <a name="prerequisite"></a>Voraussetzung
+Zum Durcharbeiten dieses Lernprogramms benötigen Sie ein Microsoft Office 365-Konto mit einem Dynamics 365-Abonnement.
 
-## Create a connection
-1. [Sign in to PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
-2. In the left navigation pane, click **Connections**.
+## <a name="create-a-connection"></a>Verbindung erstellen
+1. [Melden Sie sich bei PowerApps an](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
+2. Klicken Sie in der linken Navigationsleiste auf **Verbindungen**.
    
-    ![Connection option on File menu](./media/connection-dynamics-crmonline/file-connections.png)
-3. Near the upper-right corner, click **New connection**.
+    ![Option „Verbindungen“ im Menü „Datei“](./media/connection-dynamics-crmonline/file-connections.png)
+3. Klicken Sie in der rechten oberen Ecke auf **Neue Verbindung**.
    
-    ![New connection](./media/connection-dynamics-crmonline/new-connection.png)
-4. In the list of connections, click **Dynamics 365**.
+    ![Neue Verbindung](./media/connection-dynamics-crmonline/new-connection.png)
+4. Klicken Sie in der Liste der Verbindungen auf **Dynamics 365**.
    
-    ![Connection option on File menu](./media/connection-dynamics-crmonline/connection-d365.png)
-5. In the dialog box, click **Create**.
+    ![Option „Verbindungen“ im Menü „Datei“](./media/connection-dynamics-crmonline/connection-d365.png)
+5. Klicken Sie im Dialogfeld auf **Erstellen**.
    
-    ![Create connection](./media/connection-dynamics-crmonline/create-connection.png)
-6. In the **Sign in to your account** dialog box, provide your credentials for the Dynamics 365 (online) tenant.
+    ![Erstellen der Verbindung](./media/connection-dynamics-crmonline/create-connection.png)
+6. Geben Sie im Dialogfeld **Bei einem Konto anmelden** Ihre Anmeldeinformationen für den Dynamics 365 (Online)-Mandanten an.
    
-    A connection is created.
+    Eine Verbindung wird erstellt.
 
-## Generate an app automatically
-1. [Sign in to PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), and then click **New app** near the lower-left corner.
+## <a name="generate-an-app-automatically"></a>Eine App automatisch generieren
+1. [Melden Sie sich bei PowerApps an](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), und klicken Sie anschließend in der unteren linken Ecke auf **Neue App**.
    
-    ![New app](./media/connection-dynamics-crmonline/new-app.png)
-2. Under **Start with your data**, click **Phone layout** on the **Dynamics 365** tile.
+    ![Neue App](./media/connection-dynamics-crmonline/new-app.png)
+2. Klicken Sie unter **Mit eigenen Daten beginnen** in der Kachel **Dynamics 365** auf **Telefonlayout**.
    
-    ![PowerApps select Dynamics 365 connector](./media/connection-dynamics-crmonline/phonelayout.png)
-3. Under **Connections**, select the connection that you want, and then choose a dataset, which corresponds to the instance of Dynamics 365 that you'll manage in the app.
-4. Under **Choose a table**, click **Contacts**, and then click **Connect**.
-5. In the left navigation bar, click or tap an icon in the upper-right corner to switch to the thumbnail view.
+    ![Auswahl von Dynamics 365-Connector in PowerApps](./media/connection-dynamics-crmonline/phonelayout.png)
+3. Wählen Sie unter **Verbindungen** die gewünschte Verbindung und anschließend ein Dataset aus, das der Instanz von Dynamics 365 entspricht, die Sie in der App verwalten.
+4. Klicken Sie unter **Tabelle auswählen** auf **Kontakte**, und klicken Sie anschließend auf **Verbinden**.
+5. Klicken oder tippen Sie auf der linken Navigationsleiste rechts unten auf ein Symbol, um zur Miniaturansicht zu wechseln.
    
-    ![Toggle the views](./media/connection-dynamics-crmonline/toggle-view.png)
+    ![Umschalten der Ansichten](./media/connection-dynamics-crmonline/toggle-view.png)
 
-PowerApps generates a three-screen app based on contact records.
+PowerApps generiert auf der Grundlage von Kontaktdatensätzen eine App mit drei Bildschirmen.
 
-* **BrowseScreen1**. This screen appears by default when users open the app. In the left navigation bar, a thumbnail for this screen appears above the other two screens.
-* **DetailScreen1**. This screen appears when users click an item in **BrowseScreen1**.  In the left navigation bar, a thumbnail for **DetailScreen1** appears between the other two screens.
-* **EditScreen1**. This screen appears when users click the edit icon for an item in **DetailScreen1**. In the left navigation bar, a thumbnail for **EditScreen1** appears under the other two screens.
+* **BrowseScreen1**. Dieser Bildschirm wird standardmäßig angezeigt, wenn Benutzer die App öffnen. In der linken Navigationsleiste wird eine Vorschauminiatur für diesen Bildschirm über den beiden anderen Bildschirmen angezeigt.
+* **DetailScreen1**. Dieser Bildschirm wird angezeigt, wenn Benutzer im **BrowseScreen1** auf ein Element klicken.  In der linken Navigationsleiste wird eine Vorschauminiatur für **DetailScreen1** zwischen den beiden anderen Bildschirmen angezeigt.
+* **EditScreen1**. Dieser Bildschirm wird angezeigt, wenn Benutzer auf das Bearbeitungssymbol für ein Element im **DetailScreen1** klicken. In der linken Navigationsleiste wird eine Vorschauminiatur für **EditScreen1** unter den beiden anderen Bildschirmen angezeigt.
 
-The app can run in its initial state, but we can make it more useful by refining the information on each screen.
+Die App kann in ihrem ursprünglichen Zustand ausgeführt werden, sie kann jedoch durch Optimieren der Informationen auf den einzelnen Bildschirmen nützlicher gestaltet werden.
 
-## Customize BrowseScreen1
-In this procedure, you'll configure **BrowseScreen1** to show the first and last names of each contact. The data will be sorted alphabetically by last name and include images in a two-column grid.
+## <a name="customize-browsescreen1"></a>Anpassen von BrowseScreen1
+In diesem Verfahren konfigurieren Sie **BrowseScreen1** so, dass für die einzelnen Kontakte jeweils der Vorname und der Nachname angezeigt werden. Die Daten werden alphabetisch nach dem Nachnamen sortiert, und sie enthalten Bilder in einem zweispaltigen Raster.
 
-1. In **BrowseScreen1**, select the gallery by clicking any record in it except the first one.
+1. Wählen Sie im **BrowseScreen1** den Katalog aus, indem Sie auf einen beliebigen Datensatz darin klicken (mit Ausnahme des ersten Datensatzes).
    
-    ![Select layout](./media/connection-dynamics-crmonline/select-gallery.png)
-2. In the right-hand pane, click or tap the **Data** tab.
-3. In the list of layouts, click or tap the one that shows pictures and text in a two-column grid.
+    ![Auswählen des Layouts](./media/connection-dynamics-crmonline/select-gallery.png)
+2. Klicken oder tippen Sie im rechten Bereich auf die Registerkarte **Daten**.
+3. Klicken oder tippen Sie in der Liste der Layouts auf das Layout, in dem Bilder und Texte in einem zweispaltigen Raster angezeigt werden.
    
-    You might need to scroll down to show this option.
+    Sie müssen möglicherweise einen Bildlauf nach unten ausführen, um diese Option anzuzeigen.
    
-    ![Select layout](./media/connection-dynamics-crmonline/select-layout.png)
-4. Copy this formula and then, with the gallery still selected, paste the formula in the formula bar (to the right of the **fx** button):
+    ![Auswählen des Layouts](./media/connection-dynamics-crmonline/select-layout.png)
+4. Kopieren Sie diese Formel, und fügen Sie sie bei ausgewähltem Katalog in der Bearbeitungsleiste (rechts neben der Schaltfläche **fx**) ein:
    
     `SortByColumns(Search(Filter(Contacts,statuscode=1), TextSearchBox1.Text, "lastname"), "lastname", If(SortDescending1, Descending, Ascending))`
-5. In the right-hand pane, set the top drop-down list to **firstname** and the middle drop-down list to **lastname**.
+5. Legen Sie im rechten Bereich die obere Dropdownliste auf **firstname** und die mittlere Dropdownliste auf **lastname** fest.
    
-    ![Select Body1](./media/connection-dynamics-crmonline/firstname-lastname.png)
-6. (optional) On the **File** menu, click **Save as**, type a name for the app, and then click **Save**.
+    ![Auswählen von Body1](./media/connection-dynamics-crmonline/firstname-lastname.png)
+6. (optional) Klicken Sie im Menü **Datei** auf **Speichern unter**, geben Sie einen Namen für die App ein, und klicken Sie auf **Speichern**.
    
-    By default, the app will be saved to the cloud. Click **This computer** to save your app locally.
+    In der Standardeinstellung wird die App in der Cloud gespeichert. Klicken Sie auf **Dieser Computer**, um die App lokal zu speichern.
 
-## Customize DetailsScreen1 and EditScreen1
-1. In the left navigation bar, click the middle thumbnail to select **DetailsScreen1**.
-2. On **DetailScreen1**, click anywhere below the title bar to show customization options in the right-hand pane.
+## <a name="customize-detailsscreen1-and-editscreen1"></a>Anpassen von DetailsScreen1 und EditScreen1
+1. Klicken Sie in der linken Navigationsleiste auf die mittlere Miniaturansicht, um **DetailsScreen1** auszuwählen.
+2. Klicken Sie im **DetailScreen1** auf eine beliebige Stelle unter der Titelleiste, um im rechten Bereich Anpassungsoptionen einzublenden.
    
-    ![Show form customization](./media/connection-dynamics-crmonline/show-customization.png)
-3. In the right-hand pane, click the eye icon for each field to hide it.
+    ![Anzeigen der Anpassungsoptionen für das Formular](./media/connection-dynamics-crmonline/show-customization.png)
+3. Klicken Sie im rechten Bereich auf das Augensymbol für jedes Feld, um es auszublenden.
    
-    ![Hide fields](./media/connection-dynamics-crmonline/hide-field.png)
-4. Click anywhere under the title bar to select **Form1**.
+    ![Ausblenden der Felder](./media/connection-dynamics-crmonline/hide-field.png)
+4. Klicken Sie auf eine beliebige Stelle unter der Titelleiste, um **Form1** auszuwählen.
    
-    ![Select Form1](./media/connection-dynamics-crmonline/select-form1.png)
-5. In the right-hand pane, click the eye icon for each of these fields, so that the screen will show an image (if the table contains one) and four other fields for each contact:
+    ![Auswählen von Form1](./media/connection-dynamics-crmonline/select-form1.png)
+5. Klicken Sie im rechten Bereich auf das Augensymbol für jedes dieser Felder, sodass im Bildschirm ein Bild (sofern die Tabelle eines enthält) und andere Felder für jeden Kontakt angezeigt werden:
    
    * **entityimage**
    * **firstname**
@@ -102,15 +108,15 @@ In this procedure, you'll configure **BrowseScreen1** to show the first and last
    * **mobilephone**
    * **emailaddress1**
      
-     The right-hand pane should resemble this graphic:
+     Der rechte Bereich ähnelt nun dem in dieser Abbildung dargestellten:
      
-     ![Select Form1](./media/connection-dynamics-crmonline/show-fields.png)
-6. Select **EditScreen1** by clicking the bottom thumbnail in the left navigation bar.
-7. Repeat the steps in this procedure to customize **EditScreen1** the same way as **DetailsScreen1**.
-8. (optional) Save the app.
+     ![Auswählen von Form1](./media/connection-dynamics-crmonline/show-fields.png)
+6. Wählen Sie **EditScreen1** aus, indem Sie auf die untere Miniaturansicht in der linken Navigationsleiste klicken.
+7. Führen Sie die Schritte in diesem Verfahren erneut aus, um **EditScreen1** auf die gleiche Weise wie **DetailsScreen1** anzupassen.
+8. (optional) Speichern Sie die App.
 
-## Next steps
-* Test your app in Preview mode by clicking **BrowseScreen1** in the left navigation bar and then pressing F5 or clicking ![Preview mode](./media/connection-dynamics-crmonline/runpowerapp.png) near the upper-right corner.
-* [Share your app](../share-app.md).
-* [Add a second data source](../add-data-connection.md).
+## <a name="next-steps"></a>Nächste Schritte
+* Testen Sie die App im Vorschaumodus, indem Sie in der linken Navigationsleiste auf **BrowseScreen1** klicken und anschließend F5 drücken oder indem Sie in der oberen rechten Ecke auf ![Vorschaumodus](./media/connection-dynamics-crmonline/runpowerapp.png) klicken.
+* [Geben Sie die App frei](../share-app.md).
+* [Fügen Sie eine zweite Datenquelle hinzu](../add-data-connection.md).
 

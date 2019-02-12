@@ -1,6 +1,6 @@
 ---
-title: Concurrent function | Microsoft Docs
-description: Reference information, including syntax, for the Concurrent function in PowerApps
+title: Concurrent-Funktion | Microsoft-Dokumentation
+description: Referenzinformationen einschließlich Syntax und Beispielen für die Funktion „Concurrent“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,138 +9,116 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 06/26/2018
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: a0fdddcf906a04914ea9ba9a8572798ea5d55378
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42834817"
 ---
-# Concurrent function in PowerApps
-Evaluates multiple formulas concurrently with one another.
+# <a name="concurrent-function-in-powerapps"></a>Concurrent-Funktion in PowerApps
+Wertet mehrere Formeln gleichzeitig aus.
 
-## Description
-The **Concurrent** function evaluates multiple formulas at the same time. Normally, multiple formulas are evaluated by chaining them together with the [**;**](operators.md) (or [**;;**](operators.md)) operator, which evaluates each sequentially in order. When the app performs operations concurrently, users wait less for the same result.
+## <a name="description"></a>Beschreibung
+Die **Concurrent**-Funktion wertet mehrere Formeln gleichzeitig aus. In der Regel werden mehrere Formeln durch Verkettung mit dem Operator [**;**](operators.md) (oder [**;;**](operators.md)) ausgewertet, der jede Formel nacheinander auswertet. Wenn die App gleichzeitig Vorgänge ausführt, warten Benutzer nicht mehr so lange auf das gleiche Ergebnis.
 
-In the [**OnStart**](../controls/control-screen.md) property of your app, use **Concurrent** to improve performance when the app loads data. When data calls don't start until the previous calls finish, the app must wait for the sum of all request times. If data calls start at the same time, the app needs to wait only for the longest request time. Web browsers often improve performance by performing data operations concurrently.
+Verwenden Sie **Concurrent** in der Eigenschaft [**OnStart**](../controls/control-screen.md) Ihrer App, um die Leistung zu verbessern, wenn die App Daten lädt. Wenn Datenaufrufe bis zum Abschluss der vorherigen Aufrufe nicht gestartet wurden, muss die App auf die Summe aller Anforderungszeiten warten. Wenn die Datenaufrufe zur selben Zeit beginnen, muss die App nur auf die längste Anforderungszeit warten. Webbrowser verbessern oft die Leistung durch Ausführen gleichzeitiger Datenvorgänge.
 
-You can't predict the order in which formulas within the **Concurrent** function start and end evaluation. Formulas within the **Concurrent** function shouldn't contain dependencies on other formulas within the same **Concurrent** function, and PowerApps shows an error if you try. From within, you can safely take dependencies on formulas outside the **Concurrent** function because they will complete before the **Concurrent** function starts. Formulas after the **Concurrent** function can safely take dependencies on formulas within: they'll all complete before the **Concurrent** function finishes and moves on to the next formula in a chain (if you use the **;** or **;;** operator). Watch out for subtle order dependencies if you're calling functions or service methods that have side effects.
+Sie können die Reihenfolge, in der Formeln in der **Concurrent**-Funktion beginnen, nicht vorhersagen oder die Evaluierung beenden. Formeln innerhalb der **Concurrent**-Funktion sollten keine Abhängigkeiten von anderen Formeln innerhalb der gleichen **Concurrent**-Funktion enthalten. PowerApps gibt einen Fehler aus, sollte dies doch passieren. Sie können problemlos Abhängigkeiten von Formeln von innerhalb der **Concurrent**-Funktion außerhalb der Funktion verwenden, da diese abgeschlossen werden, bevor die **Concurrent**-Funktion startet. Formeln nach der **Concurrent**-Funktion können Abhängigkeiten sicher auf Formeln anwenden: Sie werden alle abgeschlossen, bevor die **Concurrent**-Funktion beendet wird und mit der nächsten Formel in einer Kette beginnt (wenn Sie den Operator **;** oder **;;** verwenden). Achten Sie auf subtile Reihenfolgenabhängigkeiten, wenn Sie Funktionen oder Dienstmethoden aufrufen, die Nebeneffekte haben.
 
-You can chain formulas together with the **;** (or **;;**) operator within an argument to **Concurrent**. For example, **Concurrent( Set( a, 1 ); Set( b, a+1 ), Set( x, 2 ); Set( y, x+2 ) )** evaluates **Set( a, 1 ); Set( b, a+1 )** concurrently with **Set( x, 2 ); Set( y, x+2 )**. In this case, the dependencies within the formulas are fine: **a** will be set before **b**, and **x** will be set before **y**.
+Sie können Formeln mit dem Operator **;** (oder **;;**) in einem Argument zu **Concurrent** verketten. Beispielsweise wertet **Concurrent( Set( a, 1 ); Set( b, a+1 ), Set( x, 2 ); Set( y, x+2 ) )** **Set( a, 1 ); Set( b, a+1 )** gleichzeitig mit **Set( x, 2 ); Set( y, x+2 )** aus. In diesem Fall sehen die Abhängigkeiten in den Formeln gut aus: **a** wird vor **b** festgelegt und **x** vor **y**.
 
-Depending on the device or browser in which the app is running, only a handful of formulas might actually be evaluated concurrently. **Concurrent** uses the available capabilities and won't finish until all formulas have been evaluated.
+Je nach Gerät oder Browser, auf bzw. in dem die App ausgeführt wird, können nur eine Handvoll Formeln tatsächlich gleichzeitig ausgewertet werden. **Concurrent** verwendet die verfügbaren Funktionen und wird nicht beendet, bevor nicht alle Formeln ausgewertet wurden.
 
-If you enable **Formula-level error management** (in advanced settings), the first error encountered in argument order is returned from **Concurrent**; otherwise, *blank* is returned. If all formulas are successful, *true* is returned. If one formula fails, the rest of that formula stops, but other formulas continue evaluating.
+Wenn Sie die **Fehlerverwaltung auf Formelebene** (in den erweiterten Einstellungen) aktivieren, wird der erste Fehler, der in der Argumentreihenfolge erkannt wird, von **Concurrent** zurückgegeben. Andernfalls wird *blank* zurückgegeben. Wenn alle Formeln erfolgreich sind, wird *TRUE* zurückgegeben. Wenn eine Formel fehlschlägt, wird der Rest dieser Formel angehalten, die anderen Formeln werden aber ganz normal ausgewertet.
 
-You can use **Concurrent** only in [behavior formulas](../working-with-formulas-in-depth.md).
+Verwenden Sie **Concurrent** nur in [Verhaltensformeln](../working-with-formulas-in-depth.md).
 
-## Syntax
-**Concurrent**( *Formula1*, *Formula2* [, ...] )
+## <a name="syntax"></a>Syntax
+**Concurrent**( *Formel1*, *Formel2* [, ...] )
 
-* *Formula(s)* – Required. Formulas to evaluate concurrently. You must supply at least two formulas.
+* *Formel(n)*: Erforderlich Formeln, die gleichzeitig ausgewertet werden sollen. Sie müssen mindestens zwei Formeln angeben.
 
-## Examples
+## <a name="examples"></a>Beispiele
 
-#### Loading data faster
+#### <a name="loading-data-faster"></a>Schnelleres Laden von Daten
 
-1. Create an app, and add four data sources from Common Data Service for Apps, SQL Server, or SharePoint. 
+1. Erstellen Sie eine App, und fügen Sie vier Datenquellen aus Common Data Service für Apps, SQL Server oder SharePoint hinzu. 
 
-    This example uses four tables from the [sample Adventure Works database on SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). After you create the database, connect to it from PowerApps using the fully qualified server name (for example, srvname.database.windows.net):
+    In diesem Beispiel werden vier Tabellen aus der [Adventure Works-Beispieldatenbank unter SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) verwendet. Nachdem die Datenbank erstellt wurde, stellen Sie eine Verbindung von PowerApps damit her, und verwenden Sie dazu den vollqualifizierten Servernamen (z.B. „srvname.database.windows.net“):
 
-	![Connect to Adventure Works database in Azure](media/function-concurrent/connect-database.png)
+    ![Verbinden mit der Adventure Works-Datenbank in Azure](media/function-concurrent/connect-database.png)
 
-2. Add a **[Button](../controls/control-button.md)** control, and set its **OnSelect** property to this formula:
+2. Fügen Sie ein **[Schaltflächen](../controls/control-button.md)**-Steuerelement hinzu, und legen Sie seine **OnSelect**-Eigenschaft auf folgende Formel fest:
 
-    ```powerapps-dot
-    ClearCollect( Product, '[SalesLT].[Product]' );
-    ClearCollect( Customer, '[SalesLT].[Customer]' );
-    ClearCollect( SalesOrderDetail, '[SalesLT].[SalesOrderDetail]' ); 
-    ClearCollect( SalesOrderHeader, '[SalesLT].[SalesOrderHeader]' )
-    ```
+    **ClearCollect( Product, '[SalesLT].[Product]' );<br> ClearCollect( Customer, '[SalesLT].[Customer]' );<br> ClearCollect( SalesOrderDetail, '[SalesLT].[SalesOrderDetail]' );<br> ClearCollect( SalesOrderHeader, '[SalesLT].[SalesOrderHeader]' )**
 
-3. In [Microsoft Edge](https://docs.microsoft.com/microsoft-edge/devtools-guide/network) or [Google Chrome](https://developers.google.com/web/tools/chrome-devtools/network-performance/), turn on developer tools to monitor network traffic while your app is running.
+3. Aktivieren Sie in [Microsoft Edge](https://docs.microsoft.com/microsoft-edge/devtools-guide/network) oder [Google Chrome](https://developers.google.com/web/tools/chrome-devtools/network-performance/) die Entwicklertools, um den Netzwerkdatenverkehr zu überwachen, während Ihre App ausgeführt wird.
 
-1. (optional) Turn on network throttling to exaggerate the effects of this comparison.
+1. Optional: Aktivieren Sie die Einschränkung, um die Auswirkungen dieses Vergleichs auszuweiten.
 
-4. While holding down the Alt key, select the button, and then watch the network traffic.
+4. Halten Sie die Alt-Taste gedrückt, klicken Sie auf die Schaltfläche, und beobachten Sie den Netzwerkdatenverkehr.
 
-    The tools show four requests performed in series, similar to this example.  Actual times have been removed as they will vary wildly.  The graph shows that each call starts after the last has finished:
+    Die Tools zeigen vier Anforderungen an, die der Reihe nach ausgeführt werden, ähnlich wie in diesem Beispiel.  Die tatsächlichen Zeiten wurden entfernt, da sie stark variieren.  Das Diagramm zeigt, dass jeder Aufruf nach dem letzten Aufruf, der abgeschlossen wurde, beginnt:
 
-	![Time graph of four network requests, each one starting after the last finishes, covering the entire span of time](media/function-concurrent/chained-network.png)
+    ![Zeitdiagramm von vier Netzwerkanforderungen, die jeweils nach der Beendigung der vorherigen beginnen und die gesamte Zeitspanne abdecken](media/function-concurrent/chained-network.png)
 
-5. Save, close, and reopen the app.
+5. Speichern, schließen und öffnen Sie die App erneut.
 
-    PowerApps caches data, so selecting the button again won't necessarily cause four new requests. Each time you want to test performance, close and reopen your app. If you turned network throttling on, you may want to turn it off until you're ready for another test.
+    PowerApps speichert Daten zwischen, deshalb führt das Klicken auf die Schaltfläche nicht unbedingt zu vier neuen Anforderungen. Jedes Mal, wenn Sie die Leistung testen möchten, müssen Sie die App schließen und erneut öffnen. Wenn die Einschränkung aktiviert ist, sollten Sie diese deaktivieren, bis Sie für einen weiteren Test bereit sind.
 
-1. Add a second **[Button](../controls/control-button.md)** control, and set its **OnSelect** property to this formula:
+1. Fügen Sie ein zweites **[Schaltflächen](../controls/control-button.md)**-Steuerelement hinzu, und legen Sie seine **OnSelect**-Eigenschaft auf folgende Formel fest:
 
-    ```powerapps-dot
-    Concurrent( 
-        ClearCollect( Product, '[SalesLT].[Product]' ), 
-        ClearCollect( Customer, '[SalesLT].[Customer]' ),
-        ClearCollect( SalesOrderDetail, '[SalesLT].[SalesOrderDetail]' ),
-        ClearCollect( SalesOrderHeader, '[SalesLT].[SalesOrderHeader]' )
-    )
-    ```
+    **Concurrent(<br> &nbsp;&nbsp;&nbsp;&nbsp;ClearCollect( Product, '[SalesLT].[Product]' ),<br> &nbsp;&nbsp;&nbsp;&nbsp;ClearCollect( Customer, '[SalesLT].[Customer]' ),<br> &nbsp;&nbsp;&nbsp;&nbsp;ClearCollect( SalesOrderDetail, '[SalesLT].[SalesOrderDetail]' ),<br> &nbsp;&nbsp;&nbsp;&nbsp;ClearCollect( SalesOrderHeader, '[SalesLT].[SalesOrderHeader]' )<br> )**
 
-	Note that you added the same **ClearCollect** calls to the first button, but they're wrapped in a **Concurrent** function and separated by commas this time.
+    Beachten Sie, dass Sie die gleichen **ClearCollect**-Aufrufe der ersten Schaltfläche hinzugefügt haben, diese jedoch dieses Mal in einer **Concurrent**-Funktion umschlossen und mit Kommas getrennt sind.
 
-2. Clear the network monitor in the browser.
+2. Löschen Sie den Netzwerkmonitor im Browser.
 
-1. If you were using network throttling before, turn it on again.
+1. Wenn Sie zuvor die Einschränkung verwendet haben, aktivieren Sie sie erneut.
 
-3. While holding down the Alt key, select the second button, and then watch the network traffic.
+3. Halten Sie die ALT-TASTE gedrückt, klicken Sie auf die zweite Schaltfläche, und beobachten Sie den Netzwerkdatenverkehr.
 
-    The tools show four requests performed concurrently, similar to this example.  Again, actual times have been removed as they will vary wildly.  The graph shows that all the calls start at about the same time and do not wait for the previous one to finish:
+    Die Tools zeigen vier Anforderungen an, die gleichzeitig ausgeführt werden, ähnlich wie in diesem Beispiel.  Die tatsächlichen Zeiten wurden wieder entfernt, da sie stark variieren.  Das Diagramm zeigt, dass alle Aufrufe etwa zur selben Zeit beginnen und nicht darauf warten, dass der vorherige Aufruf beendet wird:
 
-	![Time graph of four network requests, all four starting together, covering about half of the span of time](media/function-concurrent/concurrent-network.png)
+    ![Zeitdiagramm mit vier Netzwerkanforderungen, die alle zusammen beginnen und etwa die Hälfte der Zeitspanne umfassen](media/function-concurrent/concurrent-network.png)
 
-	These graphs are based on the same scale. By using **Concurrent**, you halved the total amount of time these operations took to finish. 
+    Diese Diagramme basieren auf der gleichen Skalierung. Durch Verwendung von **Concurrent** haben Sie die Gesamtzeit halbiert, die diese Vorgänge für den Abschluss benötigen. 
 
-5. Save, close, and reopen the app.
+5. Speichern, schließen und öffnen Sie die App erneut.
 
-#### Race condition
+#### <a name="race-condition"></a>Racebedingung
 
-1. Add a connection to the [Microsoft Translator](../connections/connection-microsoft-translator.md) service to your app.
+1. Fügen Sie dem [Microsoft Translator](../connections/connection-microsoft-translator.md)-Dienst eine Verbindung zu Ihrer App hinzu.
 
-2. Add a [**Text input**](../controls/control-text-input.md) control, and rename it **TextInput1** if it has a different name.
+2. Fügen Sie ein [**Texteingabe**](../controls/control-text-input.md)-Steuerelement hinzu, und benennen Sie es in **TextInput1** um, wenn es nicht bereits so heißt.
 
-3. Add a **Button** control, and set its **OnSelect** property to this formula:
+3. Fügen Sie ein **Schaltflächen**-Steuerelement hinzu, und legen Sie seine **OnSelect**-Eigenschaft auf folgende Formel fest:
 
-    ```powerapps-dot
-    Set( StartTime, Value( Now() ) );
-    Concurrent(
-        Set( FRTrans, MicrosoftTranslator.Translate( TextInput1.Text, "fr" ) ); 
-            Set( FRTransTime, Value( Now() ) ),
-        Set( DETrans, MicrosoftTranslator.Translate( TextInput1.Text, "de" ) ); 
-            Set( DETransTime, Value( Now() ) )
-    );
-    Collect( Results,
-        { 
-            Input: TextInput1.Text,
-            French: FRTrans, FrenchTime: FRTransTime - StartTime, 
-            German: DETrans, GermanTime: DETransTime - StartTime, 
-            FrenchFaster: FRTransTime < DETransTime
-        }
-    )
-    ```
+    **Set( StartTime, Value(Now()) );<br> Concurrent(<br> &nbsp;&nbsp;&nbsp;&nbsp;Set(FRTrans, MicrosoftTranslator.Translate(TextInput1.Text,"fr")); Set(FRTransTime, Value(Now()) ),<br> &nbsp;&nbsp;&nbsp;&nbsp;Set(DETrans, MicrosoftTranslator.Translate(TextInput1.Text,"de")); Set(DETransTime, Value(Now()) )<br> ); <br> Collect( <br> &nbsp;&nbsp;&nbsp;&nbsp;Results, <br> &nbsp;&nbsp;&nbsp;&nbsp;{<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input: TextInput1.Text, <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;French: FRTrans, FrenchTime: FRTransTime-StartTime,<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;German: DETrans, GermanTime: DETransTime-StartTime,<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FrenchFaster: FRTransTime < DETransTime <br> &nbsp;&nbsp;&nbsp;&nbsp;}<br> )**
 
-4. Add a [**Data table**](../controls/control-data-table.md) control, and set its **Items** property to **Results**.
+4. Fügen Sie ein Steuerelements des Typs [**Datentabelle**](../controls/control-data-table.md) hinzu, und legen Sie seine **Items**-Eigenschaft auf **Results** (Ergebnisse) fest.
 
-1. On the **Properties** tab of the right pane, select **Results** to open the **Data** pane.
+1. Wählen Sie auf der Registerkarte **Eigenschaften** im rechten Bereich die Option **Ergebnisse** aus, um den **Datenbereich** zu öffnen.
 
-1. In the list of fields, select the check box for each field to show them all in the data table.
+1. Aktivieren Sie in der Feldliste das Kontrollkästchen für jedes Feld, sodass alle in der Datentabelle angezeigt werden.
 
-1. (optional) Drag the **Input** field to the top of the list, and drag the **FrenchFaster** field to the bottom of the list.
+1. Optional: Ziehen Sie das Feld **Input** (Eingabe) an den Anfang der Liste und das Feld **FrenchFaster** an das Ende der Liste.
 
-	![List of fields in the Result collection](media/function-concurrent/field-list.png) 
+    ![Liste der Felder in der Ergebnisauflistung](media/function-concurrent/field-list.png) 
 
-6. In the **Text input** control, type or paste a phrase to translate.
+6. Geben bzw. fügen Sie im Steuerelement **Texteingabe** einen zu übersetzen Ausdruck ein.
 
-7. While holding down the Alt key, select the button multiple times to fill the table.
+7. Klicken Sie mehrmals auf die Schaltfläche, während Sie die ALT-TASTE gedrückt halten, um die Tabelle zu füllen.
 
-    The times are shown in milliseconds.
+    Die Zeiten werden in Millisekunden angezeigt.
   
-	![Display of the data table containing results of translating the string "Hello World" to French and German. Sometimes the French translation is faster than the German, and sometimes it's the other way around.](media/function-concurrent/race-condition.png) 
+    ![Datentabelle, die die Ergebnisse der Übersetzung für „Hello World“ in Französisch und Deutsch anzeigt Es kommt vor, dass die Französischübersetzung schneller als die Deutschübersetzung ist, manchmal ist es aber genau umgekehrt.](media/function-concurrent/race-condition.png) 
 
-	In some cases, the French translation is faster than the German translation, and vice versa. Both start at the same time, but one returns before the other for a variety of reasons, including network latency and server-side processing.
+    In einigen Fällen ist die Französischübersetzung schneller als die Deutschübersetzung, manchmal ist es aber genau umgekehrt. Beide beginnen zur selben Zeit, jedoch wird aus unterschiedlichen Gründen (wie Netzwerklatenz und serverseitiger Verarbeitung) eine Übersetzung noch vor der anderen zurückgegeben.
 
-	A [race condition](https://en.wikipedia.org/wiki/Race_condition) would occur if the app depended on one translation ending first. Fortunately, PowerApps flags most timing dependencies that it can detect.
+    Es tritt eine [Racebedingung](https://en.wikipedia.org/wiki/Race_condition) auf, wenn die App davon abhängig ist, dass eine Übersetzung zuerst beendet wird. Glücklicherweise kennzeichnet PowerApps die meisten Zeitabhängigkeiten, die erkannt wurden.

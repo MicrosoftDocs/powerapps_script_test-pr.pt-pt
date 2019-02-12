@@ -1,96 +1,102 @@
 ---
-title: Generate a canvas app from a SharePoint list | Microsoft Docs
-description: In PowerApps, automatically generate a canvas app to manage data in a SharePoint list
+title: Generieren einer Canvas-App aus einer SharePoint-Liste | Microsoft-Dokumentation
+description: Automatisches Generieren einer Canvas-App in PowerApps, um Daten in einer SharePoint-Liste zu verwalten
 author: AFTOwen
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 08/09/2018
 ms.author: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 15aa49787d6b2c3d3981e374aeb43c54a2d7a7ec
+ms.sourcegitcommit: 02d0234bd84352bf1c43d0fc9225ab60947a0add
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49317089"
 ---
-# Generate a canvas app in PowerApps from a SharePoint list
+# <a name="generate-a-canvas-app-in-powerapps-from-a-sharepoint-list"></a>Generieren einer Canvas-App in PowerApps aus einer SharePoint-Liste
 
-In this topic, you'll use PowerApps to automatically generate a canvas app based on items in a SharePoint list. You can generate the app from within PowerApps or SharePoint Online. From within PowerApps, you can generate the app based on a list in an on-premises SharePoint site if you [connect to it](connect-to-sharepoint.md) through a data gateway.
+In diesem Artikel verwenden Sie PowerApps, um automatisch eine Canvas-App basierend auf Elementen einer SharePoint-Liste zu generieren. Sie können die App aus PowerApps oder SharePoint Online generieren. In PowerApps können Sie die App basierend auf einer Liste auf einer lokalen SharePoint-Website generieren, wenn Sie über ein Datengateway [eine Verbindung herstellen](connect-to-sharepoint.md).
 
-The app that you generate will contain three screens:
+Die Apps, die Sie generieren, enthält drei Bildschirme:
 
-- In the browse screen, you can scroll through all items in the list.
-- In the details screen, you can show all information about a single item in the list.
-- In the edit screen, you can create an item or update information about an existing item.
+- Im Bildschirm zum Durchsuchen können Sie durch alle Elemente der Liste scrollen.
+- Im Bildschirm mit den Details können Sie alle Informationen zu einem einzelnen Element der Liste anzeigen.
+- Im Bildschirm zum Bearbeiten können Sie ein Element erstellen oder Informationen zu einem vorhandenen Element aktualisieren.
 
-You can apply the concepts and techniques in this topic to any list in SharePoint. To follow the steps exactly:
+Sie können die Konzepte und Techniken in diesem Thema auf jede Liste in SharePoint anwenden. Um die Schritte genau befolgen zu können, bereiten Sie Folgendes vor:
 
-1. In a SharePoint Online site, create a list named **SimpleApp**.
-2. In a column named **Title**, create entries for **Vanilla**, **Chocolate**, and **Strawberry**.
+1. Erstellen Sie auf einer SharePoint Online-Website eine Liste namens **SimpleApp**.
+2. Erstellen Sie in einer Spalte namens **Title** Einträge für **Vanilla**, **Chocolate** und **Strawberry**.
 
-The principles of generating an app won't change even if you create a list that's far more complex, with many columns of various types such as text, dates, numbers, and currency.
+Das Grundprinzip beim Erstellen einer App ändert sich nicht, auch wenn Sie eine viel komplexere Liste mit mehreren Spalten und verschiedenen Typen (z.B. Text, Datumsangaben, Zahlen und Währungen) erstellen.
 
 > [!IMPORTANT]
-> PowerApps doesn't support all types of SharePoint data. For more information, see [Known issues](connections/connection-sharepoint-online.md#known-issues).
+> PowerApps unterstützt nicht alle Typen von SharePoint-Daten. Weitere Informationen finden Sie unter [Known issues (Bekannte Probleme)](connections/connection-sharepoint-online.md#known-issues).
 
-## Generate an app from within PowerApps
+## <a name="generate-an-app-from-within-powerapps"></a>Generieren einer App aus PowerApps
 
-1. Sign in to [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc).
+1. Melden Sie sich bei [PowerApps](https://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) an.
 
-1. Under **Make your own app**, hover over **Start from data**, and then select **Make this app**.
+1. Zeigen Sie unter **Eigene App erstellen** auf **Mit Daten beginnen**, und wählen Sie dann **Diese App erstellen** aus.
 
-	![Option to create an app](./media/app-from-sharepoint/start-from-data.png)
+    ![Option zum Erstellen einer App](./media/app-from-sharepoint/start-from-data.png)
 
-1. On the SharePoint tile, select **Phone layout**.
+1. Klicken Sie auf der SharePoint-Kachel auf **Smartphonelayout**.
 
-	![Option to create an app](./media/app-from-sharepoint/sharepoint-tile.png)
+    ![Option zum Erstellen einer App](./media/app-from-sharepoint/sharepoint-tile.png)
 
-1. With the **Connect directly** option selected, select **Create**.
+1. Wenn Sie die Option **Direkt verbinden** aktiviert haben, können Sie auf **Erstellen** klicken.
 
-    ![Create connection](./media/app-from-sharepoint/create-connection.png)
+    ![Erstellen der Verbindung](./media/app-from-sharepoint/create-connection.png)
 
-1. Under **Connect to a SharePoint site**, type or paste the URL for your SharePoint Online site, and then select **Go**.
+1. Geben Sie unter **Verbindung mit einer SharePoint-Website herstellen** die URL ihrer SharePoint Online-Website ein, und klicken Sie anschließend auf **Gehe zu**.
 
-    Include only the site URL (not the name of the list), as in this example:<br>`https://microsoft.sharepoint.com/teams/Contoso`
+    Geben Sie wie im folgenden Beispiel nur die Website-URL und nicht den Namen der Liste ein:<br>`https://microsoft.sharepoint.com/teams/Contoso`
 
-1. Under **Choose a list**, select **SimpleApp**, and then select **Connect**.
+1. Klicken Sie unter **Liste auswählen** erst auf **SimpleApp** und dann auf **Verbinden**.
 
-    After a few minutes, your app opens to the browse screen, which shows the items that you created in your list. If your list has data in more columns than just **Title**, the app will show that data. Near the top of the screen, a title bar shows icons for refreshing the list, sorting the list, and creating an item in the list. Under the title bar, a search box provides the option to filter the list based on text that you type or paste. 
+    Nach wenigen Minuten wird Ihre App auf dem Bildschirm zum Durchsuchen geöffnet, auf dem eine Liste der Elemente anzeigt wird, die Sie in Ihrer Liste erstellt haben. Wenn Ihre Liste auch Daten in anderen Spalten als nur der Spalte **Titel** enthält, zeigt die App diese Daten an. Im oberen Bereich des Bildschirms werden in einer Titelleiste Symbole zum Aktualisieren und Sortieren der Liste sowie zum Erstellen eines Elements in einer Liste angezeigt. Unterhalb der Titelleiste können Sie über ein Suchfeld die Liste basierend auf dem Text filtern, den Sie darin eingeben bzw. einfügen. 
 
-    ![Browse screen](./media/app-from-sharepoint/browse-screen.png)
+    ![Bildschirm zum Durchsuchen](./media/app-from-sharepoint/browse-screen.png)
 
-    You'll probably want to make more changes before you use this app or share it with others. As a best practice, save your work so far by pressing Ctrl-S before you proceed. Give your app a name, and then select **Save**.
+    Sie sollten möglicherweise Änderungen vornehmen, bevor Sie diese App verwenden oder für andere freigeben. Es wird empfohlen, dass Sie Ihre bisherige Arbeit speichern, bevor Sie fortfahren, indem Sie STRG+S drücken. Geben Sie Ihrer App einen Namen, und klicken Sie dann auf **Speichern**.
 
-## Generate an app from within SharePoint Online
+## <a name="generate-an-app-from-within-sharepoint-online"></a>Generieren einer App aus SharePoint Online
 
-If you create an app of a custom list from the SharePoint Online command bar, the app appears as a view of that list. You can also run the app on an iOS or Android device, in addition to a web browser.
+Wenn Sie eine App über die SharePoint Online-Befehlszeile aus einer benutzerdefinierten Liste erstellen, ist die App eine Ansicht dieser Liste. Sie können die App außer im Webbrowser auch auf einem iOS- oder Android-Gerät ausführen.
 
-1. In SharePoint Online, open a custom list, select **PowerApps** on the command bar, and then select **Create an app**.
+1. Öffnen Sie in SharePoint Online eine benutzerdefinierte Liste, klicken Sie in der Befehlsleiste auf **PowerApps**, und klicken Sie anschließend auf **App erstellen**.
 
-    ![Create an app](./media/app-from-sharepoint/generate-new-app.png)
+    ![Erstellen einer App](./media/app-from-sharepoint/generate-new-app.png)
 
-2. In the panel that appears, type a name for your app, and then select **Create**.
+2. Geben Sie im angezeigten Bereich einen Namen für Ihre App ein, und klicken Sie auf **Erstellen**.
 
-    ![Name the app](./media/app-from-sharepoint/app-name.png)
+    ![Benennen der App](./media/app-from-sharepoint/app-name.png)
 
-    A new tab appears in your web browser that shows the app that you automatically generated based on your SharePoint list. The app appears in PowerApps Studio, where you can customize it.
+    Eine neue Registerkarte wird im Webbrowser angezeigt und zeigt die App, die Sie basierend auf Ihrer SharePoint-Liste automatisch generiert haben. Die App wird in PowerApps Studio angezeigt. Dort können Sie sie anpassen.
 
-    ![Default app](./media/app-from-sharepoint/default-app.png)
+    ![Standard-App](./media/app-from-sharepoint/default-app.png)
 
-3. (optional) Refresh the browser tab for your SharePoint list (by selecting it and then, for example, pressing F5), and then follow these steps to run or manage your app:
+3. (Optional) Aktualisieren Sie die Browserregisterkarte für Ihre SharePoint-Liste (indem Sie die Registerkarte auswählen und F5 drücken), und führen Sie dann die folgenden Schritte aus, um Ihre App auszuführen oder zu verwalten:
 
-    - To run the app (in a separate browser tab), select **Open**.
-    - To let others in your organization run the app, select **Make this view public**.
+    - Um die App auszuführen (in einer separaten Browserregisterkarte), wählen Sie **Öffnen** aus.
+    - Um anderen Personen in Ihrer Organisation die Ausführung der App zu ermöglichen, wählen Sie **Diese Ansicht öffentlich machen** aus.
 
-        To let others to edit your app, [share it](share-app.md) with **Can edit** permissions.
+        Um anderen Personen die Bearbeitung Ihrer App zu ermöglichen, [geben Sie sie frei](share-app.md), und legen Sie die Berechtigung **Kann bearbeiten** fest.
 
-    - To remove the view from SharePoint, select **Remove this view**.
+    - Um die Ansicht aus SharePoint zu entfernen, klicken Sie auf **Diese Ansicht entfernen**.
 
-        To remove the app from PowerApps, [delete the app](delete-app.md).
+        Um die App aus PowerApps zu entfernen, [löschen Sie die App](delete-app.md).
 
-## Next steps
-In this topic, you created an app to manage data in a SharePoint list. As a next step, generate an app from a more complex list, and then customize the app (starting with the browse screen) to better suit your needs.
+## <a name="next-steps"></a>Nächste Schritte
+In diesem Thema haben Sie eine App erstellt, mit der Daten in einer SharePoint-Liste verwaltet werden können. Generieren Sie als Nächstes eine App über eine komplexere Liste, und passen Sie diese App anschließend angefangen bei dem Bildschirm zum Durchsuchen an Ihre Bedürfnisse an.
 
 > [!div class="nextstepaction"]
-> [Customize a default browse screen](customize-layout-sharepoint.md)
+> [Anpassen des Standardbildschirms zum Durchsuchen](customize-layout-sharepoint.md)

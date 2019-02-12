@@ -1,6 +1,6 @@
 ---
-title: 'Image control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Image control
+title: 'Image-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen, einschließlich Eigenschaften und Beispiele, zum Image-Steuerelement
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,145 +9,151 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/25/2016
 ms.author: fikaradz
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: d5765c1e425a3196b5e560bb621f391d36f6580c
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42841591"
 ---
-# Image control in PowerApps
-A control that shows an image from, for example, a local file or a data source.
+# <a name="image-control-in-powerapps"></a>Image-Steuerelement in PowerApps
+Ein Steuerelement, das ein Image aus einer lokalen Datei oder einer Datenquelle anzeigt
 
-## Description
-If you add one or more **Image** controls to your app, you can show individual images that aren't part of a data set, or you can incorporate images from records in data sources.
+## <a name="description"></a>Beschreibung
+Wenn Sie ein oder mehrere **Image**-Steuerelemente in Ihrer App hinzufügen, können Sie einzelne Images, die nicht Teil eines Datensatzes sind, anzeigen oder Images von Datensätzen in Datenquellen integrieren.
 
-## Key properties
-**[Image](properties-visual.md)** – The name of the image that appears in an image, audio, or microphone control.
+## <a name="key-properties"></a>Haupteigenschaften
+**[Image](properties-visual.md)** : der Name des Images, das in einem Image-, Audio- oder Mikrofon-Steuerelement angezeigt wird
 
-## Additional properties
-**[AccessibleLabel](properties-accessibility.md)** – Label for screen readers.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[AccessibleLabel](properties-accessibility.md)**: Bezeichnung für Sprachausgaben
 
-**ApplyEXIFOrientation** – Whether to automatically apply the orientation specified in the EXIF data embedded with the image.
+**ApplyEXIFOrientation**: Gibt an, ob Ausrichtung, die in den im Bild eingebetteten EXIF-Daten angegeben ist, automatisch angewendet wird.
 
-**AutoDisableOnSelect** – Automatically disables the control while the OnSelect behavior is executing.
+**AutoDisableOnSelect**: Deaktiviert das Steuerelement automatisch, während das OnSelect-Verhalten ausgeführt wird.
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**CalculateOriginalDimensions** – Enables the **OriginalHeight** and **OriginalWidth** properties.
+**CalculateOriginalDimensions**: aktiviert die **OriginalHeight** und **OriginalWidth**-Eigenschaften.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows user input (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement Benutzereingaben zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[DisabledBorderColor](properties-color-border.md)** – The color of a control's border if the control's **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledBorderColor](properties-color-border.md)**: Die Farbe des Steuerelementrahmens, wenn die **[DisplayMode](properties-core.md)**-Eigenschaft des Steuerelements auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[DisabledFill](properties-color-border.md)** – The background color of a control if its **[DisplayMode](properties-core.md)** property is set to **Disabled**.
+**[DisabledFill](properties-color-border.md)**: Die Hintergrundfarbe eines Steuerelements, wenn dessen **[DisplayMode](properties-core.md)**-Eigenschaft auf **Disabled** (Deaktiviert) festgelegt ist.
 
-**[Fill](properties-color-border.md)** – The background color of a control.
+**[Fill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements.
 
-**FlipHorizontal** – Whether to flip the image horizontally before displaying it.
+**FlipHorizontal**: Gibt an, ob das Bild vor der Anzeige horizontal gekippt werden soll.
 
-**FlipVertical** – Whether to flip the image vertically before displaying it.
+**FlipVertical**: Gibt an, ob das Bild vor der Anzeige vertikal gekippt werden soll.
 
-**[FocusedBorderColor](properties-color-border.md)** – The color of a control's border when the control is focused.
+**[FocusedBorderColor](properties-color-border.md)**: die Rahmenfarbe eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[FocusedBorderThickness](properties-color-border.md)** – The thickness of a control's border when the control is focused.
+**[FocusedBorderThickness](properties-color-border.md)**: die Rahmendicke eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**[HoverBorderColor](properties-color-border.md)** – The color of a control's border when the user keeps the mouse pointer on that control.
+**[HoverBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über das Steuerelement hält.
 
-**[HoverFill](properties-color-border.md)** – The background color of a control when the user keeps the mouse pointer on it.
+**[HoverFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer den Mauszeiger über ihm hält.
 
-**[ImagePosition](properties-visual.md)** – The position (**Fill**, **Fit**, **Stretch**, **Tile**, or **Center**) of an image in a screen or a control if it isn't the same size as the image.
+**[ImagePosition](properties-visual.md)**: Die Position (**Fill**, **Fit**, **Stretch**, **Tile** oder **Center**) eines Bilds auf einem Bildschirm oder in einem Steuerelement, wenn die Größe nicht mit der Bildgröße identisch ist.
 
-**ImageRotation** – How to rotate the image before displaying it.  Values can be none, clockwise (CW) 90 degrees, counter-clockwise (CCW) 90 degrees and clockwise 180 degrees.
+**ImageRotation**: Gibt an, wie das Bild vor der Anzeige gedreht werden soll.  Zulässige Werte sind „none“, „clockwise (CW) 90 degrees“, „counter-clockwise (CCW) 90 degrees“ und „clockwise 180 degrees“.
 
-**[OnSelect](properties-core.md)** – How the app responds when the user taps or clicks a control.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf ein Steuerelement tippt oder klickt.
 
-**OriginalHeight** – Original height of an image, enabled with the **CalculateOriginalDimensions** property.
+**OriginalHeight**: gibt die ursprüngliche Höhe eines Images an, wobei die **CalculateOriginalDimensions**-Eigenschaft aktiviert ist.
 
-**OriginalWidth** – Original width of an image, enabled with the **CalculateOriginalDimensions** property.
+**OriginalWidth**: gibt die ursprüngliche Breite eines Images an, wobei die **CalculateOriginalDimensions**-Eigenschaft aktiviert ist.
 
-**[PaddingBottom](properties-size-location.md)** – The distance between text in a control and the bottom edge of that control.
+**[PaddingBottom](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem unteren Rand des Steuerelements.
 
-**[PaddingLeft](properties-size-location.md)** – The distance between text in a control and the left edge of that control.
+**[PaddingLeft](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem linken Rand des Steuerelements.
 
-**[PaddingRight](properties-size-location.md)** – The distance between text in a control and the right edge of that control.
+**[PaddingRight](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem rechten Rand des Steuerelements.
 
-**[PaddingTop](properties-size-location.md)** – The distance between text in a control and the top edge of that control.
+**[PaddingTop](properties-size-location.md)**: Der Abstand zwischen dem Text eines Steuerelements und dem oberen Rand des Steuerelements.
 
-**[PressedBorderColor](properties-color-border.md)** – The color of a control's border when the user taps or clicks that control.
+**[PressedBorderColor](properties-color-border.md)** – Die Rahmenfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[PressedFill](properties-color-border.md)** – The background color of a control when the user taps or clicks that control.
+**[PressedFill](properties-color-border.md)** – Die Hintergrundfarbe eines Steuerelements, wenn der Benutzer auf das Steuerelement tippt oder klickt.
 
-**[RadiusBottomLeft](properties-size-location.md)** – The degree to which the bottom-left corner of a control is rounded.
+**[RadiusBottomLeft](properties-size-location.md)** – Der Grad der Rundung der linken unteren Ecke eines Steuerelements.
 
-**[RadiusBottomRight](properties-size-location.md)** – The degree to which the bottom-right corner of a control is rounded.
+**[RadiusBottomRight](properties-size-location.md)** – Der Grad der Rundung der rechten unteren Ecke eines Steuerelements.
 
-**[RadiusTopLeft](properties-size-location.md)** – The degree to which the top-left corner of a control is rounded.
+**[RadiusTopLeft](properties-size-location.md)** – Der Grad der Rundung der linken oberen Ecke eines Steuerelements.
 
-**[RadiusTopRight](properties-size-location.md)** – The degree to which the top-right corner of a control is rounded.
+**[RadiusTopRight](properties-size-location.md)** – Der Grad der Rundung der rechten oberen Ecke eines Steuerelements.
 
-**[TabIndex](properties-accessibility.md)** – Keyboard navigation order in relation to other controls.
+**[TabIndex](properties-accessibility.md)**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**[Tooltip](properties-core.md)** – Explanatory text that appears when the user hovers over a control.
+**[Tooltip](properties-core.md)**: Erklärender Text, der angezeigt wird, wenn der Benutzer auf ein Steuerelement zeigt.
 
-**Transparency** – The degree to which controls behind an image remain visible.
+**Transparency**: gibt an, inwieweit Steuerelemente hinter einem Bild sichtbar bleiben.
 
-**[Visible](properties-core.md)** – Whether a control appears or is hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (screen if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (screen if no parent container).
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (bzw. des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-## Related functions
-[**Remove**( *DataSource*, ThisItem )](../functions/function-remove-removeif.md)
+## <a name="related-functions"></a>Verwandte Funktionen
+[**Remove**( *DataSource*, ThisItem)](../functions/function-remove-removeif.md)
 
-## Examples
-### Show an image from a local file
-1. On the **File** menu, click or tap **Media**, and then click or tap **Browse**.
-2. Click or tap the image file that you want to add, click or tap **Open**, and then press Esc to return to the default workspace.
-3. Add an **Image** control, and set its **Image** property to the name of the file that you added.
+## <a name="examples"></a>Beispiele
+### <a name="show-an-image-from-a-local-file"></a>Anzeigen eines Images aus einer lokalen Datei
+1. Klicken oder tippen Sie im Menü **File** (Datei) auf die Option **Media** (Medien), und klicken oder tippen Sie anschließend auf **Browse** (Durchsuchen).
+2. Klicken oder tippen Sie auf die Image-Datei, die Sie hinzufügen möchten, und klicken oder tippen Sie auf **Open** (Öffnen). Drücken Sie anschließend ESC, um in den Standardarbeitsbereich zurückzukehren.
+3. Fügen Sie ein **Image**-Steuerelement hinzu, und legen Sie dessen **Image**-Eigenschaft auf den Namen der Datei fest, die Sie hinzugefügt haben.
 
-    Don't know how to [add and configure a control](../add-configure-controls.md)?
+    Möchten Sie wissen, wie Sie ein [Steuerelement hinzufügen und konfigurieren](../add-configure-controls.md)?
 
-    The **Image** control shows the image that you specified.
+    Das **Image**-Steuerelement zeigt das von Ihnen angegebene Image an.
 
-### Show a set of images from a data source
-1. Download this [Excel file](https://pwrappssamples.blob.core.windows.net/samples/FlooringEstimates.xlsx), and save it on your local device.
-2. In PowerApps Studio, create or open an app, and then click or tap **Add data source** in the right-hand pane.
+### <a name="show-a-set-of-images-from-a-data-source"></a>Anzeigen eines Satzes von Images aus einer Datenquelle
+1. Laden Sie diese [Excel-Datei](https://pwrappssamples.blob.core.windows.net/samples/FlooringEstimates.xlsx) herunter, und speichern Sie sie auf Ihrem lokalen Gerät.
+2. Erstellen oder öffnen Sie in PowerApps Studio eine App, und klicken oder tippen Sie dann im rechten Bereich auf **Datenquelle hinzufügen**.
 
-    If **Add data source** doesn't appear in the right-hand pane, click or tap a screen in the left navigation bar.
-3. Click or tap **Add static data to your app**, click or tap the Excel file that you downloaded, and then click or tap **Open**.
-4. Select the **Flooring Estimates** check box, and then click or tap **Connect**.
-5. Add a **Gallery** control with images, and set its **[Items](properties-core.md)** property to **FlooringEstimates**.
+    Wenn im rechten Bereich **Datenquelle hinzufügen** nicht angezeigt wird, klicken oder tippen Sie auf der linken Navigationsleiste auf einen beliebigen Bildschirm.
+3. Klicken oder tippen Sie auf **Add static data to your app** (Statische Daten zu Ihrer App hinzufügen), klicken oder tippen Sie auf die Excel-Datei, die Sie heruntergeladen haben, und klicken oder tippen Sie anschließend auf **Open** (Öffnen).
+4. Aktivieren Sie das Kontrollkästchen **Flooring Estimates** (Kostenschätzungen für Bodenbeläge), und klicken oder tippen Sie auf **Connect** (Verbinden).
+5. Fügen Sie ein **Katalog**-Steuerelement mit Bildern hinzu, und legen Sie seine **[Items](properties-core.md)**-Eigenschaft auf **FlooringEstimates** (Kostenschätzungen für Bodenbeläge) fest.
 
-    Don't know how to [add and configure a control](../add-configure-controls.md)?
+    Möchten Sie wissen, wie Sie ein [Steuerelement hinzufügen und konfigurieren](../add-configure-controls.md)?
 
-    The **Gallery** control shows images of carpet, hardwood, and tile products based on links in the Excel file that you downloaded.
+    Das **Katalog**-Steuerelement zeigt Bilder von Teppich-, Parkett- und Fliesenprodukten auf Basis von Links in der von Ihnen heruntergeladenen Excel-Datei.
 
 
-## Accessibility guidelines
-### Color contrast
-* [Standard color contrast requirements](../accessible-apps-color.md) apply, if the graphic is used as a button.
-* Consider checking for contrast issues within the image, if it is not purely decorative.
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+* Es gelten die [Standardanforderungen für Farbkontraste](../accessible-apps-color.md), wenn die Grafik als Schaltfläche verwendet wird.
+* Prüfen Sie ggf. auf Kontrastprobleme im Bild, wenn es nicht nur dekorativen Zwecken dient.
 
-### Screen reader support
-* **[AccessibleLabel](properties-accessibility.md)** must be present, if the graphic is used as a button or is otherwise not just for decoration.
-* **[AccessibleLabel](properties-accessibility.md)** must be empty or the empty string **""**, if the graphic is purely for decoration. This causes screen readers to ignore the graphic.
-* **[AccessibleLabel](properties-accessibility.md)** can be empty or the empty string **""**, if the graphic provides redundant information.
-  * For example, an **Image** of gears with its **[AccessibleLabel](properties-accessibility.md)** set to **Settings**. This image is not used as a button. It is next to a **[Label](control-text-box.md)** that also says **Settings**. Screen readers will read the image as **Settings**, and the label as **Settings** again. This is unnecessarily verbose. In this case, the **Image** does not need an **[AccessibleLabel](properties-accessibility.md)**.
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+* **[AccessibleLabel](properties-accessibility.md)** muss vorhanden sein, wenn die Grafik als Schaltfläche oder zumindest nicht nur der Dekoration dient.
+* **[AccessibleLabel](properties-accessibility.md)** muss leer sein oder der leeren Zeichenfolge **""** entsprechen, wenn die Grafik ausschließlich Dekoration ist. Dadurch wird die Grafik von der Sprachausgabe ignoriert.
+* **[AccessibleLabel](properties-accessibility.md)** kann leer sein oder der leeren Zeichenfolge **""** entsprechen, falls die Grafik redundante Informationen enthält.
+  * Beispiel: Ein **Bild** mit Zahnrädern, für das **[AccessibleLabel](properties-accessibility.md)** auf **Einstellungen** festgelegt ist und das nicht als Schaltfläche verwendet wird. Es befindet sich stattdessen neben einer **[Bezeichnung](control-text-box.md)**, die ebenfalls **Einstellungen** lautet. Sprachausgaben lesen das Bild als **Einstellungen** und die Bezeichnung auch als **Einstellungen**. Dies ist zu ausführlich. In diesem Fall benötigt das **Bild** kein **[AccessibleLabel](properties-accessibility.md)**.
 
     > [!IMPORTANT]
-    > Screen readers will always read **Image**s that have **[TabIndex](properties-accessibility.md)** of zero or greater, even if **[AccessibleLabel](properties-accessibility.md)** is empty. This is because they are rendered as buttons. If no **[AccessibleLabel](properties-accessibility.md)** is provided, screen readers will simply read the graphic as **button**.
+    > Sprachausgaben lesen alle **Bilder**, deren **[TabIndex](properties-accessibility.md)** 0 (null) oder größer entspricht, selbst wenn **[AccessibleLabel](properties-accessibility.md)** leer ist. Dies liegt daran, dass sie als Schaltflächen gerendert werden. Wenn kein **[AccessibleLabel](properties-accessibility.md)** bereitgestellt wird, lesen Sprachausgaben die Grafik als **Schaltfläche**.
 
-### Keyboard support
-* **[TabIndex](properties-accessibility.md)** must be zero or greater, if the graphic is used as a button. This allows keyboard users to navigate to it.
-* Focus indicators must be clearly visible, if the graphic is used as a button. Use **[FocusedBorderColor](properties-color-border.md)** and **[FocusedBorderThickness](properties-color-border.md)** to achieve this.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* **[TabIndex](properties-accessibility.md)** muss 0 (null) oder größer sein, wenn die Grafik als Schaltfläche verwendet wird. So können Benutzer über die Tastatur dorthin navigieren.
+* Fokusindikatoren müssen übersichtlich angezeigt werden, wenn die Grafik als Schaltfläche verwendet wird. Mithilfe von **[FocusedBorderColor](properties-color-border.md)** und **[FocusedBorderThickness](properties-color-border.md)** können Sie dies archivieren.
 
     > [!NOTE]
-  > When **[TabIndex](properties-accessibility.md)** is zero or greater, the **Image** is rendered as a button. There is no change to the visual appearance, but screen readers will correctly identify the image as a button. When **[TabIndex](properties-accessibility.md)** is less than zero, the **Image** is identified as an image.
+  > Wenn **[TabIndex](properties-accessibility.md)** 0 (null) oder größer ist, wird das **Bild** als Schaltfläche gerendert. Dadurch erfolgt keine Änderung der visuellen Darstellung. Die Sprachausgabe erkennt das Bild jedoch richtig als Schaltfläche. Ist **[TabIndex](properties-accessibility.md)** weniger als 0 (null), wird das **Bild** als solches erkannt.

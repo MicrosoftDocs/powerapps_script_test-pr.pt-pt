@@ -1,6 +1,6 @@
 ---
-title: Understand preview and experimental features | Microsoft Docs
-description: Test and start to adopt new features.
+title: Informationen zu Vorschaufeatures und experimentellen Features | Microsoft-Dokumentation
+description: Testen Sie neue Features, und übernehmen Sie diese nach und nach.
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,62 +9,68 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 07/16/2018
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: 741cec402c6a5b5ea30700badd265f5e950203e9
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42858473"
 ---
-# Understand experimental and preview features in PowerApps
+# <a name="understand-experimental-and-preview-features-in-powerapps"></a>Informationen zu Vorschaufeatures und experimentellen Features
 
-With every release, we make changes and add features to make PowerApps the best tool to fit your needs. We move the product forward.  
+Mit jedem Release nehmen wir Änderungen vor und fügen neue Features hinzu, um sicherzustellen, dass PowerApps immer Ihren Anforderungen entspricht. Wir verbessern das Produkt kontinuierlich.  
 
-We take backward compatibility very seriously. However, with any change or improvement, we might introduce an unintended side effect, and your app might not work exactly the way it did before.
+Abwärtskompatibilität ist ein sehr wichtiger Aspekt für uns. Es kann jedoch vorkommen, dass durch eine Änderung oder eine Verbesserung unbeabsichtigte Nebeneffekte auftreten und Ihre App nicht mehr wie bisher funktioniert.
 
-To help balance improvement against impact on existing apps, we take larger features through a progression of stages. This article describes this process and how you can control your exposure to features that are under development.
+Größere Features durchlaufen mehrere Phasen, um Verbesserungen und Auswirkungen auf vorhandene Apps gegeneinander abwägen zu können. In diesem Artikel wird dieser Prozess beschrieben. Außerdem erfahren Sie, wie Sie mit in der Entwicklungsphase befindlichen Features umgehen können.
 
-## Feature roll-out stages
+## <a name="feature-roll-out-stages"></a>Einführungsphasen von Features
 
-Features move through three stages on their way to becoming official parts of the product:
+Features durchlaufen drei verschiedene Phasen, bevor sie offizieller Bestandteil des Produkts werden:
 
-1. **Experimental**:  This feature is a work in progress. Don't depend on it yet; it may go through significant changes.
-1. **Preview**:  This feature is almost done and is stable. Start to migrate existing apps to it now.
-1. **Shipped**:  This feature is done. All apps have this feature enabled, and you can't turn it off.
+1. **Experimentell:** Das Feature befindet sich noch in der Bearbeitung. Verlassen Sie sich nicht auf dieses Feature. Es kann sein, dass es sich noch deutlich verändert.
+1. **Vorschau:** Das Feature ist fast fertig und funktioniert stabil. Sie können mit der Migration vorhandener Apps beginnen.
+1. **Ausgeliefert:** Das Feature ist fertig. Das Feature ist für alle Apps aktiviert, und Sie können es nicht deaktivieren.
 
-At each stage, the number of people who use the feature rises, helping us to validate that the feature is what you need and that we're not introducing unintended side effects.
+Mit jeder Phase steigt die Zahl an Benutzern des Features, sodass wir überprüfen können, ob Bedarf für dieses Feature besteht und ob es in den frühen Phasen noch Nebeneffekte gibt.
 
-**Your feedback is critical to this process.**  Please post your feedback in the [PowerApps Community Forum](https://powerusers.microsoft.com/t5/PowerApps-Community/ct-p/PowerApps1).
+**Für diesen Prozess ist Ihr Feedback wesentlich.**  Veröffentlichen Sie Ihr Feedback im [Forum der PowerApps-Community](https://powerusers.microsoft.com/t5/PowerApps-Community/ct-p/PowerApps1).
 
-How long does a feature remain in each stage? This varies from feature to feature. We look at many factors, including the number of apps that use the feature, the number of issues reported, and how urgently the feature is needed. Features can remain in a stage for weeks to many months.
+Wie lange befindet sich ein Feature in einer der oben genannten Phasen? Das kann sich von Feature zu Feature unterscheiden. Dabei werden sehr viele Faktoren berücksichtigt, z.B. die Anzahl der Apps, die das Feature verwenden, die Anzahl der gemeldeten Probleme und die Dringlichkeit des Features. Features können sich Wochen aber auch Monate in einer Phase befinden.
 
-This table may help you decide when you should jump in: 
+Anhand dieser Tabelle können Sie entscheiden, wann es für Sie am sinnvollsten ist, mit der Verwendung von Features zu beginnen: 
 
-| Stage | When should I use it? | Can I use it with confidence? | Is it enabled by default for new apps? | 
+| Phase | Wann sollte ich diese verwenden? | Ist es zuverlässig? | Ist es standardmäßig für neue Apps aktiviert? | 
 |----|----|----|-----|------|
-| **Experimental** | If you're an early adopter, see something useful to you, and would like to help test the feature. | No.  Experimental features can radically change or completely disappear at any time. | No. You must explicitly opt in to the feature.  |  
-| **Preview** | New apps automatically include this feature.  Start enabling and testing in existing apps because this feature will be eventually turned on for them too. | Yes. This feature is on track to become a permanent part of the product.  | Yes. You may want to turn it off if you run into a problem.  Please report issues; this is the main reason the feature is in Preview. | 
-| **Shipped** (no longer appears in **Advanced settings**) | All apps have this feature. | Yes. | Yes.  Most can't be disabled.  |  
+| **Experimentell** | Wenn Sie ein Early Adopter sind, ein Feature nützlich für Sie sein könnte, oder Sie beim Testen des Features helfen möchten | Nein.  Experimentelle Features können sich noch deutlich verändern oder im Laufe der Zeit wieder vollständig verschwinden. | Nein. Sie müssen sich explizit für das Feature entscheiden.  |  
+| **Vorschau** | Neue Apps beinhalten dieses Feature automatisch.  Sie können das Feature in vorhandenen Apps aktivieren und testen, da es irgendwann auch für vorhandene Apps aktiviert wird. | Ja. Dieses Feature soll ein permanenter Bestandteil des Produkts werden.  | Ja. Sie sollten es deaktivieren, wenn ein Problem auftritt.  Melden Sie uns diese Probleme, denn genau aus diesem Grund befindet sich das Feature noch in der Vorschauphase. | 
+| **Ausgeliefert** (wird nicht mehr in den **erweiterten Einstellungen** angezeigt) | Alle Apps verfügen über dieses Feature. | Ja. | Ja.  Die meisten können nicht deaktiviert werden.  |  
 
-Toward the end of Preview, we might enable the feature for all apps one time, and we mark it as being in **final validation**.  This change gives the most people a last chance to try out the feature while they can still turn it off. Timely feedback is critical in this period because, in the next stage, the feature is fully shipped, and you can't turn it off.  
+Am Ende der Vorschauphase wird ein Feature möglicherweise für alle Apps aktiviert, und dann befindet es sich in der **abschließenden Überprüfung**.  Durch diese Änderungen haben auch die Letzten die Möglichkeit, das Feature auszuprobieren, während es noch deaktiviert werden kann. Zeitnahe Rückmeldung ist in dieser Phase essentiell, da das Feature in der nächsten Phase ausgeliefert wird und nicht mehr deaktiviert werden kann.  
 
-## Documentation
+## <a name="documentation"></a>Dokumentation
 
-Where can you find information about these features?  We treat Preview features as finished features, and you can learn more about them just as you do any other product features: 
-- [PowerApps documentation](https://docs.microsoft.com/powerapps/maker/canvas-apps/getting-started). We'll provide the basics on the new feature: the benefits, how to get started, and reference information.
-- [PowerApps community forum](https://powerusers.microsoft.com/t5/PowerApps-Community/ct-p/PowerApps1).  Others will explore the new feature along with you. Learn from their experience, and share yours.
-- [PowerApps blog](https://powerapps.microsoft.com/blog/).  Often, but not always, a blog post accompanies a new feature.
+Wo werden Informationen zu diesen Features veröffentlicht?  Vorschaufeatures werden als abgeschlossene Features angesehen, und Sie können dort mehr über diese Features erfahren, wo Sie auch Informationen zu jedem anderen Feature erhalten: 
+- [in der PowerApps-Dokumentation](https://docs.microsoft.com/powerapps/maker/canvas-apps/getting-started). Hier erhalten Sie grundlegende Informationen zum neuen Feature: zu den Vorteilen, den ersten Schritte und zu Referenzinformationen.
+- [im Forum der PowerApps-Community](https://powerusers.microsoft.com/t5/PowerApps-Community/ct-p/PowerApps1).  Sie lernen das neue Feature gemeinsam mit anderen Benutzern kennen. Hier können Sie sich austauschen und voneinander lernen.
+- [im PowerApps-Blog](https://powerapps.microsoft.com/blog/).  Die meiste Zeit, allerdings nicht immer, wir mit einem neuen Feature auch ein dazugehöriger Blogbeitrag veröffentlicht.
 
-Experimental features are different.  They are works in progress, and we don't consider them finished. The short description in the **App settings** pane (see below) might be the only information about them. Experimental features don't normally appear in the documentation. The community forum is likely your best source of information.  In some cases, an early blog post describes the feature.  If you aren't finding enough information, ask in the forums, or wait for the feature to move to the Preview stage.
+Das ist bei experimentellen Features anders.  Sie befinden sich noch in Bearbeitung und werden nicht als fertig angesehen. Die kurze Beschreibung im Bereich **App-Einstellungen** (siehe unten) kann die einzige Stelle sein, an der Sie Informationen zu diesen Features erhalten. Experimentelle Features werden normalerweise nicht in der Dokumentation behandelt. Das Communityforum ist in diesem Fall Ihre beste Informationsquelle.  In einigen Fällen wird das Feature in einem frühen Blogbeitrag beschrieben.  Wenn Sie nicht ausreichend Informationen finden können, stellen Sie im Forum eine Frage, oder warten Sie, bis das Feature in die Vorschauphase übergeht.
 
-## Controlling which features are enabled
+## <a name="controlling-which-features-are-enabled"></a>Aktivieren und Deaktivieren von Features
 
-Experimental and preview features are listed in the app's **Advanced settings**.  From within the app, select the **File** menu, select **App settings**, and then select **Advanced settings**. Scroll down to the **Preview features** and **Experimental features** sections:
+Experimentelle Features und Vorschaufeatures werden in den **erweiterten Einstellungen** der App aufgeführt.  Klicken Sie in der App auf das Menü **Datei**, wählen Sie **App-Einstellungen** und dann **Erweiterte Einstellungen**. Scrollen Sie nach unten zu den Bereichen **Preview Features** (Vorschaufeatures) und **Experimental Features** (Experimentelle Features):
 
 ![](media/working-with-experimental/advanced-settings.png)
 
-Each feature has a toggle switch.  **Off** means that the feature is disabled.  Having all switches turned off is the baseline and safest way to run your app.
+Jedes Feature hat einen Umschalter.  Wenn **Off** (Aus) angezeigt wird, ist das Feature deaktiviert.  Standardmäßig stehen alle Umschalter auf „Off“. So können Sie Ihre App am sichersten ausführen.
 
-In some cases, you might need to close and reopen the app after you change a setting.  The feature description should indicate when you must perform this step.
+In einigen Fällen kann es nötig sein, die App zu schließen und neu zu starten, nachdem Sie Änderungen vorgenommen haben.  Sollte dieser Schritt erforderlich sein, wird dies in der Featurebeschreibung angegeben.
 
-At the top of the **Advanced settings** panel, you can find settings for fully shipped features that aren't preview or experimental and that you can completely depend on. 
+Im oberen Bereich der **erweiterten Einstellungen** finden Sie Einstellungen für vollständig ausgelieferte Features, die sich nicht mehr in der experimentellen oder Vorschauphase befinden und die zuverlässig funktionieren. 
 
-These settings are specific to each app, so changing a toggle switch affects only the app that's currently open. If you create an app, these switches revert to their default settings for that app.
+Diese Einstellungen unterscheiden sich je nach App. Wenn Sie einen Umschalter betätigen, wirkt sich das deshalb nur auf die App aus, die Sie gerade geöffnet haben. Wenn Sie eine App erstellen, werden die Umschalter auf die Standardeinstellungen für diese App zurückgesetzt.

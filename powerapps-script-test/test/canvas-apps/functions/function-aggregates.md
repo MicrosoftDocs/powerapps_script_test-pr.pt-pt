@@ -1,6 +1,6 @@
 ---
-title: Average, Max, Min, StdevP, Sum, and VarP functions | Microsoft Docs
-description: Reference information for the Average, Max, Min, StdevP, Sum, and VarP functions in PowerApps, including syntax and examples
+title: Funktionen „Average“, „Max“, „Min“, „StdevP“, „Sum“ und „VarP“ | Microsoft-Dokumentation
+description: Referenzinformationen für die Funktionen „Average“, „Max“, „Min“, „StdevP“, „Sum“ und „VarP“ in PowerApps einschließlich Syntax und Beispielen
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,57 +9,63 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 08/15/2017
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: bae3c031864e94c803086c4cd349679995d766cc
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42862172"
 ---
-# Average, Max, Min, StdevP, Sum, and VarP functions in PowerApps
-Aggregate functions that summarize a set of numbers.
+# <a name="average-max-min-stdevp-sum-and-varp-functions-in-powerapps"></a>Funktionen „Average“, „Max“, „Min“, „StdevP“, „Sum“ und „VarP“ in PowerApps
+Aggregatfunktionen, die eine Menge von Zahlen zusammengefassten
 
-## Description
-The **Average** function calculates the average, or arithmetic mean, of its arguments.
+## <a name="description"></a>Beschreibung
+Die **Average**-Funktion berechnet den Durchschnitt bzw. das arithmetische Mittel der Argumente.
 
-The **Max** function finds the maximum value.
+Die **Max**-Funktion etabliert den Höchstwert.
 
-The **Min** function finds the minimum value.
+Die **Min**-Funktion sucht den Mindestwert.
 
-The **Sum** function calculates the sum of its arguments.
+Die **Sum**-Funktion berechnet die Summe der Argumente.
 
-The **StdevP** function calculates the standard deviation of its arguments.
+Die **StdevP**-Funktion berechnet die Standardabweichung der Argumente.
 
-The **VarP** function calculates the variance of its arguments.
+Die **VarP**-Funktion berechnet die Varianz der Argumente.
 
-You can supply the values for these functions as:
+Sie können die Werte für diese Funktionen angeben als:
 
-* Separate arguments. For example, **Sum( 1, 2, 3 )** returns 6.
-* A [table](../working-with-tables.md) and a formula to operate over that table.  The aggregate will be calculated on the values of the formula for each [record](../working-with-tables.md#records).  
+* getrennte Argumente. **Sum (1, 2, 3)** beispielsweise gibt den Wert 6 zurück.
+* eine [Tabelle](../working-with-tables.md) und eine Formel, die die Tabelle verarbeitet.  Das Aggregat wird anhand der Werte der Formel für jeden [Datensatz](../working-with-tables.md#records) berechnet.  
 
 [!INCLUDE [record-scope](../../../includes/record-scope.md)]
 
-These functions operate on numeric values only. Other types of values, such as strings or records, are ignored. Use the **[Value](function-value.md)** function to convert a string into a number.
+Diese Funktionen verarbeiten nur numerische Werte. Andere Typen von Werten wie Zeichenfolgen oder Datensätze werden ignoriert. Verwenden Sie die  **[Value](function-value.md)**-Funktion zum Konvertieren einer Zeichenfolge in eine Zahl.
 
-The **Average**, **Max**, **Min**, and **Sum** functions can be delegated when used with a [data source that supports delegation for these functions](../delegation-list.md).  However, **StdevP** and **VarP** can't be delegated for any data sources.  If delegation is not supported, only the first portion of the data will be retrieved and then the function applied locally.  The result may not represent the complete story.  A delegation warning will appear at authoring time to remind you of this limitation and to suggest switching to delegable alternatives where possible. For more information, see the [delegation overview](../delegation-overview.md).
+Die Funktionen **Average**, **Max**, **Min** und **Sum** können delegiert werden, wenn sie mit einer [Datenquelle verwendet werden, die Delegierung für diese Funktionen unterstützt](../delegation-list.md).  **StdevP** und **VarP** können jedoch für keine Datenquellen delegiert werden.  Wenn Delegierung nicht unterstützt wird, wird nur der erste Teil der Datenquelle abgerufen, und anschließend wird die Funktion lokal angewendet.  Das Ergebnis ist dann ggf. kein umfassendes Ergebnis.  Bei der Erstellung wird eine Delegierungswarnung angezeigt, um Sie an diese Einschränkung zu erinnern und die Umstellung auf delegierbare Alternativen vorzuschlagen, soweit dies möglich ist. Weitere Informationen finden Sie unter [Grundlagen der Delegierung](../delegation-overview.md).
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **Average**( *NumericalFormula1*, [ *NumericalFormula2*, ... ] )<br>**Max**( *NumericalFormula1*, [ *NumericalFormula2*, ... ] )<br>**Min**( *NumericalFormula1*, [ *NumericalFormula2*, ... ] )<br>**Sum**( *NumericalFormula1*, [ *NumericalFormula2*, ... ] )<br>**StdevP**( *NumericalFormula1*, [ *NumericalFormula2*, ... ] )<br>**VarP**( *NumericalFormula1*, [ *NumericalFormula2*, ... ] )
 
-* *NumericalFormula(s)* - Required.  Numeric values to operate on.
+* *NumericalFormula(s)*: erforderlich.  Die zu verarbeitenden numerischen Werte.
 
 **Average**( *Table*, *NumericalFormula* )<br>**Max**( *Table*, *NumericalFormula* )<br>**Min**( *Table*, *NumericalFormula* )<br>**Sum**( *Table*, *NumericalFormula* )<br>**StdevP**( *Table*, *NumericalFormula* )<br>**VarP**( *Table*, *NumericalFormula* )
 
-* *Table* - Required.  Table to operate on.
-* *NumericalFormula* - Required. Formula to evaluate for each record. The result of this formula is used for the aggregation. You can use columns of the table in the formula.
+* *Tabelle* (erforderlich):  Die zu verarbeitende Tabelle.
+* *NumericalFormula*: erforderlich. Die für jeden Datensatz auszuwertende Formel. Das Ergebnis dieser Formel wird für die Aggregation verwendet. Sie können die Spalten der Tabelle in der Formel verwenden.
 
-## Examples
-### Step by step
-Let's say that you had a [data source](../working-with-data-sources.md) named **Sales** that contained a **CostPerUnit** column and a **UnitsSold** column, and you set the **[Text](../controls/properties-core.md)** property of a label to this function:<br>
+## <a name="examples"></a>Beispiele
+### <a name="step-by-step"></a>Schritt für Schritt
+Sie haben eine [Datenquelle](../working-with-data-sources.md) mit dem Namen **Sales**, die eine Spalte**CostPerUnit** mit den Kosten pro Einheit und eine Spalte **UnitsSold** mit den verkauften Einheiten enthält, und Sie legen die **[Text](../controls/properties-core.md)**-Eigenschaft einer Bezeichnung auf diese Funktion fest:<br>
 **Sum(Sales, CostPerUnit * UnitsSold)**
 
-The label would show total sales by multiplying the values in those columns for each record and then adding the results from all records together:<br>![Calculate total sales from units sold and cost per unit](./media/function-aggregates/total-sales.png)
+Die Bezeichnung zeigt den Gesamtumsatz an, der sich aus der Multiplikation der Werte in diesen Spalten für jeden Datensatz ergibt. Anschließend werden die Ergebnisse aller Datensätze addiert:<br>![Berechnen des Gesamtumsatzes von verkauften Einheiten und der Kosten pro Einheit](./media/function-aggregates/total-sales.png)
 
-As a different example, let's say that you had sliders that were named **Slider1**, **Slider2**, and **Slider3** and a label with its **[Text](../controls/properties-core.md)** property set to this formula:<br>
+Hier ein anderes Beispiel: Sie verfügen über mehrere Schieberegler mit dem Namen **Slider1**, **Slider2** und **Slider3** und eine Bezeichnung mit der **[Text](../controls/properties-core.md)**-Eigenschaft, die auf diese Formel festgelegt ist:<br>
 **Sum(Slider1.Value, Slider2.Value, Slider3.Value)**
 
-The label would show the sum of all values to which the sliders were set.
+Die Bezeichnung zeigt die Summe aller Werte an, die für die Schieberegler festgelegt wurden.
 

@@ -1,6 +1,6 @@
 ---
-title: Working with environments | Microsoft Docs
-description: Switch environments and understand how the content on your pages change.
+title: Arbeiten mit Umgebungen | Microsoft-Dokumentation
+description: Wechseln von Umgebungen und Grundlegendes zur Änderung von Inhalten auf Seiten.
 author: linhtranms
 manager: kvivek
 ms.service: powerapps
@@ -9,49 +9,55 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/14/2016
 ms.author: litran
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: c4e02adfdd5c1c4e49bb1a605ccfff463369f750
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42835288"
 ---
-# Working with environments and Microsoft PowerApps
-With PowerApps, you can work in different environments and easily switch among them. For an overview of environments, see [Environments overview](../../administrator/environments-overview.md), which explains in detail why you use environments and how you can create and manage them. The scope of this article will cover the following topics on environment:
+# <a name="working-with-environments-and-microsoft-powerapps"></a>Arbeiten mit Umgebungen und Microsoft PowerApps
+Mit PowerApps können Sie in verschiedenen Umgebungen arbeiten und einfach zwischen ihnen wechseln. Eine Übersicht der Umgebungen finden Sie unter [Umgebungsübersicht](../../administrator/environments-overview.md), wo detailliert erläutert wird, warum Sie Umgebungen verwenden und wie Sie sie erstellen und verwalten können. In diesem Artikel werden die folgenden Themen zu Umgebungen behandelt:
 
-* how to switch the environment on powerapps.com
-* how to create an app in the right environment
-* how to view an app in the right environment
+* Wechseln der Umgebung auf powerapps.com
+* Erstellen einer App in der richtigen Umgebung
+* Anzeigen einer App in der richtigen Umgebung
 
-## Switch the environment
-When you sign up and first sign in to powerapps.com, you will likely land in a default environment. You can verify this by looking at the upper-right corner of the page.
+## <a name="switch-the-environment"></a>Wechseln der Umgebung
+Wenn Sie sich registrieren und bei powerapps.com anmelden, landen Sie wahrscheinlich in einer Standardumgebung. Sie können dies mit einem Blick auf die obere rechte Ecke der Seite überprüfen.
 
-![Default environment](./media/working-with-environments/env-dropdown.png)
+![Standardumgebung](./media/working-with-environments/env-dropdown.png)
 
-The *Default environment* is accessible to everyone. You can start creating apps in this environment and share your apps with other users. You may also have access to other environments, such as those you [create yourself](../../administrator/environments-administration.md) or those created by others but you have access to. You can switch environments by clicking the environment dropdown in the upper-right corner and selecting a different environment. This example shows switching from *Default environment* to *Environment 1*.
+Die *Standardumgebung* ist für jedermann zugänglich. Sie können in dieser Umgebung Apps erstellen und Ihre Apps mit anderen Benutzern teilen. Möglicherweise haben Sie auch Zugriff auf andere Umgebungen, etwa solche, die Sie [selbst erstellen](../../administrator/environments-administration.md) oder solche, die von anderen erstellt wurden, auf die Sie aber Zugriff haben. Sie können die Umgebung wechseln, indem Sie auf die Umgebungs-Dropdownliste in der oberen rechten Ecke klicken und eine andere Umgebung auswählen. In diesem Beispiel wird ein Wechsel von der *Standardumgebung* zu *Umgebung 1* veranschaulicht.
 
-![Switch environment](./media/working-with-environments/switch-env.png)
+![Wechsel der Umgebung](./media/working-with-environments/switch-env.png)
 
-Once you switch to a different environment (such as Environment 1), you will see all the apps you created or have access to in this new environment.
+Nach dem Wechsel zu einer anderen Umgebung (wie etwa Umgebung 1) sehen Sie alle Apps, die Sie erstellt oder auf die Sie Zugriff haben, in dieser neuen Umgebung.
 
-## Create apps in the right environment
-You can create apps in an environment that you create or for which you've been given access. Creating your own environment, however, requires a [specific plan](../../administrator/pricing-billing-skus.md). Before you create an app, always **make sure you select the environment you want to app to be in**. Otherwise, you will have to deal with moving apps between environments.
+## <a name="create-apps-in-the-right-environment"></a>Erstellen von Apps in der richtigen Umgebung
+Sie können Apps in einer Umgebung erstellen, die Sie erstellt haben oder in einer, auf die Sie Zugriff haben. Das Erstellen einer eigenen Umgebung erfordert jedoch einen [spezifischen Plan](../../administrator/pricing-billing-skus.md). Bevor Sie eine App erstellen, sollten Sie immer **darauf achten, die Umgebung auszuwählen, in der sich die App befinden soll**. Andernfalls müssen Sie sich mit dem Verschieben von Apps zwischen Umgebungen befassen.
 
-To create an app in the right environment, do either of the following:
+Führen Sie einen der folgenden Schritte aus, um eine App in der richtigen Umgebung zu erstellen:
 
-- If PowerApps Studio isn't open, [sign in](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), select the environment you would like to create your app in, select **Apps** near the left edge, and then select **Create an app**.
+- Wenn PowerApps Studio nicht geöffnet ist, [melden Sie sich an](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc), wählen Sie die Umgebung aus, in der Sie Ihre App erstellen möchten, und klicken Sie am rechten Rand auf **Apps** und dann auf **App erstellen**.
 
-- If PowerApps Studio is open, select the environment again at the top right corner.
+- Wenn PowerApps Studio geöffnet ist, wählen Sie die Umgebung in der oberen rechten Ecke aus.
 
-5. On the **Account** page, select **Change** next to the name of the current environment.
+5. Wählen Sie auf der Seite **Konto** den Befehl **Wechseln** neben dem Namen der aktuellen Umgebung aus.
 
-6. Select the environment you want to create your app in.
+6. Wählen Sie die Umgebung aus, in der Sie Ihre App erstellen möchten.
 
-    ![Studio switch environment](./media/working-with-environments/studio-env-dropdown2.PNG)
+    ![Wechsel der Umgebung in Studio](./media/working-with-environments/studio-env-dropdown2.PNG)
 
-7. Select **New** to start creating an app. Your app now will reside in the environment you selected in step 6.
+7. Wählen Sie **Neu** aus, um mit dem Erstellen der App zu beginnen. Ihre App befindet sich jetzt in der Umgebung, die Sie in Schritt 6 ausgewählt haben.
 
-    ![Studio switch environment](./media/working-with-environments/new-app.PNG)
+    ![Wechsel der Umgebung in Studio](./media/working-with-environments/new-app.PNG)
 
-## View apps in the right environment
-Whether you are working in [powerapps.com](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) or PowerApps Studio, the list of apps, connections, etc. that you see is always filtered based on the environment that's selected in the dropdown. If you don't see the apps you are looking for, always confirm whether the right environment is selected.
+## <a name="view-apps-in-the-right-environment"></a>Anzeigen von Apps in der richtigen Umgebung
+Die Liste, die unter anderem Apps und Verbindungen enthält, wird unabhängig davon, ob Sie unter [powerapps.com](http://web.powerapps.com?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) oder in PowerApps Studio arbeiten, nach der Umgebung gefiltert, die im Dropdownmenü ausgewählt wurde. Wenn Sie die gesuchten Apps nicht sehen, überprüfen Sie immer, ob die richtige Umgebung ausgewählt ist.
 
-For more information about environments, see [this overview](../../administrator/environments-overview.md).
+Weitere Informationen zu Umgebungen finden Sie in [dieser Übersicht](../../administrator/environments-overview.md).

@@ -1,138 +1,144 @@
 ---
-title: Create a flow to manage project approvals | Microsoft Docs
-description: In this task we'll create a flow that drives the process of approving projects.
-author: stepsic-microsoft-com
+title: Erstellen eines Flows zum Verwalten von Projektgenehmigungen | Microsoft-Dokumentation
+description: In dieser Aufgabe erstellen wir einen Flow für das Genehmigen von Projekten.
+author: mgblythe
 manager: kvivek
 ms.service: powerapps
 ms.topic: conceptual
 ms.custom: canvas
-ms.reviewer: 
+ms.reviewer: ''
 ms.date: 01/09/18
-ms.author: stepsic
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+ms.author: mblythe
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: c17f4cbc4438057e68b1c2ff713a2bfd66228ce9
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42834595"
 ---
-# Create a flow to manage project approvals
+# <a name="create-a-flow-to-manage-project-approvals"></a>Erstellen eines Flows zum Verwalten von Projektgenehmigungen
 > [!NOTE]
-> This article is part of a tutorial series on using PowerApps, Microsoft Flow, and Power BI with SharePoint Online. Make sure you read the [series introduction](sharepoint-scenario-intro.md) to get a sense of the big picture, as well as related downloads.
+> Dieser Artikel ist Teil einer Reihe von Tutorials zur Verwendung von PowerApps, Microsoft Flow und Power BI mit SharePoint Online. Lesen Sie unbedingt die [Einführung zur Reihe](sharepoint-scenario-intro.md) durch, um sich einen allgemeinen Überblick zu verschaffen und auf die zugehörigen Downloads zuzugreifen.
 
-In this task we'll create a flow that drives the process of approving projects. Microsoft Flow is integrated with SharePoint, so it's easy to create a flow directly from a list. The flow we'll create is triggered when an item is added to the **Project Requests** list. The flow sends an email to the project approver, who approves or rejects the request directly in email. The flow then sends an approval or rejection email to the project requestor and updates our SharePoint lists appropriately.
+In dieser Aufgabe erstellen wir einen Flow für das Genehmigen von Projekten. Microsoft Flow ist in SharePoint integriert, daher ist es einfach, einen Flow direkt aus einer Liste zu erstellen. Der Flow, den wir erstellen, wird ausgelöst, wenn der Liste **Project Requests** (Projektanforderungen) ein Element hinzugefügt wird. Der Flow sendet eine E-Mail an den Projektgenehmiger, der die Anforderung direkt in der E-Mail genehmigt oder ablehnt. Anschließend sendet der Flow eine Genehmigungs- oder Ablehnungs-E-Mail an den Projektanforderer und aktualisiert die SharePoint-Listen entsprechend.
 
-## Step 1: Configure the flow template
-1. In the **Project Requests** list, click or tap **Flow**, then **Create a flow**.
+## <a name="step-1-configure-the-flow-template"></a>Schritt 1: Konfigurieren der Flowvorlage
+1. Klicken oder tippen Sie in der Liste **Project Requests** (Projektanforderungen) auf **Flow** und dann auf **Flow erstellen**.
    
-    ![Create a flow](./media/sharepoint-scenario-approval-flow/03-01-01-create-flow.png)
-2. In the right pane, click or tap **Start approval when a new item is added**.
+    ![Erstellen eines Flows](./media/sharepoint-scenario-approval-flow/03-01-01-create-flow.png)
+2. Klicken oder tippen Sie im rechten Bereich auf **Genehmigung starten, wenn ein neues Element hinzugefügt wird**.
    
-    ![Create an approval flow](./media/sharepoint-scenario-approval-flow/03-01-02-approval-flow.png)
-3. If you're not already signed in, sign into SharePoint and Outlook, then click or tap **Continue**.
+    ![Erstellen eines Genehmigungsflows](./media/sharepoint-scenario-approval-flow/03-01-02-approval-flow.png)
+3. Wenn Sie noch nicht angemeldet sind, melden Sie sich bei SharePoint und Outlook an, und klicken oder tippen Sie anschließend auf **Weiter**.
    
-    ![Sign in to use template](./media/sharepoint-scenario-approval-flow/03-01-03-continue.png)
+    ![Anmelden, um Vorlage zu verwenden](./media/sharepoint-scenario-approval-flow/03-01-03-continue.png)
    
-    You now see the template for this flow, ready for you to complete. The boxes in the flow represent steps. They take input from previous steps, as well as input that you provide. Each step can then provide output to subsequent steps.
+    Jetzt wird die Vorlage für diesen Flow angezeigt, die Sie ausfüllen können. Die Felder im Flow stellen Schritte dar. Sie akzeptieren Eingaben aus vorherigen Schritten sowie Ihre Eingaben. Jeder Schritt kann dann die Ausgabe für nachfolgende Schritte bereitstellen.
    
-    ![Approval template](./media/sharepoint-scenario-approval-flow/03-01-04-template.png)
-4. In the **Assigned To** box, enter a name that is valid in your tenant.
+    ![Genehmigungsvorlage](./media/sharepoint-scenario-approval-flow/03-01-04-template.png)
+4. Geben Sie im Feld **Zugewiesen zu** einen Namen ein, der im Mandanten gültig ist.
    
-    ![Approval email contact](./media/sharepoint-scenario-approval-flow/03-01-05-approval-email.png)
+    ![Genehmigungs-E-Mail-Kontakt](./media/sharepoint-scenario-approval-flow/03-01-05-approval-email.png)
    
-    The next box in the flow responds to the project approver's decision and routes the flow to one of two *branches*: **If yes** or **If no**.
+    Das nächste Feld im Flow beantwortet die Entscheidung des Projektgenehmigers und leitet den Flow an eine von zwei *Verzweigungen* weiter: **Wenn ja** oder **Wenn nein**.
    
-    ![Approval condition](./media/sharepoint-scenario-approval-flow/03-01-06-condition.png)
+    ![Genehmigungsbedingung](./media/sharepoint-scenario-approval-flow/03-01-06-condition.png)
 
-## Step 2: Create actions for Approve = yes
-By default, this branch sends an approval email to the requestor. We'll also update the **Project Requests** list, and add an item to the **Project Details** list because the project has been approved.
+## <a name="step-2-create-actions-for-approve--yes"></a>Schritt 2: Erstellen von Aktionen für Genehmigen = ja
+Standardmäßig wird mit dieser Verzweigung eine Genehmigungs-E-Mail an den Anforderer gesendet. Wir aktualisieren zudem die Liste **Project Requests** (Projektanforderungen) und fügen der Liste **Project Details** (Projektdetails) ein Element hinzu, da das Projekt genehmigt wurde.
 
-1. In the **If yes** branch, click or tap **Inform item creator of approval**, then **Edit** to see the default options for the email sent to the requestor.
+1. Klicken oder tippen Sie in der Verzweigung **Wenn ja** auf **Inform item creator of approval** (Elementersteller über Genehmigung informieren) und dann auf **Bearbeiten**, um die Standardoptionen für die an den Anforderer gesendete E-Mail anzuzeigen.
    
-    ![Edit email settings](./media/sharepoint-scenario-approval-flow/03-01-07-yes-email.png)
-2. By default, an email is sent to the person who created the list item, with the subject line and message body that you see. You can update these if you like.
+    ![E-Mail-Einstellungen bearbeiten](./media/sharepoint-scenario-approval-flow/03-01-07-yes-email.png)
+2. Standardmäßig wird eine E-Mail an die Person gesendet, die das Listenelement erstellt hat, mit der Betreffzeile und dem Nachrichtentext, die angezeigt werden. Sie können diese bei Bedarf aktualisieren.
    
-    ![Default email settings](./media/sharepoint-scenario-approval-flow/03-01-07a-yes-email-defaults.png)
-3. Click or tap **Add an Action**.
+    ![E-Mail-Standardeinstellungen](./media/sharepoint-scenario-approval-flow/03-01-07a-yes-email-defaults.png)
+3. Klicken oder tippen Sie auf **Aktion hinzufügen**.
    
-    ![Add an action](./media/sharepoint-scenario-approval-flow/03-00-01-add-action.png)
-4. Under **Choose an action**, search for "SharePoint", then click or tap **SharePoint – Update item**.
+    ![Aktion hinzufügen](./media/sharepoint-scenario-approval-flow/03-00-01-add-action.png)
+4. Suchen Sie unter **Aktion auswählen** nach „SharePoint“, und klicken oder tippen Sie dann auf **SharePoint – Element aktualisieren**.
    
-    ![Update item action](./media/sharepoint-scenario-approval-flow/03-00-02-update.png)
-5. Enter the SharePoint site URL and list name.
+    ![Aktion „Element aktualisieren“](./media/sharepoint-scenario-approval-flow/03-00-02-update.png)
+5. Geben Sie die URL der SharePoint-Website und den Namen der SharePoint-Liste ein.
    
-    ![Update item parameters](./media/sharepoint-scenario-approval-flow/03-00-03-update-list.png)
-6. Select the **Id** box, then click or tap **ID** in the *dynamic content* dialog box.
+    ![Parameter für „Element aktualisieren“](./media/sharepoint-scenario-approval-flow/03-00-03-update-list.png)
+6. Wählen Sie das Kästchen **Id** aus, und klicken oder tippen Sie dann im Dialogfeld für *dynamischen Inhalt* auf **ID**.
    
-    ![List ID dynamic content](./media/sharepoint-scenario-approval-flow/03-00-04-list-id.png)
+    ![Listen-ID – dynamischer Inhalt](./media/sharepoint-scenario-approval-flow/03-00-04-list-id.png)
    
-    Dynamic content is available throughout the flow, based on previous steps. In this case, the SharePoint list information is available, and we can use it in the actions that we create.
-7. Select the **Title** box, search for "Title" in the dynamic content dialog box, then click or tap **Title**.
+    Dynamische Inhalte sind im gesamten Flow basierend auf den vorherigen Schritten verfügbar. In diesem Fall sind die SharePoint-Listeninformationen verfügbar, und wir können sie in den von uns erstellten Aktionen verwenden.
+7. Wählen Sie das Feld **Title**  (Titel) aus, suchen Sie im Dialogfeld für dynamischen Inhalt nach „Title“, und klicken oder tippen Sie dann auf **Title**.
    
-    ![List title dynamic content](./media/sharepoint-scenario-approval-flow/03-00-05-list-title.png)
-8. In the **Approved** box, enter "Yes". This part of the flow should now look like the following image.
+    ![Listentitel – dynamischer Inhalt](./media/sharepoint-scenario-approval-flow/03-00-05-list-title.png)
+8. Geben Sie im Feld **Approved** (Genehmigt) „Ja“ ein. Dieser Teil des Flows sollte jetzt wie in der folgenden Abbildung aussehen.
    
-    ![List update](./media/sharepoint-scenario-approval-flow/03-01-08-yes-update-complete.png)
-9. Click or tap **Add an Action** again. This time we'll add an item to the **Project Details** list for the project that was approved.
+    ![Listenaktualisierung](./media/sharepoint-scenario-approval-flow/03-01-08-yes-update-complete.png)
+9. Klicken oder tippen Sie erneut auf **Aktion hinzufügen**. Dieses Mal fügen wir der Liste **Project Details** (Projektdetails) für das von uns genehmigte Projekt ein Element hinzu.
    
-    ![Add an action](./media/sharepoint-scenario-approval-flow/03-00-01-add-action.png)
-10. Under **Choose an action**, search for "SharePoint", then select **SharePoint – Create item**.
+    ![Aktion hinzufügen](./media/sharepoint-scenario-approval-flow/03-00-01-add-action.png)
+10. Suchen Sie unter **Aktion auswählen** nach „SharePoint“, und wählen Sie dann **SharePoint – Element erstellen** aus.
     
-    ![Create item action](./media/sharepoint-scenario-approval-flow/03-01-09-create.png)
-11. Enter the SharePoint site URL and list name.
+    ![Aktion „Element erstellen“](./media/sharepoint-scenario-approval-flow/03-01-09-create.png)
+11. Geben Sie die URL der SharePoint-Website und den Namen der SharePoint-Liste ein.
     
-    ![Create item parameters](./media/sharepoint-scenario-approval-flow/03-01-10-yes-create-list.png)
-12. Select the **Title** box, search for "Title" in the dynamic content dialog box, then click or tap **Title**.
+    ![Parameter für „Element erstellen“](./media/sharepoint-scenario-approval-flow/03-01-10-yes-create-list.png)
+12. Wählen Sie das Feld **Title**  (Titel) aus, suchen Sie im Dialogfeld für dynamischen Inhalt nach „Title“, und klicken oder tippen Sie dann auf **Title**.
     
-    ![List title dynamic content](./media/sharepoint-scenario-approval-flow/03-00-05-list-title.png)
-13. Select the **RequestId** box, then click or tap **ID** in the dynamic content dialog box.
+    ![Listentitel – dynamischer Inhalt](./media/sharepoint-scenario-approval-flow/03-00-05-list-title.png)
+13. Wählen Sie das Kästchen **RequestId** aus, und klicken oder tippen Sie dann im Dialogfeld für dynamischen Inhalt auf **ID**.
     
-    ![List ID dynamic content](./media/sharepoint-scenario-approval-flow/03-00-04-list-id.png)
-14. In the **PMAssigned** box, enter "Unassigned". This part of the flow should now look like the following image.
+    ![Listen-ID – dynamischer Inhalt](./media/sharepoint-scenario-approval-flow/03-00-04-list-id.png)
+14. Geben Sie im Feld **PMAssigned** (PM zugewiesen) „Nicht zugewiesen“ ein. Dieser Teil des Flows sollte jetzt wie in der folgenden Abbildung aussehen.
     
-    ![Create item complete](./media/sharepoint-scenario-approval-flow/03-01-11-yes-create-complete.png)
+    ![Erstellen von Element abgeschlossen](./media/sharepoint-scenario-approval-flow/03-01-11-yes-create-complete.png)
 
-## Step 3: Review action for Approve = no
-By default, this branch sends a rejection email to the requestor. We'll also update the **Project Requests** list. The project isn't moving forward, so we don't add an item to the **Project Details** list.
+## <a name="step-3-review-action-for-approve--no"></a>Schritt 3: Überprüfen der Aktion für Genehmigen = nein
+Standardmäßig wird mit dieser Verzweigung eine Ablehnungs-E-Mail an den Anforderer gesendet. Wir aktualisieren zudem die Liste **Project Requests** (Projektanforderungen). Da das Projekt nicht fortgesetzt wird, fügen wir der Liste **Project Details** (Projektdetails) kein Element hinzu.
 
-1. In the **If no** branch, click or tap **Inform item creator of rejection**, then **Edit** to see the default options for the email sent to the requestor.
+1. Klicken oder tippen Sie in der Verzweigung **Wenn nein** auf **Inform item creator of rejection** (Elementersteller über Ablehnung informieren) und dann auf **Bearbeiten**, um die Standardoptionen für die an den Anforderer gesendete E-Mail anzuzeigen.
    
-    ![Edit email settings](./media/sharepoint-scenario-approval-flow/03-01-12-no-email.png)
-2. By default, an email is sent to the person who created the list item, with the subject line and message body that you see. You can update these if you like.
+    ![E-Mail-Einstellungen bearbeiten](./media/sharepoint-scenario-approval-flow/03-01-12-no-email.png)
+2. Standardmäßig wird eine E-Mail an die Person gesendet, die das Listenelement erstellt hat, mit der Betreffzeile und dem Nachrichtentext, die angezeigt werden. Sie können diese bei Bedarf aktualisieren.
    
-    ![Default email settings](./media/sharepoint-scenario-approval-flow/03-01-13-no-email-defaults.png)
-3. Click or tap **Add an Action**.
+    ![E-Mail-Standardeinstellungen](./media/sharepoint-scenario-approval-flow/03-01-13-no-email-defaults.png)
+3. Klicken oder tippen Sie auf **Aktion hinzufügen**.
    
-    ![Add an action](./media/sharepoint-scenario-approval-flow/03-00-01-add-action.png)
-4. Under **Choose an action**, search for "SharePoint", then click or tap **SharePoint – Update item**.
+    ![Aktion hinzufügen](./media/sharepoint-scenario-approval-flow/03-00-01-add-action.png)
+4. Suchen Sie unter **Aktion auswählen** nach „SharePoint“, und klicken oder tippen Sie dann auf **SharePoint – Element aktualisieren**.
    
-    ![Update item action](./media/sharepoint-scenario-approval-flow/03-00-02-update.png)
-5. Enter the SharePoint site URL and list name.
+    ![Aktion „Element aktualisieren“](./media/sharepoint-scenario-approval-flow/03-00-02-update.png)
+5. Geben Sie die URL der SharePoint-Website und den Namen der SharePoint-Liste ein.
    
-    ![Update item parameters](./media/sharepoint-scenario-approval-flow/03-00-03-update-list.png)
-6. Select the **Id** box, then click or tap **ID** in the dynamic content dialog box.
+    ![Parameter für „Element aktualisieren“](./media/sharepoint-scenario-approval-flow/03-00-03-update-list.png)
+6. Wählen Sie das Kästchen **Id** aus, und klicken oder tippen Sie dann im Dialogfeld für dynamischen Inhalt auf **ID**.
    
-    ![List ID dynamic content](./media/sharepoint-scenario-approval-flow/03-00-04-list-id.png)
-7. Select the **Title** box, search for "Title" in the dynamic content dialog box, then click or tap **Title**.
+    ![Listen-ID – dynamischer Inhalt](./media/sharepoint-scenario-approval-flow/03-00-04-list-id.png)
+7. Wählen Sie das Feld **Title**  (Titel) aus, suchen Sie im Dialogfeld für dynamischen Inhalt nach „Title“, und klicken oder tippen Sie dann auf **Title**.
    
-    ![List title dynamic content](./media/sharepoint-scenario-approval-flow/03-00-05-list-title.png)
-8. In the **Approved** box, enter "No". This part of the flow should now look like the following image.
+    ![Listentitel – dynamischer Inhalt](./media/sharepoint-scenario-approval-flow/03-00-05-list-title.png)
+8. Geben Sie im Feld **Approved** (Genehmigt) „Nein“ ein. Dieser Teil des Flows sollte jetzt wie in der folgenden Abbildung aussehen.
    
-    ![List update](./media/sharepoint-scenario-approval-flow/03-01-08-no-update-complete.png)
-9. At the top right of the screen, click or tap **Create flow**.
+    ![Listenaktualisierung](./media/sharepoint-scenario-approval-flow/03-01-08-no-update-complete.png)
+9. Klicken oder tippen Sie am rechten oberen Rand des Bildschirms auf **Flow erstellen**.
    
-    The flow is now complete, and it should look like the following image if you collapse the boxes.
+    Der Flow ist jetzt abgeschlossen, und er sollte wie in der folgenden Abbildung aussehen, wenn Sie die Felder reduzieren.
    
-    ![Completed flow](./media/sharepoint-scenario-approval-flow/03-01-16-flow-complete.png)
+    ![Abgeschlossener Flow](./media/sharepoint-scenario-approval-flow/03-01-16-flow-complete.png)
 
-10. At the top right of the screen, click or tap **Done**.
+10. Klicken oder tippen Sie am rechten oberen Rand des Bildschirms auf **Fertig**.
    
-    ![Done button](./media/sharepoint-scenario-approval-flow/03-01-15a-done-button.png)
+    ![Schaltfläche „Fertig“](./media/sharepoint-scenario-approval-flow/03-01-15a-done-button.png)
 
-## Step 4: Run the approval flow
-1. In the **Project Requests** list, click **Quick Edit** and add an item like the following:
+## <a name="step-4-run-the-approval-flow"></a>Schritt 4: Ausführen des Genehmigungsflows
+1. Klicken Sie in der Liste **Project Requests** (Projektanforderungen) auf **QuickEdit**, und fügen Sie das folgende Element hinzu:
    
-   * **Title** = "New monitor for Megan"
+   * **Title** = "New monitor for Megan" (Neuer Monitor für Megan)
 
-   * **Description** = "Megan needs a 24" monitor"
+   * **Description** = "Megan needs a 24" monitor" (Megan benötigt einen 24"-Monitor)
 
    * **ProjectType** = "New hardware"
 
@@ -142,22 +148,22 @@ By default, this branch sends a rejection email to the requestor. We'll also upd
 
    * **EstimatedDays** = "1"
 
-   * **Approved** = "Pending"
+   * **Approved** = "Pending" (Ausstehend)
 
-     ![Item added to list](./media/sharepoint-scenario-approval-flow/03-02-01-list-add.png)
-2. Click **Done** at the top of the page when you're finished.
+     ![Der Liste hinzugefügtes Element](./media/sharepoint-scenario-approval-flow/03-02-01-list-add.png)
+2. Klicken Sie am oberen Rand der Seite auf **Fertig**, wenn Sie den Vorgang abgeschlossen haben.
    
-    ![Done check mark](./media/sharepoint-scenario-approval-flow/03-02-02-done.png)
-3. Check the inbox of the approver's email account. You should have an email like the following.
+    ![Häkchen für „Fertig“](./media/sharepoint-scenario-approval-flow/03-02-02-done.png)
+3. Überprüfen Sie im E-Mail-Konto des Genehmigers den Posteingang. Sie sollten jetzt über eine E-Mail wie die folgende verfügen.
    
-    ![Email to Allan Deyoung](./media/sharepoint-scenario-approval-flow/03-02-03-allan-email.png)
-4. After you click **Approve** or **Reject**, the flow runs another process, and you get feedback like the following, directly in the email.
+    ![E-Mail an Allan Deyoung](./media/sharepoint-scenario-approval-flow/03-02-03-allan-email.png)
+4. Nachdem Sie auf **Genehmigen** oder **Ablehnen** geklickt haben, führt der Flow einen weiteren Prozess aus, und Sie erhalten direkt in der E-Mail Feedback wie das folgende.
    
-    ![Approval action complete](./media/sharepoint-scenario-approval-flow/03-02-04-action-complete.png)
-5. The flow sends an email to Megan with Allan's response, as in the following image. This email comes *from* Megan because she owns the flow.
+    ![Genehmigungsaktion abgeschlossen](./media/sharepoint-scenario-approval-flow/03-02-04-action-complete.png)
+5. Der Flow sendet eine E-Mail mit Allans Antwort an Megan, wie in der folgenden Abbildung. Diese E-Mail wird *von* Megan gesendet, da sie die Besitzerin des Flows ist.
    
-    ![Email to Megan Bowen](./media/sharepoint-scenario-approval-flow/03-02-05-megan-email.png)
+    ![E-Mail an Megan Bowen](./media/sharepoint-scenario-approval-flow/03-02-05-megan-email.png)
 
-## Next steps
-The next step in this tutorial series is to [create an app to manage projects](sharepoint-scenario-build-app.md).
+## <a name="next-steps"></a>Nächste Schritte
+Der nächste Schritt in dieser Tutorialreihe ist das [Erstellen einer App zum Verwalten von Projekten](sharepoint-scenario-build-app.md).
 

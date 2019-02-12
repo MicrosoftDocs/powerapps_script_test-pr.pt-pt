@@ -1,6 +1,6 @@
 ---
-title: Remove and RemoveIf functions | Microsoft Docs
-description: Reference information, including syntax and examples, for the Remove and RemoveIf functions in PowerApps
+title: Funktionen „Remove“ und „RemoveIf“ | Microsoft-Dokumentation
+description: Referenzinformationen, einschließlich Syntax und Beispielen, für die Funktionen „Remove“ und „RemoveIf“ in PowerApps
 author: gregli-msft
 manager: kvivek
 ms.service: powerapps
@@ -9,63 +9,69 @@ ms.custom: canvas
 ms.reviewer: anneta
 ms.date: 10/21/2015
 ms.author: gregli
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: a6887694f2cc64cd44dcdc74e7769ce874872f70
+ms.sourcegitcommit: 429b83aaa5a91d5868e1fbc169bed1bac0c709ea
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42863276"
 ---
-# Remove and RemoveIf functions in PowerApps
-Removes [records](../working-with-tables.md#records) from a [data source](../working-with-data-sources.md).
+# <a name="remove-and-removeif-functions-in-powerapps"></a>Die Funktionen „Remove“ und „RemoveIf“ in PowerApps
+Entfernt [Datensätze](../working-with-tables.md#records) aus einer [Datenquelle](../working-with-data-sources.md).
 
-## Description
-### Remove function
-Use the **Remove** function to remove a specific record or records from a data source.  
+## <a name="description"></a>Beschreibung
+### <a name="remove-function"></a>Remove-Funktion
+Verwenden Sie die **Remove**-Funktion, um einen bestimmten Datensatz oder bestimmte Datensätze aus einer Datenquelle zu entfernen.  
 
-For [collections](../working-with-data-sources.md#collections), the entire record must match. You can use the **All** argument to remove all copies of a record; otherwise, only one copy of the record is removed.
+Für [Sammlungen](../working-with-data-sources.md#collections) muss der gesamte Datensatz übereinstimmen. Sie können das **All**-Argument verwenden, um alle Kopien eines Datensatzes zu entfernen; andernfalls wird nur eine Kopie des Datensatzes entfernt.
 
-### RemoveIf function
-Use the **RemoveIf** function to remove a record or records based on a condition or a set of conditions. Each condition can be any formula that results in a **true** or **false** and can reference [columns](../working-with-tables.md#columns) of the data source by name. Each condition is evaluated individually for each record, and the record is removed if all conditions evaluate to **true**.
+### <a name="removeif-function"></a>RemoveIf-Funktion
+Verwenden Sie die **RemoveIf**-Funktion,um einen Datensatz oder Datensätze auf Grundlage einer Bedingung oder eine Reihe von Bedingungen zu entfernen. Jede Bedingung kann jede beliebige Formel sein, die **TRUE** oder **FALSE** ergibt, und die auf [Spalten](../working-with-tables.md#columns) der Datenquelle anhand des Namens verweisen kann. Jede Bedingung wird einzeln für jeden Datensatz ausgewertet, und der Eintrag wird entfernt, wenn alle Bedingungen als **TRUE** ausgewertet werden.
 
-**Remove** and **RemoveIf** return the modified data source as a [table](../working-with-tables.md). You can use both functions only in [behavior formulas](../working-with-formulas-in-depth.md).
+**Remove** und **RemoveIf** geben die geänderten Datenquelle als eine [Tabelle](../working-with-tables.md) zurück. Beide Funktionen können nur in [Verhaltensformeln](../working-with-formulas-in-depth.md) geändert werden.
 
-You can also use the **[Clear](function-clear-collect-clearcollect.md)** function to remove all of the records in a data source.
+Sie können auch die **[Clear](function-clear-collect-clearcollect.md)**  Funktion verwenden, um alle Datensätze in einer Datenquelle zu entfernen.
 
-### Delegation
+### <a name="delegation"></a>Delegierung
 [!INCLUDE [delegation-no](../../../includes/delegation-no.md)]
 
-## Syntax
+## <a name="syntax"></a>Syntax
 **Remove**( *DataSource*, *Record1* [, *Record2*, ... ] [, **All** ] )
 
-* *DataSource* – Required. The data source that contains the record or records that you want to remove.
-* *Record(s)* – Required. The record or records to remove.
-* **All** – Optional. In a collection, the same record may appear more than once.  You can add the **All** argument to remove all copies of the record.
+* *Datenquelle*: Erforderlich. Die Datenquelle mit den Datensatz bzw. Datensätze, die Sie entfernen möchten.
+* *Datensatz/Datensätze*: erforderlich. Der Datensatz oder die Datensätze, die entfernt werden sollen.
+* **All**: Optional. In einer Sammlung wird möglicherweise der gleiche Datensatz mehr als einmal angezeigt.  Sie können das **All**-Argument hinzufügen, um alle Kopien des Datensatzes zu entfernen.
 
 **Remove**( *DataSource*, *Table* [, **All** ] )
 
-* *DataSource* – Required. The data source that contains the records that you want to remove.
-* *Table* – Required. A table of records to remove.
-* **All** – Optional. In a collection, the same record may appear more than once.  You can add the **All** argument to remove all copies of the record.
+* *Datenquelle*: Erforderlich. Die Datenquelle, die die Datensätze enthält, die Sie entfernen möchten.
+* *Tabelle*: erforderlich. Eine Tabelle von zu entfernenden Datensätzen
+* **All**: Optional. In einer Sammlung wird möglicherweise der gleiche Datensatz mehr als einmal angezeigt.  Sie können das **All**-Argument hinzufügen, um alle Kopien des Datensatzes zu entfernen.
 
 **RemoveIf**( *DataSource*, *Condition* [, ... ] )
 
-* *DataSource* – Required. The data source that contains the record or records that you want to remove.
-* *Condition(s)* – Required. A formula that evaluates to **true** for the record or records to remove.  You can use column names from the *DataSource* in the formula.  If you specify multiple *Conditions*, all must evaluate to **true** for the record or records to be removed.
+* *Datenquelle*: Erforderlich. Die Datenquelle mit den Datensatz bzw. Datensätze, die Sie entfernen möchten.
+* *Bedingung(en)* : Erforderlich. Eine Formel, die **TRUE** für die zu ersetzenden Datensätze ergibt.  Sie können auch die Spaltennamen aus *DataSource* in der Formel verwenden.  Wenn Sie mehrere *Bedingungen* angeben, müssen alle für Datensätze oder zu entfernende Datensätze zu **TRUE** ausgewertet werden.
 
-## Examples
-In these examples, you'll remove a record or records in a data source that's named **IceCream** and that starts with the data in this table:
+## <a name="examples"></a>Beispiele
+In diesen Beispielen entfernen Sie einen Datensatz oder Datensätze aus einer Datenquelle mit dem Namen **IceCream** (Eiscreme), die mit den Daten in dieser Tabelle beginnt:
 
 ![](media/function-remove-removeif/icecream.png)
 
-| Formula | Description | Result |
+| Formel | Beschreibung | Ergebnis |
 | --- | --- | --- |
-| **Remove(&nbsp;IceCream,<br>First(&nbsp;Filter(&nbsp;IceCream,&nbsp;Flavor="Chocolate"&nbsp;)&nbsp;) )** |Removes the **Chocolate** record from the data source. |<style> img { max-width: none } </style> ![](media/function-remove-removeif/icecream-no-chocolate.png)<br><br>The **IceCream** data source has been modified. |
-| **Remove(&nbsp;IceCream,<br>First(&nbsp;Filter(&nbsp;IceCream,&nbsp;Flavor="Chocolate"&nbsp;)&nbsp;) First(&nbsp;Filter(&nbsp;IceCream,&nbsp;Flavor="Strawberry"&nbsp;)&nbsp;) )** |Removes two records from the data source. |![](media/function-remove-removeif/icecream-only-vanilla.png)<br><br>The **IceCream** data source has been modified. |
-| **RemoveIf(&nbsp;IceCream, Quantity&nbsp;>&nbsp;150 )** |Removes records that have a **Quantity** that's greater than **150**. |![](media/function-remove-removeif/icecream-only-chocolate.png)<br><br>The **IceCream** data source has been modified. |
-| **RemoveIf(&nbsp;IceCream, Quantity&nbsp;>&nbsp;150, Left(&nbsp;Flavor,&nbsp;1&nbsp;) = "S" )** |Removes records that have a **Quantity** that's greater than 150 and **Flavor** starts with an **S**. |![](media/function-remove-removeif/icecream-no-strawberry.png)<br><br><br>The **IceCream** data source has been modified. |
-| **RemoveIf(&nbsp;IceCream, true )** |Removes all records from the data source. |![](media/function-remove-removeif/icecream-empty.png)<br><br>The **IceCream** data source has been modified. |
+| **Remove(&nbsp;IceCream,<br>First(&nbsp;Filter(&nbsp;IceCream,&nbsp;Flavor="Chocolate"&nbsp;)&nbsp;) )** |Entfernt den Datensatz **Chocolate** (Schokolade) aus der Datenquelle |<style> img { max-width: none } </style> ![](media/function-remove-removeif/icecream-no-chocolate.png)<br><br>Die Datenquelle **IceCream** (Eiscreme) wurde geändert. |
+| **Remove(&nbsp;IceCream,<br>First(&nbsp;Filter(&nbsp;IceCream,&nbsp;Flavor="Chocolate"&nbsp;)&nbsp;) First(&nbsp;Filter(&nbsp;IceCream,&nbsp;Flavor="Strawberry"&nbsp;)&nbsp;) )** |Entfernt zwei Datensätze aus der Datenquelle. |![](media/function-remove-removeif/icecream-only-vanilla.png)<br><br>Die Datenquelle **IceCream** (Eiscreme) wurde geändert. |
+| **RemoveIf(&nbsp;IceCream, Quantity&nbsp;>&nbsp;150 )** |Entfernt die Datensätze mit einer **Quantity** (Menge) größer als **150**. |![](media/function-remove-removeif/icecream-only-chocolate.png)<br><br>Die Datenquelle **IceCream** (Eiscreme) wurde geändert. |
+| **RemoveIf(&nbsp;IceCream, Quantity&nbsp;>&nbsp;150, Left(&nbsp;Flavor,&nbsp;1&nbsp;) = "S" )** |Entfernt die Datensätze mit einer **Quantity** (Menge) größer als 150 und einem **Flavor** (Geschmack), der mit **S** beginnt |![](media/function-remove-removeif/icecream-no-strawberry.png)<br><br><br>Die Datenquelle **IceCream** (Eiscreme) wurde geändert. |
+| **RemoveIf(&nbsp;IceCream, true )** |Entfernt alle Einträge aus der Datenquelle |![](media/function-remove-removeif/icecream-empty.png)<br><br>Die Datenquelle **IceCream** (Eiscreme) wurde geändert. |
 
-### Step by step
-1. Import or create a collection named **Inventory**, and show it in a gallery as [Show data in a gallery](../show-images-text-gallery-sort-filter.md) describes.
-2. In the gallery, set the **[OnSelect](../controls/properties-core.md)** property of the image to this expression:<br>**Remove(Inventory, ThisItem)**
-3. Press F5, and then select an image in the gallery.<br>The item is removed from the gallery and the collection.
+### <a name="step-by-step"></a>Schritt für Schritt
+1. Importieren oder erstellen Sie eine Sammlung mit dem Namen **Inventory** (Lagerbestand), und zeigen Sie diese in einem Katalog an, wie unter [Show images and text in a gallery, including gallery selection, sort, and filter (Anzeigen von Bildern und Text in einem Katalog, einschließlich Auswählen, Sortieren und Filtern des Katalogs)](../show-images-text-gallery-sort-filter.md) beschrieben.
+2. Legen Sie im Katalog die **[OnSelect](../controls/properties-core.md)**-Eigenschaft des Bilds auf diesen Ausdruck fest:<br>**Remove(Inventory, ThisItem)**
+3. Drücken Sie F5, und wählen Sie ein Bild im Katalog.<br>Das Element wird aus dem Katalog und der Sammlung entfernt.
 

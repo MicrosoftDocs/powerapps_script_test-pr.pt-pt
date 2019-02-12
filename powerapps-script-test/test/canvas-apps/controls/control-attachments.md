@@ -1,6 +1,6 @@
 ---
-title: 'Attachments control: reference | Microsoft Docs'
-description: Information, including properties and examples, about the Attachments control
+title: 'Attachments-Steuerelement: Referenz | Microsoft-Dokumentation'
+description: Informationen zum Attachment-Steuerelement, einschließlich Eigenschaften und Beispielen
 author: fikaradz
 manager: kvivek
 ms.service: powerapps
@@ -9,108 +9,114 @@ ms.custom: canvas
 ms.date: 04/23/2018
 ms.author: fikaradz
 ms.reviewer: anneta
-search.audienceType: 
-  - maker
-search.app: 
-  - PowerApps
+search.audienceType:
+- maker
+search.app:
+- PowerApps
+ms.openlocfilehash: da9c8f85844e37d6af8e1063b36496c820fbfa07
+ms.sourcegitcommit: e2a9d1a6090cdd8aa78515b49f38ed2365217ea6
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384246"
 ---
-# Attachments control in PowerApps
-A control that allows users to download files to their device, as well as upload and delete files from a SharePoint list or a Common Data Service for Apps entity.
+# <a name="attachments-control-in-powerapps"></a>Attachments-Steuerelement in PowerApps
+Ein Steuerelement, mit dem Benutzer Dateien auf Ihr Gerät herunterladen sowie Dateien in einer SharePoint-Liste oder einer Common Data Service für Apps-Entität hochladen und löschen können.
 
-## Limitations
-The attachment control has these limitations:
-1. Attachments are supported with SharePoint lists and CDS for Apps entities.
+## <a name="limitations"></a>Beschränkungen
+Für das Steuerelement für Anlagen gelten folgende Einschränkungen:
+1. Anlagen werden für SharePoint-Listen und Common Data Service für Apps-Entitäten unterstützt.
 
-1. Upload and delete functionality only work inside a form.  Attachment control will look disabled when in Edit mode and not inside a form. Note that in order to save the file additions and deletions to the back end, the end user must save the form.
+1. Die Funktionen zum Hochladen und Löschen funktionieren nur in Formularen.  Das Steuerelement für Anlagen wird im Bearbeitungsmodus deaktiviert angezeigt, wenn es sich nicht in einem Formular befindet. Beachten Sie, dass der Endbenutzer das Formular speichern muss, um hinzugefügte und gelöschte Dateien im Back-End zu speichern.
 
-1. You can only upload files up to 10 MB in size.  
+1. Sie können nur Dateien bis maximal 10 MB hochladen.  
 
-## Description
-An **Attachments** control lets you open, add, and delete files from a SharePoint list or a CDS for Apps entity.
+## <a name="description"></a>Beschreibung
+Mit dem **Attachments**-Steuerelement können Sie Dateien aus einer SharePoint-Liste öffnen, hinzufügen und löschen.
 
-## Key properties
-**[Items](properties-core.md)** – The source describing the files that can be downloaded.
+## <a name="key-properties"></a>Haupteigenschaften
+**[Items](properties-core.md)** – Die Quelle mit Beschreibungen der Dateien, die heruntergeladen werden können.
 
-**MaxAttachments** – The maximum number of files the control will accept.
+**MaxAttachments** – Die maximale Anzahl von Dateien, die vom Steuerelement akzeptiert wird.
 
-**MaxAttachmentSize** – The maximum allowed file size in MB of each new attachment.  Currently there is a limit of 10 MB.
+**MaxAttachmentSize** – die maximal zulässige Dateigröße für jede neue Anlage in MB.  Zurzeit besteht eine Beschränkung von 10 MB.
 
-**OnAttach** – How the app responds when the user adds a new file attachment.
+**OnAttach** – Legt fest, wie die App reagiert, wenn der Benutzer eine neue Dateianlage hinzufügt.
 
-**OnRemove** – How the app responds when the user deletes an existing attachment.
+**OnRemove** – Legt fest, wie die App reagiert, wenn der Benutzer eine vorhandene Anlage löscht.
 
-**[OnSelect](properties-core.md)** – How the app responds when the user clicks on an attachment.
+**[OnSelect](properties-core.md)** – Legt fest, wie die App reagiert, wenn der Benutzer auf eine Anlage klickt.
 
-## Additional properties
-**[AccessibleLabel](properties-accessibility.md)** – Label for screen readers. Should describe the purpose of the attachments.
+## <a name="additional-properties"></a>Zusätzliche Eigenschaften
+**[AccessibleLabel](properties-accessibility.md)**: Bezeichnung für Sprachausgaben Sollte den Zweck dieser Anlagen beschreiben.
 
-**AddAttachmentText** – The label text for the link used to add a new attachment.
+**AddAttachmentText** – Der Beschriftungstext des Links, mit dem eine neue Anlage hinzugefügt wird.
 
-**[BorderColor](properties-color-border.md)** – The color of a control's border.
+**[BorderColor](properties-color-border.md)** – Die Farbe des Rahmens eines Steuerelements.
 
-**[BorderStyle](properties-color-border.md)** – Whether a control's border is **Solid**, **Dashed**, **Dotted**, or **None**.
+**[BorderStyle](properties-color-border.md)** – Legt fest, ob der Rahmen eines Steuerelements **Solid** (Durchgehend), **Dashed** (Gestrichelt), **Dotted** (Gepunktet) oder **None** (Keiner) ist.
 
-**[BorderThickness](properties-color-border.md)** – The thickness of a control's border.
+**[BorderThickness](properties-color-border.md)** – Die Stärke des Rahmens eines Steuerelements.
 
-**[DisplayMode](properties-core.md)** – Whether the control allows adding and deleting files (**Edit**), only displays data (**View**), or is disabled (**Disabled**).
+**[DisplayMode](properties-core.md)**: Legt fest, ob das Steuerelement das Hinzufügen und Löschen von Dateien zulässt (**Edit**, Bearbeiten), ob nur Daten angezeigt werden (**View**, Anzeigen) oder ob das Steuerelement deaktiviert ist (**Disabled**, Deaktiviert).
 
-**[FocusedBorderColor](properties-color-border.md)** – The color of a control's border when the control is focused.
+**[FocusedBorderColor](properties-color-border.md)**: die Rahmenfarbe eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[FocusedBorderThickness](properties-color-border.md)** – The thickness of a control's border when the control is focused.
+**[FocusedBorderThickness](properties-color-border.md)**: die Rahmendicke eines Steuerelements, wenn das Steuerelement der Fokus ist.
 
-**[Height](properties-size-location.md)** – The distance between a control's top and bottom edges.
+**[Height](properties-size-location.md)** – Die Entfernung zwischen dem oberen und unteren Rand eines Steuerelements.
 
-**MaxAttachmentsText** – The text that replaces the "Attach file" link when the control contains the maximum number of files allowed.
+**MaxAttachmentsText** – Der Text, der den Link „Datei anfügen“ ersetzt, wenn das Steuerelement die maximal zulässige Anzahl von Dateien enthält.
 
-**NoAttachmentsText** – Informational text shown to the user when there are no files attached.
+**NoAttachmentsText** – Hinweistext, der für den Benutzer, der angezeigt wird, wenn keine Anlagen vorhanden sind.
 
-**[TabIndex](properties-accessibility.md)** – Keyboard navigation order in relation to other controls.
+**[TabIndex](properties-accessibility.md)**: Navigationsreihenfolge der Tastatur in Bezug auf andere Steuerelemente.
 
-**[Visible](properties-core.md)** – Whether a control is visible or hidden.
+**[Visible](properties-core.md)** – Legt fest, ob ein Steuerelement angezeigt wird oder ausgeblendet ist.
 
-**[Width](properties-size-location.md)** – The distance between a control's left and right edges.
+**[Width](properties-size-location.md)** – Der Abstand zwischen dem linken und rechten Rand eines Steuerelements.
 
-**[X](properties-size-location.md)** – The distance between the left edge of a control and the left edge of its parent container (or screen, if no parent container).
+**[X](properties-size-location.md)** – Der Abstand zwischen dem linken Rand eines Steuerelements und dem linken Rand des übergeordneten Containers (oder des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
-**[Y](properties-size-location.md)** – The distance between the top edge of a control and the top edge of the parent container (or screen, if no parent container).
-
-
-## Example
-1. Create an app from data using a SharePoint list as a data source. As an alternative, add a form to your app, and set a SharePoint list as its data source.
-
-2. Select the **Form** control in the tree view on the left-hand side.
-
-3. Click **Data** in the Properties tab in the options panel on the right.
-
-4. Under **Fields**, enable the **Attachments** field.
-
-    The Attachments field associated with the SharePoint list will appear in the form.
-
-[Learn how to add and configure a control].(../add-configure-controls.md)
+**[Y](properties-size-location.md)** – Der Abstand zwischen dem oberen Rand eines Steuerelements und dem oberen Rand des übergeordneten Containers (oder des Bildschirms, wenn kein übergeordneter Container vorhanden ist).
 
 
-## Accessibility guidelines
-### Color contrast
-There must be adequate color contrast between:
-* **ItemColor** and **ItemFill**
-* **ItemHoverColor** and **ItemHoverFill**
-* **ItemPressedColor** and **ItemPressedFill**
-* **AddedItemColor** and **AddedItemFill**
-* **RemovedItemColor** and **RemovedItemFill**
-* **ItemErrorColor** and **ItemErrorFill**
-* **AddAttachmentColor** and **Fill**
-* **MaxAttachmentsColor** and **Fill**
-* **NoAttachmentsColor** and **Fill**
+## <a name="example"></a>Beispiel
+1. Erstellen Sie eine App aus Daten, wobei eine SharePoint-Liste als Datenquelle verwendet wird. Alternativ können Sie der App ein Formular hinzufügen und eine SharePoint-Liste als Datenquelle festlegen.
 
-This is in addition to the [standard color contrast requirements](../accessible-apps-color.md).
+2. Wählen Sie in der Strukturansicht auf der linken Seite das **Form**-Steuerelement aus.
 
-### Screen reader support
-The following properties must be present:
+3. Klicken Sie im Optionsbereich auf der rechten Seite auf der Registerkarte „Eigenschaften“ auf **Daten**.
+
+4. Aktivieren Sie unter **Felder**, das Feld **Anlagen**.
+
+    Im Formular wird das der SharePoint-Liste zugeordnete Feld „Anlagen“ angezeigt.
+
+[Erfahren Sie, wie Sie ein Steuerelement hinzufügen und konfigurieren].(../add-configure-controls.md)
+
+
+## <a name="accessibility-guidelines"></a>Richtlinien für Barrierefreiheit
+### <a name="color-contrast"></a>Farbkontrast
+Zwischen den folgenden Eigenschaften muss es einen ausreichenden Farbkontrast geben:
+* **ItemColor** und **ItemFill**
+* **ItemHoverColor** und **ItemHoverFill**
+* **ItemPressedColor** und **ItemPressedFill**
+* **AddedItemColor** und **AddedItemFill**
+* **RemovedItemColor** und **RemovedItemFill**
+* **ItemErrorColor** und **ItemErrorFill**
+* **AddAttachmentColor** und **Fill**
+* **MaxAttachmentsColor** und **Fill**
+* **NoAttachmentsColor** und **Fill**
+
+Dies ist ein Zusatz zu den [Standardanforderungen für Farbkontraste](../accessible-apps-color.md).
+
+### <a name="screen-reader-support"></a>Unterstützung der Sprachausgabe
+Die folgenden Eigenschaften müssen vorhanden sein:
 * **[AccessibleLabel](properties-accessibility.md)**
 * **AddAttachmentsText**
 * **MaxAttachmentsText**
 * **NoAttachmentsText**
 
-### Keyboard support
-* **[TabIndex](properties-accessibility.md)** must be zero or greater so that keyboard users can navigate to it.
-* Focus indicators must be clearly visible. Use **[FocusedBorderColor](properties-color-border.md)** and **[FocusedBorderThickness](properties-color-border.md)** to achieve this.
+### <a name="keyboard-support"></a>Tastaturunterstützung
+* **[TabIndex](properties-accessibility.md)** muss gleich 0 (null) oder größer sein, damit Tastaturbenutzer dorthin navigieren können.
+* Fokusindikatoren müssen deutlich sichtbar sein. **[FocusedBorderColor](properties-color-border.md)** und **[FocusedBorderThickness](properties-color-border.md)** können Ihnen dabei helfen.
